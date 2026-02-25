@@ -237,6 +237,55 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Child\'s birth certificate', 'Bank account details'],
     },
   },
+  'hmrc-guardians-allowance': {
+    id: 'hmrc-guardians-allowance', name: "Guardian's Allowance", dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: '£21.75/week if raising a child both of whose parents have died (or one has died and the other is untraceable).',
+    govuk_url: 'https://www.gov.uk/guardians-allowance',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: "Guardian's Allowance is paid on top of Child Benefit to those raising a child whose parents have both died. In some cases only one parent needs to have died.",
+      universal: false,
+      criteria: [
+        { factor: 'bereavement', description: 'Both parents of the child have died (or one has died and the other is missing, in prison, or in a psychiatric hospital).' },
+        { factor: 'family', description: 'Must be claiming Child Benefit for the child.' },
+      ],
+      keyQuestions: [
+        'Are you claiming Child Benefit for the child?',
+        'Have both parents died, or is the surviving parent untraceable?',
+        'Are you the legal guardian or someone else caring for the child?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Death certificates for deceased parent(s)', 'Child Benefit claim reference', 'Child\'s birth certificate'],
+    },
+  },
+  'hmrc-statutory-parental-bereavement': {
+    id: 'hmrc-statutory-parental-bereavement', name: 'Statutory Parental Bereavement Pay & Leave', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: '56 weeks',
+    desc: '2 weeks paid leave if a child under 18 dies or a baby is stillborn after 24 weeks of pregnancy.',
+    govuk_url: 'https://www.gov.uk/parental-bereavement-pay-leave',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Employees are entitled to 2 weeks of paid parental bereavement leave following the death of a child under 18 or a stillbirth after 24 weeks. Must be taken within 56 weeks of the death. Paid at the statutory flat rate.',
+      universal: false,
+      criteria: [
+        { factor: 'bereavement', description: 'A child under 18 has died, or a baby was stillborn after 24 weeks of pregnancy.' },
+        { factor: 'employment', description: 'Must be an employee (any length of service). Statutory Parental Bereavement Pay also requires 26 weeks\' continuous service and earnings above the lower earnings limit.' },
+      ],
+      keyQuestions: [
+        'Has a child under 18 died or was there a stillbirth after 24 weeks?',
+        'Are you an employee?',
+        'Have you been employed for 26 weeks or more (for pay entitlement)?',
+        'When did the death or stillbirth occur? (Must claim within 56 weeks.)',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Notice to employer (no formal form required)', 'Death or stillbirth certificate may be requested'],
+    },
+  },
   'hmrc-smp': {
     id: 'hmrc-smp', name: 'Statutory Maternity Pay', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
@@ -868,6 +917,31 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Death certificate', 'Marriage or civil partnership certificate', 'NI numbers for both parties'],
     },
   },
+  'dwp-funeral-payment': {
+    id: 'dwp-funeral-payment', name: 'Funeral Expenses Payment', dept: 'DWP', deptKey: 'dwp',
+    deadline: '6 months',
+    desc: 'One-off payment toward funeral costs if you are on a qualifying benefit. Must claim within 6 months of the funeral.',
+    govuk_url: 'https://www.gov.uk/funeral-payments',
+    serviceType: 'grant',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Helps pay for funeral costs if you or your partner receive a qualifying benefit such as Universal Credit, Pension Credit, Income Support, or Housing Benefit. Paid back from the deceased\'s estate if there are sufficient funds. Must claim within 6 months of the funeral.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'You or your partner must be receiving Universal Credit, Pension Credit, Income Support, income-based JSA, income-related ESA, Housing Benefit, or the child tax credit and working tax credit element at the maximum rate.' },
+        { factor: 'bereavement', description: 'You are responsible for the funeral costs of a partner, close relative, or close friend where there is no other close relative able to pay.' },
+      ],
+      keyQuestions: [
+        'Are you or your partner receiving a qualifying benefit?',
+        'Are you the person responsible for the funeral costs?',
+        'Is there a close relative of the deceased who could be expected to pay instead?',
+        'When did the funeral take place? (Must claim within 6 months.)',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit', 'Funeral bill or invoice from funeral director', 'Death certificate'],
+    },
+  },
   'dwp-state-pension': {
     id: 'dwp-state-pension', name: 'State Pension claim', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
@@ -1076,6 +1150,29 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       means_tested: false,
       evidenceRequired: ['Fit note from GP', 'NI number', 'Medical evidence', 'Work Capability Assessment (scheduled by DWP)'],
+    },
+  },
+  'dwp-mandatory-reconsideration': {
+    id: 'dwp-mandatory-reconsideration', name: 'Mandatory Reconsideration', dept: 'DWP', deptKey: 'dwp',
+    deadline: '1 month',
+    desc: 'Formal review of a DWP benefit decision. Must be requested before you can appeal to a tribunal. Apply within 1 month of the decision letter.',
+    govuk_url: 'https://www.gov.uk/mandatory-reconsideration',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'If you disagree with a DWP decision on Universal Credit, JSA, ESA, PIP, or other benefits, you must request a Mandatory Reconsideration before you can appeal to a tribunal. Must be requested within 1 month of the decision letter.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'A DWP benefit decision has been received (e.g. UC, JSA, ESA, PIP award or change). Mandatory Reconsideration must happen before a tribunal appeal.' },
+      ],
+      keyQuestions: [
+        'What benefit decision do you want to challenge?',
+        'When was the decision letter dated? (Must request within 1 month.)',
+        'Do you have additional evidence or information to provide?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Decision letter from DWP', 'Any supporting medical or financial evidence not previously considered'],
     },
   },
   'dwp-maternity-allowance': {
@@ -1428,6 +1525,78 @@ export const NODES: Record<string, ServiceNode> = {
   },
 
   // DVLA ─────────────────────────────────────────────────────────────────────
+  'dvla-provisional-licence': {
+    id: 'dvla-provisional-licence', name: 'Provisional Driving Licence', dept: 'DVLA', deptKey: 'dvla',
+    deadline: null,
+    desc: 'Apply from age 15 years and 9 months. Required before taking lessons or tests. Apply online via DVLA.',
+    govuk_url: 'https://www.gov.uk/apply-first-provisional-driving-licence',
+    serviceType: 'document',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Required before you can take driving lessons or book a theory or practical test. Can be applied for from age 15 years and 9 months (to be ready for when you turn 17). Apply online via DVLA for £34.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be at least 15 years and 9 months old to apply. Must be 17 to drive on a public road (16 for a moped).' },
+        { factor: 'residency', description: 'Must be normally resident in Great Britain.' },
+      ],
+      keyQuestions: [
+        'Are you 15 years and 9 months or older?',
+        'Do you have a UK passport (or another acceptable identity document)?',
+        'Do you have any medical conditions that must be declared to DVLA?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['UK passport or birth certificate for identity', 'Address details', '£34 fee (online application)'],
+    },
+  },
+
+  // DVSA ─────────────────────────────────────────────────────────────────────
+  'dvsa-theory-test': {
+    id: 'dvsa-theory-test', name: 'Theory Test', dept: 'DVSA', deptKey: 'dvsa',
+    deadline: null,
+    desc: 'Must pass before booking the practical driving test. £23. Includes multiple choice and hazard perception.',
+    govuk_url: 'https://www.gov.uk/book-theory-test',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'All learner drivers must pass a theory test before they can book a practical driving test. Costs £23. Consists of a multiple-choice section and a hazard perception video clip test. Must have a valid provisional driving licence to book.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must hold a valid provisional driving licence before the theory test can be booked.' },
+      ],
+      keyQuestions: [
+        'Do you have a provisional driving licence?',
+        'Have you studied the Highway Code and used hazard perception practice tests?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Provisional driving licence (photocard)', '£23 test fee (booked online via DVSA)'],
+    },
+  },
+  'dvsa-driving-test': {
+    id: 'dvsa-driving-test', name: 'Driving Test (practical)', dept: 'DVSA', deptKey: 'dvsa',
+    deadline: null,
+    desc: 'Must pass theory test first. £62 weekday / £75 evening & weekend. Grants full licence on pass.',
+    govuk_url: 'https://www.gov.uk/book-driving-test',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Must pass the theory test before the practical driving test can be booked. Costs £62 (weekday) or £75 (evening/weekend/bank holiday). On passing, the provisional licence is automatically upgraded to a full driving licence.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'A valid theory test pass certificate is required to book the practical test (certificates are valid for 2 years).' },
+      ],
+      keyQuestions: [
+        'Have you passed your theory test? Is the pass certificate still valid (within 2 years)?',
+        'Has your instructor confirmed you are test-ready?',
+        'Do you have your provisional licence photocard to bring to the test?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Theory test pass certificate (valid within 2 years)', 'Provisional driving licence photocard', '£62–£75 test fee (booked online via DVSA)'],
+    },
+  },
+
   'dvla-update-address': {
     id: 'dvla-update-address', name: 'Update driving licence address', dept: 'DVLA', deptKey: 'dvla',
     deadline: '3 months',
@@ -1676,6 +1845,29 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['CW2 means test form', 'Income and savings evidence', 'Details of the case for merits assessment'],
     },
   },
+  'hmcts-benefit-tribunal': {
+    id: 'hmcts-benefit-tribunal', name: 'Social Security & Child Support Tribunal', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: null,
+    desc: 'Independent tribunal to appeal a DWP benefit decision after Mandatory Reconsideration has been completed.',
+    govuk_url: 'https://www.gov.uk/appeal-benefit-decision',
+    serviceType: 'legal_process',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'If a Mandatory Reconsideration has not resolved your dispute with a DWP benefit decision, you can appeal to an independent tribunal. The tribunal is free and independent of DWP.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Mandatory Reconsideration must have been completed and the outcome confirmed in a Mandatory Reconsideration Notice from DWP.' },
+      ],
+      keyQuestions: [
+        'Have you received a Mandatory Reconsideration Notice from DWP?',
+        'Do you still disagree with the decision after reconsideration?',
+        'Do you have a representative or advice agency helping you?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Mandatory Reconsideration Notice (SSCS1 form to appeal)', 'Any supporting evidence — medical reports, letters, assessments'],
+    },
+  },
 
   // LOCAL AUTHORITY ──────────────────────────────────────────────────────────
   'la-electoral-roll': {
@@ -1699,6 +1891,30 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       means_tested: false,
       evidenceRequired: ['National Insurance number (for online registration)'],
+    },
+  },
+  'la-voter-authority-cert': {
+    id: 'la-voter-authority-cert', name: 'Voter Authority Certificate', dept: 'Local Authority', deptKey: 'la',
+    deadline: 'Before election deadline',
+    desc: 'Free photo ID for polling stations if you lack an accepted form of photo ID (passport, driving licence, etc.). Apply via local council.',
+    govuk_url: 'https://www.gov.uk/apply-for-photo-id-voter-authority-certificate',
+    serviceType: 'document',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Free photo ID for use at polling stations at UK elections, introduced from 2023. Required if you do not have an accepted form of photo ID (such as a passport, driving licence, or certain concessionary bus passes). Apply via your local council.',
+      universal: false,
+      criteria: [
+        { factor: 'citizenship', description: 'Must be eligible to vote (registered on the electoral roll as a British, Irish, or qualifying Commonwealth citizen).' },
+        { factor: 'dependency', description: 'Must be registered to vote. Only needed if you do not already have an accepted form of photo ID.' },
+      ],
+      keyQuestions: [
+        'Are you registered to vote?',
+        'Do you have an accepted form of photo ID (passport, driving licence, Senior/Disabled Person\'s Bus Pass, or certain other documents)?',
+        'Is there an election coming up that you plan to vote in?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Electoral registration number or NI number to verify registration', 'Recent photograph', 'Online application via local council'],
     },
   },
   'la-council-tax': {
@@ -2014,6 +2230,31 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       means_tested: false,
       evidenceRequired: ['Valid passport', 'Financial evidence (sufficient funds)', 'Purpose-specific documents: job offer/CoS, university CAS, relationship evidence, etc.', 'Immigration Health Surcharge payment'],
+    },
+  },
+  'ho-eu-settled-status': {
+    id: 'ho-eu-settled-status', name: 'EU Settlement Scheme (Settled / Pre-Settled Status)', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'For EU/EEA/Swiss nationals who lived in the UK before 31 December 2020. Grants the right to continue living and working in the UK.',
+    govuk_url: 'https://www.gov.uk/settled-status-eu-citizens-families',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'EU, EEA and Swiss nationals who were living in the UK before 31 December 2020 can apply for settled status (if they have lived in the UK for 5+ continuous years) or pre-settled status (less than 5 years). Applications are free. A separate Brexit-specific route to the right to remain.',
+      universal: false,
+      criteria: [
+        { factor: 'citizenship', description: 'Must be an EU, EEA or Swiss national (or a non-EU family member of one).' },
+        { factor: 'residency', description: 'Must have been living in the UK before 31 December 2020.' },
+      ],
+      keyQuestions: [
+        'Are you an EU, EEA or Swiss national?',
+        'Were you living in the UK before 31 December 2020?',
+        'How long have you lived in the UK continuously? (5+ years = settled status; under 5 = pre-settled.)',
+        'Do you have family members who also need to apply?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Valid EU/EEA/Swiss passport or national identity card', 'Evidence of UK residence (payslips, tenancy agreement, bank statements, etc.)'],
     },
   },
   'ho-brp': {
@@ -2464,6 +2705,59 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Proof of first-time buyer status', 'Mortgage agreement in principle', 'Proof of income for scheme qualification'],
     },
   },
+
+  // TPR ──────────────────────────────────────────────────────────────────────
+  'tpr-workplace-pension': {
+    id: 'tpr-workplace-pension', name: 'Workplace Pension auto-enrollment', dept: 'The Pensions Regulator', deptKey: 'tpr',
+    deadline: 'Before 1st payday',
+    desc: 'Mandatory for any employer paying staff £10,000+/year aged 22 to State Pension age. Must be set up before the first payday.',
+    govuk_url: 'https://www.gov.uk/workplace-pensions-employers',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'All employers must automatically enrol eligible workers into a qualifying workplace pension scheme and make contributions. Eligible workers are aged 22 to State Pension age, earning at least £10,000/year. Employer must set up the scheme before the first payday.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Employing any worker who is aged 22 to State Pension age and earning more than £10,000 per year. Employer obligation — applies from day 1 of taking on qualifying staff.' },
+      ],
+      keyQuestions: [
+        'Are you taking on any employees who earn over £10,000/year and are aged 22 to State Pension age?',
+        'Have you chosen a qualifying pension provider?',
+        'Do you know your staging or duties start date?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['PAYE employer reference number', 'Chosen pension provider details', 'Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)'],
+    },
+  },
+
+  // SLC ──────────────────────────────────────────────────────────────────────
+  'slc-student-finance': {
+    id: 'slc-student-finance', name: 'Student Finance (tuition fee + maintenance loans)', dept: 'Student Loans Company', deptKey: 'slc',
+    deadline: null,
+    desc: 'Tuition Fee Loan (up to £9,250/yr) and Maintenance Loan (income-assessed) for undergraduate study. Repaid via salary deductions once earning over threshold.',
+    govuk_url: 'https://www.gov.uk/student-finance',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'UK students starting an undergraduate course at a UK university can apply for a Tuition Fee Loan (up to £9,250/year, paid directly to university) and a Maintenance Loan (income-assessed, to cover living costs). Repayments begin after graduating and earning over the threshold (currently £25,000/year). Applications open the year before study.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Typically 18 or over (no upper age limit for loans, though some conditions apply for those over 60).' },
+        { factor: 'residency', description: 'Must be normally resident in England for 3+ years before the course starts, and a UK national or settled person.' },
+        { factor: 'income', description: 'Maintenance Loan amount is income-assessed based on household income. Tuition Fee Loan is not means-tested.' },
+      ],
+      keyQuestions: [
+        'Are you starting a qualifying undergraduate course?',
+        'Have you lived in England for at least 3 years?',
+        'What is your household income? (Affects Maintenance Loan amount.)',
+        'Are you a UK national, or do you have settled or pre-settled status?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of identity (passport)', 'Proof of course enrollment or offer letter', 'Household income evidence (P60 or self-assessment from parents/partner)', 'National Insurance number'],
+    },
+  },
 };
 
 // ─── EDGES ────────────────────────────────────────────────────────────────────
@@ -2484,10 +2778,15 @@ export const EDGES: Edge[] = [
   { from: 'gro-register-death',       to: 'dwp-bereavement-support',        type: 'ENABLES' },
   { from: 'gro-register-death',       to: 'hmcts-probate',                  type: 'ENABLES' },
   { from: 'gro-death-certificate',    to: 'hmcts-probate',                  type: 'REQUIRES' },
-  { from: 'hmcts-probate',            to: 'hmrc-iht400',                    type: 'ENABLES' },
+  { from: 'gro-death-certificate',    to: 'hmrc-iht400',                    type: 'ENABLES' },
+  { from: 'hmrc-iht400',             to: 'hmcts-probate',                   type: 'ENABLES' },
   { from: 'dwp-tell-us-once',         to: 'dvla-cancel-licence',            type: 'ENABLES' },
   { from: 'dwp-tell-us-once',         to: 'la-council-tax-single-discount', type: 'ENABLES' },
   { from: 'dwp-tell-us-once',         to: 'opg-lpa-activation',             type: 'ENABLES' },
+  { from: 'gro-register-death',       to: 'dwp-funeral-payment',            type: 'ENABLES' },
+  { from: 'gro-register-death',       to: 'hmrc-guardians-allowance',       type: 'ENABLES' },
+  { from: 'gro-register-death',       to: 'hmrc-statutory-parental-bereavement', type: 'ENABLES' },
+  { from: 'hmrc-child-benefit',       to: 'hmrc-guardians-allowance',       type: 'ENABLES' },
 
   // Marriage
   { from: 'gro-give-notice',          to: 'gro-marriage-cert',              type: 'ENABLES' },
@@ -2511,6 +2810,7 @@ export const EDGES: Edge[] = [
   { from: 'ch-register-ltd',          to: 'hmrc-paye',                      type: 'ENABLES' },
   { from: 'hmrc-register-sole-trader', to: 'hmrc-self-assessment',          type: 'ENABLES' },
   { from: 'hmrc-paye',                to: 'other-employers-liability',      type: 'REQUIRES' },
+  { from: 'hmrc-paye',                to: 'tpr-workplace-pension',          type: 'ENABLES' },
   { from: 'hmrc-vat',                 to: 'hmrc-mtd',                       type: 'ENABLES' },
   { from: 'hmrc-corporation-tax',     to: 'hmrc-vat',                       type: 'ENABLES' },
 
@@ -2530,6 +2830,14 @@ export const EDGES: Edge[] = [
   { from: 'dwp-universal-credit',     to: 'dwp-ni-credits',                 type: 'ENABLES' },
   { from: 'dwp-universal-credit',     to: 'la-council-tax-reduction',       type: 'ENABLES' },
   { from: 'dwp-new-style-jsa',        to: 'dwp-ni-credits',                 type: 'ENABLES' },
+
+  // Benefits challenge
+  { from: 'dwp-universal-credit',     to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
+  { from: 'dwp-new-style-jsa',        to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
+  { from: 'dwp-new-style-esa',        to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
+  { from: 'dwp-pip',                  to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
+  { from: 'dwp-mandatory-reconsideration', to: 'hmcts-benefit-tribunal',    type: 'ENABLES' },
+  { from: 'hmcts-legal-aid',          to: 'hmcts-benefit-tribunal',         type: 'ENABLES' },
 
   // Disability
   { from: 'dwp-pip',                  to: 'other-motability',               type: 'ENABLES' },
@@ -2572,6 +2880,20 @@ export const EDGES: Edge[] = [
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-ilr',                   to: 'ho-citizenship',                 type: 'ENABLES' },
+  { from: 'ho-eu-settled-status',     to: 'dwp-ni-number',                  type: 'ENABLES' },
+  { from: 'ho-eu-settled-status',     to: 'nhs-gp-register',                type: 'ENABLES' },
+  { from: 'ho-eu-settled-status',     to: 'ho-ilr',                         type: 'ENABLES' },
+
+  // Driving
+  { from: 'dvla-provisional-licence', to: 'dvsa-theory-test',               type: 'REQUIRES' },
+  { from: 'dvsa-theory-test',         to: 'dvsa-driving-test',              type: 'REQUIRES' },
+
+  // University
+  { from: 'slc-student-finance',      to: 'la-electoral-roll',              type: 'ENABLES' },
+  { from: 'slc-student-finance',      to: 'nhs-gp-register',                type: 'ENABLES' },
+
+  // Voting
+  { from: 'la-electoral-roll',        to: 'la-voter-authority-cert',        type: 'ENABLES' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -2586,7 +2908,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'bereavement', icon: '—', name: 'Death of Someone Close',
     desc: 'Registration, probate and bereavement payments',
-    entryNodes: ['gro-register-death','dwp-bereavement-support','opg-lpa-activation'],
+    entryNodes: ['gro-register-death','dwp-bereavement-support','opg-lpa-activation',
+                 'dwp-funeral-payment','hmrc-statutory-parental-bereavement'],
   },
   {
     id: 'marriage', icon: '∞', name: 'Getting Married',
@@ -2647,5 +2970,20 @@ export const LIFE_EVENTS: LifeEvent[] = [
     id: 'immigration', icon: '✦', name: 'Arriving in the UK',
     desc: 'Visas, BRP, NI number and NHS access',
     entryNodes: ['ho-visa'],
+  },
+  {
+    id: 'driving', icon: '◉', name: 'Learning to Drive',
+    desc: 'Provisional licence, theory test and driving test',
+    entryNodes: ['dvla-provisional-licence'],
+  },
+  {
+    id: 'university', icon: '◳', name: 'Going to University',
+    desc: 'Student finance, accommodation registration and healthcare',
+    entryNodes: ['slc-student-finance'],
+  },
+  {
+    id: 'new-job', icon: '◆', name: 'Starting a New Job',
+    desc: 'Tax setup, workplace pension and employer checks',
+    entryNodes: ['tpr-workplace-pension', 'dwp-access-to-work'],
   },
 ];
