@@ -28,6 +28,8 @@ const nodeElements = Object.values(NODES).map(n => ({
     eligibilitySummary: n.eligibility.summary,
     ruleIn:             n.eligibility.ruleIn,
     ruleOut:            n.eligibility.ruleOut,
+    autoQualifiers:     n.eligibility.autoQualifiers  || [],
+    exclusions:         n.eligibility.exclusions       || [],
   },
 }));
 
@@ -132,6 +134,12 @@ const html = `<!DOCTYPE html>
     .etag{font-size:.67rem;padding:2px 7px;border-radius:10px;line-height:1.5}
     .etag-in{background:#0f2d1a;color:#3fb950;border:1px solid #238636}
     .etag-out{background:#2d0f0f;color:#f85149;border:1px solid #6e2222}
+    .aq-list{list-style:none;margin:4px 0 8px}
+    .aq-list li{font-size:.72rem;line-height:1.5;padding:2px 0 2px 14px;position:relative;color:#3fb950}
+    .aq-list li::before{content:'\u2713';position:absolute;left:0;color:#238636}
+    .ex-list{list-style:none;margin:4px 0 8px}
+    .ex-list li{font-size:.72rem;line-height:1.5;padding:2px 0 2px 14px;position:relative;color:#f85149}
+    .ex-list li::before{content:'\u2717';position:absolute;left:0;color:#6e2222}
   </style>
 </head>
 <body>
@@ -434,6 +442,16 @@ const html = `<!DOCTYPE html>
             ? '<div class="elig-tags">'
               + d.ruleOut.map(function(s){ return '<span class="etag etag-out">\u2717 '+s+'</span>'; }).join('')
               + '</div>' : '')
+        + (d.autoQualifiers && d.autoQualifiers.length
+            ? '<p class="det-stitle">Auto-qualifiers</p>'
+              + '<ul class="aq-list">'
+              + d.autoQualifiers.map(function(s){ return '<li>'+s+'</li>'; }).join('')
+              + '</ul>' : '')
+        + (d.exclusions && d.exclusions.length
+            ? '<p class="det-stitle">Exclusions</p>'
+              + '<ul class="ex-list">'
+              + d.exclusions.map(function(s){ return '<li>'+s+'</li>'; }).join('')
+              + '</ul>' : '')
         + (lifeEvts ? '<p class="det-stitle">Entry point for</p><p style="font-size:.73rem">' + lifeEvts + '</p>' : '')
         + (inEdges.length  ? '<p class="det-stitle">Prerequisites (' + inEdges.length + ')</p><ul class="det-list">' + nodeList(inEdges) + '</ul>' : '')
         + (outEdges.length ? '<p class="det-stitle">Leads to (' + outEdges.length + ')</p><ul class="det-list">' + nodeList(outEdges) + '</ul>' : '')

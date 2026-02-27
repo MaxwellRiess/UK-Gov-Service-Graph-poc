@@ -107,11 +107,13 @@ The `eligibility` object on each node carries the structured data an agent needs
 | `means_tested` | `boolean` | `true` if the payment or amount depends on income or savings |
 | `criteria` | `array` | Each entry is a `{ factor, description }` pair — `factor` is a category (e.g. `age`, `income`, `disability`) and `description` explains the specific rule in plain English |
 | `keyQuestions` | `array` | Questions an AI agent should ask the user to determine whether they qualify |
-| `autoQualifiers` | `array` (optional) | Conditions that make eligibility certain — if any are met, the agent can skip further checks |
-| `exclusions` | `array` (optional) | Common reasons someone is *not* eligible, worth surfacing proactively |
+| `autoQualifiers` | `array` (optional) | **Agent logic signal.** Full-sentence conditions that confirm eligibility with certainty — if any are met, the agent can stop asking questions and proceed. Captures nuance that short tags cannot, e.g. *"Birth registered, no parent earns over £60k"*. |
+| `exclusions` | `array` (optional) | **Agent logic signal.** Full-sentence reasons someone is not eligible, including caveats worth relaying to the user, e.g. *"Not worth claiming if income over £80k — but still worth claiming to protect NI credits."* |
 | `evidenceRequired` | `array` (optional) | Documents or proof the user will typically need to apply |
-| `ruleIn` | `array` | Concise 3–7 word positive signals that qualify someone, e.g. `"Disability or long-term health condition"`. Empty `[]` for truly universal services |
-| `ruleOut` | `array` | Concise 3–7 word hard disqualifiers, e.g. `"Reached State Pension age (66+)"`. Empty `[]` if none apply |
+| `ruleIn` | `array` | **Display signal.** Concise 3–7 word positive qualifiers for quick scanning, e.g. `"Disability or long-term health condition"`. Derived from `criteria` and `autoQualifiers`. Empty `[]` for truly universal services. |
+| `ruleOut` | `array` | **Display signal.** Concise 3–7 word hard disqualifiers for quick scanning, e.g. `"Reached State Pension age (66+)"`. Derived from `exclusions` and `criteria`. Empty `[]` if none apply. |
+
+> `autoQualifiers`/`exclusions` and `ruleIn`/`ruleOut` are intentionally parallel. The verbose fields carry the nuance and caveats an AI agent needs to reason correctly; the short fields are display hints for the visualiser and fast triage. Both are populated independently because compression loses information.
 
 **Example — `dwp-pip` (Personal Independence Payment):**
 
