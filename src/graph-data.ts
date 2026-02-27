@@ -1855,6 +1855,87 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
+  'dvla-vehicle-tax': {
+    id: 'dvla-vehicle-tax', name: 'Tax your vehicle', dept: 'DVLA', deptKey: 'dvla',
+    deadline: 'Before driving on road',
+    desc: 'Vehicle Excise Duty must be in place before any vehicle is driven or kept on a public road. Apply online, by phone, or at a Post Office. Amount varies by vehicle type and emissions; exempt vehicles must still be taxed at £0.',
+    govuk_url: 'https://www.gov.uk/vehicle-tax',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Any vehicle driven or kept on a public road must be taxed. Requires a V5C in your name (or the green new keeper slip if recently purchased), a valid MOT for most vehicles, and valid insurance. Pay annually or by monthly Direct Debit. Amount depends on vehicle type, age, and CO2 emissions. Exempt vehicles must still be declared.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must have a V5C log book in your name (or the green new keeper slip if recently purchased), a valid MOT, and valid insurance before taxing.' },
+      ],
+      keyQuestions: [
+        'Is the vehicle being driven or kept on a public road?',
+        'Do you have the V5C or new keeper\'s green slip?',
+        'Does the vehicle have a current MOT?',
+        'Is the vehicle exempt from vehicle tax (e.g. historic pre-1977, disabled, agricultural)?',
+      ],
+      autoQualifiers: ['V5C held in keeper\'s name, valid MOT and insurance in place'],
+      exclusions: ['Vehicles kept entirely off public roads do not need to be taxed — make a SORN instead.'],
+      means_tested: false,
+      evidenceRequired: ['V5C log book or new keeper green slip', 'Valid MOT certificate (most vehicles)', 'Insurance details', 'Debit/credit card or Direct Debit'],
+      ruleIn: ['Vehicle driven or kept on a public road'],
+      ruleOut: ['Vehicle is SORNed and kept entirely off public roads'],
+    },
+  },
+  'dvla-sorn': {
+    id: 'dvla-sorn', name: 'Make a SORN', dept: 'DVLA', deptKey: 'dvla',
+    deadline: 'When tax expires',
+    desc: 'Free Statutory Off Road Notification — required when a vehicle is taken off the road and not being taxed. Tax is cancelled and remaining full months refunded. SORN stays active until the vehicle is taxed again. Driving a SORNed vehicle on a public road is a criminal offence (fine up to £1,000).',
+    govuk_url: 'https://www.gov.uk/make-a-sorn',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'A free SORN must be made when a registered keeper stops taxing a vehicle and keeps it off public roads. The vehicle cannot be driven or parked on a public road — doing so is a criminal offence (fine up to £1,000, vehicle may be clamped or impounded). SORN remains in place until the vehicle is taxed again.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Registered keeper of a vehicle whose tax has lapsed or is about to lapse, and which will be kept off public roads.' },
+      ],
+      keyQuestions: [
+        'Are you the registered keeper of the vehicle?',
+        'Is the vehicle being kept off public roads (e.g. in a garage or on private land)?',
+        'Has the vehicle tax expired or is it due to expire?',
+      ],
+      exclusions: ['You do not need a SORN if you have already notified DVLA that you have sold the vehicle.'],
+      means_tested: false,
+      evidenceRequired: ['Vehicle registration number', '11-digit reference from V5C or tax reminder letter'],
+      ruleIn: ['Registered keeper keeping vehicle off public roads'],
+      ruleOut: ['Vehicle already sold (notify DVLA of sale instead)'],
+    },
+  },
+  'dvla-vehicle-sale': {
+    id: 'dvla-vehicle-sale', name: 'Notify DVLA of vehicle sale', dept: 'DVLA', deptKey: 'dvla',
+    deadline: 'Same day as sale',
+    desc: 'Sellers must notify DVLA the same day a vehicle is sold or transferred. Give the green new keeper slip from the V5C to the buyer. DVLA cancels the seller\'s tax and refunds any full months remaining. Buyer must tax the vehicle (or SORN it) before driving.',
+    govuk_url: 'https://www.gov.uk/sold-bought-vehicle',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'When selling or transferring a vehicle, the seller must notify DVLA online immediately. The green new keeper slip from the V5C goes to the buyer. Vehicle tax is not transferred — the buyer must tax the vehicle before driving it (or make a SORN). If no V5C exists, the buyer must apply for one using form V62 (£25).',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Applies to any registered keeper who sells, gifts, or otherwise transfers ownership of a vehicle registered in the UK.' },
+      ],
+      keyQuestions: [
+        'Are you the registered keeper selling or transferring the vehicle?',
+        'Do you have the V5C to give the green slip to the buyer?',
+        'Has the buyer been told they must tax the vehicle before driving it?',
+      ],
+      autoQualifiers: ['Sale or transfer of a vehicle you are the registered keeper of'],
+      means_tested: false,
+      evidenceRequired: ['V5C log book (give green new keeper slip to buyer)', 'Vehicle registration number for online DVLA notification'],
+      ruleIn: ['Registered keeper selling or transferring vehicle'],
+      ruleOut: [],
+    },
+  },
+
   // COMPANIES HOUSE ──────────────────────────────────────────────────────────
   'ch-register-ltd': {
     id: 'ch-register-ltd', name: 'Register limited company (IN01)', dept: 'Companies House', deptKey: 'ch',
@@ -3201,7 +3282,13 @@ export const EDGES: Edge[] = [
   // Driving
   { from: 'dvla-provisional-licence', to: 'dvsa-theory-test',               type: 'REQUIRES' },
   { from: 'dvsa-theory-test',         to: 'dvsa-driving-test',              type: 'REQUIRES' },
+  { from: 'dvsa-driving-test',        to: 'dvla-vehicle-tax',               type: 'ENABLES' },
   { from: 'dwp-state-pension',        to: 'dvla-renew-at-70',               type: 'ENABLES' },
+
+  // Vehicle
+  { from: 'dvla-vehicle-sale',        to: 'dvla-vehicle-tax',               type: 'ENABLES' },
+  { from: 'dvla-vehicle-sale',        to: 'dvla-sorn',                      type: 'ENABLES' },
+  { from: 'dvla-sorn',                to: 'dvla-vehicle-tax',               type: 'ENABLES' },
 
   // University
   { from: 'slc-student-finance',      to: 'la-electoral-roll',              type: 'ENABLES' },
@@ -3288,8 +3375,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
   },
   {
     id: 'driving', icon: '◉', name: 'Learning to Drive',
-    desc: 'Provisional licence, theory test and driving test',
-    entryNodes: ['dvla-provisional-licence'],
+    desc: 'Provisional licence, theory test, driving test and taxing your first vehicle',
+    entryNodes: ['dvla-provisional-licence', 'dvla-vehicle-sale'],
   },
   {
     id: 'university', icon: '◳', name: 'Going to University',
