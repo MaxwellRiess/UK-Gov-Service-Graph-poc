@@ -982,6 +982,65 @@ export const NODES: Record<string, ServiceNode> = {
       ruleOut: ['Machines offer no prize above play cost', 'Charity or tournament use only', 'Domestic machines'],
     },
   },
+  'hmrc-starter-checklist': {
+    id: 'hmrc-starter-checklist', name: 'PAYE Starter Checklist', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: 'Before first payday',
+    desc: 'Completed with a new employer when no P45 is available — first jobs, returns to work, and second jobs. Sets the correct tax code before the first payday to avoid emergency tax.',
+    govuk_url: 'https://www.gov.uk/paye-forms-p45-p60-p11d/starter-checklist',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Required when starting a new job without a P45 — whether first job, return after a gap, or an additional concurrent job. The employer provides the form; the employee self-declares their tax situation, student loan plan type, and whether they are receiving any benefits. Without it, the employer must apply an emergency tax code.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Starting a new job with a new employer and having no P45 available from a previous employer.' },
+      ],
+      keyQuestions: [
+        'Is this your first job since 6 April this tax year?',
+        'Have you had another job since 6 April and do you have a P45?',
+        'Are you currently receiving any benefits (e.g. Jobseeker\'s Allowance, ESA)?',
+        'Do you have a student loan — and if so, which repayment plan (1, 2, 4, or 5)?',
+        'Do you have a postgraduate loan?',
+      ],
+      autoQualifiers: ['Starting a new job with no P45 — employer must use this checklist to set the correct tax code'],
+      exclusions: ['Employee has a valid P45 from their most recent employer (hand P45 to employer instead)', 'Self-employed (not subject to PAYE)'],
+      means_tested: false,
+      evidenceRequired: ['No documents required — employee self-declares', 'National Insurance number', 'Student loan plan type if applicable'],
+      ruleIn: ['First ever job', 'Returning to work with no P45', 'Starting a second or additional concurrent job', 'Gap in employment and P45 unavailable'],
+      ruleOut: ['P45 already available from most recent employer', 'Self-employed — not on PAYE'],
+    },
+  },
+  'hmrc-ssp': {
+    id: 'hmrc-ssp', name: 'Statutory Sick Pay (SSP)', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: '7 days',
+    desc: 'Employees are entitled to £118.75/week SSP from their employer for up to 28 weeks of illness. From April 2026, SSP is payable from day 1 — the 3-day waiting period is removed.',
+    govuk_url: 'https://www.gov.uk/statutory-sick-pay',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to employees (including agency workers) who earn an average of at least £125/week and are too ill to work. Notify your employer within 7 days (or their own deadline if earlier). A fit note from a doctor or healthcare professional is required for absences longer than 7 days.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Must be classed as an employee (including agency workers) and have done some work for the employer; self-employed individuals are not eligible.' },
+        { factor: 'income', description: 'Average weekly earnings must be at least £125 (the Lower Earnings Limit) before SSP is payable.' },
+      ],
+      keyQuestions: [
+        'Are you classed as an employee (not self-employed)?',
+        'Do you earn an average of at least £125 per week?',
+        'Have you notified your employer within 7 days of falling ill?',
+        'Have you already received 28 weeks of SSP for this illness from this employer?',
+        'Are you currently receiving Statutory Maternity Pay?',
+      ],
+      autoQualifiers: ['Employee earning at least £125/week who has notified employer of illness within 7 days'],
+      exclusions: ['Self-employed — no entitlement to SSP', 'Average weekly earnings below £125', '28-week maximum SSP already received for this illness', 'Currently receiving Statutory Maternity Pay', 'Failed to notify employer within the required timeframe'],
+      means_tested: false,
+      evidenceRequired: ['Self-certification for absences of 7 days or fewer', 'Fit note from a doctor, nurse, occupational therapist, pharmacist, or physiotherapist for absences longer than 7 days'],
+      ruleIn: ['Employee earning at least £125/week average', 'Too ill to work', 'Employer notified within 7 days'],
+      ruleOut: ['Self-employed', 'Earnings below Lower Earnings Limit', '28-week SSP maximum already reached', 'Currently on Statutory Maternity Pay'],
+    },
+  },
 
   // DWP ──────────────────────────────────────────────────────────────────────
   'dwp-tell-us-once': {
@@ -3540,6 +3599,37 @@ export const NODES: Record<string, ServiceNode> = {
       ruleOut: ['Already holds equivalent undergraduate degree'],
     },
   },
+  'slc-loan-repayment': {
+    id: 'slc-loan-repayment', name: 'Student loan repayment', dept: 'Student Loans Company', deptKey: 'slc',
+    deadline: null,
+    desc: 'Student loan repayments are collected automatically via PAYE or Self Assessment once earnings exceed the plan threshold. Employees must declare their loan plan type to their employer on starting work.',
+    govuk_url: 'https://www.gov.uk/repaying-your-student-loan',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,065; Plan 2: £28,470; Plan 4: £32,745; Plan 5: £25,000; Postgraduate Loan: £21,000). Repayments are 9% of income above the threshold (6% for postgraduate loans), collected via PAYE or Self Assessment automatically.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Annual income must exceed the threshold for the applicable repayment plan before any deductions are made.' },
+        { factor: 'employment', description: 'Employed borrowers repay via PAYE payroll deductions; self-employed borrowers repay via their annual Self Assessment return.' },
+        { factor: 'dependency', description: 'Must hold an outstanding UK government student or postgraduate loan.' },
+      ],
+      keyQuestions: [
+        'Did you take out a UK government student loan?',
+        'What type of loan — undergraduate (tuition/maintenance) or postgraduate?',
+        'When did your course start, and where did you study? (Determines plan type.)',
+        'Is your income currently above your plan\'s repayment threshold?',
+        'Are you employed (PAYE) or self-employed (Self Assessment)?',
+      ],
+      autoQualifiers: ['Outstanding UK student loan and income above plan threshold — PAYE deductions begin automatically once employer is notified of plan type'],
+      exclusions: ['Loan already fully repaid or written off', 'Income below the relevant plan threshold — no deductions due', 'Received only grants or bursaries (not repayable)', 'Plan 1 loan written off after 25 years or at age 65'],
+      means_tested: false,
+      evidenceRequired: ['Student loan plan type (stated in SLC repayment schedule letter)', 'Income information via PAYE payroll or Self Assessment tax return'],
+      ruleIn: ['Has outstanding UK student loan', 'Income above repayment threshold for plan type', 'Recently graduated or started earning above threshold'],
+      ruleOut: ['Income below plan threshold', 'Loan fully written off or repaid', 'Only received non-repayable grants or bursaries'],
+    },
+  },
 };
 
 // ─── EDGES ────────────────────────────────────────────────────────────────────
@@ -3697,6 +3787,10 @@ export const EDGES: Edge[] = [
 
   // Voting
   { from: 'la-electoral-roll',        to: 'la-voter-authority-cert',        type: 'ENABLES' },
+
+  // New job
+  { from: 'hmrc-starter-checklist',   to: 'slc-loan-repayment',            type: 'ENABLES' },
+  { from: 'slc-student-finance',      to: 'slc-loan-repayment',            type: 'ENABLES' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -3788,7 +3882,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
   },
   {
     id: 'new-job', icon: '◆', name: 'Starting a New Job',
-    desc: 'Tax setup, workplace pension and employer checks',
-    entryNodes: ['tpr-workplace-pension', 'dwp-access-to-work'],
+    desc: 'Tax setup, sick pay entitlement, student loan repayment, workplace pension and employer checks',
+    entryNodes: ['hmrc-starter-checklist', 'hmrc-ssp', 'tpr-workplace-pension', 'dwp-access-to-work'],
   },
 ];
