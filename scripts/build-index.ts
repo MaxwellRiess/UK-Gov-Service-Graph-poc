@@ -10,6 +10,38 @@
 import { writeFileSync } from 'fs';
 import { LIFE_EVENTS, NODES, EDGES } from '../src/graph-data.js';
 
+const edgeElements = EDGES.map((e, i) => ({
+  data: { id: `e${i}`, source: e.from, target: e.to, type: e.type },
+}));
+
+const lifeEventData = LIFE_EVENTS.map(evt => ({
+  id: evt.id, icon: evt.icon, name: evt.name, desc: evt.desc, entryNodes: evt.entryNodes,
+}));
+
+// BFS from each life event's entry nodes to compute full reachability.
+// Result: nodeId → [{id, icon, name}] for every life event the node appears in.
+const bfsAdj: Record<string, string[]> = {};
+Object.keys(NODES).forEach(id => { bfsAdj[id] = []; });
+EDGES.forEach(e => { if (bfsAdj[e.from]) bfsAdj[e.from].push(e.to); });
+
+const nodeLifeEventMap: Record<string, { id: string; icon: string; name: string }[]> = {};
+LIFE_EVENTS.forEach(evt => {
+  const visited = new Set<string>();
+  const queue: string[] = [];
+  evt.entryNodes.forEach(id => { if (NODES[id]) { visited.add(id); queue.push(id); } });
+  while (queue.length) {
+    const cur = queue.shift()!;
+    if (!NODES[cur]) continue;
+    if (!nodeLifeEventMap[cur]) nodeLifeEventMap[cur] = [];
+    if (!nodeLifeEventMap[cur].find(e => e.id === evt.id)) {
+      nodeLifeEventMap[cur].push({ id: evt.id, icon: evt.icon, name: evt.name });
+    }
+    (bfsAdj[cur] || []).forEach(next => {
+      if (!visited.has(next) && NODES[next]) { visited.add(next); queue.push(next); }
+    });
+  }
+});
+
 const nodeElements = Object.values(NODES).map(n => ({
   data: {
     id:                 n.id,
@@ -30,15 +62,8 @@ const nodeElements = Object.values(NODES).map(n => ({
     ruleOut:            n.eligibility.ruleOut,
     autoQualifiers:     n.eligibility.autoQualifiers  || [],
     exclusions:         n.eligibility.exclusions       || [],
+    lifeEvents:         nodeLifeEventMap[n.id]         || [],
   },
-}));
-
-const edgeElements = EDGES.map((e, i) => ({
-  data: { id: `e${i}`, source: e.from, target: e.to, type: e.type },
-}));
-
-const lifeEventData = LIFE_EVENTS.map(evt => ({
-  id: evt.id, icon: evt.icon, name: evt.name, desc: evt.desc, entryNodes: evt.entryNodes,
 }));
 
 const nodesJson      = JSON.stringify(nodeElements);
@@ -140,6 +165,8 @@ const html = `<!DOCTYPE html>
     .ex-list{list-style:none;margin:4px 0 8px}
     .ex-list li{font-size:.72rem;line-height:1.5;padding:2px 0 2px 14px;position:relative;color:#f85149}
     .ex-list li::before{content:'\u2717';position:absolute;left:0;color:#6e2222}
+    .le-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
+    .le-tag{font-size:.69rem;padding:2px 8px;border-radius:10px;background:#1a3050;color:var(--accent);border:1px solid #1f4080;line-height:1.5}
   </style>
 </head>
 <body>
@@ -199,7 +226,8 @@ const html = `<!DOCTYPE html>
     var DEPT_COLORS = {
       gro:'#4f86c6', hmrc:'#22c55e', dwp:'#a855f7', dvla:'#ef4444',
       hmcts:'#f97316', opg:'#06b6d4', nhs:'#ec4899', ho:'#94a3b8',
-      ch:'#eab308', la:'#84cc16', lr:'#64748b', other:'#9ca3af'
+      ch:'#eab308', la:'#84cc16', lr:'#64748b', dvsa:'#fb923c',
+      ea:'#10b981', slc:'#38bdf8', tpr:'#a78bfa', other:'#9ca3af'
     };
 
     var NODES_DATA   = ${nodesJson};
@@ -419,10 +447,6 @@ const html = `<!DOCTYPE html>
         + (d.universal    ? '<span class="bdg bdg-uni">universal</span>'    : '')
         + (d.means_tested ? '<span class="bdg bdg-mns">means-tested</span>' : '');
 
-      var lifeEvts = EVENTS_DATA.filter(function(ev) {
-        return ev.entryNodes.indexOf(d.id) !== -1;
-      }).map(function(ev) { return ev.icon + ' ' + ev.name; }).join(', ');
-
       function nodeList(arr) {
         return arr.map(function(n) {
           return '<li>' + n.name + '<br><span class="det-nid">' + n.type + '  ' + n.id + '</span></li>';
@@ -452,7 +476,12 @@ const html = `<!DOCTYPE html>
               + '<ul class="ex-list">'
               + d.exclusions.map(function(s){ return '<li>'+s+'</li>'; }).join('')
               + '</ul>' : '')
-        + (lifeEvts ? '<p class="det-stitle">Entry point for</p><p style="font-size:.73rem">' + lifeEvts + '</p>' : '')
+        + (d.lifeEvents && d.lifeEvents.length
+            ? '<p class="det-stitle">Appears in (' + d.lifeEvents.length + ' life event' + (d.lifeEvents.length !== 1 ? 's' : '') + ')</p>'
+              + '<div class="le-tags">'
+              + d.lifeEvents.map(function(le){ return '<span class="le-tag">' + le.icon + ' ' + le.name + '</span>'; }).join('')
+              + '</div>'
+            : '')
         + (inEdges.length  ? '<p class="det-stitle">Prerequisites (' + inEdges.length + ')</p><ul class="det-list">' + nodeList(inEdges) + '</ul>' : '')
         + (outEdges.length ? '<p class="det-stitle">Leads to (' + outEdges.length + ')</p><ul class="det-list">' + nodeList(outEdges) + '</ul>' : '')
         + '<a class="det-link" href="' + d.govuk_url + '" target="_blank" rel="noopener">&#x2197; ' + d.govuk_url + '</a>'
