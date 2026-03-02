@@ -3774,7 +3774,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'immigration', icon: '✦', name: 'Arriving in the UK',
     desc: 'Visas, BRP, NI number and NHS access',
-    entryNodes: ['ho-visa'],
+    entryNodes: ['ho-visa', 'ho-eu-settled-status'],
   },
   {
     id: 'driving', icon: '◉', name: 'Learning to Drive',
