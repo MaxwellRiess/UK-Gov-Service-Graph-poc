@@ -8,7 +8,7 @@
  */
 
 import { writeFileSync } from 'fs';
-import { LIFE_EVENTS, NODES, EDGES } from '../src/graph-data.js';
+import { LIFE_EVENTS, NODES, EDGES, DEPT_CONTACTS, type ContactInfo } from '../src/graph-data.js';
 
 const edgeElements = EDGES.map((e, i) => ({
   data: { id: `e${i}`, source: e.from, target: e.to, type: e.type },
@@ -42,29 +42,61 @@ LIFE_EVENTS.forEach(evt => {
   }
 });
 
-const nodeElements = Object.values(NODES).map(n => ({
-  data: {
-    id:                 n.id,
-    label:              n.name.length > 22 ? n.name.substring(0, 20) + '\u2026' : n.name,
-    fullName:           n.name,
-    dept:               n.dept,
-    deptKey:            n.deptKey,
-    serviceType:        n.serviceType,
-    deadline:           n.deadline,
-    desc:               n.desc,
-    govuk_url:          n.govuk_url,
-    proactive:          n.proactive,
-    gated:              n.gated,
-    universal:          n.eligibility.universal,
-    means_tested:       n.eligibility.means_tested,
-    eligibilitySummary: n.eligibility.summary,
-    ruleIn:             n.eligibility.ruleIn,
-    ruleOut:            n.eligibility.ruleOut,
-    autoQualifiers:     n.eligibility.autoQualifiers  || [],
-    exclusions:         n.eligibility.exclusions       || [],
-    lifeEvents:         nodeLifeEventMap[n.id]         || [],
-  },
-}));
+function resolveContact(n: (typeof NODES)[string]): ContactInfo | undefined {
+  return n.contactInfo ?? DEPT_CONTACTS[n.deptKey];
+}
+
+const nodeElements = Object.values(NODES).map(n => {
+  const ci = resolveContact(n);
+  return {
+    data: {
+      id:                 n.id,
+      label:              n.name.length > 22 ? n.name.substring(0, 20) + '\u2026' : n.name,
+      fullName:           n.name,
+      dept:               n.dept,
+      deptKey:            n.deptKey,
+      serviceType:        n.serviceType,
+      deadline:           n.deadline,
+      desc:               n.desc,
+      govuk_url:          n.govuk_url,
+      proactive:          n.proactive,
+      gated:              n.gated,
+      universal:          n.eligibility.universal,
+      means_tested:       n.eligibility.means_tested,
+      eligibilitySummary: n.eligibility.summary,
+      ruleIn:             n.eligibility.ruleIn,
+      ruleOut:            n.eligibility.ruleOut,
+      autoQualifiers:     n.eligibility.autoQualifiers  || [],
+      exclusions:         n.eligibility.exclusions       || [],
+      lifeEvents:         nodeLifeEventMap[n.id]         || [],
+      nations:            n.nations || null,
+      financial:          n.financialData ? {
+        taxYear:   n.financialData.taxYear,
+        frequency: n.financialData.frequency,
+        rates:     n.financialData.rates,
+      } : null,
+      agent: n.agentInteraction ? {
+        methods:          n.agentInteraction.methods,
+        agentCanComplete: n.agentInteraction.agentCanComplete,
+        agentSteps:       n.agentInteraction.agentSteps,
+        onlineFormUrl:    n.agentInteraction.onlineFormUrl || null,
+        apiAvailable:     n.agentInteraction.apiAvailable,
+      } : null,
+      contact: ci ? {
+        phone:            ci.phone?.number || null,
+        textphone:        ci.phone?.textphone || null,
+        relay:            ci.phone?.relay || null,
+        phoneLabel:       ci.phone?.label || null,
+        hours:            ci.hours || null,
+        webchatUrl:       ci.webchatUrl || null,
+        contactFormUrl:   ci.contactFormUrl || null,
+        officeLocatorUrl: ci.officeLocatorUrl || null,
+        localAuthority:   ci.localAuthority || false,
+        notes:            ci.notes || null,
+      } : null,
+    },
+  };
+});
 
 const nodesJson      = JSON.stringify(nodeElements);
 const edgesJson      = JSON.stringify(edgeElements);
@@ -72,6 +104,8 @@ const lifeEventsJson = JSON.stringify(lifeEventData);
 const nodeCount      = Object.keys(NODES).length;
 const edgeCount      = EDGES.length;
 const eventCount     = LIFE_EVENTS.length;
+const contactCount   = nodeElements.filter(n => n.data.contact).length;
+const financialCount = nodeElements.filter(n => n.data.financial).length;
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -130,7 +164,7 @@ const html = `<!DOCTYPE html>
     #match-info.vis{display:block}
 
     /* ── Detail panel ─────────────────────────────────────────────── */
-    #detail{position:absolute;right:0;top:0;bottom:0;width:320px;background:var(--surface);border-left:1px solid var(--border);overflow-y:auto;padding:16px;transform:translateX(100%);transition:transform .2s ease}
+    #detail{position:absolute;right:0;top:0;bottom:0;width:380px;background:var(--surface);border-left:1px solid var(--border);overflow-y:auto;padding:16px;transform:translateX(100%);transition:transform .2s ease}
     #detail.open{transform:translateX(0)}
     .det-close{float:right;background:none;border:none;color:var(--muted);font-size:1rem;cursor:pointer;padding:2px 5px}
     .det-close:hover{color:var(--text)}
@@ -167,6 +201,30 @@ const html = `<!DOCTYPE html>
     .ex-list li::before{content:'\u2717';position:absolute;left:0;color:#6e2222}
     .le-tags{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0}
     .le-tag{font-size:.69rem;padding:2px 8px;border-radius:10px;background:#1a3050;color:var(--accent);border:1px solid #1f4080;line-height:1.5}
+
+    /* ── New data layer sections ────────────────────────────── */
+    .det-section{margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--border)}
+    .det-phone{font-size:.82rem;color:var(--accent);font-weight:bold;letter-spacing:.02em}
+    .det-phone-label{font-size:.65rem;color:var(--muted);margin-bottom:2px}
+    .det-access{font-size:.7rem;color:var(--muted);line-height:1.6}
+    .det-hours{font-size:.7rem;color:var(--muted);line-height:1.6;margin-top:4px}
+    .det-hours-row{display:flex;justify-content:space-between;padding:1px 0}
+    .det-hours-days{color:var(--text);min-width:70px}
+    .det-la{font-size:.78rem;color:var(--muted);font-style:italic}
+    .det-rate-row{display:flex;justify-content:space-between;font-size:.73rem;padding:2px 0}
+    .det-rate-name{color:var(--text)}
+    .det-rate-val{color:#22c55e;font-weight:bold}
+    .det-freq{font-size:.65rem;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+    .det-method{display:inline-block;padding:2px 7px;border-radius:3px;font-size:.65rem;margin-right:3px;margin-bottom:3px;background:#1a2332;color:#93c5fd;border:1px solid #1e3a5f}
+    .det-cap{display:inline-block;padding:2px 7px;border-radius:3px;font-size:.65rem;margin-left:4px}
+    .det-cap-full{background:#0f2d1a;color:#3fb950;border:1px solid #238636}
+    .det-cap-partial{background:#3a2f12;color:#eab308;border:1px solid #5a4a1a}
+    .det-cap-inform{background:#2a2040;color:#a855f7;border:1px solid #4a3070}
+    .det-step{font-size:.7rem;color:var(--text);padding:2px 0;padding-left:12px;text-indent:-10px}
+    .det-step:before{content:'\\203A ';color:var(--muted)}
+    .det-form-link{display:inline-block;font-size:.7rem;color:var(--accent);text-decoration:none;margin-top:4px}
+    .det-form-link:hover{text-decoration:underline}
+    .bdg-nation{background:#1a2332;color:#93c5fd}
   </style>
 </head>
 <body>
@@ -206,6 +264,8 @@ const html = `<!DOCTYPE html>
         <div><span>${nodeCount}</span> services</div>
         <div><span>${edgeCount}</span> relationships</div>
         <div><span>${eventCount}</span> life events</div>
+        <div><span>${contactCount}</span> with contact info</div>
+        <div><span>${financialCount}</span> with financial data</div>
       </div>
     </div>
   </div>
@@ -418,6 +478,74 @@ const html = `<!DOCTYPE html>
       clearFilters();
     });
 
+    var DAY_LABELS = {mon:'Mon',tue:'Tue',wed:'Wed',thu:'Thu',fri:'Fri',sat:'Sat',sun:'Sun'};
+    var DAY_ORDER = ['mon','tue','wed','thu','fri','sat','sun'];
+    function fmtHours(hoursArr) {
+      if (!hoursArr || !hoursArr.length) return '';
+      return hoursArr.map(function(h) {
+        var sorted = h.days.slice().sort(function(a,b){ return DAY_ORDER.indexOf(a)-DAY_ORDER.indexOf(b); });
+        var label;
+        if (sorted.length === 1) { label = DAY_LABELS[sorted[0]]; }
+        else if (sorted.length >= 2) {
+          var first = DAY_ORDER.indexOf(sorted[0]);
+          var last = DAY_ORDER.indexOf(sorted[sorted.length-1]);
+          if (last - first === sorted.length - 1) {
+            label = DAY_LABELS[sorted[0]] + '\\u2013' + DAY_LABELS[sorted[sorted.length-1]];
+          } else {
+            label = sorted.map(function(d){return DAY_LABELS[d];}).join(', ');
+          }
+        }
+        return '<div class="det-hours-row"><span class="det-hours-days">' + label + '</span><span>' + h.open + '\\u2013' + h.close + '</span></div>';
+      }).join('');
+    }
+
+    function fmtContact(c) {
+      if (!c) return '';
+      var h = '<div class="det-section"><p class="det-stitle">Contact</p>';
+      if (c.localAuthority) {
+        h += '<p class="det-la">Varies by local council</p>';
+        if (c.officeLocatorUrl) h += '<a class="det-form-link" href="' + c.officeLocatorUrl + '" target="_blank" rel="noopener">\\u2197 Find your local council</a>';
+        if (c.notes) h += '<p class="det-access" style="margin-top:4px">' + c.notes + '</p>';
+        return h + '</div>';
+      }
+      if (c.phoneLabel) h += '<p class="det-phone-label">' + c.phoneLabel + '</p>';
+      if (c.phone) h += '<p class="det-phone">' + c.phone + '</p>';
+      var acc = [];
+      if (c.textphone) acc.push('Textphone: ' + c.textphone);
+      if (c.relay) acc.push('Relay UK: ' + c.relay);
+      if (acc.length) h += '<p class="det-access">' + acc.join('<br>') + '</p>';
+      if (c.hours) h += '<div class="det-hours">' + fmtHours(c.hours) + '</div>';
+      if (c.webchatUrl) h += '<a class="det-form-link" href="' + c.webchatUrl + '" target="_blank" rel="noopener">\\u2197 Webchat</a> ';
+      if (c.contactFormUrl) h += '<a class="det-form-link" href="' + c.contactFormUrl + '" target="_blank" rel="noopener">\\u2197 Online form</a> ';
+      if (c.officeLocatorUrl) h += '<a class="det-form-link" href="' + c.officeLocatorUrl + '" target="_blank" rel="noopener">\\u2197 Find an office</a>';
+      if (c.notes) h += '<p class="det-access" style="margin-top:4px">' + c.notes + '</p>';
+      return h + '</div>';
+    }
+
+    function fmtFinancial(f) {
+      if (!f) return '';
+      var h = '<div class="det-section"><p class="det-stitle">Financial (' + f.taxYear + ')</p>';
+      h += '<p class="det-freq">' + f.frequency + '</p>';
+      var keys = Object.keys(f.rates);
+      keys.forEach(function(k) {
+        h += '<div class="det-rate-row"><span class="det-rate-name">' + k + '</span><span class="det-rate-val">\\u00A3' + f.rates[k].toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2}) + '</span></div>';
+      });
+      return h + '</div>';
+    }
+
+    function fmtAgent(a) {
+      if (!a) return '';
+      var capCls = a.agentCanComplete === 'full' ? 'det-cap-full' : a.agentCanComplete === 'partial' ? 'det-cap-partial' : 'det-cap-inform';
+      var h = '<div class="det-section"><p class="det-stitle">Agent Interaction</p>';
+      h += '<div style="margin-bottom:6px">';
+      a.methods.forEach(function(m) { h += '<span class="det-method">' + m + '</span>'; });
+      h += '<span class="det-cap ' + capCls + '">' + a.agentCanComplete + '</span>';
+      h += '</div>';
+      a.agentSteps.forEach(function(s) { h += '<p class="det-step">' + s + '</p>'; });
+      if (a.onlineFormUrl) h += '<a class="det-form-link" href="' + a.onlineFormUrl + '" target="_blank" rel="noopener">\\u2197 Start application</a>';
+      return h + '</div>';
+    }
+
     var detPanel = document.getElementById('detail');
     var detBody  = document.getElementById('det-body');
     document.getElementById('det-close').addEventListener('click', function() {
@@ -445,7 +573,8 @@ const html = `<!DOCTYPE html>
         + (d.proactive    ? '<span class="bdg bdg-pro">proactive</span>'    : '')
         + (d.gated        ? '<span class="bdg bdg-gat">gated</span>'        : '')
         + (d.universal    ? '<span class="bdg bdg-uni">universal</span>'    : '')
-        + (d.means_tested ? '<span class="bdg bdg-mns">means-tested</span>' : '');
+        + (d.means_tested ? '<span class="bdg bdg-mns">means-tested</span>' : '')
+        + (d.nations ? d.nations.map(function(n){ return '<span class="bdg bdg-nation">' + n + '</span>'; }).join('') : '');
 
       function nodeList(arr) {
         return arr.map(function(n) {
@@ -482,8 +611,11 @@ const html = `<!DOCTYPE html>
               + d.lifeEvents.map(function(le){ return '<span class="le-tag">' + le.icon + ' ' + le.name + '</span>'; }).join('')
               + '</div>'
             : '')
+        + fmtContact(d.contact)
+        + fmtFinancial(d.financial)
         + (inEdges.length  ? '<p class="det-stitle">Prerequisites (' + inEdges.length + ')</p><ul class="det-list">' + nodeList(inEdges) + '</ul>' : '')
         + (outEdges.length ? '<p class="det-stitle">Leads to (' + outEdges.length + ')</p><ul class="det-list">' + nodeList(outEdges) + '</ul>' : '')
+        + fmtAgent(d.agent)
         + '<a class="det-link" href="' + d.govuk_url + '" target="_blank" rel="noopener">&#x2197; ' + d.govuk_url + '</a>'
         + '<p class="det-id">' + d.id + '</p>';
 

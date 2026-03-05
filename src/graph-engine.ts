@@ -17,7 +17,7 @@
  * ordering (you don't have to do everything in a strict sequence).
  */
 
-import { NODES, EDGES, LIFE_EVENTS, type ServiceNode } from './graph-data.js';
+import { NODES, EDGES, LIFE_EVENTS, DEPT_CONTACTS, type ServiceNode, type AgentInteraction, type FinancialData, type Nation, type ContactInfo } from './graph-data.js';
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -53,6 +53,14 @@ export interface JourneyService {
   requires:           string[];
   /** Service IDs this node unlocks within the journey */
   enables:            string[];
+  /** How an agent can interact with this service (methods, APIs, form URLs) */
+  agentInteraction:   AgentInteraction;
+  /** Structured financial rates — present for benefits/grants with known amounts */
+  financialData?:     FinancialData;
+  /** UK nations this service applies to (absent = UK-wide) */
+  nations?:           Nation[];
+  /** Contact info: helpline, hours, webchat, textphone (resolved from node or dept default) */
+  contactInfo?:       ContactInfo;
 }
 
 export interface JourneyPhase {
@@ -82,6 +90,13 @@ EDGES.forEach(e => {
   if (ADJ_OUT[e.from]) ADJ_OUT[e.from].push({ to: e.to,   type: e.type });
   if (ADJ_IN[e.to])   ADJ_IN[e.to].push(  { from: e.from, type: e.type });
 });
+
+// ─── CONTACT RESOLUTION ─────────────────────────────────────────────────────
+
+/** Resolve contact info: node-level override > department default > undefined */
+export function resolveContactInfo(node: ServiceNode): ContactInfo | undefined {
+  return node.contactInfo ?? DEPT_CONTACTS[node.deptKey];
+}
 
 // ─── MAIN EXPORT ──────────────────────────────────────────────────────────────
 
@@ -189,6 +204,10 @@ export function buildJourney(selectedEventIds: string[]): JourneyResult {
         triggeredBy:        [...(sourceMap[id] || [])],
         requires,
         enables,
+        agentInteraction:   node.agentInteraction,
+        ...(node.financialData ? { financialData: node.financialData } : {}),
+        ...(node.nations       ? { nations: node.nations }             : {}),
+        ...(() => { const ci = resolveContactInfo(node); return ci ? { contactInfo: ci } : {}; })(),
       };
       return svc;
     }),
@@ -229,5 +248,6 @@ export function getServiceWithContext(serviceId: string) {
     .filter(evt => evt.entryNodes.includes(serviceId))
     .map(evt => ({ id: evt.id, name: evt.name }));
 
-  return { ...node, prerequisites, unlocks, triggeredByEvents };
+  const contactInfo = resolveContactInfo(node);
+  return { ...node, ...(contactInfo ? { contactInfo } : {}), prerequisites, unlocks, triggeredByEvents };
 }

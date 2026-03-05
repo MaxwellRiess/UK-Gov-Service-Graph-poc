@@ -5,7 +5,7 @@
  *
  *   NODES       — every government service, deduplicated across life events
  *   EDGES       — typed relationships between services
- *   LIFE_EVENTS — the 13 entry points into the graph (one per life event)
+ *   LIFE_EVENTS — the 16 entry points into the graph (one per life event)
  *
  * Edge types:
  *   REQUIRES → strict ordering; the source must be completed before the target
@@ -14,9 +14,64 @@
  * Life events don't appear in the graph themselves — they just point to a
  * set of entry nodes (the services directly triggered by that event).
  * The traversal engine handles discovering everything downstream.
+ *
+ * ─── AGENT INTERACTION LAYER ──────────────────────────────────────────────
+ *
+ * Each service node carries an `agentInteraction` object that tells an AI
+ * agent exactly how it can help the user interact with this service:
+ *
+ *   methods[]         — how to apply (online, phone, post, in-person)
+ *   apiAvailable      — whether a GOV.UK API exists for this service
+ *   apiUrl            — developer documentation for the API (if any)
+ *   onlineFormUrl     — direct URL to start the application / form
+ *   authRequired      — authentication mechanism needed
+ *   agentCanComplete  — full | partial | inform-only
+ *   agentSteps[]      — what an agent can actually do for the user
+ *   missingBenefitId  — ID in the MissingBenefit.com API (if covered)
+ *
+ * ─── FINANCIAL DATA ──────────────────────────────────────────────────────
+ *
+ * Benefits and grants carry a `financialData` object with structured rates
+ * from the 2025/26 tax year, so agents can estimate value:
+ *
+ *   taxYear           — "2025-26"
+ *   frequency         — weekly | monthly | annual | one-off
+ *   rates             — key-value pairs of rate names to amounts (£)
+ *   source            — GOV.UK page where rates are published
+ *
+ * ─── DEVOLVED NATIONS ────────────────────────────────────────────────────
+ *
+ * Services that only apply in specific UK nations carry a `nations` field:
+ *   'GB' = Great Britain (England + Scotland + Wales)
+ *   'england' | 'scotland' | 'wales' | 'northern-ireland'
+ *   Absence of the field = UK-wide.
+ *
+ * ─── SUPPORT & CONTACT LAYER ───────────────────────────────────────────
+ *
+ * Two-tier contact architecture:
+ *   DEPT_CONTACTS     — department-level defaults (19 departments)
+ *   node.contactInfo  — service-specific override (where the service has
+ *                       its own helpline, e.g. each DWP benefit)
+ *
+ * Resolution: node.contactInfo > DEPT_CONTACTS[deptKey] > undefined
+ *
+ * Each ContactInfo can carry:
+ *   phone             — primary helpline (number, textphone, relay, welsh, BSL)
+ *   additionalPhones  — secondary lines
+ *   hours             — structured opening hours per day group
+ *   webchatUrl        — online chat service
+ *   contactFormUrl    — online enquiry form
+ *   officeLocatorUrl  — "find your local X" URL
+ *   localAuthority    — true = varies by council
  */
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
+
+export type Nation =
+  | 'england'
+  | 'scotland'
+  | 'wales'
+  | 'northern-ireland';
 
 export type ServiceType =
   | 'benefit'       // financial payment to eligible individuals
@@ -27,6 +82,59 @@ export type ServiceType =
   | 'legal_process' // court or tribunal proceeding
   | 'document'      // obtaining a formal document
   | 'grant';        // one-off financial award
+
+export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
+export type AuthMethod = 'government-gateway' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
+export type AgentCapability = 'full' | 'partial' | 'inform-only';
+
+export interface AgentInteraction {
+  methods:          ApplicationMethod[];  // how to apply
+  apiAvailable:     boolean;              // does a GOV.UK developer API exist?
+  apiUrl?:          string;               // developer documentation URL
+  onlineFormUrl?:   string;               // direct link to start application
+  authRequired:     AuthMethod;           // authentication mechanism
+  agentCanComplete: AgentCapability;      // what level of help an agent can give
+  agentSteps:       string[];             // concrete steps an agent can take
+  missingBenefitId?: string;              // ID in MissingBenefit.com API (if covered)
+}
+
+export interface FinancialData {
+  taxYear:    string;                     // e.g. "2025-26"
+  frequency:  'weekly' | 'monthly' | 'annual' | 'one-off';
+  rates:      Record<string, number>;     // named amounts in GBP
+  source:     string;                     // GOV.UK page where rates are published
+}
+
+// ─── SUPPORT & CONTACT LAYER ────────────────────────────────────────────────
+
+export interface PhoneContact {
+  number:      string;   // E.164 readable: "+44 800 169 0310"
+  textphone?:  string;   // Textphone/minicom number
+  relay?:      string;   // Relay UK ("18001 then 0800 169 0310")
+  welsh?:      string;   // Welsh language line
+  bsl?:        string;   // BSL video relay URL
+  label?:      string;   // e.g. "UC helpline"
+}
+
+export type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+
+export interface OpeningHours {
+  days:  DayOfWeek[];    // ['mon','tue','wed','thu','fri']
+  open:  string;         // "08:00" (24h)
+  close: string;         // "18:00"
+}
+
+export interface ContactInfo {
+  phone?:            PhoneContact;
+  additionalPhones?: PhoneContact[];    // secondary lines (e.g. bereavement-specific)
+  hours?:            OpeningHours[];    // one entry per distinct schedule block
+  webchatUrl?:       string;
+  contactFormUrl?:   string;
+  complaintsUrl?:    string;
+  officeLocatorUrl?: string;
+  localAuthority?:   boolean;           // true = "contact your local council"
+  notes?:            string;            // "Closed on bank holidays"
+}
 
 export type EligibilityFactor =
   | 'age'               // age threshold or range
@@ -58,20 +166,25 @@ export interface EligibilityInfo {
   evidenceRequired?: string[];  // documents / proof typically needed
   ruleIn:            string[];  // concise positive signals ("Child under 16")
   ruleOut:           string[];  // concise negative signals ("Income over £80k")
+  rules?:            import('./rules.js').Rule[];  // structured machine-evaluable rules
 }
 
 export interface ServiceNode {
-  id:          string;
-  name:        string;
-  dept:        string;      // display name, e.g. "HMRC"
-  deptKey:     string;      // lowercase slug for filtering, e.g. "hmrc"
-  deadline:    string | null;
-  desc:        string;
-  govuk_url:   string;      // canonical GOV.UK URL
-  serviceType: ServiceType;
-  proactive:   boolean;     // agent should volunteer this based on life-event signals
-  gated:       boolean;     // only surface after confirming a prerequisite service
-  eligibility: EligibilityInfo;
+  id:               string;
+  name:             string;
+  dept:             string;      // display name, e.g. "HMRC"
+  deptKey:          string;      // lowercase slug for filtering, e.g. "hmrc"
+  deadline:         string | null;
+  desc:             string;
+  govuk_url:        string;      // canonical GOV.UK URL
+  serviceType:      ServiceType;
+  proactive:        boolean;     // agent should volunteer this based on life-event signals
+  gated:            boolean;     // only surface after confirming a prerequisite service
+  eligibility:      EligibilityInfo;
+  agentInteraction: AgentInteraction;
+  financialData?:   FinancialData;      // present for benefits/grants with known rates
+  nations?:         Nation[];           // absent = UK-wide; present = only these nations
+  contactInfo?:     ContactInfo;       // service-specific (overrides dept default)
 }
 
 export interface Edge {
@@ -87,6 +200,167 @@ export interface LifeEvent {
   desc:        string;
   entryNodes:  string[];
 }
+
+// ─── DEPARTMENT CONTACT DEFAULTS ─────────────────────────────────────────────
+// Fallback contact info keyed by deptKey.  Service-specific contactInfo on a
+// node takes precedence; this table covers the ~80 nodes that share the
+// department-level helpline.
+
+export const DEPT_CONTACTS: Partial<Record<string, ContactInfo>> = {
+
+  gro: {
+    phone: { number: '+44 300 123 1837', textphone: '+44 329 822 0391', relay: '18001 then 0300 123 1837', label: 'GRO certificate enquiries' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '20:00' },
+      { days: ['sat'], open: '09:00', close: '16:00' },
+    ],
+    contactFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/ContactUs.asp',
+    notes: 'Closed on bank holidays and public holidays',
+  },
+
+  hmrc: {
+    phone: { number: '+44 300 200 3300', textphone: '+44 300 200 3319', relay: '18001 then 0300 200 3300', welsh: '+44 300 200 1900', label: 'HMRC general enquiries' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
+    ],
+    webchatUrl: 'https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment',
+    notes: 'Closed on bank holidays. Specific services have dedicated helplines.',
+  },
+
+  dwp: {
+    phone: { number: '+44 800 169 0310', textphone: '+44 800 169 0314', relay: '18001 then 0800 169 0310', label: 'DWP general enquiries' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
+    ],
+    notes: 'Most DWP benefits have a dedicated helpline — see service-level contact.',
+  },
+
+  nhs: {
+    phone: { number: '111', label: 'NHS 111' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri','sat','sun'], open: '00:00', close: '23:59' },
+    ],
+    notes: 'NHS 111 is available 24/7. For GP registration, contact the surgery directly.',
+  },
+
+  dvla: {
+    phone: { number: '+44 300 790 6801', textphone: '+44 300 123 1279', relay: '18001 then 0300 790 6801', welsh: '+44 300 790 6819', label: 'DVLA general enquiries' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '19:00' },
+      { days: ['sat'], open: '08:00', close: '14:00' },
+    ],
+    webchatUrl: 'https://www.gov.uk/contact-the-dvla',
+    notes: 'Closed on bank holidays',
+  },
+
+  dvsa: {
+    phone: { number: '+44 300 200 1122', textphone: '+44 300 200 1166', relay: '18001 then 0300 200 1122', label: 'DVSA customer services' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '16:00' },
+    ],
+  },
+
+  ch: {
+    phone: { number: '+44 303 123 4500', textphone: '+44 29 2038 1245', relay: '18001 then 0303 123 4500', label: 'Companies House contact centre' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:30', close: '18:00' },
+    ],
+    contactFormUrl: 'https://www.gov.uk/contact-companies-house',
+  },
+
+  hmcts: {
+    phone: { number: '+44 300 123 1372', textphone: '+44 300 123 1372', relay: '18001 then 0300 123 1372', label: 'HMCTS general enquiries' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:30', close: '17:00' },
+    ],
+    contactFormUrl: 'https://www.gov.uk/contact-hmcts',
+    notes: 'Probate, divorce and tribunal services each have dedicated lines.',
+  },
+
+  la: {
+    localAuthority: true,
+    officeLocatorUrl: 'https://www.gov.uk/find-local-council',
+    notes: 'Contact your local council. Phone numbers and opening hours vary by authority.',
+  },
+
+  opg: {
+    phone: { number: '+44 300 456 0300', textphone: '+44 115 934 2778', relay: '18001 then 0300 456 0300', welsh: '+44 300 456 0300', label: 'Office of the Public Guardian' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '17:00' },
+    ],
+    contactFormUrl: 'https://www.gov.uk/government/organisations/office-of-the-public-guardian',
+  },
+
+  sss: {
+    phone: { number: '+44 800 182 2222', relay: '18001 then 0800 182 2222', label: 'Social Security Scotland' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
+    ],
+    webchatUrl: 'https://www.socialsecurity.gov.scot/contact-us',
+    notes: 'Handles all Social Security Scotland benefits',
+  },
+
+  wg: {
+    phone: { number: '+44 300 025 6150', label: 'Welsh Government helpline' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:30', close: '17:30' },
+    ],
+    contactFormUrl: 'https://www.gov.wales/contact-us',
+  },
+
+  'ni-dfc': {
+    phone: { number: '+44 28 9082 9902', textphone: '+44 28 9031 1092', relay: '18001 then 028 9082 9902', label: 'NI Department for Communities' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '17:00' },
+    ],
+    contactFormUrl: 'https://www.nidirect.gov.uk/contacts/departments-communities-contact-details',
+  },
+
+  'ni-lps': {
+    phone: { number: '+44 28 9049 5572', label: 'NI Land & Property Services' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '17:00' },
+    ],
+  },
+
+  ho: {
+    phone: { number: '+44 300 123 2241', relay: '18001 then 0300 123 2241', label: 'UK Visas and Immigration contact centre' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '14:30' },
+    ],
+    contactFormUrl: 'https://www.gov.uk/contact-ukvi-inside-outside-uk',
+    notes: 'Phone hours are limited. Online contact form available 24/7.',
+  },
+
+  lr: {
+    phone: { number: '+44 300 006 0411', textphone: '+44 300 006 0411', relay: '18001 then 0300 006 0411', welsh: '+44 300 006 0422', label: 'HM Land Registry' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
+    ],
+    contactFormUrl: 'https://www.gov.uk/government/organisations/land-registry/about/access-and-opening',
+  },
+
+  slc: {
+    phone: { number: '+44 300 100 0607', label: 'Student Loans Company' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
+    ],
+    contactFormUrl: 'https://www.gov.uk/contact-student-finance-england',
+    notes: 'Separate numbers for repayment queries and new applications.',
+  },
+
+  tpr: {
+    phone: { number: '+44 345 600 7060', label: 'The Pensions Regulator' },
+    hours: [
+      { days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '17:00' },
+    ],
+    contactFormUrl: 'https://www.thepensionsregulator.gov.uk/en/contact-us',
+  },
+
+  other: {
+    notes: 'Contact information varies by service. Check the GOV.UK page for details.',
+  },
+};
 
 // ─── NODES ────────────────────────────────────────────────────────────────────
 
@@ -115,7 +389,50 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Hospital notification of birth or midwife\'s notification', 'Parents\' ID documents'],
       ruleIn: [],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "deadline",
+          "triggerEvent": "birth_date",
+          "triggerLabel": "Date of birth",
+          "maxDays": 42,
+          "label": "Must register within 42 days of birth"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that birth registration must be done in person at a local register office',
+        'Help user find their nearest register office',
+        'List required documents (hospital notification, parents\' ID)',
+        'Advise on the 42-day deadline',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 123 1837',
+        textphone: '+44 329 822 0391',
+        relay: '18001 then 0300 123 1837',
+        label: 'GRO certificate enquiries',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '20:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '16:00',
+        },
+      ],
+      officeLocatorUrl: 'https://www.gov.uk/register-offices',
+      notes: 'Must be done in person at a register office.',
     },
   },
   'gro-register-death': {
@@ -141,7 +458,57 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Medical Certificate of Cause of Death (MCCD)', 'Deceased\'s NHS number and personal details if available'],
       ruleIn: [],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A death has occurred"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "death_date",
+          "triggerLabel": "Date of death",
+          "maxDays": 5,
+          "label": "Must register within 5 days of death"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that death registration must be done in person at a local register office',
+        'Help user find their nearest register office',
+        'List required documents (MCCD, deceased\'s details)',
+        'Advise on the 5-day deadline',
+        'Explain Tell Us Once service offered at the appointment',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 123 1837',
+        textphone: '+44 329 822 0391',
+        relay: '18001 then 0300 123 1837',
+        label: 'GRO certificate enquiries',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '20:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '16:00',
+        },
+      ],
+      officeLocatorUrl: 'https://www.gov.uk/register-offices',
+      notes: 'Must be done in person at a register office.',
     },
   },
   'gro-death-certificate': {
@@ -165,7 +532,34 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Death registration reference number', 'Fee per copy (currently £11)'],
       ruleIn: [],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A death has occurred"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "gro-register-death",
+          "condition": "completed",
+          "label": "Death must be registered before certificates can be ordered"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to GRO certificate ordering service',
+        'Advise how many copies to order (recommend at least 5)',
+        'Explain that banks, insurers, HMRC, probate and pension providers each need an original',
+        'Confirm current fee per copy (£11)',
+      ],
     },
   },
   'gro-give-notice': {
@@ -193,7 +587,79 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Passport or birth certificate', 'Proof of current address', 'Decree absolute if previously married', 'Death certificate of former spouse if widowed', 'Immigration documents if not British/Irish citizen'],
       ruleIn: ['Both parties aged 18 or over', 'Resident in district 7+ days'],
-      ruleOut: ['Either party currently married or in civil partnership'],
+      ruleOut: ['Either party currently married or in civil partnership'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 18,
+          "label": "Both parties must be 18 or over"
+        },
+        {
+          "type": "not",
+          "label": "Neither party currently married or in a civil partnership",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "relationship_status",
+              "oneOf": [
+                "married",
+                "civil_partnership"
+              ],
+              "label": "Currently married or in civil partnership"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Resident in England or Wales"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "wedding_date",
+          "triggerLabel": "Date of wedding/ceremony",
+          "maxDays": -28,
+          "label": "Notice must be given at least 28 days before the ceremony"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that notice of marriage must be given in person at a local register office',
+        'Help user find their nearest register office',
+        'List required documents (passport, proof of address, decree absolute if applicable)',
+        'Advise on the 28-day minimum notice period',
+        'Flag extra requirements for non-British/Irish citizens',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 123 1837',
+        textphone: '+44 329 822 0391',
+        relay: '18001 then 0300 123 1837',
+        label: 'GRO certificate enquiries',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '20:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '16:00',
+        },
+      ],
+      officeLocatorUrl: 'https://www.gov.uk/register-offices',
+      notes: 'Must give notice in person at a register office at least 28 days before ceremony.',
     },
   },
   'gro-marriage-cert': {
@@ -219,6 +685,19 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Marriage took place — certificate issued at ceremony or ordered from register office'],
       ruleIn: [],
       ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online', 'post', 'in-person'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to GRO certificate ordering service',
+        'Advise how many certified copies to order (name change, DVLA, HMRC, passport each need one)',
+        'Explain in-person collection option at register office',
+        'Confirm current fee per copy',
+      ],
     },
   },
 
@@ -248,7 +727,59 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Child\'s birth certificate', 'Bank account details'],
       ruleIn: ['Responsible for child under 16'],
-      ruleOut: ['Both parents earn over £80k'],
+      ruleOut: ['Both parents earn over £80k'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must be responsible for a child"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<",
+          "value": 16,
+          "label": "Child must be under 16 (or under 20 in approved education)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/child-benefit/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to online Child Benefit claim form',
+        'Explain eligibility and High Income Child Benefit Charge thresholds',
+        'Advise on backdating (up to 3 months)',
+        'Explain NI credit protection even if opting out of payment',
+        'List required documents (birth certificate, bank details)',
+      ],
+      missingBenefitId: 'childBenefit',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { first_child: 26.05, subsequent_child: 17.25 },
+      source: 'https://www.gov.uk/child-benefit/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3100',
+        textphone: '+44 300 200 3103',
+        relay: '18001 then 0300 200 3100',
+        label: 'Child Benefit helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.tax.service.gov.uk/ask-hmrc/chat/child-benefit',
     },
   },
   'hmrc-guardians-allowance': {
@@ -274,7 +805,61 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Death certificates for deceased parent(s)', 'Child Benefit claim reference', 'Child\'s birth certificate'],
       ruleIn: ['Both parents deceased or one missing', 'Claiming Child Benefit for the child'],
-      ruleOut: ['Surviving parent traceable and able to care for child'],
+      ruleOut: ['Surviving parent traceable and able to care for child'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must be caring for a child"
+        },
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "Both parents of the child must have died (or one dead and other untraceable)"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "hmrc-child-benefit",
+          "condition": "receiving",
+          "label": "Must be claiming Child Benefit for the child"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/guardians-allowance/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to Guardian\'s Allowance claim form',
+        'Confirm Child Benefit is already being claimed for the child',
+        'Explain qualifying circumstances (both parents deceased or one missing)',
+        'List required evidence (death certificates, CB reference)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { weekly_rate: 21.75 },
+      source: 'https://www.gov.uk/guardians-allowance/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3100',
+        textphone: '+44 300 200 3103',
+        relay: '18001 then 0300 200 3100',
+        label: 'Child Benefit helpline (Guardian\'s Allowance)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-statutory-parental-bereavement': {
@@ -301,7 +886,42 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Notice to employer (no formal form required)', 'Death or stillbirth certificate may be requested'],
       ruleIn: ['Child under 18 died or stillbirth after 24 weeks', 'Employee at time of bereavement'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "employed"
+          ],
+          "label": "Must be an employee"
+        },
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A child under 18 has died or a baby was stillborn after 24 weeks"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "child_bereavement_date",
+          "triggerLabel": "Date of child's death or stillbirth",
+          "maxDays": 392,
+          "label": "Must claim within 56 weeks of the death"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain entitlement to 2 weeks bereavement leave and pay',
+        'Advise that the claim is made through the employer',
+        'Explain the 56-week claim window',
+        'Clarify that leave is a day-one right but pay requires 26 weeks\' service',
+      ],
     },
   },
   'hmrc-smp': {
@@ -328,7 +948,54 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['MATB1 certificate from midwife or GP (issued from 20 weeks)', 'Written notice to employer of intended leave start date'],
       ruleIn: ['Employed 26+ weeks with same employer', 'Earnings above lower earnings limit'],
-      ruleOut: ['Self-employed', 'Fewer than 26 weeks continuous employment'],
+      ruleOut: ['Self-employed', 'Fewer than 26 weeks continuous employment'],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "employed"
+          ],
+          "label": "Must be an employee (not self-employed)"
+        },
+        {
+          "type": "boolean",
+          "field": "is_pregnant",
+          "expected": true,
+          "label": "Currently pregnant or recently given birth"
+        },
+        {
+          "type": "comparison",
+          "field": "weekly_earnings",
+          "operator": ">=",
+          "value": 123,
+          "label": "Average weekly earnings at or above the Lower Earnings Limit (£123/week)"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.employed_26_weeks_same_employer",
+          "expected": true,
+          "label": "Employed continuously for 26+ weeks with the same employer by the 15th week before due date"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain SMP eligibility criteria and rates',
+        'Advise that SMP is claimed through the employer',
+        'Explain the MATB1 certificate requirement',
+        'Direct to Maternity Allowance if not eligible for SMP',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { first_6_weeks_percent: 90, remaining_33_weeks: 187.18 },
+      source: 'https://www.gov.uk/maternity-pay-leave/pay',
     },
   },
   'hmrc-spp': {
@@ -354,7 +1021,55 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['SC3 form (self-certification) submitted to employer at least 15 weeks before due date'],
       ruleIn: ['Father, partner, or co-adopter of newborn', 'Employed 26+ weeks continuously'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "employed"
+          ],
+          "label": "Must be an employee"
+        },
+        {
+          "type": "comparison",
+          "field": "weekly_earnings",
+          "operator": ">=",
+          "value": 123,
+          "label": "Average weekly earnings at or above the Lower Earnings Limit (£123/week)"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.employed_26_weeks_same_employer",
+          "expected": true,
+          "label": "Employed continuously for 26+ weeks with the same employer"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "child_birth_date",
+          "triggerLabel": "Date of birth or adoption",
+          "maxDays": 56,
+          "label": "Must be taken within 8 weeks of the birth or adoption"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain SPP eligibility criteria and rates',
+        'Advise that SPP is claimed through the employer',
+        'Explain SC3 self-certification form requirement',
+        'Clarify the 8-week window after birth',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { weekly_rate: 187.18 },
+      source: 'https://www.gov.uk/paternity-pay-leave/pay',
     },
   },
   'hmrc-spl': {
@@ -382,7 +1097,60 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['SPLIT forms', 'Written curtailment notice from mother to her employer', 'Partner\'s employer contact details'],
       ruleIn: ['Mother curtailing maternity leave', 'Both parents meet employment and earnings tests'],
-      ruleOut: ['Mother not eligible for SMP or Maternity Allowance'],
+      ruleOut: ['Mother not eligible for SMP or Maternity Allowance'],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "hmrc-smp",
+          "condition": "receiving",
+          "label": "Mother must be eligible for SMP or Maternity Allowance"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.mother_curtailing_maternity",
+          "expected": true,
+          "label": "Mother has agreed to curtail her maternity leave/pay"
+        },
+        {
+          "type": "all",
+          "label": "Both parents meet employment and earnings tests",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "employed",
+                "self-employed"
+              ],
+              "label": "Partner in work"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.partner_meets_employment_test",
+              "expected": true,
+              "label": "Partner meets the employment and earnings test"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain SPL eligibility and how weeks are shared between parents',
+        'Advise that both employers must be notified',
+        'Explain curtailment notice process',
+        'Clarify that mother must be eligible for SMP or Maternity Allowance',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { weekly_rate: 187.18 },
+      source: 'https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get',
     },
   },
   'hmrc-free-childcare-15': {
@@ -404,7 +1172,45 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Government Gateway account', 'Child\'s birth certificate'],
       ruleIn: ['Child aged 9 months to 4 years'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<=",
+          "value": 4,
+          "label": "Child must be 4 years old or under"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-free-childcare',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to Childcare Choices application',
+        'Explain that this is a universal entitlement for children aged 9 months to 4 years',
+        'Guide through Government Gateway sign-in process',
+        'Advise on choosing an eligible childcare provider',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 123 4097', label: 'Childcare Service helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-free-childcare-30': {
@@ -432,7 +1238,75 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Tax-Free Childcare account eligibility check (reconfirm every 3 months)'],
       ruleIn: ['Child aged 3 or 4 years', 'Both parents in paid work earning NMW for 16 hrs'],
-      ruleOut: ['Either parent earns over £100k', 'Non-working single parent'],
+      ruleOut: ['Either parent earns over £100k', 'Non-working single parent'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": ">=",
+          "value": 3,
+          "label": "Child must be at least 3 years old"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<=",
+          "value": 4,
+          "label": "Child must be 4 years old or under"
+        },
+        {
+          "type": "any",
+          "label": "Both parents working (or single parent working)",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "employed",
+                "self-employed",
+                "director"
+              ],
+              "label": "In paid work"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "field": "annual_income",
+          "operator": "<=",
+          "value": 100000,
+          "label": "Neither parent earns over £100,000 per year"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-30-hours-free-childcare',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to 30 hours free childcare application',
+        'Check both parents meet employment and earnings criteria',
+        'Explain 3-monthly reconfirmation requirement',
+        'Guide through Government Gateway sign-in process',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 123 4097', label: 'Childcare Service helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-tax-free-childcare': {
@@ -459,7 +1333,74 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Government Gateway account', 'Childcare provider details'],
       ruleIn: ['Both parents in work above minimum threshold', 'Child under 12'],
-      ruleOut: ['Currently receiving Universal Credit childcare element'],
+      ruleOut: ['Currently receiving Universal Credit childcare element'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<",
+          "value": 12,
+          "label": "Child must be under 12 (or under 17 if disabled)"
+        },
+        {
+          "type": "any",
+          "label": "Both parents in work (or single parent in work)",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "employed",
+                "self-employed",
+                "director"
+              ],
+              "label": "In paid work"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "field": "annual_income",
+          "operator": "<=",
+          "value": 100000,
+          "label": "Neither parent earns over £100,000 per year"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/tax-free-childcare',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to Tax-Free Childcare application',
+        'Explain the 25p per £1 government top-up',
+        'Warn about incompatibility with UC childcare element',
+        'Help compare TFC vs UC childcare element value',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { max_per_child: 2000, max_disabled_child: 4000 },
+      source: 'https://www.gov.uk/tax-free-childcare',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 123 4097', label: 'Childcare Service helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-marriage-allowance': {
@@ -486,7 +1427,51 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Government Gateway account for the lower earner to apply'],
       ruleIn: ['One partner earns below £12,570', 'Married or in civil partnership'],
-      ruleOut: ['Either partner pays higher or additional rate tax'],
+      ruleOut: ['Either partner pays higher or additional rate tax'],      rules: [
+        {
+          "type": "enum",
+          "field": "relationship_status",
+          "oneOf": [
+            "married",
+            "civil_partnership"
+          ],
+          "label": "Must be married or in a civil partnership"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.partner_income_below_personal_allowance",
+          "expected": true,
+          "label": "One partner earns below the Personal Allowance (£12,570)"
+        },
+        {
+          "type": "comparison",
+          "field": "annual_income",
+          "operator": "<=",
+          "value": 50270,
+          "label": "Higher-earning partner must be a basic-rate taxpayer (income ≤ £50,270)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/marriage-allowance/2.0',
+      onlineFormUrl: 'https://www.gov.uk/apply-marriage-allowance',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to Marriage Allowance application',
+        'Check both partners\' income levels to confirm eligibility',
+        'Explain backdating up to 4 years',
+        'Guide lower earner through Government Gateway sign-in',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { tax_saving: 252 },
+      source: 'https://www.gov.uk/marriage-allowance',
     },
   },
   'hmrc-cancel-marriage-allowance': {
@@ -511,7 +1496,38 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Government Gateway account or contact HMRC by phone'],
       ruleIn: ['Marriage Allowance previously claimed', 'Now separated, divorced, or widowed'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "relationship_status",
+          "oneOf": [
+            "separated",
+            "divorced",
+            "widowed"
+          ],
+          "label": "Now separated, divorced, or widowed"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.marriage_allowance_claimed",
+          "expected": true,
+          "label": "Marriage Allowance was previously claimed"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/marriage-allowance/if-your-circumstances-change',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to cancel Marriage Allowance online',
+        'Explain the importance of cancelling after separation or divorce',
+        'Advise on alternative phone route if online not available',
+        'Warn about potential tax underpayment if not cancelled',
+      ],
     },
   },
   'hmrc-update-records': {
@@ -538,6 +1554,19 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/tell-hmrc-change-of-details',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to HMRC change of details service',
+        'Guide through Personal Tax Account update process',
+        'Explain which changes affect tax code',
+        'Advise on phone alternative if online update not possible',
+      ],
+    },
   },
   'hmrc-sdlt': {
     id: 'hmrc-sdlt', name: 'Stamp Duty Land Tax return', dept: 'HMRC', deptKey: 'hmrc',
@@ -562,7 +1591,63 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Completion statement', 'SDLT1 form (usually filed by solicitor)'],
       ruleIn: ['Property purchase completed in England'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "deadline",
+          "triggerEvent": "property_completion_date",
+          "triggerLabel": "Date of property completion",
+          "maxDays": 14,
+          "label": "SDLT return must be filed within 14 days of completion"
+        },
+        {
+          "type": "any",
+          "label": "Property purchase in England or Northern Ireland",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "nation",
+              "oneOf": [
+                "england"
+              ],
+              "label": "Property in England"
+            },
+            {
+              "type": "enum",
+              "field": "custom_facts.property_nation",
+              "oneOf": [
+                "england",
+                "northern-ireland"
+              ],
+              "label": "Property in England or Northern Ireland"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Stamp%20Taxes%20Online',
+      onlineFormUrl: 'https://www.gov.uk/sdlt-online',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to SDLT online filing service',
+        'Explain the 14-day filing deadline after completion',
+        'Advise that solicitor usually handles this',
+        'Clarify that a return is required even if no tax is due',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 200 3510', label: 'Stamp Duty Land Tax helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:30',
+          close: '17:00',
+        },
+      ],
     },
   },
   'hmrc-lisa': {
@@ -589,7 +1674,48 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['LISA account details', 'Conveyancer handles request process from ISA provider'],
       ruleIn: ['First-time buyer', 'LISA opened before age 40', 'Property costs £450k or less'],
-      ruleOut: ['Existing homeowner', 'Property over £450,000'],
+      ruleOut: ['Existing homeowner', 'Property over £450,000'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_first_time_buyer",
+          "expected": true,
+          "label": "Must be a first-time buyer"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<",
+          "value": 40,
+          "label": "Must have opened the LISA before age 40"
+        },
+        {
+          "type": "comparison",
+          "field": "property_value",
+          "operator": "<=",
+          "value": 450000,
+          "label": "Property must cost £450,000 or less"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/lisa-api/2.0',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain LISA withdrawal process for property purchase',
+        'Advise that conveyancer handles the withdrawal request',
+        'Clarify eligibility (first-time buyer, property under £450k)',
+        'Warn about 25% penalty for non-qualifying withdrawals',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { government_bonus_rate_percent: 25, max_bonus: 1000 },
+      source: 'https://www.gov.uk/lifetime-isa',
     },
   },
   'hmrc-iht400': {
@@ -616,7 +1742,52 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['IHT400 form and supplementary schedules', 'Valuations of all assets', 'Details of gifts made in the last 7 years', 'Copy of will'],
       ruleIn: ['Estate value exceeds £325,000 nil-rate band'],
-      ruleOut: ['Estate below nil-rate band with no gifts'],
+      ruleOut: ['Estate below nil-rate band with no gifts'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A death has occurred"
+        },
+        {
+          "type": "comparison",
+          "field": "estate_value",
+          "operator": ">",
+          "value": 325000,
+          "label": "Estate value exceeds £325,000 nil-rate band"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "death_date",
+          "triggerLabel": "Date of death",
+          "maxDays": 180,
+          "label": "IHT400 must be filed within 6 months of death"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/government/publications/inheritance-tax-inheritance-tax-account-iht400',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to IHT400 form and guidance',
+        'Explain nil-rate band thresholds and residence nil-rate band',
+        'Advise on the 6-month deadline for tax payment',
+        'Explain that tax must be paid before probate is granted',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 123 1072', label: 'Inheritance Tax helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '17:00',
+        },
+      ],
     },
   },
   'hmrc-p45': {
@@ -642,6 +1813,18 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Leaving or having left PAYE employment'],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that the employer is legally required to issue a P45',
+        'Advise contacting former employer if P45 not received',
+        'Explain how to contact HMRC if employer is unresponsive',
+        'Clarify what the P45 is needed for (new job, tax refund, benefits)',
+      ],
+    },
   },
   'hmrc-tax-refund': {
     id: 'hmrc-tax-refund', name: 'Income tax refund (P50)', dept: 'HMRC', deptKey: 'hmrc',
@@ -666,7 +1849,36 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['P45 from former employer', 'P50 form for mid-year claim'],
       ruleIn: ['Overpaid PAYE tax mid-year', 'Not returning to work before April 5th'],
-      ruleOut: ['Returning to work in same tax year'],
+      ruleOut: ['Returning to work in same tax year'],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "unemployed"
+          ],
+          "label": "Not currently employed (left job mid-tax year)"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.overpaid_paye",
+          "expected": true,
+          "label": "Overpaid PAYE income tax during the current tax year"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/claim-tax-refund',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to tax refund claim process',
+        'Explain when a refund is likely (left job mid-year, not returning to work)',
+        'Advise on P50 form for mid-year claims',
+        'Clarify that P45 from employer is needed first',
+      ],
     },
   },
   'hmrc-self-assessment': {
@@ -693,7 +1905,62 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['National Insurance number', 'UTR (Unique Taxpayer Reference) issued by HMRC after registration'],
       ruleIn: ['Self-employed, company director, or income over £100k', 'Rental or untaxed income at source'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Self-employed, company director, or income over £100k",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "self-employed",
+                "director"
+              ],
+              "label": "Self-employed or company director"
+            },
+            {
+              "type": "comparison",
+              "field": "annual_income",
+              "operator": ">",
+              "value": 100000,
+              "label": "Annual income exceeds £100,000"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/self-assessment-api/3.0',
+      onlineFormUrl: 'https://www.gov.uk/self-assessment-tax-returns',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to Self Assessment registration',
+        'Explain who needs to register (self-employed, directors, landlords, income over £100k)',
+        'Advise on the 5 October registration deadline',
+        'Guide through Government Gateway sign-in process',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3310',
+        textphone: '+44 300 200 3319',
+        relay: '18001 then 0300 200 3310',
+        label: 'Self Assessment helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment',
+      notes: 'Extended hours in January (deadline month).',
     },
   },
   'hmrc-corporation-tax': {
@@ -719,7 +1986,50 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Companies House registration number (CRN)', 'Registered office address', 'Business start date'],
       ruleIn: ['Registered limited company'],
-      ruleOut: ['Sole trader or partnership'],
+      ruleOut: ['Sole trader or partnership'],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "ch-register-ltd",
+          "condition": "completed",
+          "label": "Limited company registered at Companies House"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "company_trading_start_date",
+          "triggerLabel": "Date company started trading",
+          "maxDays": 90,
+          "label": "Must register within 3 months of starting to trade"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Corporation%20Tax%20Online',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain Corporation Tax registration requirement for limited companies',
+        'Advise on the 3-month deadline from starting to trade',
+        'Confirm Companies House registration is in place',
+        'Guide through Government Gateway registration process',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3410',
+        textphone: '+44 300 200 3419',
+        relay: '18001 then 0300 200 3410',
+        label: 'Corporation Tax helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-vat': {
@@ -744,7 +2054,60 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Business details', 'Turnover evidence', 'Bank account for repayments'],
       ruleIn: ['Taxable turnover exceeded or expected to exceed £90,000'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Self-employed, director, or running a business",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "self-employed",
+                "director"
+              ],
+              "label": "Self-employed or company director"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "field": "annual_income",
+          "operator": ">=",
+          "value": 90000,
+          "label": "Taxable turnover exceeds £90,000 threshold"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain mandatory vs voluntary VAT registration',
+        'Advise on the £90,000 turnover threshold',
+        'Guide through Government Gateway registration process',
+        'Explain benefits of voluntary registration for B2B businesses',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3700',
+        textphone: '+44 300 200 3719',
+        relay: '18001 then 0300 200 3700',
+        label: 'VAT helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.tax.service.gov.uk/ask-hmrc/chat/vat-online',
     },
   },
   'hmrc-paye': {
@@ -770,7 +2133,59 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Business name and address', 'Nature of business', 'Date of first payday'],
       ruleIn: ['Employing workers above lower earnings limit'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Employing staff",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "self-employed",
+                "director"
+              ],
+              "label": "Self-employed or company director (employing others)"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.is_employer",
+          "expected": true,
+          "label": "Taking on employees who will earn above the lower earnings limit"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/PAYE%20Online',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain PAYE employer registration requirements',
+        'Advise that registration must be done before the first payday',
+        'Guide through Government Gateway registration process',
+        'Explain ongoing RTI submission obligations',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3200',
+        textphone: '+44 300 200 3212',
+        relay: '18001 then 0300 200 3200',
+        label: 'Employer helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'Also covers statutory payments (SMP, SPP, ShPP, SSP) for employers.',
     },
   },
   'hmrc-mtd': {
@@ -797,7 +2212,71 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['MTD-compatible software (e.g. Xero, QuickBooks, FreeAgent)', 'VAT registration number'],
       ruleIn: ['VAT-registered business', 'Self-employed or landlord with income over £50k (from 2026)'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "VAT-registered or self-employed/landlord with income over £50k",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "hmrc-vat",
+              "condition": "completed",
+              "label": "VAT registered"
+            },
+            {
+              "type": "all",
+              "label": "Self-employed or landlord with income over £50k (MTD for Income Tax)",
+              "rules": [
+                {
+                  "type": "enum",
+                  "field": "employment_status",
+                  "oneOf": [
+                    "self-employed"
+                  ],
+                  "label": "Self-employed or landlord"
+                },
+                {
+                  "type": "comparison",
+                  "field": "annual_income",
+                  "operator": ">=",
+                  "value": 50000,
+                  "label": "Income exceeds £50,000"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain MTD obligations for VAT-registered businesses',
+        'Advise on MTD-compatible software options',
+        'Explain upcoming Income Tax MTD rollout from April 2026',
+        'Guide through Government Gateway sign-up process',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3700',
+        textphone: '+44 300 200 3719',
+        relay: '18001 then 0300 200 3700',
+        label: 'VAT & Making Tax Digital helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.tax.service.gov.uk/ask-hmrc/chat/vat-online',
     },
   },
   'hmrc-register-sole-trader': {
@@ -822,7 +2301,46 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['National Insurance number', 'UTR issued after registration'],
       ruleIn: ['Started trading as sole trader'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "self-employed"
+          ],
+          "label": "Started trading as a sole trader"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/set-up-sole-trader',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to sole trader registration',
+        'Explain that registration is done via Self Assessment',
+        'Advise on the 5 October deadline in second tax year',
+        'Guide through Government Gateway sign-in process',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3310',
+        textphone: '+44 300 200 3319',
+        relay: '18001 then 0300 200 3310',
+        label: 'Self Assessment helpline (registrations)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment',
     },
   },
   'hmrc-carers-credit': {
@@ -850,7 +2368,67 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Evidence of caring role (CA9176 form)', 'Disability benefit details for the person cared for'],
       ruleIn: ['Caring 20+ hours per week for qualifying benefit recipient', 'Not receiving NI credits via another route'],
-      ruleOut: ['Already receiving Carer\'s Allowance'],
+      ruleOut: ['Already receiving Carer\'s Allowance'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_carer",
+          "expected": true,
+          "label": "Is a carer"
+        },
+        {
+          "type": "comparison",
+          "field": "caring_hours_per_week",
+          "operator": ">=",
+          "value": 20,
+          "label": "Caring for at least 20 hours per week"
+        },
+        {
+          "type": "boolean",
+          "field": "cared_for_receives_qualifying_benefit",
+          "expected": true,
+          "label": "Person cared for receives PIP, Attendance Allowance, or other qualifying disability benefit"
+        },
+        {
+          "type": "not",
+          "label": "Not already receiving Carer's Allowance (which provides its own NI credits)",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-carers-allowance",
+              "condition": "receiving",
+              "label": "Receiving Carer's Allowance"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain Carer\'s Credit and how it protects NI record',
+        'Advise that the claim is by post using form CA9176',
+        'Clarify the 20-hour-per-week caring threshold',
+        'Explain that this is not needed if already receiving Carer\'s Allowance',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3500',
+        textphone: '+44 300 200 3519',
+        relay: '18001 then 0300 200 3500',
+        label: 'National Insurance helpline (Carer\'s Credit)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-child-benefit-transfer': {
@@ -876,7 +2454,58 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Government Gateway account of new claimant', 'Child\'s details and date of change'],
       ruleIn: ['Child now living primarily with different parent', 'Parents separated'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "enum",
+          "field": "relationship_status",
+          "oneOf": [
+            "separated",
+            "divorced"
+          ],
+          "label": "Parents have separated or divorced"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.child_living_arrangements_changed",
+          "expected": true,
+          "label": "Child now living primarily with different parent"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/child-benefit-for-children-in-your-care',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to Child Benefit change of circumstances',
+        'Explain that only one parent can claim per child',
+        'Advise on the transfer process after separation',
+        'Guide new claimant through Government Gateway application',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3100',
+        textphone: '+44 300 200 3103',
+        relay: '18001 then 0300 200 3100',
+        label: 'Child Benefit helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmrc-ni-check': {
@@ -904,6 +2533,35 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/national-insurance/1.1',
+      onlineFormUrl: 'https://www.gov.uk/check-national-insurance-record',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to check NI record online',
+        'Explain how gaps affect State Pension entitlement',
+        'Advise on voluntary Class 3 contributions to fill gaps',
+        'Guide through Government Gateway sign-in to Personal Tax Account',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 200 3500',
+        textphone: '+44 300 200 3519',
+        relay: '18001 then 0300 200 3500',
+        label: 'National Insurance helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+    },
   },
   'hmrc-tax-on-pension': {
     id: 'hmrc-tax-on-pension', name: 'Income tax on pension', dept: 'HMRC', deptKey: 'hmrc',
@@ -928,7 +2586,37 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['P60 from pension provider', 'State Pension confirmation letter'],
       ruleIn: ['Receiving State Pension or private pension', 'Total income exceeds Personal Allowance'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "retired"
+          ],
+          "label": "Retired and receiving pension"
+        },
+        {
+          "type": "comparison",
+          "field": "annual_income",
+          "operator": ">",
+          "value": 12570,
+          "label": "Total income exceeds Personal Allowance (£12,570)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/tax-on-pension',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Provide direct link to pension tax information',
+        'Explain that State Pension is taxable but paid gross',
+        'Help check if tax code is correct via Personal Tax Account',
+        'Advise on contacting HMRC if tax code seems wrong',
+      ],
     },
   },
   'hmrc-aml-registration': {
@@ -1065,7 +2753,44 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Tell Us Once reference number (given by registrar)', 'Deceased\'s NI number and other details'],
       ruleIn: ['Death registered in England, Scotland, or Wales'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A death has occurred"
+        },
+        {
+          "type": "boolean",
+          "field": "death_registered",
+          "expected": true,
+          "label": "Death has been registered"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/after-a-death',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility for Tell Us Once',
+        'Guide user to register office appointment',
+        'List all departments that will be notified',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 800 085 7308', label: 'Tell Us Once helpline (England & Wales)' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'In Scotland, contact the registrar directly. Usually initiated at the registrar appointment.',
     },
   },
   'dwp-bereavement-support': {
@@ -1094,7 +2819,81 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Death certificate', 'Marriage or civil partnership certificate', 'NI numbers for both parties'],
       ruleIn: ['Spouse or civil partner died', 'Under State Pension age at time of death', 'Deceased had 25+ weeks NI contributions'],
-      ruleOut: ['Cohabiting but not married or in civil partnership', 'Partner died before 6 April 2017'],
+      ruleOut: ['Cohabiting but not married or in civil partnership', 'Partner died before 6 April 2017'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "Spouse or civil partner must have died"
+        },
+        {
+          "type": "any",
+          "label": "Must have been married or in a civil partnership",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "relationship_status",
+              "oneOf": [
+                "married",
+                "civil_partnership",
+                "widowed"
+              ],
+              "label": "Married, civil partner, or widowed"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<",
+          "value": 66,
+          "label": "Must be under State Pension age (66) at time of partner's death"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "partner_death_date",
+          "triggerLabel": "date of partner's death",
+          "maxDays": 639,
+          "label": "Must claim within 21 months of partner's death"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/bereavement-support-payment/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using MissingBenefit API',
+        'Estimate benefit amount based on circumstances',
+        'Guide user through online application form',
+        'Prepare required evidence checklist',
+      ],
+      missingBenefitId: 'bereavementSupportPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { lump_sum_higher: 3500, lump_sum_lower: 2500, monthly_higher: 350, monthly_lower: 100 },
+      source: 'https://www.gov.uk/bereavement-support-payment/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 151 2012',
+        textphone: '+44 800 731 0464',
+        relay: '18001 then 0800 151 2012',
+        label: 'Bereavement Service Centre',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'Also handles Funeral Expenses Payment and widowed parent claims.',
     },
   },
   'dwp-funeral-payment': {
@@ -1121,7 +2920,81 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Funeral bill or invoice from funeral director', 'Death certificate'],
       ruleIn: ['Receiving qualifying means-tested benefit', 'Responsible for funeral costs'],
-      ruleOut: ['Close relative of deceased able to pay instead'],
+      ruleOut: ['Close relative of deceased able to pay instead'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "Must be responsible for arranging a funeral"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-housing-benefit",
+              "condition": "receiving",
+              "label": "Receiving Housing Benefit"
+            }
+          ]
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "funeral_date",
+          "triggerLabel": "date of the funeral",
+          "maxDays": 183,
+          "label": "Must claim within 6 months of the funeral"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/funeral-payments/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check eligibility for Funeral Expenses Payment',
+        'Provide guidance on claiming by phone or post (SF200 form)',
+        'Help gather required evidence (funeral bill, proof of qualifying benefit)',
+        'Explain that payment may be recovered from the estate',
+      ],
+      missingBenefitId: 'funeralExpensesPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { max_amount: 1000 },
+      source: 'https://www.gov.uk/funeral-payments/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 151 2012',
+        textphone: '+44 800 731 0464',
+        relay: '18001 then 0800 151 2012',
+        label: 'Bereavement Service Centre (Funeral Expenses)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'dwp-state-pension': {
@@ -1149,7 +3022,59 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['NI number', 'Bank account details for payment'],
       ruleIn: ['Reached State Pension age (66+)', '10+ qualifying NI years'],
-      ruleOut: ['Under 66'],
+      ruleOut: ['Under 66'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 66,
+          "label": "Must have reached State Pension age (66)"
+        },
+        {
+          "type": "comparison",
+          "field": "ni_qualifying_years",
+          "operator": ">=",
+          "value": 10,
+          "label": "Need at least 10 qualifying NI years to receive any State Pension"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/new-state-pension/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check State Pension age using GOV.UK calculator',
+        'Estimate State Pension amount from NI record',
+        'Guide user through online claim process',
+        'Explain deferral options and their financial impact',
+      ],
+      missingBenefitId: 'statePension',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { new_full_weekly: 230.25, basic_full_weekly: 176.45 },
+      source: 'https://www.gov.uk/new-state-pension/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 731 0469',
+        textphone: '+44 800 731 7898',
+        relay: '18001 then 0800 731 0469',
+        label: 'Pension Service helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      contactFormUrl: 'https://www.gov.uk/contact-pension-service',
     },
   },
   'dwp-pension-credit': {
@@ -1177,7 +3102,60 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Bank statements', 'Pension and income details', 'Proof of savings and capital'],
       ruleIn: ['Reached State Pension age (66+)', 'Weekly income below Pension Credit threshold'],
-      ruleOut: ['Savings above £10,000 reducing entitlement to zero'],
+      ruleOut: ['Savings above £10,000 reducing entitlement to zero'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 66,
+          "label": "Must have reached State Pension age (66)"
+        },
+        {
+          "type": "comparison",
+          "field": "weekly_income",
+          "operator": "<",
+          "value": 228,
+          "label": "Weekly income must be below Pension Credit threshold (~£227.10 single)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/pension-credit/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using MissingBenefit API',
+        'Estimate Pension Credit entitlement from income details',
+        'Guide user through online or phone application',
+        'Explain gateway benefits unlocked by Pension Credit',
+        'Prepare list of required financial evidence',
+      ],
+      missingBenefitId: 'pensionCredit',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { guarantee_single: 227.10, guarantee_couple: 346.60, savings_max_single: 17.30, savings_max_couple: 19.36 },
+      source: 'https://www.gov.uk/pension-credit/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 99 1234',
+        textphone: '+44 800 169 0133',
+        relay: '18001 then 0800 99 1234',
+        label: 'Pension Credit claim line',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'For new claims. Existing claimants use Pension Service line (0800 731 0469).',
     },
   },
   'dwp-winter-fuel': {
@@ -1203,7 +3181,87 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Automatic if receiving Pension Credit — no separate application needed'],
       ruleIn: ['Receiving Pension Credit or qualifying means-tested benefit'],
-      ruleOut: ['Over State Pension age but not on qualifying benefit'],
+      ruleOut: ['Over State Pension age but not on qualifying benefit'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 66,
+          "label": "Must have reached State Pension age"
+        },
+        {
+          "type": "any",
+          "label": "Must receive Pension Credit or another qualifying means-tested benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_based_jsa",
+              "expected": true,
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check if user receives Pension Credit or qualifying benefit',
+        'Explain eligibility changes from winter 2024/25',
+        'Advise on claiming Pension Credit as gateway to Winter Fuel Payment',
+        'Provide Winter Fuel Payment helpline contact details',
+      ],
+      missingBenefitId: 'winterFuelPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { under_80_single: 200, over_80_single: 300 },
+      source: 'https://www.gov.uk/winter-fuel-payment/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 731 0160',
+        textphone: '+44 800 731 0464',
+        relay: '18001 then 0800 731 0160',
+        label: 'Winter Fuel Payment helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'Usually automatic for State Pension recipients.',
     },
   },
   'dwp-attendance-allowance': {
@@ -1232,7 +3290,76 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['AA1 claim form', 'Medical evidence from GP or specialist helpful', 'Carer details if applicable'],
       ruleIn: ['Aged 66 or over', 'Personal care needs due to physical or mental condition'],
-      ruleOut: ['Under State Pension age'],
+      ruleOut: ['Under State Pension age'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 66,
+          "label": "Must be aged 66 or over (State Pension age)"
+        },
+        {
+          "type": "any",
+          "label": "Must have a disability or long-term health condition",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            },
+            {
+              "type": "boolean",
+              "field": "has_terminal_illness",
+              "expected": true,
+              "label": "Has a terminal illness"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/attendance-allowance/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using MissingBenefit API',
+        'Guide user through AA1 claim form completion',
+        'Help describe how condition affects daily living',
+        'Advise on gathering supporting medical evidence',
+        'Explain Special Rules for terminal illness (fast-track)',
+      ],
+      missingBenefitId: 'attendanceAllowance',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { lower: 73.90, higher: 110.40 },
+      source: 'https://www.gov.uk/attendance-allowance/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 731 0122',
+        textphone: '+44 800 731 0317',
+        relay: '18001 then 0800 731 0122',
+        label: 'Attendance Allowance helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'dwp-pip': {
@@ -1263,7 +3390,90 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['PIP2 questionnaire (How your disability affects you)', 'Medical evidence from GP or specialist', 'Face-to-face or phone assessment with health professional'],
       ruleIn: ['Disability or long-term health condition', 'Aged 16–64'],
-      ruleOut: ['Reached State Pension age (66+)'],
+      ruleOut: ['Reached State Pension age (66+)'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be aged 16 or over"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<",
+          "value": 66,
+          "label": "Must be under State Pension age (66)"
+        },
+        {
+          "type": "any",
+          "label": "Must have a disability or long-term health condition",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            },
+            {
+              "type": "boolean",
+              "field": "has_terminal_illness",
+              "expected": true,
+              "label": "Has a terminal illness"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Must usually live in England, Scotland or Wales"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/pip/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using MissingBenefit API',
+        'Guide user through PIP2 (How your disability affects you) form',
+        'Help describe daily living and mobility difficulties',
+        'Advise on gathering medical evidence from GP or specialist',
+        'Explain assessment process and what to expect',
+        'Explain Special Rules for terminal illness (fast-track)',
+      ],
+      missingBenefitId: 'pip',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { daily_living_standard: 73.90, daily_living_enhanced: 110.40, mobility_standard: 29.20, mobility_enhanced: 77.05 },
+      source: 'https://www.gov.uk/pip/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 917 2222',
+        textphone: '+44 800 121 4433',
+        relay: '18001 then 0800 917 2222',
+        label: 'PIP helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '17:00',
+        },
+      ],
     },
   },
   'dwp-universal-credit': {
@@ -1293,7 +3503,75 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Photo ID', 'NI number', 'Bank statements (last 3 months)', 'Proof of address', 'Rent details if applicable'],
       ruleIn: ['Out of work or low income', 'UK resident aged 18 or over'],
-      ruleOut: ['Savings over £16,000', 'Over State Pension age'],
+      ruleOut: ['Savings over £16,000', 'Over State Pension age'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 18,
+          "label": "Must be aged 18 or over"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<",
+          "value": 66,
+          "label": "Must be under State Pension age (66)"
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Must be habitually resident in the UK"
+        },
+        {
+          "type": "comparison",
+          "field": "savings",
+          "operator": "<",
+          "value": 16000,
+          "label": "Savings must be under £16,000"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using MissingBenefit API',
+        'Estimate UC entitlement from income and circumstances',
+        'Guide user through online UC account creation',
+        'Explain claimant commitment and work-search requirements',
+        'Help prepare required documents and evidence',
+      ],
+      missingBenefitId: 'universalCredit',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'monthly',
+      rates: { single_under_25: 316.98, single_25_plus: 400.14, couple_under_25: 497.55, couple_25_plus: 628.10 },
+      source: 'https://www.gov.uk/universal-credit/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 328 5644',
+        textphone: '+44 800 328 1344',
+        relay: '18001 then 0800 328 5644',
+        welsh: '+44 800 328 1744',
+        label: 'Universal Credit helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.universal-credit.service.gov.uk/sign-in',
+      notes: 'Webchat available via UC journal after signing in.',
     },
   },
   'dwp-new-style-jsa': {
@@ -1321,7 +3599,72 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['P45 from employer', 'NI number', 'Bank details', 'CV and job-seeking evidence'],
       ruleIn: ['Class 1 NI contributions in last two tax years', 'Actively seeking work'],
-      ruleOut: ['Under State Pension age with no recent NI record'],
+      ruleOut: ['Under State Pension age with no recent NI record'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 18,
+          "label": "Must be aged 18 or over"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<",
+          "value": 66,
+          "label": "Must be under State Pension age (66)"
+        },
+        {
+          "type": "boolean",
+          "field": "has_recent_ni_contributions",
+          "expected": true,
+          "label": "Must have Class 1 NI contributions in last two tax years"
+        },
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "unemployed"
+          ],
+          "label": "Must be unemployed or working fewer than 16 hours per week"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check NI contribution record eligibility',
+        'Explain relationship between New Style JSA and Universal Credit',
+        'Guide user through online application',
+        'Help prepare job-seeking evidence and CV',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { under_25: 72.90, over_25: 92.05 },
+      source: 'https://www.gov.uk/jobseekers-allowance',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 169 0140',
+        textphone: '+44 800 169 0207',
+        relay: '18001 then 0800 169 0140',
+        welsh: '+44 800 169 0190',
+        label: 'Jobcentre Plus',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'dwp-new-style-esa': {
@@ -1347,7 +3690,75 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Fit note from GP', 'NI number', 'Medical evidence', 'Work Capability Assessment (scheduled by DWP)'],
       ruleIn: ['Health condition preventing or limiting work', 'NI contributions in last two tax years'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_recent_ni_contributions",
+          "expected": true,
+          "label": "Must have sufficient NI contributions in last two tax years"
+        },
+        {
+          "type": "any",
+          "label": "Health condition must limit or prevent work",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            },
+            {
+              "type": "boolean",
+              "field": "has_terminal_illness",
+              "expected": true,
+              "label": "Has a terminal illness"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/employment-support-allowance/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check eligibility for New Style ESA',
+        'Explain fit note requirement and how to get one from GP',
+        'Describe Work Capability Assessment process',
+        'Advise on gathering supporting medical evidence',
+      ],
+      missingBenefitId: 'esa',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { under_25: 72.90, over_25: 92.05, support_component: 48.50 },
+      source: 'https://www.gov.uk/employment-support-allowance/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 055 6688',
+        textphone: '+44 800 023 4888',
+        relay: '18001 then 0800 055 6688',
+        label: 'ESA helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'For new claims. Existing claimants use Jobcentre Plus or UC helpline.',
     },
   },
   'dwp-mandatory-reconsideration': {
@@ -1372,7 +3783,45 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Decision letter from DWP', 'Any supporting medical or financial evidence not previously considered'],
       ruleIn: ['Received adverse DWP benefit decision', 'Within 1 month of decision letter'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "deadline",
+          "triggerEvent": "decision_date",
+          "triggerLabel": "Date of DWP decision letter",
+          "maxDays": 30,
+          "label": "Must request within 1 month of the decision letter"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/mandatory-reconsideration',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the Mandatory Reconsideration process and timeline',
+        'Help draft a Mandatory Reconsideration request letter',
+        'Advise on gathering additional evidence to support the case',
+        'Explain next steps if reconsideration is unsuccessful (tribunal appeal)',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 169 0310',
+        textphone: '+44 800 169 0314',
+        relay: '18001 then 0800 169 0310',
+        label: 'DWP general (or use benefit-specific helpline)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'Contact the helpline for the specific benefit being reconsidered.',
     },
   },
   'dwp-maternity-allowance': {
@@ -1399,7 +3848,73 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['MATB1 certificate', 'Employment or self-employment evidence', 'Payslips or accounts', 'MA1 claim form'],
       ruleIn: ['Not eligible for SMP', 'Self-employed or recently employed', 'Worked 26 weeks in last 66 weeks'],
-      ruleOut: ['Eligible for Statutory Maternity Pay from employer'],
+      ruleOut: ['Eligible for Statutory Maternity Pay from employer'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_pregnant",
+          "expected": true,
+          "label": "Must be pregnant or have recently given birth"
+        },
+        {
+          "type": "any",
+          "label": "Must be self-employed or recently employed (not eligible for SMP)",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "self-employed"
+              ],
+              "label": "Self-employed"
+            },
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "employed",
+                "unemployed"
+              ],
+              "label": "Recently employed or unemployed (not eligible for SMP)"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/maternity-allowance/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility for Maternity Allowance vs SMP',
+        'Guide user through MA1 claim form',
+        'Help gather employment evidence and MATB1 certificate',
+        'Explain payment schedule and duration',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { standard_weekly: 187.18 },
+      source: 'https://www.gov.uk/maternity-allowance/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 169 0140',
+        textphone: '+44 800 169 0207',
+        relay: '18001 then 0800 169 0140',
+        welsh: '+44 800 169 0190',
+        label: 'Jobcentre Plus (Maternity Allowance)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'dwp-sure-start-grant': {
@@ -1426,7 +3941,101 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Evidence of qualifying benefit', 'MATB1 form or birth certificate', 'SF100 form'],
       ruleIn: ['Receiving qualifying means-tested benefit', 'Expecting first baby or under 3 months old'],
-      ruleOut: ['Second or subsequent child with older children under 16'],
+      ruleOut: ['Second or subsequent child with older children under 16'],      rules: [
+        {
+          "type": "any",
+          "label": "Must be expecting a baby or have a baby under 3 months old",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Pregnant (11+ weeks before due date)"
+            },
+            {
+              "type": "all",
+              "label": "Baby under 3 months old",
+              "rules": [
+                {
+                  "type": "boolean",
+                  "field": "has_children",
+                  "expected": true,
+                  "label": "Has children"
+                },
+                {
+                  "type": "comparison",
+                  "field": "youngest_child_age",
+                  "operator": "==",
+                  "value": 0,
+                  "label": "Baby under 1 year old"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            }
+          ]
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "baby_birth_date",
+          "triggerLabel": "date of baby's birth",
+          "maxDays": 91,
+          "label": "Must claim within 3 months of birth (or from 11 weeks before due date)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/sure-start-maternity-grant/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check eligibility for Sure Start Maternity Grant',
+        'Explain SF100 claim form process',
+        'Help gather required evidence (MATB1 or birth certificate)',
+        'Advise on claiming deadline (11 weeks before to 3 months after birth)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { grant_amount: 500 },
+      source: 'https://www.gov.uk/sure-start-maternity-grant/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 169 0140',
+        textphone: '+44 800 169 0207',
+        relay: '18001 then 0800 169 0140',
+        welsh: '+44 800 169 0190',
+        label: 'Jobcentre Plus (Sure Start Maternity Grant)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'UC claimants apply through their UC journal instead.',
     },
   },
   'dwp-ni-credits': {
@@ -1452,7 +4061,58 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['No separate application if receiving qualifying benefits — awarded automatically'],
       ruleIn: ['Receiving UC, JSA, ESA, or Child Benefit for child under 12'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Receiving a qualifying benefit or claiming Child Benefit for child under 12",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-jsa",
+              "condition": "receiving",
+              "label": "Receiving New Style JSA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-esa",
+              "condition": "receiving",
+              "label": "Receiving New Style ESA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-carers-allowance",
+              "condition": "receiving",
+              "label": "Receiving Carer's Allowance"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.claiming_child_benefit_under_12",
+              "expected": true,
+              "label": "Claiming Child Benefit for a child under 12"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/national-insurance-credits/how-to-apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain how NI credits protect State Pension entitlement',
+        'Check if credits are being awarded automatically via qualifying benefits',
+        'Advise on applying for Specified Adult Childcare credits if applicable',
+        'Guide user to check NI record online',
+      ],
     },
   },
   'dwp-carers-allowance': {
@@ -1482,7 +4142,84 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Evidence of caring role', 'Benefit award letter for person cared for', 'Income evidence if working'],
       ruleIn: ['Caring 35+ hours per week', 'Person cared for receives qualifying disability benefit', 'Net earnings below £151/week'],
-      ruleOut: ['In full-time education (21+ hours per week)'],
+      ruleOut: ['In full-time education (21+ hours per week)'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_carer",
+          "expected": true,
+          "label": "Must be caring for someone"
+        },
+        {
+          "type": "comparison",
+          "field": "caring_hours_per_week",
+          "operator": ">=",
+          "value": 35,
+          "label": "Must provide at least 35 hours of care per week"
+        },
+        {
+          "type": "boolean",
+          "field": "cared_for_receives_qualifying_benefit",
+          "expected": true,
+          "label": "Person cared for must receive PIP daily living, Attendance Allowance, or DLA middle/higher care"
+        },
+        {
+          "type": "comparison",
+          "field": "weekly_earnings",
+          "operator": "<=",
+          "value": 151,
+          "label": "Net earnings must be £151/week or less"
+        },
+        {
+          "type": "not",
+          "label": "Must not be in full-time education (21+ hours/week)",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_in_full_time_education",
+              "expected": true,
+              "label": "In full-time education"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/carers-allowance/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using MissingBenefit API',
+        'Verify the cared-for person receives a qualifying disability benefit',
+        'Guide user through online Carer\'s Allowance application',
+        'Explain overlapping benefits rule and impact on other payments',
+        'Advise on UC Carer element if also on Universal Credit',
+      ],
+      missingBenefitId: 'carersAllowance',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { weekly_rate: 83.30 },
+      source: 'https://www.gov.uk/carers-allowance/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 731 0297',
+        textphone: '+44 800 731 0317',
+        relay: '18001 then 0800 731 0297',
+        label: 'Carer\'s Allowance Unit',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      contactFormUrl: 'https://www.gov.uk/carers-allowance-unit',
     },
   },
   'dwp-uc-carer': {
@@ -1509,7 +4246,71 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Notify DWP of caring role through UC journal'],
       ruleIn: ['On Universal Credit', 'Eligible for Carer\'s Allowance (caring 35+ hrs/week)'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "dwp-universal-credit",
+          "condition": "receiving",
+          "label": "Must be receiving Universal Credit"
+        },
+        {
+          "type": "boolean",
+          "field": "is_carer",
+          "expected": true,
+          "label": "Is a carer"
+        },
+        {
+          "type": "comparison",
+          "field": "caring_hours_per_week",
+          "operator": ">=",
+          "value": 35,
+          "label": "Caring for at least 35 hours per week"
+        },
+        {
+          "type": "boolean",
+          "field": "cared_for_receives_qualifying_benefit",
+          "expected": true,
+          "label": "Person cared for receives a qualifying disability benefit (PIP daily living, AA, etc.)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user is on Universal Credit and eligible for Carer\'s Allowance',
+        'Guide user to report caring role via UC journal',
+        'Explain that UC Carer element is added automatically once reported',
+        'Advise on interaction with Carer\'s Allowance payments',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'monthly',
+      rates: { carer_element: 201.68 },
+      source: 'https://www.gov.uk/universal-credit/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 328 5644',
+        textphone: '+44 800 328 1344',
+        relay: '18001 then 0800 328 5644',
+        welsh: '+44 800 328 1744',
+        label: 'Universal Credit helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.universal-credit.service.gov.uk/sign-in',
+      notes: 'Managed within Universal Credit. Use UC journal or helpline.',
     },
   },
   'dwp-access-to-work': {
@@ -1535,7 +4336,71 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Evidence of employment or job offer', 'Evidence of disability or health condition (may be required)', 'Quotes for support/equipment needed'],
       ruleIn: ['Disability or health condition affecting work or commute', 'In paid work or about to start'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Must have a disability or health condition affecting work",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            }
+          ]
+        },
+        {
+          "type": "any",
+          "label": "Must be in paid work, self-employed, or about to start work",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "employed",
+                "self-employed"
+              ],
+              "label": "Currently employed or self-employed"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/access-to-work/apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility for Access to Work grant',
+        'Guide user through online application process',
+        'Help identify what workplace support or adaptations are needed',
+        'Explain assessment process and what to expect',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 121 7479',
+        textphone: '+44 800 121 7579',
+        relay: '18001 then 0800 121 7479',
+        label: 'Access to Work helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '17:00',
+        },
+      ],
+      notes: 'BSL video relay available.',
     },
   },
   'dwp-uc-health': {
@@ -1562,7 +4427,76 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Fit note from GP (SC1 or equivalent)', 'Medical evidence for WCA (UC50 questionnaire)', 'Assessment appointment with health professional'],
       ruleIn: ['On Universal Credit', 'Health condition limits capacity for work'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "dwp-universal-credit",
+          "condition": "receiving",
+          "label": "Must be receiving Universal Credit"
+        },
+        {
+          "type": "any",
+          "label": "Health condition limits or prevents capacity for work",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.wca_completed",
+          "expected": true,
+          "label": "Work Capability Assessment completed with limited capability finding"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain fit note requirement and Work Capability Assessment process',
+        'Guide user to submit fit note via UC journal',
+        'Help prepare for UC50 questionnaire about health condition',
+        'Advise on gathering supporting medical evidence',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'monthly',
+      rates: { lcwra_element: 423.27 },
+      source: 'https://www.gov.uk/universal-credit/what-youll-get',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 328 5644',
+        textphone: '+44 800 328 1344',
+        relay: '18001 then 0800 328 5644',
+        welsh: '+44 800 328 1744',
+        label: 'Universal Credit helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.universal-credit.service.gov.uk/sign-in',
+      notes: 'Managed within Universal Credit. Use UC journal or helpline.',
     },
   },
   'dwp-child-maintenance': {
@@ -1589,7 +4523,66 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Paying parent\'s income details (CMS contacts HMRC directly)', 'Children\'s details', 'Your contact details'],
       ruleIn: ['Separated parents with children under 16', 'No private maintenance arrangement'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "any",
+          "label": "Parents are separated",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "relationship_status",
+              "oneOf": [
+                "separated",
+                "divorced"
+              ],
+              "label": "Separated or divorced"
+            },
+            {
+              "type": "boolean",
+              "field": "is_single_parent",
+              "expected": true,
+              "label": "Is a single parent"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/child-maintenance-service/apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain Child Maintenance Service options (Direct Pay vs Collect & Pay)',
+        'Guide user through online application',
+        'Help understand how maintenance is calculated from paying parent income',
+        'Advise on trying a family-based arrangement first',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 171 2345',
+        textphone: '+44 800 232 1271',
+        relay: '18001 then 0800 171 2345',
+        welsh: '+44 800 232 1979',
+        label: 'Child Maintenance Service',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '17:00',
+        },
+      ],
+      complaintsUrl: 'https://www.gov.uk/child-maintenance-service/complaints',
     },
   },
   'dwp-ni-number': {
@@ -1616,7 +4609,63 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Proof of identity (passport or BRP)', 'Proof of address', 'Right to work documents'],
       ruleIn: ['Right to work in the UK confirmed', 'No existing NI number'],
-      ruleOut: ['UK citizen (already assigned NI number at 16)'],
+      ruleOut: ['UK citizen (already assigned NI number at 16)'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Living in the UK"
+        },
+        {
+          "type": "not",
+          "label": "Not a UK citizen (UK citizens receive NI number automatically at 16)",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "citizenship",
+              "oneOf": [
+                "british"
+              ],
+              "label": "British citizen"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.has_right_to_work",
+          "expected": true,
+          "label": "Has the right to work in the UK"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-national-insurance-number',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check if user already has an NI number',
+        'Guide user through online NI number application',
+        'Help gather right-to-work documents (BRP, share code)',
+        'Explain what to expect after applying (interview may be required)',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 141 2079',
+        textphone: '+44 800 141 2438',
+        relay: '18001 then 0800 141 2079',
+        label: 'National Insurance number helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '17:00',
+        },
+      ],
     },
   },
 
@@ -1645,6 +4694,21 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online', 'in-person'],
+      apiAvailable: true,
+      apiUrl: 'https://digital.nhs.uk/developer/api-catalogue/register-with-a-gp-surgery',
+      onlineFormUrl: 'https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/',
+      authRequired: 'nhs-login',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check which GP practices accept patients in the user\'s area',
+        'Guide user through NHS online registration form',
+        'Prepare list of documents helpful for registration',
+        'Explain that medical records transfer automatically from previous GP',
+      ],
+    },
+      contactInfo: { officeLocatorUrl: 'https://www.nhs.uk/service-search/find-a-gp', notes: 'Contact GP surgeries directly. Use NHS Find a GP to locate surgeries accepting patients.' },
   },
   'nhs-healthy-start': {
     id: 'nhs-healthy-start', name: 'Healthy Start vouchers', dept: 'NHS', deptKey: 'nhs',
@@ -1669,7 +4733,87 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['MATB1 form or proof of pregnancy/child\'s age', 'Proof of qualifying benefit'],
       ruleIn: ['Pregnant (10+ weeks) or child under 4', 'Receiving UC, Child Tax Credit, or Income Support'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Must be pregnant (10+ weeks) or have a child under 4",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Pregnant"
+            },
+            {
+              "type": "all",
+              "label": "Has a child under 4",
+              "rules": [
+                {
+                  "type": "boolean",
+                  "field": "has_children",
+                  "expected": true,
+                  "label": "Has children"
+                },
+                {
+                  "type": "comparison",
+                  "field": "youngest_child_age",
+                  "operator": "<",
+                  "value": 4,
+                  "label": "Youngest child under 4"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.healthystart.nhs.uk/how-to-apply/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on benefits and pregnancy or child age',
+        'Guide user through the Healthy Start online application',
+        'Explain what the prepaid card can be used for (fruit, veg, milk, infant formula)',
+        'Calculate estimated weekly value based on family circumstances',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { card_value: 4.25, pregnant_value: 8.50 },
+      source: 'https://www.healthystart.nhs.uk/',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 7010', label: 'Healthy Start helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '17:00',
+        },
+      ],
     },
   },
   'nhs-free-prescriptions-pregnancy': {
@@ -1695,7 +4839,53 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['FW8 form signed by midwife or GP — gives Maternity Exemption Certificate (valid until 12 months after due date)'],
       ruleIn: ['Currently pregnant or given birth within 12 months'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Currently pregnant or gave birth within the last 12 months",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Currently pregnant"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.gave_birth_last_12_months",
+              "expected": true,
+              "label": "Gave birth in the last 12 months"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that a Maternity Exemption Certificate is obtained via midwife or GP',
+        'Advise that free prescriptions and dental care continue until baby is 12 months old',
+        'Remind user to ask midwife for the FW8 form at their next appointment',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 1341', label: 'NHS BSA (MatEx certificate queries)' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '15:00',
+        },
+      ],
     },
   },
   'nhs-free-prescriptions': {
@@ -1723,7 +4913,93 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Benefit award letter or FP92A medical exemption form signed by GP'],
       ruleIn: ['Receiving PIP, DLA, or qualifying medical condition', 'Under 16, or 60 and over'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Meets at least one free prescription criterion",
+          "rules": [
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": ">=",
+              "value": 60,
+              "label": "Aged 60 or over"
+            },
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": "<",
+              "value": 16,
+              "label": "Under 16"
+            },
+            {
+              "type": "boolean",
+              "field": "receives_pip",
+              "expected": true,
+              "label": "Receiving PIP"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.has_medical_exemption_certificate",
+              "expected": true,
+              "label": "Has a medical exemption certificate (qualifying condition)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit (with health element)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "nhs-low-income-scheme",
+              "condition": "receiving",
+              "label": "Has HC2 certificate (NHS Low Income Scheme)"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/get-a-pds-exemption-certificate',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on benefits, age, or qualifying medical condition',
+        'Guide user through the online exemption certificate application',
+        'Explain Prescription Prepayment Certificate option if not exempt (£111/year)',
+        'Prepare document checklist for the application',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 1341', label: 'Help with NHS costs' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '15:00',
+        },
+      ],
     },
   },
   'nhs-care-assessment': {
@@ -1750,6 +5026,19 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['phone', 'in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the care needs assessment process and what to expect',
+        'Help user identify their local authority adult social care contact details',
+        'Advise that the assessment itself is free regardless of income',
+        'Suggest requesting a carer\'s assessment at the same time if applicable',
+      ],
+    },
+      contactInfo: { localAuthority: true, officeLocatorUrl: 'https://www.gov.uk/find-local-council', notes: 'Adult social care is delivered by local authorities despite NHS deptKey. Contact your local council.' },
   },
 
   // DVLA ─────────────────────────────────────────────────────────────────────
@@ -1780,6 +5069,41 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['UK passport or other acceptable identity document', 'Address details', '£34 fee (online) or £43 fee (postal D1 form)'],
       ruleIn: ['Aged 15 years and 9 months or over', 'GB resident for 185+ days in last 12 months'],
       ruleOut: ['Cannot read number plate at 20 metres'],
+      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be at least 15 years and 9 months old (age 16 rounded)"
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Normally resident in Great Britain"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-first-provisional-driving-licence',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check age eligibility (15 years 9 months to apply)',
+        'Guide user through the online application on GOV.UK',
+        'Prepare document checklist (passport or birth certificate, address details)',
+        'Explain the £34 fee and expected processing time',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 34 },
+      source: 'https://www.gov.uk/apply-first-provisional-driving-licence',
     },
   },
 
@@ -1808,6 +5132,41 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Provisional driving licence photocard', '£23 test fee (booked online via DVSA)'],
       ruleIn: ['Valid provisional driving licence held', 'GB resident 185+ days in last 12 months'],
       ruleOut: ['Theory test pass certificate expired (over 2 years old)'],
+      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 17,
+          "label": "Must be at least 17 years old (16 for moped)"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "dvla-provisional-licence",
+          "condition": "completed",
+          "label": "Must hold a valid provisional driving licence"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/book-theory-test',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm provisional driving licence is held',
+        'Guide user through the DVSA theory test booking portal',
+        'Explain test format (multiple choice and hazard perception)',
+        'Calculate estimated costs',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 23 },
+      source: 'https://www.gov.uk/book-theory-test',
     },
   },
   'dvsa-driving-test': {
@@ -1834,6 +5193,40 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Theory test pass certificate (valid within 2 years)', 'Provisional driving licence photocard', '£62–£75 test fee (booked online via DVSA)'],
       ruleIn: ['Theory test passed within last 2 years', 'GB resident 185+ days in last 12 months'],
       ruleOut: ['Theory test pass certificate expired (over 2 years old)'],
+      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "dvla-provisional-licence",
+          "condition": "completed",
+          "label": "Must hold a valid provisional driving licence"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "dvsa-theory-test",
+          "condition": "completed",
+          "label": "Must have passed the theory test (valid within 2 years)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/book-driving-test',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm theory test pass certificate is valid (within 2 years)',
+        'Guide user through the DVSA practical test booking portal',
+        'Explain weekday vs weekend pricing',
+        'Prepare checklist of what to bring on test day',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee_weekday: 62, fee_weekend: 75 },
+      source: 'https://www.gov.uk/book-driving-test',
     },
   },
 
@@ -1858,7 +5251,29 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Current driving licence', 'New address details', 'Government Gateway or DVLA online service'],
       ruleIn: ['Holds GB driving licence', 'Has moved to new address'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "deadline",
+          "triggerEvent": "move_date",
+          "triggerLabel": "Date of move to new address",
+          "maxDays": 90,
+          "label": "Must update address within 3 months of moving"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/change-address-driving-licence',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'full',
+      agentSteps: [
+        'Guide user through the online address change form step by step',
+        'Confirm new address details and driving licence number',
+        'Explain the legal requirement to update within 3 months of moving',
+        'Advise that the service is free and a new photocard will be posted',
+      ],
     },
   },
   'dvla-name-change': {
@@ -1884,7 +5299,28 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['D1 form (or online application)', 'Current driving licence', 'Marriage certificate or deed poll', 'Passport photo'],
       ruleIn: ['Legal name change after marriage, civil partnership, or deed poll', 'Holds GB driving licence'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "custom_facts.name_changed",
+          "expected": true,
+          "label": "Legal name has changed (marriage, civil partnership, or deed poll)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/change-name-driving-licence',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Guide user through the online name change application',
+        'Prepare document checklist (marriage certificate or deed poll, current licence)',
+        'Explain the D1 postal alternative if online is not suitable',
+        'Advise on expected processing time for the new photocard',
+      ],
     },
   },
   'dvla-cancel-licence': {
@@ -1910,7 +5346,32 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Physical driving licence if available', 'D27 form', 'Death certificate'],
       ruleIn: ['Deceased held GB driving licence'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A death has occurred"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.deceased_held_driving_licence",
+          "expected": true,
+          "label": "Deceased held a GB driving licence"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that Tell Us Once usually notifies DVLA automatically',
+        'Advise sending the physical licence to DVLA with a D27 form if Tell Us Once was not used',
+        'Provide the DVLA postal address for returning the licence',
+      ],
     },
   },
   'dvla-notify-condition': {
@@ -1935,7 +5396,46 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Relevant medical reports or confirmation from GP', 'DVLA questionnaire (specific to condition)'],
       ruleIn: ['Holds driving licence', 'Diagnosed with DVLA notifiable condition'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Has a DVLA-notifiable medical condition",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.holds_driving_licence",
+          "expected": true,
+          "label": "Holds a GB driving licence"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/report-driving-medical-condition',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Help user check if their condition is on the DVLA notifiable list',
+        'Guide user through the online notification form',
+        'Explain potential outcomes (licence may be restricted, revoked, or unaffected)',
+        'Advise that failure to notify can invalidate motor insurance',
+      ],
     },
   },
   'dvla-renew-at-70': {
@@ -2071,7 +5571,36 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['IN01 form (or online via Companies House WebFiling/authorised agent)', 'Director details and consent', 'Registered office address', 'Share structure details'],
       ruleIn: ['Director aged 16 or over', 'UK registered office address'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Director must be at least 16 years old"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.company-information.service.gov.uk/',
+      onlineFormUrl: 'https://www.gov.uk/limited-company-formation/register-your-company',
+      authRequired: 'companies-house',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check company name availability using Companies House WebCHeck',
+        'Guide user through the online incorporation process',
+        'Explain director, shareholder, and PSC requirements',
+        'Calculate registration fee and explain same-day processing option',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { registration_fee: 50 },
+      source: 'https://www.gov.uk/limited-company-formation/register-your-company',
     },
   },
 
@@ -2101,7 +5630,62 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Original will (if there is one)', 'Death certificate', 'Estimated estate value', 'PA1P (with will) or PA1A (no will) application form'],
       ruleIn: ['Estate includes solely-held assets over £10,000', 'Death registered'],
-      ruleOut: ['All assets held jointly (pass automatically)'],
+      ruleOut: ['All assets held jointly (pass automatically)'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "A death has occurred"
+        },
+        {
+          "type": "boolean",
+          "field": "death_registered",
+          "expected": true,
+          "label": "Death has been registered"
+        },
+        {
+          "type": "boolean",
+          "field": "estate_has_sole_assets",
+          "expected": true,
+          "label": "Estate includes assets held in the deceased's sole name"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/applying-for-probate/apply-for-probate',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether probate is needed based on estate value and asset ownership',
+        'Guide user through the online probate application (PA1P or PA1A)',
+        'Prepare document checklist (will, death certificate, estate valuation)',
+        'Explain current processing times and court fee',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee_over_5000: 300 },
+      source: 'https://www.gov.uk/applying-for-probate/apply-for-probate',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 303 0648',
+        textphone: '+44 300 303 0648',
+        relay: '18001 then 0300 303 0648',
+        label: 'Probate helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      webchatUrl: 'https://www.gov.uk/contact-probate-service',
     },
   },
   'hmcts-divorce': {
@@ -2128,7 +5712,56 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Marriage or civil partnership certificate', 'D8 application form', 'Court fee (£593, or reduced if low income)'],
       ruleIn: ['Married or in civil partnership at least 1 year', 'Domiciled or habitually resident in England/Wales'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "relationship_status",
+          "oneOf": [
+            "married",
+            "civil_partnership"
+          ],
+          "label": "Must be married or in a civil partnership"
+        },
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "england",
+            "wales"
+          ],
+          "label": "Domiciled or habitually resident in England or Wales"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-for-divorce',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility (married 1+ year, resident in England/Wales)',
+        'Guide user through the online D8 divorce application',
+        'Explain the 26-week minimum timeline and key milestones',
+        'Advise on financial consent order before final order',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 593 },
+      source: 'https://www.gov.uk/apply-for-divorce',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Divorce helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmcts-financial-order': {
@@ -2154,7 +5787,44 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Draft consent order (D81 form)', 'Financial disclosure from both parties', 'Court fee (£53)'],
       ruleIn: ['In divorce or dissolution proceedings', 'Shared assets, property, or pensions'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "hmcts-divorce",
+          "condition": "receiving",
+          "label": "Divorce or dissolution proceedings must be in progress"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the importance of a financial consent order before final divorce order',
+        'Guide user through the D81 financial statement form',
+        'Prepare checklist of financial disclosure required from both parties',
+        'Calculate estimated court fee',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 275 },
+      source: 'https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Family court helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmcts-child-arrangements': {
@@ -2181,7 +5851,65 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['MIAM certificate (from mediator) or exemption evidence', 'C100 application form', 'Court fee (£232, or reduced if low income)'],
       ruleIn: ['Separated parents unable to agree on child arrangements'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children under 16"
+        },
+        {
+          "type": "any",
+          "label": "Parents are separated or divorcing",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "relationship_status",
+              "oneOf": [
+                "separated",
+                "divorced"
+              ],
+              "label": "Separated or divorced"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "hmcts-divorce",
+              "condition": "receiving",
+              "label": "Divorce proceedings in progress"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether mediation (MIAM) has been attempted or an exemption applies',
+        'Guide user through the C100 application form',
+        'Explain the court process and expected timeline',
+        'Calculate estimated court fee and check for fee remission eligibility',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 255 },
+      source: 'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Family court helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'hmcts-legal-aid': {
@@ -2209,7 +5937,76 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['CW2 means test form', 'Income and savings evidence', 'Details of the case for merits assessment'],
       ruleIn: ['Disposable income below £2,657/month', 'Domestic abuse victim or case with strong merits'],
-      ruleOut: ['Capital above £8,000'],
+      ruleOut: ['Capital above £8,000'],      rules: [
+        {
+          "type": "comparison",
+          "field": "savings",
+          "operator": "<",
+          "value": 8000,
+          "label": "Disposable capital must be below £8,000"
+        },
+        {
+          "type": "any",
+          "label": "Low income or on qualifying benefit",
+          "rules": [
+            {
+              "type": "comparison",
+              "field": "annual_income",
+              "operator": "<",
+              "value": 31884,
+              "label": "Disposable income below £2,657/month (£31,884/year)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/check-legal-aid',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility using the GOV.UK legal aid calculator',
+        'Explain the means test and merits test requirements',
+        'Help user find a legal aid solicitor in their area',
+        'Advise on domestic abuse provisions that widen eligibility',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 345 345 4345', label: 'Civil Legal Advice' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '20:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '12:30',
+        },
+      ],
+      notes: 'Translation available in over 170 languages.',
     },
   },
   'hmcts-benefit-tribunal': {
@@ -2234,7 +6031,38 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Mandatory Reconsideration Notice (SSCS1 form to appeal)', 'Any supporting evidence — medical reports, letters, assessments'],
       ruleIn: ['Mandatory Reconsideration Notice received', 'Still disagrees with DWP decision'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "dwp-mandatory-reconsideration",
+          "condition": "completed",
+          "label": "Mandatory Reconsideration must have been completed"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/appeal-benefit-decision',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm Mandatory Reconsideration Notice has been received',
+        'Guide user through the SSCS1 appeal form',
+        'Explain the tribunal process and what to expect at a hearing',
+        'Advise on gathering supporting medical or other evidence',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 123 1142', relay: '18001 then 0300 123 1142', label: 'SSCS Tribunal helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:30',
+          close: '17:00',
+        },
+      ],
     },
   },
 
@@ -2261,7 +6089,35 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['National Insurance number (for online registration)'],
       ruleIn: [],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be 16 or over to register"
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Living in the UK"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/register-to-vote',
+      authRequired: 'none',
+      agentCanComplete: 'full',
+      agentSteps: [
+        'Guide user through the Register to Vote online form',
+        'Confirm new address and National Insurance number',
+        'Explain impact on jury duty eligibility and credit checks',
+        'Remind user to de-register from old address if needed',
+      ],
     },
   },
   'la-voter-authority-cert': {
@@ -2287,7 +6143,28 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Electoral registration number or NI number to verify registration', 'Recent photograph', 'Online application via local council'],
       ruleIn: ['Registered to vote', 'No accepted photo ID (passport, driving licence)'],
-      ruleOut: ['Already holds accepted photo ID for polling'],
+      ruleOut: ['Already holds accepted photo ID for polling'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Resident in the UK and registered to vote"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-for-photo-id-voter-authority-certificate',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether user already has an accepted form of photo ID for voting',
+        'Guide user through the Voter Authority Certificate online application',
+        'Explain that the certificate is free and issued by the local council',
+        'Advise on photo requirements and processing time before elections',
+      ],
     },
   },
   'la-council-tax': {
@@ -2314,6 +6191,18 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the requirement to register for Council Tax at the new address',
+        'Help user find their local council\'s Council Tax registration page',
+        'Advise on available discounts (single person, student exemption, CTR)',
+        'Remind user to close the Council Tax account at their old address',
+      ],
+    },
   },
   'la-council-tax-single-discount': {
     id: 'la-council-tax-single-discount', name: 'Council Tax single person discount', dept: 'Local Authority', deptKey: 'la',
@@ -2337,7 +6226,33 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Application to local council (varies by authority)'],
       ruleIn: ['Only adult (18+) now living in the property'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "custom_facts.sole_adult_in_property",
+          "expected": true,
+          "label": "Must be the only adult (18+) living in the property"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check eligibility — only adult (18+) in the property',
+        'Help user find their local council\'s single person discount application',
+        'Calculate estimated saving (25% of Council Tax bill)',
+        'Explain that the discount can be backdated in some cases',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { discount_percent: 25 },
+      source: 'https://www.gov.uk/council-tax-discounts',
     },
   },
   'la-council-tax-reduction': {
@@ -2363,7 +6278,47 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of income and savings', 'Council Tax bill', 'Application to local authority'],
       ruleIn: ['Low income or receiving means-tested benefit', 'Liable for Council Tax at address'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Must be on low income or receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "comparison",
+              "field": "weekly_income",
+              "operator": "<",
+              "value": 250,
+              "label": "Low weekly income"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      missingBenefitId: 'councilTaxReduction',
+      agentSteps: [
+        'Check eligibility based on income and benefits received',
+        'Help user find their local council\'s Council Tax Reduction application',
+        'Explain that schemes vary by local authority',
+        'Advise that CTR can reduce the bill significantly or to zero',
+      ],
     },
   },
   'la-bus-pass': {
@@ -2388,7 +6343,40 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Proof of age (passport or birth certificate)', 'Proof of address', 'Passport photo'],
       ruleIn: ['Reached State Pension age (66)'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Reached State Pension age or has a qualifying disability",
+          "rules": [
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": ">=",
+              "value": 66,
+              "label": "Reached State Pension age (66)"
+            },
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a qualifying disability"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check eligibility based on State Pension age or qualifying disability',
+        'Help user find their local council\'s bus pass application page',
+        'Explain the application process varies by local authority',
+        'Advise on documents needed (proof of age, address, photo)',
+      ],
     },
   },
   'la-school-place': {
@@ -2416,6 +6404,18 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the application deadlines (Primary: 15 Jan, Secondary: 31 Oct)',
+        'Help user find their local authority\'s admissions portal',
+        'Advise on choosing schools based on catchment area and preferences',
+        'Explain the appeals process if a preferred school place is not offered',
+      ],
+    },
   },
   'la-free-school-meals': {
     id: 'la-free-school-meals', name: 'Free School Meals', dept: 'Local Authority', deptKey: 'la',
@@ -2441,7 +6441,76 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Application via school office or local authority portal'],
       ruleIn: ['Receiving qualifying benefit', 'Child at state school of compulsory school age'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has school-age children"
+        },
+        {
+          "type": "any",
+          "label": "Receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "all",
+              "label": "On Universal Credit with low earned income",
+              "rules": [
+                {
+                  "type": "dependency",
+                  "serviceId": "dwp-universal-credit",
+                  "condition": "receiving",
+                  "label": "Receiving Universal Credit"
+                },
+                {
+                  "type": "comparison",
+                  "field": "annual_income",
+                  "operator": "<",
+                  "value": 7400,
+                  "label": "Annual net earned income under £7,400"
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_based_jsa",
+              "expected": true,
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit (Guarantee Credit)"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on benefits and income thresholds',
+        'Help user find their local authority\'s Free School Meals application',
+        'Explain that registration also unlocks Pupil Premium funding for the school',
+        'Guide user through the application process',
+      ],
     },
   },
   'la-send-ehc': {
@@ -2468,7 +6537,43 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['School reports and educational assessments', 'Medical evidence', 'Parental views (required to be included)', 'Child\'s views if appropriate'],
       ruleIn: ['Child aged 0–25 with complex SEND needs', 'Needs not met by standard school support'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<=",
+          "value": 25,
+          "label": "Child or young person aged 0–25"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "ehc_request_date",
+          "triggerLabel": "Date EHC assessment was requested",
+          "maxDays": 140,
+          "label": "Local Authority must complete assessment within 20 weeks (140 days)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the EHC plan assessment process and 20-week timeline',
+        'Help user find their local authority\'s SEND department contact details',
+        'Advise on gathering supporting evidence (school reports, medical assessments)',
+        'Explain the right to appeal if the assessment is refused',
+      ],
+    },
+      contactInfo: {
+      localAuthority: true,
+      officeLocatorUrl: 'https://www.gov.uk/find-local-council',
+      additionalPhones: [
+        { number: '+44 1799 582030', label: 'IPSEA SEND advice line (independent)' },
+      ],
+      notes: 'Contact your local council SEND department. IPSEA offers free independent advice.',
     },
   },
   'la-blue-badge': {
@@ -2495,7 +6600,60 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['PIP or DLA award letter', 'Evidence of difficulty walking if applying on non-automatic criteria', 'Application to local council'],
       ruleIn: ['Enhanced Rate PIP mobility or severe difficulty walking'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Qualifies via disability benefit or severe mobility difficulty",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "pip_mobility_rate",
+              "oneOf": [
+                "enhanced"
+              ],
+              "label": "Receiving Enhanced Rate PIP mobility component"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_dla_higher_mobility",
+              "expected": true,
+              "label": "Receiving DLA highest rate mobility component"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.severe_walking_difficulty",
+              "expected": true,
+              "label": "Cannot walk or has severe difficulty walking"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.registered_blind",
+              "expected": true,
+              "label": "Registered severely sight impaired (blind)"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-blue-badge',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check automatic eligibility (Enhanced Rate PIP mobility, DLA highest mobility)',
+        'Guide user through the GOV.UK Blue Badge application',
+        'Prepare document checklist (benefit award letter, proof of address)',
+        'Explain the assessment process for non-automatic applicants',
+      ],
+    },
+      contactInfo: {
+      localAuthority: true,
+      officeLocatorUrl: 'https://www.gov.uk/find-local-council',
+      contactFormUrl: 'https://www.gov.uk/apply-blue-badge',
+      notes: 'Apply online via GOV.UK. Council handles assessment.',
     },
   },
   'la-disabled-facilities-grant': {
@@ -2523,7 +6681,53 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Occupational Therapist assessment', 'Quotes for proposed works', 'Income and savings details', 'Proof of disability'],
       ruleIn: ['Disabled person living in property needing adaptations'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Must have a disability requiring home adaptations",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the Disabled Facilities Grant process and means test',
+        'Help user contact their local authority housing or occupational therapy team',
+        'Advise on the types of adaptations covered (ramps, stairlifts, bathrooms)',
+        'Calculate potential grant amount (up to £30,000 in England)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { max_grant: 30000 },
+      source: 'https://www.gov.uk/disabled-facilities-grants',
+    },
+      contactInfo: {
+      localAuthority: true,
+      officeLocatorUrl: 'https://www.gov.uk/find-local-council',
+      additionalPhones: [
+        { number: '+44 300 124 0315', label: 'Foundations (Home Improvement Agencies)' },
+      ],
+      notes: 'Apply through your local council. Foundations can help with the application process.',
     },
   },
   'la-carers-assessment': {
@@ -2550,6 +6754,26 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Adult unpaid carer providing regular substantial care'],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['phone', 'in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the carer\'s assessment process and what support may be available',
+        'Help user find their local authority adult social care contact details',
+        'Advise that the assessment is free and separate from the cared-for person\'s assessment',
+        'Suggest requesting the assessment alongside a care needs assessment if applicable',
+      ],
+    },
+      contactInfo: {
+      localAuthority: true,
+      officeLocatorUrl: 'https://www.gov.uk/find-local-council',
+      additionalPhones: [
+        { number: '+44 808 808 7777', label: 'Carers UK helpline' },
+      ],
+      notes: 'Request from your local council adult social care. Carers UK offers free independent advice.',
+    },
   },
   'la-business-rates': {
     id: 'la-business-rates', name: 'Business rates registration', dept: 'Local Authority', deptKey: 'la',
@@ -2574,7 +6798,42 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Business address', 'Date of occupation', 'Nature of business'],
       ruleIn: ['Occupying non-domestic premises for business purposes'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Running a business from non-domestic premises",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "self-employed",
+                "director"
+              ],
+              "label": "Self-employed or company director"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.uses_commercial_premises",
+          "expected": true,
+          "label": "Occupying non-domestic premises for business"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain business rates liability and how rateable value is determined',
+        'Help user check if Small Business Rate Relief applies (rateable value under £12,000)',
+        'Help user find their local council\'s business rates registration page',
+        'Advise on other available reliefs (rural, charitable, empty property)',
+      ],
     },
   },
   'la-food-hygiene': {
@@ -2599,7 +6858,35 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Business address and contact details', 'Nature of food business', 'Application via local authority website (free)'],
       ruleIn: ['Operating a food business of any type'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "custom_facts.is_food_business",
+          "expected": true,
+          "label": "Operating a food business (selling, cooking, preparing, or distributing food)"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "food_business_start_date",
+          "triggerLabel": "Planned food business opening date",
+          "maxDays": -28,
+          "label": "Must register at least 28 days before opening"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/food-business-registration',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Guide user through the food business registration process',
+        'Explain the 28-day advance registration requirement',
+        'Help user find their local authority\'s food hygiene registration page',
+        'Advise on food safety and hygiene rating expectations',
+      ],
     },
   },
   'la-food-premises-approval': {
@@ -2945,7 +7232,37 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Valid passport', 'Financial evidence (sufficient funds)', 'Purpose-specific documents: job offer/CoS, university CAS, relationship evidence, etc.', 'Immigration Health Surcharge payment'],
       ruleIn: ['Non-UK/non-Irish national', 'Specific purpose for entering UK'],
-      ruleOut: ['British or Irish citizen'],
+      ruleOut: ['British or Irish citizen'],      rules: [
+        {
+          "type": "not",
+          "label": "Not a British or Irish citizen (visa not required)",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "citizenship",
+              "oneOf": [
+                "british",
+                "irish"
+              ],
+              "label": "British or Irish citizen"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-to-come-to-the-uk',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Help user identify the correct visa category for their purpose',
+        'Guide user through the GOV.UK visa application portal',
+        'Prepare document checklist based on visa type',
+        'Explain the Immigration Health Surcharge and biometric appointment requirements',
+      ],
     },
   },
   'ho-eu-settled-status': {
@@ -2972,7 +7289,53 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Valid EU/EEA/Swiss passport or national identity card', 'Evidence of UK residence (payslips, tenancy agreement, bank statements, etc.)'],
       ruleIn: ['EU, EEA, or Swiss national', 'Living in UK before 31 December 2020'],
-      ruleOut: ['Not EU/EEA/Swiss national and not family member of one'],
+      ruleOut: ['Not EU/EEA/Swiss national and not family member of one'],      rules: [
+        {
+          "type": "enum",
+          "field": "citizenship",
+          "oneOf": [
+            "eu",
+            "eea",
+            "swiss"
+          ],
+          "label": "EU, EEA, or Swiss national"
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Living in the UK"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on nationality and UK residence before 31 December 2020',
+        'Guide user through the EU Settlement Scheme application',
+        'Explain the difference between settled status (5+ years) and pre-settled status',
+        'Prepare evidence checklist for UK residence',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 123 7379', relay: '18001 then 0300 123 7379', label: 'EU Settlement Scheme Resolution Centre' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '20:00',
+        },
+        {
+          days: ['sat','sun'],
+          open: '09:30',
+          close: '16:30',
+        },
+      ],
     },
   },
   'ho-brp': {
@@ -2998,7 +7361,34 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Passport containing visa vignette sticker', 'BRP collection letter or email from Home Office'],
       ruleIn: ['Granted UK visa or leave to remain for 6+ months'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "ho-visa",
+          "condition": "completed",
+          "label": "Must have been granted a UK visa for 6+ months"
+        },
+        {
+          "type": "deadline",
+          "triggerEvent": "uk_arrival_date",
+          "triggerLabel": "Date of arrival in the UK",
+          "maxDays": 10,
+          "label": "Must collect BRP within 10 days of arriving in the UK"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the BRP collection process and 10-day deadline',
+        'Help user identify their designated post office for collection',
+        'Advise on what to do if the BRP has not arrived or contains errors',
+        'Explain that BRP proves right to work and rent in the UK',
+      ],
     },
   },
   'ho-life-in-uk': {
@@ -3025,6 +7415,42 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Test pass certificate (issued at test centre)', 'Booking required online — £50 fee per attempt'],
       ruleIn: ['Applying for ILR or any citizenship route', 'Aged 18 to 64'],
       ruleOut: ['Under 18 or aged 65 and over (exempt)'],
+      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 18,
+          "label": "Must be at least 18 years old"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<=",
+          "value": 64,
+          "label": "Must be 64 or under (65+ are exempt)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/life-in-the-uk-test',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility and exemptions (under 18, over 65, certain disabilities)',
+        'Guide user through the test booking process',
+        'Explain the test format and recommend study materials',
+        'Calculate estimated costs',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 50 },
+      source: 'https://www.gov.uk/life-in-the-uk-test',
     },
   },
   'ho-ilr': {
@@ -3052,7 +7478,54 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Passport(s) covering entire qualifying period', 'Proof of continuous residence (payslips, bank statements, tenancy agreements)', 'Life in the UK test certificate', 'English language evidence', 'SET(O) or relevant form'],
       ruleIn: ['5 years lawful residence on eligible visa', 'Not exceeded 180 days abroad in any 12-month period'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Resident in the UK"
+        },
+        {
+          "type": "not",
+          "label": "Not already a British citizen",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "citizenship",
+              "oneOf": [
+                "british"
+              ],
+              "label": "British citizen"
+            }
+          ]
+        },
+        {
+          "type": "dependency",
+          "serviceId": "ho-life-in-uk",
+          "condition": "completed",
+          "label": "Must have passed the Life in the UK test"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/indefinite-leave-to-remain',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check qualifying period based on visa category',
+        'Guide user through the ILR application form',
+        'Prepare document checklist (passports, residence evidence, test certificates)',
+        'Calculate estimated costs including application fee',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 2885 },
+      source: 'https://www.gov.uk/indefinite-leave-to-remain',
     },
   },
   'ho-citizenship': {
@@ -3082,6 +7555,56 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['ILR/settled status document or eVisa evidence', 'Passport(s) covering the qualifying period', 'Life in the UK test certificate', 'English language evidence (if applicable)', 'Form AN', 'Application fee £1,735 (includes £130 citizenship ceremony fee)'],
       ruleIn: ['ILR or EU settled status for 12+ months', '5 years UK residence with limited absences'],
       ruleOut: ['More than 450 days abroad in qualifying 5-year period'],
+      rules: [
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Resident in the UK"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "ho-ilr",
+          "condition": "completed",
+          "label": "Must hold Indefinite Leave to Remain for at least 12 months"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "ho-life-in-uk",
+          "condition": "completed",
+          "label": "Must have passed the Life in the UK test"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility (12+ months ILR, 5 years UK residence, absences within limits)',
+        'Guide user through the AN1 naturalisation application',
+        'Prepare document checklist (ILR, passports, Life in UK test, language certificate)',
+        'Calculate estimated costs including application and ceremony fees',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee: 1735 },
+      source: 'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
+    },
+    contactInfo: {
+      phone: { number: '+44 300 790 6268', relay: '18001 then 0300 790 6268', label: 'Nationality enquiries' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '14:30',
+        },
+      ],
     },
   },
   'ho-citizenship-spouse': {
@@ -3192,7 +7715,35 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Online account via the OPG portal', 'Registration fee (£82 per LPA, or fee remission if on low income)', 'Certificate provider details', 'Attorney and donor signatures'],
       ruleIn: ['Donor aged 18+ with current mental capacity'],
-      ruleOut: ['Donor has already lost mental capacity'],
+      ruleOut: ['Donor has already lost mental capacity'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 18,
+          "label": "Donor must be 18 or over"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.lastingpowerofattorney.service.gov.uk/start',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the two types of LPA (Property & Financial Affairs, Health & Welfare)',
+        'Guide user through the OPG online LPA creation tool',
+        'Advise on choosing attorneys and certificate provider requirements',
+        'Calculate estimated costs (£82 per LPA, fee remission available)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { fee_per_lpa: 82 },
+      source: 'https://www.gov.uk/power-of-attorney',
     },
   },
   'opg-lpa-activation': {
@@ -3218,7 +7769,32 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Death certificate', 'Original LPA document to return to OPG', 'LP4 notification form'],
       ruleIn: ['Registered LPA in place', 'Donor has died'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "LPA donor has died"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.lpa_registered",
+          "expected": true,
+          "label": "A registered Lasting Power of Attorney was in place"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that attorneys must notify OPG when the LPA donor dies',
+        'Advise on returning the original LPA document to OPG with LP4 form',
+        'Explain that the LPA automatically ceases to have effect on death',
+      ],
     },
   },
 
@@ -3246,7 +7822,28 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['TR1 transfer deed', 'SDLT5 certificate from HMRC', 'AP1 application form', 'Title deeds (for first registration of unregistered land)', 'Registration fee (based on property value)'],
       ruleIn: ['Property purchase completed in England or Wales'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "hmrc-sdlt",
+          "condition": "completed",
+          "label": "SDLT filed and SDLT5 certificate obtained"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://landregistry.github.io/bg-dev-pack-redesign/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the Land Registry registration process and that it is typically handled by a solicitor',
+        'Check whether SDLT has been filed and the SDLT5 certificate obtained',
+        'Advise on registration fees based on property value',
+        'Explain the priority period and importance of prompt submission',
+      ],
     },
   },
 
@@ -3275,6 +7872,40 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Legal name change via marriage or deed poll'],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/change-name-passport',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Guide user through the online passport renewal with name change',
+        'Prepare document checklist (marriage certificate or deed poll, current passport)',
+        'Explain online vs postal fee difference',
+        'Advise on expected processing time',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { online_fee: 82.50 },
+      source: 'https://www.gov.uk/renew-adult-passport',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 222 0000', relay: '18001 then 0300 222 0000', label: 'HM Passport Office' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '20:00',
+        },
+        {
+          days: ['sat','sun'],
+          open: '09:00',
+          close: '17:30',
+        },
+      ],
+    },
   },
   'other-tv-licence-pension': {
     id: 'other-tv-licence-pension', name: 'TV Licence concession', dept: 'TV Licensing', deptKey: 'other',
@@ -3299,7 +7930,52 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Pension Credit award letter', 'Date of birth confirmation', 'Apply online at tvlicensing.co.uk'],
       ruleIn: ['Aged 75 or over', 'Receiving Pension Credit'],
-      ruleOut: ['Under 75', 'Not receiving Pension Credit'],
+      ruleOut: ['Under 75', 'Not receiving Pension Credit'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 75,
+          "label": "Must be aged 75 or over"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "dwp-pension-credit",
+          "condition": "receiving",
+          "label": "Must be receiving Pension Credit"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/free-discount-tv-licence',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      missingBenefitId: 'tvLicence',
+      agentSteps: [
+        'Check eligibility (aged 75+ AND receiving Pension Credit)',
+        'Guide user through the free TV licence application',
+        'Calculate estimated annual saving',
+        'Explain the link between Pension Credit and TV licence eligibility',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { saving: 174.50 },
+      source: 'https://www.gov.uk/free-discount-tv-licence',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 790 6165', relay: '18001 then 0300 790 6165', label: 'TV Licensing' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:30',
+          close: '18:30',
+        },
+      ],
     },
   },
   'other-motability': {
@@ -3326,7 +8002,55 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['PIP award letter confirming Enhanced Rate mobility component', 'At least 12 months remaining on award'],
       ruleIn: ['Enhanced Rate PIP mobility component', '12+ months remaining on PIP award'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "pip_mobility_rate",
+          "oneOf": [
+            "enhanced"
+          ],
+          "label": "Receiving Enhanced Rate PIP mobility component"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.pip_award_12_months_remaining",
+          "expected": true,
+          "label": "At least 12 months remaining on PIP mobility award"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check eligibility (Enhanced Rate PIP mobility with 12+ months remaining)',
+        'Explain the Motability scheme and how the mobility allowance is used',
+        'Provide the Motability contact number for applications',
+        'Advise on the choice between car, powered wheelchair, or scooter',
+      ],
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 300 456 4566',
+        textphone: '+44 300 037 0100',
+        relay: '18001 then 0300 456 4566',
+        label: 'Motability Operations',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '19:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '13:00',
+        },
+      ],
     },
   },
   'other-disabled-railcard': {
@@ -3352,7 +8076,74 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Benefit award letter (PIP, DLA or AA)', 'Photo ID', 'Application at disabledpersons-railcard.co.uk'],
       ruleIn: ['Receiving PIP, DLA, or Attendance Allowance'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Receiving a qualifying disability benefit or has qualifying condition",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "receives_pip",
+              "expected": true,
+              "label": "Receiving PIP (any component, any rate)"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_dla",
+              "expected": true,
+              "label": "Receiving DLA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_attendance_allowance",
+              "expected": true,
+              "label": "Receiving Attendance Allowance"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.registered_blind",
+              "expected": true,
+              "label": "Registered blind or partially sighted"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.has_epilepsy",
+              "expected": true,
+              "label": "Has epilepsy"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.disabledpersons-railcard.co.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on disability benefits or qualifying conditions',
+        'Guide user through the online railcard application',
+        'Calculate estimated savings (1/3 off most fares for holder and companion)',
+        'Explain the £20 annual cost and renewal process',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { card_cost: 20, saving_percent: 33 },
+      source: 'https://www.disabledpersons-railcard.co.uk/',
+    },
+      contactInfo: {
+      phone: { number: '+44 345 605 0525', label: 'Disabled Persons Railcard' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '17:00',
+        },
+      ],
     },
   },
   'other-employers-liability': {
@@ -3379,7 +8170,33 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Insurance certificate (must be kept and available for inspection)', 'Minimum £5m cover required'],
       ruleIn: ['Employing one or more staff'],
-      ruleOut: ['Sole director business employing no other staff'],
+      ruleOut: ['Sole director business employing no other staff'],      rules: [
+        {
+          "type": "boolean",
+          "field": "custom_facts.is_employer",
+          "expected": true,
+          "label": "Employing one or more staff"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "hmrc-paye",
+          "condition": "completed",
+          "label": "Registered as employer with HMRC PAYE"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the legal requirement for employers\' liability insurance',
+        'Advise on the minimum £5 million cover requirement',
+        'Explain that the certificate must be displayed at each workplace',
+        'Check whether any exemptions apply (sole director, family businesses)',
+      ],
     },
   },
   'other-dbs': {
@@ -3404,7 +8221,53 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Multiple identity documents (passport, driving licence, utility bills, etc.)', 'Employer applies on applicant\'s behalf'],
       ruleIn: ['Role involves working with children or vulnerable adults'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "any",
+          "label": "Employed or about to start employment requiring DBS check",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "employment_status",
+              "oneOf": [
+                "employed",
+                "self-employed"
+              ],
+              "label": "Employed or self-employed"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/request-copy-criminal-record',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the three levels of DBS check (Basic, Standard, Enhanced)',
+        'Guide user through the application process',
+        'Prepare identity document checklist',
+        'Calculate estimated costs based on check level',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { basic_check: 18, standard_check: 18, enhanced_check: 38 },
+      source: 'https://www.gov.uk/dbs-check-applicant-criminal-record',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 006 2849', label: 'DBS helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
     },
   },
   'other-right-to-work': {
@@ -3433,6 +8296,19 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],
     },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/prove-right-to-work',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the right to work check process for employers and employees',
+        'Guide user through generating a share code if applicable',
+        'Prepare document checklist based on nationality',
+        'Explain the employer\'s legal obligation and penalties for non-compliance',
+      ],
+    },
   },
   'other-pupil-premium': {
     id: 'other-pupil-premium', name: 'Pupil Premium', dept: 'DfE / School', deptKey: 'other',
@@ -3458,7 +8334,51 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Free School Meals confirmation — school notifies DfE automatically'],
       ruleIn: ['Child eligible for Free School Meals in last 6 years', 'Looked-after child or care leaver'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has school-age children"
+        },
+        {
+          "type": "any",
+          "label": "Child eligible for Free School Meals or is looked-after/care leaver",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "la-free-school-meals",
+              "condition": "receiving",
+              "label": "Child is registered for Free School Meals"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.child_looked_after_or_care_leaver",
+              "expected": true,
+              "label": "Child is a looked-after child or care leaver"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that Pupil Premium is funding paid directly to the school',
+        'Advise that parents should ensure Free School Meals eligibility is registered',
+        'Calculate estimated funding per pupil (primary vs secondary rates)',
+        'Explain the link between Free School Meals registration and Pupil Premium',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { per_primary_pupil: 1480, per_secondary_pupil: 1050 },
+      source: 'https://www.gov.uk/government/publications/pupil-premium',
     },
   },
   'other-statutory-redundancy': {
@@ -3485,7 +8405,42 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Redundancy notice or letter from employer', 'Employment contract', 'Payslips to verify weekly pay'],
       ruleIn: ['Compulsory redundancy after 2+ years continuous employment'],
-      ruleOut: ['Self-employed', 'Dismissed for gross misconduct'],
+      ruleOut: ['Self-employed', 'Dismissed for gross misconduct'],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "employed"
+          ],
+          "label": "Must be (or have been) an employee"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.made_redundant",
+          "expected": true,
+          "label": "Made compulsorily redundant by employer"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.employed_2_years_continuous",
+          "expected": true,
+          "label": "Continuously employed for at least 2 years with the same employer"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/claim-redundancy',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility (2+ years continuous employment, compulsory redundancy)',
+        'Calculate estimated redundancy pay using GOV.UK calculator',
+        'Guide user through claiming from employer or Employment Tribunal if refused',
+        'Explain the process and timeline for redundancy claims',
+      ],
     },
   },
   'other-carers-leave': {
@@ -3511,7 +8466,41 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Employer may request written evidence of the caring situation in some cases'],
       ruleIn: ['Employee (not self-employed)', 'Dependant with long-term care need'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "employed"
+          ],
+          "label": "Must be an employee (not self-employed or casual worker)"
+        },
+        {
+          "type": "boolean",
+          "field": "is_carer",
+          "expected": true,
+          "label": "Providing or arranging care for a dependant"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.dependant_has_long_term_care_need",
+          "expected": true,
+          "label": "Dependant has a long-term illness, disability, or care need"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the statutory right to 5 days unpaid carer\'s leave per year',
+        'Advise that this applies from day 1 of employment',
+        'Explain how to request carer\'s leave from the employer',
+        'Advise on the difference between carer\'s leave and other leave types',
+      ],
     },
   },
   'other-help-to-buy': {
@@ -3539,7 +8528,57 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of first-time buyer status', 'Mortgage agreement in principle', 'Proof of income for scheme qualification'],
       ruleIn: ['First-time buyer', 'Household income within scheme cap'],
-      ruleOut: ['Existing or previous homeowner'],
+      ruleOut: ['Existing or previous homeowner'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_first_time_buyer",
+          "expected": true,
+          "label": "Must be a first-time buyer"
+        },
+        {
+          "type": "not",
+          "label": "Must not currently be a homeowner",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_homeowner",
+              "expected": true,
+              "label": "Is a homeowner"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "field": "annual_income",
+          "operator": "<=",
+          "value": 80000,
+          "label": "Household income must be within scheme cap (£80,000, or £90,000 in London)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/affordable-home-ownership-schemes/help-to-buy-equity-loan',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility (first-time buyer, income caps, property price limits)',
+        'Explain the available schemes (First Homes, Shared Ownership, Mortgage Guarantee)',
+        'Guide user through the application process for the relevant scheme',
+        'Calculate estimated costs and savings based on scheme chosen',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 100 0030', label: 'Help to Buy agent' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '17:30',
+        },
+      ],
     },
   },
 
@@ -3566,7 +8605,33 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['PAYE employer reference number', 'Chosen pension provider details', 'Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)'],
       ruleIn: ['Employing workers aged 22 to State Pension age earning £10k+/year'],
-      ruleOut: [],
+      ruleOut: [],      rules: [
+        {
+          "type": "boolean",
+          "field": "custom_facts.is_employer",
+          "expected": true,
+          "label": "Employing workers"
+        },
+        {
+          "type": "dependency",
+          "serviceId": "hmrc-paye",
+          "condition": "completed",
+          "label": "Registered as employer with HMRC PAYE"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain the auto-enrolment obligation for employers',
+        'Advise on choosing a qualifying pension provider (e.g. NEST)',
+        'Explain the duties start date and declaration of compliance requirements',
+        'Calculate minimum employer and employee contribution rates',
+      ],
     },
   },
 
@@ -3596,8 +8661,2863 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of identity (passport)', 'Proof of course enrollment or offer letter', 'Household income evidence (P60 or self-assessment from parents/partner)', 'National Insurance number'],
       ruleIn: ['Starting UK undergraduate course', 'UK resident 3+ years'],
-      ruleOut: ['Already holds equivalent undergraduate degree'],
+      ruleOut: ['Already holds equivalent undergraduate degree'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 18,
+          "label": "Must be at least 18 years old"
+        },
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Normally resident in England for 3+ years"
+        },
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "england"
+          ],
+          "label": "Resident in England (other nations have separate schemes)"
+        }
+      ],
+
     },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/student-finance/how-to-apply',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on residency and course requirements',
+        'Guide user through the Student Finance England online application',
+        'Explain the difference between Tuition Fee Loan and Maintenance Loan',
+        'Advise on household income evidence needed for Maintenance Loan assessment',
+      ],
+    },
+  },
+
+  // DWP — Housing Benefit ───────────────────────────────────────────────────
+  'dwp-housing-benefit': {
+    id: 'dwp-housing-benefit', name: 'Housing Benefit', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'For pension-age renters not on Universal Credit. Claimed via local council. Means-tested, backdatable up to 3 months.',
+    govuk_url: 'https://www.gov.uk/housing-benefit',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Housing Benefit helps pension-age tenants on low income pay rent. Working-age claimants should apply for Universal Credit instead. Claimed through local council, not DWP directly. Backdatable up to 3 months.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must have reached State Pension age (or partner has). Working-age claimants must claim Universal Credit instead.' },
+        { factor: 'income', description: 'Means-tested — assessed on income, savings and capital. Savings over £16,000 generally disqualify (unless receiving Pension Credit Guarantee).' },
+        { factor: 'property', description: 'Must be a tenant paying rent. Not available to homeowners (see Support for Mortgage Interest).' },
+        { factor: 'asset', description: 'Capital over £16,000 normally disqualifies, unless on Pension Credit Guarantee Credit.' },
+      ],
+      keyQuestions: [
+        'Have you reached State Pension age?',
+        'Are you renting (not a homeowner)?',
+        'Do you receive Pension Credit?',
+        'Do you have savings or capital over £16,000?',
+        'Are you already claiming Universal Credit?',
+      ],
+      exclusions: ['Already receiving Universal Credit housing element', 'Owner-occupier', 'Savings over £16,000 (unless on Pension Credit Guarantee)'],
+      means_tested: true,
+      evidenceRequired: ['Proof of rent (tenancy agreement)', 'Proof of income and savings', 'National Insurance number', 'Bank statements'],
+      ruleIn: ['State Pension age', 'Renting', 'Low income/savings'],
+      ruleOut: ['Working age (claim UC instead)', 'Homeowner', 'Savings over £16,000'],      rules: [
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 66,
+          "label": "Must have reached State Pension age (66)"
+        },
+        {
+          "type": "not",
+          "label": "Must not be a homeowner (Housing Benefit is for renters)",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_homeowner",
+              "expected": true,
+              "label": "Is a homeowner"
+            }
+          ]
+        },
+        {
+          "type": "comparison",
+          "field": "savings",
+          "operator": "<",
+          "value": 16000,
+          "label": "Savings must be under £16,000 (unless on Pension Credit Guarantee)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/housing-benefit/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check whether user is pension age or working age (working age = UC instead)',
+        'Help user find their local council Housing Benefit office',
+        'Explain the means test (income, savings, capital thresholds)',
+        'Advise on backdating rules (up to 3 months)',
+        'List required evidence (tenancy agreement, income proof, bank statements)',
+      ],
+      missingBenefitId: 'housingBenefit',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { varies_by_local_authority: 0 },
+      source: 'https://www.gov.uk/housing-benefit/what-youll-get',
+    },
+      contactInfo: { localAuthority: true, officeLocatorUrl: 'https://www.gov.uk/find-local-council', notes: 'Administered by local councils. Contact your local authority Housing Benefit department.' },
+  },
+
+  // DESNZ — Warm Home Discount ─────────────────────────────────────────────
+  'other-warm-home-discount': {
+    id: 'other-warm-home-discount', name: 'Warm Home Discount', dept: 'DESNZ', deptKey: 'other',
+    deadline: null,
+    desc: '£150/year off electricity bill. Automatic for Pension Credit Guarantee recipients; broader group can apply.',
+    govuk_url: 'https://www.gov.uk/the-warm-home-discount-scheme',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '£150 one-off discount on electricity bill. Core Group (Pension Credit Guarantee recipients) get it automatically. Broader Group must be on qualifying low-income benefits and meet energy cost criteria. Not available in Northern Ireland.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Core Group: receiving Pension Credit Guarantee Credit — automatic. Broader Group: on qualifying benefit (UC, ESA, JSA, etc.) and high energy costs relative to income.' },
+        { factor: 'geography', description: 'Available in England, Scotland and Wales only. Not available in Northern Ireland.' },
+      ],
+      keyQuestions: [
+        'Do you receive Pension Credit Guarantee Credit?',
+        'Are you on a qualifying benefit (UC, ESA, JSA)?',
+        'Do you live in England, Scotland or Wales?',
+      ],
+      autoQualifiers: ['Receiving Pension Credit Guarantee Credit — discount applied automatically'],
+      means_tested: false,
+      evidenceRequired: ['Electricity account number', 'Benefit confirmation letter (for Broader Group)'],
+      ruleIn: ['On Pension Credit Guarantee', 'On qualifying benefit with high energy costs'],
+      ruleOut: ['Lives in Northern Ireland', 'Not on qualifying benefit'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "england",
+            "scotland",
+            "wales"
+          ],
+          "label": "Must live in England, Scotland or Wales (not Northern Ireland)"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit (Core Group — automatic)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit (Broader Group)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-esa",
+              "condition": "receiving",
+              "label": "Receiving ESA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-jsa",
+              "condition": "receiving",
+              "label": "Receiving JSA"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/the-warm-home-discount-scheme/how-to-apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check if user is in Core Group (Pension Credit Guarantee — automatic)',
+        'If Broader Group, explain qualifying criteria and application window',
+        'Confirm user lives in England, Scotland or Wales',
+        'Advise that discount is applied directly to electricity bill',
+      ],
+      missingBenefitId: 'warmHomeDiscount',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { discount: 150 },
+      source: 'https://www.gov.uk/the-warm-home-discount-scheme',
+    },
+    nations: ['england', 'scotland', 'wales'],
+      contactInfo: {
+      phone: { number: '+44 800 030 9322', label: 'Warm Home Discount helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'Scheme opens each autumn. Some suppliers have their own application process.',
+    },
+  },
+
+  // NHS BSA — NHS Low Income Scheme ────────────────────────────────────────
+  'nhs-low-income-scheme': {
+    id: 'nhs-low-income-scheme', name: 'NHS Low Income Scheme (HC2/HC3)', dept: 'NHS BSA', deptKey: 'nhs',
+    deadline: null,
+    desc: 'HC2 certificate gives full help; HC3 gives partial help with NHS prescriptions, dental, sight tests and travel costs.',
+    govuk_url: 'https://www.gov.uk/nhs-low-income-scheme',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'For people on low income who don\'t automatically qualify for free NHS services. HC2 certificate = full help (free prescriptions, dental, sight tests, travel). HC3 = partial help. Means-tested on income and capital.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be on a low income. Capital over £16,000 (£24,000 if in care home) disqualifies.' },
+        { factor: 'asset', description: 'Savings under £16,000 (£24,000 if permanently in a care home).' },
+        { factor: 'residency', description: 'Must be ordinarily resident in the UK.' },
+      ],
+      keyQuestions: [
+        'Are you on a low income?',
+        'Do you have savings or capital over £16,000?',
+        'Do you already get free prescriptions through another route (e.g. over-60, pregnancy, specific conditions)?',
+        'Are you receiving any means-tested benefits?',
+      ],
+      exclusions: ['Capital over £16,000', 'Already entitled to free NHS services through another exemption'],
+      means_tested: true,
+      evidenceRequired: ['Proof of income', 'Bank statements showing savings', 'National Insurance number', 'Details of housing costs'],
+      ruleIn: ['Low income', 'Not entitled via another exemption', 'Savings under £16,000'],
+      ruleOut: ['Capital over £16,000', 'Already has automatic NHS exemption'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_uk_resident",
+          "expected": true,
+          "label": "Must be ordinarily resident in the UK"
+        },
+        {
+          "type": "comparison",
+          "field": "savings",
+          "operator": "<",
+          "value": 16000,
+          "label": "Savings must be below £16,000"
+        },
+        {
+          "type": "not",
+          "label": "Not already entitled to free NHS services through another exemption",
+          "rules": [
+            {
+              "type": "any",
+              "label": "Already has automatic NHS exemption",
+              "rules": [
+                {
+                  "type": "comparison",
+                  "field": "age",
+                  "operator": ">=",
+                  "value": 60,
+                  "label": "Aged 60 or over (auto-exempt)"
+                },
+                {
+                  "type": "boolean",
+                  "field": "is_pregnant",
+                  "expected": true,
+                  "label": "Pregnant (auto-exempt via MatEx)"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/nhs-low-income-scheme/how-to-apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether user already qualifies for free NHS services via another route',
+        'Explain the difference between HC2 (full help) and HC3 (partial help)',
+        'Guide user through the HC1 application form',
+        'Advise on evidence required (income, savings, housing costs)',
+        'Explain that certificate is valid for 6 months and renewable',
+      ],
+      missingBenefitId: 'nhsLowIncomeScheme',
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 1343', label: 'NHS Business Services Authority' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '15:00',
+        },
+      ],
+    },
+  },
+
+  // SSS — Social Security Scotland ─────────────────────────────────────────
+  'sss-scottish-child-payment': {
+    id: 'sss-scottish-child-payment', name: 'Scottish Child Payment', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: '£27.15/week per eligible child under 16 for parents on qualifying benefits in Scotland.',
+    govuk_url: 'https://www.mygov.scot/scottish-child-payment',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '£27.15/week per child under 16 for parents or carers in Scotland who receive a qualifying benefit (UC, legacy benefits, Pension Credit). One of Scotland\'s flagship anti-poverty measures.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Must be responsible for a child under 16.' },
+        { factor: 'income', description: 'Must be receiving a qualifying benefit: Universal Credit, income-related JSA, income-related ESA, Income Support, Pension Credit, or Child/Working Tax Credit.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Are you responsible for a child under 16?',
+        'Do you receive Universal Credit, Tax Credits, or another qualifying benefit?',
+      ],
+      autoQualifiers: ['On qualifying benefit with child under 16 in Scotland'],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit', 'Child\'s details', 'Proof of Scottish residency'],
+      ruleIn: ['Child under 16', 'On qualifying benefit', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland', 'No qualifying benefit', 'No children under 16'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must be responsible for a child"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<",
+          "value": 16,
+          "label": "Child must be under 16"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/scottish-child-payment',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Scotland and has a child under 16',
+        'Check whether user receives a qualifying benefit',
+        'Guide user through the mygov.scot online application',
+        'Explain the payment is £27.15 per week per eligible child',
+        'Advise that payment can be backdated',
+      ],
+      missingBenefitId: 'scottishChildPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { per_child: 27.15 },
+      source: 'https://www.mygov.scot/scottish-child-payment',
+    },
+    nations: ['scotland'],
+  },
+  'sss-carer-support-payment': {
+    id: 'sss-carer-support-payment', name: 'Carer Support Payment', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: '£83.30/week for carers aged 16+ providing 35+ hours/week care in Scotland. Replaces Carer\'s Allowance.',
+    govuk_url: 'https://www.mygov.scot/carer-support-payment',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '£83.30/week for carers aged 16 or over providing at least 35 hours/week care to someone receiving a qualifying disability benefit. Replaces Carer\'s Allowance in Scotland. Earnings limit applies.',
+      universal: false,
+      criteria: [
+        { factor: 'caring', description: 'Must provide at least 35 hours of care per week to someone receiving a qualifying disability benefit (ADP, PIP daily living, DLA middle/higher care, AA).' },
+        { factor: 'age', description: 'Must be aged 16 or over.' },
+        { factor: 'income', description: 'Earnings must not exceed £151/week net (after deductions).' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Do you provide at least 35 hours of care per week?',
+        'Does the person you care for receive a qualifying disability benefit?',
+        'Do you earn more than £151/week net?',
+        'Are you in full-time education (21+ hours)?',
+      ],
+      exclusions: ['Net earnings over £151/week', 'Full-time education (21+ hours/week)'],
+      means_tested: false,
+      evidenceRequired: ['Details of person cared for', 'Proof of care hours', 'Earnings details'],
+      ruleIn: ['Provides 35+ hours care/week', 'Cared-for person on qualifying disability benefit', 'Lives in Scotland'],
+      ruleOut: ['Net earnings over £151/week', 'Full-time education', 'Does not live in Scotland'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be aged 16 or over"
+        },
+        {
+          "type": "boolean",
+          "field": "is_carer",
+          "expected": true,
+          "label": "Must be caring for someone"
+        },
+        {
+          "type": "comparison",
+          "field": "caring_hours_per_week",
+          "operator": ">=",
+          "value": 35,
+          "label": "Must provide at least 35 hours of care per week"
+        },
+        {
+          "type": "boolean",
+          "field": "cared_for_receives_qualifying_benefit",
+          "expected": true,
+          "label": "Person cared for must receive ADP, PIP daily living, DLA middle/higher care, or Attendance Allowance"
+        },
+        {
+          "type": "comparison",
+          "field": "weekly_earnings",
+          "operator": "<=",
+          "value": 151,
+          "label": "Net earnings must be £151/week or less"
+        },
+        {
+          "type": "not",
+          "label": "Must not be in full-time education (21+ hours/week)",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_in_full_time_education",
+              "expected": true,
+              "label": "In full-time education"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/carer-support-payment',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Scotland and provides 35+ hours care/week',
+        'Verify the cared-for person receives a qualifying disability benefit',
+        'Check earnings are within the limit',
+        'Guide user through the mygov.scot application',
+        'Explain the interaction with other benefits (may affect means-tested benefits)',
+      ],
+      missingBenefitId: 'carerSupportPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { weekly_rate: 83.30 },
+      source: 'https://www.mygov.scot/carer-support-payment',
+    },
+    nations: ['scotland'],
+  },
+  'sss-carers-allowance-supplement': {
+    id: 'sss-carers-allowance-supplement', name: 'Carer\'s Allowance Supplement', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: 'Two lump sums per year (~£293.50 each) for Carer\'s Allowance or Carer Support Payment recipients in Scotland. Automatic — no application.',
+    govuk_url: 'https://www.mygov.scot/carers-allowance-supplement',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Automatic payment of ~£293.50 twice a year (June and December) for people in Scotland who receive Carer\'s Allowance or Carer Support Payment on qualifying dates. No application needed.',
+      universal: false,
+      criteria: [
+        { factor: 'caring', description: 'Must be receiving Carer\'s Allowance or Carer Support Payment on the qualifying date.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'dependency', description: 'Requires receipt of Carer\'s Allowance or Carer Support Payment — automatic top-up.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Do you currently receive Carer\'s Allowance or Carer Support Payment?',
+      ],
+      autoQualifiers: ['Receiving CA or CSP in Scotland on qualifying date — paid automatically'],
+      means_tested: false,
+      ruleIn: ['Receiving CA or CSP', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland', 'Not receiving CA or CSP'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving Carer's Allowance or Carer Support Payment",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-carers-allowance",
+              "condition": "receiving",
+              "label": "Receiving Carer's Allowance"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "sss-carer-support-payment",
+              "condition": "receiving",
+              "label": "Receiving Carer Support Payment"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm user lives in Scotland and receives CA or CSP',
+        'Explain that payment is automatic — no application needed',
+        'Advise on qualifying dates (paid in June and December)',
+        'Explain the payment amount (~£293.50 per payment)',
+      ],
+      missingBenefitId: 'carersAllowanceSupplement',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { six_monthly_payment: 293.50 },
+      source: 'https://www.mygov.scot/carers-allowance-supplement',
+    },
+    nations: ['scotland'],
+  },
+  'sss-child-winter-heating': {
+    id: 'sss-child-winter-heating', name: 'Child Winter Heating Assistance', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: '£255.80/year for children in Scotland receiving highest-rate disability benefits. Automatic — no application needed.',
+    govuk_url: 'https://www.mygov.scot/child-winter-heating-assistance',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Annual payment of £255.80 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.',
+      universal: false,
+      criteria: [
+        { factor: 'disability', description: 'Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).' },
+        { factor: 'age', description: 'Child must be under 16 (or under 19 if still in qualifying education).' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Does the child live in Scotland?',
+        'Does the child receive the highest rate care component of Child Disability Payment or DLA?',
+      ],
+      autoQualifiers: ['Child on highest-rate CDP/DLA care in Scotland — paid automatically'],
+      means_tested: false,
+      ruleIn: ['Child on highest-rate care component', 'Lives in Scotland'],
+      ruleOut: ['Child not on highest-rate care', 'Does not live in Scotland'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must have a child"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<",
+          "value": 16,
+          "label": "Child must be under 16 (or under 19 in qualifying education)"
+        },
+        {
+          "type": "any",
+          "label": "Child must receive highest-rate care component of Child Disability Payment or DLA",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "sss-child-disability-payment",
+              "condition": "receiving",
+              "label": "Receiving Child Disability Payment (highest care)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-dla-child",
+              "condition": "receiving",
+              "label": "Receiving DLA Child (highest care rate)"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm child lives in Scotland and receives highest-rate care component',
+        'Explain that payment is automatic — no application needed',
+        'Advise on payment timing (annual, during winter)',
+        'Explain the payment amount (£255.80)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { annual_payment: 255.80 },
+      source: 'https://www.mygov.scot/child-winter-heating-assistance',
+    },
+    nations: ['scotland'],
+  },
+  'sss-pension-winter-heating': {
+    id: 'sss-pension-winter-heating', name: 'Pension Age Winter Heating Payment', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: 'Replaced Winter Fuel Payment in Scotland. £101 single / £50 with other qualifying person. Pension Credit top-up £152.',
+    govuk_url: 'https://www.mygov.scot/pension-age-winter-heating-payment',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Replaces Winter Fuel Payment in Scotland. For people who have reached State Pension age and live in Scotland. £101 if living alone, £50 if living with another qualifying person, plus £152 top-up if on Pension Credit.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must have reached State Pension age.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'income', description: 'Pension Credit recipients get an additional £152 top-up.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Have you reached State Pension age?',
+        'Do you receive Pension Credit?',
+        'Do you live alone or with another qualifying person?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Proof of age', 'Proof of Scottish residency'],
+      ruleIn: ['State Pension age', 'Lives in Scotland'],
+      ruleOut: ['Under State Pension age', 'Does not live in Scotland'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 66,
+          "label": "Must have reached State Pension age (66)"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/pension-age-winter-heating-payment',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user is pension age and lives in Scotland',
+        'Calculate expected payment (£101 single, £50 with other qualifying, £152 PC top-up)',
+        'Explain the application process via Social Security Scotland',
+        'Advise on Pension Credit interaction for additional top-up',
+      ],
+      missingBenefitId: 'pensionAgeWinterHeatingPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { single: 101, with_other_qualifying: 50, pension_credit_top_up: 152 },
+      source: 'https://www.mygov.scot/pension-age-winter-heating-payment',
+    },
+    nations: ['scotland'],
+  },
+  'sss-funeral-support-payment': {
+    id: 'sss-funeral-support-payment', name: 'Funeral Support Payment', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: 'Up to £1,500 for burial/cremation costs plus £120 for other expenses. For qualifying benefit recipients in Scotland.',
+    govuk_url: 'https://www.mygov.scot/funeral-support-payment',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Help with funeral costs in Scotland for people on qualifying benefits. Covers up to £1,500 for burial or cremation costs, plus £120 for other expenses (flowers, transport). Must be responsible for the funeral and on a qualifying benefit.',
+      universal: false,
+      criteria: [
+        { factor: 'bereavement', description: 'Must be responsible for arranging or paying for a funeral.' },
+        { factor: 'income', description: 'Must be receiving a qualifying benefit (UC, Pension Credit, income-related ESA/JSA, Income Support, HB, Tax Credits).' },
+        { factor: 'geography', description: 'The funeral must take place in the UK, and applicant must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Are you responsible for paying for the funeral?',
+        'Do you receive a qualifying benefit?',
+        'When did the death occur? (Must apply within 6 months.)',
+      ],
+      exclusions: ['Not on a qualifying benefit', 'Another close relative could reasonably pay'],
+      means_tested: true,
+      evidenceRequired: ['Death certificate', 'Funeral director\'s invoice', 'Proof of qualifying benefit'],
+      ruleIn: ['Responsible for funeral costs', 'On qualifying benefit', 'Lives in Scotland'],
+      ruleOut: ['Not on qualifying benefit', 'Another close relative could pay', 'Does not live in Scotland'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "boolean",
+          "field": "has_experienced_bereavement",
+          "expected": true,
+          "label": "Must be responsible for arranging or paying for a funeral"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-housing-benefit",
+              "condition": "receiving",
+              "label": "Receiving Housing Benefit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/funeral-support-payment',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Scotland and is responsible for funeral costs',
+        'Verify user receives a qualifying benefit',
+        'Guide user through the mygov.scot application',
+        'Explain the 6-month application deadline',
+        'Advise on maximum amounts (£1,500 burial/cremation + £120 other)',
+      ],
+      missingBenefitId: 'funeralSupportPayment',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { max_burial_cremation: 1500, other_costs: 120 },
+      source: 'https://www.mygov.scot/funeral-support-payment',
+    },
+    nations: ['scotland'],
+  },
+
+  // Welsh Government ───────────────────────────────────────────────────────
+  'wg-winter-fuel-support': {
+    id: 'wg-winter-fuel-support', name: 'Winter Fuel Support Scheme (Wales)', dept: 'Welsh Government', deptKey: 'wg',
+    deadline: null,
+    desc: '£200 one-off payment for qualifying benefit recipients in Wales to help with energy costs.',
+    govuk_url: 'https://www.gov.wales/winter-fuel-support-scheme',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '£200 one-off payment to help with energy costs in Wales. Must be receiving a qualifying benefit (Pension Credit, UC, income-related ESA/JSA, Income Support). Application window opens annually.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be receiving a qualifying benefit: Pension Credit, UC, income-related JSA, income-related ESA, or Income Support.' },
+        { factor: 'geography', description: 'Must live in Wales.' },
+      ],
+      keyQuestions: [
+        'Do you live in Wales?',
+        'Do you receive a qualifying benefit (Pension Credit, UC, ESA, JSA, Income Support)?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit', 'Proof of Welsh residency'],
+      ruleIn: ['On qualifying benefit', 'Lives in Wales'],
+      ruleOut: ['Does not live in Wales', 'Not on qualifying benefit'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "wales"
+          ],
+          "label": "Must live in Wales"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-esa",
+              "condition": "receiving",
+              "label": "Receiving ESA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-jsa",
+              "condition": "receiving",
+              "label": "Receiving JSA"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.wales/winter-fuel-support-scheme',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Wales and receives a qualifying benefit',
+        'Guide user through the Welsh Government application',
+        'Advise on the annual application window',
+        'Explain the payment amount (£200)',
+      ],
+      missingBenefitId: 'winterFuelSupportScheme',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { payment: 200 },
+      source: 'https://www.gov.wales/winter-fuel-support-scheme',
+    },
+    nations: ['wales'],
+  },
+
+  // Northern Ireland ───────────────────────────────────────────────────────
+  'ni-rate-rebate': {
+    id: 'ni-rate-rebate', name: 'Rate Rebate', dept: 'Land & Property Services NI', deptKey: 'ni-lps',
+    deadline: null,
+    desc: 'Northern Ireland equivalent of Council Tax Reduction. Help with domestic rates for low-income households.',
+    govuk_url: 'https://www.nidirect.gov.uk/articles/rate-relief',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Help with domestic rates in Northern Ireland for people on low income. Similar to Council Tax Reduction in England/Wales. Assessed on income and household circumstances.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Means-tested on household income. Amount depends on income, rates liability and household composition.' },
+        { factor: 'property', description: 'Must be liable for domestic rates in Northern Ireland.' },
+        { factor: 'geography', description: 'Must live in Northern Ireland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Northern Ireland?',
+        'Are you liable for domestic rates?',
+        'What is your household income?',
+        'Do you receive any means-tested benefits?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of income', 'Rate bill', 'Benefit confirmation letters'],
+      ruleIn: ['Liable for NI domestic rates', 'Low income', 'Lives in Northern Ireland'],
+      ruleOut: ['Does not live in Northern Ireland', 'Not liable for rates'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "northern-ireland"
+          ],
+          "label": "Must live in Northern Ireland"
+        },
+        {
+          "type": "any",
+          "label": "Must be on low income or receiving a means-tested benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "comparison",
+              "field": "weekly_income",
+              "operator": "<",
+              "value": 250,
+              "label": "Low weekly income"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.nidirect.gov.uk/articles/rate-relief',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Northern Ireland and is liable for domestic rates',
+        'Explain the means test and what income is assessed',
+        'Guide user to the Land & Property Services application',
+        'Advise on required evidence (income proof, rate bill)',
+      ],
+      missingBenefitId: 'rateRebate',
+    },
+    nations: ['northern-ireland'],
+      contactInfo: {
+      phone: { number: '+44 300 200 7801', label: 'LPS Rating helpline' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '17:00',
+        },
+      ],
+    },
+  },
+  'ni-discretionary-support': {
+    id: 'ni-discretionary-support', name: 'Discretionary Support', dept: 'Department for Communities NI', deptKey: 'ni-dfc',
+    deadline: null,
+    desc: 'Emergency grants or loans for people in financial crisis in Northern Ireland. Non-repayable grants up to £150; living expenses loans up to £500.',
+    govuk_url: 'https://www.nidirect.gov.uk/articles/discretionary-support',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Emergency financial help for people in crisis in Northern Ireland. Non-repayable grants (up to £150) for immediate needs; interest-free loans (up to £500) for living expenses. Must be on a qualifying benefit or awaiting a benefit decision.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be in financial crisis. Typically receiving or awaiting UC, ESA, JSA, Income Support or Pension Credit.' },
+        { factor: 'geography', description: 'Must live in Northern Ireland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Northern Ireland?',
+        'Are you in financial crisis or facing an emergency?',
+        'Do you receive a qualifying benefit, or are you awaiting a benefit decision?',
+        'What is the emergency need (food, heating, essential items)?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of benefit receipt or pending application', 'Details of the emergency need'],
+      ruleIn: ['Financial crisis', 'On qualifying benefit or awaiting decision', 'Lives in Northern Ireland'],
+      ruleOut: ['Does not live in Northern Ireland', 'Not in financial hardship'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "northern-ireland"
+          ],
+          "label": "Must live in Northern Ireland"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be aged 16 or over"
+        },
+        {
+          "type": "any",
+          "label": "Must be in financial crisis or receiving/awaiting a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-esa",
+              "condition": "receiving",
+              "label": "Receiving ESA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-jsa",
+              "condition": "receiving",
+              "label": "Receiving JSA"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.nidirect.gov.uk/articles/discretionary-support',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Northern Ireland and is in financial crisis',
+        'Determine whether grant or loan is more appropriate',
+        'Guide user through the application process',
+        'Explain grant limits (£150) and loan limits (£500)',
+        'Advise on urgent processing for immediate needs',
+      ],
+      missingBenefitId: 'discretionarySupport',
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { emergency_max: 150, living_expenses_max: 500 },
+      source: 'https://www.nidirect.gov.uk/articles/discretionary-support',
+    },
+    nations: ['northern-ireland'],
+      contactInfo: {
+      phone: { number: '+44 28 9069 9966', label: 'Discretionary Support Team' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '09:00',
+          close: '17:00',
+        },
+      ],
+    },
+  },
+
+  // DWP — DLA Child ────────────────────────────────────────────────────────
+  'dwp-dla-child': {
+    id: 'dwp-dla-child', name: 'Disability Living Allowance (Child)', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'For children under 16 with disabilities or health conditions. Care and mobility components at various rates. Replaced by CDP in Scotland.',
+    govuk_url: 'https://www.gov.uk/disability-living-allowance-children',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'For children under 16 with a disability or health condition that means they need extra looking after or have difficulty walking. Not means-tested. Replaced by Child Disability Payment in Scotland.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Child must be under 16.' },
+        { factor: 'disability', description: 'Child must have a physical or mental disability that requires substantially more care or supervision than a child of the same age without a disability, or has difficulty walking.' },
+        { factor: 'residency', description: 'Must be in England, Wales or Northern Ireland (Scotland uses Child Disability Payment).' },
+      ],
+      keyQuestions: [
+        'Is the child under 16?',
+        'Does the child have a disability or long-term health condition?',
+        'Does the child need more care or supervision than other children the same age?',
+        'Does the child have difficulty walking?',
+        'Do you live in England, Wales or Northern Ireland?',
+      ],
+      exclusions: ['Child is 16 or over (claim PIP instead)', 'Lives in Scotland (claim Child Disability Payment)'],
+      means_tested: false,
+      evidenceRequired: ['Medical evidence of disability or condition', 'Details of care needs and supervision required', 'GP or consultant reports'],
+      ruleIn: ['Child under 16', 'Disability or health condition requiring extra care', 'Lives in England, Wales or NI'],
+      ruleOut: ['Child 16 or over', 'Lives in Scotland', 'No extra care needs above same-age child'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "england",
+            "wales",
+            "northern-ireland"
+          ],
+          "label": "Must live in England, Wales or Northern Ireland (Scotland uses Child Disability Payment)"
+        },
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must have a child"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<",
+          "value": 16,
+          "label": "Child must be under 16"
+        },
+        {
+          "type": "boolean",
+          "field": "has_disability",
+          "expected": true,
+          "label": "Child must have a disability or health condition requiring extra care or supervision"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/disability-living-allowance-children/how-to-claim',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Request a DLA child claim form by phone or download it',
+        'Explain the care and mobility components and rates',
+        'Help describe the child\'s care needs in the application',
+        'Advise on gathering medical evidence from GP/consultant',
+        'Explain the assessment process',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { care_lowest: 28.70, care_middle: 73.90, care_highest: 110.40, mobility_lower: 29.20, mobility_higher: 77.05 },
+      source: 'https://www.gov.uk/disability-living-allowance-children/what-youll-get',
+    },
+    nations: ['england', 'wales', 'northern-ireland'],
+      contactInfo: {
+      phone: {
+        number: '+44 800 121 4600',
+        textphone: '+44 800 121 4523',
+        relay: '18001 then 0800 121 4600',
+        label: 'Disability Living Allowance helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+    },
+  },
+
+  // Local Authority — Council Tax Disability Reduction ─────────────────────
+  'la-council-tax-disability-reduction': {
+    id: 'la-council-tax-disability-reduction', name: 'Council Tax Disability Reduction', dept: 'Local Authority', deptKey: 'la',
+    deadline: null,
+    desc: 'Reduces Council Tax band by one level for properties with essential disability adaptations (extra room, wheelchair access, second bathroom).',
+    govuk_url: 'https://www.gov.uk/council-tax/discounts-for-disabled-people',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Council Tax bill is reduced to the next band down if the property has certain features essential for a disabled resident: a room used mainly by the disabled person, an extra bathroom or kitchen, or extra space for wheelchair use.',
+      universal: false,
+      criteria: [
+        { factor: 'disability', description: 'A disabled person must live in the property. The property must have been adapted or have features essential for the disabled person\'s needs.' },
+        { factor: 'property', description: 'Property must have at least one of: a room mainly used by the disabled person (not a bedroom, bathroom or kitchen); an extra bathroom or kitchen for the disabled person; extra space inside for wheelchair use.' },
+      ],
+      keyQuestions: [
+        'Does a disabled person live in the property?',
+        'Does the property have an extra room, bathroom, kitchen or wheelchair space for the disabled person?',
+        'Are you already receiving a Council Tax discount?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Evidence of disability adaptations or property features', 'Proof the disabled person lives at the property'],
+      ruleIn: ['Disabled person lives in property', 'Property has qualifying adaptations'],
+      ruleOut: ['No disability adaptations in property', 'No disabled resident'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_disability",
+          "expected": true,
+          "label": "A disabled person lives in the property"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.property_has_disability_adaptations",
+          "expected": true,
+          "label": "Property has qualifying features: extra room, bathroom, kitchen, or wheelchair space for the disabled person"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain qualifying property features (extra room, bathroom, wheelchair space)',
+        'Help user contact their local council to apply',
+        'Advise that reduction applies even if the property is already in the lowest band (Band A)',
+        'Explain that the reduction can be combined with other Council Tax discounts',
+      ],
+    },
+  },
+
+  // Social Tariff Broadband ────────────────────────────────────────────────
+  'other-social-tariff-broadband': {
+    id: 'other-social-tariff-broadband', name: 'Social Tariff Broadband', dept: 'Broadband providers', deptKey: 'other',
+    deadline: null,
+    desc: 'Discounted broadband packages for UC, Pension Credit and other benefit recipients. Varies by provider.',
+    govuk_url: 'https://www.gov.uk/affordable-broadband',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Discounted broadband for people on UC, Pension Credit and other means-tested benefits. Available from major providers (BT, Virgin Media, Sky, etc.). Prices typically £12–20/month.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, or income-related ESA/JSA.' },
+      ],
+      keyQuestions: [
+        'Do you receive Universal Credit, Pension Credit or another qualifying benefit?',
+        'Who is your current broadband provider?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit'],
+      ruleIn: ['On UC, Pension Credit or qualifying benefit'],
+      ruleOut: ['Not on qualifying benefit'],      rules: [
+        {
+          "type": "any",
+          "label": "Receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_based_jsa",
+              "expected": true,
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/affordable-broadband',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Identify user\'s current broadband provider',
+        'Check which social tariff is available from that provider',
+        'Guide user to the provider\'s social tariff application page',
+        'Explain that proof of qualifying benefit is usually needed',
+      ],
+    },
+  },
+
+  // NHS — Free Dental Treatment ────────────────────────────────────────────
+  'nhs-free-dental': {
+    id: 'nhs-free-dental', name: 'Free NHS Dental Treatment', dept: 'NHS', deptKey: 'nhs',
+    deadline: null,
+    desc: 'Free dental for under-18s, pregnant women, new mothers, low-income groups and qualifying benefit recipients.',
+    govuk_url: 'https://www.nhs.uk/nhs-services/dentists/dental-costs/get-help-with-dental-costs/',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free NHS dental treatment is available to: under-18s (or under-19 in full-time education), pregnant women and new mothers (12 months after birth), people on certain benefits, HC2 certificate holders, and War Pension dental scheme members.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Under 18 (or under 19 and in full-time education).' },
+        { factor: 'family', description: 'Pregnant women and mothers with a child under 12 months.' },
+        { factor: 'income', description: 'Receiving Income Support, income-related ESA, income-based JSA, Pension Credit Guarantee, or UC with nil income. Also HC2 certificate holders.' },
+      ],
+      keyQuestions: [
+        'Are you under 18 (or under 19 in full-time education)?',
+        'Are you pregnant or have a child under 12 months?',
+        'Do you receive a qualifying benefit (IS, ESA, JSA, PC Guarantee, UC)?',
+        'Do you have an HC2 or HC3 certificate?',
+      ],
+      autoQualifiers: ['Under 18', 'Pregnant or baby under 12 months', 'On qualifying benefit'],
+      means_tested: false,
+      evidenceRequired: ['Maternity exemption certificate (if pregnant/new mother)', 'HC2/HC3 certificate (if applicable)', 'Benefit award letter'],
+      ruleIn: ['Under 18', 'Pregnant or baby under 12 months', 'On qualifying benefit', 'HC2 certificate holder'],
+      ruleOut: ['Over 18 and not in qualifying group', 'No qualifying benefit or certificate'],      rules: [
+        {
+          "type": "any",
+          "label": "Meets at least one free dental criterion",
+          "rules": [
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": "<",
+              "value": 18,
+              "label": "Under 18"
+            },
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Currently pregnant"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.gave_birth_last_12_months",
+              "expected": true,
+              "label": "Baby under 12 months old"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "nhs-low-income-scheme",
+              "condition": "receiving",
+              "label": "Has HC2 certificate (NHS Low Income Scheme)"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_based_jsa",
+              "expected": true,
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit Guarantee Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit with nil income"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Determine which exemption category the user falls into',
+        'Explain that exemption must be declared at the dentist',
+        'Advise on getting a maternity exemption certificate or HC2 if needed',
+        'Help find an NHS dentist accepting new patients',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 1348', label: 'NHS BSA dental services' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '15:00',
+        },
+      ],
+      officeLocatorUrl: 'https://www.nhs.uk/service-search/find-a-dentist',
+    },
+  },
+
+  // NHS — Free Sight Tests ─────────────────────────────────────────────────
+  'nhs-free-sight-tests': {
+    id: 'nhs-free-sight-tests', name: 'Free NHS Sight Tests', dept: 'NHS', deptKey: 'nhs',
+    deadline: null,
+    desc: 'Free sight tests for under-16s, over-60s, benefit recipients, those with certain conditions, and low-income groups.',
+    govuk_url: 'https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free NHS sight tests available to: under-16s (or under-19 in full-time education), people aged 60+, people on certain benefits, diagnosed glaucoma patients, those at risk of glaucoma, registered blind/partially sighted, diabetes patients, and HC2 holders.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Under 16 (or under 19 in full-time education), or aged 60 or over.' },
+        { factor: 'disability', description: 'Diagnosed glaucoma, diabetes, or registered blind/partially sighted. Also at risk of glaucoma (e.g. aged 40+ with close family member with glaucoma).' },
+        { factor: 'income', description: 'Receiving Income Support, income-related ESA, income-based JSA, Pension Credit Guarantee, UC with nil income. Also HC2 certificate holders.' },
+      ],
+      keyQuestions: [
+        'Are you under 16, or under 19 in full-time education?',
+        'Are you aged 60 or over?',
+        'Do you have glaucoma, diabetes or are you registered blind?',
+        'Do you receive a qualifying benefit?',
+        'Do you have an HC2 certificate?',
+      ],
+      autoQualifiers: ['Under 16', 'Aged 60 or over', 'Has glaucoma or diabetes', 'On qualifying benefit'],
+      means_tested: false,
+      evidenceRequired: ['HC2 certificate (if applicable)', 'Benefit award letter', 'Medical evidence if claiming on health grounds'],
+      ruleIn: ['Under 16', 'Aged 60+', 'Has glaucoma/diabetes', 'On qualifying benefit', 'HC2 certificate holder'],
+      ruleOut: ['Aged 16-59 with no qualifying condition, benefit or certificate'],      rules: [
+        {
+          "type": "any",
+          "label": "Meets at least one free sight test criterion",
+          "rules": [
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": "<",
+              "value": 16,
+              "label": "Under 16"
+            },
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": ">=",
+              "value": 60,
+              "label": "Aged 60 or over"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.has_glaucoma",
+              "expected": true,
+              "label": "Diagnosed with glaucoma"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.has_diabetes",
+              "expected": true,
+              "label": "Has diabetes"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.registered_blind",
+              "expected": true,
+              "label": "Registered blind or partially sighted"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.glaucoma_risk",
+              "expected": true,
+              "label": "At risk of glaucoma (aged 40+ with close family member with glaucoma)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "nhs-low-income-scheme",
+              "condition": "receiving",
+              "label": "Has HC2 certificate (NHS Low Income Scheme)"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_based_jsa",
+              "expected": true,
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit Guarantee Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit with nil income"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Determine which exemption category the user falls into',
+        'Explain that eligibility should be declared at the optician',
+        'Advise on optical vouchers for glasses if also eligible',
+        'Help find a local optician offering NHS sight tests',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 1349', label: 'NHS BSA optical services' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '15:00',
+        },
+      ],
+      officeLocatorUrl: 'https://www.nhs.uk/service-search/find-an-optician',
+    },
+  },
+
+  // DWP — Support for Mortgage Interest ────────────────────────────────────
+  'dwp-smi': {
+    id: 'dwp-smi', name: 'Support for Mortgage Interest', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Loan (secured against property) to help with mortgage interest payments for UC, PC, JSA, ESA and IS claimants.',
+    govuk_url: 'https://www.gov.uk/support-for-mortgage-interest',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'A loan to help homeowners pay mortgage interest. Available to UC, Pension Credit, income-based JSA, income-related ESA and Income Support claimants. The loan is secured against the property and repaid when the property is sold.',
+      universal: false,
+      criteria: [
+        { factor: 'property', description: 'Must be a homeowner with a mortgage, loan or other charge on the property.' },
+        { factor: 'income', description: 'Must be receiving UC (with no earnings or limited earnings), Pension Credit, income-based JSA, income-related ESA or Income Support.' },
+        { factor: 'dependency', description: 'For UC claimants, must have received UC for 9 consecutive months before SMI starts (3 months for Pension Credit).' },
+      ],
+      keyQuestions: [
+        'Are you a homeowner with a mortgage?',
+        'Do you receive UC, Pension Credit, JSA, ESA or Income Support?',
+        'How long have you been receiving the qualifying benefit?',
+        'Do you understand this is a loan secured against your property?',
+      ],
+      exclusions: ['Renting (not a homeowner)', 'UC with earnings above threshold', 'Not on qualifying benefit for required duration'],
+      means_tested: true,
+      evidenceRequired: ['Mortgage statement', 'Proof of qualifying benefit', 'Consent to charge on property'],
+      ruleIn: ['Homeowner with mortgage', 'On qualifying benefit 9+ months'],
+      ruleOut: ['Renting', 'Not on qualifying benefit', 'UC with earnings above threshold'],      rules: [
+        {
+          "type": "boolean",
+          "field": "is_homeowner",
+          "expected": true,
+          "label": "Must be a homeowner"
+        },
+        {
+          "type": "boolean",
+          "field": "has_mortgage",
+          "expected": true,
+          "label": "Must have a mortgage"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit for 9+ months",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-jsa",
+              "condition": "receiving",
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-esa",
+              "condition": "receiving",
+              "label": "Receiving income-related ESA"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check user is a homeowner on a qualifying benefit for the required duration',
+        'Explain that SMI is a loan, not a grant — it must be repaid',
+        'Advise on the interest rate used for calculations',
+        'Explain the consent process (loan is secured against property)',
+        'Guide user to contact DWP to start the claim',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { interest_rate_percent: 2.36, capital_limit: 200000 },
+      source: 'https://www.gov.uk/support-for-mortgage-interest',
+    },
+      contactInfo: {
+      phone: {
+        number: '+44 800 169 0140',
+        textphone: '+44 800 169 0207',
+        relay: '18001 then 0800 169 0140',
+        label: 'Jobcentre Plus (Support for Mortgage Interest)',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+      notes: 'Accessed through qualifying benefit (UC, Pension Credit, JSA/ESA, or IS).',
+    },
+  },
+
+  // DWP — Cold Weather Payment ─────────────────────────────────────────────
+  'dwp-cold-weather-payment': {
+    id: 'dwp-cold-weather-payment', name: 'Cold Weather Payment', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: '£25 for each 7-day cold spell (0°C or below) for qualifying benefit recipients. Automatic — no application needed.',
+    govuk_url: 'https://www.gov.uk/cold-weather-payment',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '£25 automatic payment for each 7-day period when the average temperature is recorded as or forecast to be 0°C or below. Must be receiving Pension Credit, income-related ESA, income-based JSA, Income Support or UC. Not available in Scotland (replaced by devolved schemes).',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be receiving a qualifying benefit: Pension Credit, income-related ESA (certain groups), income-based JSA, Income Support, or UC with limited capability for work or a disabled/severely disabled child element.' },
+        { factor: 'geography', description: 'Available in England and Wales only. Scotland has its own devolved winter heating schemes.' },
+      ],
+      keyQuestions: [
+        'Do you receive Pension Credit, ESA, JSA, IS or UC?',
+        'Do you live in England or Wales?',
+      ],
+      autoQualifiers: ['On qualifying benefit in England/Wales during cold spell — paid automatically'],
+      means_tested: false,
+      ruleIn: ['On qualifying benefit', 'Lives in England or Wales'],
+      ruleOut: ['Lives in Scotland', 'Not on qualifying benefit'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "england",
+            "wales"
+          ],
+          "label": "Must live in England or Wales (Scotland has devolved schemes)"
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-esa",
+              "condition": "receiving",
+              "label": "Receiving income-related ESA (certain groups)"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-new-style-jsa",
+              "condition": "receiving",
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving UC with limited capability for work or disabled child element"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm user receives a qualifying benefit in England or Wales',
+        'Explain that payment is automatic — no application needed',
+        'Advise that £25 is paid for each 7-day cold spell',
+        'Help user check their local weather station for cold spell records',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { per_cold_spell: 25 },
+      source: 'https://www.gov.uk/cold-weather-payment',
+    },
+    nations: ['england', 'wales'],
+  },
+
+  // DVLA — Vehicle Excise Duty Exemption ───────────────────────────────────
+  'dvla-ved-exemption': {
+    id: 'dvla-ved-exemption', name: 'Vehicle Excise Duty Exemption', dept: 'DVLA', deptKey: 'dvla',
+    deadline: null,
+    desc: 'Free vehicle tax for people receiving PIP enhanced mobility or DLA higher-rate mobility component.',
+    govuk_url: 'https://www.gov.uk/financial-help-disabled/vehicles-and-transport',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Exemption from vehicle tax (VED) for vehicles used by people receiving the enhanced mobility component of PIP, the higher-rate mobility component of DLA, War Pensioners\' Mobility Supplement, or Armed Forces Independence Payment.',
+      universal: false,
+      criteria: [
+        { factor: 'disability', description: 'Must receive enhanced mobility PIP, higher-rate mobility DLA, War Pensioners\' Mobility Supplement, or Armed Forces Independence Payment.' },
+        { factor: 'dependency', description: 'Must already be receiving the qualifying disability benefit before applying.' },
+      ],
+      keyQuestions: [
+        'Do you receive PIP with the enhanced mobility component?',
+        'Or do you receive the higher-rate mobility component of DLA?',
+        'Is the vehicle registered in your name or your nominee\'s name?',
+      ],
+      autoQualifiers: ['Receiving PIP enhanced mobility or DLA higher mobility'],
+      means_tested: false,
+      evidenceRequired: ['PIP or DLA award letter showing enhanced/higher mobility', 'Vehicle registration document (V5C)'],
+      ruleIn: ['PIP enhanced mobility', 'DLA higher-rate mobility'],
+      ruleOut: ['PIP standard mobility only', 'DLA lower-rate mobility only', 'No qualifying disability benefit'],      rules: [
+        {
+          "type": "any",
+          "label": "Receiving enhanced mobility PIP or DLA higher-rate mobility",
+          "rules": [
+            {
+              "type": "enum",
+              "field": "pip_mobility_rate",
+              "oneOf": [
+                "enhanced"
+              ],
+              "label": "Receiving Enhanced Rate PIP mobility component"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_dla_higher_mobility",
+              "expected": true,
+              "label": "Receiving DLA higher-rate mobility component"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_war_pensioners_mobility",
+              "expected": true,
+              "label": "Receiving War Pensioners' Mobility Supplement"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_afip",
+              "expected": true,
+              "label": "Receiving Armed Forces Independence Payment"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/financial-help-disabled/vehicles-and-transport',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Verify user receives PIP enhanced mobility or DLA higher-rate mobility',
+        'Explain the exemption covers the full vehicle tax',
+        'Guide user to apply online or at a Post Office',
+        'Advise that exemption must be renewed when the disability award is reviewed',
+      ],
+    },
+  },
+
+  // HMCTS — Court Fee Remission ────────────────────────────────────────────
+  'hmcts-court-fee-remission': {
+    id: 'hmcts-court-fee-remission', name: 'Court Fee Remission', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: null,
+    desc: 'Full or partial help with court and tribunal fees for people on benefits or low income.',
+    govuk_url: 'https://www.gov.uk/get-help-with-court-fees',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Help with court and tribunal fees. Full remission if receiving qualifying benefits (UC with gross income under £6,000, JSA, ESA, IS, Pension Credit Guarantee). Partial remission based on income and savings. Savings must be below threshold.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Full remission: on qualifying benefit with savings below threshold. Partial remission: gross monthly income below £1,345 (single, no children). Higher thresholds for couples and those with children.' },
+        { factor: 'asset', description: 'Savings must be below threshold: under 61 = £3,000; 61+ = £16,000. Thresholds rise depending on fee amount.' },
+      ],
+      keyQuestions: [
+        'Are you receiving a qualifying benefit (UC, JSA, ESA, IS, Pension Credit)?',
+        'What are your savings?',
+        'What is the court or tribunal fee you need to pay?',
+        'What is your gross monthly income?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Benefit award letter', 'Bank statements showing savings', 'Proof of income if not on qualifying benefit'],
+      ruleIn: ['On qualifying benefit', 'Low income', 'Savings below threshold'],
+      ruleOut: ['Savings above threshold for age', 'High income without qualifying benefit'],      rules: [
+        {
+          "type": "any",
+          "label": "On qualifying benefit or low income",
+          "rules": [
+            {
+              "type": "all",
+              "label": "Full remission: on qualifying benefit with savings below threshold",
+              "rules": [
+                {
+                  "type": "any",
+                  "label": "Receiving a qualifying benefit",
+                  "rules": [
+                    {
+                      "type": "dependency",
+                      "serviceId": "dwp-universal-credit",
+                      "condition": "receiving",
+                      "label": "Receiving Universal Credit"
+                    },
+                    {
+                      "type": "boolean",
+                      "field": "custom_facts.receiving_income_based_jsa",
+                      "expected": true,
+                      "label": "Receiving income-based JSA"
+                    },
+                    {
+                      "type": "boolean",
+                      "field": "custom_facts.receiving_income_related_esa",
+                      "expected": true,
+                      "label": "Receiving income-related ESA"
+                    },
+                    {
+                      "type": "boolean",
+                      "field": "custom_facts.receiving_income_support",
+                      "expected": true,
+                      "label": "Receiving Income Support"
+                    },
+                    {
+                      "type": "dependency",
+                      "serviceId": "dwp-pension-credit",
+                      "condition": "receiving",
+                      "label": "Receiving Pension Credit Guarantee Credit"
+                    }
+                  ]
+                },
+                {
+                  "type": "comparison",
+                  "field": "savings",
+                  "operator": "<",
+                  "value": 3000,
+                  "label": "Savings below £3,000 (under 61) or £16,000 (61+)"
+                }
+              ]
+            },
+            {
+              "type": "all",
+              "label": "Partial remission: low gross monthly income",
+              "rules": [
+                {
+                  "type": "comparison",
+                  "field": "annual_income",
+                  "operator": "<",
+                  "value": 16140,
+                  "label": "Gross annual income below £16,140 (£1,345/month single, no children)"
+                },
+                {
+                  "type": "comparison",
+                  "field": "savings",
+                  "operator": "<",
+                  "value": 3000,
+                  "label": "Savings below threshold for fee amount"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/get-help-with-court-fees',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Determine whether user qualifies for full or partial remission',
+        'Check savings thresholds based on age and fee amount',
+        'Guide user through the Help with Fees (HWF) application',
+        'Explain the HWF reference number process for court submissions',
+      ],
+    },
+  },
+
+  // NHS — Maternity Exemption Certificate ──────────────────────────────────
+  'nhs-maternity-exemption': {
+    id: 'nhs-maternity-exemption', name: 'Maternity Exemption Certificate', dept: 'NHS', deptKey: 'nhs',
+    deadline: null,
+    desc: 'Free NHS prescriptions and dental treatment during pregnancy and for 12 months after the baby is born.',
+    govuk_url: 'https://www.nhs.uk/pregnancy/finding-out/free-nhs-prescriptions-and-dental-care/',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free NHS prescriptions and dental treatment for pregnant women and new mothers for 12 months after the baby\'s birth. Maternity Exemption Certificate (MatEx) obtained through midwife or GP.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Must be pregnant or have had a baby in the last 12 months.' },
+      ],
+      keyQuestions: [
+        'Are you currently pregnant?',
+        'Have you had a baby in the last 12 months?',
+        'Have you already obtained your MatEx certificate from your midwife or GP?',
+      ],
+      autoQualifiers: ['Currently pregnant', 'Baby born within last 12 months'],
+      means_tested: false,
+      evidenceRequired: ['Signed maternity exemption form from midwife or GP'],
+      ruleIn: ['Pregnant', 'Baby under 12 months'],
+      ruleOut: ['Not pregnant and baby over 12 months'],      rules: [
+        {
+          "type": "any",
+          "label": "Currently pregnant or gave birth within the last 12 months",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Currently pregnant"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.gave_birth_last_12_months",
+              "expected": true,
+              "label": "Gave birth in the last 12 months"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Advise user to ask midwife or GP for a maternity exemption form',
+        'Explain the certificate covers free prescriptions and dental for full pregnancy plus 12 months post-birth',
+        'Remind user to present the certificate at pharmacies and dentists',
+        'Explain the certificate is sent automatically after the form is submitted',
+      ],
+    },
+      contactInfo: {
+      phone: { number: '+44 300 330 1341', label: 'NHS BSA (maternity exemption)' },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+        {
+          days: ['sat'],
+          open: '09:00',
+          close: '15:00',
+        },
+      ],
+    },
+  },
+
+  // Local Authority — Free Childcare 2-year-olds ──────────────────────────
+  'la-free-childcare-2yr': {
+    id: 'la-free-childcare-2yr', name: 'Free Childcare (disadvantaged 2-year-olds)', dept: 'Local Authority', deptKey: 'la',
+    deadline: null,
+    desc: '15 hours/week free childcare for 2-year-olds from disadvantaged backgrounds. England only.',
+    govuk_url: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '15 hours/week free childcare for eligible 2-year-olds in England. Qualifying criteria include receiving income-related benefits, being a looked-after child, having an EHC plan, receiving DLA, or leaving care.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Must have a 2-year-old child.' },
+        { factor: 'income', description: 'Parent/carer must receive a qualifying benefit: Income Support, income-based JSA, income-related ESA, UC (with annual income under £15,400), tax credits (with annual income under £16,190), or the child has an EHC plan or receives DLA.' },
+        { factor: 'geography', description: 'England only.' },
+      ],
+      keyQuestions: [
+        'Do you have a child aged 2?',
+        'Do you receive a qualifying benefit (UC, tax credits, IS, JSA, ESA)?',
+        'Does the child have an EHC plan or receive DLA?',
+        'Is the child a looked-after child?',
+        'Do you live in England?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit', 'Child\'s date of birth', 'National Insurance number'],
+      ruleIn: ['Child aged 2', 'On qualifying benefit or child has EHC plan/DLA', 'Lives in England'],
+      ruleOut: ['Child not aged 2', 'Not on qualifying benefit and child has no additional needs', 'Does not live in England'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "==",
+          "value": 2,
+          "label": "Child must be aged 2"
+        },
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "england"
+          ],
+          "label": "Must live in England"
+        },
+        {
+          "type": "any",
+          "label": "On qualifying benefit or child has additional needs",
+          "rules": [
+            {
+              "type": "all",
+              "label": "On Universal Credit with low income",
+              "rules": [
+                {
+                  "type": "dependency",
+                  "serviceId": "dwp-universal-credit",
+                  "condition": "receiving",
+                  "label": "Receiving Universal Credit"
+                },
+                {
+                  "type": "comparison",
+                  "field": "annual_income",
+                  "operator": "<",
+                  "value": 15400,
+                  "label": "Annual income under £15,400"
+                }
+              ]
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_support",
+              "expected": true,
+              "label": "Receiving Income Support"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_based_jsa",
+              "expected": true,
+              "label": "Receiving income-based JSA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.child_has_ehc_plan",
+              "expected": true,
+              "label": "Child has an Education, Health and Care (EHC) plan"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.child_receives_dla",
+              "expected": true,
+              "label": "Child receives Disability Living Allowance"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.child_looked_after_or_care_leaver",
+              "expected": true,
+              "label": "Child is looked-after or has left care"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check eligibility based on benefit receipt or child\'s needs',
+        'Guide user to apply through their local council',
+        'Explain the 15 hours/week entitlement (38 weeks/year)',
+        'Advise on finding eligible childcare providers',
+      ],
+    },
+    nations: ['england'],
+  },
+
+  // SLC — Childcare Grant ─────────────────────────────────────────────────
+  'slc-childcare-grant': {
+    id: 'slc-childcare-grant', name: 'Childcare Grant (Students)', dept: 'Student Loans Company', deptKey: 'slc',
+    deadline: null,
+    desc: 'Non-repayable grant for full-time students with children. Up to £10,124 for one child or £17,354 for two or more.',
+    govuk_url: 'https://www.gov.uk/childcare-grant',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Non-repayable grant to help full-time higher education students with childcare costs. Up to 85% of actual costs, capped at approximately £10,124/year for one child or £17,354 for two or more. Income-assessed on household income.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Must be a full-time higher education student with dependent children in registered or approved childcare.' },
+        { factor: 'income', description: 'Income-assessed on household income. Amount reduces as income rises.' },
+        { factor: 'employment', description: 'Must be a full-time student (not part-time).' },
+      ],
+      keyQuestions: [
+        'Are you a full-time higher education student?',
+        'Do you have dependent children in registered childcare?',
+        'What is your household income?',
+        'What are your weekly childcare costs?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of full-time student status', 'Childcare provider registration details', 'Childcare cost receipts', 'Household income evidence'],
+      ruleIn: ['Full-time student', 'Has dependent children in childcare'],
+      ruleOut: ['Part-time student', 'No dependent children', 'Children not in registered childcare'],      rules: [
+        {
+          "type": "enum",
+          "field": "employment_status",
+          "oneOf": [
+            "student"
+          ],
+          "label": "Must be a full-time higher education student"
+        },
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must have dependent children in registered childcare"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/childcare-grant/how-to-claim',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check student is full-time and has children in registered childcare',
+        'Guide user through the Student Finance application',
+        'Explain the income assessment and maximum amounts',
+        'Advise that the grant covers up to 85% of actual childcare costs',
+        'Explain the grant is non-repayable (unlike student loans)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { max_one_child: 10124, max_two_plus: 17354 },
+      source: 'https://www.gov.uk/childcare-grant',
+    },
+  },
+
+  // SSS — Best Start Grant ─────────────────────────────────────────────────
+  'sss-best-start-grant': {
+    id: 'sss-best-start-grant', name: 'Best Start Grant', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: 'Three one-off payments for families on qualifying benefits in Scotland: pregnancy (£707.25), early learning (£314.10), school age (£314.10).',
+    govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy & Baby Payment (£707.25 first child, £353.65 subsequent), Early Learning Payment (£314.10 when child turns ~2), School Age Payment (£314.10 when child starts school). Must be on qualifying benefit.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Must be responsible for a child (or pregnant for the first payment).' },
+        { factor: 'income', description: 'Must be receiving a qualifying benefit: UC, tax credits, income-related ESA/JSA, Income Support, Pension Credit, or Housing Benefit.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Are you pregnant or do you have a young child?',
+        'Do you receive a qualifying benefit?',
+        'Which payment are you applying for (pregnancy, early learning, or school age)?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age', 'Proof of Scottish residency'],
+      ruleIn: ['Pregnant or has young child', 'On qualifying benefit', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland', 'Not on qualifying benefit'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "any",
+          "label": "Must be pregnant or have a young child",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Pregnant"
+            },
+            {
+              "type": "boolean",
+              "field": "has_children",
+              "expected": true,
+              "label": "Has children"
+            }
+          ]
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-housing-benefit",
+              "condition": "receiving",
+              "label": "Receiving Housing Benefit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/best-start-grant-best-start-foods',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Determine which of the three payments the user can apply for',
+        'Confirm user lives in Scotland and is on a qualifying benefit',
+        'Guide user through the mygov.scot application',
+        'Explain application deadlines for each payment',
+        'Advise on the higher rate for first child (pregnancy payment)',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { pregnancy_first: 707.25, pregnancy_subsequent: 353.65, early_learning: 314.10, school_age: 314.10 },
+      source: 'https://www.mygov.scot/best-start-grant-best-start-foods',
+    },
+    nations: ['scotland'],
+  },
+  'sss-best-start-foods': {
+    id: 'sss-best-start-foods', name: 'Best Start Foods', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: '£4.95/week on a prepaid card for healthy food during pregnancy and for children under 3 in Scotland.',
+    govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: '£4.95/week loaded onto a prepaid card for buying healthy food. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Must be pregnant or responsible for a child under 3.' },
+        { factor: 'income', description: 'Must be receiving a qualifying benefit: UC, tax credits, income-related ESA/JSA, Income Support, Pension Credit, or Housing Benefit.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Are you pregnant or do you have a child under 3?',
+        'Do you receive a qualifying benefit?',
+      ],
+      means_tested: true,
+      evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age'],
+      ruleIn: ['Pregnant or child under 3', 'On qualifying benefit', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland', 'Not on qualifying benefit', 'Child over 3'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "any",
+          "label": "Must be pregnant or have a child under 3",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "is_pregnant",
+              "expected": true,
+              "label": "Pregnant"
+            },
+            {
+              "type": "all",
+              "label": "Has a child under 3",
+              "rules": [
+                {
+                  "type": "boolean",
+                  "field": "has_children",
+                  "expected": true,
+                  "label": "Has children"
+                },
+                {
+                  "type": "comparison",
+                  "field": "youngest_child_age",
+                  "operator": "<",
+                  "value": 3,
+                  "label": "Youngest child under 3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "any",
+          "label": "Must be receiving a qualifying benefit",
+          "rules": [
+            {
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-pension-credit",
+              "condition": "receiving",
+              "label": "Receiving Pension Credit"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/best-start-grant-best-start-foods',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user is pregnant or has a child under 3 in Scotland',
+        'Verify user receives a qualifying benefit',
+        'Guide user through the mygov.scot application',
+        'Explain the prepaid card system and eligible food items',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { weekly_rate: 4.95 },
+      source: 'https://www.mygov.scot/best-start-grant-best-start-foods',
+    },
+    nations: ['scotland'],
+  },
+  'sss-adult-disability-payment': {
+    id: 'sss-adult-disability-payment', name: 'Adult Disability Payment', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: 'Replaces PIP in Scotland. Same rates — daily living and mobility components at standard and enhanced rates.',
+    govuk_url: 'https://www.mygov.scot/adult-disability-payment',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Scotland\'s replacement for Personal Independence Payment (PIP). For adults aged 16+ (under State Pension age) with a long-term physical or mental health condition or disability. Same rates as PIP. Assessed on impact of condition, not the condition itself.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be aged 16 to State Pension age.' },
+        { factor: 'disability', description: 'Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Are you aged 16 to State Pension age?',
+        'Do you have a physical or mental health condition affecting daily living or mobility?',
+        'Has the condition lasted at least 13 weeks?',
+        'Is it expected to last at least 9 more months?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Medical evidence of condition', 'Details of how condition affects daily life', 'GP or consultant details'],
+      ruleIn: ['Aged 16 to State Pension age', 'Long-term condition affecting daily living/mobility', 'Lives in Scotland'],
+      ruleOut: ['Under 16 (claim CDP instead)', 'Over State Pension age (claim AA instead)', 'Does not live in Scotland'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be aged 16 or over"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<",
+          "value": 66,
+          "label": "Must be under State Pension age (66)"
+        },
+        {
+          "type": "any",
+          "label": "Must have a disability or long-term health condition",
+          "rules": [
+            {
+              "type": "boolean",
+              "field": "has_disability",
+              "expected": true,
+              "label": "Has a disability"
+            },
+            {
+              "type": "boolean",
+              "field": "has_long_term_health_condition",
+              "expected": true,
+              "label": "Has a long-term health condition"
+            },
+            {
+              "type": "boolean",
+              "field": "has_terminal_illness",
+              "expected": true,
+              "label": "Has a terminal illness"
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/adult-disability-payment',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user lives in Scotland and is aged 16 to State Pension age',
+        'Explain the daily living and mobility components',
+        'Help user understand how to describe the impact of their condition',
+        'Guide user through the mygov.scot application',
+        'Advise on gathering supporting medical evidence',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { daily_living_standard: 73.90, daily_living_enhanced: 110.40, mobility_standard: 29.20, mobility_enhanced: 77.05 },
+      source: 'https://www.mygov.scot/adult-disability-payment',
+    },
+    nations: ['scotland'],
+  },
+  'sss-child-disability-payment': {
+    id: 'sss-child-disability-payment', name: 'Child Disability Payment', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: 'Scotland\'s replacement for DLA Child. Same rates — care and mobility components at various levels.',
+    govuk_url: 'https://www.mygov.scot/child-disability-payment',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Scotland\'s replacement for Disability Living Allowance for children. For children under 16 with a disability or health condition that means they need substantially more care or supervision, or have difficulty walking.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Child must be under 16.' },
+        { factor: 'disability', description: 'Child must have a physical or mental disability requiring substantially more care or supervision than a child of the same age, or have difficulty walking.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Does the child live in Scotland?',
+        'Is the child under 16?',
+        'Does the child have a disability or long-term health condition?',
+        'Does the child need more care or supervision than other children the same age?',
+        'Does the child have difficulty walking?',
+      ],
+      exclusions: ['Child 16 or over (claim Adult Disability Payment)', 'Does not live in Scotland'],
+      means_tested: false,
+      evidenceRequired: ['Medical evidence of disability or condition', 'Details of care and supervision needs', 'GP or consultant reports'],
+      ruleIn: ['Child under 16', 'Disability requiring extra care', 'Lives in Scotland'],
+      ruleOut: ['Child 16 or over', 'Does not live in Scotland', 'No extra care needs above same-age child'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Must have a child"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<",
+          "value": 16,
+          "label": "Child must be under 16"
+        },
+        {
+          "type": "boolean",
+          "field": "has_disability",
+          "expected": true,
+          "label": "Child must have a disability or health condition requiring extra care"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/child-disability-payment',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm child lives in Scotland and is under 16',
+        'Explain the care and mobility components and rates',
+        'Help describe the child\'s care needs in the application',
+        'Guide user through the mygov.scot application',
+        'Advise on gathering supporting medical evidence',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { care_lowest: 28.70, care_middle: 73.90, care_highest: 110.40, mobility_lower: 29.20, mobility_higher: 77.05 },
+      source: 'https://www.mygov.scot/child-disability-payment',
+    },
+    nations: ['scotland'],
+  },
+  'sss-young-carer-grant': {
+    id: 'sss-young-carer-grant', name: 'Young Carer Grant', dept: 'Social Security Scotland', deptKey: 'sss',
+    deadline: null,
+    desc: '£388.65/year for young carers aged 16–18 in Scotland who provide at least 16 hours/week of care.',
+    govuk_url: 'https://www.mygov.scot/young-carer-grant',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Annual grant of £388.65 for young carers aged 16–18 in Scotland who provide an average of 16+ hours of care per week for someone receiving a qualifying disability benefit. Not means-tested.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be aged 16, 17 or 18 at the time of application.' },
+        { factor: 'caring', description: 'Must provide an average of at least 16 hours of care per week over a 13-week period to someone receiving a qualifying disability benefit.' },
+        { factor: 'geography', description: 'Must live in Scotland.' },
+      ],
+      keyQuestions: [
+        'Do you live in Scotland?',
+        'Are you aged 16, 17 or 18?',
+        'Do you provide at least 16 hours of care per week?',
+        'Does the person you care for receive a qualifying disability benefit?',
+        'Are you receiving Carer\'s Allowance or Carer Support Payment? (If so, you cannot also get YCG.)',
+      ],
+      exclusions: ['Receiving Carer\'s Allowance or Carer Support Payment', 'Under 16 or over 18'],
+      means_tested: false,
+      evidenceRequired: ['Details of person cared for', 'Proof of caring role and hours', 'Age verification'],
+      ruleIn: ['Aged 16–18', 'Provides 16+ hours care/week', 'Lives in Scotland'],
+      ruleOut: ['Receiving CA or CSP', 'Under 16 or over 18', 'Does not live in Scotland'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "scotland"
+          ],
+          "label": "Must live in Scotland"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be aged 16 or over"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": "<=",
+          "value": 18,
+          "label": "Must be aged 18 or under"
+        },
+        {
+          "type": "boolean",
+          "field": "is_carer",
+          "expected": true,
+          "label": "Must be a carer"
+        },
+        {
+          "type": "comparison",
+          "field": "caring_hours_per_week",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must provide at least 16 hours of care per week (average over 13 weeks)"
+        },
+        {
+          "type": "boolean",
+          "field": "cared_for_receives_qualifying_benefit",
+          "expected": true,
+          "label": "Person cared for must receive a qualifying disability benefit"
+        },
+        {
+          "type": "not",
+          "label": "Must not already be receiving Carer's Allowance or Carer Support Payment",
+          "rules": [
+            {
+              "type": "any",
+              "label": "Receiving CA or CSP",
+              "rules": [
+                {
+                  "type": "dependency",
+                  "serviceId": "dwp-carers-allowance",
+                  "condition": "receiving",
+                  "label": "Receiving Carer's Allowance"
+                },
+                {
+                  "type": "dependency",
+                  "serviceId": "sss-carer-support-payment",
+                  "condition": "receiving",
+                  "label": "Receiving Carer Support Payment"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.mygov.scot/young-carer-grant',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm applicant is aged 16–18 and lives in Scotland',
+        'Verify they provide 16+ hours/week care and do not receive CA/CSP',
+        'Guide user through the mygov.scot application',
+        'Explain the payment amount (£388.65) and annual claim process',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { annual_payment: 388.65 },
+      source: 'https://www.mygov.scot/young-carer-grant',
+    },
+    nations: ['scotland'],
+  },
+
+  // Welsh Government — Discretionary Assistance Fund ───────────────────────
+  'wg-discretionary-assistance': {
+    id: 'wg-discretionary-assistance', name: 'Discretionary Assistance Fund (Wales)', dept: 'Welsh Government', deptKey: 'wg',
+    deadline: null,
+    desc: 'Emergency assistance payments in Wales. Emergency Assistance Payment (up to £120) or Individual Assistance Payment (up to £750).',
+    govuk_url: 'https://www.gov.wales/discretionary-assistance-fund-daf',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Emergency financial help in Wales. Two types: Emergency Assistance Payment (up to £120 for immediate crisis — food, gas, electricity) and Individual Assistance Payment (up to £750 for essential household items). Must be 16+ and live in Wales.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be aged 16 or over.' },
+        { factor: 'income', description: 'Must be in financial hardship. For EAP: facing an immediate crisis. For IAP: need essential household items (e.g. after fleeing domestic violence, leaving care, or an emergency).' },
+        { factor: 'geography', description: 'Must live in Wales.' },
+      ],
+      keyQuestions: [
+        'Do you live in Wales?',
+        'Are you facing an immediate financial crisis (food, gas, electricity)?',
+        'Or do you need essential household items?',
+        'Are you 16 or over?',
+        'Have you applied to the DAF before? (Limited to 3 EAPs and 1 IAP per year.)',
+      ],
+      exclusions: ['Exceeded annual application limit (3 EAP / 1 IAP per year)'],
+      means_tested: true,
+      evidenceRequired: ['Proof of identity', 'Proof of Welsh residency', 'Details of the emergency or need'],
+      ruleIn: ['Financial hardship', 'Lives in Wales', 'Aged 16+'],
+      ruleOut: ['Does not live in Wales', 'Under 16', 'Exceeded annual application limit'],      rules: [
+        {
+          "type": "enum",
+          "field": "nation",
+          "oneOf": [
+            "wales"
+          ],
+          "label": "Must live in Wales"
+        },
+        {
+          "type": "comparison",
+          "field": "age",
+          "operator": ">=",
+          "value": 16,
+          "label": "Must be aged 16 or over"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.wales/discretionary-assistance-fund-daf',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Determine whether user needs Emergency Assistance or Individual Assistance',
+        'Confirm user lives in Wales and is 16+',
+        'Guide user through the application process',
+        'Explain payment limits and annual caps',
+        'Advise on urgent processing for immediate crisis needs',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { emergency_max: 120, individual_max: 750 },
+      source: 'https://www.gov.wales/discretionary-assistance-fund-daf',
+    },
+    nations: ['wales'],
   },
   'slc-loan-repayment': {
     id: 'slc-loan-repayment', name: 'Student loan repayment', dept: 'Student Loans Company', deptKey: 'slc',
@@ -3791,6 +11711,105 @@ export const EDGES: Edge[] = [
   // New job
   { from: 'hmrc-starter-checklist',   to: 'slc-loan-repayment',            type: 'ENABLES' },
   { from: 'slc-student-finance',      to: 'slc-loan-repayment',            type: 'ENABLES' },
+
+  // ── New edges for added benefit nodes ──────────────────────────────────────
+
+  // Housing Benefit (pension age)
+  { from: 'dwp-pension-credit',       to: 'dwp-housing-benefit',            type: 'ENABLES' },
+
+  // Warm Home Discount
+  { from: 'dwp-pension-credit',       to: 'other-warm-home-discount',       type: 'ENABLES' },
+
+  // NHS Low Income Scheme
+  { from: 'dwp-universal-credit',     to: 'nhs-low-income-scheme',          type: 'ENABLES' },
+  { from: 'nhs-low-income-scheme',    to: 'nhs-free-dental',                type: 'ENABLES' },
+  { from: 'nhs-low-income-scheme',    to: 'nhs-free-sight-tests',           type: 'ENABLES' },
+
+  // DLA Child
+  { from: 'dwp-dla-child',            to: 'la-blue-badge',                  type: 'ENABLES' },
+  { from: 'dwp-dla-child',            to: 'dvla-ved-exemption',             type: 'ENABLES' },
+  { from: 'dwp-dla-child',            to: 'other-disabled-railcard',        type: 'ENABLES' },
+
+  // Council Tax Disability Reduction
+  { from: 'dwp-pip',                  to: 'la-council-tax-disability-reduction', type: 'ENABLES' },
+  { from: 'dwp-attendance-allowance', to: 'la-council-tax-disability-reduction', type: 'ENABLES' },
+
+  // Social Tariff Broadband
+  { from: 'dwp-universal-credit',     to: 'other-social-tariff-broadband',  type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'other-social-tariff-broadband',  type: 'ENABLES' },
+
+  // Support for Mortgage Interest
+  { from: 'dwp-universal-credit',     to: 'dwp-smi',                        type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'dwp-smi',                        type: 'ENABLES' },
+
+  // Cold Weather Payment
+  { from: 'dwp-pension-credit',       to: 'dwp-cold-weather-payment',       type: 'ENABLES' },
+
+  // VED Exemption
+  { from: 'dwp-pip',                  to: 'dvla-ved-exemption',             type: 'ENABLES' },
+
+  // Court Fee Remission
+  { from: 'dwp-universal-credit',     to: 'hmcts-court-fee-remission',      type: 'ENABLES' },
+  { from: 'hmcts-court-fee-remission', to: 'hmcts-divorce',                 type: 'ENABLES' },
+  { from: 'hmcts-court-fee-remission', to: 'hmcts-benefit-tribunal',        type: 'ENABLES' },
+
+  // Maternity Exemption
+  { from: 'nhs-free-prescriptions-pregnancy', to: 'nhs-maternity-exemption', type: 'ENABLES' },
+
+  // Free childcare 2yr olds
+  { from: 'dwp-universal-credit',     to: 'la-free-childcare-2yr',          type: 'ENABLES' },
+
+  // Student Childcare Grant
+  { from: 'slc-student-finance',      to: 'slc-childcare-grant',            type: 'ENABLES' },
+
+  // ── Scotland edges ────────────────────────────────────────────────────────
+
+  // Scottish Child Payment (qualifying benefit gateway)
+  { from: 'dwp-universal-credit',     to: 'sss-scottish-child-payment',     type: 'ENABLES' },
+
+  // Carer Support Payment (Scotland's Carer's Allowance equivalent)
+  { from: 'sss-adult-disability-payment', to: 'sss-carer-support-payment',  type: 'ENABLES' },
+  { from: 'sss-child-disability-payment', to: 'sss-carer-support-payment',  type: 'ENABLES' },
+  { from: 'sss-carer-support-payment', to: 'sss-carers-allowance-supplement', type: 'ENABLES' },
+  { from: 'sss-carer-support-payment', to: 'sss-young-carer-grant',         type: 'ENABLES' },
+
+  // Child Winter Heating (requires highest-rate disability)
+  { from: 'sss-child-disability-payment', to: 'sss-child-winter-heating',   type: 'ENABLES' },
+
+  // Adult Disability Payment unlocks same things as PIP
+  { from: 'sss-adult-disability-payment', to: 'la-blue-badge',              type: 'ENABLES' },
+  { from: 'sss-adult-disability-payment', to: 'dvla-ved-exemption',         type: 'ENABLES' },
+  { from: 'sss-adult-disability-payment', to: 'other-motability',           type: 'ENABLES' },
+  { from: 'sss-adult-disability-payment', to: 'other-disabled-railcard',    type: 'ENABLES' },
+
+  // Best Start Grant/Foods (qualifying benefit)
+  { from: 'dwp-universal-credit',     to: 'sss-best-start-grant',           type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'sss-best-start-foods',           type: 'ENABLES' },
+
+  // Funeral Support Payment
+  { from: 'dwp-universal-credit',     to: 'sss-funeral-support-payment',    type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'sss-funeral-support-payment',    type: 'ENABLES' },
+
+  // Pension Winter Heating (Scotland)
+  { from: 'dwp-pension-credit',       to: 'sss-pension-winter-heating',     type: 'ENABLES' },
+
+  // ── Wales edges ───────────────────────────────────────────────────────────
+
+  // Winter Fuel Support (Wales)
+  { from: 'dwp-pension-credit',       to: 'wg-winter-fuel-support',         type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'wg-winter-fuel-support',         type: 'ENABLES' },
+
+  // Discretionary Assistance Fund (Wales)
+  { from: 'dwp-universal-credit',     to: 'wg-discretionary-assistance',    type: 'ENABLES' },
+
+  // ── Northern Ireland edges ────────────────────────────────────────────────
+
+  // Rate Rebate (NI equivalent of Council Tax Reduction)
+  { from: 'dwp-universal-credit',     to: 'ni-rate-rebate',                 type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'ni-rate-rebate',                 type: 'ENABLES' },
+
+  // Discretionary Support (NI)
+  { from: 'dwp-universal-credit',     to: 'ni-discretionary-support',       type: 'ENABLES' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -3798,15 +11817,18 @@ export const EDGES: Edge[] = [
 export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'baby', icon: '◦', name: 'Having a Baby',
-    desc: 'Birth registration, parental leave and childcare',
+    desc: 'Birth registration, parental leave, childcare and maternity support',
     entryNodes: ['gro-register-birth','nhs-healthy-start','nhs-free-prescriptions-pregnancy',
-                 'hmrc-smp','dwp-maternity-allowance','hmrc-spp','dwp-sure-start-grant'],
+                 'hmrc-smp','dwp-maternity-allowance','hmrc-spp','dwp-sure-start-grant',
+                 'nhs-maternity-exemption','la-free-childcare-2yr',
+                 'sss-best-start-grant','sss-best-start-foods'],
   },
   {
     id: 'bereavement', icon: '—', name: 'Death of Someone Close',
-    desc: 'Registration, probate and bereavement payments',
+    desc: 'Registration, probate, bereavement payments and funeral support',
     entryNodes: ['gro-register-death','dwp-bereavement-support','opg-lpa-activation',
-                 'dwp-funeral-payment','hmrc-statutory-parental-bereavement'],
+                 'dwp-funeral-payment','hmrc-statutory-parental-bereavement',
+                 'sss-funeral-support-payment'],
   },
   {
     id: 'marriage', icon: '∞', name: 'Getting Married',
@@ -3815,9 +11837,11 @@ export const LIFE_EVENTS: LifeEvent[] = [
   },
   {
     id: 'retirement', icon: '◐', name: 'Retiring',
-    desc: 'State Pension, Pension Credit and age entitlements',
+    desc: 'State Pension, Pension Credit, housing, heating and age entitlements',
     entryNodes: ['hmrc-ni-check','dwp-state-pension','dwp-attendance-allowance',
-                 'la-bus-pass','la-council-tax-reduction'],
+                 'la-bus-pass','la-council-tax-reduction',
+                 'dwp-housing-benefit','other-warm-home-discount',
+                 'sss-pension-winter-heating'],
   },
   {
     id: 'business', icon: '◈', name: 'Starting a Business',
@@ -3840,25 +11864,30 @@ export const LIFE_EVENTS: LifeEvent[] = [
   },
   {
     id: 'job-loss', icon: '⊘', name: 'Losing Your Job',
-    desc: 'Benefits, tax refunds and NI record protection',
-    entryNodes: ['hmrc-p45','other-statutory-redundancy','dwp-new-style-esa'],
+    desc: 'Benefits, tax refunds, NI record protection and emergency support',
+    entryNodes: ['hmrc-p45','other-statutory-redundancy','dwp-new-style-esa',
+                 'nhs-low-income-scheme','hmcts-court-fee-remission',
+                 'ni-discretionary-support','wg-discretionary-assistance'],
   },
   {
     id: 'disability', icon: '◎', name: 'Disability or Health Condition',
-    desc: 'Benefits, adaptations and workplace support',
+    desc: 'Benefits, adaptations, workplace support and devolved disability payments',
     entryNodes: ['dwp-pip','dwp-attendance-allowance','dvla-notify-condition',
-                 'dvla-renew-at-70','la-disabled-facilities-grant','nhs-care-assessment'],
+                 'dvla-renew-at-70','la-disabled-facilities-grant','nhs-care-assessment',
+                 'dwp-dla-child','sss-adult-disability-payment',
+                 'sss-child-disability-payment'],
   },
   {
     id: 'carer', icon: '⊕', name: 'Becoming a Carer',
-    desc: 'Allowances, NI credits and legal powers',
-    entryNodes: ['dwp-carers-allowance','la-carers-assessment','opg-lpa','other-carers-leave'],
+    desc: 'Allowances, NI credits, legal powers and devolved carer support',
+    entryNodes: ['dwp-carers-allowance','la-carers-assessment','opg-lpa','other-carers-leave',
+                 'sss-carer-support-payment','sss-young-carer-grant'],
   },
   {
     id: 'divorce', icon: '÷', name: 'Separating or Divorcing',
-    desc: 'Legal proceedings, children and financial impacts',
+    desc: 'Legal proceedings, children, financial impacts and fee support',
     entryNodes: ['hmcts-legal-aid','hmcts-divorce','dwp-child-maintenance',
-                 'la-council-tax-single-discount'],
+                 'la-council-tax-single-discount','hmcts-court-fee-remission'],
   },
   {
     id: 'school', icon: '◌', name: 'Child Starting School',
@@ -3877,8 +11906,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
   },
   {
     id: 'university', icon: '◳', name: 'Going to University',
-    desc: 'Student finance, accommodation registration and healthcare',
-    entryNodes: ['slc-student-finance'],
+    desc: 'Student finance, childcare grants, accommodation and healthcare',
+    entryNodes: ['slc-student-finance','slc-childcare-grant'],
   },
   {
     id: 'new-job', icon: '◆', name: 'Starting a New Job',

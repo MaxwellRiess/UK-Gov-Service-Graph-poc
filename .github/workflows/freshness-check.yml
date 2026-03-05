@@ -1,0 +1,103 @@
+name: Freshness Check
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC
+  workflow_dispatch: {}   # Allow manual triggers
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  check-freshness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - run: npm ci
+
+      - name: Run freshness check
+        run: npx tsx scripts/check-freshness.ts --update > report.json 2>&1 || true
+
+      - name: Create issues for changed pages
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const raw = fs.readFileSync('report.json', 'utf-8');
+
+            // The report JSON starts after any stderr lines — find the first {
+            const jsonStart = raw.indexOf('{');
+            if (jsonStart === -1) {
+              console.log('No JSON report found in output');
+              return;
+            }
+            const report = JSON.parse(raw.substring(jsonStart));
+
+            if (!report.changed || report.changed.length === 0) {
+              console.log('No changes detected');
+              return;
+            }
+
+            for (const change of report.changed) {
+              const serviceList = change.serviceIds
+                .map((id, i) => `- \`${id}\` — ${change.serviceNames[i]}`)
+                .join('\n');
+
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: `[Freshness] Content changed: ${change.serviceIds[0]}`,
+                body: [
+                  '## GOV.UK page content has changed',
+                  '',
+                  `**URL:** ${change.url}`,
+                  '',
+                  '**Affected service nodes:**',
+                  serviceList,
+                  '',
+                  'The automated freshness check detected that the content at this URL has changed since the last check.',
+                  '',
+                  '### Action needed',
+                  '1. Visit the URL and review what changed',
+                  '2. Update the relevant fields in `src/graph-data.ts` if needed',
+                  '3. Close this issue when done',
+                ].join('\n'),
+                labels: ['freshness', 'maintenance'],
+              });
+
+              console.log(`Created issue for ${change.url}`);
+            }
+
+            if (report.errors && report.errors.length > 0) {
+              const errorList = report.errors
+                .map(e => `- ${e.url}: ${e.error} (nodes: ${e.serviceIds.join(', ')})`)
+                .join('\n');
+
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title: '[Freshness] Fetch errors on some URLs',
+                body: [
+                  '## Some URLs could not be fetched',
+                  '',
+                  errorList,
+                  '',
+                  'These URLs returned errors during the weekly freshness check. They may be temporarily down or the URL may have changed.',
+                ].join('\n'),
+                labels: ['freshness', 'maintenance'],
+              });
+            }
+
+      - name: Commit updated hashes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .freshness/hashes.json
+          git diff --staged --quiet || git commit -m "chore: update freshness hashes [skip ci]"
+          git push
