@@ -14144,7 +14144,6 @@ export const EDGES: Edge[] = [
 
   // Court Fee Remission
   { from: 'dwp-universal-credit',     to: 'hmcts-court-fee-remission',      type: 'ENABLES' },
-  { from: 'hmcts-court-fee-remission', to: 'hmcts-divorce',                 type: 'ENABLES' },
   { from: 'hmcts-court-fee-remission', to: 'hmcts-benefit-tribunal',        type: 'ENABLES' },
 
   // Maternity Exemption
