@@ -11550,6 +11550,2400 @@ export const NODES: Record<string, ServiceNode> = {
       ruleOut: ['Income below plan threshold', 'Loan fully written off or repaid', 'Only received non-repayable grants or bursaries'],
     },
   },
+
+  // ─── PASSPORTS & TRAVEL DOCUMENTS ────────────────────────────────────────
+
+  'hmpo-passport': {
+    id: 'hmpo-passport', name: 'Apply for or renew a passport', dept: 'HMPO', deptKey: 'other',
+    deadline: null,
+    desc: 'Apply for a new UK passport or renew an existing one online; covers first applications, renewals, and replacements.',
+    govuk_url: 'https://www.gov.uk/apply-renew-passport',
+    serviceType: 'document',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Any British national is entitled to a UK passport. First-time applicants need a countersignatory. Renewals can be done entirely online.',
+      universal: false,
+      criteria: [
+        { factor: 'citizenship', description: 'Must be a British national (citizen, overseas territory citizen, etc.).' },
+      ],
+      keyQuestions: [
+        'Is this a first application, renewal or replacement?',
+        'Has your name changed since your last passport?',
+        'Do you need it urgently (within 3 weeks)?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Current or most recent passport', 'Digital photo meeting requirements', 'Countersignatory details (first applications)'],
+      ruleIn: ['British national', 'Existing passport expiring within 9 months'],
+      ruleOut: ['Not a British national'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.passport.service.gov.uk/filter',
+      authRequired: 'gov-uk-verify',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether this is a first application, renewal or replacement',
+        'Confirm whether name has changed (triggers additional evidence requirements)',
+        'Advise on current processing times and whether urgent service is needed',
+        'Walk user through photo requirements and countersignatory rules',
+        'Direct user to the online application at passport.service.gov.uk',
+      ],
+    },
+  },
+
+  'hmpo-passport-urgent': {
+    id: 'hmpo-passport-urgent', name: 'Urgent passport application', dept: 'HMPO', deptKey: 'other',
+    deadline: null,
+    desc: 'Fast-track or premium passport service for travel within days or weeks; requires an in-person appointment.',
+    govuk_url: 'https://www.gov.uk/get-a-passport-urgently',
+    serviceType: 'document',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to British nationals who need a passport urgently. Requires booking a passport office appointment. Premium (same-day) and Fast Track (1-week) options are available for an additional fee.',
+      universal: false,
+      criteria: [
+        { factor: 'citizenship', description: 'Must be a British national with imminent international travel.' },
+      ],
+      keyQuestions: [
+        'When is the travel date?',
+        'Is an existing passport available to bring to the appointment?',
+        'Which passport office is closest to the user?',
+      ],
+      means_tested: false,
+      ruleIn: ['Travel within 3 weeks', 'British national'],
+      ruleOut: ['Travel not imminent — standard service is cheaper'],
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/get-a-passport-urgently',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm travel date to determine which urgent service is needed',
+        'Help user book a passport office appointment online',
+        'List what to bring to the appointment',
+      ],
+    },
+  },
+
+  'hmpo-lost-stolen-passport': {
+    id: 'hmpo-lost-stolen-passport', name: 'Report a lost or stolen passport', dept: 'HMPO', deptKey: 'other',
+    deadline: null,
+    desc: 'Cancel a lost or stolen UK passport to prevent fraudulent use, then apply for a replacement.',
+    govuk_url: 'https://www.gov.uk/report-a-lost-or-stolen-passport',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone whose UK passport has been lost or stolen should cancel it immediately. A replacement must then be applied for separately.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Was the passport lost or stolen?',
+        'Does the user have upcoming travel that requires an urgent replacement?',
+      ],
+      means_tested: false,
+      ruleIn: ['Lost or stolen UK passport'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/report-a-lost-or-stolen-passport',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Direct user to cancel their passport online immediately',
+        'Advise that they need to apply for a replacement afterwards',
+        'If stolen, advise also reporting to police for a crime reference number',
+      ],
+    },
+  },
+
+  'fco-emergency-travel-doc': {
+    id: 'fco-emergency-travel-doc', name: 'Emergency travel document', dept: 'FCDO', deptKey: 'other',
+    deadline: null,
+    desc: 'One-way travel document issued by a British consulate to British nationals stranded abroad without a valid passport.',
+    govuk_url: 'https://www.gov.uk/emergency-travel-document',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to British nationals outside the UK who have lost their passport, had it stolen, or whose passport has expired and they need to return to the UK.',
+      universal: false,
+      criteria: [
+        { factor: 'citizenship', description: 'Must be a British national currently outside the UK.' },
+        { factor: 'geography', description: 'Must be outside the UK without a valid passport.' },
+      ],
+      keyQuestions: [
+        'Is the user currently outside the UK?',
+        'Has their passport been lost, stolen or expired?',
+        'Where is the nearest British consulate?',
+      ],
+      means_tested: false,
+      ruleIn: ['British national', 'Outside UK without valid passport'],
+      ruleOut: ['Currently in the UK — apply for urgent passport instead'],
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/emergency-travel-document',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm user is outside the UK',
+        'Help locate nearest British embassy or consulate',
+        'List documents needed for the appointment',
+        'Advise that an ETD is one-way only — a new passport must be applied for on return',
+      ],
+    },
+  },
+
+  'fco-document-legalisation': {
+    id: 'fco-document-legalisation', name: 'Legalise a document (apostille)', dept: 'FCDO', deptKey: 'other',
+    deadline: null,
+    desc: 'Get an apostille stamp from the FCDO to make a UK public document legally recognised in another country.',
+    govuk_url: 'https://www.gov.uk/get-document-legalised',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to anyone who needs a UK public document (birth certificate, marriage certificate, DBS check, etc.) officially recognised abroad. The document must be an original UK public document or certified copy.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Which country is the document going to?',
+        'Is that country a member of the Hague Apostille Convention?',
+        'What type of document needs legalising?',
+      ],
+      means_tested: false,
+      ruleIn: ['UK public document needed abroad', 'Destination country accepts apostilles'],
+      ruleOut: ['Document is not a UK public document'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/get-document-legalised',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether the destination country is in the Hague Apostille Convention',
+        'Identify the type of document and whether it needs notarisation first',
+        'Guide user to the FCDO legalisation service',
+      ],
+    },
+  },
+
+  // ─── BENEFITS & FINANCIAL ENTITLEMENTS ───────────────────────────────────
+
+  'hmrc-help-to-save': {
+    id: 'hmrc-help-to-save', name: 'Help to Save', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: 'Government-backed savings account paying a 50p bonus for every £1 saved, available to Universal Credit and Working Tax Credit claimants.',
+    govuk_url: 'https://www.gov.uk/get-help-savings-low-income',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to UK residents receiving Universal Credit (with minimum earnings) or Working Tax Credit. Save between £1 and £50 per month for up to 4 years and receive a 50% government bonus at the end of years 2 and 4.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be receiving Universal Credit with minimum household earnings, or Working Tax Credit.' },
+        { factor: 'residency', description: 'Must be a UK resident.' },
+      ],
+      keyQuestions: [
+        'Is the user currently receiving Universal Credit or Working Tax Credit?',
+        'Can they afford to save at least £1/month?',
+      ],
+      autoQualifiers: ['Receiving Universal Credit and earned at least £793.17 in last month'],
+      means_tested: true,
+      ruleIn: ['Receiving Universal Credit', 'Receiving Working Tax Credit'],
+      ruleOut: ['Not receiving UC or WTC', 'Not a UK resident'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.tax.service.gov.uk/help-to-save/access-account',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm eligibility via UC or WTC receipt',
+        'Explain the 50% bonus structure (year 2 and year 4 bonuses)',
+        'Guide user to open an account via HMRC online services',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { max_bonus_year_2: 600, max_bonus_year_4: 600, max_total_bonus: 1200 },
+      source: 'https://www.gov.uk/get-help-savings-low-income',
+    },
+  },
+
+  'dwp-budgeting-loan': {
+    id: 'dwp-budgeting-loan', name: 'Budgeting Loan', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Interest-free loan from the Social Fund for essential items such as furniture, clothes or travel costs, for people on qualifying benefits.',
+    govuk_url: 'https://www.gov.uk/budgeting-help-benefits/budgeting-loans',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to people who have been receiving Income Support, income-based JSA, income-related ESA, or Pension Credit for at least 6 months. Universal Credit claimants use Budgeting Advance instead.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must be receiving a qualifying legacy benefit (Income Support, income-based JSA, income-related ESA, or Pension Credit) for at least 26 consecutive weeks.' },
+      ],
+      keyQuestions: [
+        'Which benefit is the user receiving?',
+        'Have they been receiving it for at least 6 months?',
+        'Do they have existing benefit debt that might reduce the loan amount?',
+      ],
+      means_tested: true,
+      ruleIn: ['On legacy benefits for 6+ months', 'Need to cover essential expenditure'],
+      ruleOut: ['On Universal Credit — use Budgeting Advance instead', 'Been on qualifying benefit less than 6 months'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.apply-budgeting-loan.service.gov.uk',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user is on a qualifying legacy benefit (not UC)',
+        'Check they have been receiving it for 26+ weeks',
+        'Explain repayment is deducted automatically from benefit payments',
+        'Direct to online application',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { min: 100, max_single: 348, max_couple: 464, max_with_children: 812 },
+      source: 'https://www.gov.uk/budgeting-help-benefits/budgeting-loans',
+    },
+  },
+
+  'hmrc-tax-credits': {
+    id: 'hmrc-tax-credits', name: 'Tax Credits (Working & Child)', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: 'Legacy means-tested benefits for working adults and families with children on low incomes; being migrated to Universal Credit but millions still claim.',
+    govuk_url: 'https://www.gov.uk/topic/benefits-credits/tax-credits',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Working Tax Credit is for working adults on low income. Child Tax Credit is for people responsible for children. New claims are only open to those already in the legacy system; most new claimants must use Universal Credit instead.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Income must be below the relevant threshold (varies by household type and hours worked).' },
+        { factor: 'employment', description: 'Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).' },
+        { factor: 'family', description: 'Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).' },
+      ],
+      keyQuestions: [
+        'Is the user already claiming Tax Credits?',
+        'Have they been asked to migrate to Universal Credit?',
+        'Do they have children or are they working on a low income?',
+      ],
+      autoQualifiers: ['Already receiving Tax Credits and not yet migrated to UC'],
+      exclusions: ['New claimants must use Universal Credit — Tax Credits is closed to new applications'],
+      means_tested: true,
+      ruleIn: ['Existing Tax Credits claimant', 'Low income with children or working low-income adult'],
+      ruleOut: ['New claimant — must apply for Universal Credit instead', 'Income too high for eligibility'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.tax.service.gov.uk/tax-credits-service',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether user is already a Tax Credits claimant or a new claimant',
+        'If new claimant, direct to Universal Credit instead',
+        'Help existing claimants report changes of circumstance',
+        'Advise on migration notice timeline if user has received a migration notice',
+      ],
+    },
+  },
+
+  'cica-compensation': {
+    id: 'cica-compensation', name: 'Criminal Injuries Compensation', dept: 'CICA', deptKey: 'other',
+    deadline: '2 years from incident',
+    desc: 'Financial compensation for victims of violent crime in Great Britain, assessed by the Criminal Injuries Compensation Authority.',
+    govuk_url: 'https://www.gov.uk/claim-compensation-criminal-injury',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to victims of violent crime in Great Britain who suffered a physical or psychological injury. Must claim within 2 years of the incident (exceptions for child abuse and some other circumstances). A tariff-based scheme from £1,000 to £500,000.',
+      universal: false,
+      criteria: [
+        { factor: 'residency', description: 'Crime must have occurred in Great Britain.' },
+        { factor: 'disability', description: 'Must have suffered a qualifying physical or psychological injury as a direct result of a violent crime.' },
+      ],
+      keyQuestions: [
+        'Was the crime reported to the police?',
+        'When did the incident occur?',
+        'Did the user suffer physical or psychological injury?',
+      ],
+      exclusions: ['Crime not reported to police', 'Claim submitted more than 2 years after incident (unless exceptional circumstances)', 'Injury does not meet minimum threshold'],
+      means_tested: false,
+      ruleIn: ['Victim of violent crime in Great Britain', 'Injury sustained', 'Crime reported to police'],
+      ruleOut: ['Crime occurred outside Great Britain', 'Claim out of time', 'No qualifying injury'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://claim-criminal-injuries-compensation.service.justice.gov.uk/apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check the 2-year time limit from the date of the crime',
+        'Confirm the crime was reported to police (required for most claims)',
+        'Explain the tariff-based award structure',
+        'Guide user to the online application',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'one-off',
+      rates: { tariff_min: 1000, tariff_max: 500000 },
+      source: 'https://www.gov.uk/government/publications/criminal-injuries-compensation-scheme-2012',
+    },
+  },
+
+  'dwp-pension-tracing': {
+    id: 'dwp-pension-tracing', name: 'Pension Tracing Service', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Find the contact details for a lost workplace or personal pension using the government\'s free Pension Tracing Service.',
+    govuk_url: 'https://www.gov.uk/find-pension-contact-details',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free service available to anyone who has lost track of a workplace or personal pension. The service traces pension schemes and provides contact details so you can find out if you have a pension pot.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Does the user know the name of their previous employer or pension provider?',
+        'Approximately when did they work there?',
+      ],
+      means_tested: false,
+      ruleIn: ['Previously employed or had a personal pension', 'Lost track of pension details'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.findpensioncontacts.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Ask user for former employer names and approximate dates of employment',
+        'Search the Pension Tracing Service on their behalf',
+        'Provide contact details for any matching pension schemes found',
+      ],
+    },
+  },
+
+  'dwp-benefit-debt-repayment': {
+    id: 'dwp-benefit-debt-repayment', name: 'Repay a benefit overpayment', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Manage or repay a DWP benefit overpayment through an online account, direct debit or phone.',
+    govuk_url: 'https://www.gov.uk/repaying-benefit-overpayment',
+    serviceType: 'obligation',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Applies to anyone who has received more benefit than they were entitled to and has been notified of an overpayment by DWP. Repayments are typically deducted automatically from ongoing benefits.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must have been notified by DWP of a benefit overpayment.' },
+      ],
+      keyQuestions: [
+        'Has the user received a letter from DWP about an overpayment?',
+        'Are they still receiving benefits (automatic deduction may apply)?',
+      ],
+      means_tested: false,
+      ruleIn: ['Received DWP overpayment notice'],
+      ruleOut: ['No overpayment — no action needed'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/repaying-benefit-overpayment',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain automatic deduction if user is still on benefits',
+        'Provide details on arranging a repayment plan if no ongoing benefits',
+        'Advise on appealing if the overpayment is disputed',
+      ],
+    },
+  },
+
+  // ─── HEALTHCARE ────────────────────────────────────────────────────────────
+
+  'nhs-fit-note': {
+    id: 'nhs-fit-note', name: 'Send a fit note for an ESA claim', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Upload or submit a fit note (sick note) digitally to DWP to support an Employment and Support Allowance or Universal Credit health claim.',
+    govuk_url: 'https://www.gov.uk/send-fit-note',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Required for claimants of ESA or the health/limited capability element of Universal Credit who need to provide medical evidence of their condition. A GP or healthcare provider issues the fit note; the claimant submits it to DWP.',
+      universal: false,
+      criteria: [
+        { factor: 'disability', description: 'Must have a health condition or disability that prevents or limits work, evidenced by a fit note from a healthcare provider.' },
+        { factor: 'dependency', description: 'Must already be claiming or applying for ESA or UC with a health condition.' },
+      ],
+      keyQuestions: [
+        'Does the user have a current fit note from their GP or healthcare provider?',
+        'Are they claiming ESA or the UC health element?',
+      ],
+      means_tested: false,
+      ruleIn: ['Has a fit note from a GP', 'Claiming ESA or UC health element'],
+      ruleOut: ['Not claiming ESA or UC health element'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://send-fit-note.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user has a current fit note from a healthcare provider',
+        'Check whether they are claiming ESA or Universal Credit',
+        'Guide user to submit the fit note online or by post',
+      ],
+    },
+  },
+
+  'nhs-ppc': {
+    id: 'nhs-ppc', name: 'Prescription Prepayment Certificate (PPC)', dept: 'NHS BSA', deptKey: 'nhs',
+    deadline: null,
+    desc: 'Buy a PPC to pay a single flat fee covering all NHS prescriptions in England for 3 months or a year, saving money for people on multiple regular medications.',
+    govuk_url: 'https://www.gov.uk/get-a-ppc',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to anyone in England who pays for NHS prescriptions and needs more than one item per month (3-month) or 11+ items per year (annual). Not available to those already exempt from prescription charges (e.g. UC claimants, over-60s).',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Only worthwhile if you pay for NHS prescriptions — exempt groups should not apply.' },
+        { factor: 'geography', description: 'England only — prescriptions are free in Wales, Scotland and Northern Ireland.' },
+      ],
+      keyQuestions: [
+        'Does the user currently pay for NHS prescriptions?',
+        'How many prescription items do they need per month?',
+        'Are they in England?',
+      ],
+      exclusions: ['Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)', 'Outside England'],
+      means_tested: false,
+      ruleIn: ['Pays NHS prescription charges', 'Needs 2+ items/month or 11+/year', 'Lives in England'],
+      ruleOut: ['Already exempt from prescription charges', 'Lives outside England'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://services.nhsbsa.nhs.uk/buy-prescription-prepayment-certificate/start',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check user is not already exempt from prescription charges',
+        'Calculate whether a PPC is cost-effective based on prescription frequency',
+        'Guide user to buy online or via pharmacy',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'annual',
+      rates: { annual_cert: 111.60, three_month_cert: 31.25, single_item: 9.90 },
+      source: 'https://www.gov.uk/get-a-ppc',
+    },
+  },
+
+  // ─── EMPLOYMENT & TRIBUNALS ────────────────────────────────────────────────
+
+  'acas-early-conciliation': {
+    id: 'acas-early-conciliation', name: 'ACAS early conciliation', dept: 'Acas', deptKey: 'other',
+    deadline: '3 months minus 1 day from incident',
+    desc: 'Mandatory pre-tribunal step for most employment disputes; a free Acas conciliation service that tries to resolve disputes before a tribunal claim is lodged.',
+    govuk_url: 'https://www.gov.uk/contact-acas',
+    serviceType: 'legal_process',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Required before submitting most employment tribunal claims. Free to use. A conciliator contacts both parties to try to reach a settlement. If no settlement is reached, Acas issues an EC certificate needed to proceed to tribunal.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Must have an employment dispute such as unfair dismissal, discrimination, unpaid wages or unlawful deduction.' },
+      ],
+      keyQuestions: [
+        'What is the nature of the employment dispute?',
+        'When did the incident or dismissal occur?',
+        'Is the claimant within the 3-month time limit?',
+      ],
+      means_tested: false,
+      ruleIn: ['Employment dispute within 3 months', 'Intending to make a tribunal claim'],
+      ruleOut: ['Outside 3-month time limit (unless exceptional circumstances)'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.acas.org.uk/early-conciliation',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the nature and date of the dispute',
+        'Advise that notification must be submitted within 3 months minus 1 day',
+        'Explain what happens during conciliation',
+        'Help user complete the Acas early conciliation notification form',
+      ],
+    },
+  },
+
+  'hmcts-employment-tribunal': {
+    id: 'hmcts-employment-tribunal', name: 'Employment Tribunal claim', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: '3 months minus 1 day from incident',
+    desc: 'Make a formal claim to an Employment Tribunal for unfair dismissal, discrimination, unpaid wages or other employment rights violations.',
+    govuk_url: 'https://www.gov.uk/employment-tribunals',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Anyone can make a claim to an Employment Tribunal for a qualifying employment rights violation. Must have gone through Acas early conciliation first (in most cases). Time limit is 3 months minus 1 day from the act complained of.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Must have an employment dispute — unfair dismissal requires at least 2 years\' service; discrimination claims have no service requirement.' },
+        { factor: 'dependency', description: 'Must have an Acas EC certificate (early conciliation must be attempted first).' },
+      ],
+      keyQuestions: [
+        'Has the user completed Acas early conciliation?',
+        'Do they have their Acas EC certificate reference number?',
+        'What type of claim are they making?',
+      ],
+      exclusions: ['No Acas EC certificate (early conciliation not completed)', 'Out of time — more than 3 months since incident'],
+      means_tested: false,
+      ruleIn: ['Has Acas EC certificate', 'Within 3-month time limit', 'Employment dispute'],
+      ruleOut: ['Out of time', 'No Acas EC certificate'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://employmenttribunals.service.gov.uk',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm Acas early conciliation has been completed and EC certificate obtained',
+        'Identify the type(s) of claim being made',
+        'Check the claim is within the 3-month time limit',
+        'Guide user through the online ET1 claim form',
+      ],
+    },
+  },
+
+  'dwp-find-a-job': {
+    id: 'dwp-find-a-job', name: 'Find a Job', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'DWP\'s free national job search service listing vacancies from thousands of employers across the UK.',
+    govuk_url: 'https://www.gov.uk/find-a-job',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free to use for anyone in the UK looking for work. Employers post vacancies directly. Jobseekers can save searches and upload CVs.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What type of work is the user looking for?',
+        'Are they willing to commute or looking for remote work?',
+      ],
+      means_tested: false,
+      ruleIn: ['Looking for work'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://findajob.dwp.gov.uk',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Ask about job type, location and skills to narrow search',
+        'Direct user to findajob.dwp.gov.uk',
+        'Advise on creating a jobseeker profile to receive alerts',
+      ],
+    },
+  },
+
+  // ─── LEGAL, COURTS & DEBT ─────────────────────────────────────────────────
+
+  'insolvency-bankruptcy': {
+    id: 'insolvency-bankruptcy', name: 'Apply for bankruptcy', dept: 'Insolvency Service', deptKey: 'other',
+    deadline: null,
+    desc: 'Apply online to declare yourself bankrupt in England and Wales if you cannot pay your debts.',
+    govuk_url: 'https://www.gov.uk/apply-for-bankruptcy',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to individuals in England and Wales who cannot pay their debts and owe at least £5,000. Costs £680 to apply. Bankruptcy typically lasts one year, after which most remaining debts are written off.',
+      universal: false,
+      criteria: [
+        { factor: 'asset', description: 'Debts must exceed assets and the person must be unable to pay debts as they fall due.' },
+        { factor: 'geography', description: 'Must live or have a business in England or Wales.' },
+      ],
+      keyQuestions: [
+        'Can the user pay their debts as they fall due?',
+        'Do they own property or significant assets?',
+        'Have they considered a Debt Relief Order (if debts under £30k)?',
+      ],
+      exclusions: ['Already bankrupt', 'Debt under £5,000 — other options may be better', 'Significant property ownership — bankruptcy trustee may sell assets'],
+      means_tested: false,
+      ruleIn: ['Cannot pay debts', 'Owes £5,000+', 'England or Wales resident'],
+      ruleOut: ['Debts under £5,000', 'Can pay debts with a repayment plan'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://apply-for-bankruptcy.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain consequences of bankruptcy (credit record, property, employment)',
+        'Check whether DRO or IVA might be more appropriate',
+        'Advise on the £680 application fee and fee waiver options',
+        'Guide user through the online application',
+      ],
+    },
+  },
+
+  'insolvency-breathing-space': {
+    id: 'insolvency-breathing-space', name: 'Breathing Space (debt respite scheme)', dept: 'Insolvency Service', deptKey: 'other',
+    deadline: null,
+    desc: 'A 60-day breathing space gives people with problem debt legal protection from creditor action while they get debt advice.',
+    govuk_url: 'https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space',
+    serviceType: 'legal_process',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Available to anyone in England or Wales with problem debt who seeks help from an FCA-authorised debt adviser. The adviser must apply on the client\'s behalf. During breathing space, creditors cannot chase debts, add interest or take enforcement action.',
+      universal: false,
+      criteria: [
+        { factor: 'residency', description: 'Must be an individual in England or Wales (not companies).' },
+        { factor: 'income', description: 'Must have problem debt and be seeking professional debt advice.' },
+        { factor: 'dependency', description: 'Must engage with an FCA-authorised debt advice provider who applies on the person\'s behalf.' },
+      ],
+      keyQuestions: [
+        'Is the user in England or Wales?',
+        'Are they working with a debt adviser?',
+        'Are creditors actively pursuing them?',
+      ],
+      exclusions: ['Already in an insolvency procedure', 'Had a breathing space in the last 12 months'],
+      means_tested: false,
+      ruleIn: ['Problem debt', 'England or Wales resident', 'Engaging with debt adviser'],
+      ruleOut: ['Already in insolvency', 'Had breathing space in last 12 months'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that a debt adviser (not the individual) must apply for breathing space',
+        'Direct to free debt advice services (StepChange, National Debtline, Citizens Advice)',
+        'Explain what protections breathing space provides',
+      ],
+    },
+  },
+
+  'insolvency-dro': {
+    id: 'insolvency-dro', name: 'Debt Relief Order (DRO)', dept: 'Insolvency Service', deptKey: 'other',
+    deadline: null,
+    desc: 'A low-cost insolvency option for people with debts under £30,000, little surplus income and few assets.',
+    govuk_url: 'https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders',
+    serviceType: 'legal_process',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Available in England and Wales for people with qualifying debt levels (under £30,000), low surplus income (under £75/month) and few assets (under £2,000, excluding a vehicle up to £4,000). Costs £90. Must apply through an authorised debt adviser.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Surplus income after essential expenses must be under £75/month.' },
+        { factor: 'asset', description: 'Total assets must be worth under £2,000.' },
+        { factor: 'dependency', description: 'Debts must be under £30,000 and must apply through an authorised intermediary.' },
+        { factor: 'residency', description: 'Must live or have been living in England or Wales.' },
+      ],
+      keyQuestions: [
+        'What is the user\'s total debt?',
+        'What are their monthly surplus income and total assets?',
+        'Have they previously had a DRO or been bankrupt?',
+      ],
+      exclusions: ['Debts over £30,000', 'Surplus income over £75/month', 'Assets over £2,000', 'Not eligible if homeowner'],
+      means_tested: true,
+      ruleIn: ['Debts under £30,000', 'Surplus income under £75/month', 'Assets under £2,000'],
+      ruleOut: ['Debts over £30,000', 'Assets over £2,000 (excluding car up to £4,000)', 'Homeowner'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://apply-for-debt-relief-order.service.gov.uk',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check the three qualifying thresholds (debt, income, assets)',
+        'Advise that an authorised intermediary must be used to apply',
+        'Direct to approved DRO intermediaries (StepChange, Citizens Advice)',
+      ],
+    },
+  },
+
+  'hmcts-money-claims': {
+    id: 'hmcts-money-claims', name: 'Money Claims Online', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: '6 years from debt arising',
+    desc: 'Make a court claim online to recover money owed (up to £100,000) through the small claims or fast-track court process.',
+    govuk_url: 'https://www.gov.uk/make-court-claim-for-money',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can use Money Claims Online to pursue a debt through the civil courts. Claims up to £10,000 are usually handled in the small claims track. Filing fees range from £35 to £455 depending on claim value.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'How much money is owed?',
+        'Does the user have evidence of the debt (contract, invoices, correspondence)?',
+        'Has the user sent a formal letter before action?',
+      ],
+      means_tested: false,
+      ruleIn: ['Money owed by another party', 'Within 6-year limitation period'],
+      ruleOut: ['Claim over £100,000 (use paper form instead)', 'Claim is statute-barred (over 6 years old)'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.moneyclaims.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Advise sending a formal letter before action first',
+        'Calculate the filing fee based on claim value',
+        'Explain small claims, fast track and multi-track thresholds',
+        'Guide user through the online claim form',
+      ],
+    },
+  },
+
+  'hmcts-court-fines': {
+    id: 'hmcts-court-fines', name: 'Pay a court fine', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: null,
+    desc: 'Pay a magistrates court fine online using your payment reference from the court.',
+    govuk_url: 'https://www.gov.uk/pay-court-fine-online',
+    serviceType: 'obligation',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone who has received a fine from a magistrates court and has a payment reference number can pay online.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['Does the user have their court fine reference number?'],
+      means_tested: false,
+      ruleIn: ['Has a court fine with a reference number'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/pay-court-fine-online',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Ask for the fine reference number from the court notice',
+        'Direct user to the online payment service',
+        'Advise on payment plan options if unable to pay in full',
+      ],
+    },
+  },
+
+  'hmcts-tax-tribunal': {
+    id: 'hmcts-tax-tribunal', name: 'Appeal to Tax Tribunal', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: '30 days from HMRC decision',
+    desc: 'Appeal an HMRC tax decision to the independent First-tier Tribunal (Tax Chamber) if HMRC\'s review has not resolved the dispute.',
+    govuk_url: 'https://www.gov.uk/tax-tribunal',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must have received a formal decision from HMRC and exercised the right to request HMRC review first (in most cases).' },
+      ],
+      keyQuestions: [
+        'Has HMRC issued a formal decision letter?',
+        'Has the user already asked for an HMRC review?',
+        'Is the appeal within the 30-day deadline?',
+      ],
+      means_tested: false,
+      ruleIn: ['Received HMRC decision', 'Within 30-day appeal window', 'Disagrees with HMRC assessment'],
+      ruleOut: ['Out of time — more than 30 days since decision'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/tax-tribunal',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the 30-day deadline has not passed',
+        'Advise on whether HMRC review was completed first',
+        'Guide user through the online appeal form (T240)',
+      ],
+    },
+  },
+
+  'hmcts-immigration-tribunal': {
+    id: 'hmcts-immigration-tribunal', name: 'Appeal to Immigration Tribunal', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: '14 days (in-country) / 28 days (out of country)',
+    desc: 'Challenge an immigration or asylum refusal before the independent First-tier Tribunal (Immigration and Asylum Chamber).',
+    govuk_url: 'https://www.gov.uk/immigration-asylum-tribunal',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to people who have received an immigration or asylum decision from the Home Office that carries a right of appeal. Must be filed within 14 days if in the UK, or 28 days if outside the UK.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must have received a Home Office refusal that explicitly grants a right of appeal.' },
+      ],
+      keyQuestions: [
+        'Does the refusal letter state there is a right of appeal?',
+        'Is the user currently in the UK or outside?',
+        'Is the appeal within the time limit?',
+      ],
+      means_tested: false,
+      ruleIn: ['Home Office refusal with right of appeal', 'Within appeal time limit'],
+      ruleOut: ['No right of appeal stated', 'Out of time'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/immigration-asylum-tribunal',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the refusal letter grants a right of appeal',
+        'Check whether the appeal deadline has passed',
+        'Advise on in-country vs out-of-country deadline',
+        'Guide user to the appeal form (IAFT-1)',
+      ],
+    },
+  },
+
+  'pins-planning-appeal': {
+    id: 'pins-planning-appeal', name: 'Appeal a planning decision', dept: 'Planning Inspectorate', deptKey: 'other',
+    deadline: '12 weeks from decision (householder)',
+    desc: 'Challenge a local planning authority\'s decision to refuse planning permission, or failure to decide within time, through the Planning Inspectorate.',
+    govuk_url: 'https://www.gov.uk/appeal-planning-decision',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to anyone who has had a planning application refused by their local council, or where the council failed to decide within the statutory timeframe. Time limits vary by appeal type (12 weeks for householder appeals, 6 months for most others).',
+      universal: false,
+      criteria: [
+        { factor: 'property', description: 'Must have made a planning application that was refused or not decided in time.' },
+        { factor: 'geography', description: 'England only — Scotland and Wales have separate processes.' },
+      ],
+      keyQuestions: [
+        'What was the planning decision and when was it made?',
+        'What type of development was applied for?',
+        'Is the appeal within the relevant time limit?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Planning application refused', 'Within appeal time limit', 'England'],
+      ruleOut: ['Outside England', 'Out of time'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/appeal-planning-decision',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Identify the type of planning appeal and applicable time limit',
+        'Explain the grounds for appeal',
+        'Guide user through the Planning Inspectorate online appeals service',
+      ],
+    },
+  },
+
+  'hmcts-unclaimed-court-money': {
+    id: 'hmcts-unclaimed-court-money', name: 'Find unclaimed court money', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: null,
+    desc: 'Search for money held in court trust accounts that may be owed to you from old court cases or unclaimed damages.',
+    govuk_url: 'https://www.gov.uk/find-unclaimed-court-money',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can search for unclaimed money held by HMCTS from court cases — for example, where damages were awarded but never collected, or where a case was settled.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Was the user a party to a court case?',
+        'Approximately when did the case take place?',
+      ],
+      means_tested: false,
+      ruleIn: ['Possible unclaimed money from a court case'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://find-unclaimed-court-money.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search the register using the user\'s name and case details',
+        'Advise on how to claim funds if found',
+      ],
+    },
+  },
+
+  'hmcts-jury-summons': {
+    id: 'hmcts-jury-summons', name: 'Respond to a jury summons', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: 'As stated on summons',
+    desc: 'Reply to a jury service summons — confirm attendance, defer or apply for excusal online.',
+    govuk_url: 'https://www.gov.uk/jury-service',
+    serviceType: 'obligation',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone on the electoral register aged 18–75 can be called for jury service. Recipients of a jury summons must respond within the timeframe on the notice. You may be able to defer or be excused in certain circumstances.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'When is the jury service date?',
+        'Does the user have grounds to defer or be excused (e.g. health, caring responsibilities)?',
+      ],
+      means_tested: false,
+      ruleIn: ['Received a jury summons'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/respond-jury-summons',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm receipt of summons and response deadline',
+        'Check whether grounds exist to defer or be excused',
+        'Guide user to respond online using the jury summons number',
+      ],
+    },
+  },
+
+  'hmpps-prison-visits': {
+    id: 'hmpps-prison-visits', name: 'Visit someone in prison', dept: 'HMPPS', deptKey: 'other',
+    deadline: null,
+    desc: 'Book a visit to a prisoner in England and Wales online through the prison visits service.',
+    govuk_url: 'https://www.gov.uk/prison-visits',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Family members and friends of prisoners can book visits. The prisoner must first add the visitor to their approved visitor list. ID may be required.',
+      universal: false,
+      criteria: [
+        { factor: 'family', description: 'Visitor must be approved by the prisoner and added to their visitor list.' },
+      ],
+      keyQuestions: [
+        'Is the visitor on the prisoner\'s approved list?',
+        'Which prison is the person being visited held in?',
+      ],
+      means_tested: false,
+      ruleIn: ['On prisoner\'s approved visitor list', 'Person in prison in England or Wales'],
+      ruleOut: ['Not on approved visitor list'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/prison-visits',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the visitor is on the prisoner\'s approved list',
+        'Identify the prison and available visiting times',
+        'Guide user to book online',
+      ],
+    },
+  },
+
+  'opg-lpa-refund': {
+    id: 'opg-lpa-refund', name: 'Claim a Power of Attorney registration refund', dept: 'OPG', deptKey: 'opg',
+    deadline: null,
+    desc: 'Claim a refund if you paid too much to register a Lasting or Enduring Power of Attorney between 1 April 2013 and 31 March 2017.',
+    govuk_url: 'https://www.gov.uk/claim-power-of-attorney-refund',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to those who paid to register an LPA or EPA with the OPG between April 2013 and March 2017, when registration fees were set above the cost of the service. Refunds were ordered following a court ruling.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must have paid to register a Lasting or Enduring Power of Attorney between 1 April 2013 and 31 March 2017.' },
+      ],
+      keyQuestions: [
+        'Did the user or someone they represent register an LPA/EPA between 2013 and 2017?',
+        'Do they have the LPA reference number?',
+      ],
+      means_tested: false,
+      ruleIn: ['Registered LPA or EPA between April 2013 and March 2017'],
+      ruleOut: ['LPA registered before April 2013 or after March 2017'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://claim-power-of-attorney-refund.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether the LPA/EPA was registered in the qualifying period',
+        'Locate the LPA reference number',
+        'Guide user through the online refund claim form',
+      ],
+    },
+  },
+
+  // ─── PROPERTY & HOUSING ────────────────────────────────────────────────────
+
+  'lr-property-search': {
+    id: 'lr-property-search', name: 'Search for property information', dept: 'Land Registry', deptKey: 'lr',
+    deadline: null,
+    desc: 'Search HM Land Registry for property title register, ownership details and boundary plans for any registered property in England and Wales.',
+    govuk_url: 'https://www.gov.uk/search-property-information-land-registry',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can search the Land Registry for information on registered properties in England and Wales. A fee of £3 applies for each title register viewed. Useful when buying a property or checking ownership.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What is the full address of the property?',
+        'Is the user buying, selling or just checking ownership?',
+      ],
+      means_tested: false,
+      ruleIn: ['Interested in a registered property in England or Wales'],
+      ruleOut: ['Property in Scotland (Registers of Scotland) or Northern Ireland (LPSNI)'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://use-land-property-data.service.gov.uk/datasets',
+      onlineFormUrl: 'https://search-property-information.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search by address to find the title number',
+        'Retrieve title register showing ownership, charges and restrictive covenants',
+        'Summarise key details for the user',
+      ],
+    },
+  },
+
+  'mhclg-epc': {
+    id: 'mhclg-epc', name: 'Find an Energy Performance Certificate', dept: 'MHCLG', deptKey: 'other',
+    deadline: null,
+    desc: 'Search for an existing Energy Performance Certificate (EPC) for a property, or commission a new one — required when selling or letting.',
+    govuk_url: 'https://www.gov.uk/find-energy-certificate',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'EPCs are required by law when a property is sold or let. Buyers, tenants and homeowners can search the register for free. Landlords renting property in England and Wales must have an EPC rating of E or above.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Is the user buying, selling, renting or checking their own property?',
+        'Is there already a valid EPC (valid for 10 years)?',
+      ],
+      means_tested: false,
+      ruleIn: ['Buying, selling or letting a property'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://epc.opendatacommunities.org/docs/api',
+      onlineFormUrl: 'https://find-energy-certificate.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search the EPC register by address',
+        'Report the energy rating and key recommendations',
+        'Advise if the EPC has expired or does not exist (new one needed)',
+      ],
+    },
+  },
+
+  'lr-sign-mortgage-deed': {
+    id: 'lr-sign-mortgage-deed', name: 'Sign your mortgage deed', dept: 'Land Registry', deptKey: 'lr',
+    deadline: null,
+    desc: 'Sign your mortgage deed electronically via HM Land Registry\'s digital mortgage service, replacing the need for a wet signature on a paper deed.',
+    govuk_url: 'https://www.gov.uk/guidance/sign-your-mortgage-deed',
+    serviceType: 'obligation',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.',
+      universal: false,
+      criteria: [
+        { factor: 'property', description: 'Lender must participate in the Land Registry digital mortgage service.' },
+      ],
+      keyQuestions: [
+        'Has the lender sent a link to sign the mortgage deed digitally?',
+        'Does the borrower have a GOV.UK One Login account?',
+      ],
+      means_tested: false,
+      ruleIn: ['Lender uses digital mortgage service', 'Mortgage offer received'],
+      ruleOut: ['Lender does not support digital signing — paper deed required'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/guidance/sign-your-mortgage-deed',
+      authRequired: 'gov-uk-one-login',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm whether the lender participates in the digital mortgage service',
+        'Advise borrower to check their email for the signing link from Land Registry',
+        'Guide user through GOV.UK One Login identity verification if needed',
+      ],
+    },
+  },
+
+  'llc-local-land-charges': {
+    id: 'llc-local-land-charges', name: 'Local land charges search', dept: 'Land Registry', deptKey: 'lr',
+    deadline: null,
+    desc: 'Search for local land charges on a property — planning restrictions, tree preservation orders, smoke control zones and other charges registered by local authorities.',
+    govuk_url: 'https://www.gov.uk/search-local-land-charges',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can search for local land charges on a property in England. The search is typically done as part of property conveyancing. Fees apply and vary by local authority.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Is the user in the process of buying a property?',
+        'What is the full address of the property?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Buying a property in England'],
+      ruleOut: ['Property in Wales, Scotland or Northern Ireland (different process)'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://search-local-land-charges.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the property address',
+        'Explain that this is typically part of the conveyancing solicitor\'s work',
+        'Guide user to search online or via their solicitor',
+      ],
+    },
+  },
+
+  'ea-flood-risk': {
+    id: 'ea-flood-risk', name: 'Check long-term flood risk', dept: 'Environment Agency', deptKey: 'other',
+    deadline: null,
+    desc: 'Check whether a property in England is at risk of flooding from rivers, the sea or surface water using the Environment Agency\'s official flood risk tool.',
+    govuk_url: 'https://www.gov.uk/check-long-term-flood-risk',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free service available to anyone checking a property address in England. Results show flood risk from rivers and the sea, surface water, groundwater and reservoirs.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What is the address of the property being checked?',
+        'Is the user buying, insuring or just curious about the risk?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Property in England'],
+      ruleOut: ['Property outside England — different services in Wales, Scotland, NI'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://check-long-term-flood-risk.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search by postcode or address',
+        'Report the flood risk rating and types of flood risk',
+        'Advise on flood insurance implications if risk is high',
+      ],
+    },
+  },
+
+  'voa-council-tax-band': {
+    id: 'voa-council-tax-band', name: 'Check or challenge your council tax band', dept: 'Valuation Office Agency', deptKey: 'other',
+    deadline: null,
+    desc: 'Check the council tax band for any property in England and Wales, and challenge your band if you believe it is wrong.',
+    govuk_url: 'https://www.gov.uk/council-tax-bands',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can check any property\'s council tax band for free. Property owners and tenants can challenge their band if they have evidence it is incorrectly assessed, for example if similar nearby properties are in a lower band.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Does the user believe their council tax band is too high?',
+        'What bands are similar properties on the same street in?',
+      ],
+      means_tested: false,
+      ruleIn: ['Living in or buying a property', 'Council tax band may be wrong'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/council-tax-bands',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Look up the council tax band for the property',
+        'Compare with bands for similar neighbouring properties',
+        'Advise on whether to make a formal challenge to the VOA',
+      ],
+    },
+  },
+
+  'voa-business-rates': {
+    id: 'voa-business-rates', name: 'Check and challenge business rates', dept: 'Valuation Office Agency', deptKey: 'other',
+    deadline: null,
+    desc: 'Check your business property\'s rateable value and challenge it if incorrect through the Check, Challenge and Appeal process.',
+    govuk_url: 'https://www.gov.uk/correct-your-business-rates',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to business ratepayers in England who believe their property\'s rateable value on the rating list is incorrect. The Check, Challenge, Appeal process requires a business rates account.',
+      universal: false,
+      criteria: [
+        { factor: 'property', description: 'Must occupy or own a non-domestic property assessed for business rates in England.' },
+      ],
+      keyQuestions: [
+        'What is the rateable value on the current bill?',
+        'When was the current rating list compiled?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Business ratepayer in England', 'Believes rateable value is wrong'],
+      ruleOut: ['Property in Wales (separate process)', 'No business rates liability'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/correct-your-business-rates',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Look up the property\'s current rateable value on the VOA website',
+        'Explain the Check, Challenge, Appeal process',
+        'Advise on small business rate relief if the rateable value is low',
+      ],
+    },
+  },
+
+  // ─── IMMIGRATION (ADDITIONAL ROUTES) ─────────────────────────────────────
+
+  'ho-evisa': {
+    id: 'ho-evisa', name: 'Get access to your eVisa', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Create a UKVI account to access your eVisa — the digital immigration status that has replaced the physical Biometric Residence Permit for most visa holders.',
+    govuk_url: 'https://www.gov.uk/get-access-evisa',
+    serviceType: 'document',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Required for most non-British, non-Irish nationals who have permission to stay in the UK. The eVisa is linked to your passport and UKVI account and proves your right to work, rent and access services.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must have leave to remain in the UK (visa or settlement).' },
+      ],
+      keyQuestions: [
+        'Does the user currently hold a Biometric Residence Permit or vignette stamp?',
+        'Have they already created a UKVI account?',
+      ],
+      means_tested: false,
+      ruleIn: ['Has leave to remain in the UK', 'Non-British, non-Irish national'],
+      ruleOut: ['British or Irish citizen — no eVisa needed'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the user has leave to remain in the UK',
+        'Check whether they have already created a UKVI account',
+        'Guide through UKVI account creation and linking their passport',
+        'Advise on keeping passport details up to date',
+      ],
+    },
+  },
+
+  'ho-view-immigration-status': {
+    id: 'ho-view-immigration-status', name: 'View or prove your immigration status', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'View your immigration status online and generate a share code to prove your right to work, rent or access services to employers and landlords.',
+    govuk_url: 'https://www.gov.uk/view-prove-immigration-status',
+    serviceType: 'document',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords verify your status without seeing your personal details.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must have a UKVI account with an eVisa or EU Settlement Scheme status.' },
+      ],
+      keyQuestions: [
+        'Does the user have a UKVI account?',
+        'Is the share code for a right-to-work or right-to-rent check?',
+      ],
+      means_tested: false,
+      ruleIn: ['Has UKVI account with eVisa or EUSS status'],
+      ruleOut: ['British or Irish citizen', 'No UKVI account'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://view-immigration-status.service.gov.uk/status',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user has a UKVI account',
+        'Generate a share code for the employer or landlord',
+        'Explain the share code is valid for 90 days',
+      ],
+    },
+  },
+
+  'ho-skilled-worker-visa': {
+    id: 'ho-skilled-worker-visa', name: 'Skilled Worker visa', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Apply for a Skilled Worker visa to work in the UK for an employer licensed by the Home Office as a visa sponsor.',
+    govuk_url: 'https://www.gov.uk/skilled-worker-visa',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to people outside the UK (or switching from another visa in the UK) who have a job offer from a licensed UK employer. The role must be at RQF Level 3 or above, meet the salary threshold (generally £38,700/year or the relevant going rate), and the employer must issue a Certificate of Sponsorship.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Must have a confirmed job offer from a Home Office licensed sponsor at RQF Level 3+ and meeting the salary threshold.' },
+        { factor: 'immigration', description: 'Must not have conditions that prevent applying for this visa.' },
+      ],
+      keyQuestions: [
+        'Does the employer hold a Home Office sponsor licence?',
+        'Does the role meet the skill and salary thresholds?',
+        'Has the employer issued a Certificate of Sponsorship (CoS) reference number?',
+      ],
+      means_tested: false,
+      ruleIn: ['Job offer from licensed UK sponsor', 'Role at RQF Level 3+', 'Meets salary threshold (£38,700 or going rate)'],
+      ruleOut: ['Employer not a licensed sponsor', 'Role below skill or salary threshold', 'British or Irish citizen — no visa needed'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the employer holds a sponsor licence',
+        'Check the role meets salary and skill thresholds',
+        'Locate the Certificate of Sponsorship reference number',
+        'Guide through the visa application process and fee',
+      ],
+    },
+  },
+
+  'ho-student-visa': {
+    id: 'ho-student-visa', name: 'Student visa', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Apply for a Student visa to study at a UK university or college with a Student sponsor licence (formerly Tier 4).',
+    govuk_url: 'https://www.gov.uk/student-visa',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to international students aged 16 or over who have an unconditional offer from a UK educational institution with a Student sponsor licence. Must demonstrate English language proficiency and sufficient funds to support themselves.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must be a non-British, non-Irish national without leave to remain that covers the course.' },
+        { factor: 'dependency', description: 'Must have a Confirmation of Acceptance for Studies (CAS) from a licensed student sponsor.' },
+      ],
+      keyQuestions: [
+        'Has the educational institution provided a Confirmation of Acceptance for Studies (CAS)?',
+        'Does the student meet English language requirements?',
+        'Do they have sufficient funds (living costs + tuition)?',
+      ],
+      means_tested: false,
+      ruleIn: ['CAS from licensed UK educational institution', 'Aged 16+', 'Meets English language requirement'],
+      ruleOut: ['British or Irish citizen', 'No CAS number', 'Insufficient funds'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/student-visa/apply',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the educational institution is a licensed sponsor',
+        'Check CAS number and check all details match',
+        'Verify English language test scores meet requirements',
+        'Guide through visa application and biometric appointment',
+      ],
+    },
+  },
+
+  'ho-fee-waiver': {
+    id: 'ho-fee-waiver', name: 'Immigration fee waiver', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Apply for a waiver of Home Office immigration or nationality fees if you cannot afford to pay.',
+    govuk_url: 'https://www.gov.uk/immigration-asylum-tribunal/fee-waiver',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to people applying for leave to remain or British citizenship who cannot afford the application fee. Must demonstrate financial need. The fee waiver does not apply to all visa categories.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must demonstrate that payment of the visa fee would leave you (or your family) destitute or at risk of destitution.' },
+        { factor: 'immigration', description: 'Must be applying for a qualifying leave to remain or citizenship application.' },
+      ],
+      keyQuestions: [
+        'What type of immigration application is being made?',
+        'Can the user demonstrate financial hardship?',
+      ],
+      means_tested: true,
+      ruleIn: ['Applying for leave to remain or citizenship', 'Cannot afford the fee'],
+      ruleOut: ['Applying for entry clearance from abroad', 'Can afford the fee'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-for-fee-waiver-immigration-application',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check the visa type is eligible for a fee waiver',
+        'Help gather evidence of financial hardship',
+        'Guide through the fee waiver application before submitting the main visa application',
+      ],
+    },
+  },
+
+  'ho-immigration-appeal': {
+    id: 'ho-immigration-appeal', name: 'Appeal a visa or immigration decision', dept: 'Home Office', deptKey: 'ho',
+    deadline: '14 days (in-country) / 28 days (out of country)',
+    desc: 'Challenge a Home Office refusal of a visa, leave to remain or human rights application at the First-tier Tribunal (Immigration and Asylum Chamber).',
+    govuk_url: 'https://www.gov.uk/immigration-asylum-tribunal',
+    serviceType: 'legal_process',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to people who have received a Home Office refusal that carries an in-country right of appeal. Not all decisions carry appeal rights. Must appeal within 14 days if in the UK or 28 days if outside.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must have received an immigration decision from the Home Office that specifically grants a right of appeal.' },
+      ],
+      keyQuestions: [
+        'Does the refusal letter state there is a right of appeal?',
+        'Is the user in the UK or outside?',
+        'When was the refusal letter dated?',
+      ],
+      means_tested: false,
+      ruleIn: ['Refused decision with right of appeal', 'Within time limit'],
+      ruleOut: ['No right of appeal stated in refusal', 'Out of time'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/immigration-asylum-tribunal',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check the refusal letter for the right of appeal and deadline',
+        'Strongly recommend seeking immigration legal advice',
+        'Explain the tribunal process and options',
+      ],
+    },
+  },
+
+  'ho-euss-enquiry': {
+    id: 'ho-euss-enquiry', name: 'EUSS status enquiry', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Contact the Home Office about a problem with your EU Settlement Scheme application, status or digital profile.',
+    govuk_url: 'https://www.gov.uk/contact-ukvi-inside-outside-uk',
+    serviceType: 'application',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to EU, EEA and Swiss nationals (and their family members) who have issues with their EUSS application or settled/pre-settled status, such as a certificate of application not arriving, needing to update personal details, or status not showing correctly.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must have applied to or been granted status under the EU Settlement Scheme.' },
+      ],
+      keyQuestions: [
+        'What specific problem does the user have with their EUSS status?',
+        'Do they have their EUSS application reference number?',
+      ],
+      means_tested: false,
+      ruleIn: ['EU/EEA/Swiss national or family member with EUSS application or status'],
+      ruleOut: ['Never applied to EUSS'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/contact-ukvi-inside-outside-uk',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Identify the specific EUSS issue',
+        'Direct to the EUSS resolution centre or UKVI contact form',
+        'Advise on free immigration advice from the EUSS Settlement Resolution Centre',
+      ],
+    },
+  },
+
+  // ─── VEHICLES & DRIVING ────────────────────────────────────────────────────
+
+  'dvla-vehicle-enquiry': {
+    id: 'dvla-vehicle-enquiry', name: 'Vehicle Enquiry Service', dept: 'DVLA', deptKey: 'dvla',
+    deadline: null,
+    desc: 'Check the MOT status, vehicle tax and basic registered details of any UK vehicle by its registration number.',
+    govuk_url: 'https://www.gov.uk/get-vehicle-information-from-dvla',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Free service available to anyone with a UK vehicle registration number. Shows whether the vehicle has a current MOT, is taxed, the colour, fuel type and year of manufacture.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['What is the vehicle registration number?'],
+      means_tested: false,
+      ruleIn: ['Has a vehicle registration number to check'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html',
+      onlineFormUrl: 'https://vehicleenquiry.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Look up the vehicle registration number in the DVLA database',
+        'Report MOT status, tax status and basic vehicle details',
+      ],
+    },
+  },
+
+  'dvsa-mot-history': {
+    id: 'dvsa-mot-history', name: 'Check MOT history', dept: 'DVSA', deptKey: 'dvsa',
+    deadline: null,
+    desc: 'View the complete MOT test history of any vehicle — past pass/fail results, mileage at each test and advisory notices.',
+    govuk_url: 'https://www.gov.uk/check-mot-history',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Free service for any vehicle that has had an MOT in Great Britain. Useful when buying a used car to check for recurrent failures or odometer discrepancies.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['What is the vehicle registration number?'],
+      means_tested: false,
+      ruleIn: ['Has a UK vehicle registration number'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://dvsa.github.io/mot-history-api-documentation/',
+      onlineFormUrl: 'https://www.check-mot.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Look up the vehicle registration number',
+        'Report the MOT history, flagging any patterns of failure or mileage anomalies',
+      ],
+    },
+  },
+
+  'dvla-change-address-v5c': {
+    id: 'dvla-change-address-v5c', name: 'Update V5C logbook address', dept: 'DVLA', deptKey: 'dvla',
+    deadline: null,
+    desc: 'Update the address on your vehicle\'s V5C registration certificate (logbook) after moving house.',
+    govuk_url: 'https://www.gov.uk/change-address-v5c',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone who is the registered keeper of a vehicle and has moved house must update the V5C address. Can be done online if you have the 11-digit document reference number from the V5C.',
+      universal: false,
+      criteria: [
+        { factor: 'property', description: 'Must be the registered keeper of the vehicle and have moved to a new address.' },
+      ],
+      keyQuestions: [
+        'Does the user have the V5C document reference number?',
+        'What is the new address?',
+      ],
+      means_tested: false,
+      ruleIn: ['Moved house', 'Registered keeper of a vehicle'],
+      ruleOut: ['Not the registered keeper'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/change-address-v5c',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user has V5C document reference number (11 digits from top of logbook)',
+        'Guide through online address update',
+        'Advise that a new V5C will be sent to the new address',
+      ],
+    },
+  },
+
+  'jaqu-clean-air-zone': {
+    id: 'jaqu-clean-air-zone', name: 'Check and pay Clean Air Zone charges', dept: 'JAQU', deptKey: 'other',
+    deadline: null,
+    desc: 'Check if your vehicle must pay a Clean Air Zone daily charge when driving in participating cities, and pay it if required.',
+    govuk_url: 'https://www.gov.uk/clean-air-zones',
+    serviceType: 'obligation',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.',
+      universal: false,
+      criteria: [
+        { factor: 'geography', description: 'Must be driving in a city with an active Clean Air Zone.' },
+      ],
+      keyQuestions: [
+        'Is the user planning to drive in a CAZ city?',
+        'What is their vehicle registration and fuel type?',
+      ],
+      means_tested: false,
+      ruleIn: ['Driving in a Clean Air Zone city', 'Vehicle does not meet emission standards'],
+      ruleOut: ['Exempt vehicle (electric, hydrogen, certain hybrids)', 'Not driving in a CAZ'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/drive-in-a-clean-air-zone',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check vehicle registration against the national CAZ vehicle checker',
+        'Identify which zones apply and the daily charge',
+        'Direct user to pay or check exemption',
+      ],
+    },
+  },
+
+  'dvla-check-driving-licence': {
+    id: 'dvla-check-driving-licence', name: 'View and share driving licence', dept: 'DVLA', deptKey: 'dvla',
+    deadline: null,
+    desc: 'View your full driving record online and generate a check code to share it with employers or car hire companies.',
+    govuk_url: 'https://www.gov.uk/view-driving-licence',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to any UK driving licence holder. Lets you see your entitlements, any penalty points, and driving test passes. Generates a one-time check code valid for 21 days.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must hold a UK driving licence.' },
+      ],
+      keyQuestions: ['Does the user hold a UK driving licence?'],
+      means_tested: false,
+      ruleIn: ['UK driving licence holder'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/view-driving-licence',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Direct user to the DVLA online service to generate a check code',
+        'Explain that the code is valid for 21 days',
+        'Advise on what information will be shared with the employer/hire company',
+      ],
+    },
+  },
+
+  // ─── BUSINESS (ADDITIONAL) ─────────────────────────────────────────────────
+
+  'ch-file-accounts': {
+    id: 'ch-file-accounts', name: 'File annual accounts at Companies House', dept: 'Companies House', deptKey: 'ch',
+    deadline: '9 months after financial year end',
+    desc: 'File your company\'s statutory annual accounts at Companies House; required for all limited companies each year.',
+    govuk_url: 'https://www.gov.uk/file-your-company-annual-accounts',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'All limited companies incorporated in the UK must file annual accounts at Companies House within 9 months of their financial year end. Small companies may file abridged or micro-entity accounts.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must be an officer of a UK limited company (Ltd or PLC).' },
+      ],
+      keyQuestions: [
+        'When does the company\'s financial year end?',
+        'Does the company qualify as small, micro-entity or dormant?',
+      ],
+      means_tested: false,
+      ruleIn: ['UK limited company registered at Companies House'],
+      ruleOut: ['Sole trader or partnership — not required to file at Companies House'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.company-information.service.gov.uk/overview',
+      onlineFormUrl: 'https://www.gov.uk/file-your-company-annual-accounts',
+      authRequired: 'companies-house',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check the filing deadline from the company\'s confirmation statement',
+        'Determine which accounts format applies (micro, small, full)',
+        'Guide user to the Companies House WebFiling service',
+        'Warn of £150–£1,500 late filing penalties',
+      ],
+    },
+  },
+
+  'ch-confirmation-statement': {
+    id: 'ch-confirmation-statement', name: 'File a confirmation statement', dept: 'Companies House', deptKey: 'ch',
+    deadline: '14 days after review period end',
+    desc: 'File the annual confirmation statement (formerly annual return) confirming that company details at Companies House are up to date.',
+    govuk_url: 'https://www.gov.uk/confirmation-statement',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'All companies, LLPs and eligible partnerships registered at Companies House must file a confirmation statement at least once every 12 months. The £34 filing fee can be waived for dormant companies in some circumstances.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must be a registered company, LLP or eligible UK business entity.' },
+      ],
+      keyQuestions: [
+        'When is the confirmation statement due?',
+        'Have there been any changes to directors, shareholders or registered address?',
+      ],
+      means_tested: false,
+      ruleIn: ['UK company or LLP registered at Companies House'],
+      ruleOut: ['Sole trader or general partnership'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/confirmation-statement',
+      authRequired: 'companies-house',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Check the due date from the last confirmation statement',
+        'Review company details for any changes needed',
+        'File via Companies House WebFiling (£34 fee)',
+      ],
+    },
+  },
+
+  'ch-close-company': {
+    id: 'ch-close-company', name: 'Close a limited company', dept: 'Companies House', deptKey: 'ch',
+    deadline: null,
+    desc: 'Apply to have your company voluntarily struck off the register at Companies House (DS01), closing it down.',
+    govuk_url: 'https://www.gov.uk/closing-a-limited-company',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to directors of a limited company that has not traded in the last 3 months, has no outstanding liabilities and has not changed its name in the last 3 months. The application is made by all directors. HMRC must be notified separately.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must be a director of a UK limited company that has not traded or otherwise been used for a purpose in the past 3 months.' },
+      ],
+      keyQuestions: [
+        'Has the company traded in the last 3 months?',
+        'Are there any outstanding debts or liabilities?',
+        'Have all directors agreed to the strike-off?',
+      ],
+      exclusions: ['Company has outstanding debts', 'Has traded in last 3 months', 'Subject to legal proceedings'],
+      means_tested: false,
+      ruleIn: ['Dormant company', 'No outstanding liabilities', 'All directors agree'],
+      ruleOut: ['Company has debts or liabilities', 'Traded recently'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/strike-off-your-company-from-companies-register',
+      authRequired: 'companies-house',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm the company is dormant and has no outstanding liabilities',
+        'Remind to notify HMRC, close business bank accounts and deregister from VAT/PAYE',
+        'Guide through DS01 voluntary strike-off application',
+      ],
+    },
+  },
+
+  'hmrc-eori': {
+    id: 'hmrc-eori', name: 'Get an EORI number', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: 'Apply for an Economic Operators Registration and Identification (EORI) number, required to import or export goods between Great Britain and the rest of the world.',
+    govuk_url: 'https://www.gov.uk/eori',
+    serviceType: 'registration',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Required for all UK businesses that import or export goods. Businesses with a UK VAT number can get an EORI number almost instantly online. Non-VAT-registered businesses can also apply.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Must be a UK business intending to import or export goods.' },
+      ],
+      keyQuestions: [
+        'Does the business have a UK VAT number?',
+        'Is the business planning to import or export goods?',
+      ],
+      means_tested: false,
+      ruleIn: ['UK business importing or exporting goods'],
+      ruleOut: ['Business only provides services (no goods)', 'Not a UK-established business'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/eori',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the business has a UK VAT number (speeds up the process)',
+        'Guide through the online EORI application (instant for VAT-registered businesses)',
+        'Advise to include the EORI on customs declarations',
+      ],
+    },
+  },
+
+  'ukri-find-grants': {
+    id: 'ukri-find-grants', name: 'Find government grants for business', dept: 'BEIS/UKRI', deptKey: 'other',
+    deadline: null,
+    desc: 'Search the government\'s business finance and grant database to find funding schemes available to your business.',
+    govuk_url: 'https://www.gov.uk/business-finance-support',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free-to-search database covering grants, loans and equity finance from central and local government. Eligibility varies by scheme — most target small businesses, start-ups or specific sectors.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What sector is the business in?',
+        'How many employees and what is the annual turnover?',
+        'Is the business in a particular region or local authority?',
+      ],
+      means_tested: false,
+      ruleIn: ['Running or starting a business in the UK'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/business-finance-support',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Ask about business sector, size and location',
+        'Search the grants database and summarise relevant schemes',
+        'Link to individual scheme pages for application details',
+      ],
+    },
+  },
+
+  'co-contracts-finder': {
+    id: 'co-contracts-finder', name: 'Contracts Finder', dept: 'Cabinet Office', deptKey: 'other',
+    deadline: null,
+    desc: 'Search and apply for government contracts and procurement opportunities published by central and local government in the UK.',
+    govuk_url: 'https://www.gov.uk/contracts-finder',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What type of goods or services does the business supply?',
+        'What contract value range are they interested in?',
+      ],
+      means_tested: false,
+      ruleIn: ['Business looking to supply public sector'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://www.contractsfinder.service.gov.uk/apidocs/index.html',
+      onlineFormUrl: 'https://www.contractsfinder.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Search by keyword, sector and contract value',
+        'Summarise relevant open opportunities',
+        'Explain the Find a Tender Service for contracts above £138,760',
+      ],
+    },
+  },
+
+  // ─── VOTING ────────────────────────────────────────────────────────────────
+
+  'la-postal-vote': {
+    id: 'la-postal-vote', name: 'Apply for a postal vote', dept: 'Local Authority', deptKey: 'la',
+    deadline: '11 working days before election',
+    desc: 'Apply to vote by post so your ballot is sent to your home address and returned by post or in person.',
+    govuk_url: 'https://www.gov.uk/apply-postal-vote',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. Photo ID is no longer required for postal vote applications but a National Insurance number or signature is needed.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must be registered to vote (on the electoral roll).' },
+      ],
+      keyQuestions: [
+        'Is the user registered to vote?',
+        'Is there an election coming up?',
+        'Is the application within the 11-working-day deadline?',
+      ],
+      means_tested: false,
+      ruleIn: ['Registered to vote', 'Before 11-working-day deadline'],
+      ruleOut: ['Not registered to vote', 'Missed the postal vote deadline'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-postal-vote',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the user is registered to vote',
+        'Check the election date and postal vote deadline',
+        'Guide through the online postal vote application',
+      ],
+    },
+  },
+
+  'la-proxy-vote': {
+    id: 'la-proxy-vote', name: 'Apply for a proxy vote', dept: 'Local Authority', deptKey: 'la',
+    deadline: '6 working days before election',
+    desc: 'Appoint someone you trust to vote on your behalf if you cannot get to the polling station.',
+    govuk_url: 'https://www.gov.uk/apply-proxy-vote',
+    serviceType: 'application',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 working days before the election for standard proxy; emergency proxy available up to 5pm on polling day.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must be registered to vote.' },
+        { factor: 'employment', description: 'Typical reasons include being at work, abroad, or unable to attend due to disability or illness.' },
+      ],
+      keyQuestions: [
+        'Why can the user not attend the polling station?',
+        'Who will be their proxy, and are they also a registered voter?',
+      ],
+      means_tested: false,
+      ruleIn: ['Registered to vote', 'Cannot attend polling station', 'Has a trusted proxy who is a registered voter'],
+      ruleOut: ['Not registered to vote', 'Proxy is not a registered voter'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/apply-proxy-vote',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm reason for needing a proxy',
+        'Identify a suitable proxy who is a registered UK voter',
+        'Guide through the proxy vote application',
+      ],
+    },
+  },
+
+  // ─── DOCUMENTS & IDENTITY ─────────────────────────────────────────────────
+
+  'hmcts-gender-recognition': {
+    id: 'hmcts-gender-recognition', name: 'Apply for a Gender Recognition Certificate', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: null,
+    desc: 'Apply for a Gender Recognition Certificate to have your affirmed gender legally recognised in the UK.',
+    govuk_url: 'https://www.gov.uk/apply-gender-recognition-certificate',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available to adults (18+) who have, or have had, gender dysphoria; have lived in their acquired gender for at least 2 years; and intend to continue living in that gender until death. Medical evidence from two healthcare professionals is required.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be 18 or over.' },
+        { factor: 'residency', description: 'Must be a UK national or permanently resident in the UK.' },
+      ],
+      keyQuestions: [
+        'Has the applicant lived in their acquired gender for at least 2 years?',
+        'Do they have a diagnosis of gender dysphoria from a UK or overseas doctor or psychologist?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Medical reports from two registered medical practitioners', 'Statutory declaration confirming intent', 'Evidence of living in acquired gender for 2+ years'],
+      ruleIn: ['Gender dysphoria diagnosis', '2+ years living in acquired gender', 'Aged 18+'],
+      ruleOut: ['Under 18', 'Not a UK national or resident'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://apply-gender-recognition-certificate.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain the evidence requirements (two medical reports and statutory declaration)',
+        'Check the 2-year living-in-acquired-gender requirement',
+        'Guide through the online application',
+      ],
+    },
+  },
+
+  'dhsc-baby-loss-certificate': {
+    id: 'dhsc-baby-loss-certificate', name: 'Request a baby loss certificate', dept: 'DHSC', deptKey: 'other',
+    deadline: null,
+    desc: 'Request a certificate in memory of your baby if your pregnancy ended before 24 weeks gestation.',
+    govuk_url: 'https://www.gov.uk/request-baby-loss-certificate',
+    serviceType: 'document',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to parents who experienced the loss of a baby before 24 weeks gestation (including miscarriage and ectopic pregnancy). The certificate is not a legal document but provides official acknowledgement. Losses before 1 October 1992 can also be registered (28 weeks threshold applied then).',
+      universal: false,
+      criteria: [
+        { factor: 'bereavement', description: 'Must have experienced pregnancy loss before 24 weeks gestation (or 28 weeks if before 1 October 1992).' },
+        { factor: 'family', description: 'Must be a parent of the baby.' },
+      ],
+      keyQuestions: [
+        'At what stage of pregnancy did the loss occur?',
+        'Does the parent have details such as the date and hospital?',
+      ],
+      means_tested: false,
+      ruleIn: ['Pregnancy loss before 24 weeks', 'Parent of the baby'],
+      ruleOut: ['Loss at 24 weeks or later — registered as stillbirth under GRO'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.request-a-baby-loss-certificate.service.gov.uk/request-a-baby-loss-certificate',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Express condolences and explain the certificate sensitively',
+        'Confirm the pregnancy was under 24 weeks (losses at 24+ weeks are registered as stillbirths)',
+        'Guide parent through the online request',
+      ],
+    },
+  },
+
+  'dbs-basic-check': {
+    id: 'dbs-basic-check', name: 'Basic DBS criminal record check', dept: 'DBS', deptKey: 'other',
+    deadline: null,
+    desc: 'Apply for a basic Disclosure and Barring Service check that shows only unspent criminal convictions — available to anyone.',
+    govuk_url: 'https://www.gov.uk/request-copy-criminal-record',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can apply for a basic DBS check on themselves. Costs £18. Shows only unspent convictions. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Does the user need a basic, standard or enhanced check?',
+        'Is an employer requesting it, or is the user applying for personal purposes?',
+      ],
+      means_tested: false,
+      ruleIn: ['Anyone aged 16+ can apply'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/request-copy-criminal-record',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Clarify whether a basic, standard or enhanced check is needed',
+        'Explain basic checks are self-applied; standard/enhanced are employer-led',
+        'Guide user through the online application (£18 fee)',
+      ],
+    },
+  },
+
+  'cabinetoffice-uk-honours': {
+    id: 'cabinetoffice-uk-honours', name: 'Nominate someone for a King\'s Honour', dept: 'Cabinet Office', deptKey: 'other',
+    deadline: null,
+    desc: 'Nominate someone for a King\'s Honour (OBE, MBE, BEM etc.) to recognise outstanding achievement or service to the community.',
+    govuk_url: 'https://www.gov.uk/honours',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can nominate someone for a King\'s Honour. Honours are for exceptional achievement or service to the country. The Honours Committee decides who to recommend to the King. Nominations are considered twice a year (New Year and Birthday Honours).',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What has the person done that deserves recognition?',
+        'Is their service local, national or international?',
+      ],
+      means_tested: false,
+      ruleIn: ['Exceptional achievement or public service by the nominee'],
+      ruleOut: ['Nominated for paid professional work done for personal gain'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/honours',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Help articulate the nominee\'s achievements clearly',
+        'Guide through the online nomination form',
+        'Advise on supporting letters and timescales',
+      ],
+    },
+  },
+
+  'gro-certificates': {
+    id: 'gro-certificates', name: 'Order a birth, death or marriage certificate', dept: 'GRO', deptKey: 'gro',
+    deadline: null,
+    desc: 'Order certified copies of birth, death, marriage or civil partnership certificates from the General Register Office.',
+    govuk_url: 'https://www.gov.uk/order-copy-birth-death-marriage-certificate',
+    serviceType: 'document',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £11 each for standard delivery.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'What type of certificate is needed (birth, death, marriage, civil partnership)?',
+        'What year and district was the event registered in?',
+      ],
+      means_tested: false,
+      ruleIn: ['Needs a certified copy of a life event registered in England or Wales'],
+      ruleOut: ['Event registered in Scotland, Northern Ireland or overseas (different registrars)'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Identify the type of certificate and approximate registration details',
+        'Check whether the event is in the GRO index',
+        'Guide user through the online order form',
+      ],
+    },
+  },
+
+  // ─── EDUCATION & CHILDCARE ────────────────────────────────────────────────
+
+  'dfe-care-to-learn': {
+    id: 'dfe-care-to-learn', name: 'Care to Learn', dept: 'DfE', deptKey: 'other',
+    deadline: null,
+    desc: 'Childcare funding of up to £195/week (London) or £180/week (outside London) for young parents under 20 in publicly funded education.',
+    govuk_url: 'https://www.gov.uk/care-to-learn',
+    serviceType: 'grant',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available to parents under 20 (at the start of the academic year) who are in publicly funded education (school or college) and are the primary carer of a child. Covers childcare and travel costs to childcare.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Parent must be under 20 at the start of the academic year.' },
+        { factor: 'family', description: 'Must be the primary carer of a child or baby.' },
+        { factor: 'employment', description: 'Must be in publicly funded education at a school or college in England.' },
+      ],
+      keyQuestions: [
+        'How old is the parent and are they in publicly funded education?',
+        'Are they the primary carer of their child?',
+      ],
+      exclusions: ['Parent aged 20 or over when academic year starts', 'Parent not in publicly funded education', 'Not the primary carer'],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Under 20', 'In publicly funded education', 'Primary carer of child'],
+      ruleOut: ['Aged 20 or over at start of academic year', 'Not in publicly funded education', 'Not primary carer'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://studentbursary.education.gov.uk/w/webpage/student-bursary',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm parent is under 20 and in publicly funded education',
+        'Ask about childcare costs and provider details',
+        'Guide through the application',
+      ],
+    },
+    financialData: {
+      taxYear: '2025-26',
+      frequency: 'weekly',
+      rates: { london_max: 195, outside_london_max: 180 },
+      source: 'https://www.gov.uk/care-to-learn',
+    },
+  },
+
+  'dfe-find-apprenticeship': {
+    id: 'dfe-find-apprenticeship', name: 'Find an apprenticeship', dept: 'DfE', deptKey: 'other',
+    deadline: null,
+    desc: 'Search and apply for apprenticeship vacancies in England, from level 2 (GCSE-equivalent) up to degree-level apprenticeships.',
+    govuk_url: 'https://www.gov.uk/apply-apprenticeship',
+    serviceType: 'application',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Open to anyone aged 16 or over in England who is not in full-time education. Apprenticeships are available in hundreds of occupations across all sectors. Must be in England and not in full-time education.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be at least 16 years old.' },
+        { factor: 'geography', description: 'Must be in England (Scotland, Wales and NI have separate schemes).' },
+      ],
+      keyQuestions: [
+        'What sector or occupation is the user interested in?',
+        'What is their current qualification level?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Aged 16+', 'In England', 'Not in full-time education'],
+      ruleOut: ['Under 16', 'Currently in full-time education'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.findapprenticeship.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Ask about preferred sector and location',
+        'Search apprenticeship vacancies and summarise relevant ones',
+        'Direct user to create a profile on findapprenticeship.service.gov.uk',
+      ],
+    },
+  },
+
+  'dfe-apply-teacher-training': {
+    id: 'dfe-apply-teacher-training', name: 'Apply for teacher training', dept: 'DfE', deptKey: 'other',
+    deadline: null,
+    desc: 'Apply for initial teacher training (ITT) through the GOV.UK Apply for teacher training service.',
+    govuk_url: 'https://www.gov.uk/apply-for-teacher-training',
+    serviceType: 'application',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Open to graduates (or those in their final year) with a 2:2 degree or above who want to qualify as a teacher in England. Routes include PGCE, School Direct, Teach First and SCITT. Entry requirements vary by provider.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must have, or be working towards, a UK undergraduate degree (2:2 or above).' },
+        { factor: 'geography', description: 'Training takes place in England.' },
+      ],
+      keyQuestions: [
+        'What degree subject does the applicant hold?',
+        'Do they want to teach primary or secondary?',
+        'Have they done any school experience?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['UK degree or equivalent', 'Wants to teach in England'],
+      ruleOut: ['No degree or equivalent qualification'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.apply-for-teacher-training.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Help user identify the right training route and subject',
+        'Advise on Get into Teaching support and bursaries available',
+        'Guide through the application on the Apply service',
+      ],
+    },
+  },
+
+  'dfe-national-careers': {
+    id: 'dfe-national-careers', name: 'National Careers Service', dept: 'DfE', deptKey: 'other',
+    deadline: null,
+    desc: 'Free careers advice, skills assessment and job profile browsing through the government\'s National Careers Service.',
+    govuk_url: 'https://nationalcareers.service.gov.uk/',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free for anyone in England aged 13 or over. Provides one-to-one careers advice (phone, webchat, online), a skills assessment tool, job profiles and a course finder.',
+      universal: true,
+      criteria: [
+        { factor: 'geography', description: 'Free adviser-led guidance is available to adults in England. Scotland, Wales and NI have their own careers services.' },
+      ],
+      keyQuestions: [
+        'Is the user considering a career change, returning to work, or looking for training?',
+        'Are they in England?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['In England', 'Seeking careers advice or skills support'],
+      ruleOut: ['Outside England (different careers services in devolved nations)'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://nationalcareers.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Identify whether user needs skills assessment, course finder or one-to-one advice',
+        'Point to the relevant section of the National Careers Service',
+        'Signpost to the free telephone helpline for personalised guidance',
+      ],
+    },
+  },
 };
 
 // ─── EDGES ────────────────────────────────────────────────────────────────────
@@ -11810,6 +14204,112 @@ export const EDGES: Edge[] = [
 
   // Discretionary Support (NI)
   { from: 'dwp-universal-credit',     to: 'ni-discretionary-support',       type: 'ENABLES' },
+
+  // ── New service edges ─────────────────────────────────────────────────────
+
+  // Passport
+  { from: 'gro-marriage-cert',           to: 'hmpo-passport',                  type: 'ENABLES' },
+  { from: 'ho-citizenship-ceremony',     to: 'hmpo-passport',                  type: 'ENABLES' },
+  { from: 'hmpo-lost-stolen-passport',   to: 'hmpo-passport',                  type: 'ENABLES' },
+  { from: 'hmpo-passport',              to: 'hmpo-passport-urgent',            type: 'ENABLES' },
+
+  // Help to Save
+  { from: 'dwp-universal-credit',       to: 'hmrc-help-to-save',              type: 'ENABLES' },
+  { from: 'hmrc-tax-credits',           to: 'hmrc-help-to-save',              type: 'ENABLES' },
+
+  // Budgeting Loan
+  { from: 'dwp-universal-credit',       to: 'dwp-budgeting-loan',             type: 'ENABLES' },
+
+  // Pension Tracing
+  { from: 'hmrc-ni-check',              to: 'dwp-pension-tracing',            type: 'ENABLES' },
+
+  // Fit note → ESA
+  { from: 'dwp-new-style-esa',          to: 'nhs-fit-note',                   type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'nhs-fit-note',                   type: 'ENABLES' },
+
+  // Prescription PPC
+  { from: 'nhs-low-income-scheme',      to: 'nhs-ppc',                        type: 'ENABLES' },
+
+  // Employment Tribunal pathway (ACAS must come first)
+  { from: 'hmrc-p45',                   to: 'acas-early-conciliation',        type: 'ENABLES' },
+  { from: 'other-statutory-redundancy', to: 'acas-early-conciliation',        type: 'ENABLES' },
+  { from: 'acas-early-conciliation',    to: 'hmcts-employment-tribunal',      type: 'REQUIRES' },
+  { from: 'hmcts-legal-aid',            to: 'hmcts-employment-tribunal',      type: 'ENABLES' },
+
+  // Find a Job
+  { from: 'dwp-universal-credit',       to: 'dwp-find-a-job',                 type: 'ENABLES' },
+  { from: 'dwp-new-style-jsa',          to: 'dwp-find-a-job',                 type: 'ENABLES' },
+
+  // Debt / insolvency
+  { from: 'dwp-universal-credit',       to: 'insolvency-breathing-space',     type: 'ENABLES' },
+  { from: 'insolvency-breathing-space', to: 'insolvency-dro',                 type: 'ENABLES' },
+  { from: 'insolvency-dro',             to: 'insolvency-bankruptcy',          type: 'ENABLES' },
+
+  // Tax tribunal
+  { from: 'hmrc-self-assessment',       to: 'hmcts-tax-tribunal',             type: 'ENABLES' },
+  { from: 'hmrc-vat',                   to: 'hmcts-tax-tribunal',             type: 'ENABLES' },
+
+  // Immigration tribunal
+  { from: 'ho-immigration-appeal',      to: 'hmcts-immigration-tribunal',     type: 'ENABLES' },
+  { from: 'ho-fee-waiver',              to: 'ho-visa',                        type: 'ENABLES' },
+  { from: 'ho-fee-waiver',              to: 'ho-skilled-worker-visa',         type: 'ENABLES' },
+  { from: 'ho-fee-waiver',              to: 'ho-student-visa',                type: 'ENABLES' },
+
+  // eVisa replaces BRP
+  { from: 'ho-brp',                     to: 'ho-evisa',                       type: 'ENABLES' },
+  { from: 'ho-eu-settled-status',       to: 'ho-evisa',                       type: 'ENABLES' },
+  { from: 'ho-evisa',                   to: 'ho-view-immigration-status',     type: 'ENABLES' },
+  { from: 'ho-view-immigration-status', to: 'other-right-to-work',            type: 'ENABLES' },
+
+  // Student visa → university
+  { from: 'ho-student-visa',            to: 'slc-student-finance',            type: 'ENABLES' },
+  { from: 'ho-student-visa',            to: 'nhs-gp-register',                type: 'ENABLES' },
+  { from: 'ho-skilled-worker-visa',     to: 'ho-evisa',                       type: 'ENABLES' },
+  { from: 'ho-skilled-worker-visa',     to: 'dwp-ni-number',                  type: 'ENABLES' },
+
+  // Property buying flow
+  { from: 'ea-flood-risk',              to: 'lr-property-search',             type: 'ENABLES' },
+  { from: 'mhclg-epc',                  to: 'lr-property-search',             type: 'ENABLES' },
+  { from: 'lr-property-search',         to: 'llc-local-land-charges',         type: 'ENABLES' },
+  { from: 'llc-local-land-charges',     to: 'lr-sign-mortgage-deed',          type: 'ENABLES' },
+  { from: 'lr-sign-mortgage-deed',      to: 'hmrc-sdlt',                      type: 'ENABLES' },
+
+  // Moving house
+  { from: 'dvla-update-address',        to: 'dvla-change-address-v5c',        type: 'ENABLES' },
+  { from: 'la-council-tax',             to: 'voa-council-tax-band',           type: 'ENABLES' },
+
+  // Business obligations (after registration)
+  { from: 'ch-register-ltd',            to: 'ch-file-accounts',               type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'ch-confirmation-statement',      type: 'ENABLES' },
+  { from: 'ch-file-accounts',           to: 'ch-close-company',               type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'hmrc-eori',                      type: 'ENABLES' },
+  { from: 'hmrc-register-sole-trader',  to: 'hmrc-eori',                      type: 'ENABLES' },
+
+  // Voting
+  { from: 'la-electoral-roll',          to: 'la-postal-vote',                 type: 'ENABLES' },
+  { from: 'la-electoral-roll',          to: 'la-proxy-vote',                  type: 'ENABLES' },
+
+  // University
+  { from: 'slc-student-finance',        to: 'dfe-care-to-learn',              type: 'ENABLES' },
+  { from: 'dfe-find-apprenticeship',    to: 'tpr-workplace-pension',          type: 'ENABLES' },
+  { from: 'dfe-apply-teacher-training', to: 'tpr-workplace-pension',          type: 'ENABLES' },
+
+  // GRO certificates
+  { from: 'gro-register-birth',         to: 'gro-certificates',               type: 'ENABLES' },
+  { from: 'gro-register-death',         to: 'gro-certificates',               type: 'ENABLES' },
+  { from: 'gro-marriage-cert',          to: 'gro-certificates',               type: 'ENABLES' },
+
+  // OPG LPA refund
+  { from: 'opg-lpa',                    to: 'opg-lpa-refund',                 type: 'ENABLES' },
+
+  // Baby loss certificate
+  { from: 'dhsc-baby-loss-certificate', to: 'gro-certificates',               type: 'ENABLES' },
+
+  // Gender recognition
+  { from: 'hmpo-passport',              to: 'hmcts-gender-recognition',       type: 'ENABLES' },
+
+  // Criminal injuries
+  { from: 'cica-compensation',          to: 'hmcts-legal-aid',                type: 'ENABLES' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -11821,14 +14321,15 @@ export const LIFE_EVENTS: LifeEvent[] = [
     entryNodes: ['gro-register-birth','nhs-healthy-start','nhs-free-prescriptions-pregnancy',
                  'hmrc-smp','dwp-maternity-allowance','hmrc-spp','dwp-sure-start-grant',
                  'nhs-maternity-exemption','la-free-childcare-2yr',
-                 'sss-best-start-grant','sss-best-start-foods'],
+                 'sss-best-start-grant','sss-best-start-foods',
+                 'dhsc-baby-loss-certificate','gro-certificates'],
   },
   {
     id: 'bereavement', icon: '—', name: 'Death of Someone Close',
     desc: 'Registration, probate, bereavement payments and funeral support',
     entryNodes: ['gro-register-death','dwp-bereavement-support','opg-lpa-activation',
                  'dwp-funeral-payment','hmrc-statutory-parental-bereavement',
-                 'sss-funeral-support-payment'],
+                 'sss-funeral-support-payment','gro-certificates'],
   },
   {
     id: 'marriage', icon: '∞', name: 'Getting Married',
@@ -11841,7 +14342,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
     entryNodes: ['hmrc-ni-check','dwp-state-pension','dwp-attendance-allowance',
                  'la-bus-pass','la-council-tax-reduction',
                  'dwp-housing-benefit','other-warm-home-discount',
-                 'sss-pension-winter-heating'],
+                 'sss-pension-winter-heating','dwp-pension-tracing'],
   },
   {
     id: 'business', icon: '◈', name: 'Starting a Business',
@@ -11849,25 +14350,28 @@ export const LIFE_EVENTS: LifeEvent[] = [
     entryNodes: ['ch-register-ltd','hmrc-register-sole-trader','hmrc-vat',
                  'la-business-rates','la-food-hygiene','other-dbs',
                  'hmrc-aml-registration','la-hmo-licence','la-street-trading-licence',
-                 'ea-waste-carrier-registration'],
+                 'ea-waste-carrier-registration',
+                 'ch-file-accounts','ch-confirmation-statement','hmrc-eori','ukri-find-grants'],
   },
   {
     id: 'buying-home', icon: '⌂', name: 'Buying a Home',
     desc: 'Stamp duty, land registration and first-time buyer schemes',
-    entryNodes: ['other-help-to-buy','hmrc-lisa','hmrc-sdlt'],
+    entryNodes: ['other-help-to-buy','hmrc-lisa','hmrc-sdlt',
+                 'lr-property-search','mhclg-epc','ea-flood-risk'],
   },
   {
     id: 'moving', icon: '→', name: 'Moving House',
     desc: 'Address updates across all government systems',
     entryNodes: ['la-electoral-roll','la-council-tax','dvla-update-address',
-                 'hmrc-update-records','nhs-gp-register'],
+                 'hmrc-update-records','nhs-gp-register','dvla-change-address-v5c'],
   },
   {
     id: 'job-loss', icon: '⊘', name: 'Losing Your Job',
     desc: 'Benefits, tax refunds, NI record protection and emergency support',
     entryNodes: ['hmrc-p45','other-statutory-redundancy','dwp-new-style-esa',
                  'nhs-low-income-scheme','hmcts-court-fee-remission',
-                 'ni-discretionary-support','wg-discretionary-assistance'],
+                 'ni-discretionary-support','wg-discretionary-assistance',
+                 'acas-early-conciliation','insolvency-breathing-space','dwp-find-a-job'],
   },
   {
     id: 'disability', icon: '◎', name: 'Disability or Health Condition',
@@ -11897,7 +14401,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'immigration', icon: '✦', name: 'Arriving in the UK',
     desc: 'Visas, BRP, NI number and NHS access',
-    entryNodes: ['ho-visa', 'ho-eu-settled-status'],
+    entryNodes: ['ho-visa', 'ho-eu-settled-status',
+                 'ho-skilled-worker-visa','ho-student-visa','ho-evisa'],
   },
   {
     id: 'driving', icon: '◉', name: 'Learning to Drive',
@@ -11907,7 +14412,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'university', icon: '◳', name: 'Going to University',
     desc: 'Student finance, childcare grants, accommodation and healthcare',
-    entryNodes: ['slc-student-finance','slc-childcare-grant'],
+    entryNodes: ['slc-student-finance','slc-childcare-grant',
+                 'dfe-care-to-learn','dfe-find-apprenticeship'],
   },
   {
     id: 'new-job', icon: '◆', name: 'Starting a New Job',

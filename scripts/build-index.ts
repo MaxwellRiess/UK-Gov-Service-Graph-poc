@@ -7,8 +7,17 @@
  * Run: npm run build
  */
 
-import { writeFileSync } from 'fs';
+import { writeFileSync, readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { join, dirname } from 'path';
 import { LIFE_EVENTS, NODES, EDGES, DEPT_CONTACTS, type ContactInfo } from '../src/graph-data.js';
+
+// Load vendored scripts (bundled into HTML so file:// works with no CDN dependency)
+const __dir = dirname(fileURLToPath(import.meta.url));
+const vendorDir = join(__dir, '../vendor');
+const cytoscapeJs     = readFileSync(join(vendorDir, 'cytoscape.min.js'),     'utf8');
+const dagreJs         = readFileSync(join(vendorDir, 'dagre.min.js'),         'utf8');
+const cytoscapeDagreJs = readFileSync(join(vendorDir, 'cytoscape-dagre.js'), 'utf8');
 
 const edgeElements = EDGES.map((e, i) => ({
   data: { id: `e${i}`, source: e.from, target: e.to, type: e.type },
@@ -252,8 +261,8 @@ const html = `<!DOCTYPE html>
     </div>
     <div class="sb-sec">
       <div class="sb-title">Layout</div>
-      <button class="lay-btn active" data-layout="cose">Force</button>
-      <button class="lay-btn" data-layout="dagre">Hierarchy</button>
+      <button class="lay-btn" data-layout="cose">Force</button>
+      <button class="lay-btn active" data-layout="dagre">Hierarchy</button>
       <button class="lay-btn" data-layout="breadthfirst">BFS</button>
     </div>
     <div class="sb-sec">
@@ -279,9 +288,9 @@ const html = `<!DOCTYPE html>
     </div>
   </div>
 
-  <script src="https://unpkg.com/cytoscape@3.30.2/dist/cytoscape.min.js"></script>
-  <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
-  <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+  <script>${cytoscapeJs}</script>
+  <script>${dagreJs}</script>
+  <script>${cytoscapeDagreJs}</script>
   <script>
     var DEPT_COLORS = {
       gro:'#4f86c6', hmrc:'#22c55e', dwp:'#a855f7', dvla:'#ef4444',
@@ -378,9 +387,8 @@ const html = `<!DOCTYPE html>
         { selector: '.hidden', style: { 'display': 'none' }},
       ],
       layout: {
-        name: 'cose', animate: false, fit: true, padding: 30,
-        idealEdgeLength: 120, nodeRepulsion: 480000, edgeElasticity: 100,
-        gravity: 80, numIter: 1000, nodeOverlap: 30, componentSpacing: 100,
+        name: 'dagre', animate: false, fit: true, padding: 30,
+        rankDir: 'TB', nodeSep: 55, rankSep: 75, edgeSep: 10,
       }
     });
 
@@ -462,7 +470,7 @@ const html = `<!DOCTYPE html>
         var name = btn.dataset.layout;
         var opts = { name: name, animate: false, fit: true, padding: 30 };
         if (name === 'cose') {
-          Object.assign(opts, { idealEdgeLength: 120, nodeRepulsion: 480000, edgeElasticity: 100, gravity: 80, numIter: 1000, nodeOverlap: 30 });
+          Object.assign(opts, { idealEdgeLength: 120, nodeRepulsion: 480000, edgeElasticity: 100, gravity: 80, numIter: 300, nodeOverlap: 30 });
         } else if (name === 'dagre') {
           Object.assign(opts, { rankDir: 'TB', nodeSep: 55, rankSep: 75, edgeSep: 10 });
         } else if (name === 'breadthfirst') {
