@@ -14310,6 +14310,89 @@ export const EDGES: Edge[] = [
 
   // Criminal injuries
   { from: 'cica-compensation',          to: 'hmcts-legal-aid',                type: 'ENABLES' },
+
+  // ── Isolated node integration ─────────────────────────────────────────────
+
+  // Care needs / disability home adaptations cluster
+  { from: 'dwp-pip',                    to: 'nhs-care-assessment',            type: 'ENABLES' },
+  { from: 'dwp-attendance-allowance',   to: 'nhs-care-assessment',            type: 'ENABLES' },
+  { from: 'nhs-care-assessment',        to: 'la-disabled-facilities-grant',   type: 'REQUIRES' },
+  { from: 'nhs-care-assessment',        to: 'other-carers-leave',             type: 'ENABLES' },
+  { from: 'dwp-pip',                    to: 'la-disabled-facilities-grant',   type: 'ENABLES' },
+  { from: 'dwp-attendance-allowance',   to: 'la-disabled-facilities-grant',   type: 'ENABLES' },
+
+  // Carer's Assessment
+  { from: 'dwp-carers-allowance',       to: 'la-carers-assessment',           type: 'ENABLES' },
+  { from: 'dwp-pip',                    to: 'la-carers-assessment',           type: 'ENABLES' },
+  { from: 'la-carers-assessment',       to: 'la-disabled-facilities-grant',   type: 'ENABLES' },
+  { from: 'la-carers-assessment',       to: 'other-carers-leave',             type: 'ENABLES' },
+  { from: 'dwp-carers-allowance',       to: 'other-carers-leave',             type: 'ENABLES' },
+
+  // Statutory pay gaps → benefits
+  { from: 'hmrc-ssp',                   to: 'dwp-universal-credit',           type: 'ENABLES' },
+  { from: 'hmrc-ssp',                   to: 'dwp-new-style-esa',              type: 'ENABLES' },
+  { from: 'gro-register-birth',         to: 'hmrc-spp',                       type: 'ENABLES' },
+  { from: 'hmrc-spp',                   to: 'dwp-universal-credit',           type: 'ENABLES' },
+
+  // Benefit overpayment obligation
+  { from: 'dwp-universal-credit',       to: 'dwp-benefit-debt-repayment',     type: 'ENABLES' },
+  { from: 'dwp-pip',                    to: 'dwp-benefit-debt-repayment',     type: 'ENABLES' },
+  { from: 'dwp-new-style-jsa',          to: 'dwp-benefit-debt-repayment',     type: 'ENABLES' },
+
+  // Document legalisation (apostille)
+  { from: 'gro-register-birth',         to: 'fco-document-legalisation',      type: 'ENABLES' },
+  { from: 'gro-death-certificate',      to: 'fco-document-legalisation',      type: 'ENABLES' },
+  { from: 'gro-marriage-cert',          to: 'fco-document-legalisation',      type: 'ENABLES' },
+  { from: 'dbs-basic-check',            to: 'fco-document-legalisation',      type: 'ENABLES' },
+
+  // Emergency travel document
+  { from: 'hmpo-lost-stolen-passport',  to: 'fco-emergency-travel-doc',       type: 'ENABLES' },
+
+  // DBS checks → licensing
+  { from: 'dbs-basic-check',            to: 'la-child-performance-licence',   type: 'ENABLES' },
+  { from: 'dbs-basic-check',            to: 'la-hmo-licence',                 type: 'ENABLES' },
+  { from: 'dfe-apply-teacher-training', to: 'other-dbs',                      type: 'REQUIRES' },
+  { from: 'dfe-find-apprenticeship',    to: 'other-dbs',                      type: 'ENABLES' },
+
+  // Business rates
+  { from: 'ch-register-ltd',            to: 'la-business-rates',              type: 'REQUIRES' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-business-rates',              type: 'REQUIRES' },
+  { from: 'la-business-rates',          to: 'voa-business-rates',             type: 'ENABLES' },
+
+  // Business licensing (Local Authority)
+  { from: 'ch-register-ltd',            to: 'la-hmo-licence',                 type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'la-road-occupation-licence',     type: 'ENABLES' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-road-occupation-licence',     type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'la-skip-permit',                 type: 'ENABLES' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-skip-permit',                 type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'la-scrap-metal-dealer-licence',  type: 'ENABLES' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-scrap-metal-dealer-licence',  type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'ho-drug-precursor-licence',      type: 'ENABLES' },
+  { from: 'hmrc-register-sole-trader',  to: 'ho-drug-precursor-licence',      type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'ukri-find-grants',               type: 'ENABLES' },
+  { from: 'hmrc-register-sole-trader',  to: 'ukri-find-grants',               type: 'ENABLES' },
+
+  // DVLA medical condition → disability benefits
+  { from: 'dvla-notify-condition',      to: 'dwp-pip',                        type: 'ENABLES' },
+  { from: 'dvla-notify-condition',      to: 'dwp-attendance-allowance',       type: 'ENABLES' },
+
+  // EUSS status enquiry
+  { from: 'ho-eu-settled-status',       to: 'ho-euss-enquiry',                type: 'ENABLES' },
+
+  // Help to Buy → property completion
+  { from: 'other-help-to-buy',          to: 'hmrc-sdlt',                      type: 'REQUIRES' },
+  { from: 'other-help-to-buy',          to: 'hmrc-lisa',                      type: 'ENABLES' },
+
+  // National Careers Service → pathways
+  { from: 'dfe-national-careers',       to: 'dfe-find-apprenticeship',        type: 'ENABLES' },
+  { from: 'dfe-national-careers',       to: 'slc-student-finance',            type: 'ENABLES' },
+
+  // Healthy Start (UC gateway)
+  { from: 'dwp-universal-credit',       to: 'nhs-healthy-start',              type: 'ENABLES' },
+
+  // Clean Air Zone charges
+  { from: 'dvla-vehicle-tax',           to: 'jaqu-clean-air-zone',            type: 'ENABLES' },
+  { from: 'dvla-sorn',                  to: 'jaqu-clean-air-zone',            type: 'ENABLES' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
