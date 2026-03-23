@@ -12,7 +12,7 @@ This is a proof-of-concept for a machine-readable service graph that maps the cr
 
 ## The graph explorer
 
-The interactive explorer visualises 162 service nodes across 15+ departments and all four UK nations, connected by two edge types:
+The interactive explorer visualises 232 service nodes across 15+ departments and all four UK nations, connected by two edge types:
 
 - **REQUIRES** (solid blue arrow) — strict ordering; must complete the source before the target
 - **ENABLES** (dashed grey arrow) — the source makes the target accessible or relevant
@@ -28,13 +28,36 @@ The detail panel for each node surfaces eligibility rules, contact information (
 
 ---
 
+## Experiment: does the graph improve AI journey planning?
+
+We ran a controlled experiment across 9 life event scenarios — new baby, bereavement, job loss, starting a business, immigration, disability, terminal illness, skilled worker arrival, and retirement — comparing two agents:
+
+- **Control** — web search + GOV.UK page fetching only
+- **Treatment** — service graph MCP tools only (`plan_journey`, `get_service`, `list_life_events`)
+
+| Metric | Control | Treatment | Δ |
+|---|---|---|---|
+| Essential recall | 81% | 88% | +7pp |
+| Conditional recall | 42% | 69% | **+27pp** |
+| Ordering accuracy | 88% | 100% | +12pp |
+| Judge completeness (1–5) | 3.33 | 4.04 | +0.71 |
+| Input tokens per scenario | 65,390 | 43,483 | -33% |
+
+The graph's main advantage is in **conditional service discovery** — surfacing services that apply depending on the citizen's specific circumstances (e.g. Support for Mortgage Interest, Bereavement Support Payment, voluntary NI contributions). The LLM already knows most essential services from training; the graph ensures the conditional and gated ones aren't missed.
+
+- **[Browse trial 3 transcripts →](https://maxwellriess.github.io/UK-Gov-Service-Graph-poc/experiment-transcripts-trial3.html)**
+- **[Full results and findings →](docs/experiment-results-trial3.md)**
+- **[Next steps →](docs/findings-and-next-steps.md)**
+
+---
+
 ## The MCP server
 
 The `src/graph-server.ts` file is an MCP server exposing the graph to AI agents via four tools:
 
 | Tool | What it does |
 |---|---|
-| `list_life_events` | Returns the 16 supported life events as entry points |
+| `list_life_events` | Returns the 17 supported life events as entry points |
 | `plan_journey` | Computes a sequenced, phased service journey for one or more life events |
 | `get_service` | Returns full eligibility detail, contact info, and agent steps for a specific service node |
 | `check_eligibility` | Runs structured eligibility rules against known user facts; returns per-service verdicts and the specific questions to ask next |
@@ -87,20 +110,28 @@ npm run mcp
 ## Repository structure
 
 ```
-index.html               Static graph explorer (self-contained, GitHub Pages)
+index.html                        Static graph explorer (self-contained, GitHub Pages)
+experiment-transcripts-trial3.html  Browsable transcript viewer — trial 3 (GitHub Pages)
 src/
-  graph-data.ts          162 service nodes, typed edges, 16 life events
-  graph-engine.ts        BFS + topological sort → phased journey planner
-  graph-server.ts        MCP server (4 tools, 2 resources, 2 prompts)
-  rules.ts               Machine-evaluable eligibility rule engine
+  graph-data.ts                   232 service nodes, 280 typed edges, 17 life events
+  graph-engine.ts                 BFS + topological sort → phased journey planner
+  graph-server.ts                 MCP server (4 tools, 2 resources, 2 prompts)
+  rules.ts                        Machine-evaluable eligibility rule engine
 scripts/
-  build-index.ts         Generates index.html from graph data
-  check-freshness.ts     Fetches GOV.UK pages and detects content changes
-  contact-overrides.ts   Department contact data (phone, hours, accessibility)
-  merge-contacts.ts      Injects contact overrides into graph-data.ts
-  validate-contacts.ts   QA checks for contact data completeness and format
+  build-index.ts                  Generates index.html from graph data
+  run-experiment.ts               Runs control vs treatment agent experiment across scenarios
+  build-transcript-viewer.ts      Generates self-contained HTML transcript viewers
+  check-freshness.ts              Fetches GOV.UK pages and detects content changes
+  contact-overrides.ts            Department contact data (phone, hours, accessibility)
+  merge-contacts.ts               Injects contact overrides into graph-data.ts
+  validate-contacts.ts            QA checks for contact data completeness and format
+docs/
+  evaluation-experiment-spec.md   Experiment design, scenarios, and scoring criteria
+  experiment-results-trial3.md    Full per-scenario results from trial 3
+  findings-and-next-steps.md      Summary of findings and proposed next steps
+experiment-logs/                  Raw JSONL conversation logs and judge scores
 .github/workflows/
-  freshness-check.yml    Weekly scheduled action — opens issues when GOV.UK pages change
+  freshness-check.yml             Weekly scheduled action — opens issues when GOV.UK pages change
 ```
 
 ---
