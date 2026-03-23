@@ -15,7 +15,7 @@ This is a proof-of-concept for a machine-readable service graph that maps the cr
 The interactive explorer visualises 232 service nodes across 15+ departments and all four UK nations, connected by two edge types:
 
 - **REQUIRES** (solid blue arrow) — strict ordering; must complete the source before the target
-- **ENABLES** (dashed grey arrow) — the source makes the target accessible or relevant
+- **RELATED** (dashed grey arrow) — a loose connection; the source is potentially relevant to the target but imposes no ordering
 
 The detail panel for each node surfaces eligibility rules, contact information (phone, hours, accessibility options), benefit rates, and agent interaction capabilities.
 

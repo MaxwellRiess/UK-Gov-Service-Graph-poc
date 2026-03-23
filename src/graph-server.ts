@@ -187,7 +187,7 @@ financialData (2025-26 benefit rates and amounts), and contactInfo (helpline pho
 //
 // Also returns the service's position in the graph:
 //   prerequisites — services that must be completed first (REQUIRES edges)
-//   unlocks       — services this one enables
+//   relatedServices — services loosely connected to this one (RELATED edges)
 //   triggeredByEvents — which life events directly surface this service
 
 server.tool(

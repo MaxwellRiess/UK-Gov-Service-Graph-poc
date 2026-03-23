@@ -257,7 +257,7 @@ const html = `<!DOCTYPE html>
     <div class="sb-sec">
       <div class="sb-title">Edge Types</div>
       <label class="tog"><input type="checkbox" id="tog-req" checked><span class="req-lbl">&#8212; REQUIRES</span> <span style="font-size:.65rem;color:var(--muted)">(strict order)</span></label>
-      <label class="tog"><input type="checkbox" id="tog-enb" checked><span class="enb-lbl">&#8943; ENABLES</span> <span style="font-size:.65rem;color:var(--muted)">(unlocks)</span></label>
+      <label class="tog"><input type="checkbox" id="tog-enb" checked><span class="enb-lbl">&#8943; RELATED</span> <span style="font-size:.65rem;color:var(--muted)">(loosely connected)</span></label>
     </div>
     <div class="sb-sec">
       <div class="sb-title">Layout</div>
@@ -373,7 +373,7 @@ const html = `<!DOCTYPE html>
             'target-arrow-shape': 'triangle', 'curve-style': 'bezier',
             'width': 2, 'line-style': 'solid', 'opacity': 0.75,
         }},
-        { selector: 'edge[type="ENABLES"]', style: {
+        { selector: 'edge[type="RELATED"]', style: {
             'line-color': '#4b5563', 'target-arrow-color': '#4b5563',
             'target-arrow-shape': 'triangle', 'curve-style': 'bezier',
             'width': 1.5, 'line-style': 'dashed', 'opacity': 0.55,
@@ -381,7 +381,7 @@ const html = `<!DOCTYPE html>
         { selector: '.hl',  style: { 'opacity': 1 }},
         { selector: 'node.hl', style: { 'border-width': 2.5, 'border-color': '#fbbf24' }},
         { selector: 'edge.hl[type="REQUIRES"]', style: { 'line-color': '#60a5fa', 'target-arrow-color': '#60a5fa', 'opacity': 1 }},
-        { selector: 'edge.hl[type="ENABLES"]',  style: { 'line-color': '#6b7280', 'target-arrow-color': '#6b7280', 'opacity': 0.85 }},
+        { selector: 'edge.hl[type="RELATED"]',  style: { 'line-color': '#6b7280', 'target-arrow-color': '#6b7280', 'opacity': 0.85 }},
         { selector: '.dim', style: { 'opacity': 0.07 }},
         { selector: 'node.sel', style: { 'border-width': 3, 'border-color': '#fff' }},
         { selector: '.hidden', style: { 'display': 'none' }},
@@ -460,7 +460,7 @@ const html = `<!DOCTYPE html>
       cy.edges('[type="REQUIRES"]').toggleClass('hidden', !this.checked);
     });
     document.getElementById('tog-enb').addEventListener('change', function() {
-      cy.edges('[type="ENABLES"]').toggleClass('hidden', !this.checked);
+      cy.edges('[type="RELATED"]').toggleClass('hidden', !this.checked);
     });
 
     document.querySelectorAll('.lay-btn').forEach(function(btn) {

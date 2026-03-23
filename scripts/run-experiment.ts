@@ -525,7 +525,7 @@ Turn 3 (citizen): "My redundancy payment was £12,000. Does that affect benefits
 Turn 3 (you): call get_service("dwp-universal-credit") → answer using capital rules. Do NOT call plan_journey again.
 
 USING THE GRAPH:
-- The graph encodes real service dependencies (REQUIRES = must be done first; ENABLES = makes another service relevant)
+- The graph encodes real service dependencies (REQUIRES = must be done first; RELATED = loosely connected, potentially relevant)
 - Use the phase ordering returned to sequence your guidance
 - Surface services flagged as proactive even if the citizen did not ask about them
 - For gated services, confirm the relevant prerequisite before recommending them

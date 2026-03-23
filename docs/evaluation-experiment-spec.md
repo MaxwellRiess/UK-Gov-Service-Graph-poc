@@ -411,7 +411,7 @@ You have access to a structured UK Government Service Graph via MCP tools:
 - You may also use GOV.UK web fetch to supplement graph data with specific details
 
 The graph encodes real service dependencies (REQUIRES = must be done first;
-ENABLES = makes another service relevant). Use the phase ordering it returns to
+RELATED = loosely connected, potentially relevant). Use the phase ordering it returns to
 sequence your guidance. Surface proactively-flagged services even if the citizen
 didn't ask. For gated services, confirm the relevant prerequisite before mentioning them.
 ```

@@ -7,14 +7,14 @@
  * The algorithm has two steps:
  *
  *   1. BFS from the entry nodes of each selected life event — discovers every
- *      service that is reachable via either REQUIRES or ENABLES edges.
+ *      service that is reachable via either REQUIRES or RELATED edges.
  *
  *   2. Kahn's topological sort over REQUIRES edges only — groups the discovered
  *      services into phases, where each phase can only begin after all services
  *      in the previous phase that REQUIRE it are done.
  *
- * ENABLES edges are used for discovery (a benefit you can unlock) but not for
- * ordering (you don't have to do everything in a strict sequence).
+ * RELATED edges are used for discovery (loosely connected services worth knowing
+ * about) but not for ordering (they impose no sequencing constraint).
  */
 
 import { NODES, EDGES, LIFE_EVENTS, DEPT_CONTACTS, type ServiceNode, type Nation, type AgentInteraction, type FinancialData, type ContactInfo } from './graph-data.js';

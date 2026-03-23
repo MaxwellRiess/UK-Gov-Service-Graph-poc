@@ -1,8 +1,8 @@
 # Isolated Node Edge Suggestions
 
-This document analyses the 41 service nodes that currently have no edges (neither REQUIRES nor ENABLES) in the graph. For each node, suggested edges are proposed to integrate it into the service journey graph.
+This document analyses the 41 service nodes that currently have no edges (neither REQUIRES nor RELATED) in the graph. For each node, suggested edges are proposed to integrate it into the service journey graph.
 
-**Methodology:** Suggested edges are based on real UK government service journeys — what logically must happen before a service can be used (REQUIRES), and what a service naturally leads to or makes relevant (ENABLES).
+**Methodology:** Suggested edges are based on real UK government service journeys — what logically must happen before a service can be used (REQUIRES), and what a service naturally leads to or makes relevant (RELATED).
 
 **Note:** All node IDs have been verified against `src/graph-data.ts`. Review suggested edges before implementing to confirm they reflect actual policy/procedural requirements.
 
@@ -32,7 +32,7 @@ Registration required when occupying commercial premises.
 |---|---|---|---|
 | `ch-register-ltd` | `la-business-rates` | REQUIRES | Ltd companies occupying premises must register for business rates |
 | `hmrc-register-sole-trader` | `la-business-rates` | REQUIRES | Sole traders with premises need business rates registration |
-| `la-business-rates` | `voa-business-rates` | ENABLES | After registration, businesses can check/challenge their rateable value |
+| `la-business-rates` | `voa-business-rates` | RELATED | After registration, businesses can check/challenge their rateable value |
 
 ---
 
@@ -41,7 +41,7 @@ Challenge the rateable value assigned to commercial premises.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `la-business-rates` | `voa-business-rates` | ENABLES | Registration precedes any challenge to the valuation |
+| `la-business-rates` | `voa-business-rates` | RELATED | Registration precedes any challenge to the valuation |
 
 ---
 
@@ -51,8 +51,8 @@ Grant for home adaptations to support disabled people.
 | From | To | Type | Rationale |
 |---|---|---|---|
 | `nhs-care-assessment` | `la-disabled-facilities-grant` | REQUIRES | Formal care needs assessment typically required before DFG application |
-| `dwp-pip` | `la-disabled-facilities-grant` | ENABLES | PIP receipt indicates disability likely needing home adaptations |
-| `dwp-attendance-allowance` | `la-disabled-facilities-grant` | ENABLES | Attendance Allowance eligibility correlates with adaptation needs |
+| `dwp-pip` | `la-disabled-facilities-grant` | RELATED | PIP receipt indicates disability likely needing home adaptations |
+| `dwp-attendance-allowance` | `la-disabled-facilities-grant` | RELATED | Attendance Allowance eligibility correlates with adaptation needs |
 
 ---
 
@@ -61,10 +61,10 @@ Assessment of an individual's care needs by social services.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dwp-pip` | `nhs-care-assessment` | ENABLES | PIP recipients with ongoing care needs should request a formal assessment |
-| `dwp-attendance-allowance` | `nhs-care-assessment` | ENABLES | Attendance Allowance holders may need care assessment to arrange support |
+| `dwp-pip` | `nhs-care-assessment` | RELATED | PIP recipients with ongoing care needs should request a formal assessment |
+| `dwp-attendance-allowance` | `nhs-care-assessment` | RELATED | Attendance Allowance holders may need care assessment to arrange support |
 | `nhs-care-assessment` | `la-disabled-facilities-grant` | REQUIRES | Care assessment must precede DFG application |
-| `nhs-care-assessment` | `other-carers-leave` | ENABLES | Identifying care needs can trigger the carer's need for leave entitlement |
+| `nhs-care-assessment` | `other-carers-leave` | RELATED | Identifying care needs can trigger the carer's need for leave entitlement |
 
 ---
 
@@ -73,10 +73,10 @@ Assessment of the needs of an unpaid carer.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dwp-carers-allowance` | `la-carers-assessment` | ENABLES | Carer's Allowance recipients should request their own assessment |
-| `dwp-pip` | `la-carers-assessment` | ENABLES | PIP recipient's carer is entitled to a Carer's Assessment |
-| `la-carers-assessment` | `la-disabled-facilities-grant` | ENABLES | Assessment may identify need for home adaptations |
-| `la-carers-assessment` | `other-carers-leave` | ENABLES | Formal assessment may inform employer-level carer's leave decisions |
+| `dwp-carers-allowance` | `la-carers-assessment` | RELATED | Carer's Allowance recipients should request their own assessment |
+| `dwp-pip` | `la-carers-assessment` | RELATED | PIP recipient's carer is entitled to a Carer's Assessment |
+| `la-carers-assessment` | `la-disabled-facilities-grant` | RELATED | Assessment may identify need for home adaptations |
+| `la-carers-assessment` | `other-carers-leave` | RELATED | Formal assessment may inform employer-level carer's leave decisions |
 
 ---
 
@@ -85,8 +85,8 @@ Statutory entitlement to unpaid leave to provide or arrange care.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dwp-carers-allowance` | `other-carers-leave` | ENABLES | Receiving Carer's Allowance confirms carer role; leave complements it |
-| `la-carers-assessment` | `other-carers-leave` | ENABLES | Assessment outcome often triggers need for leave |
+| `dwp-carers-allowance` | `other-carers-leave` | RELATED | Receiving Carer's Allowance confirms carer role; leave complements it |
+| `la-carers-assessment` | `other-carers-leave` | RELATED | Assessment outcome often triggers need for leave |
 
 ---
 
@@ -95,8 +95,8 @@ Sick pay paid by the employer when an employee cannot work.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `hmrc-ssp` | `dwp-universal-credit` | ENABLES | If SSP is exhausted or not paid, UC may top up income |
-| `hmrc-ssp` | `dwp-new-style-esa` | ENABLES | When SSP ends and person remains unfit to work, ESA is the next step |
+| `hmrc-ssp` | `dwp-universal-credit` | RELATED | If SSP is exhausted or not paid, UC may top up income |
+| `hmrc-ssp` | `dwp-new-style-esa` | RELATED | When SSP ends and person remains unfit to work, ESA is the next step |
 
 ---
 
@@ -105,8 +105,8 @@ Statutory pay for eligible employees during paternity leave.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `gro-register-birth` | `hmrc-spp` | ENABLES | Birth registration confirms the triggering event for SPP eligibility |
-| `hmrc-spp` | `dwp-universal-credit` | ENABLES | If employer does not pay SPP or income is low, UC may supplement it |
+| `gro-register-birth` | `hmrc-spp` | RELATED | Birth registration confirms the triggering event for SPP eligibility |
+| `hmrc-spp` | `dwp-universal-credit` | RELATED | If employer does not pay SPP or income is low, UC may supplement it |
 
 ---
 
@@ -115,9 +115,9 @@ Repayment of benefits received in error or in excess.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dwp-universal-credit` | `dwp-benefit-debt-repayment` | ENABLES | UC is the most common source of overpayments when circumstances change |
-| `dwp-pip` | `dwp-benefit-debt-repayment` | ENABLES | PIP overpayments occur when medical circumstances change unreported |
-| `dwp-new-style-jsa` | `dwp-benefit-debt-repayment` | ENABLES | JSA overpayments arise during periods of undeclared earnings |
+| `dwp-universal-credit` | `dwp-benefit-debt-repayment` | RELATED | UC is the most common source of overpayments when circumstances change |
+| `dwp-pip` | `dwp-benefit-debt-repayment` | RELATED | PIP overpayments occur when medical circumstances change unreported |
+| `dwp-new-style-jsa` | `dwp-benefit-debt-repayment` | RELATED | JSA overpayments arise during periods of undeclared earnings |
 
 ---
 
@@ -126,10 +126,10 @@ Apostille certification for use of UK documents abroad.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `gro-register-birth` | `fco-document-legalisation` | ENABLES | Birth certificates are commonly apostilled for overseas use |
-| `gro-death-certificate` | `fco-document-legalisation` | ENABLES | Death certificates need apostilles for foreign estates/probate |
-| `gro-marriage-cert` | `fco-document-legalisation` | ENABLES | Marriage certificates often require apostilles for overseas recognition |
-| `dbs-basic-check` | `fco-document-legalisation` | ENABLES | DBS certificates need apostilles for overseas employment |
+| `gro-register-birth` | `fco-document-legalisation` | RELATED | Birth certificates are commonly apostilled for overseas use |
+| `gro-death-certificate` | `fco-document-legalisation` | RELATED | Death certificates need apostilles for foreign estates/probate |
+| `gro-marriage-cert` | `fco-document-legalisation` | RELATED | Marriage certificates often require apostilles for overseas recognition |
+| `dbs-basic-check` | `fco-document-legalisation` | RELATED | DBS certificates need apostilles for overseas employment |
 
 ---
 
@@ -138,7 +138,7 @@ Emergency passport-equivalent document for travel when abroad.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `hmpo-lost-stolen-passport` | `fco-emergency-travel-doc` | ENABLES | Reporting a lost/stolen passport while abroad leads to emergency travel doc |
+| `hmpo-lost-stolen-passport` | `fco-emergency-travel-doc` | RELATED | Reporting a lost/stolen passport while abroad leads to emergency travel doc |
 
 ---
 
@@ -147,9 +147,9 @@ Basic criminal record check used for employment/licensing purposes.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dbs-basic-check` | `la-child-performance-licence` | ENABLES | DBS check is typically required when applying for a child performance licence |
-| `dbs-basic-check` | `la-hmo-licence` | ENABLES | HMO licensing authorities may require a DBS check for landlords |
-| `dbs-basic-check` | `fco-document-legalisation` | ENABLES | DBS certificate may need apostille for overseas employment applications |
+| `dbs-basic-check` | `la-child-performance-licence` | RELATED | DBS check is typically required when applying for a child performance licence |
+| `dbs-basic-check` | `la-hmo-licence` | RELATED | HMO licensing authorities may require a DBS check for landlords |
+| `dbs-basic-check` | `fco-document-legalisation` | RELATED | DBS certificate may need apostille for overseas employment applications |
 
 ---
 
@@ -159,7 +159,7 @@ Enhanced or standard DBS check (distinct from basic check; used for regulated ac
 | From | To | Type | Rationale |
 |---|---|---|---|
 | `dfe-apply-teacher-training` | `other-dbs` | REQUIRES | Teacher training applicants must complete an enhanced DBS check |
-| `dfe-find-apprenticeship` | `other-dbs` | ENABLES | Some apprenticeships in regulated sectors require DBS checks |
+| `dfe-find-apprenticeship` | `other-dbs` | RELATED | Some apprenticeships in regulated sectors require DBS checks |
 
 ---
 
@@ -168,8 +168,8 @@ Licence required to operate a house in multiple occupation with 5+ tenants.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ch-register-ltd` | `la-hmo-licence` | ENABLES | Property companies managing HMOs will need this licence |
-| `dbs-basic-check` | `la-hmo-licence` | ENABLES | Landlord/manager DBS check may be required by the licensing authority |
+| `ch-register-ltd` | `la-hmo-licence` | RELATED | Property companies managing HMOs will need this licence |
+| `dbs-basic-check` | `la-hmo-licence` | RELATED | Landlord/manager DBS check may be required by the licensing authority |
 
 ---
 
@@ -178,7 +178,7 @@ Licence required for children to perform publicly (TV, stage, film).
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dbs-basic-check` | `la-child-performance-licence` | ENABLES | DBS check on supervising adults required as part of licensing |
+| `dbs-basic-check` | `la-child-performance-licence` | RELATED | DBS check on supervising adults required as part of licensing |
 
 ---
 
@@ -187,8 +187,8 @@ Legal obligation to report medical conditions affecting ability to drive.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dvla-notify-condition` | `dwp-pip` | ENABLES | Medical conditions serious enough to affect driving often qualify for PIP |
-| `dvla-notify-condition` | `dwp-attendance-allowance` | ENABLES | Conditions reported to DVLA may indicate eligibility for Attendance Allowance |
+| `dvla-notify-condition` | `dwp-pip` | RELATED | Medical conditions serious enough to affect driving often qualify for PIP |
+| `dvla-notify-condition` | `dwp-attendance-allowance` | RELATED | Conditions reported to DVLA may indicate eligibility for Attendance Allowance |
 
 ---
 
@@ -197,7 +197,7 @@ Check or query EUSS application status.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ho-eu-settled-status` | `ho-euss-enquiry` | ENABLES | After applying for EU Settled Status, citizens may need to enquire about their status |
+| `ho-eu-settled-status` | `ho-euss-enquiry` | RELATED | After applying for EU Settled Status, citizens may need to enquire about their status |
 
 ---
 
@@ -207,7 +207,7 @@ Government scheme to help first-time buyers purchase a home.
 | From | To | Type | Rationale |
 |---|---|---|---|
 | `other-help-to-buy` | `hmrc-sdlt` | REQUIRES | Property purchase via Help to Buy still requires SDLT return (even if zero-rated) |
-| `other-help-to-buy` | `hmrc-lisa` | ENABLES | Buyers eligible for Help to Buy may also benefit from a Lifetime ISA bonus |
+| `other-help-to-buy` | `hmrc-lisa` | RELATED | Buyers eligible for Help to Buy may also benefit from a Lifetime ISA bonus |
 
 ---
 
@@ -216,8 +216,8 @@ Free advice and guidance on skills, education, and careers.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dfe-national-careers` | `dfe-find-apprenticeship` | ENABLES | Careers service regularly directs people to apprenticeship opportunities |
-| `dfe-national-careers` | `slc-student-finance` | ENABLES | Careers advisors direct people to higher education and funding options |
+| `dfe-national-careers` | `dfe-find-apprenticeship` | RELATED | Careers service regularly directs people to apprenticeship opportunities |
+| `dfe-national-careers` | `slc-student-finance` | RELATED | Careers advisors direct people to higher education and funding options |
 
 ---
 
@@ -226,8 +226,8 @@ Vouchers for pregnant women and young children on low incomes.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `gro-register-birth` | `nhs-healthy-start` | ENABLES | Birth registration confirms the child triggering continued voucher eligibility |
-| `dwp-universal-credit` | `nhs-healthy-start` | ENABLES | UC receipt is a qualifying condition for Healthy Start vouchers |
+| `gro-register-birth` | `nhs-healthy-start` | RELATED | Birth registration confirms the child triggering continued voucher eligibility |
+| `dwp-universal-credit` | `nhs-healthy-start` | RELATED | UC receipt is a qualifying condition for Healthy Start vouchers |
 
 ---
 
@@ -236,8 +236,8 @@ Check eligibility and pay daily charges in a Clean Air Zone.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `dvla-vehicle-tax` | `jaqu-clean-air-zone` | ENABLES | Vehicle owners paying VED need to check CAZ applicability |
-| `dvla-sorn` | `jaqu-clean-air-zone` | ENABLES | Registering SORN may affect CAZ charge liability |
+| `dvla-vehicle-tax` | `jaqu-clean-air-zone` | RELATED | Vehicle owners paying VED need to check CAZ applicability |
+| `dvla-sorn` | `jaqu-clean-air-zone` | RELATED | Registering SORN may affect CAZ charge liability |
 
 ---
 
@@ -246,8 +246,8 @@ Licence to occupy the public highway during construction work.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ch-register-ltd` | `la-road-occupation-licence` | ENABLES | Construction companies registered as Ltd need this for public road works |
-| `hmrc-register-sole-trader` | `la-road-occupation-licence` | ENABLES | Self-employed tradespeople need this licence when occupying the road |
+| `ch-register-ltd` | `la-road-occupation-licence` | RELATED | Construction companies registered as Ltd need this for public road works |
+| `hmrc-register-sole-trader` | `la-road-occupation-licence` | RELATED | Self-employed tradespeople need this licence when occupying the road |
 
 ---
 
@@ -256,8 +256,8 @@ Permit to place a skip on a public road.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ch-register-ltd` | `la-skip-permit` | ENABLES | Builders/waste companies using skips on public roads need permits |
-| `hmrc-register-sole-trader` | `la-skip-permit` | ENABLES | Self-employed tradespeople placing skips need permits |
+| `ch-register-ltd` | `la-skip-permit` | RELATED | Builders/waste companies using skips on public roads need permits |
+| `hmrc-register-sole-trader` | `la-skip-permit` | RELATED | Self-employed tradespeople placing skips need permits |
 
 ---
 
@@ -266,8 +266,8 @@ Licence required to operate as a scrap metal dealer.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ch-register-ltd` | `la-scrap-metal-dealer-licence` | ENABLES | Scrap metal companies need local authority licensing |
-| `hmrc-register-sole-trader` | `la-scrap-metal-dealer-licence` | ENABLES | Self-employed scrap dealers need licensing |
+| `ch-register-ltd` | `la-scrap-metal-dealer-licence` | RELATED | Scrap metal companies need local authority licensing |
+| `hmrc-register-sole-trader` | `la-scrap-metal-dealer-licence` | RELATED | Self-employed scrap dealers need licensing |
 
 ---
 
@@ -276,8 +276,8 @@ Licence to possess, supply, or use controlled drug precursor chemicals.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ch-register-ltd` | `ho-drug-precursor-licence` | ENABLES | Pharmaceutical/chemical companies need this licence to operate legally |
-| `hmrc-register-sole-trader` | `ho-drug-precursor-licence` | ENABLES | Self-employed chemical suppliers may require this licence |
+| `ch-register-ltd` | `ho-drug-precursor-licence` | RELATED | Pharmaceutical/chemical companies need this licence to operate legally |
+| `hmrc-register-sole-trader` | `ho-drug-precursor-licence` | RELATED | Self-employed chemical suppliers may require this licence |
 
 ---
 
@@ -286,8 +286,8 @@ Grant discovery platform for businesses seeking R&D or growth funding.
 
 | From | To | Type | Rationale |
 |---|---|---|---|
-| `ch-register-ltd` | `ukri-find-grants` | ENABLES | New Ltd companies seeking startup/R&D grants |
-| `hmrc-register-sole-trader` | `ukri-find-grants` | ENABLES | New sole traders seeking business growth or innovation grants |
+| `ch-register-ltd` | `ukri-find-grants` | RELATED | New Ltd companies seeking startup/R&D grants |
+| `hmrc-register-sole-trader` | `ukri-find-grants` | RELATED | New sole traders seeking business growth or innovation grants |
 
 ---
 

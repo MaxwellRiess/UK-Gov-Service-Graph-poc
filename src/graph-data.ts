@@ -9,7 +9,7 @@
  *
  * Edge types:
  *   REQUIRES → strict ordering; the source must be completed before the target
- *   ENABLES  → the source makes the target accessible or relevant
+ *   RELATED  → the source is loosely connected or potentially relevant to the target
  *
  * Life events don't appear in the graph themselves — they just point to a
  * set of entry nodes (the services directly triggered by that event).
@@ -190,7 +190,7 @@ export interface ServiceNode {
 export interface Edge {
   from: string;
   to:   string;
-  type: 'REQUIRES' | 'ENABLES';
+  type: 'REQUIRES' | 'RELATED';
 }
 
 export interface LifeEvent {
@@ -14161,458 +14161,458 @@ export const NODES: Record<string, ServiceNode> = {
 
 export const EDGES: Edge[] = [
   // Birth
-  { from: 'gro-register-birth',       to: 'hmrc-child-benefit',            type: 'ENABLES' },
-  { from: 'gro-register-birth',       to: 'hmrc-free-childcare-15',         type: 'ENABLES' },
-  { from: 'gro-register-birth',       to: 'dwp-sure-start-grant',           type: 'ENABLES' },
-  { from: 'hmrc-free-childcare-15',   to: 'hmrc-free-childcare-30',         type: 'ENABLES' },
-  { from: 'hmrc-smp',                 to: 'hmrc-spl',                       type: 'ENABLES' },
-  { from: 'dwp-maternity-allowance',  to: 'hmrc-spl',                       type: 'ENABLES' },
-  { from: 'hmrc-child-benefit',       to: 'hmrc-tax-free-childcare',        type: 'ENABLES' },
+  { from: 'gro-register-birth',       to: 'hmrc-child-benefit',            type: 'RELATED' },
+  { from: 'gro-register-birth',       to: 'hmrc-free-childcare-15',         type: 'RELATED' },
+  { from: 'gro-register-birth',       to: 'dwp-sure-start-grant',           type: 'RELATED' },
+  { from: 'hmrc-free-childcare-15',   to: 'hmrc-free-childcare-30',         type: 'RELATED' },
+  { from: 'hmrc-smp',                 to: 'hmrc-spl',                       type: 'RELATED' },
+  { from: 'dwp-maternity-allowance',  to: 'hmrc-spl',                       type: 'RELATED' },
+  { from: 'hmrc-child-benefit',       to: 'hmrc-tax-free-childcare',        type: 'RELATED' },
 
   // Death
-  { from: 'gro-register-death',       to: 'gro-death-certificate',          type: 'ENABLES' },
-  { from: 'gro-register-death',       to: 'dwp-tell-us-once',               type: 'ENABLES' },
-  { from: 'gro-register-death',       to: 'dwp-bereavement-support',        type: 'ENABLES' },
-  { from: 'dwp-bereavement-support',  to: 'dwp-pension-credit',             type: 'ENABLES' },
-  { from: 'gro-register-death',       to: 'hmcts-probate',                  type: 'ENABLES' },
+  { from: 'gro-register-death',       to: 'gro-death-certificate',          type: 'RELATED' },
+  { from: 'gro-register-death',       to: 'dwp-tell-us-once',               type: 'RELATED' },
+  { from: 'gro-register-death',       to: 'dwp-bereavement-support',        type: 'RELATED' },
+  { from: 'dwp-bereavement-support',  to: 'dwp-pension-credit',             type: 'RELATED' },
+  { from: 'gro-register-death',       to: 'hmcts-probate',                  type: 'RELATED' },
   { from: 'gro-death-certificate',    to: 'hmcts-probate',                  type: 'REQUIRES' },
-  { from: 'gro-death-certificate',    to: 'hmrc-iht400',                    type: 'ENABLES' },
-  { from: 'hmrc-iht400',             to: 'hmcts-probate',                   type: 'ENABLES' },
-  { from: 'dwp-tell-us-once',         to: 'dvla-cancel-licence',            type: 'ENABLES' },
-  { from: 'dwp-tell-us-once',         to: 'la-council-tax-single-discount', type: 'ENABLES' },
-  { from: 'dwp-tell-us-once',         to: 'opg-lpa-activation',             type: 'ENABLES' },
-  { from: 'gro-register-death',       to: 'dwp-funeral-payment',            type: 'ENABLES' },
-  { from: 'gro-register-death',       to: 'hmrc-guardians-allowance',       type: 'ENABLES' },
-  { from: 'gro-register-death',       to: 'hmrc-statutory-parental-bereavement', type: 'ENABLES' },
-  { from: 'hmrc-child-benefit',       to: 'hmrc-guardians-allowance',       type: 'ENABLES' },
+  { from: 'gro-death-certificate',    to: 'hmrc-iht400',                    type: 'RELATED' },
+  { from: 'hmrc-iht400',             to: 'hmcts-probate',                   type: 'RELATED' },
+  { from: 'dwp-tell-us-once',         to: 'dvla-cancel-licence',            type: 'RELATED' },
+  { from: 'dwp-tell-us-once',         to: 'la-council-tax-single-discount', type: 'RELATED' },
+  { from: 'dwp-tell-us-once',         to: 'opg-lpa-activation',             type: 'RELATED' },
+  { from: 'gro-register-death',       to: 'dwp-funeral-payment',            type: 'RELATED' },
+  { from: 'gro-register-death',       to: 'hmrc-guardians-allowance',       type: 'RELATED' },
+  { from: 'gro-register-death',       to: 'hmrc-statutory-parental-bereavement', type: 'RELATED' },
+  { from: 'hmrc-child-benefit',       to: 'hmrc-guardians-allowance',       type: 'RELATED' },
 
   // Marriage
-  { from: 'gro-give-notice',          to: 'gro-marriage-cert',              type: 'ENABLES' },
-  { from: 'gro-marriage-cert',        to: 'other-passport-name',            type: 'ENABLES' },
-  { from: 'gro-marriage-cert',        to: 'dvla-name-change',               type: 'ENABLES' },
-  { from: 'gro-marriage-cert',        to: 'hmrc-marriage-allowance',        type: 'ENABLES' },
-  { from: 'gro-marriage-cert',        to: 'hmrc-update-records',            type: 'ENABLES' },
-  { from: 'gro-marriage-cert',        to: 'la-electoral-roll',              type: 'ENABLES' },
+  { from: 'gro-give-notice',          to: 'gro-marriage-cert',              type: 'RELATED' },
+  { from: 'gro-marriage-cert',        to: 'other-passport-name',            type: 'RELATED' },
+  { from: 'gro-marriage-cert',        to: 'dvla-name-change',               type: 'RELATED' },
+  { from: 'gro-marriage-cert',        to: 'hmrc-marriage-allowance',        type: 'RELATED' },
+  { from: 'gro-marriage-cert',        to: 'hmrc-update-records',            type: 'RELATED' },
+  { from: 'gro-marriage-cert',        to: 'la-electoral-roll',              type: 'RELATED' },
 
   // Retirement
-  { from: 'hmrc-ni-check',            to: 'dwp-voluntary-ni-contributions', type: 'ENABLES' },
-  { from: 'dwp-voluntary-ni-contributions', to: 'dwp-state-pension',        type: 'ENABLES' },
-  { from: 'hmrc-ni-check',            to: 'dwp-state-pension',              type: 'ENABLES' },
-  { from: 'dwp-state-pension',        to: 'dwp-inherited-state-pension',    type: 'ENABLES' },
-  { from: 'dwp-state-pension',        to: 'dwp-pension-credit',             type: 'ENABLES' },
-  { from: 'dwp-pension-credit',       to: 'dwp-winter-fuel',                type: 'ENABLES' },
-  { from: 'dwp-pension-credit',       to: 'other-tv-licence-pension',       type: 'ENABLES' },
-  { from: 'dwp-state-pension',        to: 'la-bus-pass',                    type: 'ENABLES' },
-  { from: 'dwp-state-pension',        to: 'hmrc-tax-on-pension',            type: 'ENABLES' },
+  { from: 'hmrc-ni-check',            to: 'dwp-voluntary-ni-contributions', type: 'RELATED' },
+  { from: 'dwp-voluntary-ni-contributions', to: 'dwp-state-pension',        type: 'RELATED' },
+  { from: 'hmrc-ni-check',            to: 'dwp-state-pension',              type: 'RELATED' },
+  { from: 'dwp-state-pension',        to: 'dwp-inherited-state-pension',    type: 'RELATED' },
+  { from: 'dwp-state-pension',        to: 'dwp-pension-credit',             type: 'RELATED' },
+  { from: 'dwp-pension-credit',       to: 'dwp-winter-fuel',                type: 'RELATED' },
+  { from: 'dwp-pension-credit',       to: 'other-tv-licence-pension',       type: 'RELATED' },
+  { from: 'dwp-state-pension',        to: 'la-bus-pass',                    type: 'RELATED' },
+  { from: 'dwp-state-pension',        to: 'hmrc-tax-on-pension',            type: 'RELATED' },
 
   // Business
-  { from: 'ch-register-ltd',          to: 'hmrc-corporation-tax',           type: 'ENABLES' },
-  { from: 'ch-register-ltd',          to: 'hmrc-self-assessment',           type: 'ENABLES' },
-  { from: 'ch-register-ltd',          to: 'hmrc-paye',                      type: 'ENABLES' },
-  { from: 'ch-register-ltd',          to: 'hmrc-cis',                       type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader', to: 'hmrc-self-assessment',          type: 'ENABLES' },
+  { from: 'ch-register-ltd',          to: 'hmrc-corporation-tax',           type: 'RELATED' },
+  { from: 'ch-register-ltd',          to: 'hmrc-self-assessment',           type: 'RELATED' },
+  { from: 'ch-register-ltd',          to: 'hmrc-paye',                      type: 'RELATED' },
+  { from: 'ch-register-ltd',          to: 'hmrc-cis',                       type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader', to: 'hmrc-self-assessment',          type: 'RELATED' },
   { from: 'hmrc-paye',                to: 'other-employers-liability',      type: 'REQUIRES' },
-  { from: 'hmrc-paye',                to: 'tpr-workplace-pension',          type: 'ENABLES' },
-  { from: 'hmrc-vat',                 to: 'hmrc-mtd',                       type: 'ENABLES' },
-  { from: 'hmrc-corporation-tax',     to: 'hmrc-vat',                       type: 'ENABLES' },
-  { from: 'ch-register-ltd',          to: 'hmrc-aml-registration',          type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader', to: 'hmrc-aml-registration',         type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader', to: 'hmrc-machine-games-duty',       type: 'ENABLES' },
-  { from: 'ch-register-ltd',          to: 'hmrc-machine-games-duty',        type: 'ENABLES' },
-  { from: 'la-street-trading-licence', to: 'la-food-hygiene',               type: 'ENABLES' },
-  { from: 'la-food-hygiene',           to: 'la-food-premises-approval',     type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader', to: 'ea-waste-carrier-registration', type: 'ENABLES' },
-  { from: 'ch-register-ltd',          to: 'ea-waste-carrier-registration',  type: 'ENABLES' },
+  { from: 'hmrc-paye',                to: 'tpr-workplace-pension',          type: 'RELATED' },
+  { from: 'hmrc-vat',                 to: 'hmrc-mtd',                       type: 'RELATED' },
+  { from: 'hmrc-corporation-tax',     to: 'hmrc-vat',                       type: 'RELATED' },
+  { from: 'ch-register-ltd',          to: 'hmrc-aml-registration',          type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader', to: 'hmrc-aml-registration',         type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader', to: 'hmrc-machine-games-duty',       type: 'RELATED' },
+  { from: 'ch-register-ltd',          to: 'hmrc-machine-games-duty',        type: 'RELATED' },
+  { from: 'la-street-trading-licence', to: 'la-food-hygiene',               type: 'RELATED' },
+  { from: 'la-food-hygiene',           to: 'la-food-premises-approval',     type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader', to: 'ea-waste-carrier-registration', type: 'RELATED' },
+  { from: 'ch-register-ltd',          to: 'ea-waste-carrier-registration',  type: 'RELATED' },
 
   // Home buying
-  { from: 'hmrc-lisa',                to: 'hmrc-sdlt',                      type: 'ENABLES' },
+  { from: 'hmrc-lisa',                to: 'hmrc-sdlt',                      type: 'RELATED' },
   { from: 'hmrc-sdlt',                to: 'lr-registration',                type: 'REQUIRES' },
-  { from: 'lr-registration',          to: 'la-electoral-roll',              type: 'ENABLES' },
-  { from: 'lr-registration',          to: 'la-council-tax',                 type: 'ENABLES' },
+  { from: 'lr-registration',          to: 'la-electoral-roll',              type: 'RELATED' },
+  { from: 'lr-registration',          to: 'la-council-tax',                 type: 'RELATED' },
 
   // Moving
-  { from: 'la-council-tax',           to: 'la-council-tax-reduction',       type: 'ENABLES' },
+  { from: 'la-council-tax',           to: 'la-council-tax-reduction',       type: 'RELATED' },
 
   // Job loss
-  { from: 'hmrc-p45',                 to: 'dwp-universal-credit',           type: 'ENABLES' },
-  { from: 'hmrc-p45',                 to: 'hmrc-tax-refund',                type: 'ENABLES' },
-  { from: 'hmrc-p45',                 to: 'dwp-new-style-jsa',              type: 'ENABLES' },
-  { from: 'dwp-universal-credit',     to: 'dwp-ni-credits',                 type: 'ENABLES' },
-  { from: 'dwp-universal-credit',     to: 'la-council-tax-reduction',       type: 'ENABLES' },
-  { from: 'dwp-new-style-jsa',        to: 'dwp-ni-credits',                 type: 'ENABLES' },
+  { from: 'hmrc-p45',                 to: 'dwp-universal-credit',           type: 'RELATED' },
+  { from: 'hmrc-p45',                 to: 'hmrc-tax-refund',                type: 'RELATED' },
+  { from: 'hmrc-p45',                 to: 'dwp-new-style-jsa',              type: 'RELATED' },
+  { from: 'dwp-universal-credit',     to: 'dwp-ni-credits',                 type: 'RELATED' },
+  { from: 'dwp-universal-credit',     to: 'la-council-tax-reduction',       type: 'RELATED' },
+  { from: 'dwp-new-style-jsa',        to: 'dwp-ni-credits',                 type: 'RELATED' },
 
   // Benefits challenge
-  { from: 'dwp-universal-credit',     to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
-  { from: 'dwp-new-style-jsa',        to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
-  { from: 'dwp-new-style-esa',        to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'dwp-mandatory-reconsideration',  type: 'ENABLES' },
-  { from: 'dwp-mandatory-reconsideration', to: 'hmcts-benefit-tribunal',    type: 'ENABLES' },
-  { from: 'hmcts-legal-aid',          to: 'hmcts-benefit-tribunal',         type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'dwp-mandatory-reconsideration',  type: 'RELATED' },
+  { from: 'dwp-new-style-jsa',        to: 'dwp-mandatory-reconsideration',  type: 'RELATED' },
+  { from: 'dwp-new-style-esa',        to: 'dwp-mandatory-reconsideration',  type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'dwp-mandatory-reconsideration',  type: 'RELATED' },
+  { from: 'dwp-mandatory-reconsideration', to: 'hmcts-benefit-tribunal',    type: 'RELATED' },
+  { from: 'hmcts-legal-aid',          to: 'hmcts-benefit-tribunal',         type: 'RELATED' },
 
   // Disability
-  { from: 'dwp-pip',                  to: 'other-motability',               type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'la-blue-badge',                  type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'dwp-carers-allowance',           type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'dwp-uc-health',                  type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'dwp-access-to-work',             type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'other-disabled-railcard',        type: 'ENABLES' },
-  { from: 'dwp-pip',                  to: 'nhs-free-prescriptions',         type: 'ENABLES' },
-  { from: 'dwp-attendance-allowance', to: 'la-blue-badge',                  type: 'ENABLES' },
-  { from: 'dwp-attendance-allowance', to: 'dwp-carers-allowance',           type: 'ENABLES' },
-  { from: 'dwp-attendance-allowance', to: 'other-disabled-railcard',        type: 'ENABLES' },
+  { from: 'dwp-pip',                  to: 'other-motability',               type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'la-blue-badge',                  type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'dwp-carers-allowance',           type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'dwp-uc-health',                  type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'dwp-access-to-work',             type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'other-disabled-railcard',        type: 'RELATED' },
+  { from: 'dwp-pip',                  to: 'nhs-free-prescriptions',         type: 'RELATED' },
+  { from: 'dwp-attendance-allowance', to: 'la-blue-badge',                  type: 'RELATED' },
+  { from: 'dwp-attendance-allowance', to: 'dwp-carers-allowance',           type: 'RELATED' },
+  { from: 'dwp-attendance-allowance', to: 'other-disabled-railcard',        type: 'RELATED' },
 
   // Carer
-  { from: 'dwp-carers-allowance',     to: 'dwp-uc-carer',                   type: 'ENABLES' },
-  { from: 'dwp-carers-allowance',     to: 'hmrc-carers-credit',             type: 'ENABLES' },
-  { from: 'opg-lpa',                  to: 'opg-lpa-activation',             type: 'ENABLES' },
+  { from: 'dwp-carers-allowance',     to: 'dwp-uc-carer',                   type: 'RELATED' },
+  { from: 'dwp-carers-allowance',     to: 'hmrc-carers-credit',             type: 'RELATED' },
+  { from: 'opg-lpa',                  to: 'opg-lpa-activation',             type: 'RELATED' },
 
   // Divorce
-  { from: 'hmcts-legal-aid',          to: 'hmcts-divorce',                  type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'hmcts-financial-order',          type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'hmcts-child-arrangements',       type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'dwp-child-maintenance',          type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'hmrc-cancel-marriage-allowance', type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'dwp-universal-credit',           type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'hmrc-child-benefit-transfer',    type: 'ENABLES' },
-  { from: 'hmcts-divorce',            to: 'la-council-tax-single-discount', type: 'ENABLES' },
+  { from: 'hmcts-legal-aid',          to: 'hmcts-divorce',                  type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'hmcts-financial-order',          type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'hmcts-child-arrangements',       type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'dwp-child-maintenance',          type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'hmrc-cancel-marriage-allowance', type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'dwp-universal-credit',           type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'hmrc-child-benefit-transfer',    type: 'RELATED' },
+  { from: 'hmcts-divorce',            to: 'la-council-tax-single-discount', type: 'RELATED' },
 
   // School
-  { from: 'la-school-place',          to: 'la-free-school-meals',           type: 'ENABLES' },
-  { from: 'la-free-school-meals',     to: 'other-pupil-premium',            type: 'ENABLES' },
-  { from: 'la-school-place',          to: 'la-send-ehc',                    type: 'ENABLES' },
+  { from: 'la-school-place',          to: 'la-free-school-meals',           type: 'RELATED' },
+  { from: 'la-free-school-meals',     to: 'other-pupil-premium',            type: 'RELATED' },
+  { from: 'la-school-place',          to: 'la-send-ehc',                    type: 'RELATED' },
 
   // Immigration
-  { from: 'ho-visa',                  to: 'ho-brp',                         type: 'ENABLES' },
-  { from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'ENABLES' },
-  { from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'ENABLES' },
-  { from: 'ho-brp',                   to: 'other-right-to-work',            type: 'ENABLES' },
-  { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'ENABLES' },
+  { from: 'ho-visa',                  to: 'ho-brp',                         type: 'RELATED' },
+  { from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-brp',                   to: 'other-right-to-work',            type: 'RELATED' },
+  { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-life-in-uk',            to: 'ho-citizenship-spouse',          type: 'REQUIRES' },
   { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'REQUIRES' },
-  { from: 'ho-ilr',                   to: 'ho-citizenship',                 type: 'ENABLES' },
-  { from: 'ho-ilr',                   to: 'ho-citizenship-spouse',          type: 'ENABLES' },
+  { from: 'ho-ilr',                   to: 'ho-citizenship',                 type: 'RELATED' },
+  { from: 'ho-ilr',                   to: 'ho-citizenship-spouse',          type: 'RELATED' },
   { from: 'ho-citizenship',           to: 'ho-citizenship-ceremony',        type: 'REQUIRES' },
   { from: 'ho-citizenship-spouse',    to: 'ho-citizenship-ceremony',        type: 'REQUIRES' },
-  { from: 'ho-eu-settled-status',     to: 'dwp-ni-number',                  type: 'ENABLES' },
-  { from: 'ho-eu-settled-status',     to: 'nhs-gp-register',                type: 'ENABLES' },
-  { from: 'ho-eu-settled-status',     to: 'ho-ilr',                         type: 'ENABLES' },
-  { from: 'ho-eu-settled-status',     to: 'ho-citizenship',                 type: 'ENABLES' },
-  { from: 'ho-eu-settled-status',     to: 'ho-citizenship-spouse',          type: 'ENABLES' },
+  { from: 'ho-eu-settled-status',     to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-eu-settled-status',     to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-eu-settled-status',     to: 'ho-ilr',                         type: 'RELATED' },
+  { from: 'ho-eu-settled-status',     to: 'ho-citizenship',                 type: 'RELATED' },
+  { from: 'ho-eu-settled-status',     to: 'ho-citizenship-spouse',          type: 'RELATED' },
 
   // Driving
   { from: 'dvla-provisional-licence', to: 'dvsa-theory-test',               type: 'REQUIRES' },
   { from: 'dvsa-theory-test',         to: 'dvsa-driving-test',              type: 'REQUIRES' },
-  { from: 'dvsa-driving-test',        to: 'dvla-vehicle-tax',               type: 'ENABLES' },
-  { from: 'dwp-state-pension',        to: 'dvla-renew-at-70',               type: 'ENABLES' },
+  { from: 'dvsa-driving-test',        to: 'dvla-vehicle-tax',               type: 'RELATED' },
+  { from: 'dwp-state-pension',        to: 'dvla-renew-at-70',               type: 'RELATED' },
 
   // Vehicle
-  { from: 'dvla-vehicle-sale',        to: 'dvla-vehicle-tax',               type: 'ENABLES' },
-  { from: 'dvla-vehicle-sale',        to: 'dvla-sorn',                      type: 'ENABLES' },
-  { from: 'dvla-sorn',                to: 'dvla-vehicle-tax',               type: 'ENABLES' },
+  { from: 'dvla-vehicle-sale',        to: 'dvla-vehicle-tax',               type: 'RELATED' },
+  { from: 'dvla-vehicle-sale',        to: 'dvla-sorn',                      type: 'RELATED' },
+  { from: 'dvla-sorn',                to: 'dvla-vehicle-tax',               type: 'RELATED' },
 
   // University
-  { from: 'slc-student-finance',      to: 'la-electoral-roll',              type: 'ENABLES' },
-  { from: 'slc-student-finance',      to: 'nhs-gp-register',                type: 'ENABLES' },
+  { from: 'slc-student-finance',      to: 'la-electoral-roll',              type: 'RELATED' },
+  { from: 'slc-student-finance',      to: 'nhs-gp-register',                type: 'RELATED' },
 
   // Voting
-  { from: 'la-electoral-roll',        to: 'la-voter-authority-cert',        type: 'ENABLES' },
+  { from: 'la-electoral-roll',        to: 'la-voter-authority-cert',        type: 'RELATED' },
 
   // New job
-  { from: 'hmrc-starter-checklist',   to: 'slc-loan-repayment',            type: 'ENABLES' },
-  { from: 'slc-student-finance',      to: 'slc-loan-repayment',            type: 'ENABLES' },
+  { from: 'hmrc-starter-checklist',   to: 'slc-loan-repayment',            type: 'RELATED' },
+  { from: 'slc-student-finance',      to: 'slc-loan-repayment',            type: 'RELATED' },
 
   // ── New edges for added benefit nodes ──────────────────────────────────────
 
   // Housing Benefit (pension age)
-  { from: 'dwp-pension-credit',       to: 'dwp-housing-benefit',            type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'dwp-housing-benefit',            type: 'RELATED' },
 
   // Warm Home Discount
-  { from: 'dwp-pension-credit',       to: 'other-warm-home-discount',       type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'other-warm-home-discount',       type: 'RELATED' },
 
   // NHS Low Income Scheme
-  { from: 'dwp-universal-credit',     to: 'nhs-low-income-scheme',          type: 'ENABLES' },
-  { from: 'nhs-low-income-scheme',    to: 'nhs-free-dental',                type: 'ENABLES' },
-  { from: 'nhs-low-income-scheme',    to: 'nhs-free-sight-tests',           type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'nhs-low-income-scheme',          type: 'RELATED' },
+  { from: 'nhs-low-income-scheme',    to: 'nhs-free-dental',                type: 'RELATED' },
+  { from: 'nhs-low-income-scheme',    to: 'nhs-free-sight-tests',           type: 'RELATED' },
 
   // DLA Child
-  { from: 'dwp-dla-child',            to: 'la-blue-badge',                  type: 'ENABLES' },
-  { from: 'dwp-dla-child',            to: 'dvla-ved-exemption',             type: 'ENABLES' },
-  { from: 'dwp-dla-child',            to: 'other-disabled-railcard',        type: 'ENABLES' },
+  { from: 'dwp-dla-child',            to: 'la-blue-badge',                  type: 'RELATED' },
+  { from: 'dwp-dla-child',            to: 'dvla-ved-exemption',             type: 'RELATED' },
+  { from: 'dwp-dla-child',            to: 'other-disabled-railcard',        type: 'RELATED' },
 
   // Council Tax Disability Reduction
-  { from: 'dwp-pip',                  to: 'la-council-tax-disability-reduction', type: 'ENABLES' },
-  { from: 'dwp-attendance-allowance', to: 'la-council-tax-disability-reduction', type: 'ENABLES' },
+  { from: 'dwp-pip',                  to: 'la-council-tax-disability-reduction', type: 'RELATED' },
+  { from: 'dwp-attendance-allowance', to: 'la-council-tax-disability-reduction', type: 'RELATED' },
 
   // Social Tariff Broadband
-  { from: 'dwp-universal-credit',     to: 'other-social-tariff-broadband',  type: 'ENABLES' },
-  { from: 'dwp-pension-credit',       to: 'other-social-tariff-broadband',  type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'other-social-tariff-broadband',  type: 'RELATED' },
+  { from: 'dwp-pension-credit',       to: 'other-social-tariff-broadband',  type: 'RELATED' },
 
   // Support for Mortgage Interest
-  { from: 'dwp-universal-credit',     to: 'dwp-smi',                        type: 'ENABLES' },
-  { from: 'dwp-pension-credit',       to: 'dwp-smi',                        type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'dwp-smi',                        type: 'RELATED' },
+  { from: 'dwp-pension-credit',       to: 'dwp-smi',                        type: 'RELATED' },
 
   // Cold Weather Payment
-  { from: 'dwp-pension-credit',       to: 'dwp-cold-weather-payment',       type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'dwp-cold-weather-payment',       type: 'RELATED' },
 
   // VED Exemption
-  { from: 'dwp-pip',                  to: 'dvla-ved-exemption',             type: 'ENABLES' },
+  { from: 'dwp-pip',                  to: 'dvla-ved-exemption',             type: 'RELATED' },
 
   // Court Fee Remission
-  { from: 'dwp-universal-credit',     to: 'hmcts-court-fee-remission',      type: 'ENABLES' },
-  { from: 'hmcts-court-fee-remission', to: 'hmcts-benefit-tribunal',        type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'hmcts-court-fee-remission',      type: 'RELATED' },
+  { from: 'hmcts-court-fee-remission', to: 'hmcts-benefit-tribunal',        type: 'RELATED' },
 
   // Maternity Exemption
-  { from: 'nhs-free-prescriptions-pregnancy', to: 'nhs-maternity-exemption', type: 'ENABLES' },
+  { from: 'nhs-free-prescriptions-pregnancy', to: 'nhs-maternity-exemption', type: 'RELATED' },
 
   // Free childcare 2yr olds
-  { from: 'dwp-universal-credit',     to: 'la-free-childcare-2yr',          type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'la-free-childcare-2yr',          type: 'RELATED' },
 
   // Student Childcare Grant
-  { from: 'slc-student-finance',      to: 'slc-childcare-grant',            type: 'ENABLES' },
+  { from: 'slc-student-finance',      to: 'slc-childcare-grant',            type: 'RELATED' },
 
   // ── Scotland edges ────────────────────────────────────────────────────────
 
   // Scottish Child Payment (qualifying benefit gateway)
-  { from: 'dwp-universal-credit',     to: 'sss-scottish-child-payment',     type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'sss-scottish-child-payment',     type: 'RELATED' },
 
   // Carer Support Payment (Scotland's Carer's Allowance equivalent)
-  { from: 'sss-adult-disability-payment', to: 'sss-carer-support-payment',  type: 'ENABLES' },
-  { from: 'sss-child-disability-payment', to: 'sss-carer-support-payment',  type: 'ENABLES' },
-  { from: 'sss-carer-support-payment', to: 'sss-carers-allowance-supplement', type: 'ENABLES' },
-  { from: 'sss-carer-support-payment', to: 'sss-young-carer-grant',         type: 'ENABLES' },
+  { from: 'sss-adult-disability-payment', to: 'sss-carer-support-payment',  type: 'RELATED' },
+  { from: 'sss-child-disability-payment', to: 'sss-carer-support-payment',  type: 'RELATED' },
+  { from: 'sss-carer-support-payment', to: 'sss-carers-allowance-supplement', type: 'RELATED' },
+  { from: 'sss-carer-support-payment', to: 'sss-young-carer-grant',         type: 'RELATED' },
 
   // Child Winter Heating (requires highest-rate disability)
-  { from: 'sss-child-disability-payment', to: 'sss-child-winter-heating',   type: 'ENABLES' },
+  { from: 'sss-child-disability-payment', to: 'sss-child-winter-heating',   type: 'RELATED' },
 
   // Adult Disability Payment unlocks same things as PIP
-  { from: 'sss-adult-disability-payment', to: 'la-blue-badge',              type: 'ENABLES' },
-  { from: 'sss-adult-disability-payment', to: 'dvla-ved-exemption',         type: 'ENABLES' },
-  { from: 'sss-adult-disability-payment', to: 'other-motability',           type: 'ENABLES' },
-  { from: 'sss-adult-disability-payment', to: 'other-disabled-railcard',    type: 'ENABLES' },
+  { from: 'sss-adult-disability-payment', to: 'la-blue-badge',              type: 'RELATED' },
+  { from: 'sss-adult-disability-payment', to: 'dvla-ved-exemption',         type: 'RELATED' },
+  { from: 'sss-adult-disability-payment', to: 'other-motability',           type: 'RELATED' },
+  { from: 'sss-adult-disability-payment', to: 'other-disabled-railcard',    type: 'RELATED' },
 
   // Best Start Grant/Foods (qualifying benefit)
-  { from: 'dwp-universal-credit',     to: 'sss-best-start-grant',           type: 'ENABLES' },
-  { from: 'dwp-universal-credit',     to: 'sss-best-start-foods',           type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'sss-best-start-grant',           type: 'RELATED' },
+  { from: 'dwp-universal-credit',     to: 'sss-best-start-foods',           type: 'RELATED' },
 
   // Funeral Support Payment
-  { from: 'dwp-universal-credit',     to: 'sss-funeral-support-payment',    type: 'ENABLES' },
-  { from: 'dwp-pension-credit',       to: 'sss-funeral-support-payment',    type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'sss-funeral-support-payment',    type: 'RELATED' },
+  { from: 'dwp-pension-credit',       to: 'sss-funeral-support-payment',    type: 'RELATED' },
 
   // Pension Winter Heating (Scotland)
-  { from: 'dwp-pension-credit',       to: 'sss-pension-winter-heating',     type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'sss-pension-winter-heating',     type: 'RELATED' },
 
   // ── Wales edges ───────────────────────────────────────────────────────────
 
   // Winter Fuel Support (Wales)
-  { from: 'dwp-pension-credit',       to: 'wg-winter-fuel-support',         type: 'ENABLES' },
-  { from: 'dwp-universal-credit',     to: 'wg-winter-fuel-support',         type: 'ENABLES' },
+  { from: 'dwp-pension-credit',       to: 'wg-winter-fuel-support',         type: 'RELATED' },
+  { from: 'dwp-universal-credit',     to: 'wg-winter-fuel-support',         type: 'RELATED' },
 
   // Discretionary Assistance Fund (Wales)
-  { from: 'dwp-universal-credit',     to: 'wg-discretionary-assistance',    type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'wg-discretionary-assistance',    type: 'RELATED' },
 
   // ── Northern Ireland edges ────────────────────────────────────────────────
 
   // Rate Rebate (NI equivalent of Council Tax Reduction)
-  { from: 'dwp-universal-credit',     to: 'ni-rate-rebate',                 type: 'ENABLES' },
-  { from: 'dwp-pension-credit',       to: 'ni-rate-rebate',                 type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'ni-rate-rebate',                 type: 'RELATED' },
+  { from: 'dwp-pension-credit',       to: 'ni-rate-rebate',                 type: 'RELATED' },
 
   // Discretionary Support (NI)
-  { from: 'dwp-universal-credit',     to: 'ni-discretionary-support',       type: 'ENABLES' },
+  { from: 'dwp-universal-credit',     to: 'ni-discretionary-support',       type: 'RELATED' },
 
   // ── New service edges ─────────────────────────────────────────────────────
 
   // Passport
-  { from: 'gro-marriage-cert',           to: 'hmpo-passport',                  type: 'ENABLES' },
-  { from: 'ho-citizenship-ceremony',     to: 'hmpo-passport',                  type: 'ENABLES' },
-  { from: 'hmpo-lost-stolen-passport',   to: 'hmpo-passport',                  type: 'ENABLES' },
-  { from: 'hmpo-passport',              to: 'hmpo-passport-urgent',            type: 'ENABLES' },
+  { from: 'gro-marriage-cert',           to: 'hmpo-passport',                  type: 'RELATED' },
+  { from: 'ho-citizenship-ceremony',     to: 'hmpo-passport',                  type: 'RELATED' },
+  { from: 'hmpo-lost-stolen-passport',   to: 'hmpo-passport',                  type: 'RELATED' },
+  { from: 'hmpo-passport',              to: 'hmpo-passport-urgent',            type: 'RELATED' },
 
   // Help to Save
-  { from: 'dwp-universal-credit',       to: 'hmrc-help-to-save',              type: 'ENABLES' },
-  { from: 'hmrc-tax-credits',           to: 'hmrc-help-to-save',              type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'hmrc-help-to-save',              type: 'RELATED' },
+  { from: 'hmrc-tax-credits',           to: 'hmrc-help-to-save',              type: 'RELATED' },
 
   // Budgeting Loan
-  { from: 'dwp-universal-credit',       to: 'dwp-budgeting-loan',             type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'dwp-budgeting-loan',             type: 'RELATED' },
 
   // Pension Tracing
-  { from: 'hmrc-ni-check',              to: 'dwp-pension-tracing',            type: 'ENABLES' },
+  { from: 'hmrc-ni-check',              to: 'dwp-pension-tracing',            type: 'RELATED' },
 
   // Fit note → ESA
-  { from: 'dwp-new-style-esa',          to: 'nhs-fit-note',                   type: 'ENABLES' },
-  { from: 'dwp-universal-credit',       to: 'nhs-fit-note',                   type: 'ENABLES' },
+  { from: 'dwp-new-style-esa',          to: 'nhs-fit-note',                   type: 'RELATED' },
+  { from: 'dwp-universal-credit',       to: 'nhs-fit-note',                   type: 'RELATED' },
 
   // Prescription PPC
-  { from: 'nhs-low-income-scheme',      to: 'nhs-ppc',                        type: 'ENABLES' },
+  { from: 'nhs-low-income-scheme',      to: 'nhs-ppc',                        type: 'RELATED' },
 
   // Employment Tribunal pathway (ACAS must come first)
-  { from: 'hmrc-p45',                   to: 'acas-early-conciliation',        type: 'ENABLES' },
-  { from: 'other-statutory-redundancy', to: 'acas-early-conciliation',        type: 'ENABLES' },
+  { from: 'hmrc-p45',                   to: 'acas-early-conciliation',        type: 'RELATED' },
+  { from: 'other-statutory-redundancy', to: 'acas-early-conciliation',        type: 'RELATED' },
   { from: 'acas-early-conciliation',    to: 'hmcts-employment-tribunal',      type: 'REQUIRES' },
-  { from: 'hmcts-legal-aid',            to: 'hmcts-employment-tribunal',      type: 'ENABLES' },
+  { from: 'hmcts-legal-aid',            to: 'hmcts-employment-tribunal',      type: 'RELATED' },
 
   // Find a Job
-  { from: 'dwp-universal-credit',       to: 'dwp-find-a-job',                 type: 'ENABLES' },
-  { from: 'dwp-new-style-jsa',          to: 'dwp-find-a-job',                 type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'dwp-find-a-job',                 type: 'RELATED' },
+  { from: 'dwp-new-style-jsa',          to: 'dwp-find-a-job',                 type: 'RELATED' },
 
   // Debt / insolvency
-  { from: 'dwp-universal-credit',       to: 'insolvency-breathing-space',     type: 'ENABLES' },
-  { from: 'insolvency-breathing-space', to: 'insolvency-dro',                 type: 'ENABLES' },
-  { from: 'insolvency-dro',             to: 'insolvency-bankruptcy',          type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'insolvency-breathing-space',     type: 'RELATED' },
+  { from: 'insolvency-breathing-space', to: 'insolvency-dro',                 type: 'RELATED' },
+  { from: 'insolvency-dro',             to: 'insolvency-bankruptcy',          type: 'RELATED' },
 
   // Tax tribunal
-  { from: 'hmrc-self-assessment',       to: 'hmcts-tax-tribunal',             type: 'ENABLES' },
-  { from: 'hmrc-vat',                   to: 'hmcts-tax-tribunal',             type: 'ENABLES' },
+  { from: 'hmrc-self-assessment',       to: 'hmcts-tax-tribunal',             type: 'RELATED' },
+  { from: 'hmrc-vat',                   to: 'hmcts-tax-tribunal',             type: 'RELATED' },
 
   // Immigration tribunal
-  { from: 'ho-immigration-appeal',      to: 'hmcts-immigration-tribunal',     type: 'ENABLES' },
-  { from: 'ho-fee-waiver',              to: 'ho-visa',                        type: 'ENABLES' },
-  { from: 'ho-fee-waiver',              to: 'ho-skilled-worker-visa',         type: 'ENABLES' },
-  { from: 'ho-fee-waiver',              to: 'ho-student-visa',                type: 'ENABLES' },
+  { from: 'ho-immigration-appeal',      to: 'hmcts-immigration-tribunal',     type: 'RELATED' },
+  { from: 'ho-fee-waiver',              to: 'ho-visa',                        type: 'RELATED' },
+  { from: 'ho-fee-waiver',              to: 'ho-skilled-worker-visa',         type: 'RELATED' },
+  { from: 'ho-fee-waiver',              to: 'ho-student-visa',                type: 'RELATED' },
 
   // eVisa replaces BRP
-  { from: 'ho-brp',                     to: 'ho-evisa',                       type: 'ENABLES' },
-  { from: 'ho-eu-settled-status',       to: 'ho-evisa',                       type: 'ENABLES' },
-  { from: 'ho-evisa',                   to: 'ho-view-immigration-status',     type: 'ENABLES' },
-  { from: 'ho-view-immigration-status', to: 'other-right-to-work',            type: 'ENABLES' },
+  { from: 'ho-brp',                     to: 'ho-evisa',                       type: 'RELATED' },
+  { from: 'ho-eu-settled-status',       to: 'ho-evisa',                       type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'ho-view-immigration-status',     type: 'RELATED' },
+  { from: 'ho-view-immigration-status', to: 'other-right-to-work',            type: 'RELATED' },
 
   // Student visa → university
-  { from: 'ho-student-visa',            to: 'slc-student-finance',            type: 'ENABLES' },
-  { from: 'ho-student-visa',            to: 'nhs-gp-register',                type: 'ENABLES' },
-  { from: 'ho-skilled-worker-visa',     to: 'ho-evisa',                       type: 'ENABLES' },
-  { from: 'ho-skilled-worker-visa',     to: 'dwp-ni-number',                  type: 'ENABLES' },
-  { from: 'ho-skilled-worker-visa',     to: 'ho-skilled-worker-dependent-visa', type: 'ENABLES' },
+  { from: 'ho-student-visa',            to: 'slc-student-finance',            type: 'RELATED' },
+  { from: 'ho-student-visa',            to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-skilled-worker-visa',     to: 'ho-evisa',                       type: 'RELATED' },
+  { from: 'ho-skilled-worker-visa',     to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-skilled-worker-visa',     to: 'ho-skilled-worker-dependent-visa', type: 'RELATED' },
 
   // Property buying flow
-  { from: 'ea-flood-risk',              to: 'lr-property-search',             type: 'ENABLES' },
-  { from: 'mhclg-epc',                  to: 'lr-property-search',             type: 'ENABLES' },
-  { from: 'lr-property-search',         to: 'llc-local-land-charges',         type: 'ENABLES' },
-  { from: 'llc-local-land-charges',     to: 'lr-sign-mortgage-deed',          type: 'ENABLES' },
-  { from: 'lr-sign-mortgage-deed',      to: 'hmrc-sdlt',                      type: 'ENABLES' },
+  { from: 'ea-flood-risk',              to: 'lr-property-search',             type: 'RELATED' },
+  { from: 'mhclg-epc',                  to: 'lr-property-search',             type: 'RELATED' },
+  { from: 'lr-property-search',         to: 'llc-local-land-charges',         type: 'RELATED' },
+  { from: 'llc-local-land-charges',     to: 'lr-sign-mortgage-deed',          type: 'RELATED' },
+  { from: 'lr-sign-mortgage-deed',      to: 'hmrc-sdlt',                      type: 'RELATED' },
 
   // Moving house
-  { from: 'dvla-update-address',        to: 'dvla-change-address-v5c',        type: 'ENABLES' },
-  { from: 'la-council-tax',             to: 'voa-council-tax-band',           type: 'ENABLES' },
+  { from: 'dvla-update-address',        to: 'dvla-change-address-v5c',        type: 'RELATED' },
+  { from: 'la-council-tax',             to: 'voa-council-tax-band',           type: 'RELATED' },
 
   // Business obligations (after registration)
-  { from: 'ch-register-ltd',            to: 'ch-file-accounts',               type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'ch-confirmation-statement',      type: 'ENABLES' },
-  { from: 'ch-file-accounts',           to: 'ch-close-company',               type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'hmrc-eori',                      type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader',  to: 'hmrc-eori',                      type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'ch-file-accounts',               type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'ch-confirmation-statement',      type: 'RELATED' },
+  { from: 'ch-file-accounts',           to: 'ch-close-company',               type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'hmrc-eori',                      type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'hmrc-eori',                      type: 'RELATED' },
 
   // Voting
-  { from: 'la-electoral-roll',          to: 'la-postal-vote',                 type: 'ENABLES' },
-  { from: 'la-electoral-roll',          to: 'la-proxy-vote',                  type: 'ENABLES' },
+  { from: 'la-electoral-roll',          to: 'la-postal-vote',                 type: 'RELATED' },
+  { from: 'la-electoral-roll',          to: 'la-proxy-vote',                  type: 'RELATED' },
 
   // University
-  { from: 'slc-student-finance',        to: 'dfe-care-to-learn',              type: 'ENABLES' },
-  { from: 'dfe-find-apprenticeship',    to: 'tpr-workplace-pension',          type: 'ENABLES' },
-  { from: 'dfe-apply-teacher-training', to: 'tpr-workplace-pension',          type: 'ENABLES' },
+  { from: 'slc-student-finance',        to: 'dfe-care-to-learn',              type: 'RELATED' },
+  { from: 'dfe-find-apprenticeship',    to: 'tpr-workplace-pension',          type: 'RELATED' },
+  { from: 'dfe-apply-teacher-training', to: 'tpr-workplace-pension',          type: 'RELATED' },
 
   // GRO certificates
-  { from: 'gro-register-birth',         to: 'gro-certificates',               type: 'ENABLES' },
-  { from: 'gro-register-death',         to: 'gro-certificates',               type: 'ENABLES' },
-  { from: 'gro-marriage-cert',          to: 'gro-certificates',               type: 'ENABLES' },
+  { from: 'gro-register-birth',         to: 'gro-certificates',               type: 'RELATED' },
+  { from: 'gro-register-death',         to: 'gro-certificates',               type: 'RELATED' },
+  { from: 'gro-marriage-cert',          to: 'gro-certificates',               type: 'RELATED' },
 
   // OPG LPA refund
-  { from: 'opg-lpa',                    to: 'opg-lpa-refund',                 type: 'ENABLES' },
+  { from: 'opg-lpa',                    to: 'opg-lpa-refund',                 type: 'RELATED' },
 
   // Baby loss certificate
-  { from: 'dhsc-baby-loss-certificate', to: 'gro-certificates',               type: 'ENABLES' },
+  { from: 'dhsc-baby-loss-certificate', to: 'gro-certificates',               type: 'RELATED' },
 
   // Gender recognition
-  { from: 'hmpo-passport',              to: 'hmcts-gender-recognition',       type: 'ENABLES' },
+  { from: 'hmpo-passport',              to: 'hmcts-gender-recognition',       type: 'RELATED' },
 
   // Criminal injuries
-  { from: 'cica-compensation',          to: 'hmcts-legal-aid',                type: 'ENABLES' },
+  { from: 'cica-compensation',          to: 'hmcts-legal-aid',                type: 'RELATED' },
 
   // ── Isolated node integration ─────────────────────────────────────────────
 
   // Care needs / disability home adaptations cluster
-  { from: 'dwp-pip',                    to: 'nhs-care-assessment',            type: 'ENABLES' },
-  { from: 'dwp-attendance-allowance',   to: 'nhs-care-assessment',            type: 'ENABLES' },
+  { from: 'dwp-pip',                    to: 'nhs-care-assessment',            type: 'RELATED' },
+  { from: 'dwp-attendance-allowance',   to: 'nhs-care-assessment',            type: 'RELATED' },
   { from: 'nhs-care-assessment',        to: 'la-disabled-facilities-grant',   type: 'REQUIRES' },
-  { from: 'nhs-care-assessment',        to: 'other-carers-leave',             type: 'ENABLES' },
-  { from: 'dwp-pip',                    to: 'la-disabled-facilities-grant',   type: 'ENABLES' },
-  { from: 'dwp-attendance-allowance',   to: 'la-disabled-facilities-grant',   type: 'ENABLES' },
+  { from: 'nhs-care-assessment',        to: 'other-carers-leave',             type: 'RELATED' },
+  { from: 'dwp-pip',                    to: 'la-disabled-facilities-grant',   type: 'RELATED' },
+  { from: 'dwp-attendance-allowance',   to: 'la-disabled-facilities-grant',   type: 'RELATED' },
 
   // Carer's Assessment
-  { from: 'dwp-carers-allowance',       to: 'la-carers-assessment',           type: 'ENABLES' },
-  { from: 'dwp-pip',                    to: 'la-carers-assessment',           type: 'ENABLES' },
-  { from: 'la-carers-assessment',       to: 'la-disabled-facilities-grant',   type: 'ENABLES' },
-  { from: 'la-carers-assessment',       to: 'other-carers-leave',             type: 'ENABLES' },
-  { from: 'dwp-carers-allowance',       to: 'other-carers-leave',             type: 'ENABLES' },
+  { from: 'dwp-carers-allowance',       to: 'la-carers-assessment',           type: 'RELATED' },
+  { from: 'dwp-pip',                    to: 'la-carers-assessment',           type: 'RELATED' },
+  { from: 'la-carers-assessment',       to: 'la-disabled-facilities-grant',   type: 'RELATED' },
+  { from: 'la-carers-assessment',       to: 'other-carers-leave',             type: 'RELATED' },
+  { from: 'dwp-carers-allowance',       to: 'other-carers-leave',             type: 'RELATED' },
 
   // Statutory pay gaps → benefits
-  { from: 'hmrc-ssp',                   to: 'dwp-universal-credit',           type: 'ENABLES' },
-  { from: 'hmrc-ssp',                   to: 'dwp-new-style-esa',              type: 'ENABLES' },
-  { from: 'gro-register-birth',         to: 'hmrc-spp',                       type: 'ENABLES' },
-  { from: 'hmrc-spp',                   to: 'dwp-universal-credit',           type: 'ENABLES' },
+  { from: 'hmrc-ssp',                   to: 'dwp-universal-credit',           type: 'RELATED' },
+  { from: 'hmrc-ssp',                   to: 'dwp-new-style-esa',              type: 'RELATED' },
+  { from: 'gro-register-birth',         to: 'hmrc-spp',                       type: 'RELATED' },
+  { from: 'hmrc-spp',                   to: 'dwp-universal-credit',           type: 'RELATED' },
 
   // Benefit overpayment obligation
-  { from: 'dwp-universal-credit',       to: 'dwp-benefit-debt-repayment',     type: 'ENABLES' },
-  { from: 'dwp-pip',                    to: 'dwp-benefit-debt-repayment',     type: 'ENABLES' },
-  { from: 'dwp-new-style-jsa',          to: 'dwp-benefit-debt-repayment',     type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'dwp-benefit-debt-repayment',     type: 'RELATED' },
+  { from: 'dwp-pip',                    to: 'dwp-benefit-debt-repayment',     type: 'RELATED' },
+  { from: 'dwp-new-style-jsa',          to: 'dwp-benefit-debt-repayment',     type: 'RELATED' },
 
   // Document legalisation (apostille)
-  { from: 'gro-register-birth',         to: 'fco-document-legalisation',      type: 'ENABLES' },
-  { from: 'gro-death-certificate',      to: 'fco-document-legalisation',      type: 'ENABLES' },
-  { from: 'gro-marriage-cert',          to: 'fco-document-legalisation',      type: 'ENABLES' },
-  { from: 'dbs-basic-check',            to: 'fco-document-legalisation',      type: 'ENABLES' },
+  { from: 'gro-register-birth',         to: 'fco-document-legalisation',      type: 'RELATED' },
+  { from: 'gro-death-certificate',      to: 'fco-document-legalisation',      type: 'RELATED' },
+  { from: 'gro-marriage-cert',          to: 'fco-document-legalisation',      type: 'RELATED' },
+  { from: 'dbs-basic-check',            to: 'fco-document-legalisation',      type: 'RELATED' },
 
   // Emergency travel document
-  { from: 'hmpo-lost-stolen-passport',  to: 'fco-emergency-travel-doc',       type: 'ENABLES' },
+  { from: 'hmpo-lost-stolen-passport',  to: 'fco-emergency-travel-doc',       type: 'RELATED' },
 
   // DBS checks → licensing
-  { from: 'dbs-basic-check',            to: 'la-child-performance-licence',   type: 'ENABLES' },
-  { from: 'dbs-basic-check',            to: 'la-hmo-licence',                 type: 'ENABLES' },
+  { from: 'dbs-basic-check',            to: 'la-child-performance-licence',   type: 'RELATED' },
+  { from: 'dbs-basic-check',            to: 'la-hmo-licence',                 type: 'RELATED' },
   { from: 'dfe-apply-teacher-training', to: 'other-dbs',                      type: 'REQUIRES' },
-  { from: 'dfe-find-apprenticeship',    to: 'other-dbs',                      type: 'ENABLES' },
+  { from: 'dfe-find-apprenticeship',    to: 'other-dbs',                      type: 'RELATED' },
 
   // Business rates
   { from: 'ch-register-ltd',            to: 'la-business-rates',              type: 'REQUIRES' },
   { from: 'hmrc-register-sole-trader',  to: 'la-business-rates',              type: 'REQUIRES' },
-  { from: 'la-business-rates',          to: 'voa-business-rates',             type: 'ENABLES' },
+  { from: 'la-business-rates',          to: 'voa-business-rates',             type: 'RELATED' },
 
   // Business licensing (Local Authority)
-  { from: 'ch-register-ltd',            to: 'la-hmo-licence',                 type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'la-road-occupation-licence',     type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader',  to: 'la-road-occupation-licence',     type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'la-skip-permit',                 type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader',  to: 'la-skip-permit',                 type: 'ENABLES' },
-  { from: 'la-skip-permit',             to: 'la-road-occupation-licence',     type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'la-scrap-metal-dealer-licence',  type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader',  to: 'la-scrap-metal-dealer-licence',  type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'ho-drug-precursor-licence',      type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader',  to: 'ho-drug-precursor-licence',      type: 'ENABLES' },
-  { from: 'ch-register-ltd',            to: 'ukri-find-grants',               type: 'ENABLES' },
-  { from: 'hmrc-register-sole-trader',  to: 'ukri-find-grants',               type: 'ENABLES' },
+  { from: 'ch-register-ltd',            to: 'la-hmo-licence',                 type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'la-road-occupation-licence',     type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-road-occupation-licence',     type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'la-skip-permit',                 type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-skip-permit',                 type: 'RELATED' },
+  { from: 'la-skip-permit',             to: 'la-road-occupation-licence',     type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'la-scrap-metal-dealer-licence',  type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-scrap-metal-dealer-licence',  type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'ho-drug-precursor-licence',      type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'ho-drug-precursor-licence',      type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'ukri-find-grants',               type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'ukri-find-grants',               type: 'RELATED' },
 
   // DVLA medical condition → disability benefits
-  { from: 'dvla-notify-condition',      to: 'dwp-pip',                        type: 'ENABLES' },
-  { from: 'dwp-sr1-form',              to: 'dwp-pip',                        type: 'ENABLES' },
-  { from: 'dwp-sr1-form',              to: 'dwp-attendance-allowance',       type: 'ENABLES' },
-  { from: 'nhs-care-assessment',       to: 'nhs-continuing-healthcare',      type: 'ENABLES' },
-  { from: 'dvla-notify-condition',      to: 'dwp-attendance-allowance',       type: 'ENABLES' },
+  { from: 'dvla-notify-condition',      to: 'dwp-pip',                        type: 'RELATED' },
+  { from: 'dwp-sr1-form',              to: 'dwp-pip',                        type: 'RELATED' },
+  { from: 'dwp-sr1-form',              to: 'dwp-attendance-allowance',       type: 'RELATED' },
+  { from: 'nhs-care-assessment',       to: 'nhs-continuing-healthcare',      type: 'RELATED' },
+  { from: 'dvla-notify-condition',      to: 'dwp-attendance-allowance',       type: 'RELATED' },
 
   // EUSS status enquiry
-  { from: 'ho-eu-settled-status',       to: 'ho-euss-enquiry',                type: 'ENABLES' },
+  { from: 'ho-eu-settled-status',       to: 'ho-euss-enquiry',                type: 'RELATED' },
 
   // Help to Buy → property completion
   { from: 'other-help-to-buy',          to: 'hmrc-sdlt',                      type: 'REQUIRES' },
-  { from: 'other-help-to-buy',          to: 'hmrc-lisa',                      type: 'ENABLES' },
+  { from: 'other-help-to-buy',          to: 'hmrc-lisa',                      type: 'RELATED' },
 
   // National Careers Service → pathways
-  { from: 'dfe-national-careers',       to: 'dfe-find-apprenticeship',        type: 'ENABLES' },
-  { from: 'dfe-national-careers',       to: 'slc-student-finance',            type: 'ENABLES' },
+  { from: 'dfe-national-careers',       to: 'dfe-find-apprenticeship',        type: 'RELATED' },
+  { from: 'dfe-national-careers',       to: 'slc-student-finance',            type: 'RELATED' },
 
   // Healthy Start (UC gateway)
-  { from: 'dwp-universal-credit',       to: 'nhs-healthy-start',              type: 'ENABLES' },
+  { from: 'dwp-universal-credit',       to: 'nhs-healthy-start',              type: 'RELATED' },
 
   // Clean Air Zone charges
-  { from: 'dvla-vehicle-tax',           to: 'jaqu-clean-air-zone',            type: 'ENABLES' },
-  { from: 'dvla-sorn',                  to: 'jaqu-clean-air-zone',            type: 'ENABLES' },
+  { from: 'dvla-vehicle-tax',           to: 'jaqu-clean-air-zone',            type: 'RELATED' },
+  { from: 'dvla-sorn',                  to: 'jaqu-clean-air-zone',            type: 'RELATED' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
