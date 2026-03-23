@@ -139,19 +139,14 @@ Each service includes eligibility signals:
   means_tested   — true means income/capital assessment required
   eligibilitySummary — one-sentence plain-English eligibility description
 
-Each service includes agent interaction data:
-  agentInteraction.agentCanComplete — 'full' (agent can do it end-to-end), 'partial' (agent can start/guide), or 'inform-only'
-  agentInteraction.methods[]    — application channels: online, phone, post, in-person
-  agentInteraction.apiAvailable — true if a transactional API exists
-  agentInteraction.onlineFormUrl — direct link to the online form (if available)
-  agentInteraction.agentSteps[] — step-by-step what the agent can do for the user
-
 Optional enrichments (present where applicable):
-  financialData  — structured 2025-26 rates (amounts, frequency, source URL)
   nations[]      — devolved services limited to specific UK nations (absent = UK-wide)
-  contactInfo    — helpline phone (+ textphone, Relay UK, Welsh, BSL), opening hours, webchat URL, office locator
 
-Use the triggeredBy field to explain why each service appears. Use deadline to highlight urgency. Use agentInteraction to tell the user what you can actually help them do. Use contactInfo to share helpline details when the user needs to call someone. Call get_service for any service the user wants to explore in depth.`,
+Use the triggeredBy field to explain why each service appears. Use deadline to highlight urgency.
+
+Call get_service for any service the user wants to explore — it returns the full detail omitted here:
+agentInteraction (application methods, what the agent can do step-by-step, online form URL),
+financialData (2025-26 benefit rates and amounts), and contactInfo (helpline phone, opening hours, webchat).`,
   {
     life_event_ids: z.array(z.string()).min(1).describe(
       'One or more life event IDs from list_life_events (e.g. ["baby", "moving"] or ["bereavement"]). Multiple IDs are merged into a single journey, deduplicating shared services.'

@@ -17,7 +17,7 @@
  * ordering (you don't have to do everything in a strict sequence).
  */
 
-import { NODES, EDGES, LIFE_EVENTS, DEPT_CONTACTS, type ServiceNode, type AgentInteraction, type FinancialData, type Nation, type ContactInfo } from './graph-data.js';
+import { NODES, EDGES, LIFE_EVENTS, DEPT_CONTACTS, type ServiceNode, type Nation, type AgentInteraction, type FinancialData, type ContactInfo } from './graph-data.js';
 
 // ─── TYPES ────────────────────────────────────────────────────────────────────
 
@@ -53,14 +53,10 @@ export interface JourneyService {
   requires:           string[];
   /** Service IDs this node unlocks within the journey */
   enables:            string[];
-  /** How an agent can interact with this service (methods, APIs, form URLs) */
-  agentInteraction:   AgentInteraction;
-  /** Structured financial rates — present for benefits/grants with known amounts */
-  financialData?:     FinancialData;
   /** UK nations this service applies to (absent = UK-wide) */
   nations?:           Nation[];
-  /** Contact info: helpline, hours, webchat, textphone (resolved from node or dept default) */
-  contactInfo?:       ContactInfo;
+  // agentInteraction, financialData, and contactInfo are intentionally omitted here.
+  // Call get_service(id) to retrieve them — keeping plan_journey output lean.
 }
 
 export interface JourneyPhase {
@@ -204,10 +200,7 @@ export function buildJourney(selectedEventIds: string[]): JourneyResult {
         triggeredBy:        [...(sourceMap[id] || [])],
         requires,
         enables,
-        agentInteraction:   node.agentInteraction,
-        ...(node.financialData ? { financialData: node.financialData } : {}),
-        ...(node.nations       ? { nations: node.nations }             : {}),
-        ...(() => { const ci = resolveContactInfo(node); return ci ? { contactInfo: ci } : {}; })(),
+        ...(node.nations ? { nations: node.nations } : {}),
       };
       return svc;
     }),

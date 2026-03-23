@@ -2188,6 +2188,69 @@ export const NODES: Record<string, ServiceNode> = {
       notes: 'Also covers statutory payments (SMP, SPP, ShPP, SSP) for employers.',
     },
   },
+  'hmrc-cis': {
+    id: 'hmrc-cis', name: 'Construction Industry Scheme (CIS) registration', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: 'Before first subcontractor payment',
+    desc: 'Contractors in the construction industry must register for CIS before paying subcontractors. Subcontractors should also register to reduce the deduction rate from 30% to 20%.',
+    govuk_url: 'https://www.gov.uk/what-is-the-construction-industry-scheme',
+    serviceType: 'obligation',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Required for any business that pays subcontractors for construction work. Contractors must register before their first subcontractor payment. Subcontractors should register to have 20% deductions rather than 30%.',
+      universal: false,
+      criteria: [
+        { factor: 'employment', description: 'Contractors: any business paying subcontractors for construction work. Subcontractors: anyone doing construction work paid by a contractor.' },
+        { factor: 'dependency', description: 'Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.' },
+      ],
+      keyQuestions: [
+        'Are you paying subcontractors to do construction work?',
+        'Are you working as a subcontractor for a construction contractor?',
+        'Is the work construction, alteration, repair, extension, or demolition?',
+      ],
+      autoQualifiers: ['Building, construction, civil engineering, or renovation contractor or subcontractor'],
+      means_tested: false,
+      evidenceRequired: ['Business UTR', 'Companies House registration number (if limited company)', 'Nature of construction work'],
+      ruleIn: ['Construction sector contractor or subcontractor'],
+      ruleOut: ['Non-construction businesses', 'Direct employees (not subcontractors)'],
+      rules: [
+        {
+          "type": "dependency",
+          "serviceId": "ch-register-ltd",
+          "condition": "completed",
+          "label": "Limited company registered at Companies House (for limited company contractors)"
+        },
+      ],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the business is in the construction sector (building, renovation, civil engineering, demolition)',
+        'Distinguish contractor role (pays subcontractors) from subcontractor role (gets paid by contractors)',
+        'Explain CIS deduction rates: 20% for registered subcontractors, 30% for unregistered',
+        'Guide through HMRC CIS registration via Government Gateway',
+        'Explain monthly contractor returns obligation and subcontractor verification process',
+      ],
+    },
+    contactInfo: {
+      phone: {
+        number: '+44 300 200 3210',
+        textphone: '+44 300 200 3219',
+        relay: '18001 then 0300 200 3210',
+        label: 'Construction Industry Scheme helpline',
+      },
+      hours: [
+        {
+          days: ['mon','tue','wed','thu','fri'],
+          open: '08:00',
+          close: '18:00',
+        },
+      ],
+    },
+  },
   'hmrc-mtd': {
     id: 'hmrc-mtd', name: 'Making Tax Digital enrolment', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
@@ -2800,7 +2863,7 @@ export const NODES: Record<string, ServiceNode> = {
     govuk_url: 'https://www.gov.uk/bereavement-support-payment',
     serviceType: 'benefit',
     proactive: true,
-    gated: false,
+    gated: true,
     eligibility: {
       summary: 'A lump sum (up to £3,500) plus up to 18 monthly payments (up to £350/month) if your spouse or civil partner died and you are under State Pension age. Must claim within 3 months for full amount.',
       universal: false,
@@ -2997,6 +3060,26 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
   },
+  'dwp-voluntary-ni-contributions': {
+    id: 'dwp-voluntary-ni-contributions', name: 'Voluntary National Insurance contributions (Class 3)',
+    dept: 'DWP', deptKey: 'dwp',
+    deadline: 'Usually within 6 years of the tax year; extended deadlines apply for years from 2006–07 to 2016–17 (deadline 5 April 2025 passed — check current rules)',
+    desc: 'Pay voluntary Class 3 NI contributions to fill gaps in your NI record and increase your State Pension entitlement. Check your NI record and get a State Pension forecast first.',
+    govuk_url: 'https://www.gov.uk/voluntary-national-insurance-contributions',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      criteria: 'You have gaps in your NI record that would increase your State Pension if filled. Not worthwhile if already entitled to full new State Pension.',
+      keyQuestions: ['How many qualifying years do you have?', 'What would your State Pension be without additional contributions?'],
+      autoQualifiers: [],
+      exclusions: ['Already entitled to full new State Pension (35 qualifying years)'],
+      ruleIn: 'NI record has gaps; State Pension forecast shows less than full amount',
+      ruleOut: 'Already at full State Pension entitlement',
+    },
+    agentInteraction: { type: 'info_then_apply', complexityHint: 'medium' },
+    financialData: { amount: null, frequency: null, notes: 'Class 3 rate £17.45/week (2024–25). Payable as lump sum for past years.' },
+  },
   'dwp-state-pension': {
     id: 'dwp-state-pension', name: 'State Pension claim', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
@@ -3076,6 +3159,26 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       contactFormUrl: 'https://www.gov.uk/contact-pension-service',
     },
+  },
+  'dwp-inherited-state-pension': {
+    id: 'dwp-inherited-state-pension', name: 'Inherited State Pension (Additional or extra)',
+    dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'A widow, widower, or surviving civil partner may be able to inherit some or all of their spouse\'s Additional State Pension (old system) or a protected payment top-up under the new State Pension, depending on when they reached State Pension age.',
+    govuk_url: 'https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      criteria: 'Widowed or surviving civil partner. Spouse must have deferred their State Pension or built up Additional State Pension under the old system.',
+      keyQuestions: ['Did your spouse defer their State Pension?', 'Were you both in the old State Pension system before April 2016?'],
+      autoQualifiers: ['Widowed before reaching own State Pension age'],
+      exclusions: ['Divorced', 'Remarried before State Pension age'],
+      ruleIn: 'Widowed; spouse had Additional State Pension or deferred entitlement',
+      ruleOut: 'Not widowed, or spouse had no Additional State Pension',
+    },
+    agentInteraction: { type: 'check_eligibility', complexityHint: 'low' },
+    financialData: { amount: null, frequency: null, notes: 'Amount depends on spouse\'s NI record and deferral period.' },
   },
   'dwp-pension-credit': {
     id: 'dwp-pension-credit', name: 'Pension Credit', dept: 'DWP', deptKey: 'dwp',
@@ -3359,6 +3462,93 @@ export const NODES: Record<string, ServiceNode> = {
           open: '08:00',
           close: '18:00',
         },
+      ],
+    },
+  },
+  'dwp-sr1-form': {
+    id: 'dwp-sr1-form', name: 'SR1 form (Special Rules for terminal illness)', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'A clinician completes the SR1 form for patients with a terminal illness (life expectancy under 12 months). It triggers fast-track processing for PIP, Attendance Allowance, ESA and UC — removing waiting periods and automatically awarding enhanced rates.',
+    govuk_url: 'https://www.gov.uk/government/publications/special-rules-for-terminal-illness-sr1',
+    serviceType: 'gateway',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Available where a clinician (GP, consultant, specialist nurse) confirms a terminal illness with a life expectancy of 12 months or less. The form is completed by the clinician, not the patient.',
+      universal: false,
+      criteria: [
+        { factor: 'health', description: 'Terminal illness with life expectancy of 12 months or less, certified by a clinician.' },
+      ],
+      keyQuestions: [
+        'Has a clinician indicated a life expectancy of 12 months or less?',
+        'Has the GP, consultant or specialist nurse been asked to complete the SR1 form?',
+      ],
+      autoQualifiers: ['Terminal diagnosis with 12-month prognosis'],
+      means_tested: false,
+      evidenceRequired: ['SR1 form completed by clinician'],
+      ruleIn: ['Terminal illness confirmed by clinician'],
+      ruleOut: ['Chronic condition without terminal prognosis'],
+      rules: [],
+    },
+    agentInteraction: {
+      methods: ['paper', 'phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain that the SR1 form is completed by the clinician (GP, consultant, or specialist nurse), not the patient',
+        'Advise patient to ask their doctor or specialist to complete the SR1 form',
+        'Explain what SR1 unlocks: PIP fast-track (8 weeks → days), Attendance Allowance (no 6-month wait), ESA/UC support group without assessment',
+        'Confirm SR1 can be submitted directly by the clinician to DWP or given to the patient/carer to submit',
+      ],
+    },
+    contactInfo: {
+      phone: {
+        number: '+44 800 917 2222',
+        label: 'DWP Special Rules team',
+      },
+      hours: [{ days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' }],
+    },
+  },
+  'nhs-continuing-healthcare': {
+    id: 'nhs-continuing-healthcare', name: 'NHS Continuing Healthcare (CHC)', dept: 'NHS', deptKey: 'nhs',
+    deadline: null,
+    desc: 'Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.',
+    govuk_url: 'https://www.gov.uk/government/publications/nhs-continuing-healthcare-the-national-framework',
+    serviceType: 'benefit',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: 'Available to adults assessed as having a primary health need that is complex, intense, or unpredictable. Eligibility is assessed by a multidisciplinary team using the NHS Continuing Healthcare Decision Support Tool. Available at any age, in any setting.',
+      universal: false,
+      criteria: [
+        { factor: 'health', description: 'Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.' },
+        { factor: 'dependency', description: 'Requires a care needs assessment (fast-track available for terminal illness).' },
+      ],
+      keyQuestions: [
+        'Has the person been assessed as having a primary health need?',
+        'Is the condition terminal (fast-track CHC available)?',
+        'Who is currently funding care — NHS or self-funded?',
+      ],
+      autoQualifiers: ['Terminal illness (fast-track CHC)', 'Complex nursing needs'],
+      means_tested: false,
+      evidenceRequired: ['Completed CHC checklist or fast-track tool from clinician'],
+      ruleIn: ['Complex primary health need', 'Terminal illness'],
+      ruleOut: ['Social care needs only (no primary health need)'],
+      rules: [
+        { type: 'dependency', serviceId: 'nhs-care-assessment', condition: 'completed', label: 'Care needs assessment must be completed (or fast-track form for terminal illness)' },
+      ],
+    },
+    agentInteraction: {
+      methods: ['phone', 'referral'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'none',
+      agentSteps: [
+        'Explain that CHC is fully NHS-funded — no means test and covers care home fees',
+        'For terminal illness, advise that the clinician can submit a fast-track CHC referral (same day or next day decision)',
+        'For non-terminal cases, explain the multidisciplinary team assessment process',
+        'Advise contacting the local ICB (Integrated Care Board) or hospital discharge team to request a CHC assessment',
       ],
     },
   },
@@ -12990,6 +13180,27 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
+  'ho-skilled-worker-dependent-visa': {
+    id: 'ho-skilled-worker-dependent-visa', name: 'Skilled Worker dependant visa',
+    dept: 'Home Office', deptKey: 'ho',
+    deadline: 'Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)',
+    desc: 'Family members (partner and children under 18) of a Skilled Worker visa holder can apply to join them in the UK as dependants. They can work and study without restriction.',
+    govuk_url: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
+    serviceType: 'application',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      criteria: 'You hold a valid Skilled Worker visa. Dependants are your partner (married, civil partner, or long-term partner) or children under 18.',
+      keyQuestions: ['Do you have a spouse/partner or children who want to come to the UK?', 'Are your children under 18?'],
+      autoQualifiers: ['Has Skilled Worker visa'],
+      exclusions: ['Children aged 18 or over must apply in their own right'],
+      ruleIn: 'Has family members wanting to join in the UK',
+      ruleOut: 'No eligible dependants',
+    },
+    agentInteraction: { type: 'form_completion', complexityHint: 'medium' },
+    financialData: { amount: null, frequency: null, notes: 'Visa fee applies per dependant. NHS surcharge also payable.' },
+  },
+
   'ho-student-visa': {
     id: 'ho-student-visa', name: 'Student visa', dept: 'Home Office', deptKey: 'ho',
     deadline: null,
@@ -13962,6 +14173,7 @@ export const EDGES: Edge[] = [
   { from: 'gro-register-death',       to: 'gro-death-certificate',          type: 'ENABLES' },
   { from: 'gro-register-death',       to: 'dwp-tell-us-once',               type: 'ENABLES' },
   { from: 'gro-register-death',       to: 'dwp-bereavement-support',        type: 'ENABLES' },
+  { from: 'dwp-bereavement-support',  to: 'dwp-pension-credit',             type: 'ENABLES' },
   { from: 'gro-register-death',       to: 'hmcts-probate',                  type: 'ENABLES' },
   { from: 'gro-death-certificate',    to: 'hmcts-probate',                  type: 'REQUIRES' },
   { from: 'gro-death-certificate',    to: 'hmrc-iht400',                    type: 'ENABLES' },
@@ -13983,7 +14195,10 @@ export const EDGES: Edge[] = [
   { from: 'gro-marriage-cert',        to: 'la-electoral-roll',              type: 'ENABLES' },
 
   // Retirement
+  { from: 'hmrc-ni-check',            to: 'dwp-voluntary-ni-contributions', type: 'ENABLES' },
+  { from: 'dwp-voluntary-ni-contributions', to: 'dwp-state-pension',        type: 'ENABLES' },
   { from: 'hmrc-ni-check',            to: 'dwp-state-pension',              type: 'ENABLES' },
+  { from: 'dwp-state-pension',        to: 'dwp-inherited-state-pension',    type: 'ENABLES' },
   { from: 'dwp-state-pension',        to: 'dwp-pension-credit',             type: 'ENABLES' },
   { from: 'dwp-pension-credit',       to: 'dwp-winter-fuel',                type: 'ENABLES' },
   { from: 'dwp-pension-credit',       to: 'other-tv-licence-pension',       type: 'ENABLES' },
@@ -13994,6 +14209,7 @@ export const EDGES: Edge[] = [
   { from: 'ch-register-ltd',          to: 'hmrc-corporation-tax',           type: 'ENABLES' },
   { from: 'ch-register-ltd',          to: 'hmrc-self-assessment',           type: 'ENABLES' },
   { from: 'ch-register-ltd',          to: 'hmrc-paye',                      type: 'ENABLES' },
+  { from: 'ch-register-ltd',          to: 'hmrc-cis',                       type: 'ENABLES' },
   { from: 'hmrc-register-sole-trader', to: 'hmrc-self-assessment',          type: 'ENABLES' },
   { from: 'hmrc-paye',                to: 'other-employers-liability',      type: 'REQUIRES' },
   { from: 'hmrc-paye',                to: 'tpr-workplace-pension',          type: 'ENABLES' },
@@ -14265,6 +14481,7 @@ export const EDGES: Edge[] = [
   { from: 'ho-student-visa',            to: 'nhs-gp-register',                type: 'ENABLES' },
   { from: 'ho-skilled-worker-visa',     to: 'ho-evisa',                       type: 'ENABLES' },
   { from: 'ho-skilled-worker-visa',     to: 'dwp-ni-number',                  type: 'ENABLES' },
+  { from: 'ho-skilled-worker-visa',     to: 'ho-skilled-worker-dependent-visa', type: 'ENABLES' },
 
   // Property buying flow
   { from: 'ea-flood-risk',              to: 'lr-property-search',             type: 'ENABLES' },
@@ -14364,6 +14581,7 @@ export const EDGES: Edge[] = [
   { from: 'hmrc-register-sole-trader',  to: 'la-road-occupation-licence',     type: 'ENABLES' },
   { from: 'ch-register-ltd',            to: 'la-skip-permit',                 type: 'ENABLES' },
   { from: 'hmrc-register-sole-trader',  to: 'la-skip-permit',                 type: 'ENABLES' },
+  { from: 'la-skip-permit',             to: 'la-road-occupation-licence',     type: 'ENABLES' },
   { from: 'ch-register-ltd',            to: 'la-scrap-metal-dealer-licence',  type: 'ENABLES' },
   { from: 'hmrc-register-sole-trader',  to: 'la-scrap-metal-dealer-licence',  type: 'ENABLES' },
   { from: 'ch-register-ltd',            to: 'ho-drug-precursor-licence',      type: 'ENABLES' },
@@ -14373,6 +14591,9 @@ export const EDGES: Edge[] = [
 
   // DVLA medical condition → disability benefits
   { from: 'dvla-notify-condition',      to: 'dwp-pip',                        type: 'ENABLES' },
+  { from: 'dwp-sr1-form',              to: 'dwp-pip',                        type: 'ENABLES' },
+  { from: 'dwp-sr1-form',              to: 'dwp-attendance-allowance',       type: 'ENABLES' },
+  { from: 'nhs-care-assessment',       to: 'nhs-continuing-healthcare',      type: 'ENABLES' },
   { from: 'dvla-notify-condition',      to: 'dwp-attendance-allowance',       type: 'ENABLES' },
 
   // EUSS status enquiry
@@ -14405,6 +14626,11 @@ export const LIFE_EVENTS: LifeEvent[] = [
                  'nhs-maternity-exemption','la-free-childcare-2yr',
                  'sss-best-start-grant','sss-best-start-foods',
                  'dhsc-baby-loss-certificate','gro-certificates'],
+  },
+  {
+    id: 'terminal-illness', icon: '◇', name: 'Terminal Illness Diagnosis',
+    desc: 'Fast-track benefits, palliative care, legal planning and carer support',
+    entryNodes: ['dwp-sr1-form', 'opg-lpa', 'nhs-care-assessment', 'dwp-pip', 'dwp-attendance-allowance'],
   },
   {
     id: 'bereavement', icon: '—', name: 'Death of Someone Close',

@@ -8,6 +8,7 @@
     "mcp": "tsx src/graph-server.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
     "@modelcontextprotocol/sdk": "^1.7.0",
     "zod": "^3.23.0"
   },

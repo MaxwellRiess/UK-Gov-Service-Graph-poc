@@ -1,0 +1,290 @@
+[
+  {
+    "scenarioId": "S1",
+    "control": {
+      "totalToolCalls": 16,
+      "totalInputTokens": 31401,
+      "totalOutputTokens": 1931,
+      "avgEssentialRecall": 0.89,
+      "avgConditionalRecall": 0.81,
+      "avgProactiveRecall": 0.33,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.53,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 3.33,
+      "judgeAccuracy": 4,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 4.67
+    },
+    "treatment": {
+      "totalToolCalls": 8,
+      "totalInputTokens": 42082,
+      "totalOutputTokens": 2140,
+      "avgEssentialRecall": 1,
+      "avgConditionalRecall": 0.89,
+      "avgProactiveRecall": 0.67,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 4,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 4.67,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S2",
+    "control": {
+      "totalToolCalls": 27,
+      "totalInputTokens": 84136,
+      "totalOutputTokens": 3221,
+      "avgEssentialRecall": 0.58,
+      "avgConditionalRecall": 0.44,
+      "avgProactiveRecall": 0.67,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.77,
+      "avgOrderingAccuracy": 0.5,
+      "judgeCompleteness": 3.33,
+      "judgeAccuracy": 4,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 5
+    },
+    "treatment": {
+      "totalToolCalls": 7,
+      "totalInputTokens": 41570,
+      "totalOutputTokens": 1924,
+      "avgEssentialRecall": 0.58,
+      "avgConditionalRecall": 0.56,
+      "avgProactiveRecall": 1,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 4,
+      "judgeAccuracy": 3.67,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S3",
+    "control": {
+      "totalToolCalls": 21,
+      "totalInputTokens": 51812,
+      "totalOutputTokens": 2576,
+      "avgEssentialRecall": 0.89,
+      "avgConditionalRecall": 0.11,
+      "avgProactiveRecall": 0.67,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.52,
+      "avgOrderingAccuracy": 0,
+      "judgeCompleteness": 3.33,
+      "judgeAccuracy": 3.67,
+      "judgeSequencing": 3.67,
+      "judgeClarity": 5
+    },
+    "treatment": {
+      "totalToolCalls": 4,
+      "totalInputTokens": 28832,
+      "totalOutputTokens": 2153,
+      "avgEssentialRecall": 1,
+      "avgConditionalRecall": 0.67,
+      "avgProactiveRecall": 1,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 5,
+      "judgeAccuracy": 4,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S4",
+    "control": {
+      "totalToolCalls": 33,
+      "totalInputTokens": 92524,
+      "totalOutputTokens": 3253,
+      "avgEssentialRecall": 0.72,
+      "avgConditionalRecall": 0.5,
+      "avgProactiveRecall": 1,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.65,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 2.67,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 4.67
+    },
+    "treatment": {
+      "totalToolCalls": 6,
+      "totalInputTokens": 35430,
+      "totalOutputTokens": 2195,
+      "avgEssentialRecall": 0.83,
+      "avgConditionalRecall": 0.67,
+      "avgProactiveRecall": 1,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 3.33,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 4,
+      "judgeClarity": 4.67
+    }
+  },
+  {
+    "scenarioId": "S5",
+    "control": {
+      "totalToolCalls": 15,
+      "totalInputTokens": 39754,
+      "totalOutputTokens": 2230,
+      "avgEssentialRecall": 0.67,
+      "avgConditionalRecall": 0.44,
+      "avgProactiveRecall": 0.67,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.69,
+      "avgOrderingAccuracy": 0,
+      "judgeCompleteness": 2.67,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 3.67,
+      "judgeClarity": 4.67
+    },
+    "treatment": {
+      "totalToolCalls": 7,
+      "totalInputTokens": 41105,
+      "totalOutputTokens": 1671,
+      "avgEssentialRecall": 0.67,
+      "avgConditionalRecall": 0.89,
+      "avgProactiveRecall": 0.67,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 0,
+      "judgeCompleteness": 3.67,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 4,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S6",
+    "control": {
+      "totalToolCalls": 30,
+      "totalInputTokens": 74364,
+      "totalOutputTokens": 3307,
+      "avgEssentialRecall": 0.83,
+      "avgConditionalRecall": 0.28,
+      "avgProactiveRecall": 0.83,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.68,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 4.33,
+      "judgeAccuracy": 4.33,
+      "judgeSequencing": 5,
+      "judgeClarity": 5
+    },
+    "treatment": {
+      "totalToolCalls": 9,
+      "totalInputTokens": 57492,
+      "totalOutputTokens": 2704,
+      "avgEssentialRecall": 1,
+      "avgConditionalRecall": 0.67,
+      "avgProactiveRecall": 1,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 4.33,
+      "judgeAccuracy": 4,
+      "judgeSequencing": 5,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S7",
+    "control": {
+      "totalToolCalls": 32,
+      "totalInputTokens": 78198,
+      "totalOutputTokens": 3591,
+      "avgEssentialRecall": 1,
+      "avgConditionalRecall": 0.44,
+      "avgProactiveRecall": 0.5,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.63,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 3.67,
+      "judgeAccuracy": 3.67,
+      "judgeSequencing": 4.67,
+      "judgeClarity": 5
+    },
+    "treatment": {
+      "totalToolCalls": 9,
+      "totalInputTokens": 48718,
+      "totalOutputTokens": 2801,
+      "avgEssentialRecall": 1,
+      "avgConditionalRecall": 0.83,
+      "avgProactiveRecall": 0.67,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 4.67,
+      "judgeAccuracy": 4,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S9",
+    "control": {
+      "totalToolCalls": 24,
+      "totalInputTokens": 75181,
+      "totalOutputTokens": 3107,
+      "avgEssentialRecall": 0.89,
+      "avgConditionalRecall": 0.33,
+      "avgProactiveRecall": 0.67,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.66,
+      "avgOrderingAccuracy": 0,
+      "judgeCompleteness": 3.67,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 5,
+      "judgeClarity": 5
+    },
+    "treatment": {
+      "totalToolCalls": 4,
+      "totalInputTokens": 45832,
+      "totalOutputTokens": 2102,
+      "avgEssentialRecall": 1,
+      "avgConditionalRecall": 0.67,
+      "avgProactiveRecall": 0.67,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 4,
+      "judgeAccuracy": 4,
+      "judgeSequencing": 4.67,
+      "judgeClarity": 5
+    }
+  },
+  {
+    "scenarioId": "S10",
+    "control": {
+      "totalToolCalls": 22,
+      "totalInputTokens": 61140,
+      "totalOutputTokens": 2893,
+      "avgEssentialRecall": 0.83,
+      "avgConditionalRecall": 0.44,
+      "avgProactiveRecall": 0.67,
+      "avgOutOfScopeRate": 0,
+      "avgOverScopingRate": 0.68,
+      "avgOrderingAccuracy": 0.75,
+      "judgeCompleteness": 3,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 5
+    },
+    "treatment": {
+      "totalToolCalls": 8,
+      "totalInputTokens": 50290,
+      "totalOutputTokens": 2288,
+      "avgEssentialRecall": 0.83,
+      "avgConditionalRecall": 0.33,
+      "avgProactiveRecall": 0.67,
+      "avgFalsePositiveRate": null,
+      "avgOrderingAccuracy": 1,
+      "judgeCompleteness": 3.33,
+      "judgeAccuracy": 3.33,
+      "judgeSequencing": 4.33,
+      "judgeClarity": 5
+    }
+  }
+]
