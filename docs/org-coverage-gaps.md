@@ -1,7 +1,7 @@
 # Organisation Coverage Gaps
 
 Cross-reference of [gov.uk/government/organisations](https://www.gov.uk/government/organisations) (~489 organisations)
-against the current service graph (236 nodes, March 2026).
+against the current service graph (236 nodes, April 2026).
 
 Scope: citizen-facing organisations with services that fit the graph's life-event model.
 Purely regulatory, advisory, or internal-government bodies are excluded.
@@ -31,15 +31,27 @@ Purely regulatory, advisory, or internal-government bodies are excluded.
 | Insolvency Service | `other` | 3 |
 | Driver and Vehicle Standards Agency | `dvsa` | 3 |
 | Welsh Government | `wg` | 2 |
+| Valuation Office Agency | `other` | 2 |
+| NHS Business Services Authority | `nhs` | 2 |
+| FCDO (Foreign, Commonwealth & Development Office) | `other` | 2 |
 | Environment Agency | `ea` | 2 |
 | Disclosure and Barring Service | `other` | 2 |
-| Valuation Office Agency | `other` | 2 |
+| Cabinet Office | `other` | 2 |
 | The Pensions Regulator | `other` | 1 |
+| TV Licensing | `other` | 1 |
+| Rail Delivery Group | `other` | 1 |
 | Planning Inspectorate | `other` | 1 |
+| Motability | `other` | 1 |
+| MHCLG (Ministry of Housing, Communities & Local Government) | `other` | 1 |
+| Land & Property Services NI | `other` | 1 |
+| JAQU (Joint Air Quality Unit) | `other` | 1 |
+| Homes England | `other` | 1 |
+| HMPPS (HM Prison & Probation Service) | `other` | 1 |
+| Department for Communities NI | `other` | 1 |
+| DESNZ (Dept for Energy Security & Net Zero) | `other` | 1 |
 | Criminal Injuries Compensation Authority | `other` | 1 |
 | Acas | `other` | 1 |
 | UK Research and Innovation | `other` | 1 |
-| Homes England | `other` | 1 |
 
 ---
 
@@ -54,6 +66,7 @@ Ordered roughly by citizen-impact and fit to existing life events.
 - Covers debt advice (Breathing Space gateway), pension tracing, mid-life MOT
 - Life events: *Retirement*, *Job Loss*, *Divorce*, *Disability*
 - Currently Breathing Space has 1 node but no MoneyHelper signpost
+- 0 nodes
 
 **NS&I (National Savings & Investments)**
 - Premium Bonds, ISAs, savings certificates, Junior ISAs, children's bonds
@@ -135,13 +148,13 @@ Ordered roughly by citizen-impact and fit to existing life events.
 - Consumer switching rights (broadband, mobile), complaints escalation
 - Alternative Dispute Resolution schemes (Ombudsman Services, CISAS)
 - Life events: *Moving House* (switching providers)
-- 0 nodes
+- 0 nodes (a generic "Broadband providers" node exists but Ofcom is absent as regulator/complaints route)
 
 **Ofgem**
 - Energy market consumer rights, switching, complaint escalation (Energy Ombudsman)
 - Citizens interact when switching supplier or complaining about a bill
 - Life events: *Moving House*, *Job Loss* (fuel poverty), *Retirement*
-- 0 nodes
+- 0 nodes (DESNZ covers Warm Home Discount but Ofgem as a complaints/switching route is absent)
 
 **National Employment Savings Trust (NEST)**
 - Default workplace pension provider for auto-enrolment
