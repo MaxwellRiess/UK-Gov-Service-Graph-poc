@@ -51,6 +51,23 @@ Success criteria met: **3/5**
 | Total tool calls (all scenarios)   | 220 | 62 | -158 |
 | Avg tokens per scenario | 65,390 | 43,483 | — |
 
+### Token usage per scenario
+
+| Scenario | Control tokens | Treatment tokens | Δ | Treatment saving |
+|----------|---------------|-----------------|---|-----------------|
+| S1 — baby | 31,401 | 42,082 | +10,681 | -34% (higher) |
+| S2 — bereavement | 84,136 | 41,570 | -42,566 | 49% |
+| S3 — job-loss | 51,812 | 28,832 | -22,980 | 44% |
+| S4 — business | 92,524 | 35,430 | -57,094 | 62% |
+| S5 — immigration (EUSS) | 39,754 | 41,105 | +1,351 | -3% (higher) |
+| S6 — disability | 74,364 | 57,492 | -16,872 | 23% |
+| S7 — terminal-illness | 78,198 | 48,718 | -29,480 | 38% |
+| S9 — immigration (Skilled Worker) | 75,181 | 45,832 | -29,349 | 39% |
+| S10 — retirement | 61,140 | 50,290 | -10,850 | 18% |
+| **Total** | **588,510** | **391,351** | **-197,159** | **33%** |
+
+Treatment used fewer tokens in 7/9 scenarios. The two exceptions (S1 baby, S5 EUSS immigration) were scenarios where the treatment agent made additional `get_service` calls to enrich conditional-service detail — trading token cost for higher conditional recall.
+
 ---
 
 ## Per-Scenario Results

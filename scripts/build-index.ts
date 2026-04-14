@@ -261,8 +261,8 @@ const html = `<!DOCTYPE html>
     </div>
     <div class="sb-sec">
       <div class="sb-title">Layout</div>
-      <button class="lay-btn" data-layout="cose">Force</button>
-      <button class="lay-btn active" data-layout="dagre">Hierarchy</button>
+      <button class="lay-btn active" data-layout="cose">Force</button>
+      <button class="lay-btn" data-layout="dagre">Hierarchy</button>
       <button class="lay-btn" data-layout="breadthfirst">BFS</button>
     </div>
     <div class="sb-sec">
@@ -387,8 +387,8 @@ const html = `<!DOCTYPE html>
         { selector: '.hidden', style: { 'display': 'none' }},
       ],
       layout: {
-        name: 'dagre', animate: false, fit: true, padding: 30,
-        rankDir: 'TB', nodeSep: 55, rankSep: 75, edgeSep: 10,
+        name: 'cose', animate: false, fit: true, padding: 30,
+        idealEdgeLength: 120, nodeRepulsion: 480000, edgeElasticity: 100, gravity: 80, numIter: 300, nodeOverlap: 30,
       }
     });
 

@@ -14119,6 +14119,165 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
+  // ─── OFSTED ───────────────────────────────────────────────────────────────
+
+  'ofsted-find-inspection-report': {
+    id: 'ofsted-find-inspection-report', name: 'Find an Ofsted inspection report', dept: 'Ofsted', deptKey: 'other',
+    deadline: null,
+    desc: 'Search published Ofsted inspection reports for schools, nurseries, childminders, colleges and children\'s homes in England.',
+    govuk_url: 'https://reports.ofsted.gov.uk',
+    serviceType: 'information',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free and open to anyone. Search by provider name, postcode, or Unique Reference Number (URN) to view the latest Ofsted report, rating, and any follow-up action required.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Are you choosing a school or childcare provider and want to check their Ofsted rating?',
+        'Do you have the provider name, postcode, or URN?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: [],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://reports.ofsted.gov.uk',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Ask which provider type the user is researching (school, childminder, nursery, etc.)',
+        'Direct user to reports.ofsted.gov.uk to search by name, postcode or URN',
+        'Explain the rating scale (Outstanding, Good, Requires Improvement, Inadequate)',
+        'Note that "Requires Improvement" or "Inadequate" schools are subject to re-inspection',
+      ],
+    },
+  },
+
+  'ofsted-check-registered-childcare': {
+    id: 'ofsted-check-registered-childcare', name: 'Check if childcare is Ofsted-registered', dept: 'Ofsted', deptKey: 'other',
+    deadline: null,
+    desc: 'Verify that a childcare provider is on the Ofsted Early Years or Childcare Register — required before using Tax-Free Childcare or free hours entitlement.',
+    govuk_url: 'https://reports.ofsted.gov.uk/childcare',
+    serviceType: 'information',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Open to anyone. Parents must confirm their provider is on the Ofsted Childcare Register or Early Years Register before they can use their Tax-Free Childcare account or free childcare entitlement with that provider.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Is the childcare provider registered with Ofsted?',
+        'Do you have the provider\'s URN or registration number?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: [],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://reports.ofsted.gov.uk/childcare',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that Tax-Free Childcare and free hours (15/30) can only be used with Ofsted-registered providers',
+        'Help user search for the provider on the Ofsted childcare register',
+        'Advise that nannies must join the Voluntary Childcare Register to be eligible',
+      ],
+    },
+  },
+
+  'ofsted-register-childminder': {
+    id: 'ofsted-register-childminder', name: 'Register as a childminder with Ofsted', dept: 'Ofsted', deptKey: 'other',
+    deadline: null,
+    desc: 'Mandatory Ofsted registration for anyone who wants to childmind in England for payment. Takes up to 12 weeks. Requires DBS check, first aid training and a health declaration.',
+    govuk_url: 'https://www.gov.uk/become-childminder-nanny/register-childminder',
+    serviceType: 'registration',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Required for anyone aged 18 or over who wants to care for children under 8 in a domestic setting for more than 2 hours per day in exchange for payment. Registration takes up to 12 weeks and involves a suitability inspection by Ofsted.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must be at least 18 years old.' },
+        { factor: 'geography', description: 'England only. Scotland, Wales and Northern Ireland have separate requirements.' },
+      ],
+      keyQuestions: [
+        'Are you planning to charge for childminding services in your home?',
+        'Have you completed an enhanced DBS check with barred list?',
+        'Do you have a paediatric first aid certificate?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      evidenceRequired: [
+        'Enhanced DBS certificate with children\'s barred list check',
+        'Paediatric first aid certificate',
+        'Health declaration',
+        'Two references',
+        'Certificate of good character if lived abroad in past 5 years',
+      ],
+      ruleIn: ['Providing paid childcare in domestic setting', 'Aged 18+'],
+      ruleOut: ['Caring for own children only', 'Volunteering unpaid', 'Scotland, Wales or Northern Ireland'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/become-childminder-nanny/register-childminder',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm user intends to provide paid childcare in a domestic setting',
+        'Explain the registration process and typical 12-week timeline',
+        'Check whether user has or needs a DBS check and first aid certificate',
+        'Advise on option to register via Ofsted directly or through a childminder agency',
+        'Signpost to Ofsted\'s online registration portal',
+      ],
+    },
+  },
+
+  'ofsted-complain-school': {
+    id: 'ofsted-complain-school', name: 'Raise concerns about a school with Ofsted', dept: 'Ofsted', deptKey: 'other',
+    deadline: null,
+    desc: 'Report serious concerns about a school or college to Ofsted after exhausting the school\'s internal complaints procedure. Ofsted can bring forward an inspection if warranted.',
+    govuk_url: 'https://www.gov.uk/complain-ofsted',
+    serviceType: 'application',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to parents, staff, and members of the public with concerns about a school or further education provider in England. Ofsted will only consider concerns that reflect on the whole institution; individual pupil complaints must first be raised with the school directly.',
+      universal: true,
+      criteria: [
+        { factor: 'process', description: 'Must have first completed the school\'s own complaints procedure before escalating to Ofsted.' },
+      ],
+      keyQuestions: [
+        'Have you already raised the concern formally with the school?',
+        'Does the concern relate to the whole school (e.g. safeguarding, quality of education) rather than just your child?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Has raised concern with school first', 'Concern is about the institution as a whole'],
+      ruleOut: ['Complaint is about an individual teacher or personal matter only — use school\'s own procedure'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://contact.ofsted.gov.uk/online-complaints',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the user has raised the concern with the school first',
+        'Clarify whether the concern is about the whole institution (eligible) or an individual matter (refer back to school)',
+        'Guide user to the Ofsted online complaints form',
+        'Set expectations: Ofsted aims to review within 30 working days; a complaint does not automatically trigger an inspection',
+      ],
+    },
+  },
+
   'dfe-national-careers': {
     id: 'dfe-national-careers', name: 'National Careers Service', dept: 'DfE', deptKey: 'other',
     deadline: null,
@@ -14370,6 +14529,24 @@ export const EDGES: Edge[] = [
 
   // Student Childcare Grant
   { from: 'slc-student-finance',      to: 'slc-childcare-grant',            type: 'RELATED' },
+
+  // ── Ofsted edges ─────────────────────────────────────────────────────────
+
+  // Find inspection report — useful when choosing school or childcare
+  { from: 'la-school-place',               to: 'ofsted-find-inspection-report',      type: 'RELATED' },
+  { from: 'hmrc-free-childcare-15',        to: 'ofsted-find-inspection-report',      type: 'RELATED' },
+
+  // Check registered childcare — required to unlock childcare funding
+  { from: 'hmrc-tax-free-childcare',       to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
+  { from: 'hmrc-free-childcare-15',        to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
+  { from: 'hmrc-free-childcare-30',        to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
+  { from: 'la-free-childcare-2yr',         to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
+
+  // Register as childminder — requires DBS check
+  { from: 'other-dbs',                     to: 'ofsted-register-childminder',        type: 'REQUIRES' },
+
+  // Raise concerns about school — follows school place experience
+  { from: 'la-school-place',               to: 'ofsted-complain-school',             type: 'RELATED' },
 
   // ── Scotland edges ────────────────────────────────────────────────────────
 
@@ -14659,7 +14836,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
                  'la-business-rates','la-food-hygiene','other-dbs',
                  'hmrc-aml-registration','la-hmo-licence','la-street-trading-licence',
                  'ea-waste-carrier-registration',
-                 'ch-file-accounts','ch-confirmation-statement','hmrc-eori','ukri-find-grants'],
+                 'ch-file-accounts','ch-confirmation-statement','hmrc-eori','ukri-find-grants',
+                 'ofsted-register-childminder'],
   },
   {
     id: 'buying-home', icon: '⌂', name: 'Buying a Home',
@@ -14671,7 +14849,8 @@ export const LIFE_EVENTS: LifeEvent[] = [
     id: 'moving', icon: '→', name: 'Moving House',
     desc: 'Address updates across all government systems',
     entryNodes: ['la-electoral-roll','la-council-tax','dvla-update-address',
-                 'hmrc-update-records','nhs-gp-register','dvla-change-address-v5c'],
+                 'hmrc-update-records','nhs-gp-register','dvla-change-address-v5c',
+                 'la-school-place'],
   },
   {
     id: 'job-loss', icon: '⊘', name: 'Losing Your Job',
@@ -14704,7 +14883,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'school', icon: '◌', name: 'Child Starting School',
     desc: 'School places, meals, SEND and funding',
-    entryNodes: ['la-school-place','la-send-ehc','hmrc-free-childcare-30'],
+    entryNodes: ['la-school-place','la-send-ehc','hmrc-free-childcare-30','ofsted-find-inspection-report'],
   },
   {
     id: 'immigration', icon: '✦', name: 'Arriving in the UK',
