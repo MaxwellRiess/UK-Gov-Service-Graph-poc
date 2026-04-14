@@ -14278,6 +14278,401 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
+  // ── New nodes (April 2026 gap-fill) ──────────────────────────────────────────
+
+  'hmcts-find-a-will': {
+    id: 'hmcts-find-a-will', name: 'Find a will', dept: 'HMCTS', deptKey: 'hmcts',
+    deadline: null,
+    desc: 'Search the probate registry to find a will or grant of probate for someone who has died in England or Wales. Free to search; copies cost a small fee.',
+    govuk_url: 'https://www.gov.uk/search-will-registry',
+    serviceType: 'document',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Anyone can search the probate registry once a will has been through the probate process. Records are available from 1858 onwards. Wills do not appear until probate has been granted.',
+      universal: true,
+      criteria: [
+        { factor: 'bereavement', description: 'A person has died in England or Wales and their estate may have required probate.' },
+      ],
+      keyQuestions: [
+        'Do you know the full name and approximate date of death?',
+        'Was the estate large enough to require probate?',
+        'Are you the executor or a beneficiary?',
+      ],
+      means_tested: false,
+      nations: ['england', 'wales'],
+      ruleIn: ['Death in England or Wales', 'Estate likely to have required probate'],
+      ruleOut: ['Death in Scotland (sheriff court records)', 'Estate too small for probate'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://probatesearch.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search by full name and year of death',
+        'Explain that wills only appear after probate has been granted',
+        'Help order a copy of the will or grant of probate if found',
+        'Advise that a missing will may mean no will was made or probate was not required',
+      ],
+    },
+  },
+
+  'dvla-renew-licence': {
+    id: 'dvla-renew-licence', name: 'Renew driving licence', dept: 'DVLA', deptKey: 'dvla',
+    deadline: null,
+    desc: 'Renew a photocard driving licence when the photo expires (every 10 years) or after a name or address change. Separate from the mandatory age-70 medical renewal.',
+    govuk_url: 'https://www.gov.uk/renew-driving-licence',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Any UK driving licence holder whose photocard is expiring or who has changed their name or address. Photo renewal is required every 10 years. Not the same as the age-70 renewal, which involves a medical declaration and has a separate process.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Must hold a valid UK driving licence. Photo expiry renewal applies every 10 years for drivers under 70.' },
+      ],
+      keyQuestions: [
+        'Is the renewal for a photo expiry, name change, or address change?',
+        'Has the user recently turned 70? (If so, use the age-70 renewal process instead.)',
+        'Has their health changed in a way that might affect their licence?',
+      ],
+      means_tested: false,
+      ruleIn: ['Photo expiry date approaching', 'Name or address has changed since licence was issued'],
+      ruleOut: ['Aged 70 or over — use the age-70 medical renewal process'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/renew-driving-licence',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the reason for renewal (photo expiry, name change, address change)',
+        'Check whether the age-70 renewal applies instead',
+        'Guide through the online DVLA renewal service',
+        'Note the £14 fee for photo renewal; name and address changes are free',
+      ],
+    },
+  },
+
+  'insolvency-sdrp': {
+    id: 'insolvency-sdrp', name: 'Statutory Debt Repayment Plan', dept: 'Insolvency Service', deptKey: 'other',
+    deadline: null,
+    desc: 'A formal repayment plan that freezes interest and charges while you repay debts in affordable instalments. A regulated debt adviser must apply on your behalf.',
+    govuk_url: 'https://www.gov.uk/statutory-debt-repayment-plan',
+    serviceType: 'application',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available in England, Scotland and Wales for people with problem debt who can make some repayments. A regulated debt adviser assesses eligibility and applies on the person\'s behalf. During the plan, creditors cannot take enforcement action or add interest.',
+      universal: false,
+      criteria: [
+        { factor: 'income', description: 'Must have sufficient income to make agreed repayments after essential living costs.' },
+        { factor: 'dependency', description: 'Must be assessed by a regulated debt adviser who confirms the plan is appropriate.' },
+      ],
+      keyQuestions: [
+        'Has the user spoken to a regulated debt adviser (e.g. StepChange, National Debtline, Citizens Advice)?',
+        'Can they make some repayment, however small?',
+        'Have they already tried Breathing Space?',
+      ],
+      exclusions: ['Cannot be in another formal insolvency procedure simultaneously', 'Not available in Northern Ireland'],
+      means_tested: true,
+      ruleIn: ['Has debts that cannot be paid as they fall due', 'Can make some repayment', 'Assessed by a debt adviser as suitable'],
+      ruleOut: ['No income to repay anything — DRO or bankruptcy may be more appropriate', 'Already in an insolvency procedure'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/statutory-debt-repayment-plan',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain how an SDRP differs from Breathing Space (Breathing Space is temporary protection; SDRP is a repayment plan)',
+        'Confirm that a regulated debt adviser must apply — the individual cannot apply directly',
+        'Signpost to free debt advice: StepChange (0800 138 1111), National Debtline (0808 808 4000), Citizens Advice',
+      ],
+    },
+  },
+
+  'ea-flood-warnings': {
+    id: 'ea-flood-warnings', name: 'Sign up for flood warnings', dept: 'Environment Agency', deptKey: 'ea',
+    deadline: null,
+    desc: 'Register to receive flood warnings by phone, text or email when flooding is expected near your property. Free 24/7 service from the Environment Agency for England.',
+    govuk_url: 'https://www.gov.uk/sign-up-for-flood-warnings',
+    serviceType: 'registration',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free for anyone with a property in or near a flood-risk area in England. Warnings are issued by the Environment Agency and cover river, coastal and groundwater flooding. You can register multiple properties and contact methods.',
+      universal: true,
+      criteria: [
+        { factor: 'geography', description: 'Property must be in England and in or near a flood-risk area.' },
+      ],
+      keyQuestions: [
+        'Has a flood risk check shown the property is at risk?',
+        'What contact method does the user prefer — phone, text or email?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Property in or near a flood-risk area in England'],
+      ruleOut: ['Property outside England — separate services in Wales, Scotland and NI'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/sign-up-for-flood-warnings',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm the property postcode and whether the flood risk check showed any risk',
+        'Guide through registration on the Flood Warning Information Service',
+        'Advise on setting multiple contact methods for redundancy',
+      ],
+    },
+    contactInfo: {
+      phone: { number: '0345 988 1188', label: 'Flood Warning Information Service (Floodline)', relay: '18001 then 0345 988 1188' },
+      hours: [{ days: ['mon','tue','wed','thu','fri','sat','sun'], open: '00:00', close: '23:59' }],
+      notes: '24/7 automated flood warning line. Staff available during flood events.',
+    },
+  },
+
+  'la-short-term-let': {
+    id: 'la-short-term-let', name: 'Register a short-term let', dept: 'Local Authority', deptKey: 'la',
+    deadline: null,
+    desc: 'Register a property as a short-term let with the relevant authority. Mandatory in Scotland under the licensing scheme; England is introducing a mandatory national registration scheme.',
+    govuk_url: 'https://www.gov.uk/short-term-letting',
+    serviceType: 'registration',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Required for anyone letting a residential property on a short-term basis (typically under 31 nights per booking). Scotland has a mandatory licensing scheme administered by councils. England is introducing a mandatory registration scheme under the Levelling-Up and Regeneration Act 2023.',
+      universal: false,
+      criteria: [
+        { factor: 'property', description: 'Must own or manage a residential property being let for short-term stays.' },
+      ],
+      keyQuestions: [
+        'Which nation is the property in?',
+        'How many nights per year is the property let?',
+        'Is the property the owner\'s main or secondary residence?',
+      ],
+      means_tested: false,
+      ruleIn: ['Letting a residential property for short-term stays', 'Using platforms such as Airbnb or Vrbo'],
+      ruleOut: ['Commercial hotel or B&B — different licensing route applies', 'Long-term tenancy of 31+ nights'],
+    },
+    agentInteraction: {
+      methods: ['online', 'in-person'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/short-term-letting',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Identify the nation to clarify which scheme applies',
+        'Check whether local planning permission is also required for change of use',
+        'Advise on tax obligations: income tax on rental income and potential council tax reclassification',
+        'Signpost to local council for Scotland licensing applications',
+      ],
+    },
+  },
+
+  'nhs-111-online': {
+    id: 'nhs-111-online', name: 'NHS 111 online', dept: 'NHS', deptKey: 'nhs',
+    deadline: null,
+    desc: 'Get urgent medical advice online or by phone when you need help fast but it is not a 999 emergency. 111 assesses your symptoms and directs you to the right service.',
+    govuk_url: 'https://111.nhs.uk',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Is this a life-threatening emergency? (If yes, call 999.)',
+        'What are the main symptoms and how long have they been present?',
+        'Is this for an adult or a child?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Urgent medical concern that is not immediately life-threatening'],
+      ruleOut: ['Life-threatening emergency — call 999 instead'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://111.nhs.uk',
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'First confirm this is not a 999 emergency',
+        'Direct to 111 online for a symptom checker, or phone 111 for spoken advice',
+        'For users who cannot speak on the phone, note that 111 has a BSL video relay and can accept texts via Relay UK',
+      ],
+    },
+    contactInfo: {
+      phone: { number: '111', label: 'NHS 111', relay: '18001 then 111' },
+      hours: [{ days: ['mon','tue','wed','thu','fri','sat','sun'], open: '00:00', close: '23:59' }],
+      notes: '24/7. For life-threatening emergencies, call 999.',
+    },
+  },
+
+  'ho-evw': {
+    id: 'ho-evw', name: 'Electronic Visa Waiver', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Apply for an Electronic Visa Waiver (EVW) to visit the UK if you are a national of Bahrain, Kuwait, Oman, Qatar, Saudi Arabia or the UAE. Replaces the need for a physical visa stamp.',
+    govuk_url: 'https://www.gov.uk/electronic-visa-waiver',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Available only to nationals of Bahrain, Kuwait, Oman, Qatar, Saudi Arabia or the UAE visiting the UK for tourism, business or transit for up to 6 months. Must be obtained before travel.',
+      universal: false,
+      criteria: [
+        { factor: 'citizenship', description: 'Must be a national of Bahrain, Kuwait, Oman, Qatar, Saudi Arabia or the UAE.' },
+        { factor: 'immigration', description: 'Visiting for permitted purposes (tourism, business, transit) not exceeding 6 months.' },
+      ],
+      keyQuestions: [
+        'What is the user\'s nationality?',
+        'What is the purpose and duration of the visit?',
+        'Does the user already have a valid UK visa? (If so, they do not need an EVW.)',
+      ],
+      means_tested: false,
+      ruleIn: ['National of Bahrain, Kuwait, Oman, Qatar, Saudi Arabia or UAE', 'Visiting UK for up to 6 months'],
+      ruleOut: ['Nationality not on the EVW list — apply for a Standard Visitor visa instead', 'Intending to work or study'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/electronic-visa-waiver',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm nationality is on the EVW list',
+        'Clarify purpose and length of visit',
+        'Guide through online EVW application — typically issued within 24 hours',
+        'Advise to apply at least 48 hours before travel',
+      ],
+    },
+  },
+
+  'opg-deputy-report': {
+    id: 'opg-deputy-report', name: 'Complete the deputy report', dept: 'OPG', deptKey: 'opg',
+    deadline: 'Annual',
+    desc: 'Court-appointed deputies must submit an annual report to the Office of the Public Guardian showing how they have managed the finances or welfare of a person who lacks mental capacity.',
+    govuk_url: 'https://www.gov.uk/complete-deputy-report',
+    serviceType: 'obligation',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Applies only to deputies appointed by the Court of Protection. Deputyship arises when a person loses mental capacity without an LPA in place and someone applies to the court to manage their affairs. Deputies must report annually to OPG on how they have used their powers.',
+      universal: false,
+      criteria: [
+        { factor: 'dependency', description: 'Must hold a deputyship order from the Court of Protection.' },
+        { factor: 'caring', description: 'Managing the finances or welfare of a person who lacks mental capacity.' },
+      ],
+      keyQuestions: [
+        'Has a Court of Protection deputyship order been issued?',
+        'Is this a property and financial affairs or personal welfare deputyship?',
+        'What period does this annual report cover?',
+      ],
+      means_tested: false,
+      ruleIn: ['Court of Protection deputyship order in place', 'Annual report is due'],
+      ruleOut: ['LPA in place — LPA attorneys do not submit annual reports to OPG', 'No court order'],
+    },
+    agentInteraction: {
+      methods: ['online', 'post'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/complete-deputy-report',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Confirm the user holds a court-appointed deputyship order',
+        'Clarify the reporting period and what financial records are needed',
+        'Advise on OPG\'s supervision level (general or minimal) and what each requires',
+        'Note that failure to submit can result in an OPG investigation',
+      ],
+    },
+  },
+
+  'ea-fishing-licence': {
+    id: 'ea-fishing-licence', name: 'Get a rod fishing licence', dept: 'Environment Agency', deptKey: 'ea',
+    deadline: null,
+    desc: 'Buy a rod fishing licence to fish in freshwater in England. Required for anyone aged 13 or over. Available for 1 day, 8 days or 12 months. Free for those aged 65 and over.',
+    govuk_url: 'https://www.gov.uk/fishing-licences/buy-a-fishing-licence',
+    serviceType: 'document',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Required by law for anyone aged 13 or over fishing with a rod and line in rivers, streams, canals and some stillwaters in England. Fishing without a licence is a criminal offence. Over-65s and those with certain disabilities are eligible for a free licence.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Required from age 13. Under-13s do not need a licence. Over-65s get a free licence.' },
+        { factor: 'geography', description: 'Applies to freshwater fishing in England. Scotland, Wales and NI have separate arrangements.' },
+      ],
+      keyQuestions: [
+        'How old is the angler?',
+        'What type of fishing — trout and coarse, or salmon and sea trout?',
+        'Is this for 1 day, 8 days or 12 months?',
+      ],
+      means_tested: false,
+      nations: ['england'],
+      ruleIn: ['Aged 13 or over', 'Freshwater fishing in England'],
+      ruleOut: ['Under 13 — no licence required', 'Sea fishing — no licence required', 'Outside England'],
+    },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/fishing-licences/buy-a-fishing-licence',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Check whether the angler is aged 65+ or eligible for a free concession licence',
+        'Confirm fishing type (trout and coarse, or salmon and sea trout) and duration needed',
+        'Guide through online purchase — licence delivered instantly by text or email',
+      ],
+    },
+  },
+
+  'ho-evisa-error': {
+    id: 'ho-evisa-error', name: 'Report an error with your eVisa', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'Report incorrect information on your eVisa — such as a wrong name, passport number, conditions of stay or expiry date — to UKVI for correction.',
+    govuk_url: 'https://www.gov.uk/report-error-evisa',
+    serviceType: 'application',
+    proactive: false,
+    gated: true,
+    eligibility: {
+      summary: 'Available to any eVisa holder who has found an error in their digital immigration status. Errors should be reported promptly as they can affect right-to-work and right-to-rent checks.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'Must hold an eVisa with an identified error.' },
+        { factor: 'dependency', description: 'Must have created a UKVI account and accessed the eVisa first.' },
+      ],
+      keyQuestions: [
+        'What specific information is incorrect?',
+        'Does the error affect right to work or right to rent?',
+        'Has the user already accessed their UKVI account and confirmed the error?',
+      ],
+      means_tested: false,
+      ruleIn: ['Holds an eVisa with incorrect information'],
+      ruleOut: ['No eVisa — a different immigration route applies'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/report-error-evisa',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Help the user identify and document the specific error',
+        'Advise that name corrections may require documentary evidence (passport, birth certificate)',
+        'Guide through the eVisa error reporting form',
+        'Note that UKVI aims to resolve errors within 8 weeks',
+      ],
+    },
+  },
+
   'dfe-national-careers': {
     id: 'dfe-national-careers', name: 'National Careers Service', dept: 'DfE', deptKey: 'other',
     deadline: null,
@@ -14790,6 +15185,46 @@ export const EDGES: Edge[] = [
   // Clean Air Zone charges
   { from: 'dvla-vehicle-tax',           to: 'jaqu-clean-air-zone',            type: 'RELATED' },
   { from: 'dvla-sorn',                  to: 'jaqu-clean-air-zone',            type: 'RELATED' },
+
+  // ── April 2026 gap-fill edges ─────────────────────────────────────────────
+
+  // Find a will (bereavement)
+  { from: 'gro-register-death',         to: 'hmcts-find-a-will',              type: 'RELATED' },
+  { from: 'hmcts-find-a-will',          to: 'hmcts-probate',                  type: 'RELATED' },
+
+  // Driving licence renewal (general)
+  { from: 'dvla-name-change',           to: 'dvla-renew-licence',             type: 'REQUIRES' },
+  { from: 'dvla-update-address',        to: 'dvla-renew-licence',             type: 'RELATED' },
+  { from: 'gro-marriage-cert',          to: 'dvla-renew-licence',             type: 'RELATED' },
+
+  // Statutory Debt Repayment Plan (job loss / debt)
+  { from: 'insolvency-breathing-space', to: 'insolvency-sdrp',                type: 'RELATED' },
+  { from: 'insolvency-dro',             to: 'insolvency-sdrp',                type: 'RELATED' },
+  { from: 'dwp-universal-credit',       to: 'insolvency-sdrp',                type: 'RELATED' },
+
+  // Flood warnings (buying / moving house)
+  { from: 'ea-flood-risk',              to: 'ea-flood-warnings',              type: 'RELATED' },
+
+  // Short-term let registration (business / moving)
+  { from: 'ch-register-ltd',            to: 'la-short-term-let',              type: 'RELATED' },
+  { from: 'hmrc-register-sole-trader',  to: 'la-short-term-let',              type: 'RELATED' },
+
+  // NHS 111 online (health / disability)
+  { from: 'nhs-111-online',             to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'nhs-111-online',             to: 'nhs-care-assessment',            type: 'RELATED' },
+
+  // Electronic Visa Waiver (immigration)
+  { from: 'ho-evw',                     to: 'ho-brp',                         type: 'RELATED' },
+
+  // OPG deputy report (bereavement / retirement without LPA)
+  { from: 'gro-register-death',         to: 'opg-deputy-report',              type: 'RELATED' },
+  { from: 'opg-lpa',                    to: 'opg-deputy-report',              type: 'RELATED' },
+
+  // Fishing licence (moving to new area with nearby water)
+  { from: 'ea-flood-risk',              to: 'ea-fishing-licence',             type: 'RELATED' },
+
+  // eVisa error report
+  { from: 'ho-evisa',                   to: 'ho-evisa-error',                 type: 'RELATED' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -14814,7 +15249,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
     desc: 'Registration, probate, bereavement payments and funeral support',
     entryNodes: ['gro-register-death','dwp-bereavement-support','opg-lpa-activation',
                  'dwp-funeral-payment','hmrc-statutory-parental-bereavement',
-                 'sss-funeral-support-payment','gro-certificates'],
+                 'sss-funeral-support-payment','gro-certificates','hmcts-find-a-will'],
   },
   {
     id: 'marriage', icon: '∞', name: 'Getting Married',
@@ -14866,7 +15301,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
     entryNodes: ['dwp-pip','dwp-attendance-allowance','dvla-notify-condition',
                  'dvla-renew-at-70','la-disabled-facilities-grant','nhs-care-assessment',
                  'dwp-dla-child','sss-adult-disability-payment',
-                 'sss-child-disability-payment'],
+                 'sss-child-disability-payment','nhs-111-online'],
   },
   {
     id: 'carer', icon: '⊕', name: 'Becoming a Carer',
@@ -14889,7 +15324,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
     id: 'immigration', icon: '✦', name: 'Arriving in the UK',
     desc: 'Visas, BRP, NI number and NHS access',
     entryNodes: ['ho-visa', 'ho-eu-settled-status',
-                 'ho-skilled-worker-visa','ho-student-visa','ho-evisa'],
+                 'ho-skilled-worker-visa','ho-student-visa','ho-evisa','ho-evw'],
   },
   {
     id: 'driving', icon: '◉', name: 'Learning to Drive',
