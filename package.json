@@ -6,7 +6,8 @@
   "scripts": {
     "build": "tsx scripts/build-index.ts",
     "mcp": "tsx src/graph-server.ts",
-    "build:lambda": "esbuild ./src/lambda-handler.ts --bundle --platform=node --target=node20 --outfile=dist/lambda-handler.js && esbuild ./src/graph-server.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/graph-server.mjs",    "package": "npm run build:lambda && zip -r function.zip dist/"
+    "build:lambda": "esbuild ./src/lambda-handler.ts --bundle --platform=node --target=node20 --outfile=dist/lambda-handler.js && esbuild ./src/graph-server.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/graph-server.mjs",
+    "package": "npm run build:lambda && zip -r function.zip dist/"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.95.2",
@@ -15,6 +16,7 @@
     "zod": "^3.23.0"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.162",
     "@types/node": "^22.0.0",
     "esbuild": "^0.28.0",
     "tsx": "^4.19.0",

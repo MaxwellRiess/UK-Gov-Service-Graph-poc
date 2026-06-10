@@ -4,9 +4,11 @@ import {
   StdioServerAdapterRequestHandler,
 } from "@aws/run-mcp-servers-with-aws-lambda";
 
+import path from "path";
+
 const serverParams = {
   command: "node",
-  args: ["dist/graph-server.mjs"],
+  args: [path.join(process.env.LAMBDA_TASK_ROOT ?? ".", "dist/graph-server.mjs")],
 };
 
 const requestHandler = new BedrockAgentCoreGatewayTargetHandler(
