@@ -5,15 +5,20 @@
   "type": "module",
   "scripts": {
     "build": "tsx scripts/build-index.ts",
-    "mcp": "tsx src/graph-server.ts"
+    "mcp": "tsx src/graph-server.ts",
+    "build:lambda": "esbuild ./src/lambda-handler.ts --bundle --platform=node --target=node20 --outfile=dist/lambda-handler.js && esbuild ./src/graph-server.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/graph-server.mjs",
+    "package": "npm run build:lambda && zip -r function.zip dist/"
   },
   "dependencies": {
-    "@anthropic-ai/sdk": "^0.80.0",
+    "@anthropic-ai/sdk": "^0.95.2",
+    "@aws/run-mcp-servers-with-aws-lambda": "^0.5.19",
     "@modelcontextprotocol/sdk": "^1.7.0",
     "zod": "^3.23.0"
   },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.162",
     "@types/node": "^22.0.0",
+    "esbuild": "^0.28.0",
     "tsx": "^4.19.0",
     "typescript": "^5.7.0"
   }
