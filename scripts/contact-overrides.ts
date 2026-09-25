@@ -291,13 +291,6 @@ export const CONTACT_OVERRIDES: Record<string, ContactInfo> = {
     ],
   },
 
-  'nhs-free-prescriptions-pregnancy': {
-    phone: { number: '+44 300 330 1341', label: 'NHS BSA (MatEx certificate queries)' },
-    hours: [
-      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
-      { days: ['sat'], open: '09:00', close: '15:00' },
-    ],
-  },
 
   'nhs-maternity-exemption': {
     phone: { number: '+44 300 330 1341', label: 'NHS BSA (maternity exemption)' },

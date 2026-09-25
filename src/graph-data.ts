@@ -1309,6 +1309,7 @@ export const NODES: Record<string, ServiceNode> = {
       criteria: [
         { factor: 'employment', description: 'Both parents (or single parent) must be in work earning at least the National Minimum Wage equivalent of 16 hours/week, and neither earns over £100,000.' },
         { factor: 'age', description: 'Child is eligible until the September after they turn 11 (16 if disabled).' },
+        { factor: 'dependency', description: 'Provider must be approved childcare and signed up to Tax-Free Childcare. Check registration with Ofsted or a registered childminder agency in England, Care Inspectorate Wales, the Care Inspectorate in Scotland, or the local early years team in Northern Ireland.' },
       ],
       keyQuestions: [
         'Are both parents in work earning above the minimum threshold?',
@@ -1870,47 +1871,39 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-self-assessment': {
     id: 'hmrc-self-assessment', name: 'Register for Self Assessment', dept: 'HMRC', deptKey: 'hmrc',
     deadline: '5 Oct (yr 2)',
-    desc: 'Required for sole traders and company directors. Register by 5 October in second year of trading.',
+    desc: 'Required if you need to send a tax return and have not before, for example as a sole trader earning over £1,000. Register by 5 October after the end of the tax year.',
     govuk_url: 'https://www.gov.uk/register-for-self-assessment',
     serviceType: 'obligation',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Required for the self-employed, company directors, landlords, and those with income not taxed at source. Register by 5 October in the second year of trading.',
+      summary: 'You must send a tax return if you were a sole trader earning more than £1,000, a business partner, had Capital Gains Tax to pay, or had to pay the High Income Child Benefit Charge and do not pay it through PAYE. You may also need to for untaxed income such as rent, tips, savings interest, dividends or foreign income. Register by 5 October after the end of the tax year if you have not sent a return before.',
       universal: false,
       criteria: [
-        { factor: 'employment', description: 'Self-employed, company director, or earning income not taxed via PAYE (rental, savings interest, dividends, foreign income).' },
-        { factor: 'income', description: 'Total income over £100,000, or Child Benefit claimant where income exceeds £60,000.' },
+        { factor: 'employment', description: 'Sole trader earning more than £1,000 before expenses, or a partner in a business partnership.' },
+        { factor: 'income', description: 'Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.' },
       ],
       keyQuestions: [
-        'Are you self-employed or a company director?',
+        'Are you a sole trader earning more than £1,000, or a partner in a business partnership?',
         'Do you receive rental income or other income not taxed at source?',
-        'Is your total income over £100,000?',
+        'Do you have Capital Gains Tax to pay, or the High Income Child Benefit Charge to pay outside PAYE?',
       ],
-      autoQualifiers: ['Started trading as self-employed', 'Registered as a limited company director'],
+      autoQualifiers: ['Started trading as a sole trader and earning more than £1,000'],
       means_tested: false,
       evidenceRequired: ['National Insurance number', 'UTR (Unique Taxpayer Reference) issued by HMRC after registration'],
-      ruleIn: ['Self-employed, company director, or income over £100k', 'Rental or untaxed income at source'],
+      ruleIn: ['Sole trader earning over £1,000 or business partner', 'Rental or other untaxed income', 'Capital Gains Tax or High Income Child Benefit Charge to pay'],
       ruleOut: [],      rules: [
         {
           "type": "any",
-          "label": "Self-employed, company director, or income over £100k",
+          "label": "Self-employed (sole trader or partner)",
           "rules": [
             {
               "type": "enum",
               "field": "employment_status",
               "oneOf": [
-                "self-employed",
-                "director"
+                "self-employed"
               ],
-              "label": "Self-employed or company director"
-            },
-            {
-              "type": "comparison",
-              "field": "annual_income",
-              "operator": ">",
-              "value": 100000,
-              "label": "Annual income exceeds £100,000"
+              "label": "Self-employed"
             }
           ]
         }
@@ -1926,7 +1919,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to Self Assessment registration',
-        'Explain who needs to register (self-employed, directors, landlords, income over £100k)',
+        'Explain who needs to register (sole traders over £1,000, partners, landlords and others with untaxed income, Capital Gains Tax, or the Child Benefit charge outside PAYE)',
         'Advise on the 5 October registration deadline',
         'Guide through Government Gateway sign-in process',
       ],
@@ -5012,78 +5005,6 @@ export const NODES: Record<string, ServiceNode> = {
       notes: 'Closed on public holidays. Pension Credit claimants and pregnant under-18s apply by phone or email, not online.',
     },
     nations: ['england', 'wales', 'northern-ireland'],
-  },
-  'nhs-free-prescriptions-pregnancy': {
-    id: 'nhs-free-prescriptions-pregnancy', name: 'Free prescriptions & dental (pregnancy)', dept: 'NHS', deptKey: 'nhs',
-    deadline: null,
-    desc: 'Free NHS prescriptions in England need a valid maternity exemption certificate. Pregnancy alone is not enough, and a penalty charge can apply without one. Ask the midwife, GP or health visitor to apply. Valid until 12 months after the due date or birth.',
-    govuk_url: 'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates',
-    serviceType: 'entitlement',
-    proactive: true,
-    gated: false,
-    eligibility: {
-      summary: 'Free NHS prescriptions and dental treatment while pregnant and for 12 months after the birth. In England the maternity exemption certificate is what gives the entitlement to free prescriptions, so it must be applied for (via midwife, GP or health visitor). It is backdated one month and expires 12 months after the due date or birth.',
-      universal: true,
-      criteria: [
-        { factor: 'family', description: 'Currently pregnant or have given birth within the last 12 months.' },
-      ],
-      keyQuestions: [
-        'Are you currently pregnant?',
-        'Have you had a baby in the last 12 months?',
-        'Have you applied for your Maternity Exemption Certificate?',
-      ],
-      autoQualifiers: [],
-      means_tested: false,
-      evidenceRequired: ['Application completed by midwife, doctor or health visitor (digital service, or paper form)'],
-      ruleIn: ['Currently pregnant or given birth within 12 months'],
-      ruleOut: [],      rules: [
-        {
-          "type": "any",
-          "label": "Currently pregnant or gave birth within the last 12 months",
-          "rules": [
-            {
-              "type": "boolean",
-              "field": "is_pregnant",
-              "expected": true,
-              "label": "Currently pregnant"
-            },
-            {
-              "type": "boolean",
-              "field": "custom_facts.gave_birth_last_12_months",
-              "expected": true,
-              "label": "Gave birth in the last 12 months"
-            }
-          ]
-        }
-      ],
-
-    },
-    agentInteraction: {
-      methods: ['in-person'],
-      apiAvailable: false,
-      authRequired: 'none',
-      agentCanComplete: 'inform-only',
-      agentSteps: [
-        'Explain that free prescriptions depend on holding a valid maternity exemption certificate, not just on being pregnant, and that a penalty charge can apply without one',
-        'Advise that the certificate expires 12 months after the due date or birth, and can be extended if the baby is born late',
-        'Remind user to ask their midwife, GP or health visitor to apply for them',
-      ],
-    },
-      contactInfo: {
-      phone: { number: '+44 300 330 1341', relay: '18001 then 0300 330 1341', label: 'NHSBSA medical and maternity exemption certificates' },
-      hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
-        },
-        {
-          days: ['sat'],
-          open: '09:00',
-          close: '15:00',
-        },
-      ],
-    },
   },
   'nhs-free-prescriptions': {
     id: 'nhs-free-prescriptions', name: 'Free prescriptions (disability)', dept: 'NHS', deptKey: 'nhs',
@@ -8252,7 +8173,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'other-disabled-railcard', name: 'Disabled Persons Railcard', dept: 'Rail Delivery Group', deptKey: 'other',
     deadline: null,
     desc: 'One third off most rail fares. Various disability benefits qualify automatically.',
-    govuk_url: 'https://www.disabledpersons-railcard.co.uk/',
+    govuk_url: 'https://www.railcard.co.uk/disabled-persons-railcard/',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
@@ -8314,7 +8235,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.disabledpersons-railcard.co.uk/',
+      onlineFormUrl: 'https://www.railcard.co.uk/disabled-persons-railcard/',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -8328,17 +8249,15 @@ export const NODES: Record<string, ServiceNode> = {
       taxYear: '2026-27',
       frequency: 'annual',
       rates: { card_cost: 20, three_year_card_cost: 54, saving_percent: 33 },
-      source: 'https://www.disabledpersons-railcard.co.uk/',
+      source: 'https://www.railcard.co.uk/disabled-persons-railcard/',
     },
       contactInfo: {
-      phone: { number: '+44 345 605 0525', label: 'Disabled Persons Railcard' },
+      phone: { number: '+44 345 3000 250', label: 'Railcard customer support' },
       hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '09:00',
-          close: '17:00',
-        },
+        { days: ['mon','tue','wed','thu','fri','sat','sun'], open: '07:00', close: '22:00' },
       ],
+      contactFormUrl: 'https://www.railcard.co.uk/help/contact/',
+      notes: 'Open every day except Christmas Day.',
     },
   },
   'other-employers-liability': {
@@ -10840,9 +10759,9 @@ export const NODES: Record<string, ServiceNode> = {
 
   // NHS — Maternity Exemption Certificate ──────────────────────────────────
   'nhs-maternity-exemption': {
-    id: 'nhs-maternity-exemption', name: 'Maternity Exemption Certificate', dept: 'NHS', deptKey: 'nhs',
+    id: 'nhs-maternity-exemption', name: 'Maternity exemption certificate (free prescriptions and dental)', dept: 'NHS', deptKey: 'nhs',
     deadline: null,
-    desc: 'Free NHS prescriptions and dental treatment during pregnancy and for 12 months after the baby is born.',
+    desc: 'Free NHS prescriptions during pregnancy and for 12 months after the birth need a valid maternity exemption certificate. Pregnancy alone is not enough, and a penalty charge can apply without one. Ask the midwife, GP or health visitor to apply. The certificate also proves entitlement to free NHS dental treatment.',
     govuk_url: 'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates',
     serviceType: 'entitlement',
     proactive: true,
@@ -10858,7 +10777,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you had a baby in the last 12 months?',
         'Have you already obtained your MatEx certificate from your midwife or GP?',
       ],
-      autoQualifiers: ['Currently pregnant', 'Baby born within last 12 months'],
+      autoQualifiers: [],
       means_tested: false,
       evidenceRequired: ['Signed maternity exemption form from midwife or GP'],
       ruleIn: ['Pregnant', 'Baby under 12 months'],
@@ -14201,13 +14120,13 @@ export const NODES: Record<string, ServiceNode> = {
   'ofsted-check-registered-childcare': {
     id: 'ofsted-check-registered-childcare', name: 'Check if childcare is Ofsted-registered', dept: 'Ofsted', deptKey: 'other',
     deadline: null,
-    desc: 'Verify that a childcare provider is on the Ofsted Early Years or Childcare Register — required before using Tax-Free Childcare or free hours entitlement.',
+    desc: 'In England, verify that a childcare provider is on the Ofsted Early Years or Childcare Register before using free childcare hours or Tax-Free Childcare. Wales, Scotland and Northern Ireland have their own registers.',
     govuk_url: 'https://reports.ofsted.gov.uk/childcare',
     serviceType: 'information',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Open to anyone. Parents must confirm their provider is on the Ofsted Childcare Register or Early Years Register before they can use their Tax-Free Childcare account or free childcare entitlement with that provider.',
+      summary: 'Open to anyone. In England, childcare paid for with Tax-Free Childcare or free childcare hours must be approved childcare; free hours for working parents also need a provider on the Early Years Register. Elsewhere, check with Care Inspectorate Wales, the Care Inspectorate in Scotland, or the local early years team in Northern Ireland.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -14226,7 +14145,7 @@ export const NODES: Record<string, ServiceNode> = {
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain that Tax-Free Childcare and free hours (15/30) can only be used with Ofsted-registered providers',
+        'Explain that in England free hours and Tax-Free Childcare can only be used with approved (registered) providers, and point users elsewhere in the UK to their own nation\'s register',
         'Help user search for the provider on the Ofsted childcare register',
         'Advise that nannies must join the Voluntary Childcare Register to be eligible',
       ],
@@ -14921,7 +14840,6 @@ export const EDGES: Edge[] = [
   { from: 'hmcts-court-fee-remission', to: 'hmcts-benefit-tribunal',        type: 'RELATED' },
 
   // Maternity Exemption
-  { from: 'nhs-free-prescriptions-pregnancy', to: 'nhs-maternity-exemption', type: 'RELATED' },
 
   // Free childcare 2yr olds
   { from: 'dwp-universal-credit',     to: 'la-free-childcare-2yr',          type: 'RELATED' },
@@ -14936,7 +14854,7 @@ export const EDGES: Edge[] = [
   { from: 'hmrc-free-childcare-15',        to: 'ofsted-find-inspection-report',      type: 'RELATED' },
 
   // Check registered childcare — required to unlock childcare funding
-  { from: 'hmrc-tax-free-childcare',       to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
+  { from: 'hmrc-tax-free-childcare',       to: 'ofsted-check-registered-childcare',  type: 'RELATED' },   // UK-wide scheme; Ofsted covers England only
   { from: 'hmrc-free-childcare-15',        to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
   { from: 'hmrc-free-childcare-30',        to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
   { from: 'la-free-childcare-2yr',         to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
@@ -15233,7 +15151,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'baby', icon: '◦', name: 'Having a Baby',
     desc: 'Birth registration, parental leave, childcare and maternity support',
-    entryNodes: ['gro-register-birth','nhs-healthy-start','nhs-free-prescriptions-pregnancy',
+    entryNodes: ['gro-register-birth','nhs-healthy-start',
                  'hmrc-smp','dwp-maternity-allowance','hmrc-spp','dwp-sure-start-grant',
                  'nhs-maternity-exemption','la-free-childcare-2yr',
                  'sss-best-start-grant','sss-best-start-foods',
