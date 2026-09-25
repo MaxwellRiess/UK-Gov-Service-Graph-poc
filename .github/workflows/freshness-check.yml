@@ -17,42 +17,56 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - run: npm ci
 
+      # stdout carries the JSON report; stderr carries progress lines and must
+      # stay out of report.json or JSON.parse chokes on the trailing summary.
       - name: Run freshness check
-        run: npx tsx scripts/check-freshness.ts --update > report.json 2>&1 || true
+        run: npx tsx scripts/check-freshness.ts --update > report.json
 
       - name: Create issues for changed pages
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const raw = fs.readFileSync('report.json', 'utf-8');
-
-            // The report JSON starts after any stderr lines — find the first {
-            const jsonStart = raw.indexOf('{');
-            if (jsonStart === -1) {
-              console.log('No JSON report found in output');
+            let report;
+            try {
+              report = JSON.parse(fs.readFileSync('report.json', 'utf-8'));
+            } catch (err) {
+              core.setFailed(`Could not parse report.json: ${err.message}`);
               return;
             }
-            const report = JSON.parse(raw.substring(jsonStart));
+
+            // Don't reopen an issue the maintainer already has in flight.
+            const existing = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              labels: 'freshness',
+            });
+            const openTitles = new Set(existing.map(i => i.title));
 
             if (!report.changed || report.changed.length === 0) {
               console.log('No changes detected');
-              return;
             }
 
-            for (const change of report.changed) {
+            for (const change of report.changed ?? []) {
               const serviceList = change.serviceIds
                 .map((id, i) => `- \`${id}\` — ${change.serviceNames[i]}`)
                 .join('\n');
 
+              const title = `[Freshness] Content changed: ${change.serviceIds[0]}`;
+              if (openTitles.has(title)) {
+                console.log(`Skipping ${change.url} — issue already open`);
+                continue;
+              }
+
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: `[Freshness] Content changed: ${change.serviceIds[0]}`,
+                title,
                 body: [
                   '## GOV.UK page content has changed',
                   '',
@@ -74,7 +88,8 @@ jobs:
               console.log(`Created issue for ${change.url}`);
             }
 
-            if (report.errors && report.errors.length > 0) {
+            const errorTitle = '[Freshness] Fetch errors on some URLs';
+            if (report.errors && report.errors.length > 0 && !openTitles.has(errorTitle)) {
               const errorList = report.errors
                 .map(e => `- ${e.url}: ${e.error} (nodes: ${e.serviceIds.join(', ')})`)
                 .join('\n');
@@ -82,7 +97,7 @@ jobs:
               await github.rest.issues.create({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                title: '[Freshness] Fetch errors on some URLs',
+                title: errorTitle,
                 body: [
                   '## Some URLs could not be fetched',
                   '',
@@ -94,10 +109,19 @@ jobs:
               });
             }
 
+      # Runs even if issue creation failed, so a transient API error doesn't
+      # discard a whole crawl's worth of hashes and re-flag everything next week.
       - name: Commit updated hashes
+        if: always()
         run: |
+          if [ ! -f .freshness/hashes.json ]; then
+            echo "No hash file produced — nothing to commit"
+            exit 0
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .freshness/hashes.json
-          git diff --staged --quiet || git commit -m "chore: update freshness hashes [skip ci]"
+          git diff --staged --quiet && echo "No hash changes" && exit 0
+          git commit -m "chore: update freshness hashes [skip ci]"
+          git pull --rebase --autostash
           git push

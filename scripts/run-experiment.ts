@@ -118,7 +118,6 @@ const ALIASES: Record<string, string[]> = {
   'dwp-sr1-form':                   ['SR1', 'special rules', 'terminal illness form', 'fast-track.*benefit', 'special rules.*terminally'],
   'nhs-continuing-healthcare':      ['NHS continuing healthcare', 'CHC', 'continuing care', 'fully funded care'],
   'opg-lpa':                        ['lasting power of attorney', 'LPA', 'power of attorney'],
-  'dwp-pip':                        ['personal independence payment', 'PIP'],
 
   // S9 — Skilled Worker visa arrival
   'ho-skilled-worker-visa':         ['skilled worker visa', 'work visa', 'tier 2', 'certificate of sponsorship', 'CoS'],
@@ -1298,7 +1297,7 @@ async function main() {
       avgEssentialRecall:    avg(r.treatment.scores.map(s => s.essentialRecall)),
       avgConditionalRecall:  avg(r.treatment.scores.map(s => s.conditionalRecall)),
       avgProactiveRecall:    avg(r.treatment.scores.map(s => s.proactiveRecall)),
-      avgFalsePositiveRate:  avg(r.treatment.scores.map(s => s.falsePositiveRate)),
+      avgOutOfScopeRate:     avg(r.treatment.scores.map(s => s.outOfScopeRate)),
       avgOrderingAccuracy:   avg(r.treatment.scores.filter(s => s.orderingPairsTotal > 0).map(s => s.orderingAccuracy)),
       judgeCompleteness:     avg(r.treatment.judgeScores.map(j => j.completeness)),
       judgeAccuracy:         avg(r.treatment.judgeScores.map(j => j.accuracy)),
