@@ -3776,7 +3776,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Contributory benefit for jobseekers based on NI record. Paid for up to 6 months alongside Universal Credit. Requires 2 full tax years of Class 1 NI contributions.',
+      summary: 'Contributory benefit for jobseekers based on NI record. Paid for up to 6 months alongside Universal Credit. Usually requires Class 1 National Insurance contributions for the previous 2 tax years (NI credits can count for one of them). Paid for up to 182 days.',
       universal: false,
       criteria: [
         { factor: 'ni_record', description: 'Must have paid Class 1 NI contributions in both of the last two complete tax years before the year of claim.' },
@@ -3838,24 +3838,23 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { under_25: 72.90, over_25: 92.05 },
+      rates: { under_25: 75.65, over_25: 95.55 },
       source: 'https://www.gov.uk/jobseekers-allowance',
     },
       contactInfo: {
       phone: {
-        number: '+44 800 169 0140',
-        textphone: '+44 800 169 0207',
-        relay: '18001 then 0800 169 0140',
-        welsh: '+44 800 169 0190',
-        label: 'Jobcentre Plus',
+        number: '+44 800 169 0310',
+        relay: '18001 then 0800 169 0310',
+        welsh: '+44 800 328 1744',
+        label: 'New Style JSA helpline',
       },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
           open: '08:00',
-          close: '18:00',
+          close: '17:00',
         },
       ],
     },
@@ -5298,7 +5297,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { fee: 34 },
       source: 'https://www.gov.uk/apply-first-provisional-driving-licence',
@@ -5421,7 +5420,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { fee_weekday: 62, fee_weekend: 75 },
       source: 'https://www.gov.uk/book-driving-test',
@@ -5430,34 +5429,26 @@ export const NODES: Record<string, ServiceNode> = {
 
   'dvla-update-address': {
     id: 'dvla-update-address', name: 'Update driving licence address', dept: 'DVLA', deptKey: 'dvla',
-    deadline: '3 months',
-    desc: 'Legal requirement to update within 3 months of moving. Can be done online.',
+    deadline: null,
+    desc: 'Tell DVLA when you move: it is free online, and you can be fined up to £1,000 if you do not. Northern Ireland has a different process.',
     govuk_url: 'https://www.gov.uk/change-address-driving-licence',
     serviceType: 'obligation',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'A legal requirement for all driving licence holders within 3 months of moving. Can be done quickly online for free. Failure to update is technically an offence.',
+      summary: 'Driving licence holders in Great Britain must tell DVLA when their address changes; you can be fined up to £1,000 if you do not. Changing the address is free online. Changing the photo at the same time costs £14 online or £17 by post.',
       universal: true,
       criteria: [
         { factor: 'residency', description: 'Holds a GB driving licence and has moved to a new address.' },
       ],
       keyQuestions: [
         'Do you hold a GB driving licence?',
-        'Have you moved within the last 3 months?',
+        'Have you moved to a new address?',
       ],
       means_tested: false,
       evidenceRequired: ['Current driving licence', 'New address details', 'Government Gateway or DVLA online service'],
       ruleIn: ['Holds GB driving licence', 'Has moved to new address'],
-      ruleOut: [],      rules: [
-        {
-          "type": "deadline",
-          "triggerEvent": "move_date",
-          "triggerLabel": "Date of move to new address",
-          "maxDays": 90,
-          "label": "Must update address within 3 months of moving"
-        }
-      ],
+      ruleOut: [],      rules: [],
 
     },
     agentInteraction: {
@@ -5469,15 +5460,16 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Guide user through the online address change form step by step',
         'Confirm new address details and driving licence number',
-        'Explain the legal requirement to update within 3 months of moving',
+        'Explain that DVLA must be told of an address change, with a fine of up to £1,000 for not doing so',
         'Advise that the service is free and a new photocard will be posted',
       ],
     },
+    nations: ['england', 'scotland', 'wales'],
   },
   'dvla-name-change': {
     id: 'dvla-name-change', name: 'Update driving licence (name change)', dept: 'DVLA', deptKey: 'dvla',
     deadline: null,
-    desc: 'D1 form or online. Legal requirement — licence must reflect current name.',
+    desc: 'Apply by post on form D1 (or D2 for lorry and bus licences). Legal requirement — licence must reflect current name. Northern Ireland has a different process.',
     govuk_url: 'https://www.gov.uk/change-name-driving-licence',
     serviceType: 'obligation',
     proactive: true,
@@ -5520,6 +5512,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise on expected processing time for the new photocard',
       ],
     },
+    nations: ['england', 'scotland', 'wales'],
   },
   'dvla-cancel-licence': {
     id: 'dvla-cancel-licence', name: 'Cancel driving licence', dept: 'DVLA', deptKey: 'dvla',
@@ -5581,7 +5574,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'A legal duty to notify DVLA of any medical condition or treatment that may affect safe driving. Covers a wide range of physical and mental health conditions. Failure to notify can invalidate insurance.',
+      summary: 'A legal duty to notify DVLA of any medical condition or treatment that may affect safe driving. Covers a wide range of physical and mental health conditions. You can be fined up to £1,000 if you do not tell DVLA about a medical condition that affects your driving.',
       universal: false,
       criteria: [
         { factor: 'disability', description: 'Has a medical condition listed on DVLA\'s notifiable conditions list — including epilepsy, insulin-treated diabetes, visual impairment, sleep disorders, heart conditions, dementia, and many others.' },
@@ -5632,7 +5625,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Help user check if their condition is on the DVLA notifiable list',
         'Guide user through the online notification form',
         'Explain potential outcomes (licence may be restricted, revoked, or unaffected)',
-        'Advise that failure to notify can invalidate motor insurance',
+        'Advise that not telling DVLA can lead to a fine of up to £1,000',
       ],
     },
   },
@@ -5806,13 +5799,13 @@ export const NODES: Record<string, ServiceNode> = {
   'hmcts-probate': {
     id: 'hmcts-probate', name: 'Apply for probate', dept: 'HMCTS', deptKey: 'hmcts',
     deadline: null,
-    desc: 'Required if estate exceeds £10k with most financial institutions. Currently 16+ week wait.',
+    desc: 'Required if estate exceeds £10k with most financial institutions. £526 fee if the estate is over £5,000. Usually granted within 12 weeks.',
     govuk_url: 'https://www.gov.uk/applying-for-probate',
     serviceType: 'legal_process',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Grants legal authority to deal with the estate. Required by most banks, insurers and financial institutions for estates over £10,000. Currently experiencing 16+ week processing times. Costs £273 for estates over £5,000.',
+      summary: 'Grants legal authority to deal with the estate. Required by most banks, insurers and financial institutions for estates over £10,000. Usually granted within 12 weeks of applying. Costs £526 for estates over £5,000; no fee for estates of £5,000 or less. Extra copies cost £2 each.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Person has died leaving assets held in their sole name.' },
@@ -5864,27 +5857,27 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee_over_5000: 300 },
+      rates: { fee_over_5000: 526 },
       source: 'https://www.gov.uk/applying-for-probate/apply-for-probate',
     },
       contactInfo: {
       phone: {
         number: '+44 300 303 0648',
-        textphone: '+44 300 303 0648',
         relay: '18001 then 0300 303 0648',
-        label: 'Probate helpline',
+        label: 'Courts and Tribunals Service Centre (probate)',
       },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
+          open: '09:00',
+          close: '13:00',
         },
       ],
       webchatUrl: 'https://www.gov.uk/contact-probate-service',
     },
+    nations: ['england', 'wales'],
   },
   'hmcts-divorce': {
     id: 'hmcts-divorce', name: 'Divorce application (D8)', dept: 'HMCTS', deptKey: 'hmcts',
@@ -6207,6 +6200,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       notes: 'Translation available in over 170 languages.',
     },
+    nations: ['england', 'wales'],
   },
   'hmcts-benefit-tribunal': {
     id: 'hmcts-benefit-tribunal', name: 'Social Security & Child Support Tribunal', dept: 'HMCTS', deptKey: 'hmcts',
@@ -6985,7 +6979,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Business rates are charged on non-domestic properties used for business. Valuation Office Agency assesses rateable value; local authority bills and collects. Small Business Rate Relief eliminates the charge for properties under £12,000 rateable value.',
+      summary: 'Business rates are charged on non-domestic properties used for business. Valuation Office Agency assesses rateable value; local authority bills and collects. In England, small business rate relief removes the charge for a single property with a rateable value of £12,000 or less, tapering to nothing at £15,000.',
       universal: false,
       criteria: [
         { factor: 'property', description: 'Occupying or using a non-domestic property for business purposes.' },
@@ -7041,7 +7035,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'la-food-hygiene', name: 'Food hygiene registration', dept: 'Local Authority', deptKey: 'la',
     deadline: '28 days',
     desc: 'Any food business must register with local authority before trading.',
-    govuk_url: 'https://www.gov.uk/food-business-registration',
+    govuk_url: 'https://www.gov.uk/guidance/food-business-registration',
     serviceType: 'obligation',
     proactive: true,
     gated: false,
@@ -7079,7 +7073,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/food-business-registration',
+      onlineFormUrl: 'https://www.gov.uk/guidance/food-business-registration',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -7951,12 +7945,12 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'opg-lpa-activation', name: 'Notify OPG of death', dept: 'OPG', deptKey: 'opg',
     deadline: null,
     desc: 'Notify OPG when LPA holder dies. The registered LPA then ceases to have effect.',
-    govuk_url: 'https://www.gov.uk/power-of-attorney/end-a-poa',
+    govuk_url: 'https://www.gov.uk/power-of-attorney/changes-you-need-to-report',
     serviceType: 'obligation',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'When the donor of an LPA dies, their attorneys must notify the Office of the Public Guardian and return the LPA document. The LPA automatically ceases to have effect on death.',
+      summary: 'When the donor of an LPA dies, tell the Office of the Public Guardian. OPG cancels the LPA and destroys it unless asked to return it. If an attorney dies, send OPG the original LPA and all certified copies.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'A registered LPA exists and the donor has died.' },
@@ -8263,7 +8257,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: '1/3 off most rail fares for the holder and a companion. Qualifying conditions include receiving PIP, DLA, Attendance Allowance, being registered blind/partially sighted, or having epilepsy or severe mental or physical disability. Costs £20/year.',
+      summary: '1/3 off most rail fares for the holder and a companion. Qualifying conditions include receiving PIP, DLA, Attendance Allowance, being registered blind/partially sighted, or having epilepsy or severe mental or physical disability. Costs £20 for 1 year or £54 for 3 years.',
       universal: false,
       criteria: [
         { factor: 'disability', description: 'Receiving PIP (any component or rate), DLA, Attendance Allowance; or having epilepsy, registered severe visual/hearing impairment, or severe mental or physical disability requiring a companion.' },
@@ -8327,13 +8321,13 @@ export const NODES: Record<string, ServiceNode> = {
         'Check eligibility based on disability benefits or qualifying conditions',
         'Guide user through the online railcard application',
         'Calculate estimated savings (1/3 off most fares for holder and companion)',
-        'Explain the £20 annual cost and renewal process',
+        'Explain the cost (£20 for 1 year, £54 for 3 years) and renewal process',
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { card_cost: 20, saving_percent: 33 },
+      rates: { card_cost: 20, three_year_card_cost: 54, saving_percent: 33 },
       source: 'https://www.disabledpersons-railcard.co.uk/',
     },
       contactInfo: {
@@ -11699,7 +11693,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,065; Plan 2: £28,470; Plan 4: £32,745; Plan 5: £25,000; Postgraduate Loan: £21,000). Repayments are 9% of income above the threshold (6% for postgraduate loans), collected via PAYE or Self Assessment automatically.',
+      summary: 'Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,900; Plan 2: £29,385; Plan 4: £33,795; Plan 5: £25,000; Postgraduate Loan: £21,000). Repayments are 9% of income above the threshold (6% for postgraduate loans), collected via PAYE or Self Assessment automatically.',
       universal: false,
       criteria: [
         { factor: 'income', description: 'Annual income must exceed the threshold for the applicable repayment plan before any deductions are made.' },
@@ -12720,14 +12714,14 @@ export const NODES: Record<string, ServiceNode> = {
 
   'hmcts-jury-summons': {
     id: 'hmcts-jury-summons', name: 'Respond to a jury summons', dept: 'HMCTS', deptKey: 'hmcts',
-    deadline: 'As stated on summons',
+    deadline: '7 days',
     desc: 'Reply to a jury service summons — confirm attendance, defer or apply for excusal online.',
     govuk_url: 'https://www.gov.uk/jury-service',
     serviceType: 'obligation',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Anyone on the electoral register aged 18–75 can be called for jury service. Recipients of a jury summons must respond within the timeframe on the notice. You may be able to defer or be excused in certain circumstances.',
+      summary: 'People on the electoral register aged 18 to 75 who have lived in the UK for at least 5 years can be called for jury service in England and Wales. You must respond within 7 days of getting the summons, even if you are disqualified. You can ask to change the date or be excused. For the first 10 days you can claim up to £64.95 a day for loss of earnings or care costs (more than 4 hours at court) plus £5.71 for food and drink, and travel costs.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -12750,6 +12744,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Guide user to respond online using the jury summons number',
       ],
     },
+    nations: ['england', 'wales'],
   },
 
   'hmpps-prison-visits': {
@@ -13034,6 +13029,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise on whether to make a formal challenge to the VOA',
       ],
     },
+    nations: ['england', 'wales'],
   },
 
   'voa-business-rates': {
@@ -13559,7 +13555,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'All limited companies incorporated in the UK must file annual accounts at Companies House within 9 months of their financial year end. Small companies may file abridged or micro-entity accounts.',
+      summary: 'All limited companies incorporated in the UK must file annual accounts at Companies House within 9 months of their financial year end. Small companies may file abridged or micro-entity accounts. From 1 April 2028 accounts must be filed using commercial software.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must be an officer of a UK limited company (Ltd or PLC).' },
