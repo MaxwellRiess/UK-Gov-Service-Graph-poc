@@ -67,4 +67,4 @@ Values that came from somewhere get a provenance record in `data/provenance.json
 Two rules when adding data:
 
 - **Never write a value you cannot point at a source for.** If GOV.UK does not publish it, leave the field out. An absent field is honest; a plausible-looking invented one is not, and it will pass review precisely because it looks right. This is why `agentInteraction` is optional and why 24 nodes go without it.
-- **Rates carry a `taxYear`.** They go stale every 6 April, and `verify:tier2` detects this by finding the old amount no longer on the page.
+- **Rates carry a `taxYear`.** They go stale every 6 April, and `verify:tier2` detects this by finding the old amount no longer on the page. The weekly Provenance Check does the same for every stored quote and keeps one `[Provenance] Stale source quotes` issue open while any are stale, listing values that have vanished from their page first.
