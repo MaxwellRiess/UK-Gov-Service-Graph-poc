@@ -45,7 +45,7 @@
  *   missingBenefitId? — ID for MissingBenefit.com eligibility calculator API
  *
  * Services may also carry:
- *   financialData     — structured 2025-26 rates (weekly/monthly/annual amounts)
+ *   financialData     — structured rates, each stamped with its tax year (weekly/4-weekly/monthly/annual amounts)
  *   nations[]         — devolved services restricted to specific UK nations
  *
  * ─── SUPPORT & CONTACT LAYER ────────────────────────────────────────────
@@ -146,7 +146,7 @@ Use the triggeredBy field to explain why each service appears. Use deadline to h
 
 Call get_service for any service the user wants to explore — it returns the full detail omitted here:
 agentInteraction (application methods, what the agent can do step-by-step, online form URL),
-financialData (2025-26 benefit rates and amounts), and contactInfo (helpline phone, opening hours, webchat).`,
+financialData (benefit rates and amounts, with the tax year they apply to), and contactInfo (helpline phone, opening hours, webchat).`,
   {
     life_event_ids: z.array(z.string()).min(1).describe(
       'One or more life event IDs from list_life_events (e.g. ["baby", "moving"] or ["bereavement"]). Multiple IDs are merged into a single journey, deduplicating shared services.'
@@ -198,7 +198,7 @@ Returns:
 - Service description, deadline, GOV.UK URL, and type classification
 - Full eligibility: summary, criteria (typed factors), key questions to ask the user, auto-qualifiers (conditions that confirm eligibility immediately), common exclusions, and evidence required
 - Agent interaction: application methods, API availability, online form URLs, authentication requirements, what the agent can do step-by-step, and MissingBenefit.com calculator ID if available
-- Financial data (where applicable): structured 2025-26 rates with amounts and frequency
+- Financial data (where applicable): structured rates with amounts, frequency and the tax year they apply to
 - Nations (where applicable): which UK nations the service covers
 - Contact info: helpline phone number (with textphone, Relay UK, Welsh, BSL), opening hours, webchat URL, office locator URL. Resolved from service-specific data or department default.
 - Graph position: prerequisite services, services this unlocks, and which life events trigger it

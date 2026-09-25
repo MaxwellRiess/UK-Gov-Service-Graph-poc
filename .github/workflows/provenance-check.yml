@@ -1,0 +1,39 @@
+name: Provenance Check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 7 * * 1'  # Monday 07:00 UTC, an hour after the freshness crawl
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  # Offline and deterministic: does provenance still match graph-data.ts?
+  # Runs on every PR, so a data edit that skips re-verification is caught
+  # before it lands rather than at the next weekly crawl.
+  value-drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run check:provenance
+
+  # Online: are the quoted source spans still on the page? Scheduled only —
+  # a GOV.UK rewrite is review work, not a reason to block someone's PR.
+  quote-staleness:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run check:provenance:online

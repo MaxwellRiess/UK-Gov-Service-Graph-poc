@@ -6,6 +6,12 @@
   "scripts": {
     "build": "tsx scripts/build-index.ts",
     "mcp": "tsx src/graph-server.ts",
+    "verify:tier1": "tsx scripts/verify-tier1.ts --write",
+    "verify:tier2": "tsx scripts/verify-tier2.ts --write",
+    "verify:deadlines": "tsx scripts/verify-tier2-llm.ts --write",
+    "check:types": "tsc --noEmit",
+    "check:provenance": "tsx scripts/check-provenance.ts",
+    "check:provenance:online": "tsx scripts/check-provenance.ts --online",
     "build:lambda": "esbuild ./src/lambda-handler.ts --bundle --platform=node --target=node20 --outfile=dist/lambda-handler.js && esbuild ./src/graph-server.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/graph-server.mjs",
     "package": "npm run build:lambda && zip -r function.zip dist/"
   },

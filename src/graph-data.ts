@@ -35,7 +35,7 @@
  * from the 2025/26 tax year, so agents can estimate value:
  *
  *   taxYear           — "2025-26"
- *   frequency         — weekly | monthly | annual | one-off
+ *   frequency         — weekly | 4-weekly | monthly | annual | one-off
  *   rates             — key-value pairs of rate names to amounts (£)
  *   source            — GOV.UK page where rates are published
  *
@@ -81,10 +81,13 @@ export type ServiceType =
   | 'application'   // applying for a decision or assessment
   | 'legal_process' // court or tribunal proceeding
   | 'document'      // obtaining a formal document
-  | 'grant';        // one-off financial award
+  | 'grant'         // one-off financial award
+  | 'information';  // looking something up in a public register (no application)
 
 export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
-export type AuthMethod = 'government-gateway' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
+// 'gov-uk-verify' is retired but kept for nodes not yet migrated; new services
+// authenticate with GOV.UK One Login.
+export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
@@ -100,7 +103,7 @@ export interface AgentInteraction {
 
 export interface FinancialData {
   taxYear:    string;                     // e.g. "2025-26"
-  frequency:  'weekly' | 'monthly' | 'annual' | 'one-off';
+  frequency:  'weekly' | '4-weekly' | 'monthly' | 'annual' | 'one-off';
   rates:      Record<string, number>;     // named amounts in GBP
   source:     string;                     // GOV.UK page where rates are published
 }
@@ -181,7 +184,11 @@ export interface ServiceNode {
   proactive:        boolean;     // agent should volunteer this based on life-event signals
   gated:            boolean;     // only surface after confirming a prerequisite service
   eligibility:      EligibilityInfo;
-  agentInteraction: AgentInteraction;
+  // Optional because 24 nodes genuinely lack it. Writing plausible agentSteps
+  // for them would put unsourced guidance into the graph, which is the thing
+  // the provenance work exists to prevent — better that the gap stays visible.
+  // Consumers already guard for it (see scripts/build-index.ts).
+  agentInteraction?: AgentInteraction;
   financialData?:   FinancialData;      // present for benefits/grants with known rates
   nations?:         Nation[];           // absent = UK-wide; present = only these nations
   contactInfo?:     ContactInfo;       // service-specific (overrides dept default)
@@ -209,12 +216,11 @@ export interface LifeEvent {
 export const DEPT_CONTACTS: Partial<Record<string, ContactInfo>> = {
 
   gro: {
-    phone: { number: '+44 300 123 1837', textphone: '+44 329 822 0391', relay: '18001 then 0300 123 1837', label: 'GRO certificate enquiries' },
+    phone: { number: '+44 300 123 1837', relay: '18001 then 0300 123 1837', label: 'GRO certificate enquiries' },
     hours: [
-      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '20:00' },
-      { days: ['sat'], open: '09:00', close: '16:00' },
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
     ],
-    contactFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/ContactUs.asp',
+    contactFormUrl: 'https://www.certificate-enquiries.homeoffice.gov.uk/about',
     notes: 'Closed on bank holidays and public holidays',
   },
 
@@ -273,7 +279,7 @@ export const DEPT_CONTACTS: Partial<Record<string, ContactInfo>> = {
     hours: [
       { days: ['mon','tue','wed','thu','fri'], open: '08:30', close: '17:00' },
     ],
-    contactFormUrl: 'https://www.gov.uk/contact-hmcts',
+    contactFormUrl: 'https://www.gov.uk/find-court-tribunal',
     notes: 'Probate, divorce and tribunal services each have dedicated lines.',
   },
 
@@ -294,9 +300,9 @@ export const DEPT_CONTACTS: Partial<Record<string, ContactInfo>> = {
   sss: {
     phone: { number: '+44 800 182 2222', relay: '18001 then 0800 182 2222', label: 'Social Security Scotland' },
     hours: [
-      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
+      { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '17:00' },
     ],
-    webchatUrl: 'https://www.socialsecurity.gov.scot/contact-us',
+    webchatUrl: 'https://www.socialsecurity.gov.scot/contact',
     notes: 'Handles all Social Security Scotland benefits',
   },
 
@@ -370,24 +376,26 @@ export const NODES: Record<string, ServiceNode> = {
   'gro-register-birth': {
     id: 'gro-register-birth', name: 'Register the birth', dept: 'GRO', deptKey: 'gro',
     deadline: '42 days',
-    desc: 'Register at local register office. Gateway to Child Benefit, free childcare and parental leave top-ups.',
+    desc: 'Register at the local register office, or at the hospital before the mother leaves if it offers this. Gateway to Child Benefit, which can be claimed 48 hours after registration.',
     govuk_url: 'https://www.gov.uk/register-birth',
     serviceType: 'registration',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Required for every birth in England and Wales. Must be done by a parent or other qualified informant within 42 days.',
+      summary: 'Required for every birth. In England, Wales and Northern Ireland it must be registered within 42 days; in Scotland within 21 days (different process). Usually done by a parent; others can register if the parents cannot.',
       universal: true,
       criteria: [
-        { factor: 'family', description: 'Must be a parent, or other qualified informant (e.g. someone present at the birth, or an occupier of the premises where the birth occurred).' },
+        { factor: 'family', description: 'Usually a parent. If the parents cannot register, someone present at the birth, someone responsible for the child, or a member of the hospital administrative staff can.' },
+        { factor: 'geography', description: 'Deadline is 42 days in England, Wales and Northern Ireland, and 21 days in Scotland.' },
       ],
       keyQuestions: [
         'Where was the baby born (hospital, home, other)?',
         'Are both parents named on the birth certificate, or just one?',
         'Is the baby\'s name decided?',
+        'Do you live in Scotland? (21-day deadline, not 42)',
       ],
       means_tested: false,
-      evidenceRequired: ['Hospital notification of birth or midwife\'s notification', 'Parents\' ID documents'],
+      evidenceRequired: ['At least one form of ID (e.g. passport, driving licence, proof of address)', 'Child\'s personal child health record (\'red book\'), which some registrars ask to see'],
       ruleIn: [],
       ruleOut: [],      rules: [
         {
@@ -395,7 +403,7 @@ export const NODES: Record<string, ServiceNode> = {
           "triggerEvent": "birth_date",
           "triggerLabel": "Date of birth",
           "maxDays": 42,
-          "label": "Must register within 42 days of birth"
+          "label": "Must register within 42 days of birth (21 days in Scotland)"
         }
       ],
 
@@ -406,33 +414,16 @@ export const NODES: Record<string, ServiceNode> = {
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain that birth registration must be done in person at a local register office',
+        'Explain that birth registration is done in person at a local register office, or at the hospital if it offers this',
         'Help user find their nearest register office',
-        'List required documents (hospital notification, parents\' ID)',
-        'Advise on the 42-day deadline',
+        'List what to bring (ID, and the red book in case the registrar asks)',
+        'Advise on the deadline: 42 days in England, Wales and Northern Ireland, 21 days in Scotland',
       ],
     },
-      contactInfo: {
-      phone: {
-        number: '+44 300 123 1837',
-        textphone: '+44 329 822 0391',
-        relay: '18001 then 0300 123 1837',
-        label: 'GRO certificate enquiries',
-      },
-      hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '20:00',
-        },
-        {
-          days: ['sat'],
-          open: '09:00',
-          close: '16:00',
-        },
-      ],
+    contactInfo: {
       officeLocatorUrl: 'https://www.gov.uk/register-offices',
-      notes: 'Must be done in person at a register office.',
+      localAuthority: true,
+      notes: 'Registration is handled by the local register office, not GRO. Must be done in person, at the register office or at the hospital if it offers this.',
     },
   },
   'gro-register-death': {
@@ -705,17 +696,17 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-child-benefit': {
     id: 'hmrc-child-benefit', name: 'Child Benefit', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Backdatable 3 months. High Income Charge applies if either parent earns over £60k.',
+    desc: 'Claim from 48 hours after registering the birth. Backdatable 3 months. High Income Child Benefit Charge applies if either partner\'s adjusted net income is over £60,000.',
     govuk_url: 'https://www.gov.uk/child-benefit',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Available to anyone responsible for a child under 16 (or under 20 in qualifying education). Backdatable 3 months. High Income Child Benefit Charge applies if either parent earns over £60k.',
+      summary: 'Available to anyone responsible for a child under 16 (or under 20 in approved education or training). Backdatable 3 months. High Income Child Benefit Charge applies if either partner\'s adjusted net income is over £60,000, but claiming is still worthwhile for National Insurance credits.',
       universal: true,
       criteria: [
         { factor: 'family', description: 'Responsible for a child under 16, or under 20 if in qualifying education or training.' },
-        { factor: 'income', description: 'High Income Child Benefit Charge claws back the payment if either parent earns over £60,000; fully clawed back above £80,000.' },
+        { factor: 'income', description: 'High Income Child Benefit Charge claws back the payment if either partner\'s individual adjusted net income is over £60,000; the charge equals the full benefit at £80,000 or more. It does not affect eligibility.' },
       ],
       keyQuestions: [
         'Are you responsible for a child under 16?',
@@ -723,11 +714,11 @@ export const NODES: Record<string, ServiceNode> = {
         'Has the birth been registered?',
       ],
       autoQualifiers: ['Birth registered, no parent earns over £60k'],
-      exclusions: ['Not worth claiming if household income over £80,000 — full charge claws back entire benefit. However, still worth claiming to protect NI credits.'],
+      exclusions: ['If either partner\'s adjusted net income is £80,000 or more, the charge cancels the payment. Still claim and opt out of payments, to get National Insurance credits and the child\'s automatic NI number.'],
       means_tested: false,
-      evidenceRequired: ['Child\'s birth certificate', 'Bank account details'],
+      evidenceRequired: ['Child\'s birth or adoption certificate, if you have it (you can claim without it)', 'Bank account details', 'Your and your partner\'s National Insurance numbers'],
       ruleIn: ['Responsible for child under 16'],
-      ruleOut: ['Both parents earn over £80k'],      rules: [
+      ruleOut: ['Someone else already gets Child Benefit for the child'],      rules: [
         {
           "type": "boolean",
           "field": "has_children",
@@ -760,9 +751,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'childBenefit',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { first_child: 26.05, subsequent_child: 17.25 },
+      rates: { first_child: 27.05, subsequent_child: 17.90 },
       source: 'https://www.gov.uk/child-benefit/what-youll-get',
     },
       contactInfo: {
@@ -785,7 +776,7 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-guardians-allowance': {
     id: 'hmrc-guardians-allowance', name: "Guardian's Allowance", dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: '£21.75/week if raising a child both of whose parents have died (or one has died and the other is untraceable).',
+    desc: '£22.95/week per child, on top of Child Benefit, if raising a child whose parents have died (or one has died and the other cannot be found or is in prison or hospital). Backdatable 3 months.',
     govuk_url: 'https://www.gov.uk/guardians-allowance',
     serviceType: 'benefit',
     proactive: true,
@@ -794,8 +785,9 @@ export const NODES: Record<string, ServiceNode> = {
       summary: "Guardian's Allowance is paid on top of Child Benefit to those raising a child whose parents have both died. In some cases only one parent needs to have died.",
       universal: false,
       criteria: [
-        { factor: 'bereavement', description: 'Both parents of the child have died (or one has died and the other is missing, in prison, or in a psychiatric hospital).' },
-        { factor: 'family', description: 'Must be claiming Child Benefit for the child.' },
+        { factor: 'bereavement', description: 'Both parents of the child have died, or one has died and the other cannot be found, will be in prison for at least 2 years from the death, or is in hospital by court order.' },
+        { factor: 'family', description: 'Must qualify for Child Benefit for the child.' },
+        { factor: 'residency', description: 'One of the parents must have been born in the UK, EEA or Switzerland, or lived in the UK for at least 52 weeks in any 2-year period since age 16.' },
       ],
       keyQuestions: [
         'Are you claiming Child Benefit for the child?',
@@ -828,22 +820,22 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone', 'post'],
+      methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/guardians-allowance/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Provide direct link to Guardian\'s Allowance claim form',
+        'Provide link to the BG1 claim form, which is posted with original birth and death certificates (a claim pack can also be requested by phone)',
         'Confirm Child Benefit is already being claimed for the child',
         'Explain qualifying circumstances (both parents deceased or one missing)',
         'List required evidence (death certificates, CB reference)',
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { weekly_rate: 21.75 },
+      rates: { weekly_rate: 22.95 },
       source: 'https://www.gov.uk/guardians-allowance/what-youll-get',
     },
       contactInfo: {
@@ -927,7 +919,7 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-smp': {
     id: 'hmrc-smp', name: 'Statutory Maternity Pay', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Via employer if 26+ weeks employed and earning above lower earnings limit.',
+    desc: 'Paid by employer for up to 39 weeks if 26+ weeks employed and earning at least £129/week on average.',
     govuk_url: 'https://www.gov.uk/maternity-pay-leave/pay',
     serviceType: 'entitlement',
     proactive: true,
@@ -937,7 +929,7 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Must have worked for the same employer continuously for at least 26 weeks up to and including the 15th week before the expected week of childbirth.' },
-        { factor: 'employment', description: 'Must be earning at least the Lower Earnings Limit (£123/week in 2024/25).' },
+        { factor: 'employment', description: 'Must earn on average at least £129 a week (2026-27).' },
       ],
       keyQuestions: [
         'How long have you worked for your current employer?',
@@ -967,8 +959,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "weekly_earnings",
           "operator": ">=",
-          "value": 123,
-          "label": "Average weekly earnings at or above the Lower Earnings Limit (£123/week)"
+          "value": 129,
+          "label": "Average weekly earnings of at least £129"
         },
         {
           "type": "boolean",
@@ -992,22 +984,22 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { first_6_weeks_percent: 90, remaining_33_weeks: 187.18 },
+      rates: { first_6_weeks_percent: 90, remaining_33_weeks: 194.32 },
       source: 'https://www.gov.uk/maternity-pay-leave/pay',
     },
   },
   'hmrc-spp': {
     id: 'hmrc-spp', name: 'Statutory Paternity Pay', dept: 'HMRC', deptKey: 'hmrc',
-    deadline: '8 weeks',
-    desc: '2 weeks at statutory rate. Must be arranged before baby is 8 weeks old.',
+    deadline: '52 weeks',
+    desc: '1 or 2 weeks at the statutory rate, taken together or as separate one-week blocks any time in the 52 weeks after the birth. Tell employer the due date at least 15 weeks before, and give 28 days\' notice of leave dates.',
     govuk_url: 'https://www.gov.uk/paternity-pay-leave',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '1 or 2 weeks of paternity leave and pay. Must be the baby\'s father, partner of the mother, or the adopter\'s partner. Requires 26 weeks of continuous employment.',
+      summary: '1 or 2 weeks of paternity leave and pay, to be taken within 52 weeks of the birth. Must be the baby\'s father, partner of the mother, the adopter\'s partner, or an intended parent in a surrogacy arrangement. Leave is a day-one right for employees; Paternity Pay requires 26 weeks of continuous employment by the 15th week before the due date.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Continuously employed with the same employer for at least 26 weeks and earning at or above the Lower Earnings Limit.' },
@@ -1016,10 +1008,10 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'Are you the father, or the partner of the birth mother or adopter?',
         'Have you been employed continuously for at least 26 weeks?',
-        'Do you earn above £123/week?',
+        'Do you earn at least £129/week on average?',
       ],
       means_tested: false,
-      evidenceRequired: ['SC3 form (self-certification) submitted to employer at least 15 weeks before due date'],
+      evidenceRequired: ['Online paternity form (previously form SC3), or the employer\'s own form, given to the employer at least 15 weeks before the due date'],
       ruleIn: ['Father, partner, or co-adopter of newborn', 'Employed 26+ weeks continuously'],
       ruleOut: [],      rules: [
         {
@@ -1034,8 +1026,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "weekly_earnings",
           "operator": ">=",
-          "value": 123,
-          "label": "Average weekly earnings at or above the Lower Earnings Limit (£123/week)"
+          "value": 129,
+          "label": "Average weekly earnings of at least £129"
         },
         {
           "type": "boolean",
@@ -1047,8 +1039,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "deadline",
           "triggerEvent": "child_birth_date",
           "triggerLabel": "Date of birth or adoption",
-          "maxDays": 56,
-          "label": "Must be taken within 8 weeks of the birth or adoption"
+          "maxDays": 364,
+          "label": "Leave must end within 52 weeks of the birth or placement"
         }
       ],
 
@@ -1061,14 +1053,14 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Explain SPP eligibility criteria and rates',
         'Advise that SPP is claimed through the employer',
-        'Explain SC3 self-certification form requirement',
-        'Clarify the 8-week window after birth',
+        'Explain the online notice form (previously SC3) and the 15-week and 28-day notice periods',
+        'Clarify that leave can be taken any time in the 52 weeks after the birth, in one or two blocks',
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { weekly_rate: 187.18 },
+      rates: { weekly_rate: 194.32 },
       source: 'https://www.gov.uk/paternity-pay-leave/pay',
     },
   },
@@ -1147,98 +1139,33 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { weekly_rate: 187.18 },
+      rates: { weekly_rate: 194.32 },
       source: 'https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get',
     },
   },
   'hmrc-free-childcare-15': {
-    id: 'hmrc-free-childcare-15', name: 'Free childcare — 15 hours', dept: 'HMRC', deptKey: 'hmrc',
+    id: 'hmrc-free-childcare-15', name: 'Free childcare — 15 hours (3 and 4-year-olds)', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
-    desc: 'From 9 months old. Universal entitlement. Via Tax-Free Childcare account.',
-    govuk_url: 'https://www.gov.uk/help-paying-childcare/free-childcare-and-education-for-2-to-4-year-olds',
+    desc: 'Every 3 and 4-year-old in England gets 570 free hours a year (usually 15 hours a week for 38 weeks), from the term after their 3rd birthday. No income test and no application: arrange it with the childcare provider.',
+    govuk_url: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Universal 15 hours per week free childcare for children aged 9 months to 4 years. No income test. Apply via Childcare Choices / Tax-Free Childcare account.',
+      summary: 'Universal 570 hours a year (usually 15 hours a week for 38 weeks) of free early education for all 3 and 4-year-olds in England, with an approved provider. Starts from 1 January, 1 April or 1 September after the 3rd birthday and stops when the child starts reception. Working parents may get 30 hours instead.',
       universal: true,
       criteria: [
-        { factor: 'age', description: 'Child must be between 9 months and 4 years old.' },
+        { factor: 'age', description: 'Child must be 3 or 4 years old. Hours start the term after the 3rd birthday and stop when the child starts reception (or reaches compulsory school age, if later).' },
+        { factor: 'geography', description: 'England only. Scotland, Wales and Northern Ireland have different schemes.' },
       ],
-      keyQuestions: ['How old is the child?'],
-      autoQualifiers: ['Child aged 9 months to 4 years'],
+      keyQuestions: ['How old is the child?', 'Do you live in England?', 'Are you (and any partner) working? You may qualify for 30 hours instead.'],
+      autoQualifiers: ['Child aged 3 or 4 in England'],
       means_tested: false,
-      evidenceRequired: ['Government Gateway account', 'Child\'s birth certificate'],
-      ruleIn: ['Child aged 9 months to 4 years'],
-      ruleOut: [],      rules: [
-        {
-          "type": "boolean",
-          "field": "has_children",
-          "expected": true,
-          "label": "Has children"
-        },
-        {
-          "type": "comparison",
-          "field": "youngest_child_age",
-          "operator": "<=",
-          "value": 4,
-          "label": "Child must be 4 years old or under"
-        }
-      ],
-
-    },
-    agentInteraction: {
-      methods: ['online'],
-      apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/apply-free-childcare',
-      authRequired: 'government-gateway',
-      agentCanComplete: 'partial',
-      agentSteps: [
-        'Provide direct link to Childcare Choices application',
-        'Explain that this is a universal entitlement for children aged 9 months to 4 years',
-        'Guide through Government Gateway sign-in process',
-        'Advise on choosing an eligible childcare provider',
-      ],
-    },
-      contactInfo: {
-      phone: { number: '+44 300 123 4097', label: 'Childcare Service helpline' },
-      hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
-        },
-      ],
-    },
-  },
-  'hmrc-free-childcare-30': {
-    id: 'hmrc-free-childcare-30', name: 'Free childcare — 30 hours', dept: 'HMRC', deptKey: 'hmrc',
-    deadline: null,
-    desc: '3–4 year olds where both parents work minimum hours.',
-    govuk_url: 'https://www.gov.uk/help-paying-childcare/free-childcare-and-education-for-2-to-4-year-olds',
-    serviceType: 'entitlement',
-    proactive: true,
-    gated: true,
-    eligibility: {
-      summary: 'An additional 15 hours (total 30 hours/week) for 3–4 year olds where both parents (or single parent) are in work earning at least NMW for 16 hours/week and neither earns over £100,000.',
-      universal: false,
-      criteria: [
-        { factor: 'age', description: 'Child must be 3 or 4 years old.' },
-        { factor: 'employment', description: 'Both parents (or the sole parent) must be in paid work earning at least the equivalent of 16 hours per week at National Minimum Wage.' },
-        { factor: 'income', description: 'Neither parent can earn over £100,000 per year.' },
-      ],
-      keyQuestions: [
-        'Is the child 3 or 4 years old?',
-        'Are both parents currently in paid work?',
-        'Does either parent earn over £100,000 per year?',
-      ],
-      exclusions: ['Households where either parent earns over £100k.', 'Non-working single parents (entitled to 15 hours only).'],
-      means_tested: false,
-      evidenceRequired: ['Tax-Free Childcare account eligibility check (reconfirm every 3 months)'],
-      ruleIn: ['Child aged 3 or 4 years', 'Both parents in paid work earning NMW for 16 hrs'],
-      ruleOut: ['Either parent earns over £100k', 'Non-working single parent'],      rules: [
+      evidenceRequired: ['Child\'s date of birth, given to the childcare provider'],
+      ruleIn: ['Child aged 3 or 4', 'Lives in England'],
+      ruleOut: ['Lives outside England'],      rules: [
         {
           "type": "boolean",
           "field": "has_children",
@@ -1258,6 +1185,64 @@ export const NODES: Record<string, ServiceNode> = {
           "operator": "<=",
           "value": 4,
           "label": "Child must be 4 years old or under"
+        }
+      ],
+
+    },
+    agentInteraction: {
+      methods: ['in-person'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain that every 3 and 4-year-old in England gets 15 hours a week, with no application or income test',
+        'Explain when the hours start (1 January, 1 April or 1 September after the 3rd birthday)',
+        'Advise the user to arrange the hours with an approved childcare provider, or ask the local council',
+        'Check whether the family qualifies for 30 hours through Free Childcare for Working Parents',
+      ],
+    },
+    nations: ['england'],
+  },
+  'hmrc-free-childcare-30': {
+    id: 'hmrc-free-childcare-30', name: 'Free childcare — 30 hours (working parents)', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: 'Free Childcare for Working Parents: 30 hours a week for 38 weeks for children aged 9 months to 4 years in England, where each parent earns at least the minimum. Apply from when the child is 23 weeks old.',
+    govuk_url: 'https://www.gov.uk/free-childcare-if-working',
+    serviceType: 'entitlement',
+    proactive: true,
+    gated: true,
+    eligibility: {
+      summary: '30 hours a week for 38 weeks for children aged 9 months to 4 years in England, where both parents (or a single parent) are in work and each expects to earn at least the National Minimum or Living Wage for 16 hours a week, and neither has adjusted net income over £100,000. Apply from 23 weeks old; reconfirm every 3 months.',
+      universal: false,
+      criteria: [
+        { factor: 'age', description: 'Child must be aged 9 months to 4 years. Hours start from 1 January, 1 April or 1 September after the child turns 9 months, and the application deadline is the end of the preceding term.' },
+        { factor: 'employment', description: 'Both parents (or the sole parent) must be in work (including on parental, sick or annual leave) and each expect to earn at least £2,643.68 over the next 3 months if 21 or over (£203.36/week; lower for younger workers and apprentices). One parent can be not working if they get certain benefits such as Carer\'s Allowance.' },
+        { factor: 'income', description: 'Neither parent can have expected adjusted net income over £100,000 in the tax year.' },
+        { factor: 'geography', description: 'England only. Scotland, Wales and Northern Ireland have different schemes.' },
+      ],
+      keyQuestions: [
+        'Is the child aged between 9 months and 4 years?',
+        'Do you live in England?',
+        'Are both parents currently in paid work?',
+        'Does either parent earn over £100,000 per year?',
+      ],
+      exclusions: ['Households where either parent earns over £100k.', 'Non-working single parents (entitled to 15 hours only).'],
+      means_tested: false,
+      evidenceRequired: ['Tax-Free Childcare account eligibility check (reconfirm every 3 months)'],
+      ruleIn: ['Child aged 9 months to 4 years', 'Both parents in paid work earning NMW for 16 hrs', 'Lives in England'],
+      ruleOut: ['Either parent earns over £100k', 'Non-working single parent', 'Lives outside England'],      rules: [
+        {
+          "type": "boolean",
+          "field": "has_children",
+          "expected": true,
+          "label": "Has children"
+        },
+        {
+          "type": "comparison",
+          "field": "youngest_child_age",
+          "operator": "<=",
+          "value": 4,
+          "label": "Child must be 4 years old or under (and at least 9 months)"
         },
         {
           "type": "any",
@@ -1288,11 +1273,11 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/apply-30-hours-free-childcare',
+      onlineFormUrl: 'https://www.gov.uk/free-childcare-if-working/apply-for-free-childcare-if-youre-working',
       authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Provide direct link to 30 hours free childcare application',
+        'Provide direct link to the Free Childcare for Working Parents application (it also checks Tax-Free Childcare eligibility)',
         'Check both parents meet employment and earnings criteria',
         'Explain 3-monthly reconfirmation requirement',
         'Guide through Government Gateway sign-in process',
@@ -1308,11 +1293,12 @@ export const NODES: Record<string, ServiceNode> = {
         },
       ],
     },
+    nations: ['england'],
   },
   'hmrc-tax-free-childcare': {
     id: 'hmrc-tax-free-childcare', name: 'Tax-Free Childcare account', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Government tops up by 25p per £1 saved (max £500/quarter). Cannot use alongside UC childcare element.',
+    desc: 'Government adds £2 for every £8 paid in (up to £500 per child every 3 months, £1,000 if disabled). Cannot be claimed at the same time as Universal Credit or childcare vouchers.',
     govuk_url: 'https://www.gov.uk/tax-free-childcare',
     serviceType: 'entitlement',
     proactive: true,
@@ -1322,18 +1308,18 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Both parents (or single parent) must be in work earning at least the National Minimum Wage equivalent of 16 hours/week, and neither earns over £100,000.' },
-        { factor: 'age', description: 'Child must be under 12 (or under 17 if disabled).' },
+        { factor: 'age', description: 'Child is eligible until the September after they turn 11 (16 if disabled).' },
       ],
       keyQuestions: [
         'Are both parents in work earning above the minimum threshold?',
         'Is the child under 12?',
-        'Are you currently receiving the UC childcare element?',
+        'Are you currently claiming Universal Credit or childcare vouchers?',
       ],
-      exclusions: ['Cannot be used at the same time as Universal Credit childcare element — must choose one.'],
+      exclusions: ['Cannot be claimed at the same time as Universal Credit (any UC claim, not only the childcare element) or childcare vouchers. Wait for a Tax-Free Childcare decision before cancelling UC.', 'Not available if you foster the child, or you or your partner get a childcare bursary or grant.'],
       means_tested: false,
       evidenceRequired: ['Government Gateway account', 'Childcare provider details'],
       ruleIn: ['Both parents in work above minimum threshold', 'Child under 12'],
-      ruleOut: ['Currently receiving Universal Credit childcare element'],      rules: [
+      ruleOut: ['Currently claiming Universal Credit', 'Either parent earns over £100k'],      rules: [
         {
           "type": "boolean",
           "field": "has_children",
@@ -1382,12 +1368,12 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Provide direct link to Tax-Free Childcare application',
         'Explain the 25p per £1 government top-up',
-        'Warn about incompatibility with UC childcare element',
-        'Help compare TFC vs UC childcare element value',
+        'Warn that it cannot be claimed alongside Universal Credit or childcare vouchers',
+        'Help compare Tax-Free Childcare against Universal Credit childcare costs using the childcare calculator',
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
       rates: { max_per_child: 2000, max_disabled_child: 4000 },
       source: 'https://www.gov.uk/tax-free-childcare',
@@ -3063,22 +3049,49 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-voluntary-ni-contributions': {
     id: 'dwp-voluntary-ni-contributions', name: 'Voluntary National Insurance contributions (Class 3)',
     dept: 'DWP', deptKey: 'dwp',
-    deadline: 'Usually within 6 years of the tax year; extended deadlines apply for years from 2006–07 to 2016–17 (deadline 5 April 2025 passed — check current rules)',
+    deadline: '6 years (5 April each year)',
     desc: 'Pay voluntary Class 3 NI contributions to fill gaps in your NI record and increase your State Pension entitlement. Check your NI record and get a State Pension forecast first.',
     govuk_url: 'https://www.gov.uk/voluntary-national-insurance-contributions',
     serviceType: 'application',
     proactive: true,
     gated: true,
     eligibility: {
-      criteria: 'You have gaps in your NI record that would increase your State Pension if filled. Not worthwhile if already entitled to full new State Pension.',
-      keyQuestions: ['How many qualifying years do you have?', 'What would your State Pension be without additional contributions?'],
-      autoQualifiers: [],
+      summary: 'Fill gaps in your National Insurance record by paying voluntary contributions, which can increase your State Pension. You can only pay for the past 6 years, with a deadline of 5 April each year. Not worth paying if you are already on track for the full new State Pension.',
+      universal: false,
+      criteria: [
+        { factor: 'ni_record', description: 'You have gaps in your National Insurance record that would increase your State Pension if filled.' },
+        { factor: 'age', description: 'Under State Pension age, or within the window where contributions still count.' },
+      ],
+      keyQuestions: [
+        'How many qualifying years do you have?',
+        'What would your State Pension be without additional contributions?',
+        'Which tax years are the gaps in? (Only the past 6 years can be paid for.)',
+      ],
       exclusions: ['Already entitled to full new State Pension (35 qualifying years)'],
-      ruleIn: 'NI record has gaps; State Pension forecast shows less than full amount',
-      ruleOut: 'Already at full State Pension entitlement',
+      means_tested: false,
+      evidenceRequired: ['National Insurance record', 'State Pension forecast'],
+      ruleIn: ['NI record has gaps', 'State Pension forecast shows less than the full amount'],
+      ruleOut: ['Already at full State Pension entitlement', 'Gap is older than 6 years'],
     },
-    agentInteraction: { type: 'info_then_apply', complexityHint: 'medium' },
-    financialData: { amount: null, frequency: null, notes: 'Class 3 rate £17.45/week (2024–25). Payable as lump sum for past years.' },
+    agentInteraction: {
+      methods: ['online', 'phone'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/pay-voluntary-class-3-national-insurance',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Explain how gaps in the NI record affect State Pension entitlement',
+        'Prompt the user to check their NI record and State Pension forecast first',
+        'Identify which tax years are still within the 6-year payment window',
+        'Guide the user through paying Class 3 contributions',
+      ],
+    },
+    financialData: {
+      taxYear: '2026-27',
+      frequency: 'weekly',
+      rates: { class_3_weekly: 18.40, class_2_weekly: 3.65 },
+      source: 'https://www.gov.uk/voluntary-national-insurance-contributions/rates',
+    },
   },
   'dwp-state-pension': {
     id: 'dwp-state-pension', name: 'State Pension claim', dept: 'DWP', deptKey: 'dwp',
@@ -3170,15 +3183,36 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      criteria: 'Widowed or surviving civil partner. Spouse must have deferred their State Pension or built up Additional State Pension under the old system.',
-      keyQuestions: ['Did your spouse defer their State Pension?', 'Were you both in the old State Pension system before April 2016?'],
+      summary: 'A widow, widower or surviving civil partner may inherit some of their spouse\'s Additional State Pension or protected payment. The amount depends entirely on the spouse\'s NI record and any deferral period, so no standard rate applies.',
+      universal: false,
+      criteria: [
+        { factor: 'bereavement', description: 'Your spouse or civil partner has died.' },
+        { factor: 'relationship_status', description: 'You were married or in a civil partnership at the time of death, and have not remarried before State Pension age.' },
+        { factor: 'ni_record', description: 'The deceased built up Additional State Pension under the old system, or deferred their State Pension.' },
+      ],
+      keyQuestions: [
+        'Did your spouse defer their State Pension?',
+        'Were you both in the old State Pension system before April 2016?',
+        'Have you remarried or formed a new civil partnership?',
+      ],
       autoQualifiers: ['Widowed before reaching own State Pension age'],
       exclusions: ['Divorced', 'Remarried before State Pension age'],
-      ruleIn: 'Widowed; spouse had Additional State Pension or deferred entitlement',
-      ruleOut: 'Not widowed, or spouse had no Additional State Pension',
+      means_tested: false,
+      evidenceRequired: ['Death certificate', 'Marriage or civil partnership certificate', 'NI numbers for both parties'],
+      ruleIn: ['Widowed', 'Spouse had Additional State Pension or deferred entitlement'],
+      ruleOut: ['Not widowed', 'Spouse had no Additional State Pension', 'Remarried before State Pension age'],
     },
-    agentInteraction: { type: 'check_eligibility', complexityHint: 'low' },
-    financialData: { amount: null, frequency: null, notes: 'Amount depends on spouse\'s NI record and deferral period.' },
+    agentInteraction: {
+      methods: ['phone'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain which inheritance rules apply based on when each party reached State Pension age',
+        'Prepare the evidence checklist before the user calls the Pension Service',
+        'Direct the user to the Pension Service to get a figure — the amount cannot be estimated from published rates',
+      ],
+    },
   },
   'dwp-pension-credit': {
     id: 'dwp-pension-credit', name: 'Pension Credit', dept: 'DWP', deptKey: 'dwp',
@@ -3470,14 +3504,14 @@ export const NODES: Record<string, ServiceNode> = {
     deadline: null,
     desc: 'A clinician completes the SR1 form for patients with a terminal illness (life expectancy under 12 months). It triggers fast-track processing for PIP, Attendance Allowance, ESA and UC — removing waiting periods and automatically awarding enhanced rates.',
     govuk_url: 'https://www.gov.uk/government/publications/special-rules-for-terminal-illness-sr1',
-    serviceType: 'gateway',
+    serviceType: 'document',
     proactive: true,
     gated: false,
     eligibility: {
       summary: 'Available where a clinician (GP, consultant, specialist nurse) confirms a terminal illness with a life expectancy of 12 months or less. The form is completed by the clinician, not the patient.',
       universal: false,
       criteria: [
-        { factor: 'health', description: 'Terminal illness with life expectancy of 12 months or less, certified by a clinician.' },
+        { factor: 'terminal_illness', description: 'Terminal illness with life expectancy of 12 months or less, certified by a clinician.' },
       ],
       keyQuestions: [
         'Has a clinician indicated a life expectancy of 12 months or less?',
@@ -3491,7 +3525,7 @@ export const NODES: Record<string, ServiceNode> = {
       rules: [],
     },
     agentInteraction: {
-      methods: ['paper', 'phone'],
+      methods: ['post', 'phone'],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'partial',
@@ -3522,7 +3556,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Available to adults assessed as having a primary health need that is complex, intense, or unpredictable. Eligibility is assessed by a multidisciplinary team using the NHS Continuing Healthcare Decision Support Tool. Available at any age, in any setting.',
       universal: false,
       criteria: [
-        { factor: 'health', description: 'Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.' },
+        { factor: 'disability', description: 'Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.' },
         { factor: 'dependency', description: 'Requires a care needs assessment (fast-track available for terminal illness).' },
       ],
       keyQuestions: [
@@ -3540,10 +3574,12 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     agentInteraction: {
-      methods: ['phone', 'referral'],
+      // Access is by clinician referral; 'in-person' is the closest of the four
+      // application methods, and agentSteps below spell out the referral route.
+      methods: ['phone', 'in-person'],
       apiAvailable: false,
       authRequired: 'none',
-      agentCanComplete: 'none',
+      agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that CHC is fully NHS-funded — no means test and covers care home fees',
         'For terminal illness, advise that the clinician can submit a fast-track CHC referral (same day or next day decision)',
@@ -3740,9 +3776,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'universalCredit',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'monthly',
-      rates: { single_under_25: 316.98, single_25_plus: 400.14, couple_under_25: 497.55, couple_25_plus: 628.10 },
+      rates: { single_under_25: 338.58, single_25_plus: 424.90, couple_under_25: 528.34, couple_25_plus: 666.97, child_element: 303.94, childcare_max_one_child: 1071.09, childcare_max_two_plus: 1836.16 },
       source: 'https://www.gov.uk/universal-credit/what-youll-get',
     },
       contactInfo: {
@@ -4017,17 +4053,17 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-maternity-allowance': {
     id: 'dwp-maternity-allowance', name: 'Maternity Allowance', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'If not eligible for SMP. For self-employed or recently employed. Up to 39 weeks.',
+    desc: 'If not eligible for SMP. For self-employed or recently employed. Up to 39 weeks. Apply from 26 weeks pregnant; claim within 3 months of the start date to get the full amount.',
     govuk_url: 'https://www.gov.uk/maternity-allowance',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'For those not eligible for Statutory Maternity Pay — typically self-employed, recently changed jobs, or agency workers. Up to 39 weeks of payments.',
+      summary: 'For those not eligible for Statutory Maternity Pay — typically self-employed, recently changed jobs, or recently stopped working. Up to 39 weeks of payments. People doing unpaid work for a self-employed spouse or civil partner\'s business can get £27 a week for up to 14 weeks.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Must have been employed or self-employed for at least 26 weeks in the 66 weeks before the due date.' },
-        { factor: 'employment', description: 'Must have earned at least £30/week for 13 of the 66 weeks before due date.' },
+        { factor: 'employment', description: 'If employed, must have earned (or been classed as earning) at least £30 a week in at least 13 of those weeks. If self-employed, the amount depends on Class 2 National Insurance contributions paid.' },
       ],
       keyQuestions: [
         'Are you self-employed or not eligible for SMP from your employer?',
@@ -4085,56 +4121,57 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { standard_weekly: 187.18 },
+      rates: { standard_weekly: 194.32, lower_rate: 27 },
       source: 'https://www.gov.uk/maternity-allowance/what-youll-get',
     },
       contactInfo: {
       phone: {
-        number: '+44 800 169 0140',
-        textphone: '+44 800 169 0207',
-        relay: '18001 then 0800 169 0140',
-        welsh: '+44 800 169 0190',
-        label: 'Jobcentre Plus (Maternity Allowance)',
+        number: '+44 800 169 0283',
+        relay: '18001 then 0800 169 0283',
+        welsh: '+44 800 169 0296',
+        label: 'Maternity Allowance helpline',
       },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
+          open: '10:00',
+          close: '15:00',
         },
       ],
     },
   },
   'dwp-sure-start-grant': {
     id: 'dwp-sure-start-grant', name: 'Sure Start Maternity Grant', dept: 'DWP', deptKey: 'dwp',
-    deadline: '3 months',
-    desc: 'One-off £500 if on qualifying benefits. Usually first child only. Apply within 3 months of birth.',
+    deadline: '6 months',
+    desc: 'One-off £500 if on qualifying benefits. Usually first child only. Claim from 11 weeks before the due week up to 6 months after the birth. Not available in Scotland (Pregnancy and Baby Payment instead).',
     govuk_url: 'https://www.gov.uk/sure-start-maternity-grant',
     serviceType: 'grant',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'One-off £500 payment to help with costs of a new baby. Usually only for the first child. Must be on a qualifying benefit. Apply from 11 weeks before due date to 3 months after birth.',
+      summary: 'One-off £500 payment to help with costs of a new baby. Usually only if there are no other children under 16, or for a multiple birth. Must be on a qualifying benefit. Claim from 11 weeks before the due week to 6 months after the birth. Not available in Scotland; Northern Ireland uses a different form and address.',
       universal: false,
       criteria: [
-        { factor: 'family', description: 'Expecting a baby, have recently had a baby (within 3 months), or are adopting. Generally for first child only unless specific circumstances apply.' },
-        { factor: 'income', description: 'Receiving Universal Credit, Income Support, income-related ESA, Pension Credit, Child Tax Credit (with no Working Tax Credit) or certain other qualifying benefits.' },
+        { factor: 'family', description: 'Expecting a baby, have had a baby in the last 6 months, or became responsible for a baby under 1 (for example through adoption, surrogacy or guardianship). Usually no other children under 16, unless it is a multiple birth, you care for someone else\'s child who was over 12 months when the arrangement started, you have refugee status or humanitarian protection or came from Afghanistan or Ukraine, or you are claiming for a family member under 20 in approved education.' },
+        { factor: 'income', description: 'You or your partner must get Universal Credit, income-related ESA or Pension Credit, or a Support for Mortgage Interest loan.' },
+        { factor: 'geography', description: 'Not available in Scotland (apply for the Pregnancy and Baby Payment instead).' },
       ],
       keyQuestions: [
-        'Are you receiving Universal Credit, Income Support, or Pension Credit?',
+        'Are you or your partner receiving Universal Credit, income-related ESA or Pension Credit?',
         'Is this your first child? (Or are there special circumstances for a later child?)',
         'How many weeks pregnant are you, or how old is the baby?',
+        'Do you live in Scotland?',
       ],
       exclusions: ['Usually not available for second and subsequent children if there are other children under 16 in the family.'],
       means_tested: true,
-      evidenceRequired: ['Evidence of qualifying benefit', 'MATB1 form or birth certificate', 'SF100 form'],
-      ruleIn: ['Receiving qualifying means-tested benefit', 'Expecting first baby or under 3 months old'],
-      ruleOut: ['Second or subsequent child with older children under 16'],      rules: [
+      evidenceRequired: ['SF100 claim form', 'Evidence of pregnancy or birth from a doctor or midwife (MATB1 or a signed statement); can follow later if needed to meet the deadline'],
+      ruleIn: ['Receiving qualifying means-tested benefit', 'Expecting first baby or baby under 6 months old'],
+      ruleOut: ['Second or subsequent child with older children under 16', 'Lives in Scotland'],      rules: [
         {
           "type": "any",
-          "label": "Must be expecting a baby or have a baby under 3 months old",
+          "label": "Must be expecting a baby or have a baby under 6 months old",
           "rules": [
             {
               "type": "boolean",
@@ -4144,7 +4181,7 @@ export const NODES: Record<string, ServiceNode> = {
             },
             {
               "type": "all",
-              "label": "Baby under 3 months old",
+              "label": "Baby under 6 months old",
               "rules": [
                 {
                   "type": "boolean",
@@ -4185,14 +4222,14 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "deadline",
           "triggerEvent": "baby_birth_date",
           "triggerLabel": "date of baby's birth",
-          "maxDays": 91,
-          "label": "Must claim within 3 months of birth (or from 11 weeks before due date)"
+          "maxDays": 183,
+          "label": "Must claim within 6 months of birth (or from 11 weeks before due date)"
         }
       ],
 
     },
     agentInteraction: {
-      methods: ['phone', 'post'],
+      methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/sure-start-maternity-grant/how-to-claim',
       authRequired: 'none',
@@ -4201,11 +4238,11 @@ export const NODES: Record<string, ServiceNode> = {
         'Check eligibility for Sure Start Maternity Grant',
         'Explain SF100 claim form process',
         'Help gather required evidence (MATB1 or birth certificate)',
-        'Advise on claiming deadline (11 weeks before to 3 months after birth)',
+        'Advise on claiming deadline (11 weeks before the due week to 6 months after birth)',
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { grant_amount: 500 },
       source: 'https://www.gov.uk/sure-start-maternity-grant/what-youll-get',
@@ -4213,20 +4250,20 @@ export const NODES: Record<string, ServiceNode> = {
       contactInfo: {
       phone: {
         number: '+44 800 169 0140',
-        textphone: '+44 800 169 0207',
         relay: '18001 then 0800 169 0140',
-        welsh: '+44 800 169 0190',
-        label: 'Jobcentre Plus (Sure Start Maternity Grant)',
+        welsh: '+44 800 169 0240',
+        label: 'Sure Start Maternity Grant helpline',
       },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
+          open: '10:00',
+          close: '15:00',
         },
       ],
-      notes: 'UC claimants apply through their UC journal instead.',
+      notes: 'Claims are by post on form SF100 to Freepost DWP SSMG. Northern Ireland uses a different form and address.',
     },
+    nations: ['england', 'wales', 'northern-ireland'],
   },
   'dwp-ni-credits': {
     id: 'dwp-ni-credits', name: 'National Insurance credits', dept: 'DWP', deptKey: 'dwp',
@@ -4294,7 +4331,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/national-insurance-credits/how-to-apply',
+      onlineFormUrl: 'https://www.gov.uk/national-insurance-credits',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -4901,29 +4938,30 @@ export const NODES: Record<string, ServiceNode> = {
       contactInfo: { officeLocatorUrl: 'https://www.nhs.uk/service-search/find-a-gp', notes: 'Contact GP surgeries directly. Use NHS Find a GP to locate surgeries accepting patients.' },
   },
   'nhs-healthy-start': {
-    id: 'nhs-healthy-start', name: 'Healthy Start vouchers', dept: 'NHS', deptKey: 'nhs',
+    id: 'nhs-healthy-start', name: 'Healthy Start', dept: 'NHS', deptKey: 'nhs',
     deadline: null,
-    desc: 'Food and milk vouchers if on qualifying benefits and 10+ weeks pregnant.',
+    desc: 'Prepaid card topped up every 4 weeks for milk, fruit, vegetables, pulses and infant formula, plus free vitamins, if more than 10 weeks pregnant or with a child under 4 and on qualifying benefits. Not available in Scotland (Best Start Foods instead).',
     govuk_url: 'https://www.healthystart.nhs.uk/',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Prepaid card to buy fruit, vegetables, milk and infant formula for eligible pregnant women and parents of children under 4. Worth £8.50/week for pregnant women; £4.25/week per child under 1.',
+      summary: 'Prepaid card to buy fruit, vegetables, milk and infant formula for eligible pregnant women and parents of children under 4. Worth £4.65/week from the 10th week of pregnancy, £9.30/week per child under 1, and £4.65/week per child aged 1 to 4.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Pregnant (at least 10 weeks) or have a child under 4.' },
-        { factor: 'income', description: 'Receiving UC (with no earnings or earnings below £408/assessment period), Child Tax Credit (income under £16,190), Income Support, or under 18 and pregnant.' },
+        { factor: 'income', description: 'Receiving Universal Credit with family take-home pay from employment of £408 a month or less; or Pension Credit including the child addition; or under 18 and pregnant (no benefit needed until the birth). Some families with no recourse to public funds and a British child under 4 can also qualify.' },
+        { factor: 'geography', description: 'England, Wales and Northern Ireland. Scotland has Best Start Foods instead.' },
       ],
       keyQuestions: [
         'Are you at least 10 weeks pregnant or do you have a child under 4?',
-        'Are you receiving Universal Credit, Child Tax Credit or Income Support?',
+        'Are you receiving Universal Credit (with take-home pay of £408 a month or less) or Pension Credit?',
         'Are you under 18 and pregnant?',
       ],
       means_tested: true,
-      evidenceRequired: ['MATB1 form or proof of pregnancy/child\'s age', 'Proof of qualifying benefit'],
-      ruleIn: ['Pregnant (10+ weeks) or child under 4', 'Receiving UC, Child Tax Credit, or Income Support'],
-      ruleOut: [],      rules: [
+      evidenceRequired: ['National Insurance number', 'Baby\'s due date (if pregnant)', 'Universal Credit statement (details must match the UC claim)'],
+      ruleIn: ['Pregnant (10+ weeks) or child under 4', 'Receiving UC (low earnings) or Pension Credit, or under 18 and pregnant'],
+      ruleOut: ['Lives in Scotland'],      rules: [
         {
           "type": "any",
           "label": "Must be pregnant (10+ weeks) or have a child under 4",
@@ -4977,7 +5015,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.healthystart.nhs.uk/how-to-apply/',
       authRequired: 'none',
@@ -4990,32 +5028,35 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { card_value: 4.25, pregnant_value: 8.50 },
-      source: 'https://www.healthystart.nhs.uk/',
+      rates: { pregnancy: 4.65, child_under_1: 9.30, child_1_to_4: 4.65 },
+      source: 'https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/',
     },
       contactInfo: {
-      phone: { number: '+44 300 330 7010', label: 'Healthy Start helpline' },
+      phone: { number: '+44 300 330 7010', relay: '18001 then 0300 330 7010', label: 'Healthy Start helpline' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '09:00',
-          close: '17:00',
+          open: '08:00',
+          close: '18:00',
         },
       ],
+      contactFormUrl: 'https://www.healthystart.nhs.uk/contact-us/',
+      notes: 'Closed on public holidays. Pension Credit claimants and pregnant under-18s apply by phone or email, not online.',
     },
+    nations: ['england', 'wales', 'northern-ireland'],
   },
   'nhs-free-prescriptions-pregnancy': {
     id: 'nhs-free-prescriptions-pregnancy', name: 'Free prescriptions & dental (pregnancy)', dept: 'NHS', deptKey: 'nhs',
     deadline: null,
-    desc: 'Automatic from positive pregnancy test. Continues until baby is 1 year old.',
-    govuk_url: 'https://www.gov.uk/help-nhs-costs/maternity-exemption-certificates',
+    desc: 'Free NHS prescriptions in England need a valid maternity exemption certificate. Pregnancy alone is not enough, and a penalty charge can apply without one. Ask the midwife, GP or health visitor to apply. Valid until 12 months after the due date or birth.',
+    govuk_url: 'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Free NHS prescriptions and dental treatment for all pregnant women and for 12 months after the birth. Apply for a Maternity Exemption Certificate via midwife or GP.',
+      summary: 'Free NHS prescriptions and dental treatment while pregnant and for 12 months after the birth. In England the maternity exemption certificate is what gives the entitlement to free prescriptions, so it must be applied for (via midwife, GP or health visitor). It is backdated one month and expires 12 months after the due date or birth.',
       universal: true,
       criteria: [
         { factor: 'family', description: 'Currently pregnant or have given birth within the last 12 months.' },
@@ -5025,9 +5066,9 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you had a baby in the last 12 months?',
         'Have you applied for your Maternity Exemption Certificate?',
       ],
-      autoQualifiers: ['Pregnant — apply for Maternity Exemption Certificate via midwife or GP'],
+      autoQualifiers: [],
       means_tested: false,
-      evidenceRequired: ['FW8 form signed by midwife or GP — gives Maternity Exemption Certificate (valid until 12 months after due date)'],
+      evidenceRequired: ['Application completed by midwife, doctor or health visitor (digital service, or paper form)'],
       ruleIn: ['Currently pregnant or given birth within 12 months'],
       ruleOut: [],      rules: [
         {
@@ -5057,13 +5098,13 @@ export const NODES: Record<string, ServiceNode> = {
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain that a Maternity Exemption Certificate is obtained via midwife or GP',
-        'Advise that free prescriptions and dental care continue until baby is 12 months old',
-        'Remind user to ask midwife for the FW8 form at their next appointment',
+        'Explain that free prescriptions depend on holding a valid maternity exemption certificate, not just on being pregnant, and that a penalty charge can apply without one',
+        'Advise that the certificate expires 12 months after the due date or birth, and can be extended if the baby is born late',
+        'Remind user to ask their midwife, GP or health visitor to apply for them',
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1341', label: 'NHS BSA (MatEx certificate queries)' },
+      phone: { number: '+44 300 330 1341', relay: '18001 then 0300 330 1341', label: 'NHSBSA medical and maternity exemption certificates' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -6208,7 +6249,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'If a Mandatory Reconsideration has not resolved your dispute with a DWP benefit decision, you can appeal to an independent tribunal. The tribunal is free and independent of DWP.',
+      summary: 'If a Mandatory Reconsideration has not resolved your dispute with a DWP benefit decision, you can appeal to an independent tribunal. The tribunal is free and independent of DWP. Appeal within one month of the mandatory reconsideration notice. Northern Ireland and Social Security Scotland decisions have different processes.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Mandatory Reconsideration must have been completed and the outcome confirmed in a Mandatory Reconsideration Notice from DWP.' },
@@ -6245,15 +6286,16 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 123 1142', relay: '18001 then 0300 123 1142', label: 'SSCS Tribunal helpline' },
+      phone: { number: '+44 300 123 1142', relay: '18001 then 0300 123 1142', welsh: '+44 300 303 5170', label: 'Benefit appeals helpline (England and Wales)' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:30',
-          close: '17:00',
+          open: '09:00',
+          close: '16:00',
         },
       ],
     },
+    nations: ['england', 'scotland', 'wales'],
   },
 
   // LOCAL AUTHORITY ──────────────────────────────────────────────────────────
@@ -6510,6 +6552,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise that CTR can reduce the bill significantly or to zero',
       ],
     },
+    nations: ['england', 'scotland', 'wales'],
   },
   'la-bus-pass': {
     id: 'la-bus-pass', name: 'Free bus pass', dept: 'Local Authority', deptKey: 'la',
@@ -9082,7 +9125,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'nhs-low-income-scheme', name: 'NHS Low Income Scheme (HC2/HC3)', dept: 'NHS BSA', deptKey: 'nhs',
     deadline: null,
     desc: 'HC2 certificate gives full help; HC3 gives partial help with NHS prescriptions, dental, sight tests and travel costs.',
-    govuk_url: 'https://www.gov.uk/nhs-low-income-scheme',
+    govuk_url: 'https://www.nhsbsa.nhs.uk/nhs-low-income-scheme',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
@@ -9090,8 +9133,8 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'For people on low income who don\'t automatically qualify for free NHS services. HC2 certificate = full help (free prescriptions, dental, sight tests, travel). HC3 = partial help. Means-tested on income and capital.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Must be on a low income. Capital over £16,000 (£24,000 if in care home) disqualifies.' },
-        { factor: 'asset', description: 'Savings under £16,000 (£24,000 if permanently in a care home).' },
+        { factor: 'income', description: 'Must be on a low income. Cannot apply with capital over £16,000 (£23,250 if living permanently in a care home; £24,000 in Wales).' },
+        { factor: 'asset', description: 'Savings, investments or property (not counting your home) under £16,000; £23,250 if living permanently in a care home (£24,000 in Wales). Online applications only if savings are £6,000 or less.' },
         { factor: 'residency', description: 'Must be ordinarily resident in the UK.' },
       ],
       keyQuestions: [
@@ -9149,7 +9192,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/nhs-low-income-scheme/how-to-apply',
+      onlineFormUrl: 'https://www.nhsbsa.nhs.uk/nhs-low-income-scheme',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -9182,23 +9225,23 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-scottish-child-payment': {
     id: 'sss-scottish-child-payment', name: 'Scottish Child Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£27.15/week per eligible child under 16 for parents on qualifying benefits in Scotland.',
+    desc: '£28.20/week per eligible child under 16 for parents on qualifying benefits in Scotland, paid every 4 weeks.',
     govuk_url: 'https://www.mygov.scot/scottish-child-payment',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '£27.15/week per child under 16 for parents or carers in Scotland who receive a qualifying benefit (UC, legacy benefits, Pension Credit). One of Scotland\'s flagship anti-poverty measures.',
+      summary: '£28.20/week per child under 16 for the main person looking after the child in Scotland, if they or their partner get a qualifying benefit (Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA). Child Benefit alone does not qualify.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be responsible for a child under 16.' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit: Universal Credit, income-related JSA, income-related ESA, Income Support, Pension Credit, or Child/Working Tax Credit.' },
+        { factor: 'income', description: 'You or your partner must get Universal Credit or income-based JSA; or you alone are named on Pension Credit, Income Support or income-related ESA. Child Benefit on its own does not count. You can apply while waiting for a decision on one of these.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you responsible for a child under 16?',
-        'Do you receive Universal Credit, Tax Credits, or another qualifying benefit?',
+        'Do you or your partner receive Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA?',
       ],
       autoQualifiers: ['On qualifying benefit with child under 16 in Scotland'],
       means_tested: true,
@@ -9257,15 +9300,15 @@ export const NODES: Record<string, ServiceNode> = {
         'Confirm user lives in Scotland and has a child under 16',
         'Check whether user receives a qualifying benefit',
         'Guide user through the mygov.scot online application',
-        'Explain the payment is £27.15 per week per eligible child',
+        'Explain the payment is £28.20 per week per eligible child, paid every 4 weeks',
         'Advise that payment can be backdated',
       ],
       missingBenefitId: 'scottishChildPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { per_child: 27.15 },
+      rates: { per_child: 28.20 },
       source: 'https://www.mygov.scot/scottish-child-payment',
     },
     nations: ['scotland'],
@@ -9607,17 +9650,17 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-funeral-support-payment': {
     id: 'sss-funeral-support-payment', name: 'Funeral Support Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Up to £1,500 for burial/cremation costs plus £120 for other expenses. For qualifying benefit recipients in Scotland.',
+    desc: 'Usually covers burial, cremation or hydrolysis costs in Scotland, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.',
     govuk_url: 'https://www.mygov.scot/funeral-support-payment',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Help with funeral costs in Scotland for people on qualifying benefits. Covers up to £1,500 for burial or cremation costs, plus £120 for other expenses (flowers, transport). Must be responsible for the funeral and on a qualifying benefit.',
+      summary: 'Help with funeral costs in Scotland for people on qualifying benefits. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Must be responsible for arranging or paying for a funeral.' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit (UC, Pension Credit, income-related ESA/JSA, Income Support, HB, Tax Credits).' },
+        { factor: 'income', description: 'You or your partner must get Universal Credit, Income Support, Pension Credit, Housing Benefit, income-based JSA or income-related ESA (or be waiting for a decision on one).' },
         { factor: 'geography', description: 'The funeral must take place in the UK, and applicant must live in Scotland.' },
       ],
       keyQuestions: [
@@ -9688,38 +9731,40 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'funeralSupportPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { max_burial_cremation: 1500, other_costs: 120 },
-      source: 'https://www.mygov.scot/funeral-support-payment',
+      rates: { funeral_costs: 1327.75, funeral_costs_with_plan: 162.05 },
+      source: 'https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over',
     },
     nations: ['scotland'],
   },
 
   // Welsh Government ───────────────────────────────────────────────────────
   'wg-winter-fuel-support': {
-    id: 'wg-winter-fuel-support', name: 'Winter Fuel Support Scheme (Wales)', dept: 'Welsh Government', deptKey: 'wg',
+    id: 'wg-winter-fuel-support', name: 'Oil and LPG heating payment (Wales)', dept: 'Welsh Government', deptKey: 'wg',
     deadline: null,
-    desc: '£200 one-off payment for qualifying benefit recipients in Wales to help with energy costs.',
-    govuk_url: 'https://www.gov.wales/winter-fuel-support-scheme',
+    desc: 'One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 6 months after the 2026 launch. Replaces the closed Winter Fuel Support Scheme.',
+    govuk_url: 'https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '£200 one-off payment to help with energy costs in Wales. Must be receiving a qualifying benefit (Pension Credit, UC, income-related ESA/JSA, Income Support). Application window opens annually.',
+      summary: 'One-off £200 payment (announced March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; there are 6 months from launch to claim. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Must be receiving a qualifying benefit: Pension Credit, UC, income-related JSA, income-related ESA, or Income Support.' },
+        { factor: 'income', description: 'Must be getting Council Tax Reduction.' },
+        { factor: 'property', description: 'Home must be heated with heating oil or LPG.' },
         { factor: 'geography', description: 'Must live in Wales.' },
       ],
       keyQuestions: [
         'Do you live in Wales?',
-        'Do you receive a qualifying benefit (Pension Credit, UC, ESA, JSA, Income Support)?',
+        'Do you get Council Tax Reduction?',
+        'Do you heat your home with oil or LPG?',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of qualifying benefit', 'Proof of Welsh residency'],
-      ruleIn: ['On qualifying benefit', 'Lives in Wales'],
-      ruleOut: ['Does not live in Wales', 'Not on qualifying benefit'],      rules: [
+      evidenceRequired: ['Confirmation of heating fuel type', 'Bank details'],
+      ruleIn: ['On Council Tax Reduction', 'Heats with oil or LPG', 'Lives in Wales'],
+      ruleOut: ['Does not live in Wales', 'Not on Council Tax Reduction', 'Mains gas or electric heating'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -9729,57 +9774,33 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must live in Wales"
         },
         {
-          "type": "any",
-          "label": "Must be receiving a qualifying benefit",
-          "rules": [
-            {
-              "type": "dependency",
-              "serviceId": "dwp-pension-credit",
-              "condition": "receiving",
-              "label": "Receiving Pension Credit"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-universal-credit",
-              "condition": "receiving",
-              "label": "Receiving Universal Credit"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-esa",
-              "condition": "receiving",
-              "label": "Receiving ESA"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-jsa",
-              "condition": "receiving",
-              "label": "Receiving JSA"
-            }
-          ]
+          "type": "dependency",
+          "serviceId": "la-council-tax-reduction",
+          "condition": "receiving",
+          "label": "Receiving Council Tax Reduction"
         }
       ],
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.wales/winter-fuel-support-scheme',
+      onlineFormUrl: 'https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Confirm user lives in Wales and receives a qualifying benefit',
-        'Guide user through the Welsh Government application',
-        'Advise on the annual application window',
+        'Confirm user lives in Wales, gets Council Tax Reduction and heats with oil or LPG',
+        'Explain that the local council will contact eligible households, and to contact the council if they have not heard',
+        'Advise that claims close 6 months after the scheme launched in 2026; if too late or not eligible, suggest the Discretionary Assistance Fund',
         'Explain the payment amount (£200)',
       ],
       missingBenefitId: 'winterFuelSupportScheme',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { payment: 200 },
-      source: 'https://www.gov.wales/winter-fuel-support-scheme',
+      source: 'https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs',
     },
     nations: ['wales'],
   },
@@ -9789,15 +9810,15 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'ni-rate-rebate', name: 'Rate Rebate', dept: 'Land & Property Services NI', deptKey: 'ni-lps',
     deadline: null,
     desc: 'Northern Ireland equivalent of Council Tax Reduction. Help with domestic rates for low-income households.',
-    govuk_url: 'https://www.nidirect.gov.uk/articles/rate-relief',
+    govuk_url: 'https://www.nidirect.gov.uk/articles/applying-rate-rebate',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Help with domestic rates in Northern Ireland for people on low income. Similar to Council Tax Reduction in England/Wales. Assessed on income and household circumstances.',
+      summary: 'Help with domestic rates in Northern Ireland for people entitled to Universal Credit, whether homeowners or tenants (not supported accommodation). Applied for online through a Rate Rebate account. Claim within 3 months of the Universal Credit award or some backdated entitlement may be lost.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Means-tested on household income. Amount depends on income, rates liability and household composition.' },
+        { factor: 'income', description: 'Must be entitled to Universal Credit.' },
         { factor: 'property', description: 'Must be liable for domestic rates in Northern Ireland.' },
         { factor: 'geography', description: 'Must live in Northern Ireland.' },
       ],
@@ -9850,7 +9871,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.nidirect.gov.uk/articles/rate-relief',
+      onlineFormUrl: 'https://www.nidirect.gov.uk/articles/applying-rate-rebate',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -9863,7 +9884,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
     nations: ['northern-ireland'],
       contactInfo: {
-      phone: { number: '+44 300 200 7801', label: 'LPS Rating helpline' },
+      phone: { number: '+44 300 200 7802', label: 'LPS Rate Rebate team' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -9876,16 +9897,17 @@ export const NODES: Record<string, ServiceNode> = {
   'ni-discretionary-support': {
     id: 'ni-discretionary-support', name: 'Discretionary Support', dept: 'Department for Communities NI', deptKey: 'ni-dfc',
     deadline: null,
-    desc: 'Emergency grants or loans for people in financial crisis in Northern Ireland. Non-repayable grants up to £150; living expenses loans up to £500.',
+    desc: 'Interest-free loans or grants for short-term living expenses or household items for people in an extreme situation or crisis in Northern Ireland.',
     govuk_url: 'https://www.nidirect.gov.uk/articles/discretionary-support',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Emergency financial help for people in crisis in Northern Ireland. Non-repayable grants (up to £150) for immediate needs; interest-free loans (up to £500) for living expenses. Must be on a qualifying benefit or awaiting a benefit decision.',
+      summary: 'Emergency help for people in Northern Ireland facing an extreme or exceptional situation or crisis that puts health, safety or wellbeing at significant risk. Interest-free loans or non-repayable grants for short-term living expenses, household items, some travel costs, or rent in advance. Up to three loans and one grant of each type in 12 months. Household income after deductions must be no more than £29,741.40.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Must be in financial crisis. Typically receiving or awaiting UC, ESA, JSA, Income Support or Pension Credit.' },
+        { factor: 'income', description: 'Must be in crisis, with combined annual income after deductions of no more than £29,741.40. No loan if total government debt is £1,500 or more.' },
+        { factor: 'age', description: 'Must be over 18, or at least 16 without parental support.' },
         { factor: 'geography', description: 'Must live in Northern Ireland.' },
       ],
       keyQuestions: [
@@ -9961,20 +9983,14 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       missingBenefitId: 'discretionarySupport',
     },
-    financialData: {
-      taxYear: '2025-26',
-      frequency: 'one-off',
-      rates: { emergency_max: 150, living_expenses_max: 500 },
-      source: 'https://www.nidirect.gov.uk/articles/discretionary-support',
-    },
     nations: ['northern-ireland'],
       contactInfo: {
-      phone: { number: '+44 28 9069 9966', label: 'Discretionary Support Team' },
+      phone: { number: '+44 800 587 2750', textphone: '+44 800 587 2751', label: 'Finance Support Service (Discretionary Support)' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
           open: '09:00',
-          close: '17:00',
+          close: '16:00',
         },
       ],
     },
@@ -10138,12 +10154,12 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'other-social-tariff-broadband', name: 'Social Tariff Broadband', dept: 'Broadband providers', deptKey: 'other',
     deadline: null,
     desc: 'Discounted broadband packages for UC, Pension Credit and other benefit recipients. Varies by provider.',
-    govuk_url: 'https://www.gov.uk/affordable-broadband',
+    govuk_url: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Discounted broadband for people on UC, Pension Credit and other means-tested benefits. Available from major providers (BT, Virgin Media, Sky, etc.). Prices typically £12–20/month.',
+      summary: 'Discounted broadband for people on UC, Pension Credit and other means-tested benefits. Available from major providers (BT, Virgin Media, Sky, etc.). Ofcom lists current prices from £10 to £24 a month. Anyone on Universal Credit qualifies with any provider; all major providers also accept Pension Credit, ESA, JSA and Income Support. The benefit claimant must be the main account holder.',
       universal: false,
       criteria: [
         { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, or income-related ESA/JSA.' },
@@ -10198,7 +10214,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/affordable-broadband',
+      onlineFormUrl: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -10215,7 +10231,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'nhs-free-dental', name: 'Free NHS Dental Treatment', dept: 'NHS', deptKey: 'nhs',
     deadline: null,
     desc: 'Free dental for under-18s, pregnant women, new mothers, low-income groups and qualifying benefit recipients.',
-    govuk_url: 'https://www.nhs.uk/nhs-services/dentists/dental-costs/get-help-with-dental-costs/',
+    govuk_url: 'https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
@@ -10224,8 +10240,8 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'age', description: 'Under 18 (or under 19 and in full-time education).' },
-        { factor: 'family', description: 'Pregnant women and mothers with a child under 12 months.' },
-        { factor: 'income', description: 'Receiving Income Support, income-related ESA, income-based JSA, Pension Credit Guarantee, or UC with nil income. Also HC2 certificate holders.' },
+        { factor: 'family', description: 'Pregnant, had a baby in the last 12 months, or had a stillbirth in the last 12 months.' },
+        { factor: 'income', description: 'You or your partner get income-related ESA, Pension Credit Guarantee Credit, or Universal Credit with income below a set limit; or hold an HC2 certificate. Dependants under 20 are also covered.' },
       ],
       keyQuestions: [
         'Are you under 18 (or under 19 in full-time education)?',
@@ -10315,7 +10331,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1348', label: 'NHS BSA dental services' },
+      phone: { number: '+44 300 330 1343', label: 'NHS Help with Health Costs' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -10330,6 +10346,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       officeLocatorUrl: 'https://www.nhs.uk/service-search/find-a-dentist',
     },
+    nations: ['england'],
   },
 
   // NHS — Free Sight Tests ─────────────────────────────────────────────────
@@ -10347,7 +10364,7 @@ export const NODES: Record<string, ServiceNode> = {
       criteria: [
         { factor: 'age', description: 'Under 16 (or under 19 in full-time education), or aged 60 or over.' },
         { factor: 'disability', description: 'Diagnosed glaucoma, diabetes, or registered blind/partially sighted. Also at risk of glaucoma (e.g. aged 40+ with close family member with glaucoma).' },
-        { factor: 'income', description: 'Receiving Income Support, income-related ESA, income-based JSA, Pension Credit Guarantee, UC with nil income. Also HC2 certificate holders.' },
+        { factor: 'income', description: 'You or your partner get income-based JSA, Pension Credit Guarantee Credit, or Universal Credit and meet the criteria; or are named on an HC2 certificate. Dependants under 20 are also covered.' },
       ],
       keyQuestions: [
         'Are you under 16, or under 19 in full-time education?',
@@ -10457,7 +10474,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1349', label: 'NHS BSA optical services' },
+      phone: { number: '+44 300 330 1343', label: 'NHS Help with Health Costs' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -10470,37 +10487,38 @@ export const NODES: Record<string, ServiceNode> = {
           close: '15:00',
         },
       ],
-      officeLocatorUrl: 'https://www.nhs.uk/service-search/find-an-optician',
+      officeLocatorUrl: 'https://www.nhs.uk/service-search/find-an-NHS-sight-test/location',
     },
+    nations: ['england'],
   },
 
   // DWP — Support for Mortgage Interest ────────────────────────────────────
   'dwp-smi': {
     id: 'dwp-smi', name: 'Support for Mortgage Interest', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Loan (secured against property) to help with mortgage interest payments for UC, PC, JSA, ESA and IS claimants.',
+    desc: 'Loan (secured against the home) towards mortgage interest for people getting Universal Credit, Pension Credit or income-related ESA. Calculated at 3.66% on up to £200,000.',
     govuk_url: 'https://www.gov.uk/support-for-mortgage-interest',
     serviceType: 'benefit',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'A loan to help homeowners pay mortgage interest. Available to UC, Pension Credit, income-based JSA, income-related ESA and Income Support claimants. The loan is secured against the property and repaid when the property is sold.',
+      summary: 'A loan to help homeowners pay mortgage interest. Available to Universal Credit, Pension Credit and income-related ESA claimants. Helps with interest on up to £200,000 (£100,000 for Pension Credit). The loan is repaid with interest when the home is sold or ownership transferred.',
       universal: false,
       criteria: [
         { factor: 'property', description: 'Must be a homeowner with a mortgage, loan or other charge on the property.' },
-        { factor: 'income', description: 'Must be receiving UC (with no earnings or limited earnings), Pension Credit, income-based JSA, income-related ESA or Income Support.' },
-        { factor: 'dependency', description: 'For UC claimants, must have received UC for 9 consecutive months before SMI starts (3 months for Pension Credit).' },
+        { factor: 'income', description: 'Must be receiving Universal Credit, Pension Credit or income-related ESA.' },
+        { factor: 'dependency', description: 'Payments start after 3 months in a row on Universal Credit, 39 weeks on income-related ESA, or straight away on Pension Credit.' },
       ],
       keyQuestions: [
         'Are you a homeowner with a mortgage?',
-        'Do you receive UC, Pension Credit, JSA, ESA or Income Support?',
+        'Do you receive Universal Credit, Pension Credit or income-related ESA?',
         'How long have you been receiving the qualifying benefit?',
         'Do you understand this is a loan secured against your property?',
       ],
       exclusions: ['Renting (not a homeowner)', 'UC with earnings above threshold', 'Not on qualifying benefit for required duration'],
       means_tested: true,
       evidenceRequired: ['Mortgage statement', 'Proof of qualifying benefit', 'Consent to charge on property'],
-      ruleIn: ['Homeowner with mortgage', 'On qualifying benefit 9+ months'],
+      ruleIn: ['Homeowner with mortgage', 'On UC 3+ months, Pension Credit, or income-related ESA 39+ weeks'],
       ruleOut: ['Renting', 'Not on qualifying benefit', 'UC with earnings above threshold'],      rules: [
         {
           "type": "boolean",
@@ -10516,7 +10534,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit for 9+ months",
+          "label": "Must be receiving a qualifying benefit (UC for 3+ months, Pension Credit, or income-related ESA for 39+ weeks)",
           "rules": [
             {
               "type": "dependency",
@@ -10531,15 +10549,9 @@ export const NODES: Record<string, ServiceNode> = {
               "label": "Receiving Pension Credit"
             },
             {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-jsa",
-              "condition": "receiving",
-              "label": "Receiving income-based JSA"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-esa",
-              "condition": "receiving",
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
               "label": "Receiving income-related ESA"
             }
           ]
@@ -10561,27 +10573,23 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { interest_rate_percent: 2.36, capital_limit: 200000 },
+      rates: { interest_rate_percent: 3.66, capital_limit: 200000 },
       source: 'https://www.gov.uk/support-for-mortgage-interest',
     },
-      contactInfo: {
+    contactInfo: {
       phone: {
-        number: '+44 800 169 0140',
-        textphone: '+44 800 169 0207',
-        relay: '18001 then 0800 169 0140',
-        label: 'Jobcentre Plus (Support for Mortgage Interest)',
+        number: '+44 800 916 0567',
+        relay: '18001 then 0800 916 0567',
+        label: 'DWP Loan Management (existing SMI loans)',
       },
       hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
-        },
+        { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
       ],
-      notes: 'Accessed through qualifying benefit (UC, Pension Credit, JSA/ESA, or IS).',
+      notes: 'To apply, contact the office paying your benefit: Universal Credit journal or helpline (0800 328 5644), Pension Service (0800 731 0469), or Jobcentre Plus for income-related ESA (0800 169 0310).',
     },
+
   },
 
   // DWP — Cold Weather Payment ─────────────────────────────────────────────
@@ -10757,11 +10765,11 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Help with court and tribunal fees. Full remission if receiving qualifying benefits (UC with gross income under £6,000, JSA, ESA, IS, Pension Credit Guarantee). Partial remission based on income and savings. Savings must be below threshold.',
+      summary: 'Help with court and tribunal fees. Money off the fee if receiving a qualifying benefit (Universal Credit with earnings under £6,000 a year, income-based JSA, income-related ESA, Income Support, Pension Credit Guarantee Credit) or on a low income, and savings are below the limit (usually £4,250). England and Wales; Scotland and Northern Ireland have different rules.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Full remission: on qualifying benefit with savings below threshold. Partial remission: gross monthly income below £1,345 (single, no children). Higher thresholds for couples and those with children.' },
-        { factor: 'asset', description: 'Savings must be below threshold: under 61 = £3,000; 61+ = £16,000. Thresholds rise depending on fee amount.' },
+        { factor: 'income', description: 'On a qualifying benefit, or reported monthly income of £1,420 or less (single) or £2,130 or less (couple), plus £425 per child aged 0 to 13 and £710 per child aged 14 or over. Higher incomes may get partial help depending on the fee.' },
+        { factor: 'asset', description: 'If you and your partner are 65 or younger: up to £4,250 savings for fees of £1,420 or less, rising to £16,000 for fees over £7,000. If either is 66 or older: up to £16,000 whatever the fee.' },
       ],
       keyQuestions: [
         'Are you receiving a qualifying benefit (UC, JSA, ESA, IS, Pension Credit)?',
@@ -10821,8 +10829,8 @@ export const NODES: Record<string, ServiceNode> = {
                   "type": "comparison",
                   "field": "savings",
                   "operator": "<",
-                  "value": 3000,
-                  "label": "Savings below £3,000 (under 61) or £16,000 (61+)"
+                  "value": 4250,
+                  "label": "Savings below £4,250 (65 or younger, fee £1,420 or less) or £16,000 (66+)"
                 }
               ]
             },
@@ -10834,15 +10842,15 @@ export const NODES: Record<string, ServiceNode> = {
                   "type": "comparison",
                   "field": "annual_income",
                   "operator": "<",
-                  "value": 16140,
-                  "label": "Gross annual income below £16,140 (£1,345/month single, no children)"
+                  "value": 17040,
+                  "label": "Monthly income £1,420 or less if single (£2,130 for a couple, more with children)"
                 },
                 {
                   "type": "comparison",
                   "field": "savings",
                   "operator": "<",
-                  "value": 3000,
-                  "label": "Savings below threshold for fee amount"
+                  "value": 4250,
+                  "label": "Savings below threshold for fee amount (usually £4,250)"
                 }
               ]
             }
@@ -10864,6 +10872,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Explain the HWF reference number process for court submissions',
       ],
     },
+    nations: ['england', 'wales'],
   },
 
   // NHS — Maternity Exemption Certificate ──────────────────────────────────
@@ -10871,12 +10880,12 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'nhs-maternity-exemption', name: 'Maternity Exemption Certificate', dept: 'NHS', deptKey: 'nhs',
     deadline: null,
     desc: 'Free NHS prescriptions and dental treatment during pregnancy and for 12 months after the baby is born.',
-    govuk_url: 'https://www.nhs.uk/pregnancy/finding-out/free-nhs-prescriptions-and-dental-care/',
+    govuk_url: 'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Free NHS prescriptions and dental treatment for pregnant women and new mothers for 12 months after the baby\'s birth. Maternity Exemption Certificate (MatEx) obtained through midwife or GP.',
+      summary: 'Certificate giving free NHS prescriptions (and proof of entitlement to free NHS dental treatment) during pregnancy and until 12 months after the due date or birth. Applied for by a midwife, doctor or health visitor; issued by email through the digital service or by post within 10 working days, backdated one month.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be pregnant or have had a baby in the last 12 months.' },
@@ -10921,11 +10930,11 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise user to ask midwife or GP for a maternity exemption form',
         'Explain the certificate covers free prescriptions and dental for full pregnancy plus 12 months post-birth',
         'Remind user to present the certificate at pharmacies and dentists',
-        'Explain the certificate is sent automatically after the form is submitted',
+        'Explain the certificate arrives by email if the digital service is used, otherwise by post within 10 working days, and that it can still be used after a miscarriage or stillbirth until it expires',
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1341', label: 'NHS BSA (maternity exemption)' },
+      phone: { number: '+44 300 330 1341', relay: '18001 then 0300 330 1341', label: 'NHSBSA medical and maternity exemption certificates' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -10945,8 +10954,8 @@ export const NODES: Record<string, ServiceNode> = {
   'la-free-childcare-2yr': {
     id: 'la-free-childcare-2yr', name: 'Free Childcare (disadvantaged 2-year-olds)', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
-    desc: '15 hours/week free childcare for 2-year-olds from disadvantaged backgrounds. England only.',
-    govuk_url: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds',
+    desc: 'Early Learning for 2 year olds: 15 hours/week free childcare for 38 weeks for 2-year-olds whose family gets certain benefits or support. England only. Apply through the local council.',
+    govuk_url: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
@@ -10955,12 +10964,12 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must have a 2-year-old child.' },
-        { factor: 'income', description: 'Parent/carer must receive a qualifying benefit: Income Support, income-based JSA, income-related ESA, UC (with annual income under £15,400), tax credits (with annual income under £16,190), or the child has an EHC plan or receives DLA.' },
+        { factor: 'income', description: 'Parent/carer gets Universal Credit with household income of £15,400 a year or less after tax (not counting benefits), Income Support, income-based JSA, income-related ESA, or the guaranteed element of Pension Credit. Or the child has an EHC plan, gets DLA, is in care, or has left care under an adoption, special guardianship or child arrangements order. Some families who cannot claim benefits because of immigration status also qualify, subject to income and savings limits.' },
         { factor: 'geography', description: 'England only.' },
       ],
       keyQuestions: [
         'Do you have a child aged 2?',
-        'Do you receive a qualifying benefit (UC, tax credits, IS, JSA, ESA)?',
+        'Do you receive a qualifying benefit (UC with low household income, IS, income-based JSA, income-related ESA, or guaranteed Pension Credit)?',
         'Does the child have an EHC plan or receive DLA?',
         'Is the child a looked-after child?',
         'Do you live in England?',
@@ -11007,9 +11016,9 @@ export const NODES: Record<string, ServiceNode> = {
                 {
                   "type": "comparison",
                   "field": "annual_income",
-                  "operator": "<",
+                  "operator": "<=",
                   "value": 15400,
-                  "label": "Annual income under £15,400"
+                  "label": "Household income £15,400 a year or less after tax"
                 }
               ]
             },
@@ -11055,14 +11064,14 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['in-person', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds',
+      onlineFormUrl: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on benefit receipt or child\'s needs',
-        'Guide user to apply through their local council',
+        'Guide user to apply through the early years team or Family Information Service at their local council, close to the child\'s 2nd birthday',
         'Explain the 15 hours/week entitlement (38 weeks/year)',
         'Advise on finding eligible childcare providers',
       ],
@@ -11140,17 +11149,17 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-grant': {
     id: 'sss-best-start-grant', name: 'Best Start Grant', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Three one-off payments for families on qualifying benefits in Scotland: pregnancy (£707.25), early learning (£314.10), school age (£314.10).',
+    desc: 'Three one-off payments for families on qualifying benefits in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy & Baby Payment (£707.25 first child, £353.65 subsequent), Early Learning Payment (£314.10 when child turns ~2), School Age Payment (£314.10 when child starts school). Must be on qualifying benefit.',
+      summary: 'Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school. Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be responsible for a child (or pregnant for the first payment).' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit: UC, tax credits, income-related ESA/JSA, Income Support, Pension Credit, or Housing Benefit.' },
+        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
@@ -11231,9 +11240,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { pregnancy_first: 707.25, pregnancy_subsequent: 353.65, early_learning: 314.10, school_age: 314.10 },
+      rates: { pregnancy_first: 796.65, pregnancy_subsequent: 398.35, early_learning: 331.950, school_age: 331.950 },
       source: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     },
     nations: ['scotland'],
@@ -11241,17 +11250,17 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-foods': {
     id: 'sss-best-start-foods', name: 'Best Start Foods', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£4.95/week on a prepaid card for healthy food during pregnancy and for children under 3 in Scotland.',
+    desc: 'Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, £22.40 per child aged 1 to 3. Scotland only.',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '£4.95/week loaded onto a prepaid card for buying healthy food. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit.',
+      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit. Some families with no access to public funds can also get it.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be pregnant or responsible for a child under 3.' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit: UC, tax credits, income-related ESA/JSA, Income Support, Pension Credit, or Housing Benefit.' },
+        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
@@ -11337,9 +11346,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
-      frequency: 'weekly',
-      rates: { weekly_rate: 4.95 },
+      taxYear: '2026-27',
+      frequency: '4-weekly',
+      rates: { pregnancy: 22.40, child_under_1: 44.80, child_1_to_3: 22.40 },
       source: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     },
     nations: ['scotland'],
@@ -11644,17 +11653,17 @@ export const NODES: Record<string, ServiceNode> = {
   'wg-discretionary-assistance': {
     id: 'wg-discretionary-assistance', name: 'Discretionary Assistance Fund (Wales)', dept: 'Welsh Government', deptKey: 'wg',
     deadline: null,
-    desc: 'Emergency assistance payments in Wales. Emergency Assistance Payment (up to £120) or Individual Assistance Payment (up to £750).',
+    desc: 'Grants (not loans) in Wales: Emergency Assistance Payment for food, gas, electricity, heating oil or emergency travel in a crisis; Individual Assistance Payment for white goods and furniture to live independently.',
     govuk_url: 'https://www.gov.wales/discretionary-assistance-fund-daf',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Emergency financial help in Wales. Two types: Emergency Assistance Payment (up to £120 for immediate crisis — food, gas, electricity) and Individual Assistance Payment (up to £750 for essential household items). Must be 16+ and live in Wales.',
+      summary: 'Emergency financial help in Wales. Two grants that do not need paying back: Emergency Assistance Payment for immediate crisis costs (food, gas, electricity, heating oil, emergency travel), and Individual Assistance Payment for furniture and white goods, applied for through an approved partner. Must be 16+ and live in Wales.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must be aged 16 or over.' },
-        { factor: 'income', description: 'Must be in financial hardship. For EAP: facing an immediate crisis. For IAP: need essential household items (e.g. after fleeing domestic violence, leaving care, or an emergency).' },
+        { factor: 'income', description: 'EAP: extreme financial hardship or an unexpected crisis with no other money. IAP: must get Income Support, income-based JSA, income-related ESA, Pension Credit Guarantee Credit or Universal Credit, and be leaving an institution, avoiding going into one, setting up home after an unsettled way of life, moving because of relationship breakdown or domestic abuse, or caring for a released prisoner.' },
         { factor: 'geography', description: 'Must live in Wales.' },
       ],
       keyQuestions: [
@@ -11701,13 +11710,14 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise on urgent processing for immediate crisis needs',
       ],
     },
-    financialData: {
-      taxYear: '2025-26',
-      frequency: 'one-off',
-      rates: { emergency_max: 120, individual_max: 750 },
-      source: 'https://www.gov.wales/discretionary-assistance-fund-daf',
-    },
     nations: ['wales'],
+    contactInfo: {
+      phone: { number: '+44 800 859 5924', label: 'Discretionary Assistance Fund' },
+      hours: [
+        { days: ['mon','tue','wed','thu','fri'], open: '10:00', close: '16:00' },
+      ],
+      notes: 'Closed on bank holidays. Calls welcome in Welsh. Email: daf.feedback@necsws.com',
+    },
   },
   'slc-loan-repayment': {
     id: 'slc-loan-repayment', name: 'Student loan repayment', dept: 'Student Loans Company', deptKey: 'slc',
@@ -11933,26 +11943,26 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-help-to-save': {
     id: 'hmrc-help-to-save', name: 'Help to Save', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Government-backed savings account paying a 50p bonus for every £1 saved, available to Universal Credit and Working Tax Credit claimants.',
+    desc: 'Government-backed savings account paying a 50p bonus for every £1 saved, available to Universal Credit claimants with some take-home pay.',
     govuk_url: 'https://www.gov.uk/get-help-savings-low-income',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Available to UK residents receiving Universal Credit (with minimum earnings) or Working Tax Credit. Save between £1 and £50 per month for up to 4 years and receive a 50% government bonus at the end of years 2 and 4.',
+      summary: 'Available to UK residents receiving Universal Credit whose household take-home pay was £1 or more in their last monthly assessment period. Save between £1 and £50 per month for up to 4 years and receive a 50% government bonus at the end of years 2 and 4.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Must be receiving Universal Credit with minimum household earnings, or Working Tax Credit.' },
+        { factor: 'income', description: 'Must be receiving Universal Credit, with take-home pay (jointly, if a couple) of £1 or more in the last monthly assessment period.' },
         { factor: 'residency', description: 'Must be a UK resident.' },
       ],
       keyQuestions: [
-        'Is the user currently receiving Universal Credit or Working Tax Credit?',
+        'Is the user receiving Universal Credit, and did they have any take-home pay last assessment period?',
         'Can they afford to save at least £1/month?',
       ],
-      autoQualifiers: ['Receiving Universal Credit and earned at least £793.17 in last month'],
+      autoQualifiers: ['Receiving Universal Credit with take-home pay of £1 or more in the last assessment period'],
       means_tested: true,
-      ruleIn: ['Receiving Universal Credit', 'Receiving Working Tax Credit'],
-      ruleOut: ['Not receiving UC or WTC', 'Not a UK resident'],
+      ruleIn: ['Receiving Universal Credit with some take-home pay'],
+      ruleOut: ['Not receiving Universal Credit', 'No take-home pay in last assessment period', 'Not a UK resident'],
     },
     agentInteraction: {
       methods: ['online'],
@@ -11967,7 +11977,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { max_bonus_year_2: 600, max_bonus_year_4: 600, max_total_bonus: 1200 },
       source: 'https://www.gov.uk/get-help-savings-low-income',
@@ -11978,7 +11988,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'dwp-budgeting-loan', name: 'Budgeting Loan', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
     desc: 'Interest-free loan from the Social Fund for essential items such as furniture, clothes or travel costs, for people on qualifying benefits.',
-    govuk_url: 'https://www.gov.uk/budgeting-help-benefits/budgeting-loans',
+    govuk_url: 'https://www.gov.uk/budgeting-help-benefits',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
@@ -12011,11 +12021,18 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { min: 100, max_single: 348, max_couple: 464, max_with_children: 812 },
-      source: 'https://www.gov.uk/budgeting-help-benefits/budgeting-loans',
+      source: 'https://www.gov.uk/budgeting-help-benefits',
     },
+    contactInfo: {
+      phone: { number: '+44 800 169 0140', relay: '18001 then 0800 169 0140', welsh: '+44 800 169 0240', label: 'Social Fund Enquiry Line' },
+      hours: [
+        { days: ['mon','tue','wed','thu','fri'], open: '10:00', close: '15:00' },
+      ],
+    },
+    nations: ['england', 'scotland', 'wales'],
   },
 
   'hmrc-tax-credits': {
@@ -12144,7 +12161,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'dwp-benefit-debt-repayment', name: 'Repay a benefit overpayment', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
     desc: 'Manage or repay a DWP benefit overpayment through an online account, direct debit or phone.',
-    govuk_url: 'https://www.gov.uk/repaying-benefit-overpayment',
+    govuk_url: 'https://www.gov.uk/benefit-overpayments',
     serviceType: 'obligation',
     proactive: false,
     gated: false,
@@ -12165,7 +12182,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/repaying-benefit-overpayment',
+      onlineFormUrl: 'https://www.gov.uk/benefit-overpayments/how-to-make-a-repayment',
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
@@ -12174,6 +12191,13 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise on appealing if the overpayment is disputed',
       ],
     },
+    contactInfo: {
+      phone: { number: '+44 800 916 0647', relay: '18001 then 0800 916 0647', label: 'DWP Debt Management contact centre' },
+      hours: [
+        { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '19:30' },
+      ],
+      notes: 'From abroad: +44 161 904 1233. Social Security Scotland, Child Benefit and Northern Ireland (Department for Communities) overpayments use different processes.',
+    },
   },
 
   // ─── HEALTHCARE ────────────────────────────────────────────────────────────
@@ -12181,17 +12205,17 @@ export const NODES: Record<string, ServiceNode> = {
   'nhs-fit-note': {
     id: 'nhs-fit-note', name: 'Send a fit note for an ESA claim', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Upload or submit a fit note (sick note) digitally to DWP to support an Employment and Support Allowance or Universal Credit health claim.',
+    desc: 'Upload or submit a fit note (sick note) digitally to DWP to support a New Style Employment and Support Allowance claim.',
     govuk_url: 'https://www.gov.uk/send-fit-note',
     serviceType: 'application',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Required for claimants of ESA or the health/limited capability element of Universal Credit who need to provide medical evidence of their condition. A GP or healthcare provider issues the fit note; the claimant submits it to DWP.',
+      summary: 'For New Style Employment and Support Allowance claimants, who are told during their application when to send a fit note. Only certain healthcare professionals can issue one. Upload a digital fit note, or a photo of a signed printed one, with your National Insurance number.',
       universal: false,
       criteria: [
         { factor: 'disability', description: 'Must have a health condition or disability that prevents or limits work, evidenced by a fit note from a healthcare provider.' },
-        { factor: 'dependency', description: 'Must already be claiming or applying for ESA or UC with a health condition.' },
+        { factor: 'dependency', description: 'Must be claiming or applying for New Style ESA.' },
       ],
       keyQuestions: [
         'Does the user have a current fit note from their GP or healthcare provider?',
@@ -12204,7 +12228,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://send-fit-note.service.gov.uk/',
+      onlineFormUrl: 'https://send-fit-note.service.gov.uk?lang=en',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12237,13 +12261,13 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)', 'Outside England'],
       means_tested: false,
-      ruleIn: ['Pays NHS prescription charges', 'Needs 2+ items/month or 11+/year', 'Lives in England'],
+      ruleIn: ['Pays NHS prescription charges', 'Needs 4+ items in 3 months or 12+ in 12 months', 'Lives in England'],
       ruleOut: ['Already exempt from prescription charges', 'Lives outside England'],
     },
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://services.nhsbsa.nhs.uk/buy-prescription-prepayment-certificate/start',
+      onlineFormUrl: 'https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12253,11 +12277,12 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { annual_cert: 111.60, three_month_cert: 31.25, single_item: 9.90 },
+      rates: { annual_cert: 114.500, three_month_cert: 32.05, single_item: 9.90 },
       source: 'https://www.gov.uk/get-a-ppc',
     },
+    nations: ['england'],
   },
 
   // ─── EMPLOYMENT & TRIBUNALS ────────────────────────────────────────────────
@@ -12343,13 +12368,13 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-find-a-job': {
     id: 'dwp-find-a-job', name: 'Find a Job', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'DWP\'s free national job search service listing vacancies from thousands of employers across the UK.',
+    desc: 'DWP\'s free national job search service listing vacancies in England, Scotland and Wales.',
     govuk_url: 'https://www.gov.uk/find-a-job',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Free to use for anyone in the UK looking for work. Employers post vacancies directly. Jobseekers can save searches and upload CVs.',
+      summary: 'Free to use for anyone looking for work in England, Scotland or Wales (Northern Ireland has a separate service). Employers post vacancies directly. Jobseekers can save searches and upload CVs.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -12363,7 +12388,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://findajob.dwp.gov.uk',
+      onlineFormUrl: 'https://www.jobs.service.gov.uk/jobs',
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
@@ -12372,6 +12397,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise on creating a jobseeker profile to receive alerts',
       ],
     },
+    nations: ['england', 'scotland', 'wales'],
   },
 
   // ─── LEGAL, COURTS & DEBT ─────────────────────────────────────────────────
@@ -12385,7 +12411,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Available to individuals in England and Wales who cannot pay their debts and owe at least £5,000. Costs £680 to apply. Bankruptcy typically lasts one year, after which most remaining debts are written off.',
+      summary: 'Available to individuals in England and Wales who cannot pay their debts. Apply online only; the £680 fee can be paid in instalments but must be paid before submitting. Bankruptcy typically lasts one year, after which most remaining debts are written off.',
       universal: false,
       criteria: [
         { factor: 'asset', description: 'Debts must exceed assets and the person must be unable to pay debts as they fall due.' },
@@ -12394,12 +12420,12 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'Can the user pay their debts as they fall due?',
         'Do they own property or significant assets?',
-        'Have they considered a Debt Relief Order (if debts under £30k)?',
+        'Have they considered a Debt Relief Order (if debts under £50k)?',
       ],
-      exclusions: ['Already bankrupt', 'Debt under £5,000 — other options may be better', 'Significant property ownership — bankruptcy trustee may sell assets'],
+      exclusions: ['Already bankrupt', 'Significant property ownership — bankruptcy trustee may sell assets'],
       means_tested: false,
-      ruleIn: ['Cannot pay debts', 'Owes £5,000+', 'England or Wales resident'],
-      ruleOut: ['Debts under £5,000', 'Can pay debts with a repayment plan'],
+      ruleIn: ['Cannot pay debts', 'England or Wales resident'],
+      ruleOut: ['Can pay debts with a repayment plan'],
     },
     agentInteraction: {
       methods: ['online'],
@@ -12410,16 +12436,25 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Explain consequences of bankruptcy (credit record, property, employment)',
         'Check whether DRO or IVA might be more appropriate',
-        'Advise on the £680 application fee and fee waiver options',
+        'Advise on the £680 application fee, which can be paid in instalments',
         'Guide user through the online application',
       ],
     },
+    contactInfo: {
+      phone: { number: '+44 300 678 0015', label: 'Insolvency Enquiry Line' },
+      hours: [
+        { days: ['mon','tue','wed','thu'], open: '09:00', close: '17:00' },
+        { days: ['fri'], open: '09:00', close: '15:00' },
+      ],
+      notes: 'Email: iel.onlinedebtsolutions@insolvency.gov.uk',
+    },
+    nations: ['england', 'wales'],
   },
 
   'insolvency-breathing-space': {
     id: 'insolvency-breathing-space', name: 'Breathing Space (debt respite scheme)', dept: 'Insolvency Service', deptKey: 'other',
     deadline: null,
-    desc: 'A 60-day breathing space gives people with problem debt legal protection from creditor action while they get debt advice.',
+    desc: 'Up to 60 days\' legal protection from creditor action, interest and charges while getting debt advice (longer during mental health crisis treatment). England and Wales only; a debt adviser applies.',
     govuk_url: 'https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space',
     serviceType: 'legal_process',
     proactive: true,
@@ -12454,23 +12489,24 @@ export const NODES: Record<string, ServiceNode> = {
         'Explain what protections breathing space provides',
       ],
     },
+    nations: ['england', 'wales'],
   },
 
   'insolvency-dro': {
     id: 'insolvency-dro', name: 'Debt Relief Order (DRO)', dept: 'Insolvency Service', deptKey: 'other',
     deadline: null,
-    desc: 'A low-cost insolvency option for people with debts under £30,000, little surplus income and few assets.',
+    desc: 'A free insolvency option in England and Wales for people who owe less than £50,000, have under £75 a month spare income, few assets and do not own their home.',
     govuk_url: 'https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders',
     serviceType: 'legal_process',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Available in England and Wales for people with qualifying debt levels (under £30,000), low surplus income (under £75/month) and few assets (under £2,000, excluding a vehicle up to £4,000). Costs £90. Must apply through an authorised debt adviser.',
+      summary: 'Available in England and Wales for people with qualifying debt levels (under £50,000), low spare income (usually under £75/month), assets under £2,000, no vehicle worth £4,000 or more, and not a homeowner. Free. Must apply through an approved debt adviser. Payments stop for 12 months, then the debts are written off.',
       universal: false,
       criteria: [
         { factor: 'income', description: 'Surplus income after essential expenses must be under £75/month.' },
         { factor: 'asset', description: 'Total assets must be worth under £2,000.' },
-        { factor: 'dependency', description: 'Debts must be under £30,000 and must apply through an authorised intermediary.' },
+        { factor: 'dependency', description: 'Debts must be under £50,000 and must apply through an approved debt adviser. No DRO in the last 6 years.' },
         { factor: 'residency', description: 'Must live or have been living in England or Wales.' },
       ],
       keyQuestions: [
@@ -12478,10 +12514,10 @@ export const NODES: Record<string, ServiceNode> = {
         'What are their monthly surplus income and total assets?',
         'Have they previously had a DRO or been bankrupt?',
       ],
-      exclusions: ['Debts over £30,000', 'Surplus income over £75/month', 'Assets over £2,000', 'Not eligible if homeowner'],
+      exclusions: ['Debts of £50,000 or more', 'Surplus income over £75/month', 'Assets over £2,000', 'Not eligible if homeowner'],
       means_tested: true,
-      ruleIn: ['Debts under £30,000', 'Surplus income under £75/month', 'Assets under £2,000'],
-      ruleOut: ['Debts over £30,000', 'Assets over £2,000 (excluding car up to £4,000)', 'Homeowner'],
+      ruleIn: ['Debts under £50,000', 'Surplus income under £75/month', 'Assets under £2,000'],
+      ruleOut: ['Debts of £50,000 or more', 'Assets over £2,000 (excluding car up to £4,000)', 'Homeowner'],
     },
     agentInteraction: {
       methods: ['online'],
@@ -12495,6 +12531,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Direct to approved DRO intermediaries (StepChange, Citizens Advice)',
       ],
     },
+    nations: ['england', 'wales'],
   },
 
   'hmcts-money-claims': {
@@ -12660,10 +12697,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Is the appeal within the relevant time limit?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Planning application refused', 'Within appeal time limit', 'England'],
       ruleOut: ['Outside England', 'Out of time'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -12942,10 +12979,10 @@ export const NODES: Record<string, ServiceNode> = {
         'What is the full address of the property?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Buying a property in England'],
       ruleOut: ['Property in Wales, Scotland or Northern Ireland (different process)'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -12977,10 +13014,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Is the user buying, insuring or just curious about the risk?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Property in England'],
       ruleOut: ['Property outside England — different services in Wales, Scotland, NI'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -13048,10 +13085,10 @@ export const NODES: Record<string, ServiceNode> = {
         'When was the current rating list compiled?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Business ratepayer in England', 'Believes rateable value is wrong'],
       ruleOut: ['Property in Wales (separate process)', 'No business rates liability'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -13190,15 +13227,37 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      criteria: 'You hold a valid Skilled Worker visa. Dependants are your partner (married, civil partner, or long-term partner) or children under 18.',
-      keyQuestions: ['Do you have a spouse/partner or children who want to come to the UK?', 'Are your children under 18?'],
+      summary: 'Partners and children under 18 of a Skilled Worker visa holder can apply to join them in the UK as dependants, and can work and study without restriction. A visa fee is payable per dependant, plus the immigration health surcharge — check the current amounts on GOV.UK, as they change.',
+      universal: false,
+      criteria: [
+        { factor: 'immigration', description: 'The main applicant holds a valid Skilled Worker visa.' },
+        { factor: 'family', description: 'Dependants are a partner (married, civil partner, or long-term partner) or children under 18.' },
+      ],
+      keyQuestions: [
+        'Do you have a spouse, partner or children who want to come to the UK?',
+        'Are your children under 18?',
+        'Are you applying from overseas or from inside the UK?',
+      ],
       autoQualifiers: ['Has Skilled Worker visa'],
       exclusions: ['Children aged 18 or over must apply in their own right'],
-      ruleIn: 'Has family members wanting to join in the UK',
-      ruleOut: 'No eligible dependants',
+      means_tested: false,
+      evidenceRequired: ['Main applicant\'s visa or BRP', 'Marriage or civil partnership certificate', 'Children\'s birth certificates', 'Proof of relationship for unmarried partners'],
+      ruleIn: ['Holds a valid Skilled Worker visa', 'Has a partner or children under 18 wanting to join them'],
+      ruleOut: ['No eligible dependants', 'Child is 18 or over'],
     },
-    agentInteraction: { type: 'form_completion', complexityHint: 'medium' },
-    financialData: { amount: null, frequency: null, notes: 'Visa fee applies per dependant. NHS surcharge also payable.' },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Confirm which family members qualify as dependants',
+        'Prepare the relationship-evidence checklist for each dependant',
+        'Explain that a visa fee and the immigration health surcharge are payable per dependant',
+        'Guide the user through the online dependant application',
+      ],
+    },
   },
 
   'ho-student-visa': {
@@ -13858,25 +13917,26 @@ export const NODES: Record<string, ServiceNode> = {
   'dhsc-baby-loss-certificate': {
     id: 'dhsc-baby-loss-certificate', name: 'Request a baby loss certificate', dept: 'DHSC', deptKey: 'other',
     deadline: null,
-    desc: 'Request a certificate in memory of your baby if your pregnancy ended before 24 weeks gestation.',
+    desc: 'Free, optional certificate in memory of a baby lost before 24 weeks of pregnancy. England only.',
     govuk_url: 'https://www.gov.uk/request-baby-loss-certificate',
     serviceType: 'document',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Available to parents who experienced the loss of a baby before 24 weeks gestation (including miscarriage and ectopic pregnancy). The certificate is not a legal document but provides official acknowledgement. Losses before 1 October 1992 can also be registered (28 weeks threshold applied then).',
+      summary: 'Available to parents who experienced the loss of a baby before 24 weeks gestation (including miscarriage and ectopic pregnancy). Free and optional. The certificate is not a legal document (it cannot be used to claim benefits) and is not added to the GP record. Losses before 1 October 1992 are covered up to 28 weeks. England only; arrives by post within 21 days.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Must have experienced pregnancy loss before 24 weeks gestation (or 28 weeks if before 1 October 1992).' },
-        { factor: 'family', description: 'Must be a parent of the baby.' },
+        { factor: 'family', description: 'Must be one of the baby\'s parents or the surrogate, and at least 16 years old.' },
+        { factor: 'geography', description: 'Must live in England.' },
       ],
       keyQuestions: [
         'At what stage of pregnancy did the loss occur?',
         'Does the parent have details such as the date and hospital?',
       ],
       means_tested: false,
-      ruleIn: ['Pregnancy loss before 24 weeks', 'Parent of the baby'],
-      ruleOut: ['Loss at 24 weeks or later — registered as stillbirth under GRO'],
+      ruleIn: ['Pregnancy loss before 24 weeks', 'Parent of the baby', 'Lives in England'],
+      ruleOut: ['Loss at 24 weeks or later — registered as stillbirth under GRO', 'Lives outside England'],
     },
     agentInteraction: {
       methods: ['online'],
@@ -13887,9 +13947,18 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Express condolences and explain the certificate sensitively',
         'Confirm the pregnancy was under 24 weeks (losses at 24+ weeks are registered as stillbirths)',
-        'Guide parent through the online request',
+        'Guide parent through the online request (needs NHS number or GP postcode, and the phone or email registered with the GP)',
+        'If the online service cannot be used (e.g. four or more babies lost, a different name at the time, or the other parent has died), give the helpline details',
       ],
     },
+    contactInfo: {
+      phone: { number: '+44 300 330 9445', label: 'Baby loss certificate service' },
+      hours: [
+        { days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '17:00' },
+      ],
+      notes: 'Email: babylosscertificate@nhsbsa.nhs.uk',
+    },
+    nations: ['england'],
   },
 
   'dbs-basic-check': {
@@ -13969,7 +14038,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £11 each for standard delivery.',
+      summary: 'Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index reference, or 15 working days without one, plus £3.50 per search). Priority service £38.50. Can also be ordered from the local register office.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -13991,6 +14060,12 @@ export const NODES: Record<string, ServiceNode> = {
         'Check whether the event is in the GRO index',
         'Guide user through the online order form',
       ],
+    },
+    financialData: {
+      taxYear: '2026-27',
+      frequency: 'one-off',
+      rates: { standard_certificate: 12.50, priority_certificate: 38.50 },
+      source: 'https://www.gov.uk/order-copy-birth-death-marriage-certificate',
     },
   },
 
@@ -14018,10 +14093,10 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['Parent aged 20 or over when academic year starts', 'Parent not in publicly funded education', 'Not the primary carer'],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Under 20', 'In publicly funded education', 'Primary carer of child'],
       ruleOut: ['Aged 20 or over at start of academic year', 'Not in publicly funded education', 'Not primary carer'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14062,10 +14137,10 @@ export const NODES: Record<string, ServiceNode> = {
         'What is their current qualification level?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Aged 16+', 'In England', 'Not in full-time education'],
       ruleOut: ['Under 16', 'Currently in full-time education'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14101,10 +14176,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Have they done any school experience?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['UK degree or equivalent', 'Wants to teach in England'],
       ruleOut: ['No degree or equivalent qualification'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14138,10 +14213,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have the provider name, postcode, or URN?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: [],
       ruleOut: [],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14174,10 +14249,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have the provider\'s URN or registration number?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: [],
       ruleOut: [],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14213,7 +14288,6 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have a paediatric first aid certificate?',
       ],
       means_tested: false,
-      nations: ['england'],
       evidenceRequired: [
         'Enhanced DBS certificate with children\'s barred list check',
         'Paediatric first aid certificate',
@@ -14224,6 +14298,7 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Providing paid childcare in domestic setting', 'Aged 18+'],
       ruleOut: ['Caring for own children only', 'Volunteering unpaid', 'Scotland, Wales or Northern Ireland'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14252,17 +14327,17 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Available to parents, staff, and members of the public with concerns about a school or further education provider in England. Ofsted will only consider concerns that reflect on the whole institution; individual pupil complaints must first be raised with the school directly.',
       universal: true,
       criteria: [
-        { factor: 'process', description: 'Must have first completed the school\'s own complaints procedure before escalating to Ofsted.' },
+        { factor: 'dependency', description: 'Must have first completed the school\'s own complaints procedure before escalating to Ofsted.' },
       ],
       keyQuestions: [
         'Have you already raised the concern formally with the school?',
         'Does the concern relate to the whole school (e.g. safeguarding, quality of education) rather than just your child?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Has raised concern with school first', 'Concern is about the institution as a whole'],
       ruleOut: ['Complaint is about an individual teacher or personal matter only — use school\'s own procedure'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14300,10 +14375,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Are you the executor or a beneficiary?',
       ],
       means_tested: false,
-      nations: ['england', 'wales'],
       ruleIn: ['Death in England or Wales', 'Estate likely to have required probate'],
       ruleOut: ['Death in Scotland (sheriff court records)', 'Estate too small for probate'],
     },
+    nations: ['england', 'wales'],
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
@@ -14357,44 +14432,6 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
-  'insolvency-sdrp': {
-    id: 'insolvency-sdrp', name: 'Statutory Debt Repayment Plan', dept: 'Insolvency Service', deptKey: 'other',
-    deadline: null,
-    desc: 'A formal repayment plan that freezes interest and charges while you repay debts in affordable instalments. A regulated debt adviser must apply on your behalf.',
-    govuk_url: 'https://www.gov.uk/statutory-debt-repayment-plan',
-    serviceType: 'application',
-    proactive: false,
-    gated: true,
-    eligibility: {
-      summary: 'Available in England, Scotland and Wales for people with problem debt who can make some repayments. A regulated debt adviser assesses eligibility and applies on the person\'s behalf. During the plan, creditors cannot take enforcement action or add interest.',
-      universal: false,
-      criteria: [
-        { factor: 'income', description: 'Must have sufficient income to make agreed repayments after essential living costs.' },
-        { factor: 'dependency', description: 'Must be assessed by a regulated debt adviser who confirms the plan is appropriate.' },
-      ],
-      keyQuestions: [
-        'Has the user spoken to a regulated debt adviser (e.g. StepChange, National Debtline, Citizens Advice)?',
-        'Can they make some repayment, however small?',
-        'Have they already tried Breathing Space?',
-      ],
-      exclusions: ['Cannot be in another formal insolvency procedure simultaneously', 'Not available in Northern Ireland'],
-      means_tested: true,
-      ruleIn: ['Has debts that cannot be paid as they fall due', 'Can make some repayment', 'Assessed by a debt adviser as suitable'],
-      ruleOut: ['No income to repay anything — DRO or bankruptcy may be more appropriate', 'Already in an insolvency procedure'],
-    },
-    agentInteraction: {
-      methods: ['online'],
-      apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/statutory-debt-repayment-plan',
-      authRequired: 'none',
-      agentCanComplete: 'inform-only',
-      agentSteps: [
-        'Explain how an SDRP differs from Breathing Space (Breathing Space is temporary protection; SDRP is a repayment plan)',
-        'Confirm that a regulated debt adviser must apply — the individual cannot apply directly',
-        'Signpost to free debt advice: StepChange (0800 138 1111), National Debtline (0808 808 4000), Citizens Advice',
-      ],
-    },
-  },
 
   'ea-flood-warnings': {
     id: 'ea-flood-warnings', name: 'Sign up for flood warnings', dept: 'Environment Agency', deptKey: 'ea',
@@ -14415,10 +14452,10 @@ export const NODES: Record<string, ServiceNode> = {
         'What contact method does the user prefer — phone, text or email?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Property in or near a flood-risk area in England'],
       ruleOut: ['Property outside England — separate services in Wales, Scotland and NI'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
@@ -14494,10 +14531,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Is this for an adult or a child?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Urgent medical concern that is not immediately life-threatening'],
       ruleOut: ['Life-threatening emergency — call 999 instead'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
@@ -14616,10 +14653,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Is this for 1 day, 8 days or 12 months?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['Aged 13 or over', 'Freshwater fishing in England'],
       ruleOut: ['Under 13 — no licence required', 'Sea fishing — no licence required', 'Outside England'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
@@ -14692,10 +14729,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Are they in England?',
       ],
       means_tested: false,
-      nations: ['england'],
       ruleIn: ['In England', 'Seeking careers advice or skills support'],
       ruleOut: ['Outside England (different careers services in devolved nations)'],
     },
+    nations: ['england'],
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
@@ -15198,9 +15235,6 @@ export const EDGES: Edge[] = [
   { from: 'gro-marriage-cert',          to: 'dvla-renew-licence',             type: 'RELATED' },
 
   // Statutory Debt Repayment Plan (job loss / debt)
-  { from: 'insolvency-breathing-space', to: 'insolvency-sdrp',                type: 'RELATED' },
-  { from: 'insolvency-dro',             to: 'insolvency-sdrp',                type: 'RELATED' },
-  { from: 'dwp-universal-credit',       to: 'insolvency-sdrp',                type: 'RELATED' },
 
   // Flood warnings (buying / moving house)
   { from: 'ea-flood-risk',              to: 'ea-flood-warnings',              type: 'RELATED' },
