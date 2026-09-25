@@ -2092,26 +2092,26 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-paye': {
     id: 'hmrc-paye', name: 'Register as employer (PAYE)', dept: 'HMRC', deptKey: 'hmrc',
     deadline: 'Before 1st payday',
-    desc: 'Required before first payday if employing anyone.',
+    desc: 'Register before the first payday if any employee is paid £96 or more a week, gets expenses or benefits, gets a pension, has another job, or has received certain benefits. Company directors employing only themselves must register too.',
     govuk_url: 'https://www.gov.uk/register-employer',
     serviceType: 'obligation',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Any business employing workers who earn above the Lower Earnings Limit or receive expenses/benefits must register as an employer with HMRC before the first payday.',
+      summary: 'You must register for PAYE if, in the current tax year, any employee is paid £96 or more a week, gets expenses or company benefits, is getting a pension, has had another job, or has received Jobseeker\'s Allowance, Employment and Support Allowance or Incapacity Benefit. Register before the first payday, and no more than 2 months before you start paying people. Directors who are the only employee of a limited company must also register.',
       universal: false,
       criteria: [
-        { factor: 'employment', description: 'Taking on one or more employees who will earn above £123/week, or who will receive expenses or benefits.' },
+        { factor: 'employment', description: 'Taking on an employee who will be paid £96 or more a week, get expenses or benefits, get a pension, has had another job, or has received JSA, ESA or Incapacity Benefit (including a director employing only themselves).' },
       ],
       keyQuestions: [
         'Are you taking on any employees?',
-        'Will they earn above £123 per week?',
+        'Will any employee be paid £96 or more a week, or get expenses, benefits or a pension?',
         'When is the first payday?',
       ],
       autoQualifiers: ['About to pay an employee for the first time'],
       means_tested: false,
       evidenceRequired: ['Business name and address', 'Nature of business', 'Date of first payday'],
-      ruleIn: ['Employing workers above lower earnings limit'],
+      ruleIn: ['Employing someone paid £96 or more a week, or with expenses, benefits, a pension or another job'],
       ruleOut: [],      rules: [
         {
           "type": "any",
@@ -2132,7 +2132,7 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "boolean",
           "field": "custom_facts.is_employer",
           "expected": true,
-          "label": "Taking on employees who will earn above the lower earnings limit"
+          "label": "Taking on employees (paid £96 or more a week, or meeting another PAYE trigger)"
         }
       ],
 
@@ -2744,31 +2744,36 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-ssp': {
     id: 'hmrc-ssp', name: 'Statutory Sick Pay (SSP)', dept: 'HMRC', deptKey: 'hmrc',
     deadline: '7 days',
-    desc: 'Employees are entitled to £118.75/week SSP from their employer for up to 28 weeks of illness. From April 2026, SSP is payable from day 1 — the 3-day waiting period is removed.',
+    desc: 'Paid by the employer for up to 28 weeks: £123.25 a week or 80% of normal weekly earnings, whichever is lower. Paid for all full days off sick. There is no minimum earnings requirement.',
     govuk_url: 'https://www.gov.uk/statutory-sick-pay',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Available to employees (including agency workers) who earn an average of at least £125/week and are too ill to work. Notify your employer within 7 days (or their own deadline if earlier). A fit note from a doctor or healthcare professional is required for absences longer than 7 days.',
+      summary: 'Available to employees (and some agency workers) who have done some work for their employer and have been ill for at least one full working day. Pays £123.25 a week or 80% of normal weekly earnings, whichever is lower, for up to 28 weeks. Tell your employer by their deadline, or within 7 days if they have not set one. A fit note is needed for absences of more than 7 days in a row.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Must be classed as an employee (including agency workers) and have done some work for the employer; self-employed individuals are not eligible.' },
-        { factor: 'income', description: 'Average weekly earnings must be at least £125 (the Lower Earnings Limit) before SSP is payable.' },
+        { factor: 'disability', description: 'Must have been ill for at least one full working day. Periods of sickness 8 weeks or less apart can be linked; SSP ends after 3 years of linked periods.' },
       ],
       keyQuestions: [
         'Are you classed as an employee (not self-employed)?',
-        'Do you earn an average of at least £125 per week?',
         'Have you notified your employer within 7 days of falling ill?',
         'Have you already received 28 weeks of SSP for this illness from this employer?',
         'Are you currently receiving Statutory Maternity Pay?',
       ],
-      autoQualifiers: ['Employee earning at least £125/week who has notified employer of illness within 7 days'],
-      exclusions: ['Self-employed — no entitlement to SSP', 'Average weekly earnings below £125', '28-week maximum SSP already received for this illness', 'Currently receiving Statutory Maternity Pay', 'Failed to notify employer within the required timeframe'],
+      autoQualifiers: ['Employee off sick for at least one full working day who has told their employer in time'],
+      exclusions: ['Self-employed — no entitlement to SSP', '28-week maximum SSP already received for this illness', 'Currently receiving Statutory Maternity Pay', 'Failed to notify employer within the required timeframe'],
       means_tested: false,
       evidenceRequired: ['Self-certification for absences of 7 days or fewer', 'Fit note from a doctor, nurse, occupational therapist, pharmacist, or physiotherapist for absences longer than 7 days'],
-      ruleIn: ['Employee earning at least £125/week average', 'Too ill to work', 'Employer notified within 7 days'],
-      ruleOut: ['Self-employed', 'Earnings below Lower Earnings Limit', '28-week SSP maximum already reached', 'Currently on Statutory Maternity Pay'],
+      ruleIn: ['Employee who has done some work for the employer', 'Ill for at least one full working day', 'Employer told in time'],
+      ruleOut: ['Self-employed', '28-week SSP maximum already reached', 'Currently on Statutory Maternity Pay'],
+    },
+    financialData: {
+      taxYear: '2026-27',
+      frequency: 'weekly',
+      rates: { weekly_rate: 123.25, earnings_percent: 80 },
+      source: 'https://www.gov.uk/statutory-sick-pay',
     },
   },
 
