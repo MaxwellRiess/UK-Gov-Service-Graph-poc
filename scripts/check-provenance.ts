@@ -21,6 +21,7 @@
  *   npx tsx scripts/check-provenance.ts             # offline, CI-safe
  *   npx tsx scripts/check-provenance.ts --online    # also re-check quotes
  *   npx tsx scripts/check-provenance.ts --online --write   # demote stale to unverified
+ *   npx tsx scripts/check-provenance.ts --online --report stale.json   # for CI issue
  */
 
 import { NODES } from '../src/graph-data.js';
@@ -28,9 +29,12 @@ import {
   loadProvenance, saveProvenance, hashValue, getFieldValue,
   htmlToText, normaliseForMatch,
 } from '../src/provenance.js';
+import { writeFileSync } from 'node:fs';
 
 const ONLINE = process.argv.includes('--online');
 const WRITE  = process.argv.includes('--write');
+const reportArg = process.argv.indexOf('--report');
+const REPORT = reportArg !== -1 ? process.argv[reportArg + 1] : null;
 const UA = 'UK-Gov-Service-Graph-Provenance/1.0';
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 
@@ -39,7 +43,46 @@ const nodes = NODES as Record<string, unknown>;
 
 const drifted: { key: string; recorded: string; current: string }[] = [];
 const orphaned: string[] = [];
-const stale: { key: string; url: string }[] = [];
+interface StaleItem {
+  key:        string;
+  nodeId:     string;
+  nodeName:   string;
+  field:      string;
+  value:      string;
+  url:        string;
+  quote:      string;
+  verifiedAt: string;
+  /** False when the value itself is gone from the page, not just the words around it. */
+  valueStillOnPage: boolean;
+}
+const stale: StaleItem[] = [];
+let quotesChecked = 0;
+const unreachable = new Set<string>();
+
+/**
+ * Is the recorded value still somewhere on the page? A stale quote often just
+ * means GOV.UK reworded the sentence; if the value is gone too, the graph is
+ * very likely out of date. Money is matched with or without thousands commas,
+ * phone numbers on their digits alone.
+ */
+function valueAppears(value: string, pageText: string): boolean {
+  if (!value) return false;
+  const page = normaliseForMatch(pageText);
+  if (/^\+44/.test(value)) {
+    const national = '0' + value.replace(/\D/g, '').slice(2);
+    return pageText.replace(/[^\d]/g, '').includes(national);
+  }
+  const n = Number(value);
+  if (!Number.isNaN(n) && value.trim() !== '') {
+    const forms = new Set([
+      n.toLocaleString('en-GB', { maximumFractionDigits: 2 }),
+      n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
+      String(n),
+    ]);
+    return [...forms].some(f => page.includes(normaliseForMatch(f)));
+  }
+  return page.includes(normaliseForMatch(value));
+}
 
 // ─── VALUE DRIFT ────────────────────────────────────────────────────────────
 
@@ -104,12 +147,22 @@ if (ONLINE) {
     }
 
     // Unreachable is not stale — don't demote a field over a network blip.
-    if (text === null) continue;
+    if (text === null) { unreachable.add(record.sourceUrl); continue; }
+    quotesChecked++;
 
     // The stored quote carries ellipses from windowing; match on its core.
     const core = normaliseForMatch(record.sourceQuote.replace(/^…|…$/g, ''));
     if (core && !normaliseForMatch(text).includes(core)) {
-      stale.push({ key, url: record.sourceUrl });
+      const [nodeId, field] = key.split('#');
+      const value = record.valueSeen ?? '';
+      stale.push({
+        key, nodeId, field, value,
+        nodeName:   (nodes[nodeId] as { name?: string } | undefined)?.name ?? nodeId,
+        url:        record.sourceUrl,
+        quote:      record.sourceQuote,
+        verifiedAt: record.verifiedAt,
+        valueStillOnPage: valueAppears(value, text),
+      });
       if (WRITE) {
         store.fields[key].confidence = 'unverified';
         store.fields[key].rationale =
@@ -122,6 +175,16 @@ if (ONLINE) {
     saveProvenance(store);
     console.error(`Demoted ${stale.length} stale records to unverified`);
   }
+}
+
+if (ONLINE && REPORT) {
+  writeFileSync(REPORT, JSON.stringify({
+    checkedAt:   new Date().toISOString(),
+    quotesChecked,
+    unreachable: [...unreachable],
+    stale,
+  }, null, 2) + '\n');
+  console.error(`Stale-quote report written to ${REPORT}`);
 }
 
 // ─── REPORT ─────────────────────────────────────────────────────────────────

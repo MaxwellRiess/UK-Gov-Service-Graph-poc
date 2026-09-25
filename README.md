@@ -198,7 +198,7 @@ docs/
 experiment-logs/                  Raw JSONL conversation logs and judge scores
 .github/workflows/
   freshness-check.yml             Weekly scheduled action — opens issues when GOV.UK pages change
-  provenance-check.yml            Value-drift check on every PR; quote re-check weekly
+  provenance-check.yml            Value-drift check on every PR; weekly quote re-check opens a single issue listing stale values
 ```
 
 ---
@@ -255,7 +255,7 @@ The `financialData` object carries structured benefit amounts:
 | Field | Type | What it means |
 |---|---|---|
 | `taxYear` | `string` | The tax year the rates apply to, e.g. `'2025-26'` |
-| `frequency` | `string` | Payment cadence — `'weekly'`, `'monthly'`, `'annual'`, or `'one-off'` |
+| `frequency` | `string` | Payment cadence — `'weekly'`, `'4-weekly'`, `'monthly'`, `'annual'`, or `'one-off'` |
 | `rates` | `object` | Named rate values, e.g. `{ standard: 72.65, enhanced: 108.55 }` |
 | `source` | `string` | GOV.UK URL where the rates were verified |
 

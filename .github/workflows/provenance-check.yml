@@ -30,10 +30,84 @@ jobs:
   quote-staleness:
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
       - run: npm ci
-      - run: npm run check:provenance:online
+      - name: Re-check stored quotes
+        run: npx tsx scripts/check-provenance.ts --online --report stale.json
+
+      # One rolling issue rather than one per record: an uprating day can stale
+      # dozens of quotes at once, and a single grouped list is easier to work
+      # through. Runs even if the check above failed, as long as it wrote a report.
+      - name: Open, update or close the stale-quotes issue
+        if: always() && hashFiles('stale.json') != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const report = JSON.parse(fs.readFileSync('stale.json', 'utf-8'));
+            const title = '[Provenance] Stale source quotes';
+            const label = 'provenance';
+
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: label,
+            });
+            const existing = open.find(i => i.title === title);
+
+            if (report.stale.length === 0) {
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number,
+                  body: `All ${report.quotesChecked} stored quotes were found on their source pages on ${report.checkedAt.slice(0, 10)}. Closing.`,
+                });
+                await github.rest.issues.update({
+                  owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, state: 'closed',
+                });
+              }
+              console.log('No stale quotes');
+              return;
+            }
+
+            // Values that have vanished from the page come first: the graph is
+            // very likely wrong. Reworded-only quotes usually need re-verifying, not fixing.
+            const gone  = report.stale.filter(s => !s.valueStillOnPage);
+            const moved = report.stale.filter(s =>  s.valueStillOnPage);
+            const row = s => `| \`${s.nodeId}\` (${s.nodeName}) | \`${s.field}\` | ${s.value} | [source](${s.url}) |`;
+            const table = items => ['| Service | Field | Value in graph | Source |', '|---|---|---|---|', ...items.map(row)].join('\n');
+
+            const body = [
+              `The weekly provenance check on ${report.checkedAt.slice(0, 10)} found ${report.stale.length} of ${report.quotesChecked} stored quotes no longer on their source page.`,
+              '',
+              `### Value no longer on the page (${gone.length})`,
+              'The graph is very likely out of date. Check the source, correct the value in `src/graph-data.ts`, then re-verify.',
+              '',
+              gone.length ? table(gone) : '_None._',
+              '',
+              `### Wording changed, value still present (${moved.length})`,
+              'Usually the value is still right and only the sentence around it changed. Re-verify to refresh the quote.',
+              '',
+              moved.length ? table(moved) : '_None._',
+              '',
+              '### When done',
+              'Run `npm run verify:tier1` and `npm run verify:tier2`, then `npm run check:provenance`. This issue closes itself on the next weekly run once no quotes are stale.',
+              report.unreachable.length ? `\n${report.unreachable.length} source page(s) could not be fetched this run and were skipped.` : '',
+            ].join('\n');
+
+            if (existing) {
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, body,
+              });
+              console.log(`Updated issue #${existing.number}`);
+            } else {
+              const { data } = await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo, title, body, labels: [label],
+              });
+              console.log(`Created issue #${data.number}`);
+            }
