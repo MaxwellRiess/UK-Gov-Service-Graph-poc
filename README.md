@@ -12,7 +12,7 @@ This is a proof-of-concept for a machine-readable service graph that maps the cr
 
 ## The graph explorer
 
-The interactive explorer visualises 232 service nodes across 15+ departments and all four UK nations, connected by two edge types:
+The interactive explorer visualises 245 service nodes across 20 departments and all four UK nations, connected by two edge types:
 
 - **REQUIRES** (solid blue arrow) — strict ordering; must complete the source before the target
 - **RELATED** (dashed grey arrow) — a loose connection; the source is potentially relevant to the target but imposes no ordering
@@ -48,6 +48,46 @@ The graph's main advantage is in **conditional service discovery** — surfacing
 - **[Browse trial 3 transcripts →](https://maxwellriess.github.io/UK-Gov-Service-Graph-poc/experiment-transcripts-trial3.html)**
 - **[Full results and findings →](docs/experiment-results-trial3.md)**
 - **[Next steps →](docs/findings-and-next-steps.md)**
+
+---
+
+## Data accuracy and provenance
+
+A hand-built graph of 245 services has no subject matter expert behind it, so the question is how far accuracy can be established without one. The answer turns out to depend on the kind of claim, and the fields split into three groups.
+
+**Verifiable against an authoritative source.** Whether a service exists, its canonical URL, and whether it has been withdrawn all come from the [GOV.UK Content API](https://www.gov.uk/api/content/child-benefit), which is written by the publishers themselves. `scripts/verify-tier1.ts` checks every node against it and records the `content_id`, which survives the URL changes that break plain link checking.
+
+**Verifiable against source text.** Money amounts and phone numbers are literals: if the graph says Child Benefit is £26.05 a week, that string has to appear on the page the graph cites. `scripts/verify-tier2.ts` searches for it and stores the surrounding sentence as evidence. No model is involved, so there is nothing to hallucinate and a reviewer can see exactly what each claim rests on. Deadlines and eligibility are prose rather than literals, so `scripts/verify-tier2-llm.ts` asks a model to *locate* them in supplied page text and discards any quote that does not actually appear in it.
+
+**Not verifiable from any published source.** Edges, `proactive` and `gated` are authored judgements. Nobody publishes "Child Benefit requires birth registration first" as structured data. These are recorded as `inferred` so they are never mistaken for sourced facts.
+
+`data/provenance.json` holds one record per field rather than per node, because a node's 40-odd fields have different sources and change at different rates. Each record stores a hash of the value it vouches for and a verbatim quote from the source:
+
+```json
+{
+  "dwp-voluntary-ni-contributions#financialData.rates.class_3_weekly": {
+    "valueHash": "…", "valueSeen": "£18.40",
+    "sourceUrl": "https://www.gov.uk/voluntary-national-insurance-contributions/rates",
+    "sourceQuote": "…The rates for the 2026 to 2027 tax year are: £3.65 a week for Class 2 £18.40 a week for Class 3…",
+    "method": "literal-presence", "confidence": "confirmed"
+  }
+}
+```
+
+That makes the record self-invalidating in two directions. If GOV.UK rewrites the sentence a rate lives in, the quote stops matching and the field drops to `unverified` on its own — narrower and quieter than hashing a whole page, because it tracks only the text the data depends on. If someone edits the rate without re-verifying, the value hash stops matching and CI fails, so provenance cannot drift away from the data it claims to support.
+
+Current state — **603 field records: 371 confirmed, 145 unverified, 87 inferred.** What the first full run found:
+
+| Finding | Count |
+|---|---|
+| Dead GOV.UK URLs | 25 |
+| URLs resolving to a different canonical page | 30 |
+| Rates no longer present on the page they cite | 88 of 124 |
+| Phone numbers with no locatable source | 27 of 64 |
+
+The rates figure is one finding, not 88: the graph was populated with 2025-26 rates, and the 2026-27 tax year began on 6 April 2026. Every affected figure needs a refresh, and `financialData.taxYear` is worth asserting against the current year in CI so the same thing is caught automatically next April.
+
+Two known gaps: 24 nodes have no `agentInteraction`, and the 27 unsourced phone numbers need an explicit source URL in the data rather than a guess at which page publishes them.
 
 ---
 
@@ -103,6 +143,25 @@ npm run build
 
 # Run the MCP server (STDIO transport)
 npm run mcp
+
+# Typecheck (tsx does not typecheck at runtime, so run this after data edits)
+npm run check:types
+```
+
+Data verification:
+
+```bash
+# Check URLs and ownership against the GOV.UK Content API
+npm run verify:tier1
+
+# Check that rates and phone numbers appear on the pages they cite
+npm run verify:tier2
+
+# Confirm provenance still matches graph-data.ts (offline, runs in CI)
+npm run check:provenance
+
+# Also re-fetch every source and confirm the quoted text is still there
+npm run check:provenance:online
 ```
 
 ---
@@ -113,15 +172,22 @@ npm run mcp
 index.html                        Static graph explorer (self-contained, GitHub Pages)
 experiment-transcripts-trial3.html  Browsable transcript viewer — trial 3 (GitHub Pages)
 src/
-  graph-data.ts                   232 service nodes, 280 typed edges, 17 life events
+  graph-data.ts                   245 service nodes, 303 typed edges, 17 life events
   graph-engine.ts                 BFS + topological sort → phased journey planner
   graph-server.ts                 MCP server (4 tools, 2 resources, 2 prompts)
   rules.ts                        Machine-evaluable eligibility rule engine
+  provenance.ts                   Per-field evidence records — types, hashing, quote matching
+data/
+  provenance.json                 Where each field's value came from, and when it was checked
 scripts/
   build-index.ts                  Generates index.html from graph data
   run-experiment.ts               Runs control vs treatment agent experiment across scenarios
   build-transcript-viewer.ts      Generates self-contained HTML transcript viewers
   check-freshness.ts              Fetches GOV.UK pages and detects content changes
+  verify-tier1.ts                 Checks URLs and ownership against the GOV.UK Content API
+  verify-tier2.ts                 Checks rates and phone numbers appear on their cited page
+  verify-tier2-llm.ts             Locates deadlines in page prose (needs ANTHROPIC_API_KEY)
+  check-provenance.ts             Fails the build when data and provenance disagree
   contact-overrides.ts            Department contact data (phone, hours, accessibility)
   merge-contacts.ts               Injects contact overrides into graph-data.ts
   validate-contacts.ts            QA checks for contact data completeness and format
@@ -132,6 +198,7 @@ docs/
 experiment-logs/                  Raw JSONL conversation logs and judge scores
 .github/workflows/
   freshness-check.yml             Weekly scheduled action — opens issues when GOV.UK pages change
+  provenance-check.yml            Value-drift check on every PR; quote re-check weekly
 ```
 
 ---
@@ -146,13 +213,13 @@ Every node in the graph is a `ServiceNode` object. Here is what each field means
 | `name` | `string` | Human-readable service name, e.g. `"Personal Independence Payment"` |
 | `dept` | `string` | Owning department display name, e.g. `"DWP"` |
 | `deptKey` | `string` | Lowercase slug used for filtering and colouring, e.g. `"dwp"` |
-| `serviceType` | enum | Category of service — one of `benefit`, `entitlement`, `obligation`, `registration`, `application`, `legal_process`, `document`, `grant` |
+| `serviceType` | enum | Category of service — one of `benefit`, `entitlement`, `obligation`, `registration`, `application`, `legal_process`, `document`, `grant`, `information` |
 | `deadline` | `string \| null` | Time-sensitive deadline if one exists, e.g. `"42 days"` for birth registration; `null` if open-ended |
 | `desc` | `string` | One or two sentence plain-English description of what the service does and why it matters |
 | `govuk_url` | `string` | Canonical GOV.UK URL |
 | `proactive` | `boolean` | `true` if an AI agent should volunteer this service unprompted when a relevant life event is detected |
 | `gated` | `boolean` | `true` if the service should only be surfaced after confirming a prerequisite is in place (e.g. don't mention probate until the death is registered) |
-| `nations` | `array` (optional) | Devolved coverage — which of `england`, `scotland`, `wales`, `northern-ireland` the service applies to. Omitted for UK-wide services. |
+| `nations` | `array` (optional) | Devolved coverage — which of `england`, `scotland`, `wales`, `northern-ireland` the service applies to. Omitted for UK-wide services. Must sit at node level: nothing reads it from inside `eligibility`. |
 
 The `eligibility` object carries the structured data an agent needs to assess and explain entitlement:
 
@@ -172,15 +239,15 @@ The `eligibility` object carries the structured data an agent needs to assess an
 
 > `autoQualifiers`/`exclusions` and `ruleIn`/`ruleOut` are intentionally parallel. The verbose fields carry the nuance an AI agent needs to reason correctly; the short fields are display hints for the visualiser and fast triage. `rules` is the machine-evaluable layer on top — where present it enables programmatic screening; where absent the tool falls back to `keyQuestions`.
 
-The `agentInteraction` object describes what an AI agent can actually do with this service:
+The `agentInteraction` object describes what an AI agent can actually do with this service. It is optional: 24 nodes do not have one, and the gap is left visible rather than filled with plausible-sounding guidance nobody has checked.
 
 | Field | Type | What it means |
 |---|---|---|
-| `methods` | `array` | Available application channels, e.g. `['online', 'phone', 'post']` |
+| `methods` | `array` | Available application channels — any of `online`, `phone`, `post`, `in-person` |
 | `apiAvailable` | `boolean` | Whether a machine-accessible API exists |
 | `onlineFormUrl` | `string` (optional) | Direct URL to the online application |
-| `authRequired` | `string` | Authentication required, e.g. `'government-gateway'`, `'none'` |
-| `agentCanComplete` | `'full' \| 'partial' \| 'inform'` | How far an agent can take the user — full completion, part of the journey, or information only |
+| `authRequired` | `string` | Authentication required — `'government-gateway'`, `'gov-uk-one-login'`, `'gov-uk-verify'` (retired), `'nhs-login'`, `'companies-house'`, or `'none'` |
+| `agentCanComplete` | `'full' \| 'partial' \| 'inform-only'` | How far an agent can take the user — full completion, part of the journey, or information only |
 | `agentSteps` | `array` | Step-by-step actions the agent should walk the user through |
 
 The `financialData` object carries structured benefit amounts:
