@@ -3298,96 +3298,62 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-winter-fuel': {
     id: 'dwp-winter-fuel', name: 'Winter Fuel Payment', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Now only if you receive Pension Credit or another qualifying benefit (changed 2024).',
+    desc: '£100 to £300 for winter 2026 to 2027 if born on or before 27 June 1960 and living in England, Wales or Northern Ireland. Usually automatic. HMRC takes it back if your own income is over £35,000.',
     govuk_url: 'https://www.gov.uk/winter-fuel-payment',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Annual payment of £200–£300 to help with heating costs. From winter 2024/25, only available to those receiving Pension Credit or another means-tested qualifying benefit. No longer automatic for all over-State-Pension-age.',
+      summary: 'Annual payment of £100 to £300 towards winter heating for people born on or before 27 June 1960 who usually live in England, Wales or Northern Ireland. Most get it automatically. If your total income (not counting a partner\'s) is over £35,000, HMRC takes it back through your tax code or Self Assessment; you can opt out. Scotland has Pension Age Winter Heating Payment instead.',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Born before the qualifying date (changes annually — typically born before September of the relevant year).' },
-        { factor: 'dependency', description: 'Must receive Pension Credit, Universal Credit, income-related ESA or JSA, or Income Support.' },
+        { factor: 'age', description: 'Born on or before 27 June 1960 (for winter 2026 to 2027).' },
+        { factor: 'geography', description: 'Must usually live in England, Wales or Northern Ireland, and be there in the qualifying week of 21 to 27 September 2026.' },
+        { factor: 'income', description: 'Not means-tested for payment, but HMRC recovers it if your own total income is over £35,000.' },
       ],
       keyQuestions: [
-        'Are you receiving Pension Credit or another qualifying means-tested benefit?',
+        'Were you born on or before 27 June 1960?',
+        'Do you live in England, Wales or Northern Ireland?',
+        'Is your own total income over £35,000? (If so, HMRC will take the payment back.)',
       ],
-      autoQualifiers: ['Receiving Pension Credit'],
-      exclusions: ['No longer available to those over State Pension age who are not on a qualifying benefit — major policy change from winter 2024.'],
+      autoQualifiers: ['Born on or before 27 June 1960 and getting State Pension or another qualifying benefit'],
+      exclusions: ['Lives in Scotland (Pension Age Winter Heating Payment instead)', 'In hospital or prison for the whole qualifying week, or has no recourse to public funds', 'In a care home for the whole period from 29 June 2026 while getting Pension Credit, UC or income-related ESA'],
       means_tested: false,
-      evidenceRequired: ['Automatic if receiving Pension Credit — no separate application needed'],
-      ruleIn: ['Receiving Pension Credit or qualifying means-tested benefit'],
-      ruleOut: ['Over State Pension age but not on qualifying benefit'],      rules: [
+      evidenceRequired: ['Usually automatic. Claim by post or phone (deadline 31 March 2027) only if you have not had it before and get none of the listed benefits, or have deferred your State Pension'],
+      ruleIn: ['Born on or before 27 June 1960', 'Lives in England, Wales or Northern Ireland'],
+      ruleOut: ['Born after 27 June 1960', 'Lives in Scotland'],      rules: [
         {
           "type": "comparison",
           "field": "age",
           "operator": ">=",
           "value": 66,
-          "label": "Must have reached State Pension age"
+          "label": "Must be born on or before 27 June 1960 (approximately State Pension age)"
         },
-        {
-          "type": "any",
-          "label": "Must receive Pension Credit or another qualifying means-tested benefit",
-          "rules": [
-            {
-              "type": "dependency",
-              "serviceId": "dwp-pension-credit",
-              "condition": "receiving",
-              "label": "Receiving Pension Credit"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-universal-credit",
-              "condition": "receiving",
-              "label": "Receiving Universal Credit"
-            },
-            {
-              "type": "boolean",
-              "field": "custom_facts.receiving_income_related_esa",
-              "expected": true,
-              "label": "Receiving income-related ESA"
-            },
-            {
-              "type": "boolean",
-              "field": "custom_facts.receiving_income_based_jsa",
-              "expected": true,
-              "label": "Receiving income-based JSA"
-            },
-            {
-              "type": "boolean",
-              "field": "custom_facts.receiving_income_support",
-              "expected": true,
-              "label": "Receiving Income Support"
-            }
-          ]
-        }
       ],
 
     },
     agentInteraction: {
-      methods: ['phone'],
+      methods: ['phone', 'post'],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Check if user receives Pension Credit or qualifying benefit',
-        'Explain eligibility changes from winter 2024/25',
-        'Advise on claiming Pension Credit as gateway to Winter Fuel Payment',
+        'Check date of birth and nation of residence',
+        'Explain that payment is usually automatic, and that HMRC takes it back if own income is over £35,000 (opting out is possible)',
+        'If not received by 27 January 2027, or never claimed before, explain how to claim by the 31 March 2027 deadline',
         'Provide Winter Fuel Payment helpline contact details',
       ],
       missingBenefitId: 'winterFuelPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { under_80_single: 200, over_80_single: 300 },
-      source: 'https://www.gov.uk/winter-fuel-payment/what-youll-get',
+      rates: { born_1946_to_1960: 200, born_before_28_sep_1946: 300, care_home_born_1946_to_1960: 100, care_home_born_before_28_sep_1946: 150 },
+      source: 'https://www.gov.uk/winter-fuel-payment',
     },
       contactInfo: {
       phone: {
         number: '+44 800 731 0160',
-        textphone: '+44 800 731 0464',
         relay: '18001 then 0800 731 0160',
         label: 'Winter Fuel Payment helpline',
       },
@@ -3398,8 +3364,9 @@ export const NODES: Record<string, ServiceNode> = {
           close: '18:00',
         },
       ],
-      notes: 'Usually automatic for State Pension recipients.',
+      notes: 'Winter Fuel Payment Centre. Usually automatic for State Pension and most benefit recipients.',
     },
+    nations: ['england', 'wales', 'northern-ireland'],
   },
   'dwp-attendance-allowance': {
     id: 'dwp-attendance-allowance', name: 'Attendance Allowance', dept: 'DWP', deptKey: 'dwp',
@@ -5922,13 +5889,13 @@ export const NODES: Record<string, ServiceNode> = {
   'hmcts-divorce': {
     id: 'hmcts-divorce', name: 'Divorce application (D8)', dept: 'HMCTS', deptKey: 'hmcts',
     deadline: null,
-    desc: 'Online or paper. Conditional order after 20 weeks; final order 6 weeks later.',
+    desc: 'Online or paper. £628 fee. Conditional order after 20 weeks; final order at least 43 days (6 weeks and 1 day) later.',
     govuk_url: 'https://www.gov.uk/divorce',
     serviceType: 'legal_process',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'No-fault divorce since April 2022 — no reasons needed. Apply online or on paper. Minimum timescale: 26 weeks (20 weeks to Conditional Order + 6 weeks to Final Order). Can apply jointly or individually.',
+      summary: 'No-fault divorce since April 2022 — no reasons needed. Apply online or on paper. Minimum timescale: 20 weeks to apply for the conditional order, then at least 43 days before applying for the final order. Fee £628. Can apply jointly or individually.',
       universal: false,
       criteria: [
         { factor: 'relationship_status', description: 'Must have been married or in a civil partnership for at least 1 year.' },
@@ -5968,7 +5935,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/apply-for-divorce',
+      onlineFormUrl: 'https://www.gov.uk/divorce/file-for-divorce',
       authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -5979,21 +5946,22 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee: 593 },
-      source: 'https://www.gov.uk/apply-for-divorce',
+      rates: { fee: 628 },
+      source: 'https://www.gov.uk/divorce',
     },
       contactInfo: {
-      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Divorce helpline' },
+      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
+          open: '10:00',
           close: '18:00',
         },
       ],
     },
+    nations: ['england', 'wales'],
   },
   'hmcts-financial-order': {
     id: 'hmcts-financial-order', name: 'Financial Consent Order', dept: 'HMCTS', deptKey: 'hmcts',
@@ -6004,7 +5972,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'A court-approved agreement making division of assets, property and pension legally binding. Strongly advised before the Final Divorce Order — without it, either party can make future financial claims. Usually drafted by solicitors.',
+      summary: 'A court-approved agreement making division of assets, property and pension legally binding. Strongly advised before the Final Divorce Order — without it, either party can make future financial claims. Usually drafted by solicitors. The court fee for a consent order is £62; if the court has to decide (a contested financial order) it is £321.',
       universal: false,
       criteria: [
         { factor: 'relationship_status', description: 'In divorce or dissolution proceedings.' },
@@ -6042,17 +6010,17 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee: 275 },
-      source: 'https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order',
+      rates: { consent_order_fee: 62, contested_financial_order_fee: 321 },
+      source: 'https://www.gov.uk/money-property-when-relationship-ends',
     },
       contactInfo: {
-      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Family court helpline' },
+      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
+          open: '10:00',
           close: '18:00',
         },
       ],
@@ -6067,7 +6035,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: true,
     eligibility: {
-      summary: 'A court order specifying where children live and how much time they spend with each parent. Required only when parents cannot agree through negotiation or mediation. MIAM (mediation) must usually be attempted first.',
+      summary: 'A court order specifying where children live and how much time they spend with each parent. Required only when parents cannot agree through negotiation or mediation. A MIAM (usually about £120) must normally be attended first; a mediation voucher worth up to £500 is available regardless of income. The court fee is £270.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Parents cannot agree on living or contact arrangements for children after separation.' },
@@ -6127,17 +6095,17 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee: 255 },
-      source: 'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order',
+      rates: { fee: 270 },
+      source: 'https://www.gov.uk/looking-after-children-divorce',
     },
       contactInfo: {
-      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Family court helpline' },
+      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
+          open: '10:00',
           close: '18:00',
         },
       ],
@@ -7973,9 +7941,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee_per_lpa: 82 },
+      rates: { fee_per_lpa: 92 },
       source: 'https://www.gov.uk/power-of-attorney',
     },
   },
@@ -8487,18 +8455,18 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { basic_check: 18, standard_check: 18, enhanced_check: 38 },
+      rates: { basic_check: 21.50, standard_check: 21.50, enhanced_check: 49.50 },
       source: 'https://www.gov.uk/dbs-check-applicant-criminal-record',
     },
       contactInfo: {
-      phone: { number: '+44 300 006 2849', label: 'DBS helpline' },
+      phone: { number: '+44 300 020 0190', relay: '18001 then 0300 020 0192', welsh: '+44 300 020 0191', label: 'DBS helpline' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
-          open: '08:00',
-          close: '18:00',
+          open: '09:00',
+          close: '17:00',
         },
       ],
     },
@@ -8546,13 +8514,13 @@ export const NODES: Record<string, ServiceNode> = {
   'other-pupil-premium': {
     id: 'other-pupil-premium', name: 'Pupil Premium', dept: 'DfE / School', deptKey: 'other',
     deadline: null,
-    desc: 'DfE funding direct to school. Automatic if child has ever qualified for Free School Meals.',
+    desc: 'DfE funding paid to schools in England for disadvantaged pupils. Triggered by \'targeted\' free school meals (the £7,400 income threshold), not by the 2026 expansion of meals to all Universal Credit households.',
     govuk_url: 'https://www.gov.uk/government/publications/pupil-premium',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Additional funding paid directly to the school (£1,480/year per eligible pupil at primary, £1,050 at secondary). Automatic once Free School Meals eligibility is confirmed. Parents should ensure the school knows the child is eligible.',
+      summary: 'Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only \'targeted\' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Child has been eligible for Free School Meals at any point in the last 6 years, is a looked-after child, or has left care through adoption.' },
@@ -8608,11 +8576,12 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { per_primary_pupil: 1480, per_secondary_pupil: 1050 },
-      source: 'https://www.gov.uk/government/publications/pupil-premium',
+      rates: { per_primary_pupil: 1550, per_secondary_pupil: 1100, looked_after_child: 2690 },
+      source: 'https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note',
     },
+    nations: ['england'],
   },
   'other-statutory-redundancy': {
     id: 'other-statutory-redundancy', name: 'Statutory Redundancy Pay', dept: 'Employer / Tribunal', deptKey: 'other',
@@ -9021,27 +8990,27 @@ export const NODES: Record<string, ServiceNode> = {
   'other-warm-home-discount': {
     id: 'other-warm-home-discount', name: 'Warm Home Discount', dept: 'DESNZ', deptKey: 'other',
     deadline: null,
-    desc: '£150/year off electricity bill. Automatic for Pension Credit Guarantee recipients; broader group can apply.',
+    desc: '£150 off the electricity bill each winter. In England and Wales it is automatic for households getting Universal Credit, Housing Benefit, income-related ESA or Pension Credit. In Scotland some groups must apply to their supplier.',
     govuk_url: 'https://www.gov.uk/the-warm-home-discount-scheme',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '£150 one-off discount on electricity bill. Core Group (Pension Credit Guarantee recipients) get it automatically. Broader Group must be on qualifying low-income benefits and meet energy cost criteria. Not available in Northern Ireland.',
+      summary: 'One-off £150 discount applied by the electricity supplier. England and Wales: automatic if on the qualifying date you or your partner got Universal Credit, Housing Benefit, income-related ESA or Pension Credit, your name was on the bill and your supplier is in the scheme. Scotland: automatic for Pension Credit and some other groups; others apply to their supplier (broader group). Not available in Northern Ireland. The winter 2026 to 2027 scheme opens in October 2026.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Core Group: receiving Pension Credit Guarantee Credit — automatic. Broader Group: on qualifying benefit (UC, ESA, JSA, etc.) and high energy costs relative to income.' },
+        { factor: 'income', description: 'England and Wales: Universal Credit, Housing Benefit, income-related ESA or Pension Credit on the qualifying date (23 August 2026). Scotland: Pension Credit, or certain disability, pensioner or under-5 circumstances with UC, income-related ESA or SMI; others apply to their supplier.' },
         { factor: 'geography', description: 'Available in England, Scotland and Wales only. Not available in Northern Ireland.' },
       ],
       keyQuestions: [
         'Do you receive Pension Credit Guarantee Credit?',
-        'Are you on a qualifying benefit (UC, ESA, JSA)?',
+        'Are you on Universal Credit, Housing Benefit or income-related ESA?',
         'Do you live in England, Scotland or Wales?',
       ],
       autoQualifiers: ['Receiving Pension Credit Guarantee Credit — discount applied automatically'],
       means_tested: false,
       evidenceRequired: ['Electricity account number', 'Benefit confirmation letter (for Broader Group)'],
-      ruleIn: ['On Pension Credit Guarantee', 'On qualifying benefit with high energy costs'],
+      ruleIn: ['On UC, Housing Benefit, income-related ESA or Pension Credit', 'Supplier is in the scheme'],
       ruleOut: ['Lives in Northern Ireland', 'Not on qualifying benefit'],      rules: [
         {
           "type": "enum",
@@ -9067,19 +9036,19 @@ export const NODES: Record<string, ServiceNode> = {
               "type": "dependency",
               "serviceId": "dwp-universal-credit",
               "condition": "receiving",
-              "label": "Receiving Universal Credit (Broader Group)"
+              "label": "Receiving Universal Credit"
             },
             {
               "type": "dependency",
-              "serviceId": "dwp-new-style-esa",
+              "serviceId": "dwp-housing-benefit",
               "condition": "receiving",
-              "label": "Receiving ESA"
+              "label": "Receiving Housing Benefit"
             },
             {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-jsa",
-              "condition": "receiving",
-              "label": "Receiving JSA"
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
+              "label": "Receiving income-related ESA"
             }
           ]
         }
@@ -9089,19 +9058,19 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/the-warm-home-discount-scheme/how-to-apply',
+      onlineFormUrl: 'https://www.gov.uk/the-warm-home-discount-scheme',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check if user is in Core Group (Pension Credit Guarantee — automatic)',
-        'If Broader Group, explain qualifying criteria and application window',
+        'In England and Wales explain the discount is automatic; in Scotland, if not automatic, advise applying to the supplier',
         'Confirm user lives in England, Scotland or Wales',
         'Advise that discount is applied directly to electricity bill',
       ],
       missingBenefitId: 'warmHomeDiscount',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
       rates: { discount: 150 },
       source: 'https://www.gov.uk/the-warm-home-discount-scheme',
@@ -9496,15 +9465,15 @@ export const NODES: Record<string, ServiceNode> = {
     nations: ['scotland'],
   },
   'sss-child-winter-heating': {
-    id: 'sss-child-winter-heating', name: 'Child Winter Heating Assistance', dept: 'Social Security Scotland', deptKey: 'sss',
+    id: 'sss-child-winter-heating', name: 'Child Winter Heating Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£255.80/year for children in Scotland receiving highest-rate disability benefits. Automatic — no application needed.',
-    govuk_url: 'https://www.mygov.scot/child-winter-heating-assistance',
+    desc: '£265.50 a year, paid from October, to help disabled children and young people in Scotland and their families with winter heating costs. Automatic — no application needed. Formerly Child Winter Heating Assistance.',
+    govuk_url: 'https://www.mygov.scot/child-winter-heating-payment',
     serviceType: 'benefit',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Annual payment of £255.80 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.',
+      summary: 'Annual payment of £265.50 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.',
       universal: false,
       criteria: [
         { factor: 'disability', description: 'Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).' },
@@ -9574,10 +9543,10 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { annual_payment: 255.80 },
-      source: 'https://www.mygov.scot/child-winter-heating-assistance',
+      rates: { annual_payment: 265.50 },
+      source: 'https://www.mygov.scot/child-winter-heating-payment',
     },
     nations: ['scotland'],
   },
@@ -10602,11 +10571,11 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '£25 automatic payment for each 7-day period when the average temperature is recorded as or forecast to be 0°C or below. Must be receiving Pension Credit, income-related ESA, income-based JSA, Income Support or UC. Not available in Scotland (replaced by devolved schemes).',
+      summary: '£25 automatic payment for each 7-day period between 1 November and 31 March when the average temperature is recorded as or forecast to be 0°C or below. For people getting Pension Credit, income-related ESA, Universal Credit or Support for Mortgage Interest who meet extra conditions. Not available in Scotland (annual Winter Heating Payment instead).',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Must be receiving a qualifying benefit: Pension Credit, income-related ESA (certain groups), income-based JSA, Income Support, or UC with limited capability for work or a disabled/severely disabled child element.' },
-        { factor: 'geography', description: 'Available in England and Wales only. Scotland has its own devolved winter heating schemes.' },
+        { factor: 'income', description: 'Pension Credit; or income-related ESA in the work-related activity or support group (or with certain premiums or a child under 5); or Universal Credit while not working, with limited capability for work or a child under 5, or with a disabled child amount; or Support for Mortgage Interest with certain premiums or a child under 5.' },
+        { factor: 'geography', description: 'England, Wales and Northern Ireland. Scotland has an annual Winter Heating Payment instead.' },
       ],
       keyQuestions: [
         'Do you receive Pension Credit, ESA, JSA, IS or UC?',
@@ -10671,12 +10640,12 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { per_cold_spell: 25 },
       source: 'https://www.gov.uk/cold-weather-payment',
     },
-    nations: ['england', 'wales'],
+    nations: ['england', 'wales', 'northern-ireland'],
   },
 
   // DVLA — Vehicle Excise Duty Exemption ───────────────────────────────────
@@ -11083,17 +11052,18 @@ export const NODES: Record<string, ServiceNode> = {
   'slc-childcare-grant': {
     id: 'slc-childcare-grant', name: 'Childcare Grant (Students)', dept: 'Student Loans Company', deptKey: 'slc',
     deadline: null,
-    desc: 'Non-repayable grant for full-time students with children. Up to £10,124 for one child or £17,354 for two or more.',
+    desc: 'Non-repayable grant for full-time higher education students in England with children under 15 (17 with SEN): 85% of childcare costs up to £199.62 a week for one child or £342.24 for two or more.',
     govuk_url: 'https://www.gov.uk/childcare-grant',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Non-repayable grant to help full-time higher education students with childcare costs. Up to 85% of actual costs, capped at approximately £10,124/year for one child or £17,354 for two or more. Income-assessed on household income.',
+      summary: 'Non-repayable grant for full-time higher education students (120+ credits a year) in England. Pays 85% of childcare costs up to £199.62 a week for one child or £342.24 a week for two or more. Household income must be under £20,107.23 (one child) or £28,914.47 (two or more). Not available alongside Tax-Free Childcare or UC childcare costs, and from 1 August 2026 not for nannies.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be a full-time higher education student with dependent children in registered or approved childcare.' },
-        { factor: 'income', description: 'Income-assessed on household income. Amount reduces as income rises.' },
+        { factor: 'income', description: 'Household income under £20,107.23 for one child or £28,914.47 for two or more; must get (or be eligible for) income-assessed student finance.' },
+        { factor: 'geography', description: 'Must be a permanent resident in England.' },
         { factor: 'employment', description: 'Must be a full-time student (not part-time).' },
       ],
       keyQuestions: [
@@ -11138,11 +11108,12 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
-      frequency: 'annual',
-      rates: { max_one_child: 10124, max_two_plus: 17354 },
+      taxYear: '2026-27',
+      frequency: 'weekly',
+      rates: { max_one_child: 199.62, max_two_plus: 342.24 },
       source: 'https://www.gov.uk/childcare-grant',
     },
+    nations: ['england'],
   },
 
   // SSS — Best Start Grant ─────────────────────────────────────────────────
@@ -11534,31 +11505,31 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-young-carer-grant': {
     id: 'sss-young-carer-grant', name: 'Young Carer Grant', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£388.65/year for young carers aged 16–18 in Scotland who provide at least 16 hours/week of care.',
+    desc: '£405.10 a year for young carers aged 16 to 19 in Scotland who care for 1 to 3 people for an average of 16 hours a week. Can be claimed once a year until age 20.',
     govuk_url: 'https://www.mygov.scot/young-carer-grant',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Annual grant of £388.65 for young carers aged 16–18 in Scotland who provide an average of 16+ hours of care per week for someone receiving a qualifying disability benefit. Not means-tested.',
+      summary: 'Yearly payment of £405.10 for young carers aged 16, 17, 18 or 19 in Scotland who have cared for 1, 2 or 3 people for an average of 16 hours a week (combined) for at least the last 3 months. Apply once a year until turning 20, with a full year between applications. Not available if getting Carer Support Payment or Carer\'s Allowance.',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Must be aged 16, 17 or 18 at the time of application.' },
-        { factor: 'caring', description: 'Must provide an average of at least 16 hours of care per week over a 13-week period to someone receiving a qualifying disability benefit.' },
+        { factor: 'age', description: 'Must be aged 16, 17, 18 or 19 at the time of application.' },
+        { factor: 'caring', description: 'Must have cared for 1, 2 or 3 people for an average of 16 hours a week in total for at least the last 3 months.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
-        'Are you aged 16, 17 or 18?',
+        'Are you aged 16, 17, 18 or 19?',
         'Do you provide at least 16 hours of care per week?',
         'Does the person you care for receive a qualifying disability benefit?',
         'Are you receiving Carer\'s Allowance or Carer Support Payment? (If so, you cannot also get YCG.)',
       ],
-      exclusions: ['Receiving Carer\'s Allowance or Carer Support Payment', 'Under 16 or over 18'],
+      exclusions: ['Receiving Carer\'s Allowance or Carer Support Payment', 'Under 16 or aged 20 or over', 'Applied within the last year'],
       means_tested: false,
       evidenceRequired: ['Details of person cared for', 'Proof of caring role and hours', 'Age verification'],
-      ruleIn: ['Aged 16–18', 'Provides 16+ hours care/week', 'Lives in Scotland'],
-      ruleOut: ['Receiving CA or CSP', 'Under 16 or over 18', 'Does not live in Scotland'],      rules: [
+      ruleIn: ['Aged 16–19', 'Provides 16+ hours care/week', 'Lives in Scotland'],
+      ruleOut: ['Receiving CA or CSP', 'Under 16 or aged 20+', 'Does not live in Scotland'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11578,8 +11549,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "age",
           "operator": "<=",
-          "value": 18,
-          "label": "Must be aged 18 or under"
+          "value": 19,
+          "label": "Must be aged 19 or under"
         },
         {
           "type": "boolean",
@@ -11641,9 +11612,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { annual_payment: 388.65 },
+      rates: { annual_payment: 405.10 },
       source: 'https://www.mygov.scot/young-carer-grant',
     },
     nations: ['scotland'],
@@ -12036,15 +12007,15 @@ export const NODES: Record<string, ServiceNode> = {
   },
 
   'hmrc-tax-credits': {
-    id: 'hmrc-tax-credits', name: 'Tax Credits (Working & Child)', dept: 'HMRC', deptKey: 'hmrc',
+    id: 'hmrc-tax-credits', name: 'Tax credits (ended April 2025)', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Legacy means-tested benefits for working adults and families with children on low incomes; being migrated to Universal Credit but millions still claim.',
-    govuk_url: 'https://www.gov.uk/topic/benefits-credits/tax-credits',
+    desc: 'Child Tax Credit and Working Tax Credit ended on 5 April 2025. No new claims are possible; former claimants may need to finalise their last award, and may be able to get Universal Credit or Pension Credit instead.',
+    govuk_url: 'https://www.gov.uk/tax-credits-have-ended',
     serviceType: 'benefit',
-    proactive: true,
+    proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Working Tax Credit is for working adults on low income. Child Tax Credit is for people responsible for children. New claims are only open to those already in the legacy system; most new claimants must use Universal Credit instead.',
+      summary: 'Tax credits ended on 5 April 2025 and no new claims can be made. Former claimants get an Annual Review letter showing what was paid up to 5 April 2025 and must check it is correct (finalising). Families and working people on low incomes should look at Universal Credit, or Pension Credit if over State Pension age.',
       universal: false,
       criteria: [
         { factor: 'income', description: 'Income must be below the relevant threshold (varies by household type and hours worked).' },
@@ -12065,14 +12036,13 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.tax.service.gov.uk/tax-credits-service',
+      onlineFormUrl: 'https://www.gov.uk/tax-credits-have-ended',
       authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Check whether user is already a Tax Credits claimant or a new claimant',
-        'If new claimant, direct to Universal Credit instead',
-        'Help existing claimants report changes of circumstance',
-        'Advise on migration notice timeline if user has received a migration notice',
+        'Explain that tax credits ended on 5 April 2025 and no new claims are possible',
+        'Direct people who need support to Universal Credit, or Pension Credit if over State Pension age',
+        'Help former claimants check their Annual Review letter and finalise their last award',
       ],
     },
   },
@@ -13187,10 +13157,10 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Available to people outside the UK (or switching from another visa in the UK) who have a job offer from a licensed UK employer. The role must be at RQF Level 3 or above, meet the salary threshold (generally £38,700/year or the relevant going rate), and the employer must issue a Certificate of Sponsorship.',
+      summary: 'Available to people outside the UK (or switching from another visa in the UK) who have a job offer from a licensed UK employer. The job must be on the list of eligible occupations and usually pay at least £41,700 a year or the going rate for the job, whichever is higher (£33,400 minimum in some cases, such as applicants under 26). The employer must issue a Certificate of Sponsorship. Different rules apply to some people sponsored before 22 July 2025.',
       universal: false,
       criteria: [
-        { factor: 'employment', description: 'Must have a confirmed job offer from a Home Office licensed sponsor at RQF Level 3+ and meeting the salary threshold.' },
+        { factor: 'employment', description: 'Must have a confirmed job offer from a Home Office licensed sponsor, in an eligible occupation, usually paying at least £41,700 or the going rate (whichever is higher).' },
         { factor: 'immigration', description: 'Must not have conditions that prevent applying for this visa.' },
       ],
       keyQuestions: [
@@ -13970,7 +13940,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Anyone can apply for a basic DBS check on themselves. Costs £18. Shows only unspent convictions. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
+      summary: 'Anyone can apply for a basic DBS check on themselves. Costs £21.50. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -13990,7 +13960,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Clarify whether a basic, standard or enhanced check is needed',
         'Explain basic checks are self-applied; standard/enhanced are employer-led',
-        'Guide user through the online application (£18 fee)',
+        'Guide user through the online application (£21.50 fee)',
       ],
     },
   },
@@ -15040,7 +15010,6 @@ export const EDGES: Edge[] = [
 
   // Help to Save
   { from: 'dwp-universal-credit',       to: 'hmrc-help-to-save',              type: 'RELATED' },
-  { from: 'hmrc-tax-credits',           to: 'hmrc-help-to-save',              type: 'RELATED' },
 
   // Budgeting Loan
   { from: 'dwp-universal-credit',       to: 'dwp-budgeting-loan',             type: 'RELATED' },

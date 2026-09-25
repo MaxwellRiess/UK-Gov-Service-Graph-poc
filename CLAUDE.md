@@ -22,7 +22,7 @@ This is a proof-of-concept service graph and MCP server for UK government life e
 
 ### Source Files
 
-- **`src/graph-data.ts`** — The entire dataset: 245 service nodes, 303 typed edges, and 17 life events. This is the primary file to edit when adding/modifying services or relationships.
+- **`src/graph-data.ts`** — The entire dataset: 245 service nodes, 302 typed edges, and 17 life events. This is the primary file to edit when adding/modifying services or relationships.
 - **`src/graph-engine.ts`** — Pure journey-planning logic. BFS discovers reachable services from life event entry nodes; Kahn's topological sort (REQUIRES edges only) assigns services to phases.
 - **`src/graph-server.ts`** — MCP server (STDIO transport). Exposes 4 tools (`list_life_events`, `plan_journey`, `get_service`, `check_eligibility`), 2 resources, and 2 prompts.
 - **`src/provenance.ts`** — Per-field evidence records: types, value hashing, and quote matching.
@@ -38,7 +38,7 @@ This is a proof-of-concept service graph and MCP server for UK government life e
 - `eligibility` — dual-format: verbose (criteria, keyQuestions, autoQualifiers, exclusions) for agent reasoning; concise (ruleIn, ruleOut) for display
 
 **Edges** have two types:
-- `REQUIRES` — strict ordering constraint (prerequisite must be completed first). Only 22 of the 303 edges are `REQUIRES`, and they are the only ones that affect phase ordering, so they carry the most weight and deserve the most scrutiny.
+- `REQUIRES` — strict ordering constraint (prerequisite must be completed first). Only 22 of the 302 edges are `REQUIRES`, and they are the only ones that affect phase ordering, so they carry the most weight and deserve the most scrutiny.
 - `RELATED` — source is loosely connected or potentially relevant to the target, but imposes no ordering
 
 **Life Events** (`LifeEvent`) are entry points (e.g., "baby", "bereavement", "job-loss") with `entryNodes` pointing into the graph.

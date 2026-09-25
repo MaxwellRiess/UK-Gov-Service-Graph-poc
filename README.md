@@ -172,7 +172,7 @@ npm run check:provenance:online
 index.html                        Static graph explorer (self-contained, GitHub Pages)
 experiment-transcripts-trial3.html  Browsable transcript viewer — trial 3 (GitHub Pages)
 src/
-  graph-data.ts                   245 service nodes, 303 typed edges, 17 life events
+  graph-data.ts                   245 service nodes, 302 typed edges, 17 life events
   graph-engine.ts                 BFS + topological sort → phased journey planner
   graph-server.ts                 MCP server (4 tools, 2 resources, 2 prompts)
   rules.ts                        Machine-evaluable eligibility rule engine
