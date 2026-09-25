@@ -72,14 +72,18 @@ function valueAppears(value: string, pageText: string): boolean {
     const national = '0' + value.replace(/\D/g, '').slice(2);
     return pageText.replace(/[^\d]/g, '').includes(national);
   }
-  const n = Number(value);
+  // Stored money values may carry a £ sign or commas ("£1,327.75"); compare as a
+  // number so "£22.4" matches "£22.40" but not "£22.45".
+  const n = Number(value.replace(/[£,\s]/g, ''));
   if (!Number.isNaN(n) && value.trim() !== '') {
     const forms = new Set([
       n.toLocaleString('en-GB', { maximumFractionDigits: 2 }),
       n.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
       String(n),
     ]);
-    return [...forms].some(f => page.includes(normaliseForMatch(f)));
+    // Whole-number match only, so 22.4 matches "£22.40" but not "£22.45" or "£122.4".
+    return [...forms].some(f =>
+      new RegExp(`(?<![\\d.,])${f.replace(/[.,]/g, '\\$&')}(?![\\d])`).test(pageText));
   }
   return page.includes(normaliseForMatch(value));
 }
@@ -112,6 +116,29 @@ for (const [key, record] of Object.entries(store.fields)) {
 
 // ─── QUOTE STALENESS ────────────────────────────────────────────────────────
 
+/** Full text of a source page (every part of a GOV.UK guide), or null if unreachable. */
+async function fetchPageText(url: string): Promise<string | null> {
+  try {
+    const parsed = new URL(url);
+    const isGovUk = parsed.host === 'www.gov.uk' || parsed.host === 'gov.uk';
+    if (isGovUk) {
+      const res = await fetch(`https://www.gov.uk/api/content${parsed.pathname.replace(/\/$/, '')}`,
+        { headers: { 'User-Agent': UA }, redirect: 'follow' });
+      if (res.ok) {
+        const det = ((await res.json()) as any).details ?? {};
+        const bodies: string[] = [];
+        if (typeof det.body === 'string') bodies.push(det.body);
+        for (const p of det.parts ?? []) if (typeof p.body === 'string') bodies.push(p.body);
+        if (bodies.length) return htmlToText(bodies.join(' \n '));
+      }
+    }
+    const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });
+    return res.ok ? htmlToText(await res.text()) : null;
+  } catch {
+    return null;
+  }
+}
+
 if (ONLINE) {
   const withQuotes = Object.entries(store.fields).filter(
     ([, r]) => r.confidence === 'confirmed' && r.sourceQuote,
@@ -119,29 +146,11 @@ if (ONLINE) {
   console.error(`Re-checking ${withQuotes.length} stored quotes...`);
 
   const cache = new Map<string, string | null>();
+  const refetched = new Set<string>();
   for (const [key, record] of withQuotes) {
     let text = cache.get(record.sourceUrl);
     if (text === undefined) {
-      text = null;
-      try {
-        const parsed = new URL(record.sourceUrl);
-        const isGovUk = parsed.host === 'www.gov.uk' || parsed.host === 'gov.uk';
-        if (isGovUk) {
-          const res = await fetch(`https://www.gov.uk/api/content${parsed.pathname.replace(/\/$/, '')}`,
-            { headers: { 'User-Agent': UA }, redirect: 'follow' });
-          if (res.ok) {
-            const det = ((await res.json()) as any).details ?? {};
-            const bodies: string[] = [];
-            if (typeof det.body === 'string') bodies.push(det.body);
-            for (const p of det.parts ?? []) if (typeof p.body === 'string') bodies.push(p.body);
-            if (bodies.length) text = htmlToText(bodies.join(' \n '));
-          }
-        }
-        if (text === null) {
-          const res = await fetch(record.sourceUrl, { headers: { 'User-Agent': UA }, redirect: 'follow' });
-          if (res.ok) text = htmlToText(await res.text());
-        }
-      } catch { /* leave null */ }
+      text = await fetchPageText(record.sourceUrl);
       cache.set(record.sourceUrl, text);
       await sleep(150);
     }
@@ -152,7 +161,23 @@ if (ONLINE) {
 
     // The stored quote carries ellipses from windowing; match on its core.
     const core = normaliseForMatch(record.sourceQuote.replace(/^…|…$/g, ''));
-    if (core && !normaliseForMatch(text).includes(core)) {
+    let found = !core || normaliseForMatch(text).includes(core);
+
+    // Sites occasionally serve a holding or error page with a 200 status, which
+    // made every quote on the page look stale for one run. Fetch the page once
+    // more before believing a miss; the fresh copy replaces the cached one.
+    if (!found && !refetched.has(record.sourceUrl)) {
+      refetched.add(record.sourceUrl);
+      await sleep(5000);
+      const fresh = await fetchPageText(record.sourceUrl);
+      if (fresh !== null) {
+        cache.set(record.sourceUrl, fresh);
+        text = fresh;
+        found = normaliseForMatch(text).includes(core);
+      }
+    }
+
+    if (!found) {
       const [nodeId, field] = key.split('#');
       const value = record.valueSeen ?? '';
       stale.push({
