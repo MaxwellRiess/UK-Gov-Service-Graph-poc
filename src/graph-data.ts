@@ -13341,6 +13341,43 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
+  'dvsa-mot-reminder': {
+    id: 'dvsa-mot-reminder', name: 'MOT reminders', dept: 'DVSA', deptKey: 'dvsa',
+    deadline: null,
+    desc: 'Free text or email reminder one month before a car, van or motorcycle MOT is due (2 months for a lorry, bus or large trailer). Unsubscribe when the vehicle is sold, scrapped or declared off the road.',
+    govuk_url: 'https://www.gov.uk/get-stop-view-mot-reminder',
+    serviceType: 'registration',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free for any vehicle that needs an MOT. Sign up with the vehicle\'s number plate and a mobile number or email address. Not available in Northern Ireland, where a reminder is sent by post 7 weeks before the MOT is due.',
+      universal: true,
+      criteria: [
+        { factor: 'geography', description: 'Not available in Northern Ireland, where reminders are sent by post.' },
+      ],
+      keyQuestions: [
+        'What is the vehicle\'s number plate?',
+        'Should reminders go by text message or email?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Vehicle\'s number plate (registration number)', 'Mobile number or email address'],
+      ruleIn: ['Keeps a car, van or motorcycle that needs an MOT'],
+      ruleOut: ['Lives in Northern Ireland (reminders come by post)'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Ask for the vehicle\'s number plate and whether reminders should go by text or email',
+        'Direct the user to sign up and confirm their mobile number or email address',
+        'Remind the user to unsubscribe when they sell, transfer, scrap or SORN the vehicle',
+      ],
+    },
+    nations: ['england', 'scotland', 'wales'],
+  },
+
   'dvla-change-address-v5c': {
     id: 'dvla-change-address-v5c', name: 'Update V5C logbook address', dept: 'DVLA', deptKey: 'dvla',
     deadline: null,
@@ -14769,6 +14806,7 @@ export const EDGES: Edge[] = [
   // Vehicle
   { from: 'dvla-vehicle-sale',        to: 'dvla-vehicle-tax',               type: 'RELATED' },
   { from: 'dvla-vehicle-sale',        to: 'dvla-sorn',                      type: 'RELATED' },
+  { from: 'dvsa-mot-history',         to: 'dvsa-mot-reminder',              type: 'RELATED' },
   { from: 'dvla-sorn',                to: 'dvla-vehicle-tax',               type: 'RELATED' },
 
   // University
@@ -15241,5 +15279,11 @@ export const LIFE_EVENTS: LifeEvent[] = [
     id: 'new-job', icon: '◆', name: 'Starting a New Job',
     desc: 'Tax setup, sick pay entitlement, student loan repayment, workplace pension and employer checks',
     entryNodes: ['hmrc-starter-checklist', 'hmrc-ssp', 'tpr-workplace-pension', 'dwp-access-to-work'],
+  },
+  {
+    id: 'vehicle', icon: '▣', name: 'Owning a Vehicle',
+    desc: 'Buying, taxing, testing and selling a vehicle: vehicle tax, MOT, SORN and logbook changes',
+    entryNodes: ['dvla-vehicle-sale', 'dvla-vehicle-tax', 'dvsa-mot-history', 'dvsa-mot-reminder',
+                 'dvla-sorn', 'dvla-change-address-v5c', 'dvla-vehicle-enquiry'],
   },
 ];
