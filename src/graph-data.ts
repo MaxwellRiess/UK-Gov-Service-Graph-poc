@@ -2550,6 +2550,74 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
   },
+  'dwp-state-pension-forecast': {
+    id: 'dwp-state-pension-forecast', name: 'Check your State Pension forecast', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Find out how much State Pension you could get, when you can get it, and whether and how you could increase it, for example by paying to fill gaps in your National Insurance record.',
+    govuk_url: 'https://www.gov.uk/check-state-pension',
+    serviceType: 'information',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'For anyone who has not yet claimed their State Pension. You cannot use it if you are already getting your State Pension or have deferred claiming it. You need to sign in, or create sign-in details, and may be asked to prove your identity with photo ID such as a passport or driving licence.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Are you already getting your State Pension, or have you deferred claiming it?',
+        'Do you have sign-in details, or photo ID to prove your identity?',
+      ],
+      exclusions: ['Already getting the State Pension', 'Deferred claiming the State Pension'],
+      means_tested: false,
+      evidenceRequired: ['Sign-in details (can be created)', 'Photo ID such as a passport or driving licence, if asked to prove identity'],
+      ruleIn: ['Has not yet claimed State Pension'],
+      ruleOut: ['Already getting or deferring State Pension'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/check-state-pension',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain what the forecast shows: how much, from when, and whether it can be increased',
+        'Direct the user to sign in, or create sign-in details, and to prove their identity if asked',
+        'If the forecast shows gaps, point to checking the National Insurance record and voluntary contributions',
+      ],
+    },
+  },
+
+  'hmrc-personal-tax-account': {
+    id: 'hmrc-personal-tax-account', name: 'Personal tax account', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: 'Check and manage HMRC records in one place: Income Tax estimate and tax code, Self Assessment returns, tax refunds, Child Benefit, State Pension, National Insurance number and contributions, and changes of name or address.',
+    govuk_url: 'https://www.gov.uk/personal-tax-account',
+    serviceType: 'information',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'For anyone with a UK tax record. You need to sign in, or create sign-in details, and may be asked to prove your identity with photo ID such as a passport or driving licence.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['Do you have sign-in details, or photo ID to prove your identity?'],
+      means_tested: false,
+      evidenceRequired: ['Sign-in details (can be created)', 'Photo ID such as a passport or driving licence, if asked to prove identity'],
+      ruleIn: ['Has a UK tax or National Insurance record'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/personal-tax-account',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain what the account covers: tax code, Income Tax estimate, refunds, Child Benefit, State Pension and National Insurance',
+        'Direct the user to sign in, or create sign-in details, and to prove their identity if asked',
+        'Point to the specific task the user needs once they are signed in',
+      ],
+    },
+  },
+
   'hmrc-ni-check': {
     id: 'hmrc-ni-check', name: 'Check & top up NI record', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
@@ -13485,6 +13553,38 @@ export const NODES: Record<string, ServiceNode> = {
 
   // ─── BUSINESS (ADDITIONAL) ─────────────────────────────────────────────────
 
+  'ch-company-info': {
+    id: 'ch-company-info', name: 'Get information about a company', dept: 'Companies House', deptKey: 'ch',
+    deadline: null,
+    desc: 'Free details about any company: registered address, date of incorporation, current and resigned officers, filed documents, charges, previous names and insolvency. Free email alerts when a company updates its details.',
+    govuk_url: 'https://www.gov.uk/get-information-about-a-company',
+    serviceType: 'information',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Free for anyone. Search by company name or number.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['What is the company name or number?'],
+      means_tested: false,
+      ruleIn: ['Needs details of a UK company'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.company-information.service.gov.uk/',
+      onlineFormUrl: 'https://find-and-update.company-information.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search for the company by name or number',
+        'Report the registered address, officers, filing history and any insolvency information',
+        'Explain how to set up free email alerts for changes',
+      ],
+    },
+  },
+
   'ch-file-accounts': {
     id: 'ch-file-accounts', name: 'File annual accounts at Companies House', dept: 'Companies House', deptKey: 'ch',
     deadline: '9 months after financial year end',
@@ -15163,6 +15263,11 @@ export const EDGES: Edge[] = [
 
   // eVisa error report
   { from: 'ho-evisa',                   to: 'ho-evisa-error',                 type: 'RELATED' },
+  { from: 'dwp-state-pension-forecast', to: 'hmrc-ni-check',                  type: 'RELATED' },
+  { from: 'dwp-state-pension-forecast', to: 'dwp-state-pension',              type: 'RELATED' },
+  { from: 'hmrc-starter-checklist',     to: 'hmrc-personal-tax-account',      type: 'RELATED' },
+  { from: 'hmrc-update-records',        to: 'hmrc-personal-tax-account',      type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'ch-company-info',                type: 'RELATED' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -15197,7 +15302,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'retirement', icon: '◐', name: 'Retiring',
     desc: 'State Pension, Pension Credit, housing, heating and age entitlements',
-    entryNodes: ['hmrc-ni-check','dwp-state-pension','dwp-attendance-allowance',
+    entryNodes: ['hmrc-ni-check','dwp-state-pension-forecast','dwp-state-pension','dwp-attendance-allowance',
                  'la-bus-pass','la-council-tax-reduction',
                  'dwp-housing-benefit','other-warm-home-discount',
                  'sss-pension-winter-heating','dwp-pension-tracing'],
