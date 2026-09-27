@@ -7455,55 +7455,38 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
   'ho-brp': {
-    id: 'ho-brp', name: 'Biometric Residence Permit', dept: 'Home Office', deptKey: 'ho',
-    deadline: '10 days',
-    desc: 'Collect from post office within 10 days of arriving. Proves right to work and rent.',
+    id: 'ho-brp', name: 'Biometric Residence Permit (replaced by eVisa)', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'All BRPs have expired and been replaced by eVisas. An expired BRP can only be used to sign in to view an eVisa and get a share code, or to create a UKVI account, for 24 months after its printed expiry date or until 31 December 2026, whichever comes first.',
     govuk_url: 'https://www.gov.uk/biometric-residence-permits',
     serviceType: 'document',
-    proactive: true,
+    proactive: false,
     gated: true,
     eligibility: {
-      summary: 'Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.',
+      summary: 'BRPs are no longer issued. People granted permission to live or work in the UK on or before 31 October 2024 may hold one, and all have now expired. Immigration status is proved with an eVisa instead, accessed through a UKVI account.',
       universal: false,
       criteria: [
-        { factor: 'immigration', description: 'Granted a UK visa or leave to remain for more than 6 months.' },
+        { factor: 'immigration', description: 'Granted permission to live or work in the UK on or before 31 October 2024.' },
       ],
       keyQuestions: [
-        'Has your visa been approved?',
-        'Which post office were you told to collect your BRP from?',
-        'Do you have your passport vignette sticker available?',
+        'Do you have a UKVI account to view your eVisa?',
+        'Do you still have an expired BRP you need to sign in with?',
       ],
-      autoQualifiers: ['Visa granted for over 6 months — BRP collection instructions given with visa'],
+      exclusions: ['People granted permission after 31 October 2024 get an eVisa, not a BRP'],
       means_tested: false,
-      evidenceRequired: ['Passport containing visa vignette sticker', 'BRP collection letter or email from Home Office'],
-      ruleIn: ['Granted UK visa or leave to remain for 6+ months'],
-      ruleOut: [],      rules: [
-        {
-          "type": "dependency",
-          "serviceId": "ho-visa",
-          "condition": "completed",
-          "label": "Must have been granted a UK visa for 6+ months"
-        },
-        {
-          "type": "deadline",
-          "triggerEvent": "uk_arrival_date",
-          "triggerLabel": "Date of arrival in the UK",
-          "maxDays": 10,
-          "label": "Must collect BRP within 10 days of arriving in the UK"
-        }
-      ],
-
+      evidenceRequired: ['Expired BRP, only to sign in or create a UKVI account'],
+      ruleIn: ['Granted permission on or before 31 October 2024'],
+      ruleOut: ['Granted permission after 31 October 2024: eVisa only'],
     },
     agentInteraction: {
-      methods: ['online', 'post'],
+      methods: ['online'],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain the BRP collection process and 10-day deadline',
-        'Help user identify their designated post office for collection',
-        'Advise on what to do if the BRP has not arrived or contains errors',
-        'Explain that BRP proves right to work and rent in the UK',
+        'Explain that all BRPs have expired and been replaced by eVisas',
+        'Direct the user to create a UKVI account to view their eVisa and get a share code',
+        'Explain that an expired BRP can still be used to sign in or create a UKVI account, for 24 months after its expiry date or until 31 December 2026, whichever comes first',
       ],
     },
   },
@@ -14759,11 +14742,11 @@ export const EDGES: Edge[] = [
   { from: 'la-school-place',          to: 'la-send-ehc',                    type: 'RELATED' },
 
   // Immigration
-  { from: 'ho-visa',                  to: 'ho-brp',                         type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'other-right-to-work',            type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
+  { from: 'ho-visa',                  to: 'ho-evisa',                       type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'other-right-to-work',            type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'ho-life-in-uk',                  type: 'RELATED' },
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-life-in-uk',            to: 'ho-citizenship-spouse',          type: 'REQUIRES' },
   { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'REQUIRES' },
@@ -15132,7 +15115,6 @@ export const EDGES: Edge[] = [
   { from: 'nhs-111-online',             to: 'nhs-care-assessment',            type: 'RELATED' },
 
   // Electronic Visa Waiver (immigration)
-  { from: 'ho-evw',                     to: 'ho-brp',                         type: 'RELATED' },
 
   // OPG deputy report (bereavement / retirement without LPA)
   { from: 'gro-register-death',         to: 'opg-deputy-report',              type: 'RELATED' },
