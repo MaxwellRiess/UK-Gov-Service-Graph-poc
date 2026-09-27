@@ -87,7 +87,9 @@ export type ServiceType =
 export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
 // 'gov-uk-verify' is retired but kept for nodes not yet migrated; new services
 // authenticate with GOV.UK One Login.
-export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
+export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house'
+  | 'service-account'   // an account of the service's own, e.g. the Universal Credit account or UKVI account
+  | 'none';
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
@@ -96,6 +98,7 @@ export interface AgentInteraction {
   apiUrl?:          string;               // developer documentation URL
   onlineFormUrl?:   string;               // direct link to start application
   authRequired:     AuthMethod;           // authentication mechanism
+  accountName?:     string;               // the account the service sits in, e.g. 'Universal Credit account'
   agentCanComplete: AgentCapability;      // what level of help an agent can give
   agentSteps:       string[];             // concrete steps an agent can take
   missingBenefitId?: string;              // ID in MissingBenefit.com API (if covered)
@@ -2550,6 +2553,74 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
   },
+  'dwp-state-pension-forecast': {
+    id: 'dwp-state-pension-forecast', name: 'Check your State Pension forecast', dept: 'DWP', deptKey: 'dwp',
+    deadline: null,
+    desc: 'Find out how much State Pension you could get, when you can get it, and whether and how you could increase it, for example by paying to fill gaps in your National Insurance record.',
+    govuk_url: 'https://www.gov.uk/check-state-pension',
+    serviceType: 'information',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'For anyone who has not yet claimed their State Pension. You cannot use it if you are already getting your State Pension or have deferred claiming it. You need to sign in, or create sign-in details, and may be asked to prove your identity with photo ID such as a passport or driving licence.',
+      universal: true,
+      criteria: [],
+      keyQuestions: [
+        'Are you already getting your State Pension, or have you deferred claiming it?',
+        'Do you have sign-in details, or photo ID to prove your identity?',
+      ],
+      exclusions: ['Already getting the State Pension', 'Deferred claiming the State Pension'],
+      means_tested: false,
+      evidenceRequired: ['Sign-in details (can be created)', 'Photo ID such as a passport or driving licence, if asked to prove identity'],
+      ruleIn: ['Has not yet claimed State Pension'],
+      ruleOut: ['Already getting or deferring State Pension'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/check-state-pension',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain what the forecast shows: how much, from when, and whether it can be increased',
+        'Direct the user to sign in, or create sign-in details, and to prove their identity if asked',
+        'If the forecast shows gaps, point to checking the National Insurance record and voluntary contributions',
+      ],
+    },
+  },
+
+  'hmrc-personal-tax-account': {
+    id: 'hmrc-personal-tax-account', name: 'Personal tax account', dept: 'HMRC', deptKey: 'hmrc',
+    deadline: null,
+    desc: 'Check and manage HMRC records in one place: Income Tax estimate and tax code, Self Assessment returns, tax refunds, Child Benefit, State Pension, National Insurance number and contributions, and changes of name or address.',
+    govuk_url: 'https://www.gov.uk/personal-tax-account',
+    serviceType: 'information',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'For anyone with a UK tax record. You need to sign in, or create sign-in details, and may be asked to prove your identity with photo ID such as a passport or driving licence.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['Do you have sign-in details, or photo ID to prove your identity?'],
+      means_tested: false,
+      evidenceRequired: ['Sign-in details (can be created)', 'Photo ID such as a passport or driving licence, if asked to prove identity'],
+      ruleIn: ['Has a UK tax or National Insurance record'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      onlineFormUrl: 'https://www.gov.uk/personal-tax-account',
+      authRequired: 'government-gateway',
+      agentCanComplete: 'inform-only',
+      agentSteps: [
+        'Explain what the account covers: tax code, Income Tax estimate, refunds, Child Benefit, State Pension and National Insurance',
+        'Direct the user to sign in, or create sign-in details, and to prove their identity if asked',
+        'Point to the specific task the user needs once they are signed in',
+      ],
+    },
+  },
+
   'hmrc-ni-check': {
     id: 'hmrc-ni-check', name: 'Check & top up NI record', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
@@ -3724,7 +3795,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Universal Credit account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -4465,7 +4537,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Universal Credit account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is on Universal Credit and eligible for Carer\'s Allowance',
@@ -4563,7 +4636,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/access-to-work/apply',
-      authRequired: 'none',
+      authRequired: 'gov-uk-one-login',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility for Access to Work grant',
@@ -4651,7 +4724,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Universal Credit account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain fit note requirement and Work Capability Assessment process',
@@ -5208,7 +5282,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-first-provisional-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'gov-uk-one-login',
+      accountName: 'Driver and vehicles account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check age eligibility (15 years 9 months to apply)',
@@ -5367,7 +5442,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you moved to a new address?',
       ],
       means_tested: false,
-      evidenceRequired: ['Current driving licence', 'New address details', 'Government Gateway or DVLA online service'],
+      evidenceRequired: ['Current driving licence', 'New address details', 'Driver and vehicles account, set up with GOV.UK One Login'],
       ruleIn: ['Holds GB driving licence', 'Has moved to new address'],
       ruleOut: [],      rules: [],
 
@@ -5376,7 +5451,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/change-address-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'gov-uk-one-login',
+      accountName: 'Driver and vehicles account',
       agentCanComplete: 'full',
       agentSteps: [
         'Guide user through the online address change form step by step',
@@ -7429,7 +7505,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on nationality and UK residence before 31 December 2020',
@@ -7455,55 +7532,38 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
   'ho-brp': {
-    id: 'ho-brp', name: 'Biometric Residence Permit', dept: 'Home Office', deptKey: 'ho',
-    deadline: '10 days',
-    desc: 'Collect from post office within 10 days of arriving. Proves right to work and rent.',
+    id: 'ho-brp', name: 'Biometric Residence Permit (replaced by eVisa)', dept: 'Home Office', deptKey: 'ho',
+    deadline: null,
+    desc: 'All BRPs have expired and been replaced by eVisas. An expired BRP can only be used to sign in to view an eVisa and get a share code, or to create a UKVI account, for 24 months after its printed expiry date or until 31 December 2026, whichever comes first.',
     govuk_url: 'https://www.gov.uk/biometric-residence-permits',
     serviceType: 'document',
-    proactive: true,
+    proactive: false,
     gated: true,
     eligibility: {
-      summary: 'Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.',
+      summary: 'BRPs are no longer issued. People granted permission to live or work in the UK on or before 31 October 2024 may hold one, and all have now expired. Immigration status is proved with an eVisa instead, accessed through a UKVI account.',
       universal: false,
       criteria: [
-        { factor: 'immigration', description: 'Granted a UK visa or leave to remain for more than 6 months.' },
+        { factor: 'immigration', description: 'Granted permission to live or work in the UK on or before 31 October 2024.' },
       ],
       keyQuestions: [
-        'Has your visa been approved?',
-        'Which post office were you told to collect your BRP from?',
-        'Do you have your passport vignette sticker available?',
+        'Do you have a UKVI account to view your eVisa?',
+        'Do you still have an expired BRP you need to sign in with?',
       ],
-      autoQualifiers: ['Visa granted for over 6 months — BRP collection instructions given with visa'],
+      exclusions: ['People granted permission after 31 October 2024 get an eVisa, not a BRP'],
       means_tested: false,
-      evidenceRequired: ['Passport containing visa vignette sticker', 'BRP collection letter or email from Home Office'],
-      ruleIn: ['Granted UK visa or leave to remain for 6+ months'],
-      ruleOut: [],      rules: [
-        {
-          "type": "dependency",
-          "serviceId": "ho-visa",
-          "condition": "completed",
-          "label": "Must have been granted a UK visa for 6+ months"
-        },
-        {
-          "type": "deadline",
-          "triggerEvent": "uk_arrival_date",
-          "triggerLabel": "Date of arrival in the UK",
-          "maxDays": 10,
-          "label": "Must collect BRP within 10 days of arriving in the UK"
-        }
-      ],
-
+      evidenceRequired: ['Expired BRP, only to sign in or create a UKVI account'],
+      ruleIn: ['Granted permission on or before 31 October 2024'],
+      ruleOut: ['Granted permission after 31 October 2024: eVisa only'],
     },
     agentInteraction: {
-      methods: ['online', 'post'],
+      methods: ['online'],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain the BRP collection process and 10-day deadline',
-        'Help user identify their designated post office for collection',
-        'Advise on what to do if the BRP has not arrived or contains errors',
-        'Explain that BRP proves right to work and rent in the UK',
+        'Explain that all BRPs have expired and been replaced by eVisas',
+        'Direct the user to create a UKVI account to view their eVisa and get a share code',
+        'Explain that an expired BRP can still be used to sign in or create a UKVI account, for 24 months after its expiry date or until 31 December 2026, whichever comes first',
       ],
     },
   },
@@ -11010,7 +11070,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/childcare-grant/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Student finance account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check student is full-time and has children in registered childcare',
@@ -11665,7 +11726,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.passport.service.gov.uk/filter',
-      authRequired: 'gov-uk-verify',
+      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether this is a first application, renewal or replacement',
@@ -13091,7 +13152,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/apply',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the employer holds a sponsor licence',
@@ -13134,7 +13196,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm which family members qualify as dependants',
@@ -13173,7 +13236,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/student-visa/apply',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the educational institution is a licensed sponsor',
@@ -13358,6 +13422,43 @@ export const NODES: Record<string, ServiceNode> = {
     },
   },
 
+  'dvsa-mot-reminder': {
+    id: 'dvsa-mot-reminder', name: 'MOT reminders', dept: 'DVSA', deptKey: 'dvsa',
+    deadline: null,
+    desc: 'Free text or email reminder one month before a car, van or motorcycle MOT is due (2 months for a lorry, bus or large trailer). Unsubscribe when the vehicle is sold, scrapped or declared off the road.',
+    govuk_url: 'https://www.gov.uk/get-stop-view-mot-reminder',
+    serviceType: 'registration',
+    proactive: true,
+    gated: false,
+    eligibility: {
+      summary: 'Free for any vehicle that needs an MOT. Sign up with the vehicle\'s number plate and a mobile number or email address. Not available in Northern Ireland, where a reminder is sent by post 7 weeks before the MOT is due.',
+      universal: true,
+      criteria: [
+        { factor: 'geography', description: 'Not available in Northern Ireland, where reminders are sent by post.' },
+      ],
+      keyQuestions: [
+        'What is the vehicle\'s number plate?',
+        'Should reminders go by text message or email?',
+      ],
+      means_tested: false,
+      evidenceRequired: ['Vehicle\'s number plate (registration number)', 'Mobile number or email address'],
+      ruleIn: ['Keeps a car, van or motorcycle that needs an MOT'],
+      ruleOut: ['Lives in Northern Ireland (reminders come by post)'],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: false,
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Ask for the vehicle\'s number plate and whether reminders should go by text or email',
+        'Direct the user to sign up and confirm their mobile number or email address',
+        'Remind the user to unsubscribe when they sell, transfer, scrap or SORN the vehicle',
+      ],
+    },
+    nations: ['england', 'scotland', 'wales'],
+  },
+
   'dvla-change-address-v5c': {
     id: 'dvla-change-address-v5c', name: 'Update V5C logbook address', dept: 'DVLA', deptKey: 'dvla',
     deadline: null,
@@ -13453,7 +13554,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/view-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Direct user to the DVLA online service to generate a check code',
@@ -13464,6 +13565,38 @@ export const NODES: Record<string, ServiceNode> = {
   },
 
   // ─── BUSINESS (ADDITIONAL) ─────────────────────────────────────────────────
+
+  'ch-company-info': {
+    id: 'ch-company-info', name: 'Get information about a company', dept: 'Companies House', deptKey: 'ch',
+    deadline: null,
+    desc: 'Free details about any company: registered address, date of incorporation, current and resigned officers, filed documents, charges, previous names and insolvency. Free email alerts when a company updates its details.',
+    govuk_url: 'https://www.gov.uk/get-information-about-a-company',
+    serviceType: 'information',
+    proactive: false,
+    gated: false,
+    eligibility: {
+      summary: 'Free for anyone. Search by company name or number.',
+      universal: true,
+      criteria: [],
+      keyQuestions: ['What is the company name or number?'],
+      means_tested: false,
+      ruleIn: ['Needs details of a UK company'],
+      ruleOut: [],
+    },
+    agentInteraction: {
+      methods: ['online'],
+      apiAvailable: true,
+      apiUrl: 'https://developer.company-information.service.gov.uk/',
+      onlineFormUrl: 'https://find-and-update.company-information.service.gov.uk/',
+      authRequired: 'none',
+      agentCanComplete: 'partial',
+      agentSteps: [
+        'Search for the company by name or number',
+        'Report the registered address, officers, filing history and any insolvency information',
+        'Explain how to set up free email alerts for changes',
+      ],
+    },
+  },
 
   'ch-file-accounts': {
     id: 'ch-file-accounts', name: 'File annual accounts at Companies House', dept: 'Companies House', deptKey: 'ch',
@@ -13870,7 +14003,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/request-copy-criminal-record',
-      authRequired: 'none',
+      authRequired: 'gov-uk-one-login',
       agentCanComplete: 'partial',
       agentSteps: [
         'Clarify whether a basic, standard or enhanced check is needed',
@@ -14306,7 +14439,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/renew-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'gov-uk-one-login',
+      accountName: 'Driver and vehicles account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the reason for renewal (photo expiry, name change, address change)',
@@ -14759,11 +14893,11 @@ export const EDGES: Edge[] = [
   { from: 'la-school-place',          to: 'la-send-ehc',                    type: 'RELATED' },
 
   // Immigration
-  { from: 'ho-visa',                  to: 'ho-brp',                         type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'other-right-to-work',            type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
+  { from: 'ho-visa',                  to: 'ho-evisa',                       type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'other-right-to-work',            type: 'RELATED' },
+  { from: 'ho-evisa',                 to: 'ho-life-in-uk',                  type: 'RELATED' },
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-life-in-uk',            to: 'ho-citizenship-spouse',          type: 'REQUIRES' },
   { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'REQUIRES' },
@@ -14786,6 +14920,7 @@ export const EDGES: Edge[] = [
   // Vehicle
   { from: 'dvla-vehicle-sale',        to: 'dvla-vehicle-tax',               type: 'RELATED' },
   { from: 'dvla-vehicle-sale',        to: 'dvla-sorn',                      type: 'RELATED' },
+  { from: 'dvsa-mot-history',         to: 'dvsa-mot-reminder',              type: 'RELATED' },
   { from: 'dvla-sorn',                to: 'dvla-vehicle-tax',               type: 'RELATED' },
 
   // University
@@ -15132,7 +15267,6 @@ export const EDGES: Edge[] = [
   { from: 'nhs-111-online',             to: 'nhs-care-assessment',            type: 'RELATED' },
 
   // Electronic Visa Waiver (immigration)
-  { from: 'ho-evw',                     to: 'ho-brp',                         type: 'RELATED' },
 
   // OPG deputy report (bereavement / retirement without LPA)
   { from: 'gro-register-death',         to: 'opg-deputy-report',              type: 'RELATED' },
@@ -15143,6 +15277,11 @@ export const EDGES: Edge[] = [
 
   // eVisa error report
   { from: 'ho-evisa',                   to: 'ho-evisa-error',                 type: 'RELATED' },
+  { from: 'dwp-state-pension-forecast', to: 'hmrc-ni-check',                  type: 'RELATED' },
+  { from: 'dwp-state-pension-forecast', to: 'dwp-state-pension',              type: 'RELATED' },
+  { from: 'hmrc-starter-checklist',     to: 'hmrc-personal-tax-account',      type: 'RELATED' },
+  { from: 'hmrc-update-records',        to: 'hmrc-personal-tax-account',      type: 'RELATED' },
+  { from: 'ch-register-ltd',            to: 'ch-company-info',                type: 'RELATED' },
 ];
 
 // ─── LIFE EVENTS ──────────────────────────────────────────────────────────────
@@ -15153,7 +15292,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
     desc: 'Birth registration, parental leave, childcare and maternity support',
     entryNodes: ['gro-register-birth','nhs-healthy-start',
                  'hmrc-smp','dwp-maternity-allowance','hmrc-spp','dwp-sure-start-grant',
-                 'nhs-maternity-exemption','la-free-childcare-2yr',
+                 'nhs-maternity-exemption','la-free-childcare-2yr','hmrc-tax-free-childcare',
                  'sss-best-start-grant','sss-best-start-foods',
                  'dhsc-baby-loss-certificate','gro-certificates'],
   },
@@ -15177,7 +15316,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
   {
     id: 'retirement', icon: '◐', name: 'Retiring',
     desc: 'State Pension, Pension Credit, housing, heating and age entitlements',
-    entryNodes: ['hmrc-ni-check','dwp-state-pension','dwp-attendance-allowance',
+    entryNodes: ['hmrc-ni-check','dwp-state-pension-forecast','dwp-state-pension','dwp-attendance-allowance',
                  'la-bus-pass','la-council-tax-reduction',
                  'dwp-housing-benefit','other-warm-home-discount',
                  'sss-pension-winter-heating','dwp-pension-tracing'],
@@ -15259,5 +15398,11 @@ export const LIFE_EVENTS: LifeEvent[] = [
     id: 'new-job', icon: '◆', name: 'Starting a New Job',
     desc: 'Tax setup, sick pay entitlement, student loan repayment, workplace pension and employer checks',
     entryNodes: ['hmrc-starter-checklist', 'hmrc-ssp', 'tpr-workplace-pension', 'dwp-access-to-work'],
+  },
+  {
+    id: 'vehicle', icon: '▣', name: 'Owning a Vehicle',
+    desc: 'Buying, taxing, testing and selling a vehicle: vehicle tax, MOT, SORN and logbook changes',
+    entryNodes: ['dvla-vehicle-sale', 'dvla-vehicle-tax', 'dvsa-mot-history', 'dvsa-mot-reminder',
+                 'dvla-sorn', 'dvla-change-address-v5c', 'dvla-vehicle-enquiry'],
   },
 ];
