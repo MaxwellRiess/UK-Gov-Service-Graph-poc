@@ -87,7 +87,9 @@ export type ServiceType =
 export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
 // 'gov-uk-verify' is retired but kept for nodes not yet migrated; new services
 // authenticate with GOV.UK One Login.
-export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
+export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house'
+  | 'service-account'   // an account of the service's own, e.g. the Universal Credit account or UKVI account
+  | 'none';
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
@@ -96,6 +98,7 @@ export interface AgentInteraction {
   apiUrl?:          string;               // developer documentation URL
   onlineFormUrl?:   string;               // direct link to start application
   authRequired:     AuthMethod;           // authentication mechanism
+  accountName?:     string;               // the account the service sits in, e.g. 'Universal Credit account'
   agentCanComplete: AgentCapability;      // what level of help an agent can give
   agentSteps:       string[];             // concrete steps an agent can take
   missingBenefitId?: string;              // ID in MissingBenefit.com API (if covered)
@@ -3792,7 +3795,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Universal Credit account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -4533,7 +4537,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Universal Credit account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is on Universal Credit and eligible for Carer\'s Allowance',
@@ -4631,7 +4636,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/access-to-work/apply',
-      authRequired: 'none',
+      authRequired: 'gov-uk-one-login',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility for Access to Work grant',
@@ -4719,7 +4724,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Universal Credit account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain fit note requirement and Work Capability Assessment process',
@@ -5276,7 +5282,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-first-provisional-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'gov-uk-one-login',
+      accountName: 'Driver and vehicles account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check age eligibility (15 years 9 months to apply)',
@@ -5435,7 +5442,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you moved to a new address?',
       ],
       means_tested: false,
-      evidenceRequired: ['Current driving licence', 'New address details', 'Government Gateway or DVLA online service'],
+      evidenceRequired: ['Current driving licence', 'New address details', 'Driver and vehicles account, set up with GOV.UK One Login'],
       ruleIn: ['Holds GB driving licence', 'Has moved to new address'],
       ruleOut: [],      rules: [],
 
@@ -5444,7 +5451,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/change-address-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'gov-uk-one-login',
+      accountName: 'Driver and vehicles account',
       agentCanComplete: 'full',
       agentSteps: [
         'Guide user through the online address change form step by step',
@@ -7497,7 +7505,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on nationality and UK residence before 31 December 2020',
@@ -11061,7 +11070,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/childcare-grant/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
+      accountName: 'Student finance account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check student is full-time and has children in registered childcare',
@@ -11716,7 +11726,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.passport.service.gov.uk/filter',
-      authRequired: 'gov-uk-verify',
+      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether this is a first application, renewal or replacement',
@@ -13142,7 +13152,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/apply',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the employer holds a sponsor licence',
@@ -13185,7 +13196,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm which family members qualify as dependants',
@@ -13224,7 +13236,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/student-visa/apply',
-      authRequired: 'none',
+      authRequired: 'service-account',
+      accountName: 'UKVI account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the educational institution is a licensed sponsor',
@@ -13541,7 +13554,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/view-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Direct user to the DVLA online service to generate a check code',
@@ -13990,7 +14003,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/request-copy-criminal-record',
-      authRequired: 'none',
+      authRequired: 'gov-uk-one-login',
       agentCanComplete: 'partial',
       agentSteps: [
         'Clarify whether a basic, standard or enhanced check is needed',
@@ -14426,7 +14439,8 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/renew-driving-licence',
-      authRequired: 'government-gateway',
+      authRequired: 'gov-uk-one-login',
+      accountName: 'Driver and vehicles account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the reason for renewal (photo expiry, name change, address change)',
