@@ -15135,7 +15135,7 @@ export const LIFE_EVENTS: LifeEvent[] = [
     desc: 'Birth registration, parental leave, childcare and maternity support',
     entryNodes: ['gro-register-birth','nhs-healthy-start',
                  'hmrc-smp','dwp-maternity-allowance','hmrc-spp','dwp-sure-start-grant',
-                 'nhs-maternity-exemption','la-free-childcare-2yr',
+                 'nhs-maternity-exemption','la-free-childcare-2yr','hmrc-tax-free-childcare',
                  'sss-best-start-grant','sss-best-start-foods',
                  'dhsc-baby-loss-certificate','gro-certificates'],
   },
