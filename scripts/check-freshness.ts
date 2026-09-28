@@ -1,9 +1,21 @@
 /**
  * check-freshness.ts — Monitor GOV.UK pages for content changes
  *
- * Fetches each govuk_url from the 138 service nodes, computes a normalised
- * content hash, and compares against stored hashes. Reports which pages
- * have changed so the maintainer can update the graph.
+ * Fetches each govuk_url, computes a normalised content hash, and compares
+ * against stored hashes. Reports which pages have changed so the maintainer
+ * can update the graph.
+ *
+ * What gets hashed is the text the verification scripts read, not the page's
+ * HTML. For GOV.UK that is the Content API text of every part of a guide, so
+ * a rate change on a "what you'll get" section is caught even when the node
+ * links to the overview; the rendered HTML only ever holds the part linked
+ * to. It also drops navigation and layout, which used to raise issues for
+ * pages whose content had not changed. Other sites fall back to the text of
+ * the page's <main> element.
+ *
+ * Changing what is hashed would make every page look changed once. Entries
+ * carry the method that produced them, and an entry from an older method is
+ * re-baselined quietly rather than reported.
  *
  * Usage:
  *   npx tsx scripts/check-freshness.ts              # dry run (print report)
@@ -18,10 +30,14 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { pageText } from './lib/page-text.js';
+import { normaliseForMatch } from '../src/provenance.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const HASHES_PATH = join(__dirname, '..', '.freshness', 'hashes.json');
 const UPDATE = process.argv.includes('--update');
+/** Bump when what gets hashed changes, so old entries re-baseline instead of alerting. */
+const HASH_METHOD = 'page-text-v2';
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 
@@ -30,6 +46,7 @@ interface HashEntry {
   lastChecked: string;
   lastChanged: string;
   serviceIds:  string[];
+  method?:     string;
 }
 
 interface HashStore {
@@ -51,6 +68,8 @@ interface FreshnessReport {
   errors:       { url: string; serviceIds: string[]; error: string }[];
   new_urls:     ChangeItem[];
   unchanged:    number;
+  /** Entries hashed by an older method, re-baselined without alerting. */
+  rebaselined:  number;
 }
 
 // ─── HELPERS ────────────────────────────────────────────────────────────────
@@ -59,52 +78,20 @@ function sha256(text: string): string {
   return createHash('sha256').update(text).digest('hex');
 }
 
-/** Extract <main> tag content, strip HTML, normalise whitespace */
-function normalise(html: string): string {
-  // Try to extract <main> tag content (all target gov sites use semantic HTML)
-  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  const content = mainMatch ? mainMatch[1] : html;
-
-  // Strip HTML tags
-  const text = content.replace(/<[^>]+>/g, ' ');
-
-  // Collapse whitespace, trim, lowercase
-  return text.replace(/\s+/g, ' ').trim().toLowerCase();
-}
-
 /** Sleep for ms milliseconds */
 function sleep(ms: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-/** Fetch with timeout and one retry */
-async function fetchWithRetry(url: string): Promise<string> {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10_000);
-      const response = await fetch(url, {
-        signal: controller.signal,
-        headers: {
-          'User-Agent': 'UK-Gov-Service-Graph-Freshness-Checker/1.0 (+https://github.com)',
-        },
-        redirect: 'follow',
-      });
-      clearTimeout(timeout);
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status} ${response.statusText}`);
-      }
-      return await response.text();
-    } catch (err: any) {
-      if (attempt === 0) {
-        await sleep(2000); // backoff before retry
-        continue;
-      }
-      throw err;
-    }
+/** The text verification reads, normalised so cosmetic whitespace does not count as change. */
+async function fetchText(url: string): Promise<string> {
+  let text = await pageText(url);
+  if (text === null) {
+    await sleep(2000);           // one retry: most failures are transient
+    text = await pageText(url);
   }
-  throw new Error('unreachable');
+  if (text === null) throw new Error('Could not fetch page text');
+  return normaliseForMatch(text);
 }
 
 // ─── BUILD URL MAP ──────────────────────────────────────────────────────────
@@ -141,6 +128,7 @@ const report: FreshnessReport = {
   errors: [],
   new_urls: [],
   unchanged: 0,
+  rebaselined: 0,
 };
 
 const urls = [...urlMap.keys()];
@@ -151,9 +139,7 @@ for (let i = 0; i < urls.length; i++) {
   const { ids, names } = urlMap.get(url)!;
 
   try {
-    const html = await fetchWithRetry(url);
-    const normalised = normalise(html);
-    const hash = sha256(normalised);
+    const hash = sha256(await fetchText(url));
 
     report.totalChecked++;
 
@@ -166,7 +152,12 @@ for (let i = 0; i < urls.length; i++) {
         lastChecked: now,
         lastChanged: now,
         serviceIds: ids,
+        method: HASH_METHOD,
       };
+    } else if (existing.method !== HASH_METHOD) {
+      // Hashed a different way last time; a mismatch says nothing about content.
+      report.rebaselined++;
+      store.hashes[url] = { ...existing, sha256: hash, lastChecked: now, serviceIds: ids, method: HASH_METHOD };
     } else if (existing.sha256 !== hash) {
       // Content changed
       report.changed.push({ url, serviceIds: ids, serviceNames: names });
@@ -175,6 +166,7 @@ for (let i = 0; i < urls.length; i++) {
         lastChecked: now,
         lastChanged: now,
         serviceIds: ids,
+        method: HASH_METHOD,
       };
     } else {
       // Unchanged
@@ -211,4 +203,4 @@ if (UPDATE) {
 // Report to stdout
 console.log(JSON.stringify(report, null, 2));
 
-console.error(`\nDone: ${report.totalChecked} checked, ${report.changed.length} changed, ${report.new_urls.length} new, ${report.errors.length} errors, ${report.unchanged} unchanged`);
+console.error(`\nDone: ${report.totalChecked} checked, ${report.changed.length} changed, ${report.new_urls.length} new, ${report.errors.length} errors, ${report.unchanged} unchanged, ${report.rebaselined} re-baselined`);

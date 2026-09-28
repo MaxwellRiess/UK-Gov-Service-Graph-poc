@@ -111,6 +111,11 @@ export function normaliseForMatch(text: string): string {
     .replace(/[“”]/g, '"')
     .replace(/[–—]/g, '-')
     .replace(/\s+/g, ' ')
+    // GOV.UK wraps abbreviations in <abbr>, so stripped text reads "( HMRC )"
+    // where the page shows "(HMRC)". Close the gaps so either form matches.
+    .replace(/\( /g, '(')
+    .replace(/ \)/g, ')')
+    .replace(/ ([,.;:])/g, '$1')
     .trim()
     .toLowerCase();
 }

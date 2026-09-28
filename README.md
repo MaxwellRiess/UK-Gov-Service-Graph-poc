@@ -17,7 +17,7 @@ The interactive explorer visualises 244 service nodes across 20 departments and 
 - **REQUIRES** (solid blue arrow) — strict ordering; must complete the source before the target
 - **RELATED** (dashed grey arrow) — a loose connection; the source is potentially relevant to the target but imposes no ordering
 
-The detail panel for each node surfaces eligibility rules, contact information (phone, hours, accessibility options), benefit rates, and agent interaction capabilities.
+The detail panel for each node surfaces eligibility rules, contact information (phone, hours, accessibility options), benefit rates, and agent interaction capabilities. Its **Sources** section lists every factual field with its provenance status, least trustworthy first; expand a field to see the verbatim quote, source link, method and check date. Rates, the phone number and the deadline also carry an inline status dot.
 
 **Controls:**
 - Click a life event in the sidebar to trace all services reachable from that entry point
@@ -25,6 +25,7 @@ The detail panel for each node surfaces eligibility rules, contact information (
 - Click any node to open a detail panel with eligibility info, contact details, financial rates, and GOV.UK links
 - Toggle edge types on/off; switch between Force / Hierarchy / BFS layouts
 - Search filters nodes by name or department
+- Colour nodes by department, or by sourcing: the share of each service's checkable facts confirmed against an official page (descriptions, summaries and agent steps are not checked yet, so they are left out of that score)
 
 ---
 
@@ -194,7 +195,7 @@ scripts/
   build-index.ts                  Generates index.html from graph data
   run-experiment.ts               Runs control vs treatment agent experiment across scenarios
   build-transcript-viewer.ts      Generates self-contained HTML transcript viewers
-  check-freshness.ts              Fetches GOV.UK pages and detects content changes
+  check-freshness.ts              Hashes the full text of each cited page (every part of a GOV.UK guide) and detects changes
   verify-tier1.ts                 Checks URLs and ownership against the GOV.UK Content API
   verify-tier2.ts                 Checks rates and phone numbers appear on their cited page
   verify-tier2-llm.ts             Locates deadlines in page prose (needs ANTHROPIC_API_KEY)

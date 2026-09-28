@@ -11,6 +11,7 @@ import { writeFileSync, readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { join, dirname } from 'path';
 import { LIFE_EVENTS, NODES, EDGES, DEPT_CONTACTS, type ContactInfo } from '../src/graph-data.js';
+import { provenanceFor } from '../src/provenance-view.js';
 
 // Load vendored scripts (bundled into HTML so file:// works with no CDN dependency)
 const __dir = dirname(fileURLToPath(import.meta.url));
@@ -53,6 +54,18 @@ LIFE_EVENTS.forEach(evt => {
 
 function resolveContact(n: (typeof NODES)[string]): ContactInfo | undefined {
   return n.contactInfo ?? DEPT_CONTACTS[n.deptKey];
+}
+
+// Descriptions, summaries and agent steps have no verification pass yet, so
+// every service scores the same on them. Colouring by sourcing leaves them
+// out so it shows differences between services; the panel still lists them.
+const UNCHECKED_PROSE = new Set(['desc', 'eligibility.summary', 'agentInteraction.agentSteps']);
+
+function nodeProvenance(n: (typeof NODES)[string]) {
+  const { summary, fields } = provenanceFor(n);
+  const checkable = Object.entries(fields).filter(([k]) => !UNCHECKED_PROSE.has(k));
+  const confirmed = checkable.filter(([, v]) => v.status === 'confirmed').length;
+  return { summary, fields, checkablePct: checkable.length ? Math.round(100 * confirmed / checkable.length) : 0 };
 }
 
 const nodeElements = Object.values(NODES).map(n => {
@@ -103,11 +116,13 @@ const nodeElements = Object.values(NODES).map(n => {
         localAuthority:   ci.localAuthority || false,
         notes:            ci.notes || null,
       } : null,
+      prov:               nodeProvenance(n),
     },
   };
 });
 
-const nodesJson      = JSON.stringify(nodeElements);
+// Escape "<" so page text inside quotes can never close the <script> element.
+const nodesJson      = JSON.stringify(nodeElements).replace(/</g, '\\u003c');
 const edgesJson      = JSON.stringify(edgeElements);
 const lifeEventsJson = JSON.stringify(lifeEventData);
 const nodeCount      = Object.keys(NODES).length;
@@ -115,6 +130,11 @@ const edgeCount      = EDGES.length;
 const eventCount     = LIFE_EVENTS.length;
 const contactCount   = nodeElements.filter(n => n.data.contact).length;
 const financialCount = nodeElements.filter(n => n.data.financial).length;
+const provTotals = nodeElements.reduce((t, n) => {
+  for (const [k, v] of Object.entries(n.data.prov.summary)) t[k] = (t[k] ?? 0) + v;
+  return t;
+}, {} as Record<string, number>);
+const provAll = Object.values(provTotals).reduce((a, b) => a + b, 0);
 
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -234,6 +254,27 @@ const html = `<!DOCTYPE html>
     .det-form-link{display:inline-block;font-size:.7rem;color:var(--accent);text-decoration:none;margin-top:4px}
     .det-form-link:hover{text-decoration:underline}
     .bdg-nation{background:#1a2332;color:#93c5fd}
+
+    /* ── Provenance ─────────────────────────────────────────────── */
+    .pv-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-left:6px;vertical-align:middle;cursor:help}
+    .pv-confirmed{background:#3fb950}.pv-inferred{background:#a855f7}.pv-unverified{background:#eab308}.pv-unsourced{background:#6b7280}
+    .pv-chips{display:flex;flex-wrap:wrap;gap:4px;margin:4px 0 8px}
+    .pv-chip{font-size:.66rem;padding:2px 7px;border-radius:10px;border:1px solid var(--border);color:var(--text)}
+    .pv-chip .pv-dot{margin:0 4px 0 0}
+    .pv-field{border-bottom:1px solid var(--border);font-size:.72rem}
+    .pv-field summary{cursor:pointer;padding:4px 0;list-style:none;display:flex;align-items:center;gap:6px}
+    .pv-field summary::-webkit-details-marker{display:none}
+    .pv-field summary .pv-dot{margin:0;flex-shrink:0}
+    .pv-label{flex:1;color:var(--text)}
+    .pv-status{font-size:.62rem;color:var(--muted)}
+    .pv-body{padding:2px 0 8px 14px;color:var(--muted);line-height:1.5}
+    .pv-quote{border-left:2px solid #238636;padding-left:8px;margin:4px 0;color:var(--text);font-style:italic}
+    .pv-note{border-left:2px solid #5a4a1a;padding-left:8px;margin:4px 0;color:#eab308}
+    .pv-meta{font-size:.63rem}
+    .pv-meta a{color:var(--accent);text-decoration:none;word-break:break-all}
+    .pv-legend{font-size:.68rem;color:var(--muted);line-height:1.7;margin-top:6px;display:none}
+    .pv-legend.vis{display:block}
+    .pv-sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:middle}
   </style>
 </head>
 <body>
@@ -266,6 +307,18 @@ const html = `<!DOCTYPE html>
       <button class="lay-btn" data-layout="breadthfirst">BFS</button>
     </div>
     <div class="sb-sec">
+      <div class="sb-title">Colour nodes by</div>
+      <button class="lay-btn col-btn active" data-colour="dept">Department</button>
+      <button class="lay-btn col-btn" data-colour="prov">Sourcing</button>
+      <div class="pv-legend" id="pv-legend">
+        Share of checkable facts confirmed against an official page:<br>
+        <span class="pv-sw" style="background:#15803d"></span>80% or more<br>
+        <span class="pv-sw" style="background:#b45309"></span>50 to 79%<br>
+        <span class="pv-sw" style="background:#b91c1c"></span>under 50%<br>
+        Descriptions, summaries and agent steps are not checked yet, so they are left out of this score.
+      </div>
+    </div>
+    <div class="sb-sec">
       <button class="reset-btn" id="reset-btn">Reset All</button>
     </div>
     <div class="sb-sec" style="flex:1;border-bottom:none">
@@ -275,6 +328,8 @@ const html = `<!DOCTYPE html>
         <div><span>${eventCount}</span> life events</div>
         <div><span>${contactCount}</span> with contact info</div>
         <div><span>${financialCount}</span> with financial data</div>
+        <div style="margin-top:6px"><span>${provTotals.confirmed ?? 0}</span> of <span>${provAll}</span> facts confirmed</div>
+        <div><span>${provTotals.unverified ?? 0}</span> unverified, <span>${provTotals.inferred ?? 0}</span> inferred, <span>${provTotals.unsourced ?? 0}</span> unsourced</div>
       </div>
     </div>
   </div>
@@ -303,9 +358,67 @@ const html = `<!DOCTYPE html>
     var EDGES_DATA   = ${edgesJson};
     var EVENTS_DATA  = ${lifeEventsJson};
 
+    function provColour(pct) { return pct >= 80 ? '#15803d' : pct >= 50 ? '#b45309' : '#b91c1c'; }
     NODES_DATA.forEach(function(n) {
-      n.data.color = DEPT_COLORS[n.data.deptKey] || '#9ca3af';
+      n.data.deptColor = DEPT_COLORS[n.data.deptKey] || '#9ca3af';
+      n.data.provColor = provColour(n.data.prov.checkablePct);
+      n.data.color = n.data.deptColor;
     });
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+    var STATUS_TEXT = {
+      confirmed: 'Confirmed against an official page',
+      inferred: 'Authored judgement, no published source',
+      unverified: 'Checked and not confirmed, or changed since checked',
+      unsourced: 'Not checked yet'
+    };
+    function pvDot(prov, path) {
+      var f = prov && prov.fields[path];
+      if (!f) return '';
+      return '<span class="pv-dot pv-' + f.status + '" title="' + esc(STATUS_TEXT[f.status]) + '"></span>';
+    }
+    var FIELD_NAMES = {
+      govuk_url: 'GOV.UK page', deptKey: 'Delivering body', desc: 'Description',
+      'eligibility.summary': 'Eligibility summary', deadline: 'Deadline', nations: 'Nations covered',
+      'contactInfo.phone.number': 'Phone number', 'agentInteraction.agentSteps': 'Agent steps'
+    };
+    function fieldName(path, f) {
+      if (f.about) return f.about;
+      if (FIELD_NAMES[path]) return FIELD_NAMES[path];
+      if (path.indexOf('financialData.rates.') === 0) return 'Rate: ' + path.slice(20);
+      return path;
+    }
+    var STATUS_ORDER = { unverified: 0, inferred: 1, unsourced: 2, confirmed: 3 };
+    function fmtProv(prov) {
+      if (!prov) return '';
+      var s = prov.summary;
+      var h = '<div class="det-section"><p class="det-stitle">Sources (' + prov.checkablePct + '% of checkable facts confirmed)</p><div class="pv-chips">';
+      ['confirmed', 'unverified', 'inferred', 'unsourced'].forEach(function(k) {
+        if (s[k]) h += '<span class="pv-chip" title="' + esc(STATUS_TEXT[k]) + '"><span class="pv-dot pv-' + k + '"></span>' + s[k] + ' ' + k + '</span>';
+      });
+      h += '</div>';
+      Object.keys(prov.fields)
+        .sort(function(a, b) { return STATUS_ORDER[prov.fields[a].status] - STATUS_ORDER[prov.fields[b].status]; })
+        .forEach(function(path) {
+          var f = prov.fields[path];
+          h += '<details class="pv-field"><summary><span class="pv-dot pv-' + f.status + '"></span>'
+            + '<span class="pv-label">' + esc(fieldName(path, f)) + '</span><span class="pv-status">' + f.status + '</span></summary><div class="pv-body">';
+          if (f.quote) h += '<div class="pv-quote">\u201C' + esc(f.quote) + '\u201D</div>';
+          if (f.note) h += '<div class="pv-note">' + esc(f.note) + '</div>';
+          if (!f.quote && !f.note) h += '<div>' + esc(STATUS_TEXT[f.status]) + '.</div>';
+          var meta = [];
+          if (f.source) meta.push('<a href="' + esc(f.source) + '" target="_blank" rel="noopener">\u2197 ' + esc(f.source) + '</a>');
+          if (f.method) meta.push('method: ' + esc(f.method));
+          if (f.checkedAt) meta.push('checked ' + esc(f.checkedAt));
+          meta.push('<span style="opacity:.7">' + esc(path) + '</span>');
+          h += '<div class="pv-meta">' + meta.join(' \u00B7 ') + '</div></div></details>';
+        });
+      return h + '</div>';
+    }
 
     var ADJ = {};
     EDGES_DATA.forEach(function(e) {
@@ -463,9 +576,9 @@ const html = `<!DOCTYPE html>
       cy.edges('[type="RELATED"]').toggleClass('hidden', !this.checked);
     });
 
-    document.querySelectorAll('.lay-btn').forEach(function(btn) {
+    document.querySelectorAll('.lay-btn[data-layout]').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        document.querySelectorAll('.lay-btn').forEach(function(b) { b.classList.remove('active'); });
+        document.querySelectorAll('.lay-btn[data-layout]').forEach(function(b) { b.classList.remove('active'); });
         btn.classList.add('active');
         var name = btn.dataset.layout;
         var opts = { name: name, animate: false, fit: true, padding: 30 };
@@ -477,6 +590,18 @@ const html = `<!DOCTYPE html>
           Object.assign(opts, { directed: true, spacingFactor: 1.3 });
         }
         cy.layout(opts).run();
+      });
+    });
+
+    document.querySelectorAll('.col-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.col-btn').forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        var byProv = btn.dataset.colour === 'prov';
+        document.getElementById('pv-legend').classList.toggle('vis', byProv);
+        cy.batch(function() {
+          cy.nodes().forEach(function(n) { n.data('color', byProv ? n.data('provColor') : n.data('deptColor')); });
+        });
       });
     });
 
@@ -507,7 +632,7 @@ const html = `<!DOCTYPE html>
       }).join('');
     }
 
-    function fmtContact(c) {
+    function fmtContact(c, prov) {
       if (!c) return '';
       var h = '<div class="det-section"><p class="det-stitle">Contact</p>';
       if (c.localAuthority) {
@@ -517,7 +642,7 @@ const html = `<!DOCTYPE html>
         return h + '</div>';
       }
       if (c.phoneLabel) h += '<p class="det-phone-label">' + c.phoneLabel + '</p>';
-      if (c.phone) h += '<p class="det-phone">' + c.phone + '</p>';
+      if (c.phone) h += '<p class="det-phone">' + c.phone + pvDot(prov, 'contactInfo.phone.number') + '</p>';
       var acc = [];
       if (c.textphone) acc.push('Textphone: ' + c.textphone);
       if (c.relay) acc.push('Relay UK: ' + c.relay);
@@ -530,13 +655,13 @@ const html = `<!DOCTYPE html>
       return h + '</div>';
     }
 
-    function fmtFinancial(f) {
+    function fmtFinancial(f, prov) {
       if (!f) return '';
       var h = '<div class="det-section"><p class="det-stitle">Financial (' + f.taxYear + ')</p>';
       h += '<p class="det-freq">' + f.frequency + '</p>';
       var keys = Object.keys(f.rates);
       keys.forEach(function(k) {
-        h += '<div class="det-rate-row"><span class="det-rate-name">' + k + '</span><span class="det-rate-val">\\u00A3' + f.rates[k].toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2}) + '</span></div>';
+        h += '<div class="det-rate-row"><span class="det-rate-name">' + k + pvDot(prov, 'financialData.rates.' + k) + '</span><span class="det-rate-val">\\u00A3' + f.rates[k].toLocaleString('en-GB',{minimumFractionDigits:2,maximumFractionDigits:2}) + '</span></div>';
       });
       return h + '</div>';
     }
@@ -577,7 +702,7 @@ const html = `<!DOCTYPE html>
 
       var badges = '<span class="bdg bdg-dept">' + d.dept + '</span>'
         + '<span class="bdg bdg-type">' + d.serviceType + '</span>'
-        + (d.deadline ? '<span class="bdg bdg-dl">&#x23F1; ' + d.deadline + '</span>' : '')
+        + (d.deadline ? '<span class="bdg bdg-dl">&#x23F1; ' + d.deadline + pvDot(d.prov, 'deadline') + '</span>' : '')
         + (d.proactive    ? '<span class="bdg bdg-pro">proactive</span>'    : '')
         + (d.gated        ? '<span class="bdg bdg-gat">gated</span>'        : '')
         + (d.universal    ? '<span class="bdg bdg-uni">universal</span>'    : '')
@@ -619,11 +744,12 @@ const html = `<!DOCTYPE html>
               + d.lifeEvents.map(function(le){ return '<span class="le-tag">' + le.icon + ' ' + le.name + '</span>'; }).join('')
               + '</div>'
             : '')
-        + fmtContact(d.contact)
-        + fmtFinancial(d.financial)
+        + fmtContact(d.contact, d.prov)
+        + fmtFinancial(d.financial, d.prov)
         + (inEdges.length  ? '<p class="det-stitle">Prerequisites (' + inEdges.length + ')</p><ul class="det-list">' + nodeList(inEdges) + '</ul>' : '')
         + (outEdges.length ? '<p class="det-stitle">Leads to (' + outEdges.length + ')</p><ul class="det-list">' + nodeList(outEdges) + '</ul>' : '')
         + fmtAgent(d.agent)
+        + fmtProv(d.prov)
         + '<a class="det-link" href="' + d.govuk_url + '" target="_blank" rel="noopener">&#x2197; ' + d.govuk_url + '</a>'
         + '<p class="det-id">' + d.id + '</p>';
 

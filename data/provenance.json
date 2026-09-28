@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-09-28T15:15:45.557Z",
+  "lastRun": "2026-09-28T15:32:06.951Z",
   "fields": {
     "acas-early-conciliation#eligibility.criteria.0": {
       "valueHash": "19bf2144b3bbe3d6",
@@ -4474,9 +4474,9 @@
       "valueHash": "3fe4b2b6f2b14253",
       "valueSeen": "14 days (in-country) / 28 days (out of country)",
       "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
-      "sourceQuote": "If you're in the UK you have 14 days from the date you received the decision letter to submit your appeal. If you're outside the UK you have 28 days.",
+      "sourceQuote": "If you’re in the UK You have 14 days from the date you received the decision letter to submit your appeal. If you’re outside the UK You have 28 days from the date you received the decision letter to submit your appeal",
       "method": "manual",
-      "verifiedAt": "2026-09-28T11:46:20.182Z",
+      "verifiedAt": "2026-09-28T15:32:05.825Z",
       "confidence": "confirmed"
     },
     "hmcts-immigration-tribunal#deptKey": {
@@ -6124,9 +6124,9 @@
       "valueHash": "cac3b8fc63afca9c",
       "valueSeen": "5 Oct (yr 2)",
       "sourceUrl": "https://www.gov.uk/register-for-self-assessment",
-      "sourceQuote": "You must tell HM Revenue and Customs (HMRC) by 5 October 2026 if you need to complete a tax return for the previous tax year",
+      "sourceQuote": "You must tell HM Revenue and Customs ( HMRC ) by 5 October 2026 if you need to complete a tax return for the previous tax year",
       "method": "manual",
-      "verifiedAt": "2026-09-28T11:46:20.182Z",
+      "verifiedAt": "2026-09-28T15:32:05.825Z",
       "confidence": "confirmed"
     },
     "hmrc-self-assessment#deptKey": {
@@ -7417,9 +7417,9 @@
       "valueHash": "3fe4b2b6f2b14253",
       "valueSeen": "14 days (in-country) / 28 days (out of country)",
       "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
-      "sourceQuote": "If you're in the UK you have 14 days from the date you received the decision letter to submit your appeal. If you're outside the UK you have 28 days.",
+      "sourceQuote": "If you’re in the UK You have 14 days from the date you received the decision letter to submit your appeal. If you’re outside the UK You have 28 days from the date you received the decision letter to submit your appeal",
       "method": "manual",
-      "verifiedAt": "2026-09-28T11:46:20.182Z",
+      "verifiedAt": "2026-09-28T15:32:05.825Z",
       "confidence": "confirmed"
     },
     "ho-immigration-appeal#deptKey": {
@@ -10535,9 +10535,9 @@
       "valueHash": "4d8d9abfe4ca71f0",
       "valueSeen": "Before employing",
       "sourceUrl": "https://www.gov.uk/employers-liability-insurance",
-      "sourceQuote": "You must get Employers' Liability (EL) insurance: as soon as you become an employer",
+      "sourceQuote": "You must get Employers’ Liability ( EL ) insurance: as soon as you become an employer",
       "method": "manual",
-      "verifiedAt": "2026-09-28T11:46:20.182Z",
+      "verifiedAt": "2026-09-28T15:32:05.825Z",
       "confidence": "confirmed"
     },
     "other-employers-liability#deptKey": {
@@ -12058,9 +12058,9 @@
       "valueHash": "4cd8d4a68f44f9be",
       "valueSeen": "Duties start date (day first staff member starts work)",
       "sourceUrl": "https://www.gov.uk/workplace-pensions-employers",
-      "sourceQuote": "Employers have to provide a workplace pension scheme for eligible staff as soon as their first member of staff starts working for them (known as your duties start date)",
+      "sourceQuote": "Employers have to provide a workplace pension scheme for eligible staff as soon as their first member of staff starts working for them (known as your ‘duties start date’)",
       "method": "manual",
-      "verifiedAt": "2026-09-28T11:46:20.182Z",
+      "verifiedAt": "2026-09-28T15:32:05.825Z",
       "confidence": "confirmed"
     },
     "tpr-workplace-pension#deptKey": {
@@ -12238,9 +12238,9 @@
       "valueHash": "c7ad49ff6c036824",
       "valueSeen": "30 September 2026 (6 months from 31 March 2026 launch)",
       "sourceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
-      "sourceQuote": "First published: 31 March 2026 ... There are 6 months from the scheme's launch to claim.",
+      "sourceQuote": "There are 6 months from the scheme's launch to claim",
       "method": "manual",
-      "verifiedAt": "2026-09-28T13:17:54.182Z",
+      "verifiedAt": "2026-09-28T15:32:05.825Z",
       "confidence": "confirmed"
     },
     "wg-winter-fuel-support#eligibility.criteria.0": {
