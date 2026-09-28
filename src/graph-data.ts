@@ -117,6 +117,7 @@ export interface PhoneContact {
   welsh?:      string;   // Welsh language line
   bsl?:        string;   // BSL video relay URL
   label?:      string;   // e.g. "UC helpline"
+  sourceUrl?:  string;   // page that actually publishes this number, when it isn't the node's govuk_url — verify:tier2 checks this too
 }
 
 export type DayOfWeek = 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
@@ -216,7 +217,7 @@ export interface LifeEvent {
 export const DEPT_CONTACTS: Partial<Record<string, ContactInfo>> = {
 
   gro: {
-    phone: { number: '+44 300 123 1837', relay: '18001 then 0300 123 1837', label: 'GRO certificate enquiries' },
+    phone: { number: '+44 300 123 1837', sourceUrl: 'https://www.gov.uk/general-register-office', relay: '18001 then 0300 123 1837', label: 'GRO certificate enquiries' },
     hours: [
       { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
     ],
@@ -234,7 +235,7 @@ export const DEPT_CONTACTS: Partial<Record<string, ContactInfo>> = {
   },
 
   dwp: {
-    phone: { number: '+44 800 169 0310', textphone: '+44 800 169 0314', relay: '18001 then 0800 169 0310', label: 'DWP general enquiries' },
+    phone: { number: '+44 800 169 0310', sourceUrl: 'https://www.gov.uk/contact-jobcentre-plus', textphone: '+44 800 169 0314', relay: '18001 then 0800 169 0310', label: 'DWP general enquiries' },
     hours: [
       { days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' },
     ],
@@ -481,7 +482,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 300 123 1837',
+        number: '+44 300 123 1837', sourceUrl: 'https://www.gov.uk/general-register-office',
         textphone: '+44 329 822 0391',
         relay: '18001 then 0300 123 1837',
         label: 'GRO certificate enquiries',
@@ -632,7 +633,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 300 123 1837',
+        number: '+44 300 123 1837', sourceUrl: 'https://www.gov.uk/general-register-office',
         textphone: '+44 329 822 0391',
         relay: '18001 then 0300 123 1837',
         label: 'GRO certificate enquiries',
@@ -1817,26 +1818,27 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'hmrc-tax-refund', name: 'Income tax refund (P50)', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
     desc: 'If you have overpaid PAYE and are not returning to work in the same tax year.',
-    govuk_url: 'https://www.gov.uk/claim-tax-refund/you-get-a-pension',
+    govuk_url: 'https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Claim a refund if you have overpaid PAYE income tax during the year, typically after losing a job mid-year and not returning to work before April 5th.',
+      summary: 'Claim a refund on form P50 if you have overpaid PAYE income tax during the year, typically after losing a job mid-year, have been unemployed for 4 weeks or more, are not claiming taxable state benefits, and do not expect to go back to work.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Overpaid income tax via PAYE, typically after job loss mid-tax year.' },
-        { factor: 'income', description: 'Not returning to work or starting a taxable pension in the same tax year — if you are, wait for PAYE to adjust automatically.' },
+        { factor: 'income', description: 'Unemployed for 4 weeks or more, not claiming taxable state benefits, and not returning to work or starting a taxable pension in the same tax year — if you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary instead.' },
       ],
       keyQuestions: [
         'Did you leave your job before the end of the tax year (April 5th)?',
-        'Are you planning to return to work before April 5th?',
+        'Have you been unemployed for 4 weeks or more?',
+        'Are you planning to return to work before April 5th, or within the next 4 weeks?',
         'Are you claiming Universal Credit (HMRC automatically refunds overdue tax)?',
       ],
       means_tested: false,
-      evidenceRequired: ['P45 from former employer', 'P50 form for mid-year claim'],
-      ruleIn: ['Overpaid PAYE tax mid-year', 'Not returning to work before April 5th'],
-      ruleOut: ['Returning to work in same tax year'],      rules: [
+      evidenceRequired: ['P45 from former employer (Parts 2 and 3)', 'P50 form for mid-year claim'],
+      ruleIn: ['Overpaid PAYE tax mid-year', 'Unemployed 4 weeks or more', 'Not returning to work before April 5th'],
+      ruleOut: ['Returning to work in same tax year', 'Expecting to start a new job within 4 weeks', 'Claiming a taxable state benefit'],      rules: [
         {
           "type": "enum",
           "field": "employment_status",
@@ -1850,6 +1852,12 @@ export const NODES: Record<string, ServiceNode> = {
           "field": "custom_facts.overpaid_paye",
           "expected": true,
           "label": "Overpaid PAYE income tax during the current tax year"
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.unemployed_4_weeks_or_more",
+          "expected": true,
+          "label": "Unemployed for 4 weeks or more and not claiming a taxable state benefit"
         }
       ],
 
@@ -2829,7 +2837,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 800 085 7308', label: 'Tell Us Once helpline (England & Wales)' },
+      phone: { number: '+44 800 085 7308', sourceUrl: 'https://www.wirral.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/tell-us-once-service', label: 'Tell Us Once helpline (England & Wales)' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -3156,7 +3164,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 800 731 0469',
+        number: '+44 800 731 0469', sourceUrl: 'https://www.gov.uk/contact-pension-service',
         textphone: '+44 800 731 7898',
         relay: '18001 then 0800 731 0469',
         label: 'Pension Service helpline',
@@ -3503,7 +3511,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
     contactInfo: {
       phone: {
-        number: '+44 800 917 2222',
+        number: '+44 800 917 2222', sourceUrl: 'https://www.gov.uk/pip',
         label: 'DWP Special Rules team',
       },
       hours: [{ days: ['mon','tue','wed','thu','fri'], open: '08:00', close: '18:00' }],
@@ -3653,7 +3661,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 800 917 2222',
+        number: '+44 800 917 2222', sourceUrl: 'https://www.gov.uk/pip',
         textphone: '+44 800 121 4433',
         relay: '18001 then 0800 917 2222',
         label: 'PIP helpline',
@@ -3843,7 +3851,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 800 169 0310',
+        number: '+44 800 169 0310', sourceUrl: 'https://www.gov.uk/contact-jobcentre-plus',
         relay: '18001 then 0800 169 0310',
         welsh: '+44 800 328 1744',
         label: 'New Style JSA helpline',
@@ -3999,7 +4007,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 800 169 0310',
+        number: '+44 800 169 0310', sourceUrl: 'https://www.gov.uk/contact-jobcentre-plus',
         textphone: '+44 800 169 0314',
         relay: '18001 then 0800 169 0310',
         label: 'DWP general (or use benefit-specific helpline)',
@@ -4760,7 +4768,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 800 171 2345',
+        number: '+44 800 171 2345', sourceUrl: 'https://www.gov.uk/child-maintenance-service',
         textphone: '+44 800 232 1271',
         relay: '18001 then 0800 171 2345',
         welsh: '+44 800 232 1979',
@@ -4998,7 +5006,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/',
     },
       contactInfo: {
-      phone: { number: '+44 300 330 7010', relay: '18001 then 0300 330 7010', label: 'Healthy Start helpline' },
+      phone: { number: '+44 300 330 7010', relay: '18001 then 0300 330 7010', label: 'Healthy Start helpline', sourceUrl: 'https://www.healthystart.nhs.uk/contact-us/' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -5110,7 +5118,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1341', label: 'Help with NHS costs' },
+      phone: { number: '+44 300 330 1341', label: 'NHS Prescription Services', sourceUrl: 'https://www.nhsbsa.nhs.uk/contact-nhs-prescription-services' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -5871,7 +5879,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.gov.uk/divorce',
     },
       contactInfo: {
-      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
+      phone: { number: '+44 300 303 0642', sourceUrl: 'https://www.gov.uk/divorce', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -5935,7 +5943,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.gov.uk/money-property-when-relationship-ends',
     },
       contactInfo: {
-      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
+      phone: { number: '+44 300 303 0642', sourceUrl: 'https://www.gov.uk/divorce', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -6020,7 +6028,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.gov.uk/looking-after-children-divorce',
     },
       contactInfo: {
-      phone: { number: '+44 300 303 0642', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
+      phone: { number: '+44 300 303 0642', sourceUrl: 'https://www.gov.uk/divorce', relay: '18001 then 0300 303 0642', label: 'Courts and Tribunals Service Centre' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -6692,7 +6700,7 @@ export const NODES: Record<string, ServiceNode> = {
       localAuthority: true,
       officeLocatorUrl: 'https://www.gov.uk/find-local-council',
       additionalPhones: [
-        { number: '+44 1799 582030', label: 'IPSEA admin/enquiries line (independent)' },
+        { number: '+44 1799 582030', sourceUrl: 'https://www.ipsea.org.uk/contact-ipsea', label: 'IPSEA admin/enquiries line (independent)' },
       ],
       notes: 'Contact your local council SEND department. IPSEA offers free independent advice.',
     },
@@ -6846,7 +6854,7 @@ export const NODES: Record<string, ServiceNode> = {
       localAuthority: true,
       officeLocatorUrl: 'https://www.gov.uk/find-local-council',
       additionalPhones: [
-        { number: '+44 300 124 0315', label: 'Foundations (Home Improvement Agencies)' },
+        { number: '+44 300 124 0315', sourceUrl: 'https://www.foundations.uk.com/contact-us/', label: 'Foundations (Home Improvement Agencies)' },
       ],
       notes: 'Apply through your local council. Foundations can help with the application process.',
     },
@@ -8003,7 +8011,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.gov.uk/renew-adult-passport',
     },
       contactInfo: {
-      phone: { number: '+44 300 222 0000', relay: '18001 then 0300 222 0000', label: 'HM Passport Office' },
+      phone: { number: '+44 300 222 0000', sourceUrl: 'https://www.gov.uk/passport-advice-line', relay: '18001 then 0300 222 0000', label: 'HM Passport Office' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -8079,7 +8087,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence',
     },
       contactInfo: {
-      phone: { number: '+44 300 790 6117', relay: '18001 then 0300 790 6117', label: 'TV Licensing (over-75s)' },
+      phone: { number: '+44 300 790 6117', sourceUrl: 'https://www.tvlicensing.co.uk/easy-read/free-licence-for-the-over-75s', relay: '18001 then 0300 790 6117', label: 'TV Licensing (over-75s)' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -8145,7 +8153,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
       contactInfo: {
       phone: {
-        number: '+44 300 456 4566',
+        number: '+44 300 456 4566', sourceUrl: 'https://www.motability.co.uk/get-support/contact',
         textphone: '+44 300 037 0100',
         relay: '18001 then 0300 456 4566',
         label: 'Motability Operations',
@@ -8247,7 +8255,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.railcard.co.uk/disabled-persons-railcard/',
     },
       contactInfo: {
-      phone: { number: '+44 345 605 0525', label: 'Disabled Persons Railcard support' },
+      phone: { number: '+44 345 605 0525', sourceUrl: 'https://www.railcard.co.uk/help/contact/', label: 'Disabled Persons Railcard support' },
       hours: [
         { days: ['mon','tue','wed','thu','fri','sat','sun'], open: '07:00', close: '22:00' },
       ],
@@ -8495,12 +8503,12 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'other-statutory-redundancy', name: 'Statutory Redundancy Pay', dept: 'Employer / Tribunal', deptKey: 'other',
     deadline: null,
     desc: 'Employer obligation based on age and length of service. Employment tribunal if refused.',
-    govuk_url: 'https://www.gov.uk/redundancy-payments-helpline',
+    govuk_url: 'https://www.gov.uk/redundancy-your-rights',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'A legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment. Amount depends on age, weekly pay (capped at £643/week), and length of service. Employer must pay — Employment Tribunal if they refuse.',
+      summary: 'A legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment. Amount depends on age, weekly pay (capped at £751/week for redundancies on or after 6 April 2026, maximum £22,530 total), and length of service. Employer must pay — Employment Tribunal if they refuse.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Must have been continuously employed for at least 2 years and been made compulsorily redundant.' },
@@ -8551,6 +8559,12 @@ export const NODES: Record<string, ServiceNode> = {
         'Guide user through claiming from employer or Employment Tribunal if refused',
         'Explain the process and timeline for redundancy claims',
       ],
+    },
+    financialData: {
+      taxYear: '2026-27',
+      frequency: 'weekly',
+      rates: { weekly_pay_cap: 751, max_total: 22530 },
+      source: 'https://www.gov.uk/redundancy-your-rights',
     },
   },
   'other-carers-leave': {
@@ -8969,7 +8983,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
     nations: ['england', 'scotland', 'wales'],
       contactInfo: {
-      phone: { number: '+44 800 030 9322', label: 'Warm Home Discount helpline' },
+      phone: { number: '+44 800 030 9322', sourceUrl: 'https://www.ofgem.gov.uk/environmental-and-social-schemes/warm-home-discount-whd/contacts-guidance-and-resources', label: 'Warm Home Discount helpline' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -9066,7 +9080,7 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'nhsLowIncomeScheme',
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1343', label: 'NHS Business Services Authority' },
+      phone: { number: '+44 300 330 1343', sourceUrl: 'https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs', label: 'NHS Business Services Authority' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -9846,7 +9860,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
     nations: ['northern-ireland'],
       contactInfo: {
-      phone: { number: '+44 800 587 2750', textphone: '+44 800 587 2751', label: 'Finance Support Service (Discretionary Support)' },
+      phone: { number: '+44 800 587 2750', sourceUrl: 'https://www.nidirect.gov.uk/articles/discretionary-support', textphone: '+44 800 587 2751', label: 'Finance Support Service (Discretionary Support)' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -10192,7 +10206,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1343', label: 'NHS Help with Health Costs' },
+      phone: { number: '+44 300 330 1343', sourceUrl: 'https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs', label: 'NHS Help with Health Costs' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -10335,7 +10349,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1343', label: 'NHS Help with Health Costs' },
+      phone: { number: '+44 300 330 1343', sourceUrl: 'https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs', label: 'NHS Help with Health Costs' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -10795,7 +10809,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
       contactInfo: {
-      phone: { number: '+44 300 330 1341', relay: '18001 then 0300 330 1341', label: 'NHSBSA medical and maternity exemption certificates' },
+      phone: { number: '+44 300 330 1341', relay: '18001 then 0300 330 1341', label: 'NHSBSA medical and maternity exemption certificates', sourceUrl: 'https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -11575,7 +11589,7 @@ export const NODES: Record<string, ServiceNode> = {
     },
     nations: ['wales'],
     contactInfo: {
-      phone: { number: '+44 800 859 5924', label: 'Discretionary Assistance Fund' },
+      phone: { number: '+44 800 859 5924', label: 'Discretionary Assistance Fund', sourceUrl: 'https://www.gov.wales/discretionary-assistance-fund-daf/contact-us' },
       hours: [
         { days: ['mon','tue','wed','thu','fri'], open: '10:00', close: '16:00' },
       ],
@@ -12154,6 +12168,7 @@ export const NODES: Record<string, ServiceNode> = {
     deadline: '3 months minus 1 day from incident',
     desc: 'Mandatory pre-tribunal step for most employment disputes; a free Acas conciliation service that tries to resolve disputes before a tribunal claim is lodged.',
     govuk_url: 'https://www.acas.org.uk/early-conciliation',
+    nations: ['england', 'scotland', 'wales'],
     serviceType: 'legal_process',
     proactive: true,
     gated: false,

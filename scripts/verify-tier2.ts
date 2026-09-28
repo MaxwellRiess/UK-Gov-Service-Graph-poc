@@ -245,18 +245,17 @@ for (const n of rateNodes) {
 // ─── PHONE NUMBERS ──────────────────────────────────────────────────────────
 
 for (const n of phoneNodes) {
-  const url = n.govuk_url;
-  const text = await pageText(url);
-  const entries: { field: string; number: string }[] = [];
+  const govText = await pageText(n.govuk_url);
+  const entries: { field: string; number: string; sourceUrl?: string }[] = [];
   if (n.contactInfo?.phone?.number) {
-    entries.push({ field: 'contactInfo.phone.number', number: n.contactInfo.phone.number });
+    entries.push({ field: 'contactInfo.phone.number', number: n.contactInfo.phone.number, sourceUrl: n.contactInfo.phone.sourceUrl });
   }
   (n.contactInfo?.additionalPhones ?? []).forEach((p, i) => {
-    entries.push({ field: `contactInfo.additionalPhones.${i}.number`, number: p.number });
+    entries.push({ field: `contactInfo.additionalPhones.${i}.number`, number: p.number, sourceUrl: p.sourceUrl });
   });
 
-  for (const { field, number } of entries) {
-    const row = { id: n.id, field, value: number, url };
+  for (const { field, number, sourceUrl } of entries) {
+    const row = { id: n.id, field, value: number, url: sourceUrl ?? n.govuk_url };
     const re = phoneRegex(number);
 
     if (re === null) {
@@ -264,7 +263,7 @@ for (const n of phoneNodes) {
       store.fields[provenanceKey(n.id, field)] = {
         valueHash: hashValue(number),
         valueSeen: number,
-        sourceUrl: url,
+        sourceUrl: row.url,
         sourceQuote: '',
         method: 'manual',
         verifiedAt: now,
@@ -274,18 +273,30 @@ for (const n of phoneNodes) {
       continue;
     }
 
-    const m = text === null ? null : re.exec(text);
-    // Fall back to the contact corpus — most departments publish helplines on a
-    // dedicated contact page rather than on the service page itself.
-    const viaCorpus = m ? null : contactCorpus.get(toNational(number) ?? '');
+    // Try the node's own govuk_url first, then its declared sourceUrl (a
+    // contact page other than govuk_url — see PhoneContact.sourceUrl), then
+    // the GOV.UK contact-page corpus as a last resort.
+    let hit: { text: string; url: string; m: RegExpExecArray } | null = null;
+    if (govText !== null) {
+      const m = re.exec(govText);
+      if (m) hit = { text: govText, url: n.govuk_url, m };
+    }
+    if (!hit && sourceUrl) {
+      const altText = await pageText(sourceUrl);
+      if (altText !== null) {
+        const m = re.exec(altText);
+        if (m) hit = { text: altText, url: sourceUrl, m };
+      }
+    }
+    const viaCorpus = hit ? null : contactCorpus.get(toNational(number) ?? '');
 
-    if (m) {
-      found.push(row);
+    if (hit) {
+      found.push({ ...row, url: hit.url });
       store.fields[provenanceKey(n.id, field)] = {
         valueHash: hashValue(number),
-        valueSeen: m[0],
-        sourceUrl: url,
-        sourceQuote: quoteAround(text!, m.index, m[0].length),
+        valueSeen: hit.m[0],
+        sourceUrl: hit.url,
+        sourceQuote: quoteAround(hit.text, hit.m.index, hit.m[0].length),
         method: 'literal-presence',
         verifiedAt: now,
         confidence: 'confirmed',
@@ -301,19 +312,21 @@ for (const n of phoneNodes) {
         verifiedAt: now,
         confidence: 'confirmed',
       };
-    } else if (text === null) {
+    } else if (govText === null && !sourceUrl) {
       unreachable.push(row);
     } else {
       missing.push(row);
       store.fields[provenanceKey(n.id, field)] = {
         valueHash: hashValue(number),
         valueSeen: number,
-        sourceUrl: url,
+        sourceUrl: row.url,
         sourceQuote: '',
         method: 'literal-presence',
         verifiedAt: now,
         confidence: 'unverified',
-        rationale: 'Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction.',
+        rationale: sourceUrl
+          ? `No rendering of ${JSON.stringify(number)} found on the declared sourceUrl or the service page.`
+          : 'Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction.',
       };
     }
   }
