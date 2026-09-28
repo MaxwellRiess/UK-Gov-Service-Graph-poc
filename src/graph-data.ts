@@ -14667,7 +14667,7 @@ export const EDGES: Edge[] = [
   { from: 'ch-register-ltd',          to: 'hmrc-paye',                      type: 'RELATED' },
   { from: 'ch-register-ltd',          to: 'hmrc-cis',                       type: 'RELATED' },
   { from: 'hmrc-register-sole-trader', to: 'hmrc-self-assessment',          type: 'RELATED' },
-  { from: 'hmrc-paye',                to: 'other-employers-liability',      type: 'REQUIRES' },
+  { from: 'hmrc-paye',                to: 'other-employers-liability',      type: 'RELATED' },   // parallel obligations, not sequential: EL insurance is required "as soon as you become an employer", not gated on PAYE registration
   { from: 'hmrc-paye',                to: 'tpr-workplace-pension',          type: 'RELATED' },
   { from: 'hmrc-vat',                 to: 'hmrc-mtd',                       type: 'RELATED' },
   { from: 'hmrc-corporation-tax',     to: 'hmrc-vat',                       type: 'RELATED' },
@@ -14745,7 +14745,7 @@ export const EDGES: Edge[] = [
   { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-life-in-uk',            to: 'ho-citizenship-spouse',          type: 'REQUIRES' },
-  { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'REQUIRES' },
+  { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'RELATED' },   // useful, reviewed as part of the application, but not a strict precondition to submit
   { from: 'ho-ilr',                   to: 'ho-citizenship',                 type: 'RELATED' },
   { from: 'ho-ilr',                   to: 'ho-citizenship-spouse',          type: 'RELATED' },
   { from: 'ho-citizenship',           to: 'ho-citizenship-ceremony',        type: 'REQUIRES' },
@@ -14834,9 +14834,9 @@ export const EDGES: Edge[] = [
 
   // Check registered childcare — required to unlock childcare funding
   { from: 'hmrc-tax-free-childcare',       to: 'ofsted-check-registered-childcare',  type: 'RELATED' },   // UK-wide scheme; Ofsted covers England only
-  { from: 'hmrc-free-childcare-15',        to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
-  { from: 'hmrc-free-childcare-30',        to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
-  { from: 'la-free-childcare-2yr',         to: 'ofsted-check-registered-childcare',  type: 'REQUIRES' },
+  { from: 'hmrc-free-childcare-15',        to: 'ofsted-check-registered-childcare',  type: 'RELATED' },   // eligibility guidance ("use a registered provider"), not a separate blocking government step — same fix already applied to the tax-free-childcare edge above
+  { from: 'hmrc-free-childcare-30',        to: 'ofsted-check-registered-childcare',  type: 'RELATED' },
+  { from: 'la-free-childcare-2yr',         to: 'ofsted-check-registered-childcare',  type: 'RELATED' },
 
   // Register as childminder — requires DBS check
   { from: 'other-dbs',                     to: 'ofsted-register-childminder',        type: 'REQUIRES' },
@@ -15039,12 +15039,12 @@ export const EDGES: Edge[] = [
   // DBS checks → licensing
   { from: 'dbs-basic-check',            to: 'la-child-performance-licence',   type: 'RELATED' },
   { from: 'dbs-basic-check',            to: 'la-hmo-licence',                 type: 'RELATED' },
-  { from: 'dfe-apply-teacher-training', to: 'other-dbs',                      type: 'REQUIRES' },
+  { from: 'dfe-apply-teacher-training', to: 'other-dbs',                      type: 'RELATED' },   // DBS is arranged after accepting an offer, not before applying — REQUIRES had this backwards
   { from: 'dfe-find-apprenticeship',    to: 'other-dbs',                      type: 'RELATED' },
 
   // Business rates
-  { from: 'ch-register-ltd',            to: 'la-business-rates',              type: 'REQUIRES' },
-  { from: 'hmrc-register-sole-trader',  to: 'la-business-rates',              type: 'REQUIRES' },
+  { from: 'ch-register-ltd',            to: 'la-business-rates',              type: 'RELATED' },   // only applies if using non-domestic premises, per la-business-rates' own desc — not universal enough to block the journey
+  { from: 'hmrc-register-sole-trader',  to: 'la-business-rates',              type: 'RELATED' },
   { from: 'la-business-rates',          to: 'voa-business-rates',             type: 'RELATED' },
 
   // Business licensing (Local Authority)
@@ -15093,7 +15093,6 @@ export const EDGES: Edge[] = [
   { from: 'hmcts-find-a-will',          to: 'hmcts-probate',                  type: 'RELATED' },
 
   // Driving licence renewal (general)
-  { from: 'dvla-name-change',           to: 'dvla-renew-licence',             type: 'REQUIRES' },
   { from: 'dvla-update-address',        to: 'dvla-renew-licence',             type: 'RELATED' },
   { from: 'gro-marriage-cert',          to: 'dvla-renew-licence',             type: 'RELATED' },
 
