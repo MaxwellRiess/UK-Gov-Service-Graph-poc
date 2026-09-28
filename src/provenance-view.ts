@@ -61,8 +61,9 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
     { path: 'deptKey', about: 'Which body delivers the service' },
     { path: 'desc' },
     { path: 'eligibility.summary' },
-    { path: 'eligibility.criteria' },
   ];
+  node.eligibility.criteria.forEach((c, i) =>
+    out.push({ path: `eligibility.criteria.${i}`, about: `Eligibility criterion ${i + 1} (${c.factor})` }));
   if (node.deadline) out.push({ path: 'deadline' });
   if (node.nations) out.push({ path: 'nations' });
   for (const key of Object.keys(node.financialData?.rates ?? {})) {
@@ -115,6 +116,26 @@ export function provenanceFor(node: ServiceNode): ServiceProvenance {
     summary[ev.status]++;
   }
   return { guide: GUIDE, summary, fields };
+}
+
+export interface ProvenanceSummary {
+  summary:      Record<FieldStatus, number>;
+  /** Fields not confirmed against a source, named in words where the path is opaque. */
+  notConfirmed: string[];
+  more:         string;
+}
+
+/**
+ * The default for get_service: enough for an agent to know what it cannot
+ * vouch for, at about a tenth of the full block's size. Quotes and URLs are
+ * the expensive part and are only needed when something is being cited.
+ */
+export function provenanceSummary(node: ServiceNode): ProvenanceSummary {
+  const { summary, fields } = provenanceFor(node);
+  const notConfirmed = Object.entries(fields)
+    .filter(([, ev]) => ev.status !== 'confirmed')
+    .map(([path, ev]) => (ev.about ? `${ev.about} (${ev.status})` : `${path} (${ev.status})`));
+  return { summary, notConfirmed, more: 'Call get_service with provenance: "full" for sources and quotes.' };
 }
 
 /** Lean per-service signal for plan_journey: counts only. */

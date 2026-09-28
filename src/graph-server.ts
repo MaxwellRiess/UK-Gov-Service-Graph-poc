@@ -69,7 +69,7 @@ import { z } from 'zod';
 import { buildJourney, getServiceWithContext } from './graph-engine.js';
 import { LIFE_EVENTS, NODES } from './graph-data.js';
 import { evaluateJourney, type UserContext } from './rules.js';
-import { provenanceFor, sourcingSummary, ruleValueSourcing } from './provenance-view.js';
+import { provenanceFor, provenanceSummary, sourcingSummary, ruleValueSourcing } from './provenance-view.js';
 
 
 // ─── SERVER INITIALISATION ─────────────────────────────────────────────────────
@@ -212,15 +212,18 @@ Returns:
 - Nations (where applicable): which UK nations the service covers
 - Contact info: helpline phone number (with textphone, Relay UK, Welsh, BSL), opening hours, webchat URL, office locator URL. Resolved from service-specific data or department default.
 - Graph position: prerequisite services, services this unlocks, and which life events trigger it
-- Provenance: for every factual field, whether it is confirmed against an official page (with the source URL, a verbatim quote and the date checked), inferred, unverified or unsourced
+- Provenance (controlled by the provenance parameter): which factual fields are confirmed against an official page. The default summary lists the fields that are not; provenance: "full" adds the source URL, verbatim quote and check date for every field
 
 Use this when the user asks for more detail about a service, or when you need to assess their eligibility for it. The keyQuestions tell you exactly what to ask. The autoQualifiers let you confirm eligibility without interrogating the user further. The agentInteraction.agentSteps tell you exactly what actions you can take on the user's behalf. The contactInfo tells you the exact helpline number and hours to share when the user needs to speak to someone. The provenance tells you which of these facts you can cite, and which you should present as unconfirmed.`,
   {
     service_id: z.string().describe(
       'The service node ID (e.g. "dwp-pip", "gro-register-birth", "hmcts-probate"). These IDs appear in plan_journey results.'
     ),
+    provenance: z.enum(['none', 'summary', 'full']).default('summary').describe(
+      'How much sourcing to return. summary (default, ~70 tokens): counts by status and the list of fields not confirmed against an official page. full (~550 tokens): adds the source URL, verbatim quote and check date for every field; use it when you need to cite a source or the user asks where something comes from. none: service data only.'
+    ),
   },
-  async ({ service_id }) => {
+  async ({ service_id, provenance }) => {
     const service = getServiceWithContext(service_id);
     if (!service) {
       return {
@@ -230,7 +233,8 @@ Use this when the user asks for more detail about a service, or when you need to
         }],
       };
     }
-    const withProvenance = { ...service, provenance: provenanceFor(NODES[service_id]) };
+    const withProvenance = provenance === 'none' ? service
+      : { ...service, provenance: provenance === 'full' ? provenanceFor(NODES[service_id]) : provenanceSummary(NODES[service_id]) };
     return {
       content: [{ type: 'text', text: JSON.stringify(withProvenance, null, 2) }],
     };

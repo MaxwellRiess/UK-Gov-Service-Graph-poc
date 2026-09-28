@@ -3233,11 +3233,11 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Tops up weekly income to at least £218.15 (single) or £332.95 (couple) in 2024/25. Gateway benefit — unlocks Winter Fuel Payment, free TV Licence (75+) and other entitlements. About 1 in 3 eligible pensioners don\'t claim.',
+      summary: 'Tops up weekly income to £238 (single) or £363.25 (couple). Gateway benefit — unlocks Winter Fuel Payment, free TV Licence (75+) and other entitlements. About 1 in 3 eligible pensioners don\'t claim.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must have reached State Pension age (currently 66).' },
-        { factor: 'income', description: 'Weekly income below £218.15 (single) or £332.95 (couple). Savings above £10,000 reduce entitlement.' },
+        { factor: 'income', description: 'Weekly income below £238 (single) or £363.25 (couple). Savings above £10,000 reduce entitlement.' },
       ],
       keyQuestions: [
         'Have you reached State Pension age?',
@@ -3579,7 +3579,7 @@ export const NODES: Record<string, ServiceNode> = {
       criteria: [
         { factor: 'age', description: 'Must be aged 16 to 64 (under State Pension age). Those over 65 who did not have PIP before should claim Attendance Allowance instead.' },
         { factor: 'disability', description: 'Long-term physical or mental health condition or disability affecting daily living or mobility. Must have had difficulties for at least 3 months and expect them to continue for at least 9 months.' },
-        { factor: 'residency', description: 'Usually live in England, Scotland or Wales.' },
+        { factor: 'residency', description: 'Living in England or Wales when you apply. People in Scotland apply for Adult Disability Payment instead.' },
       ],
       keyQuestions: [
         'Are you aged 16 to 64?',
@@ -3636,7 +3636,7 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "boolean",
           "field": "is_uk_resident",
           "expected": true,
-          "label": "Must usually live in England, Scotland or Wales"
+          "label": "Must be living in England or Wales"
         }
       ],
 
@@ -3657,6 +3657,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       missingBenefitId: 'pip',
     },
+    nations: ['england', 'wales'],
     financialData: {
       taxYear: '2026-27',
       frequency: 'weekly',
@@ -7575,7 +7576,7 @@ export const NODES: Record<string, ServiceNode> = {
       criteria: [
         { factor: 'immigration', description: 'Met the qualifying period of lawful residence (usually 5 years on eligible visa such as Skilled Worker, Family, or Tier routes).' },
         { factor: 'residency', description: 'Must not have spent more than 180 days outside the UK in any 12-month period during the qualifying period.' },
-        { factor: 'citizenship', description: 'Must pass the English language and Life in the UK test requirements.' },
+        { factor: 'citizenship', description: 'If aged 18 to 64, must pass the Life in the UK Test. English language requirements depend on the route: Skilled Worker, Health and Care Worker, T2 and Tier 2 applicants do not need to prove them at settlement.' },
       ],
       keyQuestions: [
         'How many years of lawful residence in the UK do you have?',
@@ -8807,7 +8808,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Housing Benefit helps pension-age tenants on low income pay rent. Working-age claimants should apply for Universal Credit instead. Claimed through local council, not DWP directly. Backdatable up to 3 months.',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Must have reached State Pension age (or partner has). Working-age claimants must claim Universal Credit instead.' },
+        { factor: 'age', description: 'New claims need you, and your partner if you live with one, to have reached State Pension age, unless you are in supported, sheltered or temporary housing. A couple where only one has reached State Pension age claims Universal Credit instead, unless they had a joint claim before 15 May 2019.' },
         { factor: 'income', description: 'Means-tested — assessed on income, savings and capital. Savings over £16,000 generally disqualify (unless receiving Pension Credit Guarantee).' },
         { factor: 'property', description: 'Must be a tenant paying rent. Not available to homeowners (see Support for Mortgage Interest).' },
         { factor: 'asset', description: 'Capital over £16,000 normally disqualifies, unless on Pension Credit Guarantee Credit.' },
@@ -9283,17 +9284,17 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-carers-allowance-supplement': {
     id: 'sss-carers-allowance-supplement', name: 'Carer\'s Allowance Supplement', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Two lump sums per year (~£293.50 each) for Carer\'s Allowance or Carer Support Payment recipients in Scotland. Automatic — no application.',
+    desc: 'Replaced by Scottish Carer Supplement for most carers in Scotland. Still paid automatically (£304.65 in June and December 2026) to a small number of people getting Carer\'s Allowance or Carer Support Payment who do not get Scottish Carer Supplement.',
     govuk_url: 'https://www.mygov.scot/carers-allowance-supplement',
     serviceType: 'benefit',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Automatic payment of ~£293.50 twice a year (June and December) for people in Scotland who receive Carer\'s Allowance or Carer Support Payment on qualifying dates. No application needed.',
+      summary: 'Scottish Carer Supplement, paid automatically on top of Carer Support Payment, has replaced this for most carers. A small number of people, for example some living abroad who were 65 or over in 2002, still get it: £304.65 in June and December 2026 if getting Carer\'s Allowance or Carer Support Payment on the qualifying date and not getting Scottish Carer Supplement. No application needed.',
       universal: false,
       criteria: [
         { factor: 'caring', description: 'Must be receiving Carer\'s Allowance or Carer Support Payment on the qualifying date.' },
-        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'geography', description: 'Paid by Social Security Scotland. A small number of people living abroad who were 65 or over in 2002 and still get Carer\'s Allowance continue to get it.' },
         { factor: 'dependency', description: 'Requires receipt of Carer\'s Allowance or Carer Support Payment — automatic top-up.' },
       ],
       keyQuestions: [
@@ -9342,7 +9343,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Confirm user lives in Scotland and receives CA or CSP',
         'Explain that payment is automatic — no application needed',
         'Advise on qualifying dates (paid in June and December)',
-        'Explain the payment amount (~£293.50 per payment)',
+        'Explain the payment amount (£304.65 per payment in 2026), and that most carers now get Scottish Carer Supplement instead',
       ],
       missingBenefitId: 'carersAllowanceSupplement',
     },
@@ -14499,17 +14500,17 @@ export const NODES: Record<string, ServiceNode> = {
   'ea-fishing-licence': {
     id: 'ea-fishing-licence', name: 'Get a rod fishing licence', dept: 'Environment Agency', deptKey: 'ea',
     deadline: null,
-    desc: 'Buy a rod fishing licence to fish in freshwater in England. Required for anyone aged 13 or over. Available for 1 day, 8 days or 12 months. Free for those aged 65 and over.',
+    desc: 'Buy a rod fishing licence to fish in freshwater in England and Wales. Required for anyone aged 13 or over. Available for 1 day, 8 days or 12 months. Free for 13 to 16 year olds; discounted for people aged 66 or over or disabled.',
     govuk_url: 'https://www.gov.uk/fishing-licences/buy-a-fishing-licence',
     serviceType: 'document',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Required by law for anyone aged 13 or over fishing with a rod and line in rivers, streams, canals and some stillwaters in England. Fishing without a licence is a criminal offence. Over-65s and those with certain disabilities are eligible for a free licence.',
+      summary: 'Required by law for anyone aged 13 or over fishing with a rod and line in rivers, streams, canals and some stillwaters in England and Wales. Fishing without a licence is a criminal offence. Junior licences (13 to 16) are free, and people aged 66 or over or disabled get a discounted 12-month licence.',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Required from age 13. Under-13s do not need a licence. Over-65s get a free licence.' },
-        { factor: 'geography', description: 'Applies to freshwater fishing in England. Scotland, Wales and NI have separate arrangements.' },
+        { factor: 'age', description: 'Required from age 13. Under-13s do not need a licence. Junior licences (13 to 16) are free. People aged 66 or over or disabled get a discounted 12-month licence (£24.50).' },
+        { factor: 'geography', description: 'One licence covers England and Wales, including all of the Border Esk. Scotland and Northern Ireland have separate arrangements.' },
       ],
       keyQuestions: [
         'How old is the angler?',
@@ -14517,10 +14518,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Is this for 1 day, 8 days or 12 months?',
       ],
       means_tested: false,
-      ruleIn: ['Aged 13 or over', 'Freshwater fishing in England'],
-      ruleOut: ['Under 13 — no licence required', 'Sea fishing — no licence required', 'Outside England'],
+      ruleIn: ['Aged 13 or over', 'Freshwater fishing in England or Wales'],
+      ruleOut: ['Under 13 — no licence required', 'Sea fishing — no licence required', 'Outside England and Wales'],
     },
-    nations: ['england'],
+    nations: ['england', 'wales'],
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
@@ -14528,7 +14529,7 @@ export const NODES: Record<string, ServiceNode> = {
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Check whether the angler is aged 65+ or eligible for a free concession licence',
+        'Check whether the angler is 13 to 16 (free junior licence), or aged 66 or over or disabled (discounted licence)',
         'Confirm fishing type (trout and coarse, or salmon and sea trout) and duration needed',
         'Guide through online purchase — licence delivered instantly by text or email',
       ],
@@ -14548,7 +14549,7 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'immigration', description: 'Must hold an eVisa with an identified error.' },
-        { factor: 'dependency', description: 'Must have created a UKVI account and accessed the eVisa first.' },
+        { factor: 'dependency', description: 'Has a UKVI account, including one the Home Office set up that you have never been able to sign in to.' },
       ],
       keyQuestions: [
         'What specific information is incorrect?',
