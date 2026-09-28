@@ -6545,28 +6545,28 @@ export const NODES: Record<string, ServiceNode> = {
         'Explain the appeals process if a preferred school place is not offered',
       ],
     },
+    nations: ['england', 'wales'],
   },
   'la-free-school-meals': {
     id: 'la-free-school-meals', name: 'Free School Meals', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
-    desc: 'Auto-eligible if on UC with income under £7,400. Apply via school or local authority.',
+    desc: 'From the 2026-27 academic year, auto-eligible for any household on Universal Credit, regardless of income. Also available via income-related ESA, Pension Credit or immigration support benefits. Apply via school or local authority.',
     govuk_url: 'https://www.gov.uk/apply-free-school-meals',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Free school meals for children at state schools if parents are on qualifying benefits. Automatic if on Universal Credit with annual net earned income under £7,400. Unlocks Pupil Premium funding for the school.',
+      summary: 'Free school meals for children at state schools if parents are on qualifying benefits. From the start of the 2026-27 academic year, any household on Universal Credit qualifies regardless of income — the previous £7,400 household earnings cap on the Universal Credit route no longer applies. That cap still matters for "targeted" free school meals specifically, which is what unlocks Pupil Premium funding for the school (see other-pupil-premium). Also available via income-related ESA, support under the Immigration and Asylum Act 1999, or the guarantee element of Pension Credit.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Receiving Universal Credit with net earned income (excluding benefits) under £7,400/year; or Income Support; income-based JSA/ESA; or Child Tax Credit under £16,190 (without Working Tax Credit).' },
+        { factor: 'income', description: 'Receiving Universal Credit (no income test from the 2026-27 academic year); or income-related ESA; or support under Part VI of the Immigration and Asylum Act 1999; or the guarantee element of Pension Credit.' },
         { factor: 'family', description: 'Child is of compulsory school age and attends a state-funded school in England.' },
       ],
       keyQuestions: [
-        'Are you receiving Universal Credit?',
-        'What is your annual net earned income (not including benefits)?',
+        'Are you receiving Universal Credit, income-related ESA, Pension Credit, or support under the Immigration and Asylum Act?',
         'Is the child at a state school?',
       ],
-      autoQualifiers: ['Receiving Universal Credit with no or low earned income'],
+      autoQualifiers: ['Receiving Universal Credit (any household income, from the 2026-27 academic year)'],
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Application via school office or local authority portal'],
       ruleIn: ['Receiving qualifying benefit', 'Child at state school of compulsory school age'],
@@ -6582,35 +6582,10 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Receiving a qualifying benefit",
           "rules": [
             {
-              "type": "all",
-              "label": "On Universal Credit with low earned income",
-              "rules": [
-                {
-                  "type": "dependency",
-                  "serviceId": "dwp-universal-credit",
-                  "condition": "receiving",
-                  "label": "Receiving Universal Credit"
-                },
-                {
-                  "type": "comparison",
-                  "field": "annual_income",
-                  "operator": "<",
-                  "value": 7400,
-                  "label": "Annual net earned income under £7,400"
-                }
-              ]
-            },
-            {
-              "type": "boolean",
-              "field": "custom_facts.receiving_income_support",
-              "expected": true,
-              "label": "Receiving Income Support"
-            },
-            {
-              "type": "boolean",
-              "field": "custom_facts.receiving_income_based_jsa",
-              "expected": true,
-              "label": "Receiving income-based JSA"
+              "type": "dependency",
+              "serviceId": "dwp-universal-credit",
+              "condition": "receiving",
+              "label": "Receiving Universal Credit (any household income, from the 2026-27 academic year)"
             },
             {
               "type": "boolean",
@@ -6635,9 +6610,9 @@ export const NODES: Record<string, ServiceNode> = {
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Check eligibility based on benefits and income thresholds',
+        'Check eligibility based on qualifying benefits (Universal Credit now qualifies regardless of income, from the 2026-27 academic year)',
         'Help user find their local authority\'s Free School Meals application',
-        'Explain that registration also unlocks Pupil Premium funding for the school',
+        'Explain that registering also brings Pupil Premium funding for the school if household earnings are under £7,400 ("targeted" free school meals)',
         'Guide user through the application process',
       ],
     },
@@ -13356,7 +13331,7 @@ export const NODES: Record<string, ServiceNode> = {
   'dvla-change-address-v5c': {
     id: 'dvla-change-address-v5c', name: 'Update V5C logbook address', dept: 'DVLA', deptKey: 'dvla',
     deadline: null,
-    desc: 'Update the address on your vehicle\'s V5C registration certificate (logbook) after moving house.',
+    desc: 'Update the address on your vehicle\'s V5C registration certificate (logbook) after moving house. Usually free. You can be fined up to £1,000 for not telling DVLA when your address changes.',
     govuk_url: 'https://www.gov.uk/change-address-v5c',
     serviceType: 'obligation',
     proactive: true,
