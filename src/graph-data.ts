@@ -1455,7 +1455,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
       rates: { tax_saving: 252 },
       source: 'https://www.gov.uk/marriage-allowance',
@@ -1699,7 +1699,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
       rates: { government_bonus_rate_percent: 25, max_bonus: 1000 },
       source: 'https://www.gov.uk/lifetime-isa',
@@ -2921,7 +2921,7 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'bereavementSupportPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { lump_sum_higher: 3500, lump_sum_lower: 2500, monthly_higher: 350, monthly_lower: 100 },
       source: 'https://www.gov.uk/bereavement-support-payment/what-youll-get',
@@ -3023,7 +3023,7 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'funeralExpensesPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { max_amount: 1000 },
       source: 'https://www.gov.uk/funeral-payments/what-youll-get',
@@ -3149,9 +3149,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'statePension',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { new_full_weekly: 230.25, basic_full_weekly: 176.45 },
+      rates: { new_full_weekly: 241.30, basic_full_weekly: 184.90 },
       source: 'https://www.gov.uk/new-state-pension/what-youll-get',
     },
       contactInfo: {
@@ -3271,9 +3271,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'pensionCredit',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { guarantee_single: 227.10, guarantee_couple: 346.60, savings_max_single: 17.30, savings_max_couple: 19.36 },
+      rates: { guarantee_single: 238, guarantee_couple: 363.25, savings_max_single: 17.96, savings_max_couple: 20.10 },
       source: 'https://www.gov.uk/pension-credit/what-youll-get',
     },
       contactInfo: {
@@ -3443,9 +3443,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'attendanceAllowance',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { lower: 73.90, higher: 110.40 },
+      rates: { lower: 76.70, higher: 114.60 },
       source: 'https://www.gov.uk/attendance-allowance/what-youll-get',
     },
       contactInfo: {
@@ -3646,9 +3646,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'pip',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { daily_living_standard: 73.90, daily_living_enhanced: 110.40, mobility_standard: 29.20, mobility_enhanced: 77.05 },
+      rates: { daily_living_standard: 76.70, daily_living_enhanced: 114.60, mobility_standard: 30.30, mobility_enhanced: 80 },
       source: 'https://www.gov.uk/pip/what-youll-get',
     },
       contactInfo: {
@@ -3929,9 +3929,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'esa',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { under_25: 72.90, over_25: 92.05, support_component: 48.50 },
+      rates: { under_25: 75.65, over_25: 95.55, work_related_activity_group: 95.55, support_group: 145.90 },
       source: 'https://www.gov.uk/employment-support-allowance/what-youll-get',
     },
       contactInfo: {
@@ -4391,9 +4391,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'carersAllowance',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { weekly_rate: 83.30 },
+      rates: { weekly_rate: 86.45 },
       source: 'https://www.gov.uk/carers-allowance/what-youll-get',
     },
       contactInfo: {
@@ -4480,9 +4480,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'monthly',
-      rates: { carer_element: 201.68 },
+      rates: { carer_element: 209.34 },
       source: 'https://www.gov.uk/universal-credit/what-youll-get',
     },
       contactInfo: {
@@ -4666,9 +4666,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'monthly',
-      rates: { lcwra_element: 423.27 },
+      rates: { lcwra_element: 429.80 },
       source: 'https://www.gov.uk/universal-credit/what-youll-get',
     },
       contactInfo: {
@@ -5286,7 +5286,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { fee: 23 },
       source: 'https://www.gov.uk/book-theory-test',
@@ -5714,9 +5714,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { registration_fee: 50 },
+      rates: { registration_fee: 100 },
       source: 'https://www.gov.uk/limited-company-formation/register-your-company',
     },
   },
@@ -6369,7 +6369,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
       rates: { discount_percent: 25 },
       source: 'https://www.gov.uk/council-tax/who-has-to-pay',
@@ -6837,7 +6837,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { max_grant: 30000 },
       source: 'https://www.gov.uk/disabled-facilities-grants',
@@ -7568,7 +7568,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
       rates: { fee: 50 },
       source: 'https://www.gov.uk/life-in-the-uk-test',
@@ -7643,10 +7643,10 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee: 2885 },
-      source: 'https://www.gov.uk/indefinite-leave-to-remain',
+      rates: { fee: 3226 },
+      source: 'https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa',
     },
   },
   'ho-citizenship': {
@@ -7712,9 +7712,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { fee: 1735 },
+      rates: { fee: 1839 },
       source: 'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
     },
     contactInfo: {
@@ -8007,9 +8007,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { online_fee: 82.50 },
+      rates: { online_fee: 102 },
       source: 'https://www.gov.uk/renew-adult-passport',
     },
       contactInfo: {
@@ -8083,10 +8083,10 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { saving: 174.50 },
-      source: 'https://www.gov.uk/free-discount-tv-licence',
+      rates: { saving: 180 },
+      source: 'https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence',
     },
       contactInfo: {
       phone: { number: '+44 300 790 6165', relay: '18001 then 0300 790 6165', label: 'TV Licensing' },
@@ -8895,12 +8895,6 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       missingBenefitId: 'housingBenefit',
     },
-    financialData: {
-      taxYear: '2025-26',
-      frequency: 'weekly',
-      rates: { varies_by_local_authority: 0 },
-      source: 'https://www.gov.uk/housing-benefit/what-youll-get',
-    },
       contactInfo: { localAuthority: true, officeLocatorUrl: 'https://www.gov.uk/find-local-council', notes: 'Administered by local councils. Contact your local authority Housing Benefit department.' },
   },
 
@@ -9301,9 +9295,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'carerSupportPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { weekly_rate: 83.30 },
+      rates: { weekly_rate: 86.45 },
       source: 'https://www.mygov.scot/carer-support-payment',
     },
     nations: ['scotland'],
@@ -9375,9 +9369,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'carersAllowanceSupplement',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { six_monthly_payment: 293.50 },
+      rates: { six_monthly_payment: 304.65 },
       source: 'https://www.mygov.scot/carers-allowance-supplement',
     },
     nations: ['scotland'],
@@ -9527,9 +9521,9 @@ export const NODES: Record<string, ServiceNode> = {
       missingBenefitId: 'pensionAgeWinterHeatingPayment',
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'annual',
-      rates: { single: 101, with_other_qualifying: 50, pension_credit_top_up: 152 },
+      rates: { min_annual: 105.55, max_annual: 316.70 },
       source: 'https://www.mygov.scot/pension-age-winter-heating-payment',
     },
     nations: ['scotland'],
@@ -9959,9 +9953,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { care_lowest: 28.70, care_middle: 73.90, care_highest: 110.40, mobility_lower: 29.20, mobility_higher: 77.05 },
+      rates: { care_lowest: 30.30, care_middle: 76.70, care_highest: 114.60, mobility_lower: 30.30, mobility_higher: 80 },
       source: 'https://www.gov.uk/disability-living-allowance-children/what-youll-get',
     },
     nations: ['england', 'wales', 'northern-ireland'],
@@ -11333,9 +11327,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { daily_living_standard: 73.90, daily_living_enhanced: 110.40, mobility_standard: 29.20, mobility_enhanced: 77.05 },
+      rates: { daily_living_standard: 76.70, daily_living_enhanced: 114.60, mobility_standard: 30.30, mobility_enhanced: 80 },
       source: 'https://www.mygov.scot/adult-disability-payment',
     },
     nations: ['scotland'],
@@ -11413,9 +11407,9 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
-      rates: { care_lowest: 28.70, care_middle: 73.90, care_highest: 110.40, mobility_lower: 29.20, mobility_higher: 77.05 },
+      rates: { care_lowest: 30.30, care_middle: 76.70, care_highest: 114.60, mobility_lower: 30.30, mobility_higher: 80 },
       source: 'https://www.mygov.scot/child-disability-payment',
     },
     nations: ['scotland'],
@@ -12004,10 +11998,10 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { tariff_min: 1000, tariff_max: 500000 },
-      source: 'https://www.gov.uk/government/publications/criminal-injuries-compensation-scheme-2012',
+      rates: { tariff_min: 1000, tariff_max: 250000 },
+      source: 'https://www.gov.uk/claim-compensation-criminal-injury',
     },
   },
 
@@ -14000,7 +13994,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
     financialData: {
-      taxYear: '2025-26',
+      taxYear: '2026-27',
       frequency: 'weekly',
       rates: { london_max: 195, outside_london_max: 180 },
       source: 'https://www.gov.uk/care-to-learn',
