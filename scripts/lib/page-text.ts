@@ -88,6 +88,8 @@ export function moneyRenderings(value: number): string[] {
     out.add(`£${value}.00`);
   } else {
     out.add(`£${value.toFixed(2)}`);
+    // "£29,741.40": thousands separator and a trailing zero together.
+    out.add(`£${value.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
   }
   return [...out];
 }

@@ -1,0 +1,19 @@
+{
+  "note": "Figures the consistency check cannot confirm automatically but a person has checked. Each expires so it is looked at again; an expired exception is reported like any other finding.",
+  "exceptions": [
+    {
+      "id": "other-social-tariff-broadband",
+      "figure": "£10",
+      "reason": "Ofcom serves automated requests a version of the page without the price range. Checked in a browser: 'Current prices range from £10 to £24'.",
+      "checkedAt": "2026-09-28",
+      "expires": "2026-12-28"
+    },
+    {
+      "id": "other-social-tariff-broadband",
+      "figure": "£24",
+      "reason": "As above: same sentence on the Ofcom social tariffs page.",
+      "checkedAt": "2026-09-28",
+      "expires": "2026-12-28"
+    }
+  ]
+}

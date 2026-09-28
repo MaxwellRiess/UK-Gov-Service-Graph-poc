@@ -526,7 +526,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Death registration completed'],
       means_tested: false,
-      evidenceRequired: ['Death registration reference number', 'Fee per copy (currently £11)'],
+      evidenceRequired: ['Death registration reference number', 'Fee per copy (currently £12.50)'],
       ruleIn: [],
       ruleOut: [],      rules: [
         {
@@ -554,7 +554,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Provide direct link to GRO certificate ordering service',
         'Advise how many copies to order (recommend at least 5)',
         'Explain that banks, insurers, HMRC, probate and pension providers each need an original',
-        'Confirm current fee per copy (£11)',
+        'Confirm current fee per copy (£12.50)',
       ],
     },
   },
@@ -1577,13 +1577,16 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'What is the purchase price of the property?',
         'Is this a first home, second home, or buy-to-let?',
-        'Are you a first-time buyer? (Higher threshold of £425,000 applies.)',
+        'Are you a first-time buyer? (No tax on the first £300,000 if the property costs £500,000 or less.)',
       ],
       autoQualifiers: ['Property purchase completed in England'],
       means_tested: false,
       evidenceRequired: ['Completion statement', 'SDLT1 form (usually filed by solicitor)'],
       ruleIn: ['Property purchase completed in England'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/stamp-duty-land-tax/residential-property-rates',
+      ],
+      rules: [
         {
           "type": "deadline",
           "triggerEvent": "property_completion_date",
@@ -2124,7 +2127,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Business name and address', 'Nature of business', 'Date of first payday'],
       ruleIn: ['Employing someone paid £96 or more a week, or with expenses, benefits, a pension or another job'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/paye-for-employers',
+      ],
+      rules: [
         {
           "type": "any",
           "label": "Employing staff",
@@ -2630,7 +2636,7 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'age', description: 'Receiving State Pension, private pension or workplace pension.' },
-        { factor: 'income', description: 'Combined income from all sources exceeds the Personal Allowance (£12,570 in 2024/25).' },
+        { factor: 'income', description: 'Combined income from all sources exceeds the Personal Allowance (usually £12,570).' },
       ],
       keyQuestions: [
         'What is the total of your State Pension, private pension, and any other income?',
@@ -3112,7 +3118,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Not paid automatically — must be claimed. Apply up to 4 months before reaching State Pension age (currently 66). Full new State Pension (£221.20/week in 2024/25) requires 35 qualifying NI years.',
+      summary: 'Not paid automatically — must be claimed. Apply up to 4 months before reaching State Pension age (currently 66). Full new State Pension (£241.30 a week) requires 35 qualifying NI years.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must have reached State Pension age (currently 66 for men and women).' },
@@ -3227,7 +3233,7 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-pension-credit': {
     id: 'dwp-pension-credit', name: 'Pension Credit', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Tops up income to £218/week (single). Gateway benefit — unlocks Winter Fuel Payment and free TV Licence.',
+    desc: 'Tops up income to £238 a week (single). Gateway benefit — unlocks Winter Fuel Payment and free TV Licence.',
     govuk_url: 'https://www.gov.uk/pension-credit',
     serviceType: 'benefit',
     proactive: true,
@@ -4429,13 +4435,13 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-uc-carer': {
     id: 'dwp-uc-carer', name: 'UC Carer element', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Additional ~£185/month in Universal Credit if eligible for Carer\'s Allowance.',
+    desc: 'Additional £209.34 a month in Universal Credit if eligible for Carer\'s Allowance.',
     govuk_url: 'https://www.gov.uk/universal-credit/what-youll-get',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'An extra £198.31/month (2024/25) added to Universal Credit for people who are eligible for Carer\'s Allowance. No need to actually claim Carer\'s Allowance — just be eligible.',
+      summary: 'An extra £209.34 a month added to Universal Credit for people who are eligible for Carer\'s Allowance. No need to actually claim Carer\'s Allowance — just be eligible.',
       universal: false,
       criteria: [
         { factor: 'caring', description: 'Eligible for Carer\'s Allowance (caring 35+ hours/week for someone on qualifying disability benefit).' },
@@ -4616,7 +4622,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Extra Universal Credit for those whose health condition limits or prevents work. Requires a Work Capability Assessment (WCA). Limited Capability for Work and Work-Related Activity (LCWRA) adds £416/month.',
+      summary: 'Extra Universal Credit for those whose health condition limits or prevents work. Requires a Work Capability Assessment (WCA). Limited Capability for Work and Work-Related Activity (LCWRA) adds £429.80 a month.',
       universal: false,
       criteria: [
         { factor: 'disability', description: 'Health condition or disability that limits or prevents capacity for work, determined by a Work Capability Assessment.' },
@@ -5117,7 +5123,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check eligibility based on benefits, age, or qualifying medical condition',
         'Guide user through the online exemption certificate application',
-        'Explain Prescription Prepayment Certificate option if not exempt (£111/year)',
+        'Explain Prescription Prepayment Certificate option if not exempt (£114.50 for 12 months)',
         'Prepare document checklist for the application',
       ],
     },
@@ -5839,7 +5845,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you thought about financial arrangements? (Strongly advised to get a Financial Consent Order.)',
       ],
       means_tested: false,
-      evidenceRequired: ['Marriage or civil partnership certificate', 'D8 application form', 'Court fee (£593, or reduced if low income)'],
+      evidenceRequired: ['Marriage or civil partnership certificate', 'D8 application form', 'Court fee (£628, or reduced if low income)'],
       ruleIn: ['Married or in civil partnership at least 1 year', 'Domiciled or habitually resident in England/Wales'],
       ruleOut: [],      rules: [
         {
@@ -5915,7 +5921,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Are you using solicitors or doing this yourself (DIY consent order)?',
       ],
       means_tested: false,
-      evidenceRequired: ['Draft consent order (D81 form)', 'Financial disclosure from both parties', 'Court fee (£53)'],
+      evidenceRequired: ['Draft consent order (D81 form)', 'Financial disclosure from both parties', 'Court fee (£62 for a consent order, £321 if contested)'],
       ruleIn: ['In divorce or dissolution proceedings', 'Shared assets, property, or pensions'],
       ruleOut: [],      rules: [
         {
@@ -5979,7 +5985,7 @@ export const NODES: Record<string, ServiceNode> = {
         'What specific disagreement are you seeking the court to resolve?',
       ],
       means_tested: false,
-      evidenceRequired: ['MIAM certificate (from mediator) or exemption evidence', 'C100 application form', 'Court fee (£232, or reduced if low income)'],
+      evidenceRequired: ['MIAM certificate (from mediator) or exemption evidence', 'C100 application form', 'Court fee (£270, or reduced if low income)'],
       ruleIn: ['Separated parents unable to agree on child arrangements'],
       ruleOut: [],      rules: [
         {
@@ -7298,7 +7304,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Mandatory for all waste carriers, brokers and dealers in England. Two tiers: lower-tier (own waste only, free) and upper-tier (commercial waste handling, £184 initial, renews every 3 years). Changes to business details must be notified within 28 days. Separate registration schemes apply in Scotland, Wales and Northern Ireland.',
+      summary: 'Mandatory for all waste carriers, brokers and dealers in England. Two tiers: lower-tier (own waste only, free) and upper-tier (commercial waste handling, £191 to register, £130 to renew every 3 years). Changes to business details must be notified within 28 days. Separate registration schemes apply in Scotland, Wales and Northern Ireland.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Transporting, buying, selling, or arranging disposal of waste in England, whether own waste or waste collected from others.' },
@@ -7309,7 +7315,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do any directors or partners have environmental offence convictions?',
       ],
       means_tested: false,
-      evidenceRequired: ['Names and dates of birth of directors, owners, or partners', 'Details of any environmental offences', 'Payment details (upper tier: £184 initial registration, £105 renewal)'],
+      evidenceRequired: ['Names and dates of birth of directors, owners, or partners', 'Details of any environmental offences', 'Payment details (upper tier: £191 to register, £130 to renew)'],
       ruleIn: ['Waste collection business', 'Skip hire company', 'Construction or demolition waste disposal', 'Recycling or scrap dealer', 'Waste broker or hazardous waste transporter'],
       ruleOut: ['Operating only in Scotland, Wales, or Northern Ireland (separate registration schemes apply)'],
     },
@@ -7639,7 +7645,7 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-citizenship': {
     id: 'ho-citizenship', name: 'British citizenship (naturalisation)', dept: 'Home Office', deptKey: 'ho',
     deadline: null,
-    desc: 'Standard route after 12 months of ILR or EU settled status. Must have 5 years UK residence, pass the Life in the UK test, and meet the English language and good character requirements. Form AN, £1,735.',
+    desc: 'Standard route after 12 months of ILR or EU settled status. Must have 5 years UK residence, pass the Life in the UK test, and meet the English language and good character requirements. Form AN, £1,839.',
     govuk_url: 'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
     serviceType: 'application',
     proactive: true,
@@ -7660,7 +7666,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you had any criminal convictions or civil penalties?',
       ],
       means_tested: false,
-      evidenceRequired: ['ILR/settled status document or eVisa evidence', 'Passport(s) covering the qualifying period', 'Life in the UK test certificate', 'English language evidence (if applicable)', 'Form AN', 'Application fee £1,735 (includes £130 citizenship ceremony fee)'],
+      evidenceRequired: ['ILR/settled status document or eVisa evidence', 'Passport(s) covering the qualifying period', 'Life in the UK test certificate', 'English language evidence (if applicable)', 'Form AN', 'Application fee £1,839 (includes £130 citizenship ceremony fee)'],
       ruleIn: ['ILR or EU settled status for 12+ months', '5 years UK residence with limited absences'],
       ruleOut: ['More than 450 days abroad in qualifying 5-year period'],
       rules: [
@@ -7708,7 +7714,7 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-citizenship-spouse': {
     id: 'ho-citizenship-spouse', name: 'British citizenship (spouse / civil partner)', dept: 'Home Office', deptKey: 'ho',
     deadline: null,
-    desc: 'Shortened 3-year route for spouses and civil partners of British citizens. Requires ILR or settled status, Life in the UK test, and good character. Form AN, £1,735.',
+    desc: 'Shortened 3-year route for spouses and civil partners of British citizens. Requires ILR or settled status, Life in the UK test, and good character. Form AN, £1,839.',
     govuk_url: 'https://www.gov.uk/apply-citizenship-spouse',
     serviceType: 'application',
     proactive: true,
@@ -7730,7 +7736,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you passed the Life in the UK test?',
       ],
       means_tested: false,
-      evidenceRequired: ['Passport(s)', 'Proof of spouse\'s British citizenship', 'ILR/settled status document or eVisa evidence', 'Marriage or civil partnership certificate', 'Life in the UK test certificate', 'English language evidence (if applicable)', 'Form AN', 'Application fee £1,735 (includes £130 ceremony fee)'],
+      evidenceRequired: ['Passport(s)', 'Proof of spouse\'s British citizenship', 'ILR/settled status document or eVisa evidence', 'Marriage or civil partnership certificate', 'Life in the UK test certificate', 'English language evidence (if applicable)', 'Form AN', 'Application fee £1,839 (includes £130 ceremony fee)'],
       ruleIn: ['Married to or in civil partnership with British citizen', 'ILR or settled status held'],
       ruleOut: ['More than 270 days abroad in qualifying 3-year period'],
     },
@@ -7744,7 +7750,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'All adults (18+) approved for British citizenship must attend a citizenship ceremony, organised by their local authority, within 3 months of receiving the Home Office invitation. Citizenship is not conferred until the ceremony is completed. The £130 ceremony fee is included in the £1,735 application fee.',
+      summary: 'All adults (18+) approved for British citizenship must attend a citizenship ceremony, organised by their local authority, within 3 months of receiving the Home Office invitation. Citizenship is not conferred until the ceremony is completed. The £130 ceremony fee is included in the £1,839 application fee.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must have received an approved citizenship decision and ceremony invitation from the Home Office.' },
@@ -7760,6 +7766,9 @@ export const NODES: Record<string, ServiceNode> = {
       evidenceRequired: ['Home Office invitation letter', 'Photographic identification'],
       ruleIn: ['Citizenship application approved', 'Aged 18 or over'],
       ruleOut: [],
+      sources: [
+        'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
+      ],
     },
   },
   'ho-drug-precursor-licence': {
@@ -7811,7 +7820,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you need a certificate provider — someone to confirm the donor understands and is not being pressured?',
       ],
       means_tested: false,
-      evidenceRequired: ['Online account via the OPG portal', 'Registration fee (£82 per LPA, or fee remission if on low income)', 'Certificate provider details', 'Attorney and donor signatures'],
+      evidenceRequired: ['Online account via the OPG portal', 'Registration fee (£92 per LPA, or fee remission if on low income)', 'Certificate provider details', 'Attorney and donor signatures'],
       ruleIn: ['Donor aged 18+ with current mental capacity'],
       ruleOut: ['Donor has already lost mental capacity'],      rules: [
         {
@@ -7834,7 +7843,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Explain the two types of LPA (Property & Financial Affairs, Health & Welfare)',
         'Guide user through the OPG online LPA creation tool',
         'Advise on choosing attorneys and certificate provider requirements',
-        'Calculate estimated costs (£82 per LPA, fee remission available)',
+        'Calculate estimated costs (£92 per LPA, fee remission available)',
       ],
     },
     financialData: {
@@ -7966,7 +7975,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have an international trip planned? (Allows you to assess urgency.)',
       ],
       means_tested: false,
-      evidenceRequired: ['Marriage certificate or deed poll', 'Current passport', 'New passport photos', 'Application form and fee (£88.50 for adult online, higher by post)'],
+      evidenceRequired: ['Marriage certificate or deed poll', 'Current passport', 'New passport photos', 'Application form and fee (£102 for an adult passport online, higher by post)'],
       ruleIn: ['Legal name change via marriage or deed poll'],
       ruleOut: [],
     },
@@ -8732,13 +8741,13 @@ export const NODES: Record<string, ServiceNode> = {
   'slc-student-finance': {
     id: 'slc-student-finance', name: 'Student Finance (tuition fee + maintenance loans)', dept: 'Student Loans Company', deptKey: 'slc',
     deadline: null,
-    desc: 'Tuition Fee Loan (up to £9,250/yr) and Maintenance Loan (income-assessed) for undergraduate study. Repaid via salary deductions once earning over threshold.',
+    desc: 'Tuition Fee Loan (up to £9,790 a year in 2026 to 2027) and Maintenance Loan (income-assessed) for undergraduate study. Repaid via salary deductions once earning over threshold.',
     govuk_url: 'https://www.gov.uk/student-finance',
     serviceType: 'application',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'UK students starting an undergraduate course at a UK university can apply for a Tuition Fee Loan (up to £9,250/year, paid directly to university) and a Maintenance Loan (income-assessed, to cover living costs). Repayments begin after graduating and earning over the threshold (currently £25,000/year). Applications open the year before study.',
+      summary: 'UK students starting an undergraduate course at a UK university can apply for a Tuition Fee Loan (up to £9,790 a year in 2026 to 2027, paid directly to the university) and a Maintenance Loan (income-assessed, to cover living costs). Repayments begin after graduating and earning over the threshold (currently £25,000/year). Applications open the year before study.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Typically 18 or over (no upper age limit for loans, though some conditions apply for those over 60).' },
@@ -8754,7 +8763,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of identity (passport)', 'Proof of course enrollment or offer letter', 'Household income evidence (P60 or self-assessment from parents/partner)', 'National Insurance number'],
       ruleIn: ['Starting UK undergraduate course', 'UK resident 3+ years'],
-      ruleOut: ['Already holds equivalent undergraduate degree'],      rules: [
+      ruleOut: ['Already holds equivalent undergraduate degree'],      sources: [
+        'https://www.gov.uk/student-finance/new-fulltime-students',
+      ],
+      rules: [
         {
           "type": "comparison",
           "field": "age",
@@ -9429,7 +9441,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Confirm child lives in Scotland and receives highest-rate care component',
         'Explain that payment is automatic — no application needed',
         'Advise on payment timing (annual, during winter)',
-        'Explain the payment amount (£255.80)',
+        'Explain the payment amount (£265.50)',
       ],
     },
     financialData: {
@@ -9443,18 +9455,18 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-pension-winter-heating': {
     id: 'sss-pension-winter-heating', name: 'Pension Age Winter Heating Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Replaced Winter Fuel Payment in Scotland. £101 single / £50 with other qualifying person. Pension Credit top-up £152.',
+    desc: 'Replaced Winter Fuel Payment in Scotland. £105.55 to £316.70, depending on age, who you live with and whether you get a qualifying benefit such as Pension Credit.',
     govuk_url: 'https://www.mygov.scot/pension-age-winter-heating-payment',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Replaces Winter Fuel Payment in Scotland. For people who have reached State Pension age and live in Scotland. £101 if living alone, £50 if living with another qualifying person, plus £152 top-up if on Pension Credit.',
+      summary: 'Replaces Winter Fuel Payment in Scotland. For people who have reached State Pension age and live in Scotland. Pays £105.55 to £316.70 depending on age, who you live with and whether you get a qualifying benefit such as Pension Credit. HMRC takes it back if your individual income is over £35,000.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must have reached State Pension age.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
-        { factor: 'income', description: 'Pension Credit recipients get an additional £152 top-up.' },
+        { factor: 'income', description: 'Getting a qualifying benefit such as Pension Credit increases the payment (up to £316.70).' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
@@ -9465,7 +9477,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Proof of age', 'Proof of Scottish residency'],
       ruleIn: ['State Pension age', 'Lives in Scotland'],
-      ruleOut: ['Under State Pension age', 'Does not live in Scotland'],      rules: [
+      ruleOut: ['Under State Pension age', 'Does not live in Scotland'],      sources: [
+        'https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -9492,7 +9507,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is pension age and lives in Scotland',
-        'Calculate expected payment (£101 single, £50 with other qualifying, £152 PC top-up)',
+        'Work out the expected payment (£105.55 to £316.70) from age, household and qualifying benefits',
         'Explain the application process via Social Security Scotland',
         'Advise on Pension Credit interaction for additional top-up',
       ],
@@ -11498,7 +11513,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Confirm applicant is aged 16–18 and lives in Scotland',
         'Verify they provide 16+ hours/week care and do not receive CA/CSP',
         'Guide user through the mygov.scot application',
-        'Explain the payment amount (£388.65) and annual claim process',
+        'Explain the payment amount (£405.10) and annual claim process',
       ],
     },
     financialData: {
@@ -12727,7 +12742,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Anyone can search the Land Registry for information on registered properties in England and Wales. A fee of £3 applies for each title register viewed. Useful when buying a property or checking ownership.',
+      summary: 'Anyone can search the Land Registry for information on registered properties in England and Wales. A title register or title plan costs £7. Useful when buying a property or checking ownership.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -13062,8 +13077,11 @@ export const NODES: Record<string, ServiceNode> = {
         'Has the employer issued a Certificate of Sponsorship (CoS) reference number?',
       ],
       means_tested: false,
-      ruleIn: ['Job offer from licensed UK sponsor', 'Role at RQF Level 3+', 'Meets salary threshold (£38,700 or going rate)'],
+      ruleIn: ['Job offer from licensed UK sponsor', 'Role at RQF Level 3+', 'Meets salary threshold (£41,700 or going rate)'],
       ruleOut: ['Employer not a licensed sponsor', 'Role below skill or salary threshold', 'British or Irish citizen — no visa needed'],
+      sources: [
+        'https://www.gov.uk/skilled-worker-visa/your-job',
+      ],
     },
     agentInteraction: {
       methods: ['online'],
@@ -13464,6 +13482,9 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       ruleIn: ['UK limited company registered at Companies House'],
       ruleOut: ['Sole trader or partnership — not required to file at Companies House'],
+      sources: [
+        'https://www.gov.uk/annual-accounts/penalties-for-late-filing',
+      ],
     },
     agentInteraction: {
       methods: ['online'],
@@ -13656,7 +13677,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Search by keyword, sector and contract value',
         'Summarise relevant open opportunities',
-        'Explain the Find a Tender Service for contracts above £138,760',
+        'Explain the Find a Tender Service for contracts above £139,688',
       ],
     },
   },

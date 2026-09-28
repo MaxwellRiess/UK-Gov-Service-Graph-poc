@@ -31,6 +31,10 @@
  *                     a rate (a penalty, a fee band). Not an error.
  *   on no cited page  stale or invented. These are the ones to fix.
  *
+ * data/consistency-exceptions.json lists figures a person has checked but the
+ * script cannot (a site that serves automated requests a different page).
+ * Each carries a reason and an expiry; once expired it is reported again.
+ *
  * Findings are reported, not failed on, while the existing backlog is worked
  * through. Pass --strict to exit non-zero when anything is found (with
  * --online, only figures on no cited page count).
@@ -42,7 +46,7 @@
  *   npx tsx scripts/check-consistency.ts --json report.json
  */
 
-import { writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { NODES, type ServiceNode } from '../src/graph-data.js';
 import type { Rule } from '../src/rules.js';
 import { pageText, moneyRenderings } from './lib/page-text.js';
@@ -123,12 +127,24 @@ function currentTaxYearStart(d = new Date()): number {
 }
 const CURRENT = currentTaxYearStart();
 
+interface Exception { id: string; figure: string; reason: string; checkedAt: string; expires: string }
+let exceptions: Exception[] = [];
+try {
+  exceptions = JSON.parse(readFileSync(new URL('../data/consistency-exceptions.json', import.meta.url), 'utf-8')).exceptions;
+} catch { /* no exceptions file */ }
+const today = new Date().toISOString().slice(0, 10);
+const excepted = (id: string, raw: string) =>
+  exceptions.some(e => e.id === id && e.figure === raw.replace(/\s/g, '') && e.expires >= today);
+let exceptedCount = 0;
+
 // ─── RUN ────────────────────────────────────────────────────────────────────
 
 interface Finding {
   id: string; field: string; kind: 'unbacked amount' | 'stale year label'; detail: string; text: string;
   /** --online only: whether the figure appears on one of the service's cited pages. */
   onPage?: boolean; value?: number;
+  /** --online only: none of the service's pages could be fetched, so onPage is unknown. */
+  unreachable?: boolean;
 }
 const findings: Finding[] = [];
 let checked = 0;
@@ -138,6 +154,7 @@ for (const n of nodes) {
     checked++;
     for (const a of amounts(text)) {
       if (a.value === 0 || own.get(n.id)!.has(a.value) || anywhere.has(a.value)) continue;
+      if (excepted(n.id, a.raw)) { exceptedCount++; continue; }
       findings.push({ id: n.id, field, kind: 'unbacked amount', detail: `${a.raw} matches no rate or rule threshold in the graph`, text, value: a.value });
     }
     // "2024/25", "2024-25", "2024 to 2025": flag any year pair that ended before the current tax year.
@@ -159,10 +176,17 @@ if (ONLINE) {
     const n = NODES[f.id];
     const urls = [...new Set([n.govuk_url, n.financialData?.source, ...(n.eligibility.sources ?? [])].filter(Boolean) as string[])];
     const forms = moneyRenderings(f.value! / 100);
-    f.onPage = false;
+    let reachable = false;
     for (const url of urls) {
       const text = await pageText(url);
+      if (text) reachable = true;
       if (text && forms.some(r => new RegExp(`${r.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?![\\d])`).test(text))) { f.onPage = true; break; }
+    }
+    // A page that refused the request says nothing about the figure. Two
+    // sources in this graph (Ofcom, some of nidirect) refuse automated fetches.
+    if (!f.onPage) {
+      if (reachable) f.onPage = false;
+      else f.unreachable = true;
     }
   }
 }
@@ -176,17 +200,19 @@ console.log(`Unbacked amounts:     ${findings.filter(f => f.kind === 'unbacked a
 if (ONLINE) {
   console.log(`  on a cited page:    ${findings.filter(f => f.onPage === true).length}  (sourced prose, not modelled as a rate)`);
   console.log(`  on no cited page:   ${findings.filter(f => f.onPage === false).length}  (stale or invented: fix these)`);
+  console.log(`  page unreachable:   ${findings.filter(f => f.unreachable).length}  (could not check; look in a browser)`);
 }
 console.log(`Stale year labels:    ${findings.filter(f => f.kind === 'stale year label').length}`);
+console.log(`Checked by hand (exceptions): ${exceptedCount}`);
 console.log(`Services affected:    ${services.size}`);
 for (const id of [...services].sort()) {
   console.log(`\n  ${id}`);
   for (const f of findings.filter(x => x.id === id)) {
-    const where = f.onPage === undefined ? '' : f.onPage ? '  [on its page]' : '  [ON NO CITED PAGE]';
+    const where = f.unreachable ? '  [page unreachable]' : f.onPage === undefined ? '' : f.onPage ? '  [on its page]' : '  [ON NO CITED PAGE]';
     console.log(`    ${f.kind.padEnd(17)} ${f.field.padEnd(30)} ${f.detail}${where}`);
     console.log(`      "${f.text.slice(0, 150)}${f.text.length > 150 ? '…' : ''}"`);
   }
 }
 
-const failing = ONLINE ? findings.filter(f => f.onPage !== true) : findings;
+const failing = ONLINE ? findings.filter(f => f.onPage === false || f.kind === 'stale year label') : findings;
 if (STRICT && failing.length) process.exit(1);
