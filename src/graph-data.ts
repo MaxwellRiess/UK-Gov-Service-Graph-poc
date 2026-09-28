@@ -2532,7 +2532,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/child-benefit-for-children-in-your-care',
+      onlineFormUrl: 'https://www.gov.uk/child-benefit/how-to-claim',
       authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
