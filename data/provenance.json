@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-09-28T10:26:48.561Z",
+  "lastRun": "2026-09-28T10:48:26.135Z",
   "fields": {
     "acas-early-conciliation#govuk_url": {
       "valueHash": "eb674e1e99a7a09b",
@@ -118,7 +118,7 @@
       "sourceUrl": "https://www.gov.uk/limited-company-formation/register-your-company",
       "sourceQuote": "…ation’. This confirms the company legally exists and shows the company number and date of formation. It costs £100 and can be paid by debit or credit card. Your company is usually registered within 24 hours. You can also use…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "ch-register-ltd#govuk_url": {
@@ -151,7 +151,7 @@
       "sourceUrl": "https://www.gov.uk/claim-compensation-criminal-injury",
       "sourceQuote": "…t does not cost anything to apply. If you’re eligible , you could get an injury payment of between £1,000 and £250,000 . If you were injured trying to stop a crime You might also be able to claim compensation if you were taking…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "cica-compensation#financialData.rates.tariff_min": {
@@ -160,7 +160,7 @@
       "sourceUrl": "https://www.gov.uk/claim-compensation-criminal-injury",
       "sourceQuote": "…ou apply. It does not cost anything to apply. If you’re eligible , you could get an injury payment of between £1,000 and £250,000 . If you were injured trying to stop a crime You might also be able to claim compensation if you…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "cica-compensation#govuk_url": {
@@ -261,7 +261,7 @@
       "sourceUrl": "https://www.gov.uk/care-to-learn",
       "sourceQuote": "…t your family’s benefits or allowances. You can get up to: £180 per child per week if you live outside London £195 per child per week if you live in London What it covers Care to Learn can help with the cost of: your childca…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dfe-care-to-learn#financialData.rates.outside_london_max": {
@@ -270,7 +270,7 @@
       "sourceUrl": "https://www.gov.uk/care-to-learn",
       "sourceQuote": "…s in England. Claiming Care to Learn will not affect your family’s benefits or allowances. You can get up to: £180 per child per week if you live outside London £195 per child per week if you live in London What it covers Ca…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dfe-care-to-learn#govuk_url": {
@@ -323,7 +323,7 @@
       "sourceUrl": "https://www.gov.uk/request-baby-loss-certificate",
       "sourceQuote": "…lpline. Baby loss certificate service Email: babylosscertificate@nhsbsa.nhs.uk Telephone: 0300 330 9445 Monday to Friday, 9am to 5pm Find out about call charges",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dhsc-baby-loss-certificate#deptKey": {
@@ -476,7 +476,7 @@
       "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
       "sourceQuote": "…e been given permission to live in Great Britain (England, Scotland and Wales) for at least 185 days It costs £34 when you apply online. If you applied for a provisional licence before 1 March 1973 you’ll need to use this s…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dvla-provisional-licence#govuk_url": {
@@ -684,7 +684,7 @@
       "sourceUrl": "https://www.gov.uk/book-driving-test",
       "sourceQuote": "…ass your theory test before you can book your driving test. You are currently viewing: Book your driving test £62 to £75 What to take to your test Change your driving test appointment Check your driving test appointment det…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dvsa-driving-test#financialData.rates.fee_weekend": {
@@ -693,7 +693,7 @@
       "sourceUrl": "https://www.gov.uk/book-driving-test",
       "sourceQuote": "…r theory test before you can book your driving test. You are currently viewing: Book your driving test £62 to £75 What to take to your test Change your driving test appointment Check your driving test appointment details Ca…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dvsa-driving-test#govuk_url": {
@@ -746,7 +746,7 @@
       "sourceUrl": "https://www.gov.uk/book-theory-test",
       "sourceQuote": "…days in the last 12 months before the day you take your theory or driving test. Car and motorcycle tests cost £23. Lorry and bus tests cost: part 1a (multiple-choice questions) - £26 part 1b (hazard perception) - £11 part 2…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dvsa-theory-test#govuk_url": {
@@ -766,7 +766,7 @@
       "sourceUrl": "https://www.gov.uk/access-to-work",
       "sourceQuote": "…hat you’re eligible, call the Access to Work helpline. Access to Work helpline Telephone: 0800 121 7479 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 121 7479 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-access-to-work#deptKey": {
@@ -797,7 +797,7 @@
       "sourceUrl": "https://www.gov.uk/attendance-allowance",
       "sourceQuote": "…orm contact the helpline to request a claim form Attendance Allowance helpline Telephone: 0800 731 0122 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 731 0122 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-attendance-allowance#deptKey": {
@@ -817,7 +817,7 @@
       "sourceUrl": "https://www.gov.uk/attendance-allowance/what-youll-get",
       "sourceQuote": "…ds on the level of care that you need because of your disability or health condition. You could get £76.70 or £114.60 a week to help with personal support if both of the following apply: you have a physical disability, a menta…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-attendance-allowance#financialData.rates.lower": {
@@ -826,7 +826,7 @@
       "sourceUrl": "https://www.gov.uk/attendance-allowance/what-youll-get",
       "sourceQuote": "…get depends on the level of care that you need because of your disability or health condition. You could get £76.70 or £114.60 a week to help with personal support if both of the following apply: you have a physical disabili…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-attendance-allowance#govuk_url": {
@@ -846,7 +846,7 @@
       "sourceUrl": "https://www.gov.uk/benefit-overpayments",
       "sourceQuote": "…ions, including what you can afford to pay. DWP Debt Management contact centre Telephone: 0800 916 0647 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 916 0647 Video relay…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-benefit-debt-repayment#deptKey": {
@@ -877,7 +877,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "…ance number Apply online Start now Apply by phone Bereavement Service helpline Telephone: 0800 151 2012 Welsh language: 0800 731 0453 Relay UK (if you cannot hear or speak on the phone): 18001…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#deptKey": {
@@ -897,7 +897,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment/what-youll-get",
       "sourceQuote": "…Child Benefit for a child that lived with you you were pregnant The most you can get is: a one-off payment of £3,500 18 monthly payments of £350 If you’re not eligible for the higher rate, you’ll get the lower rate instead. Th…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#financialData.rates.lump_sum_lower": {
@@ -906,7 +906,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment/what-youll-get",
       "sourceQuote": "…ligible for the higher rate, you’ll get the lower rate instead. The most you can get is: a one-off payment of £2,500 18 monthly payments of £100 If you were living together as if you were married The most you can get is: a one…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#financialData.rates.monthly_higher": {
@@ -915,7 +915,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment/what-youll-get",
       "sourceQuote": "…lived with you you were pregnant The most you can get is: a one-off payment of £3,500 18 monthly payments of £350 If you’re not eligible for the higher rate, you’ll get the lower rate instead. The most you can get is: a one…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#financialData.rates.monthly_lower": {
@@ -924,7 +924,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment/what-youll-get",
       "sourceQuote": "…ou’ll get the lower rate instead. The most you can get is: a one-off payment of £2,500 18 monthly payments of £100 If you were living together as if you were married The most you can get is: a one-off payment of £3,500 18 mo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#govuk_url": {
@@ -944,7 +944,7 @@
       "sourceUrl": "https://www.gov.uk/budgeting-help-benefits",
       "sourceQuote": "…r you’ve submitted it post an application form to you Social Fund Enquiry Line Telephone: 0800 169 0140 Welsh language: 0800 169 0240 Relay UK (if you cannot hear or speak on the phone): 18001…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-budgeting-loan#deptKey": {
@@ -964,7 +964,7 @@
       "sourceUrl": "https://www.gov.uk/budgeting-help-benefits",
       "sourceQuote": "…oans and Budgeting Loans The lowest amount you can borrow is £100. You could get up to: £348 if you’re single £464 if you have a partner £812 if you or your partner claim Child Benefit How much you could get depends on wheth…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-budgeting-loan#financialData.rates.max_single": {
@@ -973,7 +973,7 @@
       "sourceUrl": "https://www.gov.uk/budgeting-help-benefits",
       "sourceQuote": "…in total for Crisis Loans and Budgeting Loans The lowest amount you can borrow is £100. You could get up to: £348 if you’re single £464 if you have a partner £812 if you or your partner claim Child Benefit How much you coul…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-budgeting-loan#financialData.rates.max_with_children": {
@@ -982,7 +982,7 @@
       "sourceUrl": "https://www.gov.uk/budgeting-help-benefits",
       "sourceQuote": "…e lowest amount you can borrow is £100. You could get up to: £348 if you’re single £464 if you have a partner £812 if you or your partner claim Child Benefit How much you could get depends on whether you: can pay the loan ba…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-budgeting-loan#financialData.rates.min": {
@@ -991,7 +991,7 @@
       "sourceUrl": "https://www.gov.uk/budgeting-help-benefits",
       "sourceQuote": "…t) you owe more than £1,500 in total for Crisis Loans and Budgeting Loans The lowest amount you can borrow is £100. You could get up to: £348 if you’re single £464 if you have a partner £812 if you or your partner claim Chil…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-budgeting-loan#govuk_url": {
@@ -1011,7 +1011,7 @@
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "…y post or call the Carer’s Allowance Unit to request a form. General enquiries Telephone: 0800 731 0297 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 731 0297 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#deptKey": {
@@ -1031,7 +1031,7 @@
       "sourceUrl": "https://www.gov.uk/carers-allowance/what-youll-get",
       "sourceQuote": "You could get £86.45 a week if you care for someone at least 35 hours a week and they get certain benefits . You do not have to be relat…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#govuk_url": {
@@ -1048,12 +1048,11 @@
     "dwp-child-maintenance#contactInfo.phone.number": {
       "valueHash": "f334302215045ef1",
       "valueSeen": "+44 800 171 2345",
-      "sourceUrl": "https://www.gov.uk/child-maintenance",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/child-maintenance-service",
+      "sourceQuote": "Child Maintenance Service Telephone: 0800 171 2345",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "dwp-child-maintenance#deptKey": {
       "sourceUrl": "https://www.gov.uk/child-maintenance",
@@ -1095,7 +1094,7 @@
       "sourceUrl": "https://www.gov.uk/cold-weather-payment",
       "sourceQuote": "…our area is recorded as, or forecast to be, zero degrees celsius or below over 7 consecutive days. You’ll get £25 for each 7-day period of very cold weather between 1 November 2026 and 31 March 2027. Find out if the weather…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-cold-weather-payment#govuk_url": {
@@ -1115,7 +1114,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
       "sourceQuote": "…ce helpline and asking for a printed form Disability Living Allowance helpline Telephone: 0800 121 4600 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 121 4600 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#deptKey": {
@@ -1135,7 +1134,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children/what-youll-get",
       "sourceQuote": "…fy for one or both components . Care component Care component Weekly rate Lowest £30.30 Middle £76.70 Highest £114.60 Mobility component Mobility component Weekly rate Lower £30.30 Higher £80 How DLA for children is paid DLA i…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#financialData.rates.care_lowest": {
@@ -1144,7 +1143,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children/what-youll-get",
       "sourceQuote": "…does not have a disability They will need to meet all the eligibility requirements . The DLA rate is between £30.30 and £194.60 a week and depends on the level of help the child needs. This guide is also available in Welsh (…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#financialData.rates.care_middle": {
@@ -1153,7 +1152,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children/what-youll-get",
       "sourceQuote": "…ild might qualify for one or both components . Care component Care component Weekly rate Lowest £30.30 Middle £76.70 Highest £114.60 Mobility component Mobility component Weekly rate Lower £30.30 Higher £80 How DLA for childr…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#financialData.rates.mobility_higher": {
@@ -1162,7 +1161,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children/what-youll-get",
       "sourceQuote": "…st £30.30 Middle £76.70 Highest £114.60 Mobility component Mobility component Weekly rate Lower £30.30 Higher £80 How DLA for children is paid DLA is usually paid every 4 weeks on a Tuesday. If your payment date is on a ban…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#financialData.rates.mobility_lower": {
@@ -1171,7 +1170,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children/what-youll-get",
       "sourceQuote": "…does not have a disability They will need to meet all the eligibility requirements . The DLA rate is between £30.30 and £194.60 a week and depends on the level of help the child needs. This guide is also available in Welsh (…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#govuk_url": {
@@ -1213,7 +1212,7 @@
       "sourceUrl": "https://www.gov.uk/funeral-payments",
       "sourceQuote": "…hone by calling the Bereavement Service helpline. Bereavement Service helpline Telephone: 0800 151 2012 Welsh language: 0800 731 0453 Relay UK (if you cannot hear or speak on the phone): 18001…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-funeral-payment#deptKey": {
@@ -1233,7 +1232,7 @@
       "sourceUrl": "https://www.gov.uk/funeral-payments/what-youll-get",
       "sourceQuote": "…n the UK, if it’s being moved more than 50 miles death certificates or other documents You can also get up to £1,000 for any other funeral expenses, such as funeral director’s fees, flowers or the coffin. The payment will not…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-funeral-payment#govuk_url": {
@@ -1295,12 +1294,11 @@
     "dwp-mandatory-reconsideration#contactInfo.phone.number": {
       "valueHash": "6a7cb52196cb7b9d",
       "valueSeen": "+44 800 169 0310",
-      "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/contact-jobcentre-plus",
+      "sourceQuote": "Incapacity Benefit or Employment and Support Allowance (ESA) Telephone: 0800 169 0310",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "dwp-mandatory-reconsideration#deptKey": {
       "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
@@ -1330,7 +1328,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-allowance",
       "sourceQuote": "…eed your National Insurance number when you call. Maternity Allowance helpline Telephone: 0800 169 0283 Welsh language: 0800 169 0296 Monday to Friday, 10am to 3pm Relay UK (if you cannot hear…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-maternity-allowance#deptKey": {
@@ -1350,7 +1348,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-allowance/what-youll-get",
       "sourceQuote": "…ks Statutory Maternity Leave, your final 13 weeks will be unpaid. If you’re self-employed You can get between £27 to £194.32 a week for up to 39 weeks if you’re self-employed. How much you get depends on how many Class 2 Na…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-maternity-allowance#financialData.rates.standard_weekly": {
@@ -1359,7 +1357,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-allowance/what-youll-get",
       "sourceQuote": "…calculator to work out how much you could get. If you’re employed or have recently stopped working You’ll get £194.32 a week or 90% of your average weekly earnings (whichever is less) for up to 39 weeks if you’re employed or ha…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-maternity-allowance#govuk_url": {
@@ -1379,7 +1377,7 @@
       "sourceUrl": "https://www.gov.uk/employment-support-allowance/eligibility",
       "sourceQuote": "…tion online you’re an appointee for someone Jobcentre Plus new claims helpline Telephone: 0800 055 6688 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 055 6688 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-esa#deptKey": {
@@ -1399,7 +1397,7 @@
       "sourceUrl": "https://www.gov.uk/employment-support-allowance/what-youll-get",
       "sourceQuote": "…13 weeks while your claim is being assessed. This will be: up to £75.65 a week if you’re aged under 25 up to £95.55 a week if you’re aged 25 or over If it takes longer than 13 weeks to assess your claim, you’ll continue getti…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-esa#financialData.rates.support_group": {
@@ -1408,7 +1406,7 @@
       "sourceUrl": "https://www.gov.uk/employment-support-allowance/what-youll-get",
       "sourceQuote": "…ut into the support group. You’ll get: up to £95.55 a week if you’re in the work-related activity group up to £145.90 a week if you’re in the support group If you’re in the support group If you’re in the support group and on i…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-esa#financialData.rates.under_25": {
@@ -1417,7 +1415,7 @@
       "sourceUrl": "https://www.gov.uk/employment-support-allowance/what-youll-get",
       "sourceQuote": "…ou’ll normally get the ‘assessment rate’ for 13 weeks while your claim is being assessed. This will be: up to £75.65 a week if you’re aged under 25 up to £95.55 a week if you’re aged 25 or over If it takes longer than 13 weeks…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-esa#financialData.rates.work_related_activity_group": {
@@ -1426,7 +1424,7 @@
       "sourceUrl": "https://www.gov.uk/employment-support-allowance/what-youll-get",
       "sourceQuote": "…13 weeks while your claim is being assessed. This will be: up to £75.65 a week if you’re aged under 25 up to £95.55 a week if you’re aged 25 or over If it takes longer than 13 weeks to assess your claim, you’ll continue getti…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-esa#govuk_url": {
@@ -1447,7 +1445,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance/new-style-jsa",
       "sourceQuote": "…sing the Tell Us Once service . New Style Jobseeker’s Allowance (JSA) helpline Telephone: 0800 169 0310 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 169 0310 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-jsa#deptKey": {
@@ -1467,7 +1465,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "…t, and how your other benefits will be affected. Age JSA weekly amount Up to 24 up to £75.65 25 or over up to £95.55 You can get JSA for up to 182 days (about 6 months). After this you can talk to your work coach about your op…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-jsa#financialData.rates.under_25": {
@@ -1476,7 +1474,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "…how much JSA you can get, and how your other benefits will be affected. Age JSA weekly amount Up to 24 up to £75.65 25 or over up to £95.55 You can get JSA for up to 182 days (about 6 months). After this you can talk to your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-jsa#govuk_url": {
@@ -1519,7 +1517,7 @@
       "sourceUrl": "https://www.gov.uk/apply-national-insurance-number",
       "sourceQuote": "…n National Insurance number application helpline (England, Scotland and Wales) Telephone: 0800 141 2079 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 141 2079 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-ni-number#deptKey": {
@@ -1550,7 +1548,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit",
       "sourceQuote": "…e not sure whether you’re eligible for extra amounts. Pension Service helpline Telephone: 0800 99 1234 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 99 1234 British Sign…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#deptKey": {
@@ -1570,7 +1568,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit/what-youll-get",
       "sourceQuote": "…ted together. Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner If your income is higher, you might still be eligible for Pension Credit if you have a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#financialData.rates.guarantee_single": {
@@ -1579,7 +1577,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit/what-youll-get",
       "sourceQuote": "…ted. If you have a partner, your income is calculated together. Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner If your income is higher, you migh…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#financialData.rates.savings_max_couple": {
@@ -1588,7 +1586,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit/what-youll-get",
       "sourceQuote": "…nsion You’ll get up to £17.96 Savings Credit a week if you’re single. If you have a partner, you’ll get up to £20.10 a week. You might still get some Savings Credit even if you do not get the Guarantee Credit part of Pension…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#financialData.rates.savings_max_single": {
@@ -1597,7 +1595,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit/what-youll-get",
       "sourceQuote": "…April 2016 you saved some money for retirement, for example a personal or workplace pension You’ll get up to £17.96 Savings Credit a week if you’re single. If you have a partner, you’ll get up to £20.10 a week. You might stil…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#govuk_url": {
@@ -1639,7 +1637,7 @@
       "sourceUrl": "https://www.gov.uk/pip",
       "sourceQuote": "…ndent parent) get from an EEA country or Switzerland PIP new claims phone line Telephone: 0800 917 2222 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 917 2222 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pip#deptKey": {
@@ -1659,7 +1657,7 @@
       "sourceUrl": "https://www.gov.uk/pip/what-youll-get",
       "sourceQuote": "…s daily living and mobility tasks . PIP amounts Lower weekly rate Higher weekly rate Daily living part £76.70 £114.60 Mobility part £30.30 £80 PIP is tax free. The amount you get is not affected by your income or savings. Tell…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pip#financialData.rates.daily_living_standard": {
@@ -1668,7 +1666,7 @@
       "sourceUrl": "https://www.gov.uk/pip/what-youll-get",
       "sourceQuote": "…count as daily living and mobility tasks . PIP amounts Lower weekly rate Higher weekly rate Daily living part £76.70 £114.60 Mobility part £30.30 £80 PIP is tax free. The amount you get is not affected by your income or savin…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pip#financialData.rates.mobility_enhanced": {
@@ -1677,7 +1675,7 @@
       "sourceUrl": "https://www.gov.uk/pip/what-youll-get",
       "sourceQuote": "…asks . PIP amounts Lower weekly rate Higher weekly rate Daily living part £76.70 £114.60 Mobility part £30.30 £80 PIP is tax free. The amount you get is not affected by your income or savings. Tell the Department for Work a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pip#financialData.rates.mobility_standard": {
@@ -1686,7 +1684,7 @@
       "sourceUrl": "https://www.gov.uk/pip/what-youll-get",
       "sourceQuote": "…ility tasks . PIP amounts Lower weekly rate Higher weekly rate Daily living part £76.70 £114.60 Mobility part £30.30 £80 PIP is tax free. The amount you get is not affected by your income or savings. Tell the Department for W…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-pip#govuk_url": {
@@ -1706,7 +1704,7 @@
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
       "sourceQuote": "…now you intend to move, and before you complete your sale. DWP Loan Management Telephone: 0800 916 0567 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 916 0567 Monday to F…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-smi#deptKey": {
@@ -1726,7 +1724,7 @@
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
       "sourceQuote": "…erest on your mortgage or loan. Support for Mortgage Interest ( SMI ) usually helps pay the interest on up to £200,000 of your loan or mortgage. However, you can only get up to £100,000 if either: you’re getting Pension Credit y…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-smi#financialData.rates.interest_rate_percent": {
@@ -1735,7 +1733,7 @@
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
       "sourceQuote": "…ith interest on up to £200,000. The interest rate used to calculate the amount of SMI you’ll get is currently 3.66%. Example You have £250,000 of your mortgage left to pay and you’re eligible for SMI for up to £200,000. At th…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-smi#govuk_url": {
@@ -1752,12 +1750,11 @@
     "dwp-sr1-form#contactInfo.phone.number": {
       "valueHash": "d88827f3f90882f0",
       "valueSeen": "+44 800 917 2222",
-      "sourceUrl": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/pip",
+      "sourceQuote": "PIP new claims phone line Telephone: 0800 917 2222",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "dwp-sr1-form#deptKey": {
       "sourceUrl": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form",
@@ -1784,12 +1781,11 @@
     "dwp-state-pension#contactInfo.phone.number": {
       "valueHash": "994bcc6fe07fbd66",
       "valueSeen": "+44 800 731 0469",
-      "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/contact-pension-service",
+      "sourceQuote": "Call the Pension Service Telephone: 0800 731 0469",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "dwp-state-pension#deptKey": {
       "sourceUrl": "https://www.gov.uk/new-state-pension",
@@ -1808,7 +1804,7 @@
       "sourceUrl": "https://www.gov.uk/new-state-pension/what-youll-get",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "unverified",
       "rationale": "No rendering of 184.9 found on the cited page. Rate may have changed, or the page may no longer publish it."
     },
@@ -1818,7 +1814,7 @@
       "sourceUrl": "https://www.gov.uk/new-state-pension/what-youll-get",
       "sourceQuote": "…reach State Pension age. It also shows your National Insurance record. The full rate of new State Pension is £241.30 a week. Your amount could be different depending on: if you were contracted out before 2016 the number of Na…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-state-pension#govuk_url": {
@@ -1839,7 +1835,7 @@
       "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant",
       "sourceQuote": "…l the Sure Start Maternity Grant helpline. Sure Start Maternity Grant helpline Telephone: 0800 169 0140 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 169 0140 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-sure-start-grant#deptKey": {
@@ -1859,7 +1855,7 @@
       "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant/what-youll-get",
       "sourceQuote": "You could get a one-off payment of £500 to help towards the costs of having a child. This is known as a Sure Start Maternity Grant. If you live in Sc…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-sure-start-grant#govuk_url": {
@@ -1876,12 +1872,11 @@
     "dwp-tell-us-once#contactInfo.phone.number": {
       "valueHash": "58d1653723442c35",
       "valueSeen": "+44 800 085 7308",
-      "sourceUrl": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.wirral.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/tell-us-once-service",
+      "sourceQuote": "(the reference number the registrar will give you) call the Department for Work and Pensions on 0800 085 7308",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "dwp-tell-us-once#deptKey": {
       "sourceUrl": "https://www.gov.uk/after-a-death",
@@ -1912,7 +1907,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…Credit helpline are free. Universal Credit helpline Universal Credit helpline Telephone: 0800 328 5644 Welsh language: 0800 328 1744 Relay UK (if you cannot hear or speak on the phone): 18001…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-uc-carer#deptKey": {
@@ -1932,7 +1927,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…ng part You need to provide care for them for at least 35 hours a week. You’ll get an extra monthly amount of £209.34. If you live with your partner and you both care for the same person, you’ll only get one extra monthly amoun…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-uc-carer#govuk_url": {
@@ -1953,7 +1948,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…Credit helpline are free. Universal Credit helpline Universal Credit helpline Telephone: 0800 328 5644 Welsh language: 0800 328 1744 Relay UK (if you cannot hear or speak on the phone): 18001…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-uc-health#deptKey": {
@@ -1973,7 +1968,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…ave a severe health condition or disability that’s unlikely to change or you are nearing the end of your life £429.80 If your health condition or disability is assessed as less severe or your condition may improve over time £2…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-uc-health#govuk_url": {
@@ -1994,7 +1989,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "…Credit helpline are free. Universal Credit helpline Universal Credit helpline Telephone: 0800 328 5644 Welsh language: 0800 328 1744 Relay UK (if you cannot hear or speak on the phone): 18001…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#deptKey": {
@@ -2014,7 +2009,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…l Credit is not automatically applied if you start getting Carer’s Allowance. If you have children You’ll get £303.94 a month for each child that lives with you. If your first child was born before 6 April 2017, you’ll get an e…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.childcare_max_one_child": {
@@ -2023,7 +2018,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…ries, childminders, breakfast clubs, after school care and holiday clubs. The most you can get each month is: £1,071.09 for one child £1,836.16 for 2 or more children You need to pay your childcare costs up front and claim the mo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.childcare_max_two_plus": {
@@ -2032,7 +2027,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…kfast clubs, after school care and holiday clubs. The most you can get each month is: £1,071.09 for one child £1,836.16 for 2 or more children You need to pay your childcare costs up front and claim the money back as part of your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.couple_25_plus": {
@@ -2041,7 +2036,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…nd you’re both under 25 £528.34 (for you both) If you live with your partner and either of you are 25 or over £666.97 (for you both) Extra amounts You may get more money on top of your standard allowance if you’re eligible. You…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.couple_under_25": {
@@ -2050,7 +2045,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…der 25 £338.58 If you’re single and 25 or over £424.90 If you live with your partner and you’re both under 25 £528.34 (for you both) If you live with your partner and either of you are 25 or over £666.97 (for you both) Extra am…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.single_25_plus": {
@@ -2059,7 +2054,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…h you’ll get Monthly standard allowance If you’re single and under 25 £338.58 If you’re single and 25 or over £424.90 If you live with your partner and you’re both under 25 £528.34 (for you both) If you live with your partner…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.single_under_25": {
@@ -2068,7 +2063,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…rd allowance for your household. How much you’ll get Monthly standard allowance If you’re single and under 25 £338.58 If you’re single and 25 or over £424.90 If you live with your partner and you’re both under 25 £528.34 (for y…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#govuk_url": {
@@ -2099,7 +2094,7 @@
       "sourceUrl": "https://www.gov.uk/voluntary-national-insurance-contributions/rates",
       "sourceQuote": "…l Insurance contributions and tell you how much you need to pay. The rates for the 2026 to 2027 tax year are: £3.65 a week for Class 2 £18.40 a week for Class 3 You usually pay the current rate when you make a voluntary contr…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-voluntary-ni-contributions#financialData.rates.class_3_weekly": {
@@ -2108,7 +2103,7 @@
       "sourceUrl": "https://www.gov.uk/voluntary-national-insurance-contributions/rates",
       "sourceQuote": "…and tell you how much you need to pay. The rates for the 2026 to 2027 tax year are: £3.65 a week for Class 2 £18.40 a week for Class 3 You usually pay the current rate when you make a voluntary contribution. When you pay dif…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-voluntary-ni-contributions#govuk_url": {
@@ -2128,7 +2123,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "…You can either call the helpline or send a letter by post. Email enquiry form Telephone: 0800 731 0160 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 731 0160 British Sig…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-winter-fuel#deptKey": {
@@ -2148,7 +2143,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "…t back . If you live alone or no one you live with is eligible for the Winter Fuel Payment You’ll get either: £200 if you were born between 28 September 1946 and 27 June 1960 £300 if you were born before 28 September 1946 If…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-winter-fuel#financialData.rates.born_before_28_sep_1946": {
@@ -2157,7 +2152,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "If you were born on or before 27 June 1960 you could get between £100 and £300 to help you pay your heating bills for winter 2026 to 2027. This is known as a ‘Winter Fuel Payment’. This gu…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-winter-fuel#financialData.rates.care_home_born_1946_to_1960": {
@@ -2166,7 +2161,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "If you were born on or before 27 June 1960 you could get between £100 and £300 to help you pay your heating bills for winter 2026 to 2027. This is known as a ‘Winter Fuel Payment’…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-winter-fuel#financialData.rates.care_home_born_before_28_sep_1946": {
@@ -2175,7 +2170,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "…the temperature drops to zero degrees celsius or below for 7 days in a row the Warm Home Discount - this is a £150 discount on your bills if you get Pension Credit or live in a low-income household help with the cost of livi…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "dwp-winter-fuel#govuk_url": {
@@ -2241,7 +2236,7 @@
       "sourceUrl": "https://www.gov.uk/sign-up-for-flood-warnings",
       "sourceQuote": "",
       "method": "manual",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "inferred",
       "rationale": "Short code or non-UK format — too short to match against page text without false positives."
     },
@@ -2354,7 +2349,7 @@
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
       "sourceQuote": "…ent 15 working days after you apply. If you need the certificate sooner, you can use the priority service for £38.50. It’ll be sent the next working day if you order by 4pm. Extra copies are the same price. Get help ordering…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "gro-certificates#financialData.rates.standard_certificate": {
@@ -2363,7 +2358,7 @@
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
       "sourceQuote": "…cates in Scotland and getting certificates in Northern Ireland . Start now Certificate fees Certificates cost £12.50 and are sent 4 days after you apply. If you do not have a GRO index reference number , you’ll have to pay £3…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "gro-certificates#govuk_url": {
@@ -2403,12 +2398,11 @@
     "gro-give-notice#contactInfo.phone.number": {
       "valueHash": "a3bb96db2ebc2377",
       "valueSeen": "+44 300 123 1837",
-      "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/giving-notice",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/general-register-office",
+      "sourceQuote": "General Register Office Telephone: 0300 123 1837 Textphone: 18001 0300 123 1837",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "gro-give-notice#deptKey": {
       "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships",
@@ -2483,12 +2477,11 @@
     "gro-register-death#contactInfo.phone.number": {
       "valueHash": "a3bb96db2ebc2377",
       "valueSeen": "+44 300 123 1837",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/general-register-office",
+      "sourceQuote": "General Register Office Telephone: 0300 123 1837 Textphone: 18001 0300 123 1837",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "gro-register-death#deptKey": {
       "sourceUrl": "https://www.gov.uk/register-a-death",
@@ -2519,7 +2512,7 @@
       "sourceUrl": "https://www.gov.uk/appeal-benefit-decision",
       "sourceQuote": "…ision. Benefit appeals helpline (England and Wales) contactsscs@justice.gov.uk Telephone: 0300 123 1142 Monday to Friday, 9am to 4pm Find out about call charges Benefit appeals helpline (for We…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-benefit-tribunal#deptKey": {
@@ -2547,12 +2540,11 @@
     "hmcts-child-arrangements#contactInfo.phone.number": {
       "valueHash": "0a30d9320c799cb5",
       "valueSeen": "+44 300 303 0642",
-      "sourceUrl": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/divorce",
+      "sourceQuote": "Courts and Tribunals Service Centre Telephone: 0300 303 0642",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "hmcts-child-arrangements#deptKey": {
       "sourceUrl": "https://www.gov.uk/looking-after-children-divorce",
@@ -2571,7 +2563,7 @@
       "sourceUrl": "https://www.gov.uk/looking-after-children-divorce",
       "sourceQuote": "…ly. You can get a voucher worth up to £500 to pay for family mediation, regardless of what you earn. It costs £270 to apply for a court order . You may be able to get help paying court fees if you’re on benefits or a low inc…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-child-arrangements#govuk_url": {
@@ -2636,7 +2628,7 @@
       "sourceUrl": "https://www.gov.uk/divorce",
       "sourceQuote": "…issues or need guidance about how to apply Courts and Tribunals Service Centre Telephone: 0300 303 0642 Webchat Monday to Friday, 10am to 6pm Closed on bank holidays Find out about call charges…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-divorce#deptKey": {
@@ -2656,7 +2648,7 @@
       "sourceUrl": "https://www.gov.uk/divorce",
       "sourceQuote": "…rce papers to them online. If you do not give an email address the papers will be sent by post. Fee There’s a £628 fee to apply for a divorce. The way you pay depends on how you apply. Your fee will not be refunded after you…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-divorce#govuk_url": {
@@ -2695,12 +2687,11 @@
     "hmcts-financial-order#contactInfo.phone.number": {
       "valueHash": "0a30d9320c799cb5",
       "valueSeen": "+44 300 303 0642",
-      "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends/reaching-an-agreement",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/divorce",
+      "sourceQuote": "Courts and Tribunals Service Centre Telephone: 0300 303 0642",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "hmcts-financial-order#deptKey": {
       "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
@@ -2719,7 +2710,7 @@
       "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
       "sourceQuote": "…order . If you’re ending a civil partnership or legally separating, send the signed forms and copies with the £62 fee to the court dealing with your paperwork. Keep your own copies. If you’re divorcing, send the signed form…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-financial-order#financialData.rates.contested_financial_order_fee": {
@@ -2728,7 +2719,7 @@
       "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
       "sourceQuote": "…g is shared out, and you no longer have any financial ties to one another. How much it costs The court fee is £321. Legal adviser fees vary depending on their experience and where you live. How much you pay in total depends…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-financial-order#govuk_url": {
@@ -2838,7 +2829,7 @@
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "…in British Sign Language (BSL) and other languages . Civil Legal Advice (CLA) Telephone: 0345 345 4345 Relay UK (if you cannot hear or speak on the phone): 18001 then 0345 345 4345 Monday to F…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-legal-aid#deptKey": {
@@ -2892,7 +2883,7 @@
       "sourceUrl": "https://www.gov.uk/applying-for-probate",
       "sourceQuote": "…how to apply Courts and Tribunals Service Centre contactprobate@justice.gov.uk Telephone: 0300 303 0648 Monday to Friday, 9am to 1pm Closed on bank holidays Find out about call charges Webchat…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-probate#deptKey": {
@@ -2912,7 +2903,7 @@
       "sourceUrl": "https://www.gov.uk/applying-for-probate/apply-for-probate",
       "sourceQuote": "…to pay depends on the value of the estate. If the value of the estate is over £5,000, the application fee is £526. There’s no fee if the estate is £5,000 or less. You can order extra copies of the probate document for £2 ea…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmcts-probate#govuk_url": {
@@ -3113,7 +3104,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/national-insurance-enquiries",
       "sourceQuote": "…to HMRC . You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3500. Find out more on the Relay UK website . Telephone: 0300 200 3500 Textphone: 0300 200 351…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-carers-credit#deptKey": {
@@ -3145,7 +3136,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/child-benefit-general-enquiries",
       "sourceQuote": "…y Notice . You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3100. Find out more on the Relay UK website . Telephone: 0300 200 3100 Outside UK: +44 161 210…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-child-benefit#deptKey": {
@@ -3165,7 +3156,7 @@
       "sourceUrl": "https://www.gov.uk/child-benefit/what-youll-get",
       "sourceQuote": "…Benefit Office. There are 2 Child Benefit rates. Who the allowance is for Rate (weekly) Eldest or only child £27.05 Additional children £17.90 per child You must contact the Child Benefit Office if you’re paid too much or too…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-child-benefit#financialData.rates.subsequent_child": {
@@ -3174,7 +3165,7 @@
       "sourceUrl": "https://www.gov.uk/child-benefit/what-youll-get",
       "sourceQuote": "…2 Child Benefit rates. Who the allowance is for Rate (weekly) Eldest or only child £27.05 Additional children £17.90 per child You must contact the Child Benefit Office if you’re paid too much or too little. Any Child Benefit…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-child-benefit#govuk_url": {
@@ -3194,7 +3185,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/child-benefit-general-enquiries",
       "sourceQuote": "…y Notice . You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3100. Find out more on the Relay UK website . Telephone: 0300 200 3100 Outside UK: +44 161 210…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-child-benefit-transfer#deptKey": {
@@ -3226,7 +3217,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/construction-industry-scheme-general-enquiries",
       "sourceQuote": "…have a personal tax account, you can create one before you check your details. Telephone: 0300 200 3210 Outside UK: +44 161 930 8706 Opening times: Monday to Friday, 8am to 6pm. Closed bank hol…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-cis#deptKey": {
@@ -3257,7 +3248,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/corporation-tax-general-enquiries",
       "sourceQuote": "…one. You can ask for a copy of your Corporation Tax UTR if you do not know it. Telephone: 0300 200 3410 Outside UK: +44 151 268 0571 Opening times: Monday to Friday: 8am to 6pm. Closed bank hol…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-corporation-tax#deptKey": {
@@ -3335,7 +3326,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/childcare-service-helpline",
       "sourceQuote": "…have a personal tax account, you can create one before you check your details. Telephone: 0300 123 4097 Textphone: 0300 123 9232 Opening times: Monday to Friday, 8am to 6pm. Closed bank holiday…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-30#deptKey": {
@@ -3366,7 +3357,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/child-benefit-general-enquiries",
       "sourceQuote": "…y Notice . You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3100. Find out more on the Relay UK website . Telephone: 0300 200 3100 Outside UK: +44 161 210…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-guardians-allowance#deptKey": {
@@ -3386,7 +3377,7 @@
       "sourceUrl": "https://www.gov.uk/guardians-allowance/what-youll-get",
       "sourceQuote": "…re’s one surviving parent. This guide is also available in Welsh (Cymraeg) . The Guardian’s Allowance rate is £22.95 a week. You get it on top of Child Benefit and it’s tax-free. You must tell the Guardian’s Allowance Unit abo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-guardians-allowance#govuk_url": {
@@ -3417,7 +3408,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-savings-low-income",
       "sourceQuote": "…You pay in £25 every calendar month for 2 years. You do not withdraw any money. Your highest balance will be £600. Your first bonus is £300, which is 50% of £600. In years 3 and 4 you save an extra £200 to grow your highest…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-help-to-save#financialData.rates.max_bonus_year_4": {
@@ -3426,7 +3417,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-savings-low-income",
       "sourceQuote": "…You pay in £25 every calendar month for 2 years. You do not withdraw any money. Your highest balance will be £600. Your first bonus is £300, which is 50% of £600. In years 3 and 4 you save an extra £200 to grow your highest…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-help-to-save#financialData.rates.max_total_bonus": {
@@ -3435,7 +3426,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-savings-low-income",
       "sourceQuote": "…ch calendar month is £50, which is £2,400 over 4 years. The most you can earn from your savings in 4 years is £1,200 in bonus money. Your bonus is paid into your bank account, not your Help to Save account. Example You pay in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-help-to-save#govuk_url": {
@@ -3455,7 +3446,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/inheritance-tax-general-enquiries",
       "sourceQuote": "…o not give advice on how to pass on your own property, money, and possessions. Telephone: 0300 123 1072 Outside UK: +44 300 123 1072 Opening times: Monday to Friday, 9am to 5pm. Closed bank hol…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-iht400#deptKey": {
@@ -3497,7 +3488,7 @@
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "…, until you’re 50. You must make your first payment into your ISA before you’re 40. The government will add a 25% bonus to your savings, up to a maximum of £1,000 per year. The Lifetime ISA limit of £4,000 counts towards yo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-lisa#financialData.rates.max_bonus": {
@@ -3506,7 +3497,7 @@
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "…yment into your ISA before you’re 40. The government will add a 25% bonus to your savings, up to a maximum of £1,000 per year. The Lifetime ISA limit of £4,000 counts towards your annual ISA limit . This is £20,000 for the 202…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-lisa#govuk_url": {
@@ -3559,7 +3550,7 @@
       "sourceUrl": "https://www.gov.uk/marriage-allowance",
       "sourceQuote": "…artner. Your Personal Allowance is the amount you can earn before paying tax. This reduces their tax by up to £252 in the tax year (6 April to 5 April the next year). This guide is also available in Welsh (Cymraeg) . To bene…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-marriage-allowance#govuk_url": {
@@ -3579,7 +3570,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/vat-general-enquiries",
       "sourceQuote": "…r details. You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3700. Find out more on the Relay UK website . If you have one you’ll need your: postcode VAT r…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-mtd#deptKey": {
@@ -3610,7 +3601,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/national-insurance-enquiries",
       "sourceQuote": "…to HMRC . You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3500. Find out more on the Relay UK website . Telephone: 0300 200 3500 Textphone: 0300 200 351…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-ni-check#deptKey": {
@@ -3664,7 +3655,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/employers-general-enquiries",
       "sourceQuote": "…have a personal tax account, you can create one before you check your details. Telephone: 0300 200 3200 Outside UK: +44 151 268 0558 Fax: 03000 523 030 Opening times: Monday to Friday, 8am to 6…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-paye#deptKey": {
@@ -3695,7 +3686,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/self-assessment-general-enquiries",
       "sourceQuote": "…lacements or notices signing up for or using Making Tax Digital for Income Tax Telephone: 0300 200 3310 Outside UK: +44 161 931 9070 Opening times: Monday to Friday, 8am to 6pm. Closed bank hol…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-register-sole-trader#deptKey": {
@@ -3727,7 +3718,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/stamp-duty-land-tax-general-enquiries",
       "sourceQuote": "…have a personal tax account, you can create one before you check your details. Telephone: 0300 200 3510 Outside UK: +44 1726 209 042 Opening times: Monday to Friday, 8:30am to 5pm. Closed bank…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-sdlt#deptKey": {
@@ -3758,7 +3749,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/self-assessment-general-enquiries",
       "sourceQuote": "…lacements or notices signing up for or using Making Tax Digital for Income Tax Telephone: 0300 200 3310 Outside UK: +44 161 931 9070 Opening times: Monday to Friday, 8am to 6pm. Closed bank hol…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-self-assessment#deptKey": {
@@ -3801,7 +3792,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
       "sourceQuote": "…want to change your return to work date. Statutory Maternity Pay ( SMP ) is paid for up to 39 weeks. You get: 90% of your average weekly earnings (before tax) for the first 6 weeks £194.32 or 90% of your average weekly earn…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-smp#financialData.rates.remaining_33_weeks": {
@@ -3810,7 +3801,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
       "sourceQuote": "…) is paid for up to 39 weeks. You get: 90% of your average weekly earnings (before tax) for the first 6 weeks £194.32 or 90% of your average weekly earnings (whichever is lower) for the next 33 weeks SMP is paid in the same way…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-smp#govuk_url": {
@@ -3842,7 +3833,7 @@
       "sourceUrl": "https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get",
       "sourceQuote": "…et using the Shared Parental Leave and Pay planning tool. How much pay you’ll get ShPP is paid at the rate of £194.32 a week or 90% of your average weekly earnings, whichever is lower. This is the same as Statutory Maternity Pa…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-spl#govuk_url": {
@@ -3873,7 +3864,7 @@
       "sourceUrl": "https://www.gov.uk/paternity-pay-leave/pay",
       "sourceQuote": "…job for 12 weeks before you qualify if you’re an agency worker. The statutory weekly rate of Paternity Pay is £194.32, or 90% of your average weekly earnings (whichever is lower). Any money you get is paid in the same way as yo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-spp#govuk_url": {
@@ -3904,7 +3895,7 @@
       "sourceUrl": "https://www.gov.uk/statutory-sick-pay",
       "sourceQuote": "…Sick Pay if you’re an employer . If you’re eligible, you can get £123.25 a week Statutory Sick Pay ( SSP ) or 80% of your normal weekly earnings - whichever is lower. It’s paid for up to 28 weeks. You’ll be paid SSP for all…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-ssp#financialData.rates.weekly_rate": {
@@ -3913,7 +3904,7 @@
       "sourceUrl": "https://www.gov.uk/statutory-sick-pay",
       "sourceQuote": "You can get up to £123.25 per week Statutory Sick Pay ( SSP ) if you’re too ill to work. It’s paid by your employer for up to 28 weeks. T…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-ssp#govuk_url": {
@@ -4001,7 +3992,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/childcare-service-helpline",
       "sourceQuote": "…have a personal tax account, you can create one before you check your details. Telephone: 0300 123 4097 Textphone: 0300 123 9232 Opening times: Monday to Friday, 8am to 6pm. Closed bank holiday…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#deptKey": {
@@ -4021,7 +4012,7 @@
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "…every 3 months (up to £2,000 a year). This goes up to £1,000 every 3 months if your child is disabled (up to £4,000 a year). You’ll usually need to be working (or returning to work) and your child must be 11 or younger (16 or…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#financialData.rates.max_per_child": {
@@ -4030,7 +4021,7 @@
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "…he government will top it up by £2. The total top up you can get for each child is £500 every 3 months (up to £2,000 a year). This goes up to £1,000 every 3 months if your child is disabled (up to £4,000 a year). You’ll usuall…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#govuk_url": {
@@ -4117,7 +4108,7 @@
       "sourceUrl": "https://www.gov.uk/find-hmrc-contacts/vat-general-enquiries",
       "sourceQuote": "…r details. You can use Relay UK if you cannot hear or speak on the phone, dial 18001 then 0300 200 3700. Find out more on the Relay UK website . If you have one you’ll need your: postcode VAT r…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "hmrc-vat#deptKey": {
@@ -4165,16 +4156,6 @@
       "valueHash": "c2697e5fd1fbac05",
       "valueSeen": "https://www.gov.uk/biometric-residence-permits"
     },
-    "ho-citizenship#contactInfo.phone.number": {
-      "valueHash": "92f8654585f09576",
-      "valueSeen": "+44 300 790 6268",
-      "sourceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
-      "sourceQuote": "",
-      "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
-    },
     "ho-citizenship#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
       "sourceQuote": "",
@@ -4192,7 +4173,7 @@
       "sourceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
       "sourceQuote": "…cation will be received on the same day. It will take longer if you apply by post. How much it costs It costs £1,839 (£1,709 to apply and a £130 citizenship ceremony fee). You’ll also need to have your biometric information (f…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "ho-citizenship#govuk_url": {
@@ -4278,7 +4259,7 @@
       "sourceUrl": "https://www.gov.uk/settled-status-eu-citizens-families",
       "sourceQuote": "…uncil or another organisation helping others to apply. If you’re inside the UK Telephone: 0300 123 7379 Monday to Friday (excluding bank holidays), 8am to 8pm Saturday and Sunday, 9:30am to 4:3…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "ho-eu-settled-status#deptKey": {
@@ -4433,7 +4414,7 @@
       "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa",
       "sourceQuote": "…can apply for indefinite leave to remain, you’ll need to renew it first. Fees and how long it takes It costs £3,226 for each person applying. You can include your partner and children on the same application form, if they’re…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "ho-ilr#govuk_url": {
@@ -4486,7 +4467,7 @@
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
       "sourceQuote": "…p or settlement in the UK. You must book your Life in the UK Test online at least 3 days in advance. It costs £50. There are over 30 test centres in the UK. You can choose where to take your test when you book. Prepare for…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "ho-life-in-uk#govuk_url": {
@@ -4619,7 +4600,7 @@
       "sourceUrl": "https://www.gov.uk/apply-for-bankruptcy",
       "sourceQuote": "…ce helpline. Insolvency Enquiry Line iel.onlinedebtsolutions@insolvency.gov.uk Telephone: 0300 678 0015 Monday to Thursday, 9am to 5pm Friday, 9am to 3pm Find out about call charges Related con…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "insolvency-bankruptcy#deptKey": {
@@ -4791,7 +4772,7 @@
       "sourceUrl": "https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-assessments/",
       "sourceQuote": "…al services department ( find your local council on GOV.UK ) Carers UK's free helpline on 0808 808 7777 Age UK's free helpline on 0800 678 1602 Independent Age's free helpline on 0800 319 6789…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "la-carers-assessment#govuk_url": {
@@ -4915,7 +4896,7 @@
       "sourceUrl": "https://www.gov.uk/council-tax/who-has-to-pay",
       "sourceQuote": "…’re disregarded. You’ll get 50% off your bill if everyone living in your household is disregarded. You’ll get 25% off your bill if you pay Council Tax and either: you live on your own everyone else in your home is disregard…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "la-council-tax-single-discount#govuk_url": {
@@ -4933,12 +4914,11 @@
     "la-disabled-facilities-grant#contactInfo.additionalPhones.0.number": {
       "valueHash": "798428dda9036b3d",
       "valueSeen": "+44 300 124 0315",
-      "sourceUrl": "https://www.gov.uk/disabled-facilities-grants",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.foundations.uk.com/contact-us/",
+      "sourceQuote": "Call us on: 0300 124 0315",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "la-disabled-facilities-grant#deptKey": {
       "sourceUrl": "https://www.gov.uk/disabled-facilities-grants",
@@ -4958,7 +4938,7 @@
       "sourceUrl": "https://www.gov.uk/disabled-facilities-grants",
       "sourceQuote": "…led person if the current tenant moves within 5 years. How much you can apply for Country Grant England Up to £30,000 Wales Up to £36,000 Northern Ireland Up to £25,000 Scotland Disabled Facilities Grants are not available, fin…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "la-disabled-facilities-grant#govuk_url": {
@@ -5275,12 +5255,11 @@
     "la-send-ehc#contactInfo.additionalPhones.0.number": {
       "valueHash": "2adfdb67a29bde9f",
       "valueSeen": "+44 1799 582030",
-      "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/education-health-care-plans",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.ipsea.org.uk/contact-ipsea",
+      "sourceQuote": "Telephone: 01799 582030 (Please note, our admin office deals with general enquiries, not advice)",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "la-send-ehc#deptKey": {
       "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs",
@@ -5548,7 +5527,7 @@
       "sourceUrl": "https://111.nhs.uk",
       "sourceQuote": "",
       "method": "manual",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "inferred",
       "rationale": "Short code or non-UK format — too short to match against page text without false positives."
     },
@@ -5633,12 +5612,11 @@
     "nhs-free-dental#contactInfo.phone.number": {
       "valueHash": "d73bc0d4d77e4826",
       "valueSeen": "+44 300 330 1343",
-      "sourceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs",
+      "sourceQuote": "NHS Low Income Scheme: Telephone 0300 330 1343",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "nhs-free-dental#govuk_url": {
       "valueHash": "072955d39b2ae915",
@@ -5653,12 +5631,11 @@
     "nhs-free-prescriptions#contactInfo.phone.number": {
       "valueHash": "6d64758ca39668ef",
       "valueSeen": "+44 300 330 1341",
-      "sourceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.nhsbsa.nhs.uk/contact-nhs-prescription-services",
+      "sourceQuote": "Buy or renew a PPC online Telephone: 0300 330 1341",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "nhs-free-prescriptions#govuk_url": {
       "valueHash": "03882f527d4d685b",
@@ -5676,7 +5653,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
       "sourceQuote": "…ries Monday to Friday, 8am to 6pm. Or you can call the Help with Health Costs helpline on 0300 330 1343. You must check that you're entitled to help with health costs before signing any declara…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-free-sight-tests#govuk_url": {
@@ -5702,12 +5679,11 @@
     "nhs-healthy-start#contactInfo.phone.number": {
       "valueHash": "37d73e8fa4109ae7",
       "valueSeen": "+44 300 330 7010",
-      "sourceUrl": "https://www.healthystart.nhs.uk/",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.healthystart.nhs.uk/contact-us/",
+      "sourceQuote": "get your PIN hear your balance Phone: 0300 330 7010",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "nhs-healthy-start#financialData.rates.child_1_to_4": {
       "valueHash": "c949da87389698d1",
@@ -5715,7 +5691,7 @@
       "sourceUrl": "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/",
       "sourceQuote": "…ow to shop How much you’ll get You’ll get money added onto your Healthy Start card every 4 weeks. You’ll get: £4.65 each week of your pregnancy from the 10th week £9.30 each week for children from birth to 1 year old £4.65 ea…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-healthy-start#financialData.rates.child_under_1": {
@@ -5724,7 +5700,7 @@
       "sourceUrl": "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/",
       "sourceQuote": "…onto your Healthy Start card every 4 weeks. You’ll get: £4.65 each week of your pregnancy from the 10th week £9.30 each week for children from birth to 1 year old £4.65 each week for children between 1 and 4 years old Your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-healthy-start#financialData.rates.pregnancy": {
@@ -5733,7 +5709,7 @@
       "sourceUrl": "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/",
       "sourceQuote": "…ow to shop How much you’ll get You’ll get money added onto your Healthy Start card every 4 weeks. You’ll get: £4.65 each week of your pregnancy from the 10th week £9.30 each week for children from birth to 1 year old £4.65 ea…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-healthy-start#govuk_url": {
@@ -5752,7 +5728,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
       "sourceQuote": "…review If you think your application has been assessed incorrectly, you can contact us on 0300 330 1343 and ask for your claim to be reviewed. Find out about call charges You can also send your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-low-income-scheme#govuk_url": {
@@ -5768,12 +5744,11 @@
     "nhs-maternity-exemption#contactInfo.phone.number": {
       "valueHash": "6d64758ca39668ef",
       "valueSeen": "+44 300 330 1341",
-      "sourceUrl": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.nhsbsa.nhs.uk/contact-nhs-help-health-costs",
+      "sourceQuote": "Medical and maternity exemption certificates: Telephone 0300 330 1341",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "nhs-maternity-exemption#govuk_url": {
       "valueHash": "2c5d8a6d16dae014",
@@ -5803,7 +5778,7 @@
       "sourceUrl": "https://www.gov.uk/get-a-ppc",
       "sourceQuote": "…eriod, no matter how many you need. A prescription costs £9.90 per item, but a PPC costs: £32.05 for 3 months £114.50 for 12 months This means if you’re going to buy 4 or more prescriptions in 3 months, or 12 or more prescript…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-ppc#financialData.rates.single_item": {
@@ -5812,7 +5787,7 @@
       "sourceUrl": "https://www.gov.uk/get-a-ppc",
       "sourceQuote": "…12 month PPC covers all your prescriptions for that period, no matter how many you need. A prescription costs £9.90 per item, but a PPC costs: £32.05 for 3 months £114.50 for 12 months This means if you’re going to buy 4 or…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-ppc#financialData.rates.three_month_cert": {
@@ -5821,7 +5796,7 @@
       "sourceUrl": "https://www.gov.uk/get-a-ppc",
       "sourceQuote": "…criptions for that period, no matter how many you need. A prescription costs £9.90 per item, but a PPC costs: £32.05 for 3 months £114.50 for 12 months This means if you’re going to buy 4 or more prescriptions in 3 months, or…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "nhs-ppc#govuk_url": {
@@ -5839,11 +5814,10 @@
       "valueHash": "66d967c2737ee233",
       "valueSeen": "+44 800 587 2750",
       "sourceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
-      "sourceQuote": "",
+      "sourceQuote": "Discretionary support / Short-term benefit advance Call 0800 587 2750",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "ni-discretionary-support#govuk_url": {
       "valueHash": "2221d72e1bdf9093",
@@ -5861,7 +5835,7 @@
       "sourceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
       "sourceQuote": "…can also contact Land & Property Services: Contact the Rate Rebate team online telephone 0300 200 7802 Tenant’s information To claim Rate Rebate, you must provide: your date of birth National…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "ni-rate-rebate#govuk_url": {
@@ -5981,7 +5955,7 @@
       "sourceUrl": "https://www.gov.uk/power-of-attorney",
       "sourceQuote": "…(this will take 8 to 10 weeks if there are no mistakes in the application). Applying to register an LPA costs £92 unless you get a reduction or exemption . You can cancel your LPA if you no longer need it or want to make a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "opg-lpa#govuk_url": {
@@ -6069,7 +6043,7 @@
       "sourceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
       "sourceQuote": "…her you can request a check. DBS customer services customerservices@dbs.gov.uk Telephone: 03000 200 190 Welsh: 03000 200 191 International: +44 (0)151 676 9390 Relay UK (if you cannot hear or s…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-dbs#deptKey": {
@@ -6090,7 +6064,7 @@
       "sourceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
       "sourceQuote": "…ey can also set up a DBS online account to view the certificate online. How much it costs A basic check costs £21.50. The responsible organisation may also charge an administration fee. If you do more than 1,000 basic checks…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-dbs#financialData.rates.enhanced_check": {
@@ -6099,7 +6073,7 @@
       "sourceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
       "sourceQuote": "…How much it costs How much it costs depends on the type of check. Type of check Cost Standard £21.50 Enhanced £49.50 Enhanced with barred lists £49.50 Checks are free for volunteers. How long it takes It usually takes around…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-dbs#financialData.rates.standard_check": {
@@ -6108,7 +6082,7 @@
       "sourceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
       "sourceQuote": "…ey can also set up a DBS online account to view the certificate online. How much it costs A basic check costs £21.50. The responsible organisation may also charge an administration fee. If you do more than 1,000 basic checks…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-dbs#govuk_url": {
@@ -6123,14 +6097,13 @@
       "valueSeen": "https://www.gov.uk/dbs-check-applicant-criminal-record"
     },
     "other-disabled-railcard#contactInfo.phone.number": {
-      "valueHash": "a61d08f1b6840812",
-      "valueSeen": "+44 345 3000 250",
-      "sourceUrl": "https://www.railcard.co.uk/disabled-persons-railcard/",
-      "sourceQuote": "",
+      "valueHash": "ba99b6411470f220",
+      "valueSeen": "+44 345 605 0525",
+      "sourceUrl": "https://www.railcard.co.uk/help/contact/",
+      "sourceQuote": "For queries about about the Disabled Persons Railcard, please call 0345 605 0525",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "other-disabled-railcard#financialData.rates.card_cost": {
       "valueHash": "f5ca38f748a1d6ea",
@@ -6138,7 +6111,7 @@
       "sourceUrl": "https://www.railcard.co.uk/disabled-persons-railcard/",
       "sourceQuote": "…nyone with a disability listed in our eligibility checklist Save 1/3 on tickets for you and 1 adult companion £20 for a 1-year Railcard, £54 for a 3-year Railcard Buy a Disabled Persons Railcard Renew my Railcard Get 1/3 of…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-disabled-railcard#financialData.rates.saving_percent": {
@@ -6147,7 +6120,7 @@
       "sourceUrl": "https://www.railcard.co.uk/disabled-persons-railcard/",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "unverified",
       "rationale": "No rendering of 33 found on the cited page. Rate may have changed, or the page may no longer publish it."
     },
@@ -6157,7 +6130,7 @@
       "sourceUrl": "https://www.railcard.co.uk/disabled-persons-railcard/",
       "sourceQuote": "…ted in our eligibility checklist Save 1/3 on tickets for you and 1 adult companion £20 for a 1-year Railcard, £54 for a 3-year Railcard Buy a Disabled Persons Railcard Renew my Railcard Get 1/3 off train tickets Save around…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-disabled-railcard#govuk_url": {
@@ -6193,16 +6166,6 @@
       "valueHash": "49783b55374c2ea8",
       "valueSeen": "https://www.gov.uk/employers-liability-insurance"
     },
-    "other-help-to-buy#contactInfo.phone.number": {
-      "valueHash": "12be136c68251196",
-      "valueSeen": "+44 300 100 0030",
-      "sourceUrl": "https://www.gov.uk/first-homes-scheme",
-      "sourceQuote": "",
-      "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
-    },
     "other-help-to-buy#deptKey": {
       "sourceUrl": "https://www.gov.uk/first-homes-scheme",
       "sourceQuote": "",
@@ -6229,12 +6192,11 @@
     "other-motability#contactInfo.phone.number": {
       "valueHash": "b7be59abb58d74e8",
       "valueSeen": "+44 300 456 4566",
-      "sourceUrl": "https://www.motability.co.uk/",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.motability.co.uk/get-support/contact",
+      "sourceQuote": "You can contact the Motability customer services team on: 0300 456 4566",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "other-motability#govuk_url": {
       "valueHash": "a580dc9f3328fb28",
@@ -6249,12 +6211,11 @@
     "other-passport-name#contactInfo.phone.number": {
       "valueHash": "f02526614d37b7f1",
       "valueSeen": "+44 300 222 0000",
-      "sourceUrl": "https://www.gov.uk/renew-adult-passport",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/passport-advice-line",
+      "sourceQuote": "Passport Adviceline Telephone: 0300 222 0000",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "other-passport-name#deptKey": {
       "sourceUrl": "https://www.gov.uk/renew-adult-passport",
@@ -6274,7 +6235,7 @@
       "sourceUrl": "https://www.gov.uk/renew-adult-passport",
       "sourceQuote": "It costs £102 to renew or replace your passport if you apply online or £115.50 if you fill in a paper form. You must be aged 16 or ove…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-passport-name#govuk_url": {
@@ -6306,7 +6267,7 @@
       "sourceUrl": "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note",
       "sourceQuote": "…rded as FSM Ever 6 £1,550 Pupils in years 7 to 11 recorded as FSM Ever 6 £1,100 Looked-after children ( LAC ) £2,690 Previously looked-after children ( PLAC ) £2,690 Service children per pupil rate Eligible service children in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-pupil-premium#financialData.rates.per_primary_pupil": {
@@ -6315,7 +6276,7 @@
       "sourceUrl": "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note",
       "sourceQuote": "…ty rate. Disadvantaged pupils Per pupil rate Pupils in year groups reception to year 6 recorded as FSM Ever 6 £1,550 Pupils in years 7 to 11 recorded as FSM Ever 6 £1,100 Looked-after children ( LAC ) £2,690 Previously looked-…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-pupil-premium#financialData.rates.per_secondary_pupil": {
@@ -6324,7 +6285,7 @@
       "sourceUrl": "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note",
       "sourceQuote": "…year groups reception to year 6 recorded as FSM Ever 6 £1,550 Pupils in years 7 to 11 recorded as FSM Ever 6 £1,100 Looked-after children ( LAC ) £2,690 Previously looked-after children ( PLAC ) £2,690 Service children per pu…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-pupil-premium#govuk_url": {
@@ -6395,14 +6356,13 @@
       "valueSeen": "https://www.gov.uk/redundancy-payments-helpline"
     },
     "other-tv-licence-pension#contactInfo.phone.number": {
-      "valueHash": "fdbff5656c762f9d",
-      "valueSeen": "+44 300 790 6165",
-      "sourceUrl": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence",
-      "sourceQuote": "",
+      "valueHash": "85381ec18bdff18e",
+      "valueSeen": "+44 300 790 6117",
+      "sourceUrl": "https://www.tvlicensing.co.uk/easy-read/free-licence-for-the-over-75s",
+      "sourceQuote": "you would prefer to apply for a free TV Licence by phone, please call 0300 790 6117",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "other-tv-licence-pension#deptKey": {
       "sourceUrl": "https://www.gov.uk/tv-licence",
@@ -6422,7 +6382,7 @@
       "sourceUrl": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence",
       "sourceQuote": "…4 and Amazon Prime Video videos on websites like YouTube videos or DVDs How much it costs A TV Licence costs £180 (£60.50 for black and white TV sets) for both homes and businesses. If you live in a shared household You nee…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-tv-licence-pension#govuk_url": {
@@ -6440,12 +6400,11 @@
     "other-warm-home-discount#contactInfo.phone.number": {
       "valueHash": "eccaf0da152db08c",
       "valueSeen": "+44 800 030 9322",
-      "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.ofgem.gov.uk/environmental-and-social-schemes/warm-home-discount-whd/contacts-guidance-and-resources",
+      "sourceQuote": "Warm Home Discount Scheme PO Box 970 Preston PR2 0FX Telephone number: 0800 030 9322",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "other-warm-home-discount#deptKey": {
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
@@ -6465,7 +6424,7 @@
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
       "sourceQuote": "…Check if you’re eligible for the discount for winter 2026 to 2027. The Warm Home Discount Scheme is a one-off £150 discount off your electricity bill. If you’re eligible, your electricity supplier will apply the discount to…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "other-warm-home-discount#govuk_url": {
@@ -6519,7 +6478,7 @@
       "sourceUrl": "https://www.gov.uk/childcare-grant",
       "sourceQuote": "…can get 85% of your childcare costs or a fixed maximum amount, whichever is less. The maximum you can get is: £199.62 a week for one child £342.24 a week for 2 or more children You’ll have to pay any remaining childcare costs.…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "slc-childcare-grant#financialData.rates.max_two_plus": {
@@ -6528,7 +6487,7 @@
       "sourceUrl": "https://www.gov.uk/childcare-grant",
       "sourceQuote": "…costs or a fixed maximum amount, whichever is less. The maximum you can get is: £199.62 a week for one child £342.24 a week for 2 or more children You’ll have to pay any remaining childcare costs. Examples If your childcare fo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "slc-childcare-grant#govuk_url": {
@@ -6592,7 +6551,7 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
       "sourceQuote": "…much you'll get If you're awarded the daily living part you’ll get either: £76.70 a week for a standard award £114.60 a week for an enhanced award If you're terminally ill you'll automatically get the enhanced daily living awa…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-adult-disability-payment#financialData.rates.daily_living_standard": {
@@ -6601,7 +6560,7 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
       "sourceQuote": "…ace making budgeting decisions How much you'll get If you're awarded the daily living part you’ll get either: £76.70 a week for a standard award £114.60 a week for an enhanced award If you're terminally ill you'll automatical…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-adult-disability-payment#financialData.rates.mobility_enhanced": {
@@ -6610,7 +6569,7 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
       "sourceQuote": "…How much you'll get If you're awarded the mobility part you’ll get either: £30.30 a week for a standard award £80.00 a week for an enhanced award You can apply to lease an accessible vehicle if you get an enhanced award for…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-adult-disability-payment#financialData.rates.mobility_standard": {
@@ -6619,7 +6578,7 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
       "sourceQuote": "…lowing a journey or moving around. How much you'll get If you're awarded the mobility part you’ll get either: £30.30 a week for a standard award £80.00 a week for an enhanced award You can apply to lease an accessible vehicle…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-adult-disability-payment#govuk_url": {
@@ -6638,7 +6597,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…it during pregnancy and when your child is under 3. Best Start Foods is paid every 4 weeks. The payments are: £22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies) £44.80 for each child…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-foods#financialData.rates.child_under_1": {
@@ -6647,7 +6606,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…e payments are: £22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies) £44.80 for each child from birth until they’re one year old £22.40 for each child aged between one and 3 years old…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-foods#financialData.rates.pregnancy": {
@@ -6656,7 +6615,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…it during pregnancy and when your child is under 3. Best Start Foods is paid every 4 weeks. The payments are: £22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies) £44.80 for each child…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-foods#govuk_url": {
@@ -6675,7 +6634,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…the baby's birth date. Early Learning Payment Show this section If your application is successful you'll get £331.95 to help with the costs of early learning. You can get the payment when your child is aged between 2 years old…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-grant#financialData.rates.pregnancy_first": {
@@ -6684,7 +6643,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…for each child will be different if you have more than one child. You'll get a Pregnancy and Baby Payment of £796.65 for your first child. Your first child is your oldest child under 16. This includes a stepchild, if you have…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-grant#financialData.rates.pregnancy_subsequent": {
@@ -6693,7 +6652,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…e taken over looking after, for example, if you've adopted, or kinship care. This will change to a payment of £398.35 for any child that comes after your first. For example, your second or third child, or any child after these.…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-grant#financialData.rates.school_age": {
@@ -6702,7 +6661,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…the baby's birth date. Early Learning Payment Show this section If your application is successful you'll get £331.95 to help with the costs of early learning. You can get the payment when your child is aged between 2 years old…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-best-start-grant#govuk_url": {
@@ -6721,7 +6680,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment",
       "sourceQuote": "…enefits Carer Support Payment Financial support if you care for someone who gets a qualifying benefit . Up to £86.45 a week. You might get less than this if you get certain other benefits, such as State Pension . The Departmen…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#govuk_url": {
@@ -6740,7 +6699,7 @@
       "sourceUrl": "https://www.mygov.scot/carers-allowance-supplement",
       "sourceQuote": "…letter if you're being paid. It'll include the payment date and amount. June 2026 payment The June payment is £304.65. You'll get this amount if you were getting Carer Support Payment or Carer's Allowance on 13 April 2026 and y…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-carers-allowance-supplement#govuk_url": {
@@ -6759,7 +6718,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…s gets renal dialysis treatment, during the day or at night, at least twice a week Highest The weekly rate is £114.60. It's for a child, who because of their physical or mental disability, either: needs help from somebody thro…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#financialData.rates.care_lowest": {
@@ -6768,7 +6727,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…for the care component. Children 3 months old or older can get the care component. Lowest The weekly rate is £30.30. It's for a child who, because of their physical or mental disability, either: needs help from another perso…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#financialData.rates.care_middle": {
@@ -6777,7 +6736,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…y, to manage their bodily functions is 16 or older and cannot prepare a cooked meal Middle The weekly rate is £76.70. It's for a child who, because of their physical or mental disability, either: needs help from somebody thro…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#financialData.rates.mobility_higher": {
@@ -6786,7 +6745,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…or older can walk, but needs help from another person to move around outdoors Higher This is a weekly rate of £80. It's for a child who is 3 or older and either: unable to walk unable to walk outdoors whose health would get…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#financialData.rates.mobility_lower": {
@@ -6795,7 +6754,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…for the care component. Children 3 months old or older can get the care component. Lowest The weekly rate is £30.30. It's for a child who, because of their physical or mental disability, either: needs help from another perso…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#govuk_url": {
@@ -6814,7 +6773,7 @@
       "sourceUrl": "https://www.mygov.scot/child-winter-heating-payment",
       "sourceQuote": "…ce a year from October and through the winter. This does not depend on how cold it is. The current payment is £265.50. Who can get Child Winter Heating Payment Related content Children and family Payments, grants and discounts…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-child-winter-heating#govuk_url": {
@@ -6833,7 +6792,7 @@
       "sourceUrl": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over",
       "sourceQuote": "…or by a funeral plan, you will not get this payment. Funeral costs Show this section You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car. If th…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-funeral-support-payment#financialData.rates.funeral_costs_with_plan": {
@@ -6842,7 +6801,7 @@
       "sourceUrl": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over",
       "sourceQuote": "…al car. If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05. This is because their funeral plan should help pay for the funeral costs. Your travel costs Show this sectio…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-funeral-support-payment#govuk_url": {
@@ -6861,7 +6820,7 @@
       "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
       "sourceQuote": "…can check your State Pension age on gov.uk If you're eligible You could get a payment of between £105.55 and £316.70. Most eligible people get the payment automatically and do not need to apply. You’ll get a letter to confirm…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-pension-winter-heating#financialData.rates.min_annual": {
@@ -6870,7 +6829,7 @@
       "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
       "sourceQuote": "…cotland. You can check your State Pension age on gov.uk If you're eligible You could get a payment of between £105.55 and £316.70. Most eligible people get the payment automatically and do not need to apply. You’ll get a letter…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-pension-winter-heating#govuk_url": {
@@ -6889,7 +6848,7 @@
       "sourceUrl": "https://www.mygov.scot/scottish-child-payment",
       "sourceQuote": "…same child Scottish Child Payment helps towards the costs of supporting your family. It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age. You'll get the payment every 4…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-scottish-child-payment#govuk_url": {
@@ -6908,7 +6867,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…Sending documents for Young Carer Grant Applying outside of Scotland Young Carer Grant is a yearly payment of £405.10 for young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. Y…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#govuk_url": {
@@ -7016,12 +6975,11 @@
     "wg-discretionary-assistance#contactInfo.phone.number": {
       "valueHash": "5fbf576023ae4400",
       "valueSeen": "+44 800 859 5924",
-      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf/contact-us",
+      "sourceQuote": "Discretionary Assistance Fund (DAF) PO Box 2377 Wrexham LL11 0LG Telephone: 0800 859 5924",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
-      "confidence": "unverified",
-      "rationale": "Not on the service page and not in the GOV.UK contact-page index. Needs a source URL or a correction."
+      "verifiedAt": "2026-09-28T10:48:26.133Z",
+      "confidence": "confirmed"
     },
     "wg-discretionary-assistance#govuk_url": {
       "valueHash": "14b419db8791f994",
@@ -7039,7 +6997,7 @@
       "sourceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
       "sourceQuote": "…Email People on low incomes who use heating oil or liquid petroleum gas (LPG) will be eligible for a one-off £200 payment if they are on the Council Tax Reduction Scheme. This funding comes from £3.8 million allocated to Wa…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-28T10:23:40.514Z",
+      "verifiedAt": "2026-09-28T10:46:32.807Z",
       "confidence": "confirmed"
     },
     "wg-winter-fuel-support#govuk_url": {

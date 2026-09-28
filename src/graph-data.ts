@@ -6692,7 +6692,7 @@ export const NODES: Record<string, ServiceNode> = {
       localAuthority: true,
       officeLocatorUrl: 'https://www.gov.uk/find-local-council',
       additionalPhones: [
-        { number: '+44 1799 582030', label: 'IPSEA SEND advice line (independent)' },
+        { number: '+44 1799 582030', label: 'IPSEA admin/enquiries line (independent)' },
       ],
       notes: 'Contact your local council SEND department. IPSEA offers free independent advice.',
     },
@@ -7717,16 +7717,6 @@ export const NODES: Record<string, ServiceNode> = {
       rates: { fee: 1839 },
       source: 'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
     },
-    contactInfo: {
-      phone: { number: '+44 300 790 6268', relay: '18001 then 0300 790 6268', label: 'Nationality enquiries' },
-      hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '09:00',
-          close: '14:30',
-        },
-      ],
-    },
   },
   'ho-citizenship-spouse': {
     id: 'ho-citizenship-spouse', name: 'British citizenship (spouse / civil partner)', dept: 'Home Office', deptKey: 'ho',
@@ -8089,7 +8079,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence',
     },
       contactInfo: {
-      phone: { number: '+44 300 790 6165', relay: '18001 then 0300 790 6165', label: 'TV Licensing' },
+      phone: { number: '+44 300 790 6117', relay: '18001 then 0300 790 6117', label: 'TV Licensing (over-75s)' },
       hours: [
         {
           days: ['mon','tue','wed','thu','fri'],
@@ -8257,7 +8247,7 @@ export const NODES: Record<string, ServiceNode> = {
       source: 'https://www.railcard.co.uk/disabled-persons-railcard/',
     },
       contactInfo: {
-      phone: { number: '+44 345 3000 250', label: 'Railcard customer support' },
+      phone: { number: '+44 345 605 0525', label: 'Disabled Persons Railcard support' },
       hours: [
         { days: ['mon','tue','wed','thu','fri','sat','sun'], open: '07:00', close: '22:00' },
       ],
@@ -8688,16 +8678,6 @@ export const NODES: Record<string, ServiceNode> = {
         'Explain the available schemes (First Homes, Shared Ownership, Mortgage Guarantee)',
         'Guide user through the application process for the relevant scheme',
         'Calculate estimated costs and savings based on scheme chosen',
-      ],
-    },
-      contactInfo: {
-      phone: { number: '+44 300 100 0030', label: 'Help to Buy agent' },
-      hours: [
-        {
-          days: ['mon','tue','wed','thu','fri'],
-          open: '09:00',
-          close: '17:30',
-        },
       ],
     },
   },
