@@ -556,14 +556,14 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'gro-give-notice': {
     id: 'gro-give-notice', name: 'Give notice of marriage', dept: 'GRO', deptKey: 'gro',
-    deadline: '28 days before',
-    desc: 'At local register office. Legally required at least 28 days before ceremony.',
+    deadline: '29 days before',
+    desc: 'At local register office. Legally required at least 29 days before ceremony.',
     govuk_url: 'https://www.gov.uk/marriages-civil-partnerships/giving-notice',
     serviceType: 'obligation',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Both parties to a marriage or civil partnership must give notice at their local register office at least 28 days before the ceremony. Legally required.',
+      summary: 'Both parties to a marriage or civil partnership must give notice at their local register office at least 29 days before the ceremony. Legally required.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Both parties must be 18 or over (16-17 with parental consent in exceptional circumstances).' },
@@ -612,8 +612,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "deadline",
           "triggerEvent": "wedding_date",
           "triggerLabel": "Date of wedding/ceremony",
-          "maxDays": -28,
-          "label": "Notice must be given at least 28 days before the ceremony"
+          "maxDays": -29,
+          "label": "Notice must be given at least 29 days before the ceremony"
         }
       ],
 
@@ -627,7 +627,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Explain that notice of marriage must be given in person at a local register office',
         'Help user find their nearest register office',
         'List required documents (passport, proof of address, decree absolute if applicable)',
-        'Advise on the 28-day minimum notice period',
+        'Advise on the 29-day minimum notice period',
         'Flag extra requirements for non-British/Irish citizens',
       ],
     },
@@ -651,7 +651,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
       ],
       officeLocatorUrl: 'https://www.gov.uk/register-offices',
-      notes: 'Must give notice in person at a register office at least 28 days before ceremony.',
+      notes: 'Must give notice in person at a register office at least 29 days before ceremony.',
     },
   },
   'gro-marriage-cert': {
@@ -1954,7 +1954,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'hmrc-corporation-tax', name: 'Register for Corporation Tax', dept: 'HMRC', deptKey: 'hmrc',
     deadline: '3 months',
     desc: 'Required within 3 months of starting to trade. Limited companies only.',
-    govuk_url: 'https://www.gov.uk/limited-company-formation/set-up-your-company-for-corporation-tax',
+    govuk_url: 'https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading',
     serviceType: 'obligation',
     proactive: true,
     gated: true,
@@ -7100,7 +7100,7 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'la-house-to-house-collection-licence': {
     id: 'la-house-to-house-collection-licence', name: 'House-to-house collection licence', dept: 'Local Authority', deptKey: 'la',
-    deadline: '20 days',
+    deadline: '20 working days',
     desc: 'Charities and local groups wishing to collect money or goods door-to-door from residential properties must obtain a free licence from their local council in England and Wales.',
     govuk_url: 'https://www.gov.uk/find-licences/house-to-house-collection-licence',
     serviceType: 'application',
@@ -7254,7 +7254,7 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'la-temporary-events-notice': {
     id: 'la-temporary-events-notice', name: 'Temporary Events Notice (TEN)', dept: 'Local Authority', deptKey: 'la',
-    deadline: '10 days',
+    deadline: '10 clear working days',
     desc: 'Allows an individual to hold licensable activities (alcohol sales, entertainment, late-night refreshment) on unlicensed premises for up to 7 days with a maximum of 500 attendees. Fee: £21.',
     govuk_url: 'https://www.gov.uk/find-licences/temporary-events-notice',
     serviceType: 'application',
@@ -8699,14 +8699,14 @@ export const NODES: Record<string, ServiceNode> = {
   // TPR ──────────────────────────────────────────────────────────────────────
   'tpr-workplace-pension': {
     id: 'tpr-workplace-pension', name: 'Workplace Pension auto-enrollment', dept: 'The Pensions Regulator', deptKey: 'tpr',
-    deadline: 'Before 1st payday',
-    desc: 'Mandatory for any employer paying staff £10,000+/year aged 22 to State Pension age. Must be set up before the first payday.',
+    deadline: 'Duties start date (day first staff member starts work)',
+    desc: 'Mandatory for any employer paying staff £10,000+/year aged 22 to State Pension age. Duties start as soon as the first member of staff starts working, not deferred to the first payday.',
     govuk_url: 'https://www.gov.uk/workplace-pensions-employers',
     serviceType: 'obligation',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'All employers must automatically enrol eligible workers into a qualifying workplace pension scheme and make contributions. Eligible workers are aged 22 to State Pension age, earning at least £10,000/year. Employer must set up the scheme before the first payday.',
+      summary: 'All employers must automatically enrol eligible workers into a qualifying workplace pension scheme and make contributions. Eligible workers are aged 22 to State Pension age, earning at least £10,000/year. Employer duties start on the day the first member of staff starts working for them (the "duties start date"), not on their first payday.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Employing any worker who is aged 22 to State Pension age and earning more than £10,000 per year. Employer obligation — applies from day 1 of taking on qualifying staff.' },

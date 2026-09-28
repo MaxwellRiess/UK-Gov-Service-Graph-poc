@@ -1,0 +1,63 @@
+{
+  "generatedAt": "2026-09-28T11:41:50.503Z",
+  "reviewedAt": "2026-09-28T12:50:00.000Z",
+  "note": "verify:deadlines originally flagged 20 disagreements. 13 were manually reviewed and confirmed correct (same fact, different wording than the naive containment check expects) and are now recorded as confirmed provenance directly. These 7 remain genuinely open: the extraction found a real, verbatim deadline on the node's own govuk_url page, but for a different scenario on the same multi-topic guide than the one the graph field describes. The graph values are believed correct (checked by hand against other sources where noted) but are not citable against this specific page with a literal quote.",
+  "review": [
+    {
+      "id": "hmrc-spp",
+      "graph": "52 weeks",
+      "extracted": "At least 15 weeks before the baby is due",
+      "quote": "You must tell your employer the baby's due date at least 15 weeks before the baby is expected.",
+      "url": "https://www.gov.uk/paternity-pay-leave",
+      "reviewNote": "Both facts are real and on this page: leave must END within 52 weeks of birth (graph's fact — the correction already made in the September Having a Baby review, which found this at 8 weeks previously), and the employer must be TOLD the due date at least 15 weeks before (a different, also-real notice deadline). Extraction picked the 15-week fact; graph's 52-week fact is intentional and correct, just not the literal quote returned."
+    },
+    {
+      "id": "hmrc-register-sole-trader",
+      "graph": "5 Oct (yr 2)",
+      "extracted": "You must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year.",
+      "quote": "you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April)",
+      "url": "https://www.gov.uk/set-up-sole-trader",
+      "reviewNote": "5 October following the tax year end is the well-established Self Assessment registration deadline (confirmed on gov.uk/register-for-self-assessment, used for the sibling node hmrc-self-assessment), but gov.uk/set-up-sole-trader — this node's own govuk_url — states the £1,000 threshold rather than the specific date. Graph value believed correct; not citable against this page."
+    },
+    {
+      "id": "hmrc-starter-checklist",
+      "graph": "Before first payday",
+      "extracted": "by 31 May",
+      "quote": "They must provide this by 31 May, on paper or electronically.",
+      "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/starter-checklist",
+      "reviewNote": "31 May is the P60 deadline, a different form covered by the same combined guide. The starter checklist itself has no explicit stated deadline on this page beyond the practical need to complete it before your new employer runs your first payroll."
+    },
+    {
+      "id": "ho-brp",
+      "graph": "10 days",
+      "extracted": "24 months after the expiry date printed on the card, or until 31 December 2026, whichever comes first",
+      "quote": "You might be able to use your expired BRP for 24 months after the expiry date printed on the card, or until 31 December 2026 - whichever comes first.",
+      "url": "https://www.gov.uk/biometric-residence-permits",
+      "reviewNote": "That quote is about using an EXPIRED BRP as evidence, a different scenario from this node's fact (collecting a new BRP within 10 days of arrival). Not found on this page in the extracted span."
+    },
+    {
+      "id": "hmcts-money-claims",
+      "graph": "6 years from debt arising",
+      "extracted": "within 21 days of getting the decision",
+      "quote": "You must do this within 21 days of getting the decision.",
+      "url": "https://www.gov.uk/make-court-claim-for-money",
+      "reviewNote": "21 days is the deadline to respond after a court decision — a later stage than this node's fact (the Limitation Act 1980 6-year period to bring a claim at all). Same guide, different topic."
+    },
+    {
+      "id": "ho-skilled-worker-dependent-visa",
+      "graph": "Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)",
+      "extracted": "within 3 months of getting your certificate of sponsorship",
+      "quote": "You must apply for your visa within 3 months of getting your certificate of sponsorship.",
+      "url": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+      "reviewNote": "Both are likely real: 3 months from Certificate of Sponsorship is the application-timing deadline; the graph's fact is about arrival/travel timing. Two different deadlines on the same page — worth deciding which one this node's single deadline field should represent."
+    },
+    {
+      "id": "la-proxy-vote",
+      "graph": "6 working days before election",
+      "extracted": "no later than 11 working days before the election and by 5pm on that day",
+      "quote": "You must apply no later than 11 working days before the election and by 5pm on that day.",
+      "url": "https://www.gov.uk/apply-proxy-vote",
+      "reviewNote": "11 working days is the deadline to switch FROM a postal vote TO a proxy vote, on the same page. The standard proxy vote application deadline is genuinely 6 working days — confirmed via the Electoral Commission (electoralcommission.org.uk/voting-and-elections/ways-vote/apply-vote-proxy) — but this GOV.UK page's fetched text doesn't state it verbatim, so it isn't citable here."
+    }
+  ]
+}
