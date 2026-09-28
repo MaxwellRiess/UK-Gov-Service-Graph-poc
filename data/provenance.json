@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-09-28T11:46:20.185Z",
+  "lastRun": "2026-09-28T13:17:54.183Z",
   "fields": {
     "acas-early-conciliation#govuk_url": {
       "valueHash": "eb674e1e99a7a09b",
@@ -7365,6 +7365,15 @@
       "verifiedAt": "2026-09-28T11:45:17.041Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.gov.wales has no Content API, so only existence is established."
+    },
+    "wg-winter-fuel-support#deadline": {
+      "valueHash": "c7ad49ff6c036824",
+      "valueSeen": "30 September 2026 (6 months from 31 March 2026 launch)",
+      "sourceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+      "sourceQuote": "First published: 31 March 2026 ... There are 6 months from the scheme's launch to claim.",
+      "method": "manual",
+      "verifiedAt": "2026-09-28T13:17:54.182Z",
+      "confidence": "confirmed"
     },
     "wg-winter-fuel-support#financialData.rates.payment": {
       "valueHash": "27badc983df1780b",

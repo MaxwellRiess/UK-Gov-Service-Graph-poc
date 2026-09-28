@@ -9094,6 +9094,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
       ],
     },
+    nations: ['england', 'wales', 'northern-ireland'],
   },
 
   // SSS — Social Security Scotland ─────────────────────────────────────────
@@ -9601,7 +9602,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Verify user receives a qualifying benefit',
         'Guide user through the mygov.scot application',
         'Explain the 6-month application deadline',
-        'Advise on maximum amounts (£1,500 burial/cremation + £120 other)',
+        'Advise on maximum amounts (£1,327.75 towards funeral costs, £162.05 if there was a funeral plan)',
       ],
       missingBenefitId: 'funeralSupportPayment',
     },
@@ -9617,14 +9618,14 @@ export const NODES: Record<string, ServiceNode> = {
   // Welsh Government ───────────────────────────────────────────────────────
   'wg-winter-fuel-support': {
     id: 'wg-winter-fuel-support', name: 'Oil and LPG heating payment (Wales)', dept: 'Welsh Government', deptKey: 'wg',
-    deadline: null,
-    desc: 'One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 6 months after the 2026 launch. Replaces the closed Winter Fuel Support Scheme.',
+    deadline: '30 September 2026 (6 months from 31 March 2026 launch)',
+    desc: 'One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 30 September 2026, 6 months after the scheme launched on 31 March 2026. Replaces the closed Winter Fuel Support Scheme.',
     govuk_url: 'https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'One-off £200 payment (announced March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; there are 6 months from launch to claim. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.',
+      summary: 'One-off £200 payment (launched 31 March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; claims close 30 September 2026, 6 months after launch. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.',
       universal: false,
       criteria: [
         { factor: 'income', description: 'Must be getting Council Tax Reduction.' },
@@ -9666,7 +9667,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Confirm user lives in Wales, gets Council Tax Reduction and heats with oil or LPG',
         'Explain that the local council will contact eligible households, and to contact the council if they have not heard',
-        'Advise that claims close 6 months after the scheme launched in 2026; if too late or not eligible, suggest the Discretionary Assistance Fund',
+        'Advise that claims close 30 September 2026, 6 months after the scheme launched; if too late or not eligible, suggest the Discretionary Assistance Fund',
         'Explain the payment amount (£200)',
       ],
       missingBenefitId: 'winterFuelSupportScheme',
@@ -11119,7 +11120,7 @@ export const NODES: Record<string, ServiceNode> = {
     financialData: {
       taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { pregnancy_first: 796.65, pregnancy_subsequent: 398.35, early_learning: 331.950, school_age: 331.950 },
+      rates: { pregnancy_first: 796.65, pregnancy_subsequent: 398.35, early_learning: 331.95, school_age: 331.95 },
       source: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     },
     nations: ['scotland'],
@@ -12155,7 +12156,7 @@ export const NODES: Record<string, ServiceNode> = {
     financialData: {
       taxYear: '2026-27',
       frequency: 'annual',
-      rates: { annual_cert: 114.500, three_month_cert: 32.05, single_item: 9.90 },
+      rates: { annual_cert: 114.50, three_month_cert: 32.05, single_item: 9.90 },
       source: 'https://www.gov.uk/get-a-ppc',
     },
     nations: ['england'],
