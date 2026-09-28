@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-09-28T14:13:35.867Z",
+  "lastRun": "2026-09-28T14:52:37.292Z",
   "fields": {
     "acas-early-conciliation#govuk_url": {
       "valueHash": "eb674e1e99a7a09b",
@@ -111,6 +111,15 @@
       "confidence": "confirmed",
       "valueHash": "e36534c8a5114087",
       "valueSeen": "ch"
+    },
+    "ch-register-ltd#eligibility.rules.0.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.uk/limited-company-formation/register-your-company",
+      "sourceQuote": "…ny and making sure company accounts and reports are properly prepared. A director must be 16 or over. Directors do not have to live in the UK but companies must have a UK registered office a…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "ch-register-ltd#financialData.rates.registration_fee": {
       "valueHash": "ad57366865126e55",
@@ -479,6 +488,16 @@
       "valueHash": "0eacea129c6dd3e6",
       "valueSeen": "dvla"
     },
+    "dvla-provisional-licence#eligibility.rules.0.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be at least 15 years and 9 months old (age 16 rounded)\": 16 not found in a matching form on https://www.gov.uk/apply-first-provisional-driving-licence."
+    },
     "dvla-provisional-licence#financialData.rates.fee": {
       "valueHash": "86e5014965866131",
       "valueSeen": "£34",
@@ -758,6 +777,16 @@
       "valueHash": "8d24ecebe0ea38df",
       "valueSeen": "dvsa"
     },
+    "dvsa-theory-test#eligibility.rules.0.value": {
+      "valueHash": "4523540f1504cd17",
+      "valueSeen": "17",
+      "sourceUrl": "https://www.gov.uk/book-theory-test",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be at least 17 years old (16 for moped)\": 17 not found in a matching form on https://www.gov.uk/book-theory-test."
+    },
     "dvsa-theory-test#financialData.rates.fee": {
       "valueHash": "535fa30d7e25dd8a",
       "valueSeen": "£23",
@@ -828,6 +857,16 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-attendance-allowance#eligibility.rules.0.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/attendance-allowance",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be aged 66 or over (State Pension age)\": 66 not found in a matching form on https://www.gov.uk/attendance-allowance or https://www.gov.uk/attendance-allowance/what-youll-get."
     },
     "dwp-attendance-allowance#financialData.rates.higher": {
       "valueHash": "521929eab2217618",
@@ -917,6 +956,25 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-bereavement-support#eligibility.rules.2.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be under State Pension age (66) at time of partner's death\": 66 not found in a matching form on https://www.gov.uk/bereavement-support-payment or https://www.gov.uk/bereavement-support-payment/what-youll-get."
+    },
+    "dwp-bereavement-support#eligibility.rules.3.maxDays": {
+      "valueHash": "2cfd4b162e427e8e",
+      "valueSeen": "639",
+      "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
+      "sourceQuote": "…ou’re in prison. When you need to make your claim You usually need to make a claim within 21 months of your partner’s death. If it’s been over 21 months since your partner’s death, you may…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-bereavement-support#financialData.rates.lump_sum_higher": {
       "valueHash": "889e2fc00981675e",
@@ -1052,6 +1110,24 @@
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
     },
+    "dwp-carers-allowance#eligibility.rules.1.value": {
+      "valueHash": "9f14025af0065b30",
+      "valueSeen": "35",
+      "sourceUrl": "https://www.gov.uk/carers-allowance",
+      "sourceQuote": "…e who should receive the benefit. The type of care you provide You need to spend at least 35 hours a week caring for someone. This can include: helping with washing and cooking taking the…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "dwp-carers-allowance#eligibility.rules.3.value": {
+      "valueHash": "fc56dbc6d4652b31",
+      "valueSeen": "204",
+      "sourceUrl": "https://www.gov.uk/carers-allowance",
+      "sourceQuote": "…g for 21 hours a week or more you’re not subject to immigration control your earnings are £204 or less a week after tax, National Insurance and expenses If you live in Scotland, you ne…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "dwp-carers-allowance#financialData.rates.weekly_rate": {
       "valueHash": "e0d5d0954ec2b3a6",
       "valueSeen": "£86.45",
@@ -1154,6 +1230,15 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-dla-child#eligibility.rules.2.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
+      "sourceQuote": "…wance ( DLA ) for children may help with the extra costs of looking after a child who: is under 16 has difficulties walking or needs much more looking after than a child of the same age wh…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-dla-child#financialData.rates.care_highest": {
       "valueHash": "521929eab2217618",
@@ -1262,6 +1347,15 @@
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
     },
+    "dwp-funeral-payment#eligibility.rules.2.maxDays": {
+      "valueHash": "b8aed072d29403ec",
+      "valueSeen": "183",
+      "sourceUrl": "https://www.gov.uk/funeral-payments",
+      "sourceQuote": "…child cannot claim (for example, they live abroad or are in prison) You must apply within 6 months of the funeral, even if you’re waiting for a decision on a qualifying benefit . You can m…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "dwp-funeral-payment#financialData.rates.max_amount": {
       "valueHash": "40510175845988f1",
       "valueSeen": "£1,000",
@@ -1292,6 +1386,25 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-housing-benefit#eligibility.rules.0.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/housing-benefit",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/housing-benefit."
+    },
+    "dwp-housing-benefit#eligibility.rules.2.value": {
+      "valueHash": "2570901c76653e57",
+      "valueSeen": "16000",
+      "sourceUrl": "https://www.gov.uk/housing-benefit",
+      "sourceQuote": "…not be able to claim Usually, you will not get Housing Benefit if: your savings are over £16,000 - unless you get Guarantee Credit of Pension Credit you’re paying a mortgage on your own…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-housing-benefit#govuk_url": {
       "sourceUrl": "https://www.gov.uk/housing-benefit",
@@ -1355,6 +1468,15 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-mandatory-reconsideration#eligibility.rules.0.maxDays": {
+      "valueHash": "624b60c58c9d8bfb",
+      "valueSeen": "30",
+      "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
+      "sourceQuote": "…are on your decision letter. You usually need to ask for mandatory reconsideration within one month of the date on your decision letter. If you’re writing, the letter or form must arrive by…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-mandatory-reconsideration#govuk_url": {
       "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
@@ -1504,6 +1626,25 @@
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
     },
+    "dwp-new-style-jsa#eligibility.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.gov.uk/jobseekers-allowance/new-style-jsa",
+      "sourceQuote": "…. There are different eligibility rules if you’re in Northern Ireland . You must also: be 18 or over be under the State Pension age be in Great Britain not be working 16 or more hours per we…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "dwp-new-style-jsa#eligibility.rules.1.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/jobseekers-allowance/new-style-jsa",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/jobseekers-allowance/new-style-jsa or https://www.gov.uk/jobseekers-allowance."
+    },
     "dwp-new-style-jsa#financialData.rates.over_25": {
       "valueHash": "c1508be5c2b65860",
       "valueSeen": "£95.55",
@@ -1607,6 +1748,25 @@
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
     },
+    "dwp-pension-credit#eligibility.rules.0.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/pension-credit or https://www.gov.uk/pension-credit/what-youll-get."
+    },
+    "dwp-pension-credit#eligibility.rules.1.value": {
+      "valueHash": "8ae4c23b80d1e7c8",
+      "valueSeen": "238",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "…artner, your income is calculated together. Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner If your income…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "dwp-pension-credit#financialData.rates.guarantee_couple": {
       "valueHash": "5c6befd287546277",
       "valueSeen": "£363.25",
@@ -1695,6 +1855,25 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-pip#eligibility.rules.0.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.uk/pip",
+      "sourceQuote": "…an get Personal Independence Payment ( PIP ) if all of the following apply to you: you’re 16 or over you have a long-term physical or mental health condition or disability you have difficult…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "dwp-pip#eligibility.rules.1.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/pip",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/pip or https://www.gov.uk/pip/what-youll-get."
     },
     "dwp-pip#financialData.rates.daily_living_enhanced": {
       "valueHash": "521929eab2217618",
@@ -1843,6 +2022,25 @@
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
     },
+    "dwp-state-pension#eligibility.rules.0.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/new-state-pension/eligibility or https://www.gov.uk/new-state-pension/what-youll-get."
+    },
+    "dwp-state-pension#eligibility.rules.1.value": {
+      "valueHash": "4a44dc15364204a8",
+      "valueSeen": "10",
+      "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
+      "sourceQuote": "…t the criteria and the time can be added, you could get the new State Pension if you have 10 or more years in total. The amount you get paid will be based on the qualifying years in your UK Nation…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "dwp-state-pension#financialData.rates.basic_full_weekly": {
       "valueHash": "e2e410c364660ff7",
       "valueSeen": "184.9",
@@ -1902,6 +2100,25 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-sure-start-grant#eligibility.rules.0.rules.1.rules.1.value": {
+      "valueHash": "5feceb66ffc86f38",
+      "valueSeen": "0",
+      "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Baby under 1 year old\": 0 not found in a matching form on https://www.gov.uk/sure-start-maternity-grant or https://www.gov.uk/sure-start-maternity-grant/what-youll-get."
+    },
+    "dwp-sure-start-grant#eligibility.rules.2.maxDays": {
+      "valueHash": "b8aed072d29403ec",
+      "valueSeen": "183",
+      "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant",
+      "sourceQuote": "…ertain benefits You must claim the grant within 11 weeks of the baby’s due date or within 6 months after the baby’s birth. You do not have to pay the grant back and it will not affect your…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-sure-start-grant#financialData.rates.grant_amount": {
       "valueHash": "0604cd3138feed20",
@@ -1974,6 +2191,15 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-uc-carer#eligibility.rules.2.value": {
+      "valueHash": "9f14025af0065b30",
+      "valueSeen": "35",
+      "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+      "sourceQuote": "…ent – either rate of the daily living part You need to provide care for them for at least 35 hours a week. You’ll get an extra monthly amount of £209.34. If you live with your partner and…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-uc-carer#financialData.rates.carer_element": {
       "valueHash": "e56922fc91e07d6d",
@@ -2056,6 +2282,34 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-universal-credit#eligibility.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.gov.uk/universal-credit",
+      "sourceQuote": "…work, for example because of a health condition To claim you must: live in the UK be aged 18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "dwp-universal-credit#eligibility.rules.1.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/universal-credit",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/universal-credit or https://www.gov.uk/universal-credit/what-youll-get."
+    },
+    "dwp-universal-credit#eligibility.rules.3.value": {
+      "valueHash": "2570901c76653e57",
+      "valueSeen": "16000",
+      "sourceUrl": "https://www.gov.uk/universal-credit",
+      "sourceQuote": "…18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or less in money, savings and investments You can use a benefits calculator to check what…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "dwp-universal-credit#financialData.rates.child_element": {
       "valueHash": "269a10e8476195ba",
@@ -2199,6 +2453,16 @@
       "confidence": "confirmed",
       "valueHash": "febef45fdf43cf48",
       "valueSeen": "dwp"
+    },
+    "dwp-winter-fuel#eligibility.rules.0.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be born on or before 27 June 1960 (approximately State Pension age)\": 66 not found in a matching form on https://www.gov.uk/winter-fuel-payment."
     },
     "dwp-winter-fuel#financialData.rates.born_1946_to_1960": {
       "valueHash": "27badc983df1780b",
@@ -2488,6 +2752,24 @@
       "valueSeen": "gro",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"HM Passport Office\",\"Home Office\",\"Ministry of Justice\"], which is a publishing role and need not match delivery."
     },
+    "gro-give-notice#eligibility.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/giving-notice",
+      "sourceQuote": "You can get married or form a civil partnership in England or Wales if you’re: 18 or over not already married or in a civil partnership not closely related Same sex couples can co…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "gro-give-notice#eligibility.rules.3.maxDays": {
+      "valueHash": "14513179c9fa953f",
+      "valueSeen": "-29",
+      "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/giving-notice",
+      "sourceQuote": "…form a civil partnership. This is known as ‘giving notice’. You must give notice at least 29 days before your ceremony. For example, if you give notice on 1 May, the earliest date you can…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "gro-give-notice#govuk_url": {
       "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships",
       "sourceQuote": "",
@@ -2544,6 +2826,15 @@
       "valueSeen": "gro",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"HM Passport Office\"], which is a publishing role and need not match delivery."
     },
+    "gro-register-birth#eligibility.rules.0.maxDays": {
+      "valueHash": "73475cb40a568e8d",
+      "valueSeen": "42",
+      "sourceUrl": "https://www.gov.uk/register-birth",
+      "sourceQuote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born. You should do this at the local register office for the area whe…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "gro-register-birth#govuk_url": {
       "sourceUrl": "https://www.gov.uk/register-birth",
       "sourceQuote": "",
@@ -2575,6 +2866,16 @@
       "valueHash": "f95141231618ead5",
       "valueSeen": "gro",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Home Office\"], which is a publishing role and need not match delivery."
+    },
+    "gro-register-death#eligibility.rules.1.maxDays": {
+      "valueHash": "ef2d127de37b942b",
+      "valueSeen": "5",
+      "sourceUrl": "https://www.gov.uk/register-a-death",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must register within 5 days of death\": 5 not found in a matching form on https://www.gov.uk/register-a-death."
     },
     "gro-register-death#govuk_url": {
       "sourceUrl": "https://www.gov.uk/register-a-death",
@@ -2669,6 +2970,33 @@
       "confidence": "confirmed",
       "valueHash": "813717bcbccb886c",
       "valueSeen": "hmcts"
+    },
+    "hmcts-court-fee-remission#eligibility.rules.0.rules.0.rules.1.value": {
+      "valueHash": "3bc098c10285bf1e",
+      "valueSeen": "4250",
+      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "sourceQuote": "…n have depends on how much the court or tribunal fee is. For example, you can have: up to £4,250 in savings if your fee is £1,420 or less up to £16,000 in savings if your fee is over £7,…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmcts-court-fee-remission#eligibility.rules.0.rules.1.rules.0.value": {
+      "valueHash": "ce70393d427f1dc8",
+      "valueSeen": "17040",
+      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "sourceQuote": "…ort whichever income is lower. You can get money off your fee if your reported income is: £1,420 or less, if you’re single £2,130 or less, if you have a partner For each child you have,…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmcts-court-fee-remission#eligibility.rules.0.rules.1.rules.1.value": {
+      "valueHash": "3bc098c10285bf1e",
+      "valueSeen": "4250",
+      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "sourceQuote": "…ou must also have less than the maximum amount of money in savings. This is usually up to £4,250. Your income Your income includes anything you earn before tax and any other payments you…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#govuk_url": {
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
@@ -2951,6 +3279,24 @@
       "valueHash": "813717bcbccb886c",
       "valueSeen": "hmcts",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Legal Aid Agency\"], which is a publishing role and need not match delivery."
+    },
+    "hmcts-legal-aid#eligibility.rules.0.value": {
+      "valueHash": "ad5f9478d603fe97",
+      "valueSeen": "8000",
+      "sourceUrl": "https://www.gov.uk/legal-aid",
+      "sourceQuote": "…and property You will not usually be eligible if you and your partner have assets of over £8,000. Assets are: savings and investments any equity in your home over £100,000 (equity is the…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmcts-legal-aid#eligibility.rules.1.rules.0.value": {
+      "valueHash": "43da5769ae9248a7",
+      "valueSeen": "31884",
+      "sourceUrl": "https://www.gov.uk/legal-aid",
+      "sourceQuote": "…’ll usually need to show that you and your partner either: have a joint monthly income of £2,657 or less (before tax and other deductions) get a qualifying benefit Qualifying benefits ar…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmcts-legal-aid#govuk_url": {
       "sourceUrl": "https://www.gov.uk/legal-aid",
@@ -3246,6 +3592,15 @@
       "valueSeen": "hmrc",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Work and Pensions\"], which is a publishing role and need not match delivery."
     },
+    "hmrc-carers-credit#eligibility.rules.1.value": {
+      "valueHash": "f5ca38f748a1d6ea",
+      "valueSeen": "20",
+      "sourceUrl": "https://www.gov.uk/carers-credit",
+      "sourceQuote": "You could get Carer’s Credit if you’re caring for someone for at least 20 hours a week. Carer’s Credit is a National Insurance credit that helps with gaps in your Nation…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-carers-credit#govuk_url": {
       "sourceUrl": "https://www.gov.uk/carers-credit",
       "sourceQuote": "",
@@ -3276,6 +3631,15 @@
       "confidence": "confirmed",
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
+    },
+    "hmrc-child-benefit#eligibility.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.uk/child-benefit",
+      "sourceQuote": "You get Child Benefit if you’re responsible for bringing up a child who is: under 16 under 20 if they stay in approved education or training Only one person can get Child Ben…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmrc-child-benefit#financialData.rates.first_child": {
       "valueHash": "5cd727242e802d88",
@@ -3398,6 +3762,15 @@
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
     },
+    "hmrc-corporation-tax#eligibility.rules.1.maxDays": {
+      "valueHash": "69f59c273b6e669a",
+      "valueSeen": "90",
+      "sourceUrl": "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading",
+      "sourceQuote": "…rds Board. Tell HMRC your company or organisation is now active You must tell HMRC within 3 months of starting your tax accounting period if your limited company is within the charge of Co…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-corporation-tax#govuk_url": {
       "sourceUrl": "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading",
       "sourceQuote": "",
@@ -3443,6 +3816,24 @@
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Education\",\"Department for Education and Skills\",\"HM Revenue & Customs\"], which is a publishing role and need not match delivery."
     },
+    "hmrc-free-childcare-15#eligibility.rules.1.value": {
+      "valueHash": "4e07408562bedb8b",
+      "valueSeen": "3",
+      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+      "sourceQuote": "…in Wales , provides childcare in Scotland or provides childcare in Northern Ireland . All 3 to 4-year-olds in England can get 570 free hours per year. It’s usually taken as 15 hours a week for 38…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmrc-free-childcare-15#eligibility.rules.2.value": {
+      "valueHash": "4b227777d4dd1fc6",
+      "valueSeen": "4",
+      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+      "sourceQuote": "…care for your child outside your home. Foster carers If you’re a foster parent of a child aged 9 months to 4 years old you can claim Free Childcare for Working Parents as long as: you’re in paid wor…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-free-childcare-15#govuk_url": {
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs",
       "sourceQuote": "",
@@ -3474,6 +3865,24 @@
       "confidence": "confirmed",
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
+    },
+    "hmrc-free-childcare-30#eligibility.rules.1.value": {
+      "valueHash": "4b227777d4dd1fc6",
+      "valueSeen": "4",
+      "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
+      "sourceQuote": "…hildcare a week through the Free Childcare for Working Parents scheme. Your child must be aged 9 months to 4 years old and you must live in England. There are: different schemes in Scotland differen…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmrc-free-childcare-30#eligibility.rules.3.value": {
+      "valueHash": "3bb78535cc9555ff",
+      "valueSeen": "100000",
+      "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
+      "sourceQuote": "…ou or your partner’s expected adjusted net income (including any foreign income ) is over £100,000 for the current tax year Your child’s age and circumstances If your child is aged 9 month…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmrc-free-childcare-30#govuk_url": {
       "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
@@ -3595,6 +4004,25 @@
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
     },
+    "hmrc-iht400#eligibility.rules.1.value": {
+      "valueHash": "b9faf8d04d2701a4",
+      "valueSeen": "325000",
+      "sourceUrl": "https://www.gov.uk/inheritance-tax",
+      "sourceQuote": "…ere’s normally no Inheritance Tax to pay if either: the value of your estate is below the £325,000 threshold you leave everything above the £325,000 threshold to your spouse, civil partner…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmrc-iht400#eligibility.rules.2.maxDays": {
+      "valueHash": "7b69759630f869f2",
+      "valueSeen": "180",
+      "sourceUrl": "https://www.gov.uk/inheritance-tax",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"IHT400 must be filed within 6 months of death\": 180 not found in a matching form on https://www.gov.uk/inheritance-tax."
+    },
     "hmrc-iht400#govuk_url": {
       "sourceUrl": "https://www.gov.uk/inheritance-tax",
       "sourceQuote": "",
@@ -3616,6 +4044,24 @@
       "confidence": "confirmed",
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
+    },
+    "hmrc-lisa#eligibility.rules.1.value": {
+      "valueHash": "d59eced1ded07f84",
+      "valueSeen": "40",
+      "sourceUrl": "https://www.gov.uk/lifetime-isa",
+      "sourceQuote": "…y open and your savings will still earn interest or investment returns. You must be 18 or over but under 40 to open a Lifetime ISA . To open and continue to pay into a Lifetime ISA you must also be…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmrc-lisa#eligibility.rules.2.value": {
+      "valueHash": "7ae410ba957c79d1",
+      "valueSeen": "450000",
+      "sourceUrl": "https://www.gov.uk/lifetime-isa",
+      "sourceQuote": "…ur savings to help you buy your first home if all the following apply: the property costs £450,000 or less you buy the property at least 12 months after you make your first payment into th…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmrc-lisa#financialData.rates.government_bonus_rate_percent": {
       "valueHash": "b7a56873cd771f2c",
@@ -3688,6 +4134,15 @@
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
     },
+    "hmrc-marriage-allowance#eligibility.rules.2.value": {
+      "valueHash": "2c003edfa46fc4b2",
+      "valueSeen": "50270",
+      "sourceUrl": "https://www.gov.uk/marriage-allowance",
+      "sourceQuote": "…ays Income Tax at the basic rate, which usually means their income is between £12,571 and £50,270 before they receive Marriage Allowance You cannot claim Marriage Allowance if you’re livi…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-marriage-allowance#financialData.rates.tax_saving": {
       "valueHash": "d6e5a20b30f87216",
       "valueSeen": "£252",
@@ -3727,6 +4182,16 @@
       "confidence": "confirmed",
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
+    },
+    "hmrc-mtd#eligibility.rules.0.rules.1.rules.1.value": {
+      "valueHash": "60734f174b2035e5",
+      "valueSeen": "50000",
+      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Income exceeds £50,000\": 50000 not found in a matching form on https://www.gov.uk/government/collections/making-tax-digital-for-vat."
     },
     "hmrc-mtd#govuk_url": {
       "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
@@ -3904,6 +4369,15 @@
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
     },
+    "hmrc-sdlt#eligibility.rules.0.maxDays": {
+      "valueHash": "8527a891e2241369",
+      "valueSeen": "14",
+      "sourceUrl": "https://www.gov.uk/stamp-duty-land-tax",
+      "sourceQuote": "…on is complicated. How and when to pay Send an SDLT return to HMRC and pay the tax within 14 days of completion . If you have a solicitor, agent or conveyancer, they’ll usually file your…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-sdlt#govuk_url": {
       "sourceUrl": "https://www.gov.uk/stamp-duty-land-tax",
       "sourceQuote": "",
@@ -3966,6 +4440,15 @@
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Work and Pensions\"], which is a publishing role and need not match delivery."
+    },
+    "hmrc-smp#eligibility.rules.2.value": {
+      "valueHash": "6566230e3a3ce377",
+      "valueSeen": "129",
+      "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
+      "sourceQuote": "…ad. Statutory Maternity Pay ( SMP ) To qualify for SMP you must: earn on average at least £129 a week give the correct notice and proof you’re pregnant have worked for your employer co…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmrc-smp#financialData.rates.first_6_weeks_percent": {
       "valueHash": "69f59c273b6e669a",
@@ -4048,6 +4531,24 @@
       "confidence": "confirmed",
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
+    },
+    "hmrc-spp#eligibility.rules.1.value": {
+      "valueHash": "6566230e3a3ce377",
+      "valueSeen": "129",
+      "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
+      "sourceQuote": "…ou must: be employed by your employer up to the date of birth earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your emplo…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmrc-spp#eligibility.rules.3.maxDays": {
+      "valueHash": "b3dfdc6efe322a6f",
+      "valueSeen": "364",
+      "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
+      "sourceQuote": "…n a week of leave is 2 days. Your leave cannot start before the birth. It must end within 52 weeks of the baby’s birth (or the due date if the baby is early). The start and end date rules…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmrc-spp#financialData.rates.weekly_rate": {
       "valueHash": "33b037360f612ff3",
@@ -4172,6 +4673,15 @@
       "valueSeen": "hmrc",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Business and Trade\",\"Department for Business, Energy & Industrial Strategy\"], which is a publishing role and need not match delivery."
     },
+    "hmrc-statutory-parental-bereavement#eligibility.rules.2.maxDays": {
+      "valueHash": "6ea2fdb3399f4d2e",
+      "valueSeen": "392",
+      "sourceUrl": "https://www.gov.uk/parental-bereavement-pay-leave",
+      "sourceQuote": "…. The leave: can start on or after the date of the death or stillbirth must finish within 56 weeks of the date of the death or stillbirth Taking leave with other types of statutory leave I…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-statutory-parental-bereavement#govuk_url": {
       "sourceUrl": "https://www.gov.uk/parental-bereavement-pay-leave",
       "sourceQuote": "",
@@ -4225,6 +4735,24 @@
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
     },
+    "hmrc-tax-free-childcare#eligibility.rules.1.value": {
+      "valueHash": "6b51d431df5d7f14",
+      "valueSeen": "12",
+      "sourceUrl": "https://www.gov.uk/tax-free-childcare",
+      "sourceQuote": "…a year). You’ll usually need to be working (or returning to work) and your child must be 11 or younger (16 or younger if they’re disabled). Your childcare provider must be signed up to the Tax…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "hmrc-tax-free-childcare#eligibility.rules.3.value": {
+      "valueHash": "3bb78535cc9555ff",
+      "valueSeen": "100000",
+      "sourceUrl": "https://www.gov.uk/tax-free-childcare",
+      "sourceQuote": "…ou or your partner’s expected adjusted net income (including any foreign income ) is over £100,000 for the current tax year you or your partner get a childcare bursary or grant If you clai…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-tax-free-childcare#financialData.rates.max_disabled_child": {
       "valueHash": "b090147020e03353",
       "valueSeen": "£4,000",
@@ -4264,6 +4792,15 @@
       "confidence": "confirmed",
       "valueHash": "c7401dfc3cd79047",
       "valueSeen": "hmrc"
+    },
+    "hmrc-tax-on-pension#eligibility.rules.1.value": {
+      "valueHash": "05613b260816ec06",
+      "valueSeen": "12570",
+      "sourceUrl": "https://www.gov.uk/tax-on-pension",
+      "sourceQuote": "…f your total annual income adds up to less than your Personal Allowance - this is usually £12,570. Lump sums from your pension You can usually take up to 25% of the amount built up in any…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "hmrc-tax-on-pension#govuk_url": {
       "sourceUrl": "https://www.gov.uk/tax-on-pension",
@@ -4341,6 +4878,15 @@
       "valueSeen": "hmrc",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [], which is a publishing role and need not match delivery."
     },
+    "hmrc-vat#eligibility.rules.1.value": {
+      "valueHash": "ac911e4a8f2b48c0",
+      "valueSeen": "90000",
+      "sourceUrl": "https://www.gov.uk/vat-registration",
+      "sourceQuote": "…You must register if either: your total taxable turnover for the last 12 months goes over £90,000 (the VAT threshold) you expect your taxable turnover to go over £90,000 in the next 30 da…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "hmrc-vat#govuk_url": {
       "sourceUrl": "https://www.gov.uk/vat-registration",
       "sourceQuote": "",
@@ -4372,6 +4918,16 @@
       "confidence": "confirmed",
       "valueHash": "b3f41b62fe343798",
       "valueSeen": "ho"
+    },
+    "ho-brp#eligibility.rules.1.maxDays": {
+      "valueHash": "4a44dc15364204a8",
+      "valueSeen": "10",
+      "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must collect BRP within 10 days of arriving in the UK\": 10 not found in a matching form on https://www.gov.uk/biometric-residence-permits."
     },
     "ho-brp#govuk_url": {
       "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
@@ -4707,6 +5263,24 @@
       "valueHash": "b3f41b62fe343798",
       "valueSeen": "ho"
     },
+    "ho-life-in-uk#eligibility.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
+      "sourceQuote": "…When you do not need to take the test You do not need to take the test if you: are under 18 are 65 or over have passed it before - for example, if you’re applying to become a citizen and already p…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "ho-life-in-uk#eligibility.rules.1.value": {
+      "valueHash": "a68b412c4282555f",
+      "valueSeen": "64",
+      "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
+      "sourceQuote": "…ou do not need to take the test You do not need to take the test if you: are under 18 are 65 or over have passed it before - for example, if you’re applying to become a citizen and already p…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "ho-life-in-uk#financialData.rates.fee": {
       "valueHash": "1a6562590ef19d10",
       "valueSeen": "£50",
@@ -4988,6 +5562,16 @@
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Transport\"], which is a publishing role and need not match delivery."
     },
+    "la-bus-pass#eligibility.rules.0.rules.0.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/apply-for-elderly-person-bus-pass."
+    },
     "la-bus-pass#govuk_url": {
       "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
       "sourceQuote": "",
@@ -5132,6 +5716,16 @@
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"HM Revenue & Customs\",\"Ministry of Housing, Communities and Local Government\"], which is a publishing role and need not match delivery."
     },
+    "la-council-tax-reduction#eligibility.rules.0.rules.2.value": {
+      "valueHash": "1e472b39b105d349",
+      "valueSeen": "250",
+      "sourceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Low weekly income\": 250 not found in a matching form on https://www.gov.uk/apply-council-tax-reduction."
+    },
     "la-council-tax-reduction#govuk_url": {
       "sourceUrl": "https://www.gov.uk/apply-council-tax-reduction",
       "sourceQuote": "",
@@ -5229,6 +5823,15 @@
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Ministry of Housing, Communities and Local Government\"], which is a publishing role and need not match delivery."
     },
+    "la-electoral-roll#eligibility.rules.0.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.uk/register-to-vote",
+      "sourceQuote": "…les around voting in the UK . If you live in England or Northern Ireland You must be aged 16 or over to register. You can register to vote if you’re a British citizen or an Irish citizen. Yo…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "la-electoral-roll#govuk_url": {
       "sourceUrl": "https://www.gov.uk/register-to-vote",
       "sourceQuote": "",
@@ -5260,6 +5863,15 @@
       "valueHash": "630e0d1a8d77e325",
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Food Standards Agency\"], which is a publishing role and need not match delivery."
+    },
+    "la-food-hygiene#eligibility.rules.1.maxDays": {
+      "valueHash": "7aac161b293aca67",
+      "valueSeen": "-28",
+      "sourceUrl": "https://www.gov.uk/guidance/food-business-registration",
+      "sourceQuote": "…and charities . England, Wales and Northern Ireland You are required to register at least 28 days before trading. We recommend that you do not register too early, but that you wait until…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "la-food-hygiene#govuk_url": {
       "sourceUrl": "https://www.gov.uk/guidance/food-business-registration",
@@ -5306,6 +5918,24 @@
       "valueHash": "630e0d1a8d77e325",
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Education\",\"Department for Education and Skills\",\"HM Revenue & Customs\"], which is a publishing role and need not match delivery."
+    },
+    "la-free-childcare-2yr#eligibility.rules.1.value": {
+      "valueHash": "d4735e3a265e16ee",
+      "valueSeen": "2",
+      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+      "sourceQuote": "…e eligible for a separate scheme instead. Find out about free education and childcare for 2 year olds if you get extra support . This guide is also available in Welsh (Cymraeg) . Approved ch…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "la-free-childcare-2yr#eligibility.rules.3.rules.0.rules.1.value": {
+      "valueHash": "1e3d88e829c7f544",
+      "valueSeen": "15400",
+      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+      "sourceQuote": "…lds if any of the following apply: you get Universal Credit, and your household income is £15,400 a year or less after tax (not including benefit payments) you get Income Support, income-…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "la-free-childcare-2yr#govuk_url": {
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs",
@@ -5583,6 +6213,24 @@
       "valueHash": "630e0d1a8d77e325",
       "valueSeen": "la",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Education\"], which is a publishing role and need not match delivery."
+    },
+    "la-send-ehc#eligibility.rules.0.value": {
+      "valueHash": "b7a56873cd771f2c",
+      "valueSeen": "25",
+      "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/education-health-care-plans",
+      "sourceQuote": "…an education, health and care ( EHC ) plan - a plan of care for children and young people aged up to 25 who have more complex needs If you or your child got support before September 2014 this w…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "la-send-ehc#eligibility.rules.1.maxDays": {
+      "valueHash": "dbae772db29058a8",
+      "valueSeen": "140",
+      "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/education-health-care-plans",
+      "sourceQuote": "…r child goes to a specialist needs school or specialist college. Your local authority has 20 weeks from the date they receive the request for the assessment to give you the final EHC plan.…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "la-send-ehc#govuk_url": {
       "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs",
@@ -5938,6 +6586,15 @@
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
     },
+    "nhs-free-dental#eligibility.rules.0.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
+      "sourceQuote": "…nd treatment in England You can get free NHS dental appointments and treatment if: you're aged under 18, or under 19 and in full-time education you're pregnant or have had a baby in the last 12…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "nhs-free-dental#govuk_url": {
       "valueHash": "072955d39b2ae915",
       "valueSeen": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
@@ -5957,6 +6614,26 @@
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
     },
+    "nhs-free-prescriptions#eligibility.rules.0.rules.0.value": {
+      "valueHash": "39fa9ec190eee7b6",
+      "valueSeen": "60",
+      "sourceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Aged 60 or over\": 60 not found in a matching form on https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/."
+    },
+    "nhs-free-prescriptions#eligibility.rules.0.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Under 16\": 16 not found in a matching form on https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/."
+    },
     "nhs-free-prescriptions#govuk_url": {
       "valueHash": "03882f527d4d685b",
       "valueSeen": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
@@ -5974,6 +6651,24 @@
       "sourceQuote": "…ries Monday to Friday, 8am to 6pm. Or you can call the Help with Health Costs helpline on 0300 330 1343. You must check that you're entitled to help with health costs before signing any declara…",
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
+      "confidence": "confirmed"
+    },
+    "nhs-free-sight-tests#eligibility.rules.0.rules.0.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+      "sourceQuote": "…e costs yourself. Free NHS eye tests You're entitled to a free NHS sight test if you: are under 16 are 16, 17 or 18 and in full-time education (this includes being taught full-time at a sc…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "nhs-free-sight-tests#eligibility.rules.0.rules.1.value": {
+      "valueHash": "39fa9ec190eee7b6",
+      "valueSeen": "60",
+      "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+      "sourceQuote": "…on (this includes being taught full-time at a school, college, university or at home) are 60 or over are registered as partially sighted or blind have been diagnosed with diabetes or glaucom…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
       "confidence": "confirmed"
     },
     "nhs-free-sight-tests#govuk_url": {
@@ -6003,6 +6698,15 @@
       "sourceQuote": "…ur card report your card as lost, damaged or stolen get your PIN hear your balance Phone: 0300 330 7010 You can use this number for all customer enquiries, as well as to request an interpreter.…",
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
+      "confidence": "confirmed"
+    },
+    "nhs-healthy-start#eligibility.rules.0.rules.1.rules.1.value": {
+      "valueHash": "4b227777d4dd1fc6",
+      "valueSeen": "4",
+      "sourceUrl": "https://www.healthystart.nhs.uk/",
+      "sourceQuote": "…tart scheme) What is Healthy Start? If you’re more than 10 weeks pregnant or have a child under 4, you may be entitled to get help to buy healthy food and milk. If you’re eligible, you’ll…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
       "confidence": "confirmed"
     },
     "nhs-healthy-start#financialData.rates.child_1_to_4": {
@@ -6050,6 +6754,25 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "nhs-low-income-scheme#eligibility.rules.1.value": {
+      "valueHash": "2570901c76653e57",
+      "valueSeen": "16000",
+      "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "sourceQuote": "…Who cannot apply You cannot apply if you or your partner (or both of you) have more than: £16,000 in savings, investments or property (not including the place where you live) £23,250 in s…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "nhs-low-income-scheme#eligibility.rules.2.rules.0.rules.0.value": {
+      "valueHash": "39fa9ec190eee7b6",
+      "valueSeen": "60",
+      "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Aged 60 or over (auto-exempt)\": 60 not found in a matching form on https://www.nhsbsa.nhs.uk/nhs-low-income-scheme."
     },
     "nhs-low-income-scheme#govuk_url": {
       "valueHash": "5abb721a89334ee7",
@@ -6140,6 +6863,15 @@
       "confidence": "unverified",
       "rationale": "No rendering of \"+44 800 587 2750\" found on the declared sourceUrl or the service page."
     },
+    "ni-discretionary-support#eligibility.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+      "sourceQuote": "…must live in Northern Ireland the crisis must have arisen in Northern Ireland you must be over 18 or at least 16 if you do not have any parental support your and your partner’s (if you have one) total a…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "ni-discretionary-support#govuk_url": {
       "valueHash": "2221d72e1bdf9093",
       "valueSeen": "https://www.nidirect.gov.uk/articles/discretionary-support",
@@ -6158,6 +6890,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "ni-rate-rebate#eligibility.rules.1.rules.2.value": {
+      "valueHash": "1e472b39b105d349",
+      "valueSeen": "250",
+      "sourceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Low weekly income\": 250 not found in a matching form on https://www.nidirect.gov.uk/articles/applying-rate-rebate."
     },
     "ni-rate-rebate#govuk_url": {
       "valueHash": "2b1d973cb2a79b6b",
@@ -6278,6 +7020,15 @@
       "confidence": "confirmed",
       "valueHash": "177208c5e7f7ec94",
       "valueSeen": "opg"
+    },
+    "opg-lpa#eligibility.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.gov.uk/power-of-attorney",
+      "sourceQuote": "…If you’ve already made an LPA , you can manage or use your LPA . Eligibility You must be 18 or over and have mental capacity (the ability to make your own decisions) when you make your LPA…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "opg-lpa#financialData.rates.fee_per_lpa": {
       "valueHash": "8241649609f88ccd",
@@ -6517,6 +7268,15 @@
       "valueSeen": "other",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Ministry of Housing, Communities and Local Government\"], which is a publishing role and need not match delivery."
     },
+    "other-help-to-buy#eligibility.rules.2.value": {
+      "valueHash": "47b25095a0fe135a",
+      "valueSeen": "80000",
+      "sourceUrl": "https://www.gov.uk/first-homes-scheme",
+      "sourceQuote": "…uyer be able to get a mortgage for at least half the price of the home not earn more than £80,000 a year before tax (£90,000 if the property is in London) - this is your income from the p…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "other-help-to-buy#govuk_url": {
       "sourceUrl": "https://www.gov.uk/first-homes-scheme",
       "sourceQuote": "",
@@ -6733,6 +7493,15 @@
       "valueSeen": "other",
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [], which is a publishing role and need not match delivery."
     },
+    "other-tv-licence-pension#eligibility.rules.0.value": {
+      "valueHash": "f369cb89fc627e66",
+      "valueSeen": "75",
+      "sourceUrl": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence",
+      "sourceQuote": "…service use BBC iPlayer You may be able to get a free or discounted TV Licence if you’re 75 or over and get Pension Credit, or if you’re blind or in residential care. You do not need a TV L…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "other-tv-licence-pension#financialData.rates.saving": {
       "valueHash": "7b69759630f869f2",
       "valueSeen": "£180",
@@ -6900,6 +7669,16 @@
       "valueHash": "b19943f7d1ffe804",
       "valueSeen": "slc"
     },
+    "slc-student-finance#eligibility.rules.0.value": {
+      "valueHash": "4ec9599fc203d176",
+      "valueSeen": "18",
+      "sourceUrl": "https://www.gov.uk/student-finance",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be at least 18 years old\": 18 not found in a matching form on https://www.gov.uk/student-finance."
+    },
     "slc-student-finance#govuk_url": {
       "sourceUrl": "https://www.gov.uk/student-finance",
       "sourceQuote": "",
@@ -6910,6 +7689,26 @@
       "confidence": "confirmed",
       "valueHash": "d95e8c5d83e92f06",
       "valueSeen": "https://www.gov.uk/student-finance"
+    },
+    "sss-adult-disability-payment#eligibility.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be aged 16 or over\": 16 not found in a matching form on https://www.mygov.scot/adult-disability-payment."
+    },
+    "sss-adult-disability-payment#eligibility.rules.2.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.mygov.scot/adult-disability-payment."
     },
     "sss-adult-disability-payment#financialData.rates.daily_living_enhanced": {
       "valueHash": "521929eab2217618",
@@ -6956,6 +7755,15 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-best-start-foods#eligibility.rules.1.rules.1.rules.1.value": {
+      "valueHash": "4e07408562bedb8b",
+      "valueSeen": "3",
+      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "sourceQuote": "…can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3. Best Start Foods is paid every 4 weeks. The payments are: £22.40 during pregnancy (you’l…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "sss-best-start-foods#financialData.rates.child_1_to_3": {
       "valueHash": "1ff1d3a076f9bd4f",
@@ -7040,6 +7848,33 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-carer-support-payment#eligibility.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "sourceQuote": "…ort Payment If you work If you study To get carer benefits in Scotland, you must: be aged 16 or over usually live in Scotland, or have lived in England, Wales, Ireland, the Channel Islands,…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "sss-carer-support-payment#eligibility.rules.3.value": {
+      "valueHash": "9f14025af0065b30",
+      "valueSeen": "35",
+      "sourceUrl": "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "sourceQuote": "…Carer Support Payment To get Carer Support Payment you must also: provide unpaid care for 35 hours or more a week not earn above a certain amount, if you work Carer Additional Person Payme…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "sss-carer-support-payment#eligibility.rules.5.value": {
+      "valueHash": "fc56dbc6d4652b31",
+      "valueSeen": "204",
+      "sourceUrl": "https://www.mygov.scot/carer-support-payment/if-you-work",
+      "sourceQuote": "…work If you study To get Carer Support Payment, your ‘take home pay’ cannot be more than £204 a week. This is about the same as £884 a month, or £10,608 a year. This 'earnings limit'…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "sss-carer-support-payment#financialData.rates.weekly_rate": {
       "valueHash": "e0d5d0954ec2b3a6",
       "valueSeen": "£86.45",
@@ -7077,6 +7912,15 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-child-disability-payment#eligibility.rules.2.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/child-disability-payment",
+      "sourceQuote": "…ayment helps with the extra costs a disabled child might have. You can apply for children under 16 with a physical or mental disability. You can also apply if the child does not have a dia…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "sss-child-disability-payment#financialData.rates.care_highest": {
       "valueHash": "521929eab2217618",
@@ -7133,6 +7977,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-child-winter-heating#eligibility.rules.2.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Child must be under 16 (or under 19 in qualifying education)\": 16 not found in a matching form on https://www.mygov.scot/child-winter-heating-payment."
+    },
     "sss-child-winter-heating#financialData.rates.annual_payment": {
       "valueHash": "205928583cc9c0e7",
       "valueSeen": "£265.5",
@@ -7180,6 +8034,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-pension-winter-heating#eligibility.rules.1.value": {
+      "valueHash": "3ada92f28b4ceda3",
+      "valueSeen": "66",
+      "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.mygov.scot/pension-age-winter-heating-payment."
+    },
     "sss-pension-winter-heating#financialData.rates.max_annual": {
       "valueHash": "97dda67d5c9f4305",
       "valueSeen": "£316.7",
@@ -7208,6 +8072,15 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-scottish-child-payment#eligibility.rules.2.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/scottish-child-payment",
+      "sourceQuote": "…ly. It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age. You'll get the payment every 4 weeks if your application is successful. Sco…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
     "sss-scottish-child-payment#financialData.rates.per_child": {
       "valueHash": "416b2ce3ffb52723",
       "valueSeen": "£28.2",
@@ -7226,6 +8099,33 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-young-carer-grant#eligibility.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/young-carer-grant",
+      "sourceQuote": "…of £405.10 for young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "sss-young-carer-grant#eligibility.rules.2.value": {
+      "valueHash": "9400f1b21cb527d7",
+      "valueSeen": "19",
+      "sourceUrl": "https://www.mygov.scot/young-carer-grant",
+      "sourceQuote": "…young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
+    },
+    "sss-young-carer-grant#eligibility.rules.4.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.mygov.scot/young-carer-grant",
+      "sourceQuote": "…l need to re-apply. You must also have been caring for 1, 2 or 3 people for an average of 16 hours a week for at least the last 3 months. If you care for more than one person, you can comb…",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "confirmed"
     },
     "sss-young-carer-grant#financialData.rates.annual_payment": {
       "valueHash": "7c90654a68e07c6d",
@@ -7355,6 +8255,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "wg-discretionary-assistance#eligibility.rules.1.value": {
+      "valueHash": "b17ef6d19c7a5b1e",
+      "valueSeen": "16",
+      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "sourceQuote": "",
+      "method": "literal-presence",
+      "verifiedAt": "2026-09-28T14:52:18.029Z",
+      "confidence": "unverified",
+      "rationale": "\"Must be aged 16 or over\": 16 not found in a matching form on https://www.gov.wales/discretionary-assistance-fund-daf."
     },
     "wg-discretionary-assistance#govuk_url": {
       "valueHash": "14b419db8791f994",

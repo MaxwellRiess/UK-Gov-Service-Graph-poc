@@ -69,6 +69,7 @@ import { z } from 'zod';
 import { buildJourney, getServiceWithContext } from './graph-engine.js';
 import { LIFE_EVENTS, NODES } from './graph-data.js';
 import { evaluateJourney, type UserContext } from './rules.js';
+import { provenanceFor, sourcingSummary, ruleValueSourcing } from './provenance-view.js';
 
 
 // ─── SERVER INITIALISATION ─────────────────────────────────────────────────────
@@ -142,6 +143,8 @@ Each service includes eligibility signals:
 Optional enrichments (present where applicable):
   nations[]      — devolved services limited to specific UK nations (absent = UK-wide)
 
+Each service also carries sourcing: { confirmed, notConfirmed } — how many of its factual fields (rates, deadlines, eligibility rule values, links, contact numbers, descriptions) are confirmed against a cited official page. Call get_service for the per-field sources and quotes.
+
 Use the triggeredBy field to explain why each service appears. Use deadline to highlight urgency.
 
 Call get_service for any service the user wants to explore — it returns the full detail omitted here:
@@ -163,7 +166,14 @@ financialData (benefit rates and amounts, with the tax year they apply to), and 
         }],
       };
     }
-    const result = buildJourney(life_event_ids);
+    const journey = buildJourney(life_event_ids);
+    const result = {
+      ...journey,
+      phases: journey.phases.map(phase => ({
+        ...phase,
+        services: phase.services.map(svc => ({ ...svc, sourcing: sourcingSummary(NODES[svc.id]) })),
+      })),
+    };
     return {
       content: [{ type: 'text', text: JSON.stringify(result, null, 2) }],
     };
@@ -202,8 +212,9 @@ Returns:
 - Nations (where applicable): which UK nations the service covers
 - Contact info: helpline phone number (with textphone, Relay UK, Welsh, BSL), opening hours, webchat URL, office locator URL. Resolved from service-specific data or department default.
 - Graph position: prerequisite services, services this unlocks, and which life events trigger it
+- Provenance: for every factual field, whether it is confirmed against an official page (with the source URL, a verbatim quote and the date checked), inferred, unverified or unsourced
 
-Use this when the user asks for more detail about a service, or when you need to assess their eligibility for it. The keyQuestions tell you exactly what to ask. The autoQualifiers let you confirm eligibility without interrogating the user further. The agentInteraction.agentSteps tell you exactly what actions you can take on the user's behalf. The contactInfo tells you the exact helpline number and hours to share when the user needs to speak to someone.`,
+Use this when the user asks for more detail about a service, or when you need to assess their eligibility for it. The keyQuestions tell you exactly what to ask. The autoQualifiers let you confirm eligibility without interrogating the user further. The agentInteraction.agentSteps tell you exactly what actions you can take on the user's behalf. The contactInfo tells you the exact helpline number and hours to share when the user needs to speak to someone. The provenance tells you which of these facts you can cite, and which you should present as unconfirmed.`,
   {
     service_id: z.string().describe(
       'The service node ID (e.g. "dwp-pip", "gro-register-birth", "hmcts-probate"). These IDs appear in plan_journey results.'
@@ -219,8 +230,9 @@ Use this when the user asks for more detail about a service, or when you need to
         }],
       };
     }
+    const withProvenance = { ...service, provenance: provenanceFor(NODES[service_id]) };
     return {
-      content: [{ type: 'text', text: JSON.stringify(service, null, 2) }],
+      content: [{ type: 'text', text: JSON.stringify(withProvenance, null, 2) }],
     };
   }
 );
@@ -289,6 +301,8 @@ Accepts life event IDs and a user context object. Returns per-service verdicts:
 
 Also flags deadline status per service: ok, overdue, or unknown_trigger_date.
 
+Where a service has rule values (ages, income limits, day counts), ruleValues gives { confirmed, total }: how many of the thresholds behind the verdict are confirmed against an official page. If confirmed < total, present the verdict as provisional.
+
 Designed for progressive disclosure:
 1. Call with whatever facts you know (even an empty object)
 2. Review the pendingQuestions for services marked needs_more_info
@@ -338,6 +352,7 @@ Use trigger_dates for deadline-sensitive services: { birth_date: "2025-02-01" } 
       verdict:         r.verdict,
       pendingQuestions: r.pendingQuestions,
       deadlineStatus:  r.deadlineStatus,
+      ...(() => { const rv = ruleValueSourcing(NODES[r.serviceId]); return rv ? { ruleValues: rv } : {}; })(),
     }));
 
     return {

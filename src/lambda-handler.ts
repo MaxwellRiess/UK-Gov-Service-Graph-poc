@@ -19,5 +19,5 @@ export const handler: Handler = async (
   event: Record<string, unknown>,
   context: Context
 ): Promise<Record<string, unknown>> => {
-  return requestHandler.handle(event, context);
+  return (await requestHandler.handle(event, context)) as Record<string, unknown>;
 };

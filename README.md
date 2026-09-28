@@ -57,7 +57,7 @@ A hand-built graph of 244 services has no subject matter expert behind it, so th
 
 **Verifiable against an authoritative source.** Whether a service exists, its canonical URL, and whether it has been withdrawn all come from the [GOV.UK Content API](https://www.gov.uk/api/content/child-benefit), which is written by the publishers themselves. `scripts/verify-tier1.ts` checks every node against it and records the `content_id`, which survives the URL changes that break plain link checking.
 
-**Verifiable against source text.** Money amounts and phone numbers are literals: if the graph says Child Benefit is £26.05 a week, that string has to appear on the page the graph cites. `scripts/verify-tier2.ts` searches for it and stores the surrounding sentence as evidence. No model is involved, so there is nothing to hallucinate and a reviewer can see exactly what each claim rests on. Deadlines and eligibility are prose rather than literals, so `scripts/verify-tier2-llm.ts` asks a model to *locate* them in supplied page text and discards any quote that does not actually appear in it.
+**Verifiable against source text.** Money amounts and phone numbers are literals: if the graph says Child Benefit is £26.05 a week, that string has to appear on the page the graph cites. `scripts/verify-tier2.ts` searches for it and stores the surrounding sentence as evidence. No model is involved, so there is nothing to hallucinate and a reviewer can see exactly what each claim rests on. `scripts/verify-rules.ts` does the same for the numbers inside the machine eligibility rules (ages, income limits, day counts), which decide what `check_eligibility` tells a user. Deadlines and eligibility are prose rather than literals, so `scripts/verify-tier2-llm.ts` asks a model to *locate* them in supplied page text and discards any quote that does not actually appear in it.
 
 **Not verifiable from any published source.** Edges, `proactive` and `gated` are authored judgements. Nobody publishes "Child Benefit requires birth registration first" as structured data. These are recorded as `inferred` so they are never mistaken for sourced facts.
 
@@ -76,7 +76,7 @@ A hand-built graph of 244 services has no subject matter expert behind it, so th
 
 That makes the record self-invalidating in two directions. If GOV.UK rewrites the sentence a rate lives in, the quote stops matching and the field drops to `unverified` on its own — narrower and quieter than hashing a whole page, because it tracks only the text the data depends on. If someone edits the rate without re-verifying, the value hash stops matching and CI fails, so provenance cannot drift away from the data it claims to support.
 
-Current state — **603 field records: 371 confirmed, 145 unverified, 87 inferred.** What the first full run found:
+Current state (28 September 2026) — **807 field records: 648 confirmed, 68 unverified, 91 inferred.** Eligibility criteria text, descriptions and agent steps have no records yet. What the first full run found:
 
 | Finding | Count |
 |---|---|
@@ -88,6 +88,10 @@ Current state — **603 field records: 371 confirmed, 145 unverified, 87 inferre
 The rates figure is one finding, not 88: the graph was populated with 2025-26 rates, and the 2026-27 tax year began on 6 April 2026. Every affected figure needs a refresh, and `financialData.taxYear` is worth asserting against the current year in CI so the same thing is caught automatically next April.
 
 Two known gaps: 24 nodes have no `agentInteraction`, and the 27 unsourced phone numbers need an explicit source URL in the data rather than a guess at which page publishes them.
+
+### Provenance is served, not just stored
+
+`get_service` returns a `provenance` block alongside the service. Every field that makes a factual claim is listed with its status, and for confirmed fields the source URL, the quote and the date checked. A field with no record appears as `unsourced` rather than being left out, so the default reading is that nobody has checked it. If a value has changed since its record was written, it is shown as `unverified` whatever the record says. `plan_journey` carries a lean `sourcing` count per service, and `check_eligibility` a `ruleValues` count of how many thresholds behind each verdict are confirmed. See `src/provenance-view.ts`.
 
 ---
 
@@ -157,6 +161,9 @@ npm run verify:tier1
 # Check that rates and phone numbers appear on the pages they cite
 npm run verify:tier2
 
+# Check that eligibility rule thresholds appear on the pages they cite
+npm run verify:rules
+
 # Confirm provenance still matches graph-data.ts (offline, runs in CI)
 npm run check:provenance
 
@@ -177,6 +184,7 @@ src/
   graph-server.ts                 MCP server (4 tools, 2 resources, 2 prompts)
   rules.ts                        Machine-evaluable eligibility rule engine
   provenance.ts                   Per-field evidence records — types, hashing, quote matching
+  provenance-view.ts              Provenance as MCP consumers see it, including unsourced fields
 data/
   provenance.json                 Where each field's value came from, and when it was checked
 scripts/
@@ -187,6 +195,7 @@ scripts/
   verify-tier1.ts                 Checks URLs and ownership against the GOV.UK Content API
   verify-tier2.ts                 Checks rates and phone numbers appear on their cited page
   verify-tier2-llm.ts             Locates deadlines in page prose (needs ANTHROPIC_API_KEY)
+  verify-rules.ts                 Checks eligibility rule thresholds appear on their cited page
   check-provenance.ts             Fails the build when data and provenance disagree
   contact-overrides.ts            Department contact data (phone, hours, accessibility)
   merge-contacts.ts               Injects contact overrides into graph-data.ts

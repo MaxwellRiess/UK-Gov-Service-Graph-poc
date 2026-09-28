@@ -171,6 +171,10 @@ export interface EligibilityInfo {
   ruleIn:            string[];  // concise positive signals ("Child under 16")
   ruleOut:           string[];  // concise negative signals ("Income over £80k")
   rules?:            import('./rules.js').Rule[];  // structured machine-evaluable rules
+  // Pages the eligibility is drawn from beyond govuk_url. Guides on mygov.scot
+  // and gov.wales split criteria across subpages the landing page never states;
+  // verify:rules checks these after govuk_url and financialData.source.
+  sources?:          string[];
 }
 
 export interface ServiceNode {
@@ -3257,8 +3261,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "weekly_income",
           "operator": "<",
-          "value": 228,
-          "label": "Weekly income must be below Pension Credit threshold (~£227.10 single)"
+          "value": 238,
+          "label": "Weekly income below £238 if single (£363.25 for a couple)"
         }
       ],
 
@@ -4323,24 +4327,24 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: '£81.90/week (2024/25) for carers spending at least 35 hours/week caring for someone receiving a qualifying disability benefit. Also provides NI credits and a gateway to UC Carer element.',
+      summary: '£86.45/week for carers spending at least 35 hours/week caring for someone receiving a qualifying disability benefit. Also provides NI credits and a gateway to UC Carer element.',
       universal: false,
       criteria: [
         { factor: 'caring', description: 'Caring for someone for at least 35 hours per week.' },
         { factor: 'dependency', description: 'The person being cared for must receive: PIP (daily living component — standard or enhanced), Attendance Allowance, DLA (middle or highest care rate), or other qualifying benefits.' },
-        { factor: 'income', description: 'Net earnings must be below £151/week (2024/25) after deductions for tax, NI, pension contributions and some care costs.' },
+        { factor: 'income', description: 'Net earnings must be £204/week or less after deductions for tax, NI, pension contributions and some care costs.' },
       ],
       keyQuestions: [
         'Are you caring for someone at least 35 hours per week?',
         'Does the person you care for receive PIP daily living or Attendance Allowance?',
-        'Do you earn less than £151 per week net?',
+        'Do you earn less than £204 per week net?',
         'Are you in full-time education?',
       ],
       autoQualifiers: ['Person cared for receives enhanced rate PIP daily living and carer works fewer than 16 hours'],
       exclusions: ['Cannot claim if in full-time education (21+ hours/week).', 'Overlapping benefits rule — may not be payable in full alongside State Pension or other benefits.'],
       means_tested: false,
       evidenceRequired: ['Evidence of caring role', 'Benefit award letter for person cared for', 'Income evidence if working'],
-      ruleIn: ['Caring 35+ hours per week', 'Person cared for receives qualifying disability benefit', 'Net earnings below £151/week'],
+      ruleIn: ['Caring 35+ hours per week', 'Person cared for receives qualifying disability benefit', 'Net earnings below £204/week'],
       ruleOut: ['In full-time education (21+ hours per week)'],      rules: [
         {
           "type": "boolean",
@@ -4365,8 +4369,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "weekly_earnings",
           "operator": "<=",
-          "value": 151,
-          "label": "Net earnings must be £151/week or less"
+          "value": 204,
+          "label": "Net earnings must be £204/week or less"
         },
         {
           "type": "not",
@@ -9167,32 +9171,36 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-carer-support-payment': {
     id: 'sss-carer-support-payment', name: 'Carer Support Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£83.30/week for carers aged 16+ providing 35+ hours/week care in Scotland. Replaces Carer\'s Allowance.',
+    desc: '£86.45/week for carers aged 16+ providing 35+ hours/week care in Scotland. Replaces Carer\'s Allowance.',
     govuk_url: 'https://www.mygov.scot/carer-support-payment',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: '£83.30/week for carers aged 16 or over providing at least 35 hours/week care to someone receiving a qualifying disability benefit. Replaces Carer\'s Allowance in Scotland. Earnings limit applies.',
+      summary: '£86.45/week for carers aged 16 or over providing at least 35 hours/week care to someone receiving a qualifying disability benefit. Replaces Carer\'s Allowance in Scotland. Earnings limit applies.',
       universal: false,
       criteria: [
         { factor: 'caring', description: 'Must provide at least 35 hours of care per week to someone receiving a qualifying disability benefit (ADP, PIP daily living, DLA middle/higher care, AA).' },
         { factor: 'age', description: 'Must be aged 16 or over.' },
-        { factor: 'income', description: 'Earnings must not exceed £151/week net (after deductions).' },
+        { factor: 'income', description: 'Earnings must not exceed £204/week net (after deductions).' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
         'Do you provide at least 35 hours of care per week?',
         'Does the person you care for receive a qualifying disability benefit?',
-        'Do you earn more than £151/week net?',
+        'Do you earn more than £204/week net?',
         'Are you in full-time education (21+ hours)?',
       ],
-      exclusions: ['Net earnings over £151/week', 'Full-time education (21+ hours/week)'],
+      exclusions: ['Net earnings over £204/week', 'Full-time education (21+ hours/week)'],
       means_tested: false,
       evidenceRequired: ['Details of person cared for', 'Proof of care hours', 'Earnings details'],
       ruleIn: ['Provides 35+ hours care/week', 'Cared-for person on qualifying disability benefit', 'Lives in Scotland'],
-      ruleOut: ['Net earnings over £151/week', 'Full-time education', 'Does not live in Scotland'],      rules: [
+      ruleOut: ['Net earnings over £204/week', 'Full-time education', 'Does not live in Scotland'],      sources: [
+        'https://www.mygov.scot/carer-support-payment/who-can-apply',
+        'https://www.mygov.scot/carer-support-payment/if-you-work',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -9231,8 +9239,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "weekly_earnings",
           "operator": "<=",
-          "value": 151,
-          "label": "Net earnings must be £151/week or less"
+          "value": 204,
+          "label": "Net earnings must be £204/week or less"
         },
         {
           "type": "not",
