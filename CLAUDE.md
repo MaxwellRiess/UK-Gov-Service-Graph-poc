@@ -13,6 +13,8 @@ npm run verify:tier1    # Check URLs and ownership against the GOV.UK Content AP
 npm run verify:tier2    # Check rates and phone numbers appear on their cited page
 npm run verify:rules    # Check eligibility rule thresholds appear on their cited page
 npm run verify:criteria # Judge eligibility criteria text against its source (needs ANTHROPIC_API_KEY)
+npm run verify:links    # Check form, API, webchat and contact links resolve
+npm run check:consistency # Flag figures in prose that no structured value or cited page backs
 npm run check:provenance # Confirm provenance still matches graph-data.ts (runs in CI)
 ```
 
@@ -69,6 +71,7 @@ Values that came from somewhere get a provenance record in `data/provenance.json
 
 Two rules when adding data:
 
+- **A figure in prose is a copy that goes stale.** When you change a rate or threshold, search the node for the old figure in `desc`, the summary, criteria, key questions and agent steps, then run `npm run check:consistency`. Most errors found in September 2026 were stale copies in prose, not wrong structured values.
 - **Rule thresholds need a source too.** A number in `eligibility.rules` decides who `check_eligibility` says qualifies. Where a guide states criteria on subpages the landing page does not (common on mygov.scot and gov.wales), list them in `eligibility.sources` so `verify:rules` can find them.
 - **Never write a value you cannot point at a source for.** If GOV.UK does not publish it, leave the field out. An absent field is honest; a plausible-looking invented one is not, and it will pass review precisely because it looks right. This is why `agentInteraction` is optional and why 24 nodes go without it.
 - **Rates carry a `taxYear`.** They go stale every 6 April, and `verify:tier2` detects this by finding the old amount no longer on the page. The weekly Provenance Check does the same for every stored quote and keeps one `[Provenance] Stale source quotes` issue open while any are stale, listing values that have vanished from their page first.

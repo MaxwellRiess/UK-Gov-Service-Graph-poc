@@ -1925,7 +1925,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: true,
-      apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/self-assessment-api/3.0',
+      apiUrl: 'https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/',
       onlineFormUrl: 'https://www.gov.uk/self-assessment-tax-returns',
       authRequired: 'government-gateway',
       agentCanComplete: 'partial',
@@ -5112,7 +5112,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/get-a-pds-exemption-certificate',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -5814,7 +5813,7 @@ export const NODES: Record<string, ServiceNode> = {
           close: '13:00',
         },
       ],
-      webchatUrl: 'https://www.gov.uk/contact-probate-service',
+      webchatUrl: 'https://www.apply-for-probate.service.gov.uk/contact-us',
     },
     nations: ['england', 'wales'],
   },
@@ -7974,7 +7973,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/change-name-passport',
+      onlineFormUrl: 'https://www.gov.uk/changing-passport-information',
       authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12420,7 +12419,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.moneyclaims.service.gov.uk/',
+      onlineFormUrl: 'https://www.gov.uk/make-court-claim-for-money/make-claim',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12600,7 +12599,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://find-unclaimed-court-money.service.gov.uk/',
+      onlineFormUrl: 'https://www.gov.uk/find-unclaimed-court-money',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12633,7 +12632,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/respond-jury-summons',
+      onlineFormUrl: 'https://www.gov.uk/reply-jury-summons',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12706,7 +12705,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://claim-power-of-attorney-refund.service.gov.uk/',
+      onlineFormUrl: 'https://www.gov.uk/power-of-attorney-refund',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -13189,7 +13188,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/apply-for-fee-waiver-immigration-application',
+      onlineFormUrl: 'https://www.gov.uk/visa-fee-waiver-in-uk',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -13398,7 +13397,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/drive-in-a-clean-air-zone',
+      onlineFormUrl: 'https://www.gov.uk/clean-air-zones',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -13650,7 +13649,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: true,
-      apiUrl: 'https://www.contractsfinder.service.gov.uk/apidocs/index.html',
+      apiUrl: 'https://www.gov.uk/government/publications/open-contracting',
       onlineFormUrl: 'https://www.contractsfinder.service.gov.uk/',
       authRequired: 'none',
       agentCanComplete: 'inform-only',
@@ -13964,7 +13963,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      onlineFormUrl: 'https://studentbursary.education.gov.uk/w/webpage/student-bursary',
+      onlineFormUrl: 'https://www.gov.uk/care-to-learn/how-to-apply',
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [

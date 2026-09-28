@@ -84,6 +84,16 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
   };
   (node.eligibility.rules ?? []).forEach((r, i) => walk(r, `eligibility.rules.${i}`));
 
+  // Links an agent hands a person to act on, beyond govuk_url (verify-links.ts).
+  const links: [string, string | undefined, string][] = [
+    ['agentInteraction.onlineFormUrl', node.agentInteraction?.onlineFormUrl, 'Online application link'],
+    ['agentInteraction.apiUrl', node.agentInteraction?.apiUrl, 'API documentation link'],
+    ['contactInfo.webchatUrl', node.contactInfo?.webchatUrl, 'Webchat link'],
+    ['contactInfo.contactFormUrl', node.contactInfo?.contactFormUrl, 'Contact form link'],
+    ['contactInfo.officeLocatorUrl', node.contactInfo?.officeLocatorUrl, 'Office finder link'],
+  ];
+  for (const [path, url, about] of links) if (url) out.push({ path, about });
+
   if (node.agentInteraction) out.push({ path: 'agentInteraction.agentSteps' });
   return out;
 }

@@ -13,6 +13,8 @@
     "verify:criteria": "tsx scripts/verify-criteria.ts --write",
     "check:types": "tsc --noEmit",
     "check:provenance": "tsx scripts/check-provenance.ts",
+    "check:consistency": "tsx scripts/check-consistency.ts --online",
+    "verify:links": "tsx scripts/verify-links.ts --write",
     "check:provenance:online": "tsx scripts/check-provenance.ts --online",
     "build:lambda": "esbuild ./src/lambda-handler.ts --bundle --platform=node --target=node20 --outfile=dist/lambda-handler.js && esbuild ./src/graph-server.ts --bundle --platform=node --target=node20 --format=esm --outfile=dist/graph-server.mjs",
     "package": "npm run build:lambda && zip -r function.zip dist/"

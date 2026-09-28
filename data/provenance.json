@@ -1,7 +1,17 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-09-28T15:32:06.951Z",
+  "lastRun": "2026-09-28T22:35:15.536Z",
   "fields": {
+    "acas-early-conciliation#agentInteraction.onlineFormUrl": {
+      "valueHash": "eb674e1e99a7a09b",
+      "valueSeen": "https://www.acas.org.uk/early-conciliation",
+      "sourceUrl": "https://www.acas.org.uk/early-conciliation",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "acas-early-conciliation#eligibility.criteria.0": {
       "valueHash": "19bf2144b3bbe3d6",
       "valueSeen": "Must have an employment dispute such as unfair dismissal, discrimination, unpaid wages or unlawful deduction.",
@@ -21,6 +31,18 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.acas.org.uk has no Content API, so only existence is established."
+    },
+    "cabinetoffice-uk-honours#agentInteraction.onlineFormUrl": {
+      "valueHash": "cf0e76d3fa5c5adf",
+      "valueSeen": "https://www.gov.uk/honours",
+      "sourceUrl": "https://www.gov.uk/honours",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "71ad16da-b494-4b1c-9f6a-a5696dfca129",
+      "pageUpdatedAt": "2024-11-29T15:43:29+00:00"
     },
     "cabinetoffice-uk-honours#deptKey": {
       "sourceUrl": "https://www.gov.uk/honours",
@@ -44,6 +66,18 @@
       "confidence": "confirmed",
       "valueHash": "cf0e76d3fa5c5adf",
       "valueSeen": "https://www.gov.uk/honours"
+    },
+    "ch-close-company#agentInteraction.onlineFormUrl": {
+      "valueHash": "6ffeb70dadd8587c",
+      "valueSeen": "https://www.gov.uk/strike-off-your-company-from-companies-register",
+      "sourceUrl": "https://www.gov.uk/strike-off-your-company-from-companies-register",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "77920bb0-f0f5-4b09-b6d9-c9686dbcc588",
+      "pageUpdatedAt": "2014-12-04T15:21:59+00:00"
     },
     "ch-close-company#deptKey": {
       "sourceUrl": "https://www.gov.uk/closing-a-limited-company",
@@ -77,6 +111,18 @@
       "valueHash": "d08964c08062b088",
       "valueSeen": "https://www.gov.uk/closing-a-limited-company"
     },
+    "ch-confirmation-statement#agentInteraction.onlineFormUrl": {
+      "valueHash": "a35a7b4befa5cd77",
+      "valueSeen": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
+      "sourceUrl": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "2bedc7e2-3142-491a-9cb4-36c7eb235af5",
+      "pageUpdatedAt": "2017-12-18T16:56:42+00:00"
+    },
     "ch-confirmation-statement#deptKey": {
       "sourceUrl": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
       "sourceQuote": "",
@@ -109,6 +155,28 @@
       "valueHash": "a35a7b4befa5cd77",
       "valueSeen": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house"
     },
+    "ch-file-accounts#agentInteraction.apiUrl": {
+      "valueHash": "bf1db6486330d9c9",
+      "valueSeen": "https://developer.company-information.service.gov.uk/overview",
+      "sourceUrl": "https://developer.company-information.service.gov.uk/overview",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "ch-file-accounts#agentInteraction.onlineFormUrl": {
+      "valueHash": "70e151f02f797c2d",
+      "valueSeen": "https://www.gov.uk/file-your-company-annual-accounts",
+      "sourceUrl": "https://www.gov.uk/file-your-company-annual-accounts",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "59d272b2-eb94-4af8-9034-1e1ba9b37ff5",
+      "pageUpdatedAt": "2018-04-03T10:37:53+01:00"
+    },
     "ch-file-accounts#deptKey": {
       "sourceUrl": "https://www.gov.uk/file-your-company-annual-accounts",
       "sourceQuote": "",
@@ -140,6 +208,28 @@
       "confidence": "confirmed",
       "valueHash": "70e151f02f797c2d",
       "valueSeen": "https://www.gov.uk/file-your-company-annual-accounts"
+    },
+    "ch-register-ltd#agentInteraction.apiUrl": {
+      "valueHash": "f4c148e620304c38",
+      "valueSeen": "https://developer.company-information.service.gov.uk/",
+      "sourceUrl": "https://developer.company-information.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "ch-register-ltd#agentInteraction.onlineFormUrl": {
+      "valueHash": "6f536d3796430d16",
+      "valueSeen": "https://www.gov.uk/limited-company-formation/register-your-company",
+      "sourceUrl": "https://www.gov.uk/limited-company-formation/register-your-company",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "e302f576-db9c-4a7f-8693-52c9949fc670",
+      "pageUpdatedAt": "2025-02-03T14:30:48+00:00"
     },
     "ch-register-ltd#deptKey": {
       "sourceUrl": "https://www.gov.uk/limited-company-formation",
@@ -200,6 +290,16 @@
       "valueHash": "6f536d3796430d16",
       "valueSeen": "https://www.gov.uk/limited-company-formation/register-your-company",
       "rationale": "Graph URL resolves to https://www.gov.uk/limited-company-formation; update govuk_url to the canonical path."
+    },
+    "cica-compensation#agentInteraction.onlineFormUrl": {
+      "valueHash": "4c77489298a62351",
+      "valueSeen": "https://claim-criminal-injuries-compensation.service.justice.gov.uk/apply",
+      "sourceUrl": "https://claim-criminal-injuries-compensation.service.justice.gov.uk/apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "cica-compensation#deadline": {
       "valueHash": "bc199127385b3e1e",
@@ -269,6 +369,28 @@
       "valueHash": "bea2d4acfaff3ecd",
       "valueSeen": "https://www.gov.uk/claim-compensation-criminal-injury"
     },
+    "co-contracts-finder#agentInteraction.apiUrl": {
+      "valueHash": "b1bcfefb5a351214",
+      "valueSeen": "https://www.gov.uk/government/publications/open-contracting",
+      "sourceUrl": "https://www.gov.uk/government/publications/open-contracting",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "896c4515-0ea7-4800-b06c-70953f2f3326",
+      "pageUpdatedAt": "2021-01-01T09:00:03+00:00"
+    },
+    "co-contracts-finder#agentInteraction.onlineFormUrl": {
+      "valueHash": "459bcb360a558d7b",
+      "valueSeen": "https://www.contractsfinder.service.gov.uk/",
+      "sourceUrl": "https://www.contractsfinder.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "co-contracts-finder#deptKey": {
       "sourceUrl": "https://www.gov.uk/contracts-finder",
       "sourceQuote": "",
@@ -292,6 +414,18 @@
       "valueHash": "fbe23baec14257af",
       "valueSeen": "https://www.gov.uk/contracts-finder"
     },
+    "dbs-basic-check#agentInteraction.onlineFormUrl": {
+      "valueHash": "bf84481f570045ec",
+      "valueSeen": "https://www.gov.uk/request-copy-criminal-record",
+      "sourceUrl": "https://www.gov.uk/request-copy-criminal-record",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f855ae48-818f-40de-9a7f-5b0b91c62b5c",
+      "pageUpdatedAt": "2024-12-02T00:01:09+00:00"
+    },
     "dbs-basic-check#deptKey": {
       "sourceUrl": "https://www.gov.uk/request-copy-criminal-record",
       "sourceQuote": "",
@@ -314,6 +448,16 @@
       "confidence": "confirmed",
       "valueHash": "bf84481f570045ec",
       "valueSeen": "https://www.gov.uk/request-copy-criminal-record"
+    },
+    "dfe-apply-teacher-training#agentInteraction.onlineFormUrl": {
+      "valueHash": "efe31a52e68fe1d8",
+      "valueSeen": "https://www.apply-for-teacher-training.service.gov.uk/",
+      "sourceUrl": "https://www.apply-for-teacher-training.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "dfe-apply-teacher-training#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-for-teacher-training",
@@ -356,6 +500,18 @@
       "confidence": "confirmed",
       "valueHash": "46f2c1948e836bbf",
       "valueSeen": "https://www.gov.uk/apply-for-teacher-training"
+    },
+    "dfe-care-to-learn#agentInteraction.onlineFormUrl": {
+      "valueHash": "df01660e34ed0036",
+      "valueSeen": "https://www.gov.uk/care-to-learn/how-to-apply",
+      "sourceUrl": "https://www.gov.uk/care-to-learn/how-to-apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c1873350-0c82-469d-9f59-4658be95fdd2",
+      "pageUpdatedAt": "2014-12-02T16:14:19+00:00"
     },
     "dfe-care-to-learn#deptKey": {
       "sourceUrl": "https://www.gov.uk/care-to-learn",
@@ -426,6 +582,16 @@
       "valueHash": "86f6ba591c6375c5",
       "valueSeen": "https://www.gov.uk/care-to-learn"
     },
+    "dfe-find-apprenticeship#agentInteraction.onlineFormUrl": {
+      "valueHash": "f473ac30cdafd6d7",
+      "valueSeen": "https://www.findapprenticeship.service.gov.uk/",
+      "sourceUrl": "https://www.findapprenticeship.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "dfe-find-apprenticeship#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-apprenticeship",
       "sourceQuote": "",
@@ -467,6 +633,16 @@
       "valueHash": "549ee698a30bd4d8",
       "valueSeen": "https://www.gov.uk/apply-apprenticeship"
     },
+    "dfe-national-careers#agentInteraction.onlineFormUrl": {
+      "valueHash": "b5567212da2b8513",
+      "valueSeen": "https://nationalcareers.service.gov.uk/",
+      "sourceUrl": "https://nationalcareers.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "dfe-national-careers#eligibility.criteria.0": {
       "valueHash": "5df06bc1c0f8e2d6",
       "valueSeen": "Free adviser-led guidance is available to adults in England. Scotland, Wales and NI have their own careers services.",
@@ -486,6 +662,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host nationalcareers.service.gov.uk has no Content API, so only existence is established."
+    },
+    "dhsc-baby-loss-certificate#agentInteraction.onlineFormUrl": {
+      "valueHash": "4631852a14c84ac8",
+      "valueSeen": "https://www.request-a-baby-loss-certificate.service.gov.uk/request-a-baby-loss-certificate",
+      "sourceUrl": "https://www.request-a-baby-loss-certificate.service.gov.uk/request-a-baby-loss-certificate",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "HTTP 403: the host refused or failed the automated request. Check in a browser."
     },
     "dhsc-baby-loss-certificate#contactInfo.phone.number": {
       "valueHash": "3f548e077272c66a",
@@ -578,6 +764,18 @@
       "valueHash": "fad4544594162eed",
       "valueSeen": "https://www.gov.uk/tell-dvla-about-bereavement"
     },
+    "dvla-change-address-v5c#agentInteraction.onlineFormUrl": {
+      "valueHash": "8d02ba200376bb30",
+      "valueSeen": "https://www.gov.uk/change-address-v5c",
+      "sourceUrl": "https://www.gov.uk/change-address-v5c",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "e0a879a7-afd2-49fd-ba44-b066cce082cf",
+      "pageUpdatedAt": "2015-02-17T12:50:47+00:00"
+    },
     "dvla-change-address-v5c#deptKey": {
       "sourceUrl": "https://www.gov.uk/change-address-v5c",
       "sourceQuote": "",
@@ -608,6 +806,18 @@
       "confidence": "confirmed",
       "valueHash": "8d02ba200376bb30",
       "valueSeen": "https://www.gov.uk/change-address-v5c"
+    },
+    "dvla-check-driving-licence#agentInteraction.onlineFormUrl": {
+      "valueHash": "12dcd3954806334d",
+      "valueSeen": "https://www.gov.uk/view-driving-licence",
+      "sourceUrl": "https://www.gov.uk/view-driving-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "bee455d5-5a4f-440a-88be-eb65ae8fde7d",
+      "pageUpdatedAt": "2024-10-29T14:06:49+00:00"
     },
     "dvla-check-driving-licence#deptKey": {
       "sourceUrl": "https://www.gov.uk/view-driving-licence",
@@ -641,6 +851,18 @@
       "valueHash": "12dcd3954806334d",
       "valueSeen": "https://www.gov.uk/view-driving-licence"
     },
+    "dvla-name-change#agentInteraction.onlineFormUrl": {
+      "valueHash": "68df17e6ddcafefe",
+      "valueSeen": "https://www.gov.uk/change-name-driving-licence",
+      "sourceUrl": "https://www.gov.uk/change-name-driving-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "b76efbaa-5cdb-4465-96fa-bac8903943c8",
+      "pageUpdatedAt": "2015-06-08T00:01:02+01:00"
+    },
     "dvla-name-change#deptKey": {
       "sourceUrl": "https://www.gov.uk/change-name-driving-licence",
       "sourceQuote": "",
@@ -673,6 +895,17 @@
       "valueHash": "68df17e6ddcafefe",
       "valueSeen": "https://www.gov.uk/change-name-driving-licence"
     },
+    "dvla-notify-condition#agentInteraction.onlineFormUrl": {
+      "valueHash": "8331f6776448e945",
+      "valueSeen": "https://www.gov.uk/report-driving-medical-condition",
+      "sourceUrl": "https://www.gov.uk/report-driving-medical-condition",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2021-09-20T12:51:30+01:00"
+    },
     "dvla-notify-condition#deptKey": {
       "sourceUrl": "https://www.gov.uk/health-conditions-and-driving",
       "sourceQuote": "",
@@ -704,6 +937,18 @@
       "confidence": "confirmed",
       "valueHash": "94aea6fd521ffee0",
       "valueSeen": "https://www.gov.uk/health-conditions-and-driving"
+    },
+    "dvla-provisional-licence#agentInteraction.onlineFormUrl": {
+      "valueHash": "af634d8ec5846379",
+      "valueSeen": "https://www.gov.uk/apply-first-provisional-driving-licence",
+      "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f725a60e-a666-4269-82b0-946ecfb84b7c",
+      "pageUpdatedAt": "2025-01-01T00:01:01+00:00"
     },
     "dvla-provisional-licence#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
@@ -826,6 +1071,18 @@
       "valueHash": "ed2bb60181ba7c36",
       "valueSeen": "https://www.gov.uk/renew-driving-licence-at-70"
     },
+    "dvla-renew-licence#agentInteraction.onlineFormUrl": {
+      "valueHash": "e708fd99f3d9f699",
+      "valueSeen": "https://www.gov.uk/renew-driving-licence",
+      "sourceUrl": "https://www.gov.uk/renew-driving-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "da48bba8-7358-4e54-a89e-c618a5265448",
+      "pageUpdatedAt": "2025-01-01T00:01:01+00:00"
+    },
     "dvla-renew-licence#deptKey": {
       "sourceUrl": "https://www.gov.uk/renew-driving-licence",
       "sourceQuote": "",
@@ -890,6 +1147,18 @@
       "valueHash": "56e2e5d8a69c515b",
       "valueSeen": "https://www.gov.uk/make-a-sorn"
     },
+    "dvla-update-address#agentInteraction.onlineFormUrl": {
+      "valueHash": "00d83e3375cef54e",
+      "valueSeen": "https://www.gov.uk/change-address-driving-licence",
+      "sourceUrl": "https://www.gov.uk/change-address-driving-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "eafed48e-6a19-44cf-993c-c7b9a3a22cfa",
+      "pageUpdatedAt": "2017-11-30T12:34:16+00:00"
+    },
     "dvla-update-address#deptKey": {
       "sourceUrl": "https://www.gov.uk/change-address-driving-licence",
       "sourceQuote": "",
@@ -920,6 +1189,18 @@
       "confidence": "confirmed",
       "valueHash": "00d83e3375cef54e",
       "valueSeen": "https://www.gov.uk/change-address-driving-licence"
+    },
+    "dvla-ved-exemption#agentInteraction.onlineFormUrl": {
+      "valueHash": "5ea7075aa1d99fe9",
+      "valueSeen": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+      "sourceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "d1d66f56-3a29-449c-9639-787f02a576e1",
+      "pageUpdatedAt": "2014-12-11T16:09:53+00:00"
     },
     "dvla-ved-exemption#deptKey": {
       "sourceUrl": "https://www.gov.uk/financial-help-disabled",
@@ -961,6 +1242,26 @@
       "valueHash": "5ea7075aa1d99fe9",
       "valueSeen": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
       "rationale": "Graph URL resolves to https://www.gov.uk/financial-help-disabled; update govuk_url to the canonical path."
+    },
+    "dvla-vehicle-enquiry#agentInteraction.apiUrl": {
+      "valueHash": "b79b5d03afda2e9b",
+      "valueSeen": "https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html",
+      "sourceUrl": "https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "dvla-vehicle-enquiry#agentInteraction.onlineFormUrl": {
+      "valueHash": "16a503d3eb7dfa9f",
+      "valueSeen": "https://vehicleenquiry.service.gov.uk/",
+      "sourceUrl": "https://vehicleenquiry.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "dvla-vehicle-enquiry#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-vehicle-information-from-dvla",
@@ -1047,6 +1348,18 @@
       "valueHash": "d05d25e66a29b5bd",
       "valueSeen": "https://www.gov.uk/vehicle-tax"
     },
+    "dvsa-driving-test#agentInteraction.onlineFormUrl": {
+      "valueHash": "eb176634bc0ed288",
+      "valueSeen": "https://www.gov.uk/book-driving-test",
+      "sourceUrl": "https://www.gov.uk/book-driving-test",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "8d35443d-7bf1-4f51-b9b1-e398e1d44030",
+      "pageUpdatedAt": "2017-12-22T16:05:42+00:00"
+    },
     "dvsa-driving-test#deptKey": {
       "sourceUrl": "https://www.gov.uk/book-driving-test",
       "sourceQuote": "",
@@ -1106,6 +1419,26 @@
       "valueHash": "eb176634bc0ed288",
       "valueSeen": "https://www.gov.uk/book-driving-test"
     },
+    "dvsa-mot-history#agentInteraction.apiUrl": {
+      "valueHash": "50df8360b62e80b4",
+      "valueSeen": "https://dvsa.github.io/mot-history-api-documentation/",
+      "sourceUrl": "https://dvsa.github.io/mot-history-api-documentation/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "dvsa-mot-history#agentInteraction.onlineFormUrl": {
+      "valueHash": "1e99a6290414e293",
+      "valueSeen": "https://www.check-mot.service.gov.uk/",
+      "sourceUrl": "https://www.check-mot.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "HTTP 403: the host refused or failed the automated request. Check in a browser."
+    },
     "dvsa-mot-history#deptKey": {
       "sourceUrl": "https://www.gov.uk/check-mot-history",
       "sourceQuote": "",
@@ -1127,6 +1460,18 @@
       "confidence": "confirmed",
       "valueHash": "dd65f98fb1a12bf6",
       "valueSeen": "https://www.gov.uk/check-mot-history"
+    },
+    "dvsa-theory-test#agentInteraction.onlineFormUrl": {
+      "valueHash": "f66f56f54703434a",
+      "valueSeen": "https://www.gov.uk/book-theory-test",
+      "sourceUrl": "https://www.gov.uk/book-theory-test",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "9922b819-ffcb-4f38-888a-78b898d5e530",
+      "pageUpdatedAt": "2017-11-30T12:47:02+00:00"
     },
     "dvsa-theory-test#deptKey": {
       "sourceUrl": "https://www.gov.uk/book-theory-test",
@@ -1187,6 +1532,18 @@
       "valueHash": "f66f56f54703434a",
       "valueSeen": "https://www.gov.uk/book-theory-test"
     },
+    "dwp-access-to-work#agentInteraction.onlineFormUrl": {
+      "valueHash": "f6310611759a362e",
+      "valueSeen": "https://www.gov.uk/access-to-work/apply",
+      "sourceUrl": "https://www.gov.uk/access-to-work/apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "d27a7826-745c-4a54-b2e9-00a379da8671",
+      "pageUpdatedAt": "2015-01-14T12:09:07+00:00"
+    },
     "dwp-access-to-work#contactInfo.phone.number": {
       "valueHash": "cfa845159e8d14e5",
       "valueSeen": "0800 121 7479",
@@ -1235,6 +1592,18 @@
       "confidence": "confirmed",
       "valueHash": "081fbacfe27af3c2",
       "valueSeen": "https://www.gov.uk/access-to-work"
+    },
+    "dwp-attendance-allowance#agentInteraction.onlineFormUrl": {
+      "valueHash": "f42b5b667f3a2770",
+      "valueSeen": "https://www.gov.uk/attendance-allowance/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/attendance-allowance/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "916b042a-ee5c-420b-8481-17c74e7bb456",
+      "pageUpdatedAt": "2024-10-21T12:29:59+01:00"
     },
     "dwp-attendance-allowance#contactInfo.phone.number": {
       "valueHash": "638f81e92053d764",
@@ -1314,6 +1683,18 @@
       "valueHash": "782e911bda3283b4",
       "valueSeen": "https://www.gov.uk/attendance-allowance"
     },
+    "dwp-benefit-debt-repayment#agentInteraction.onlineFormUrl": {
+      "valueHash": "6636b0a9563b22cf",
+      "valueSeen": "https://www.gov.uk/benefit-overpayments/how-to-make-a-repayment",
+      "sourceUrl": "https://www.gov.uk/benefit-overpayments/how-to-make-a-repayment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "7e2083a7-0e11-48bd-8d07-9b7bd6aaf966",
+      "pageUpdatedAt": "2015-01-23T16:16:40+00:00"
+    },
     "dwp-benefit-debt-repayment#contactInfo.phone.number": {
       "valueHash": "2d0d1f624c154b35",
       "valueSeen": "0800 916 0647",
@@ -1354,6 +1735,18 @@
       "confidence": "confirmed",
       "valueHash": "a98455b9c29d5f81",
       "valueSeen": "https://www.gov.uk/benefit-overpayments"
+    },
+    "dwp-bereavement-support#agentInteraction.onlineFormUrl": {
+      "valueHash": "0176c85848522948",
+      "valueSeen": "https://www.gov.uk/bereavement-support-payment/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/bereavement-support-payment/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "2a647198-680e-481a-815e-04d524210b8a",
+      "pageUpdatedAt": "2024-11-09T00:01:05+00:00"
     },
     "dwp-bereavement-support#contactInfo.phone.number": {
       "valueHash": "a22e75edd0eab7ea",
@@ -1479,6 +1872,16 @@
       "valueHash": "1bf2a87d47863ecd",
       "valueSeen": "https://www.gov.uk/bereavement-support-payment"
     },
+    "dwp-budgeting-loan#agentInteraction.onlineFormUrl": {
+      "valueHash": "4546ec30cf9ec7da",
+      "valueSeen": "https://www.apply-budgeting-loan.service.gov.uk",
+      "sourceUrl": "https://www.apply-budgeting-loan.service.gov.uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "dwp-budgeting-loan#contactInfo.phone.number": {
       "valueHash": "6ddb9c068f3c6b78",
       "valueSeen": "0800 169 0140",
@@ -1554,6 +1957,30 @@
       "confidence": "confirmed",
       "valueHash": "4d5ca9d8405c5a73",
       "valueSeen": "https://www.gov.uk/budgeting-help-benefits"
+    },
+    "dwp-carers-allowance#agentInteraction.onlineFormUrl": {
+      "valueHash": "159f5500c92f84f2",
+      "valueSeen": "https://www.gov.uk/carers-allowance/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/carers-allowance/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f508898d-1ba0-46f7-b150-828166886d97",
+      "pageUpdatedAt": "2024-10-17T11:36:05+01:00"
+    },
+    "dwp-carers-allowance#contactInfo.contactFormUrl": {
+      "valueHash": "d033f099bb38de9e",
+      "valueSeen": "https://www.gov.uk/carers-allowance-unit",
+      "sourceUrl": "https://www.gov.uk/carers-allowance-unit",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "2f2d4fbb-a8ed-4176-b5ee-f4312b144223",
+      "pageUpdatedAt": "2024-12-10T17:35:09+00:00"
     },
     "dwp-carers-allowance#contactInfo.phone.number": {
       "valueHash": "095648945b356a1f",
@@ -1639,6 +2066,18 @@
       "confidence": "confirmed",
       "valueHash": "53724a8ee80e2534",
       "valueSeen": "https://www.gov.uk/carers-allowance"
+    },
+    "dwp-child-maintenance#agentInteraction.onlineFormUrl": {
+      "valueHash": "12c53852835578a7",
+      "valueSeen": "https://www.gov.uk/child-maintenance-service/apply",
+      "sourceUrl": "https://www.gov.uk/child-maintenance-service/apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5453d900-fe14-4a8a-8210-81e2ce1e8776",
+      "pageUpdatedAt": "2024-11-05T14:09:19+00:00"
     },
     "dwp-child-maintenance#contactInfo.phone.number": {
       "valueHash": "f334302215045ef1",
@@ -1738,6 +2177,18 @@
       "confidence": "confirmed",
       "valueHash": "ff4cf7ccb3744d75",
       "valueSeen": "https://www.gov.uk/cold-weather-payment"
+    },
+    "dwp-dla-child#agentInteraction.onlineFormUrl": {
+      "valueHash": "31c51cf4e9ee867a",
+      "valueSeen": "https://www.gov.uk/disability-living-allowance-children/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/disability-living-allowance-children/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "ee6607f1-d0ba-412b-b91c-7717286290ae",
+      "pageUpdatedAt": "2015-01-12T14:53:39+00:00"
     },
     "dwp-dla-child#contactInfo.phone.number": {
       "valueHash": "4980d81eb7fc12d5",
@@ -1852,6 +2303,16 @@
       "valueHash": "41bd66b1699d2f4b",
       "valueSeen": "https://www.gov.uk/disability-living-allowance-children"
     },
+    "dwp-find-a-job#agentInteraction.onlineFormUrl": {
+      "valueHash": "ed182c97f5d65c5c",
+      "valueSeen": "https://www.jobs.service.gov.uk/jobs",
+      "sourceUrl": "https://www.jobs.service.gov.uk/jobs",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "dwp-find-a-job#deptKey": {
       "sourceUrl": "https://www.gov.uk/find-a-job",
       "sourceQuote": "",
@@ -1873,6 +2334,18 @@
       "confidence": "confirmed",
       "valueHash": "4c2fdfed03542583",
       "valueSeen": "https://www.gov.uk/find-a-job"
+    },
+    "dwp-funeral-payment#agentInteraction.onlineFormUrl": {
+      "valueHash": "91821b779b175955",
+      "valueSeen": "https://www.gov.uk/funeral-payments/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/funeral-payments/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "28774875-4c69-41f0-a9a3-49abb015b34d",
+      "pageUpdatedAt": "2015-01-12T14:56:21+00:00"
     },
     "dwp-funeral-payment#contactInfo.phone.number": {
       "valueHash": "a22e75edd0eab7ea",
@@ -1951,6 +2424,30 @@
       "confidence": "confirmed",
       "valueHash": "4d6a61c5ff7ff401",
       "valueSeen": "https://www.gov.uk/funeral-payments"
+    },
+    "dwp-housing-benefit#agentInteraction.onlineFormUrl": {
+      "valueHash": "3eed33ecafb84690",
+      "valueSeen": "https://www.gov.uk/housing-benefit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/housing-benefit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "a324ac01-b2da-4bd0-ad41-b33cb37754e8",
+      "pageUpdatedAt": "2024-10-17T15:05:33+01:00"
+    },
+    "dwp-housing-benefit#contactInfo.officeLocatorUrl": {
+      "valueHash": "6a0d160744198143",
+      "valueSeen": "https://www.gov.uk/find-local-council",
+      "sourceUrl": "https://www.gov.uk/find-local-council",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      "pageUpdatedAt": "2025-08-11T09:26:38+01:00"
     },
     "dwp-housing-benefit#deptKey": {
       "sourceUrl": "https://www.gov.uk/housing-benefit",
@@ -2079,6 +2576,18 @@
       "valueSeen": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
       "rationale": "Graph URL resolves to https://www.gov.uk/new-state-pension; update govuk_url to the canonical path."
     },
+    "dwp-mandatory-reconsideration#agentInteraction.onlineFormUrl": {
+      "valueHash": "805e34ae87771644",
+      "valueSeen": "https://www.gov.uk/mandatory-reconsideration",
+      "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "73d634c6-e3d8-4810-abb1-61b8a9a70c88",
+      "pageUpdatedAt": "2025-01-13T10:47:36+00:00"
+    },
     "dwp-mandatory-reconsideration#contactInfo.phone.number": {
       "valueHash": "6a7cb52196cb7b9d",
       "valueSeen": "0800 169 0310",
@@ -2137,6 +2646,18 @@
       "confidence": "confirmed",
       "valueHash": "805e34ae87771644",
       "valueSeen": "https://www.gov.uk/mandatory-reconsideration"
+    },
+    "dwp-maternity-allowance#agentInteraction.onlineFormUrl": {
+      "valueHash": "3e649b01a80237fd",
+      "valueSeen": "https://www.gov.uk/maternity-allowance/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/maternity-allowance/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "837dbc66-c780-49e1-94dc-b3e9b7fa8c71",
+      "pageUpdatedAt": "2025-02-11T13:20:23+00:00"
     },
     "dwp-maternity-allowance#contactInfo.phone.number": {
       "valueHash": "c6c7678cbf90629e",
@@ -2204,6 +2725,18 @@
       "confidence": "confirmed",
       "valueHash": "afc6f1b6b44b134a",
       "valueSeen": "https://www.gov.uk/maternity-allowance"
+    },
+    "dwp-new-style-esa#agentInteraction.onlineFormUrl": {
+      "valueHash": "a9ef429b6f043175",
+      "valueSeen": "https://www.gov.uk/employment-support-allowance/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/employment-support-allowance/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "abc16763-56b6-4017-8c19-17e578de7a57",
+      "pageUpdatedAt": "2024-12-10T11:36:25+00:00"
     },
     "dwp-new-style-esa#contactInfo.phone.number": {
       "valueHash": "b458b757ca122ca3",
@@ -2291,6 +2824,18 @@
       "valueHash": "6eb000dea7e061fa",
       "valueSeen": "https://www.gov.uk/employment-support-allowance/eligibility",
       "rationale": "Graph URL resolves to https://www.gov.uk/employment-support-allowance; update govuk_url to the canonical path."
+    },
+    "dwp-new-style-jsa#agentInteraction.onlineFormUrl": {
+      "valueHash": "232d192a15f95149",
+      "valueSeen": "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa",
+      "sourceUrl": "https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "122fdb0f-471c-4dcc-986b-8c3691ceacf8",
+      "pageUpdatedAt": "2025-01-01T00:01:04+00:00"
     },
     "dwp-new-style-jsa#contactInfo.phone.number": {
       "valueHash": "6a7cb52196cb7b9d",
@@ -2389,6 +2934,18 @@
       "valueSeen": "https://www.gov.uk/jobseekers-allowance/new-style-jsa",
       "rationale": "Graph URL resolves to https://www.gov.uk/jobseekers-allowance; update govuk_url to the canonical path."
     },
+    "dwp-ni-credits#agentInteraction.onlineFormUrl": {
+      "valueHash": "c1744cc2320b1f5f",
+      "valueSeen": "https://www.gov.uk/national-insurance-credits",
+      "sourceUrl": "https://www.gov.uk/national-insurance-credits",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "84b8f145-e877-41d7-bd51-305b0aeabd00",
+      "pageUpdatedAt": "2025-01-21T14:41:58+00:00"
+    },
     "dwp-ni-credits#deptKey": {
       "sourceUrl": "https://www.gov.uk/national-insurance-credits",
       "sourceQuote": "",
@@ -2419,6 +2976,18 @@
       "confidence": "confirmed",
       "valueHash": "c1744cc2320b1f5f",
       "valueSeen": "https://www.gov.uk/national-insurance-credits"
+    },
+    "dwp-ni-number#agentInteraction.onlineFormUrl": {
+      "valueHash": "3ba0276ef8ab2a80",
+      "valueSeen": "https://www.gov.uk/apply-national-insurance-number",
+      "sourceUrl": "https://www.gov.uk/apply-national-insurance-number",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "b70531d4-e904-4a95-a480-2dad5c322ca4",
+      "pageUpdatedAt": "2024-11-06T11:27:19+00:00"
     },
     "dwp-ni-number#contactInfo.phone.number": {
       "valueHash": "fbd7468d35122d68",
@@ -2470,6 +3039,18 @@
       "confidence": "confirmed",
       "valueHash": "3ba0276ef8ab2a80",
       "valueSeen": "https://www.gov.uk/apply-national-insurance-number"
+    },
+    "dwp-pension-credit#agentInteraction.onlineFormUrl": {
+      "valueHash": "5c50aceea004950a",
+      "valueSeen": "https://www.gov.uk/pension-credit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/pension-credit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "36110496-f717-4ac9-9698-60601ab77454",
+      "pageUpdatedAt": "2024-10-14T11:06:35+01:00"
     },
     "dwp-pension-credit#contactInfo.phone.number": {
       "valueHash": "238664fed5aa681c",
@@ -2576,6 +3157,16 @@
       "valueHash": "0b9fc96641619b3c",
       "valueSeen": "https://www.gov.uk/pension-credit"
     },
+    "dwp-pension-tracing#agentInteraction.onlineFormUrl": {
+      "valueHash": "3ffb60d5374b98ea",
+      "valueSeen": "https://www.findpensioncontacts.service.gov.uk/",
+      "sourceUrl": "https://www.findpensioncontacts.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "dwp-pension-tracing#deptKey": {
       "sourceUrl": "https://www.gov.uk/find-pension-contact-details",
       "sourceQuote": "",
@@ -2597,6 +3188,18 @@
       "confidence": "confirmed",
       "valueHash": "9abdedc54aa36515",
       "valueSeen": "https://www.gov.uk/find-pension-contact-details"
+    },
+    "dwp-pip#agentInteraction.onlineFormUrl": {
+      "valueHash": "b151134f500850c6",
+      "valueSeen": "https://www.gov.uk/pip/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/pip/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "56ffb2a7-f45f-4e6c-bbfe-3d898a3358d8",
+      "pageUpdatedAt": "2024-11-06T10:53:35+00:00"
     },
     "dwp-pip#contactInfo.phone.number": {
       "valueHash": "d88827f3f90882f0",
@@ -2830,6 +3433,30 @@
       "valueHash": "b8fef09df0e85111",
       "valueSeen": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form"
     },
+    "dwp-state-pension#agentInteraction.onlineFormUrl": {
+      "valueHash": "fc68b60adf1895f9",
+      "valueSeen": "https://www.gov.uk/new-state-pension/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/new-state-pension/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "27ebbb86-7d5a-4aef-bba6-2631f45d3355",
+      "pageUpdatedAt": "2025-01-31T11:26:31+00:00"
+    },
+    "dwp-state-pension#contactInfo.contactFormUrl": {
+      "valueHash": "543eef39404140bb",
+      "valueSeen": "https://www.gov.uk/contact-pension-service",
+      "sourceUrl": "https://www.gov.uk/contact-pension-service",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "e22f24c4-cbcb-49d9-913d-ecdf7e3a4cd3",
+      "pageUpdatedAt": "2024-12-10T11:38:31+00:00"
+    },
     "dwp-state-pension#contactInfo.phone.number": {
       "valueHash": "994bcc6fe07fbd66",
       "valueSeen": "0800 731 0469",
@@ -2919,6 +3546,18 @@
       "valueHash": "1bd588793210556e",
       "valueSeen": "https://www.gov.uk/new-state-pension/eligibility",
       "rationale": "Graph URL resolves to https://www.gov.uk/new-state-pension; update govuk_url to the canonical path."
+    },
+    "dwp-sure-start-grant#agentInteraction.onlineFormUrl": {
+      "valueHash": "1065db10bb7ffd0b",
+      "valueSeen": "https://www.gov.uk/sure-start-maternity-grant/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5b4fb7fa-c986-496e-be54-e6d64ea218b8",
+      "pageUpdatedAt": "2015-01-12T15:06:41+00:00"
     },
     "dwp-sure-start-grant#contactInfo.phone.number": {
       "valueHash": "6ddb9c068f3c6b78",
@@ -3015,6 +3654,18 @@
       "valueHash": "d0e07a0c3cd86ca9",
       "valueSeen": "https://www.gov.uk/sure-start-maternity-grant"
     },
+    "dwp-tell-us-once#agentInteraction.onlineFormUrl": {
+      "valueHash": "011c95f28cc87e55",
+      "valueSeen": "https://www.gov.uk/after-a-death",
+      "sourceUrl": "https://www.gov.uk/after-a-death",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "1b5474c1-54ec-44e3-8319-b805264fe58c",
+      "pageUpdatedAt": "2024-12-02T16:35:33+00:00"
+    },
     "dwp-tell-us-once#contactInfo.phone.number": {
       "valueHash": "58d1653723442c35",
       "valueSeen": "0800 085 7308",
@@ -3057,6 +3708,18 @@
       "valueSeen": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
       "rationale": "Graph URL resolves to https://www.gov.uk/after-a-death; update govuk_url to the canonical path."
     },
+    "dwp-uc-carer#agentInteraction.onlineFormUrl": {
+      "valueHash": "bbfd4c99fcc5be3f",
+      "valueSeen": "https://www.gov.uk/universal-credit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/universal-credit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f790dc71-386e-4440-9689-31f94e7ac64d",
+      "pageUpdatedAt": "2024-10-17T10:58:14+01:00"
+    },
     "dwp-uc-carer#contactInfo.phone.number": {
       "valueHash": "2705c19ce020caaa",
       "valueSeen": "0800 328 5644",
@@ -3065,6 +3728,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "dwp-uc-carer#contactInfo.webchatUrl": {
+      "valueHash": "61fe39417be06729",
+      "valueSeen": "https://www.universal-credit.service.gov.uk/sign-in",
+      "sourceUrl": "https://www.universal-credit.service.gov.uk/sign-in",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "dwp-uc-carer#deptKey": {
       "sourceUrl": "https://www.gov.uk/universal-credit",
@@ -3126,6 +3799,18 @@
       "valueSeen": "https://www.gov.uk/universal-credit/what-youll-get",
       "rationale": "Graph URL resolves to https://www.gov.uk/universal-credit; update govuk_url to the canonical path."
     },
+    "dwp-uc-health#agentInteraction.onlineFormUrl": {
+      "valueHash": "bbfd4c99fcc5be3f",
+      "valueSeen": "https://www.gov.uk/universal-credit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/universal-credit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f790dc71-386e-4440-9689-31f94e7ac64d",
+      "pageUpdatedAt": "2024-10-17T10:58:14+01:00"
+    },
     "dwp-uc-health#contactInfo.phone.number": {
       "valueHash": "2705c19ce020caaa",
       "valueSeen": "0800 328 5644",
@@ -3134,6 +3819,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "dwp-uc-health#contactInfo.webchatUrl": {
+      "valueHash": "61fe39417be06729",
+      "valueSeen": "https://www.universal-credit.service.gov.uk/sign-in",
+      "sourceUrl": "https://www.universal-credit.service.gov.uk/sign-in",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "dwp-uc-health#deptKey": {
       "sourceUrl": "https://www.gov.uk/universal-credit",
@@ -3186,6 +3881,18 @@
       "valueSeen": "https://www.gov.uk/universal-credit/what-youll-get",
       "rationale": "Graph URL resolves to https://www.gov.uk/universal-credit; update govuk_url to the canonical path."
     },
+    "dwp-universal-credit#agentInteraction.onlineFormUrl": {
+      "valueHash": "bbfd4c99fcc5be3f",
+      "valueSeen": "https://www.gov.uk/universal-credit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/universal-credit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f790dc71-386e-4440-9689-31f94e7ac64d",
+      "pageUpdatedAt": "2024-10-17T10:58:14+01:00"
+    },
     "dwp-universal-credit#contactInfo.phone.number": {
       "valueHash": "2705c19ce020caaa",
       "valueSeen": "0800 328 5644",
@@ -3194,6 +3901,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "dwp-universal-credit#contactInfo.webchatUrl": {
+      "valueHash": "61fe39417be06729",
+      "valueSeen": "https://www.universal-credit.service.gov.uk/sign-in",
+      "sourceUrl": "https://www.universal-credit.service.gov.uk/sign-in",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "dwp-universal-credit#deptKey": {
       "sourceUrl": "https://www.gov.uk/universal-credit",
@@ -3335,6 +4052,18 @@
       "confidence": "confirmed",
       "valueHash": "53378cb47d48eea4",
       "valueSeen": "https://www.gov.uk/universal-credit"
+    },
+    "dwp-voluntary-ni-contributions#agentInteraction.onlineFormUrl": {
+      "valueHash": "907035f9b980d457",
+      "valueSeen": "https://www.gov.uk/pay-voluntary-class-3-national-insurance",
+      "sourceUrl": "https://www.gov.uk/pay-voluntary-class-3-national-insurance",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "33703bef-c745-4fa3-9ef4-dd9fd83aec2b",
+      "pageUpdatedAt": "2024-11-08T15:50:25+00:00"
     },
     "dwp-voluntary-ni-contributions#deadline": {
       "valueHash": "e8545024f183a508",
@@ -3510,6 +4239,18 @@
       "valueHash": "f672e54f439d07a9",
       "valueSeen": "https://www.gov.uk/winter-fuel-payment"
     },
+    "ea-fishing-licence#agentInteraction.onlineFormUrl": {
+      "valueHash": "522ffe38b5a7100a",
+      "valueSeen": "https://www.gov.uk/fishing-licences/buy-a-fishing-licence",
+      "sourceUrl": "https://www.gov.uk/fishing-licences/buy-a-fishing-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "da13f744-8a63-4149-aae6-4f10fb832b85",
+      "pageUpdatedAt": "2015-03-25T16:03:24+00:00"
+    },
     "ea-fishing-licence#deptKey": {
       "sourceUrl": "https://www.gov.uk/fishing-licences",
       "sourceQuote": "",
@@ -3551,6 +4292,16 @@
       "valueSeen": "https://www.gov.uk/fishing-licences/buy-a-fishing-licence",
       "rationale": "Graph URL resolves to https://www.gov.uk/fishing-licences; update govuk_url to the canonical path."
     },
+    "ea-flood-risk#agentInteraction.onlineFormUrl": {
+      "valueHash": "95d04be3c920bd21",
+      "valueSeen": "https://check-long-term-flood-risk.service.gov.uk/",
+      "sourceUrl": "https://check-long-term-flood-risk.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "ea-flood-risk#deptKey": {
       "sourceUrl": "https://www.gov.uk/check-long-term-flood-risk",
       "sourceQuote": "",
@@ -3573,6 +4324,17 @@
       "confidence": "confirmed",
       "valueHash": "01ce51f4998f0b7f",
       "valueSeen": "https://www.gov.uk/check-long-term-flood-risk"
+    },
+    "ea-flood-warnings#agentInteraction.onlineFormUrl": {
+      "valueHash": "abc32ccd8ec26c0e",
+      "valueSeen": "https://www.gov.uk/sign-up-for-flood-warnings",
+      "sourceUrl": "https://www.gov.uk/sign-up-for-flood-warnings",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2025-10-21T15:12:48+01:00"
     },
     "ea-flood-warnings#contactInfo.phone.number": {
       "valueHash": "44abf897ade06254",
@@ -3647,6 +4409,18 @@
       "valueHash": "7354356db41cf766",
       "valueSeen": "https://www.gov.uk/register-renew-waste-carrier-broker-dealer-england"
     },
+    "fco-document-legalisation#agentInteraction.onlineFormUrl": {
+      "valueHash": "bd1020b8645f1d27",
+      "valueSeen": "https://www.gov.uk/get-document-legalised",
+      "sourceUrl": "https://www.gov.uk/get-document-legalised",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "73058592-dedf-4379-9a1d-d8222a796c0a",
+      "pageUpdatedAt": "2015-02-25T09:56:08+00:00"
+    },
     "fco-document-legalisation#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-document-legalised",
       "sourceQuote": "",
@@ -3669,6 +4443,17 @@
       "confidence": "confirmed",
       "valueHash": "bd1020b8645f1d27",
       "valueSeen": "https://www.gov.uk/get-document-legalised"
+    },
+    "fco-emergency-travel-doc#agentInteraction.onlineFormUrl": {
+      "valueHash": "efa72048647b41ee",
+      "valueSeen": "https://www.gov.uk/emergency-travel-document",
+      "sourceUrl": "https://www.gov.uk/emergency-travel-document",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2023-06-20T15:00:11+01:00"
     },
     "fco-emergency-travel-doc#deptKey": {
       "sourceUrl": "https://www.gov.uk/emergency-travel-document",
@@ -3712,6 +4497,16 @@
       "valueHash": "efa72048647b41ee",
       "valueSeen": "https://www.gov.uk/emergency-travel-document"
     },
+    "gro-certificates#agentInteraction.onlineFormUrl": {
+      "valueHash": "b2872fe525eddc64",
+      "valueSeen": "https://www.gro.gov.uk/gro/content/certificates/default.asp",
+      "sourceUrl": "https://www.gro.gov.uk/gro/content/certificates/default.asp",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "gro-certificates#deptKey": {
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
       "sourceQuote": "",
@@ -3753,6 +4548,16 @@
       "valueHash": "302c22d317674c5e",
       "valueSeen": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
     },
+    "gro-death-certificate#agentInteraction.onlineFormUrl": {
+      "valueHash": "b2872fe525eddc64",
+      "valueSeen": "https://www.gro.gov.uk/gro/content/certificates/default.asp",
+      "sourceUrl": "https://www.gro.gov.uk/gro/content/certificates/default.asp",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "gro-death-certificate#deptKey": {
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
       "sourceQuote": "",
@@ -3785,6 +4590,18 @@
       "confidence": "confirmed",
       "valueHash": "302c22d317674c5e",
       "valueSeen": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    },
+    "gro-give-notice#contactInfo.officeLocatorUrl": {
+      "valueHash": "c257cb6e181e2d60",
+      "valueSeen": "https://www.gov.uk/register-offices",
+      "sourceUrl": "https://www.gov.uk/register-offices",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5608af75-4935-43d1-996f-09fbebde5ecd",
+      "pageUpdatedAt": "2016-03-10T09:57:08+00:00"
     },
     "gro-give-notice#contactInfo.phone.number": {
       "valueHash": "a3bb96db2ebc2377",
@@ -3874,6 +4691,16 @@
       "valueSeen": "https://www.gov.uk/marriages-civil-partnerships/giving-notice",
       "rationale": "Graph URL resolves to https://www.gov.uk/marriages-civil-partnerships; update govuk_url to the canonical path."
     },
+    "gro-marriage-cert#agentInteraction.onlineFormUrl": {
+      "valueHash": "b2872fe525eddc64",
+      "valueSeen": "https://www.gro.gov.uk/gro/content/certificates/default.asp",
+      "sourceUrl": "https://www.gro.gov.uk/gro/content/certificates/default.asp",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "gro-marriage-cert#deptKey": {
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
       "sourceQuote": "",
@@ -3906,6 +4733,18 @@
       "confidence": "confirmed",
       "valueHash": "302c22d317674c5e",
       "valueSeen": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    },
+    "gro-register-birth#contactInfo.officeLocatorUrl": {
+      "valueHash": "c257cb6e181e2d60",
+      "valueSeen": "https://www.gov.uk/register-offices",
+      "sourceUrl": "https://www.gov.uk/register-offices",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5608af75-4935-43d1-996f-09fbebde5ecd",
+      "pageUpdatedAt": "2016-03-10T09:57:08+00:00"
     },
     "gro-register-birth#deadline": {
       "valueHash": "7ad613e82a22a1f0",
@@ -3966,6 +4805,18 @@
       "confidence": "confirmed",
       "valueHash": "c89acc71db5f4feb",
       "valueSeen": "https://www.gov.uk/register-birth"
+    },
+    "gro-register-death#contactInfo.officeLocatorUrl": {
+      "valueHash": "c257cb6e181e2d60",
+      "valueSeen": "https://www.gov.uk/register-offices",
+      "sourceUrl": "https://www.gov.uk/register-offices",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5608af75-4935-43d1-996f-09fbebde5ecd",
+      "pageUpdatedAt": "2016-03-10T09:57:08+00:00"
     },
     "gro-register-death#contactInfo.phone.number": {
       "valueHash": "a3bb96db2ebc2377",
@@ -4029,6 +4880,18 @@
       "valueHash": "fb4077746954ef3e",
       "valueSeen": "https://www.gov.uk/register-a-death"
     },
+    "hmcts-benefit-tribunal#agentInteraction.onlineFormUrl": {
+      "valueHash": "066392bf12404e60",
+      "valueSeen": "https://www.gov.uk/appeal-benefit-decision",
+      "sourceUrl": "https://www.gov.uk/appeal-benefit-decision",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "d224ee17-f322-4a9b-8de3-718359ea2c79",
+      "pageUpdatedAt": "2024-11-08T14:28:51+00:00"
+    },
     "hmcts-benefit-tribunal#contactInfo.phone.number": {
       "valueHash": "3fa7f21117b9d1ea",
       "valueSeen": "0300 123 1142",
@@ -4069,6 +4932,18 @@
       "confidence": "confirmed",
       "valueHash": "066392bf12404e60",
       "valueSeen": "https://www.gov.uk/appeal-benefit-decision"
+    },
+    "hmcts-child-arrangements#agentInteraction.onlineFormUrl": {
+      "valueHash": "06245d7f5b560943",
+      "valueSeen": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
+      "sourceUrl": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "6b18888e-1bd2-4aa5-beac-08adb57f67d8",
+      "pageUpdatedAt": "2024-11-26T15:37:16+00:00"
     },
     "hmcts-child-arrangements#contactInfo.phone.number": {
       "valueHash": "0a30d9320c799cb5",
@@ -4129,6 +5004,18 @@
       "valueHash": "06245d7f5b560943",
       "valueSeen": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
       "rationale": "Graph URL resolves to https://www.gov.uk/looking-after-children-divorce; update govuk_url to the canonical path."
+    },
+    "hmcts-court-fee-remission#agentInteraction.onlineFormUrl": {
+      "valueHash": "223b08543ea9914b",
+      "valueSeen": "https://www.gov.uk/get-help-with-court-fees",
+      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "364f5661-f3b9-4907-8f5c-2a83ed915f8d",
+      "pageUpdatedAt": "2016-09-20T13:44:03+01:00"
     },
     "hmcts-court-fee-remission#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
@@ -4197,6 +5084,18 @@
       "valueHash": "223b08543ea9914b",
       "valueSeen": "https://www.gov.uk/get-help-with-court-fees"
     },
+    "hmcts-court-fines#agentInteraction.onlineFormUrl": {
+      "valueHash": "f3ef488aca21a8ae",
+      "valueSeen": "https://www.gov.uk/pay-court-fine-online",
+      "sourceUrl": "https://www.gov.uk/pay-court-fine-online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "6ae16c12-a554-44e2-b3e3-596375aa1b9a",
+      "pageUpdatedAt": "2015-04-21T17:42:30+01:00"
+    },
     "hmcts-court-fines#deptKey": {
       "sourceUrl": "https://www.gov.uk/pay-court-fine-online",
       "sourceQuote": "",
@@ -4218,6 +5117,18 @@
       "confidence": "confirmed",
       "valueHash": "f3ef488aca21a8ae",
       "valueSeen": "https://www.gov.uk/pay-court-fine-online"
+    },
+    "hmcts-divorce#agentInteraction.onlineFormUrl": {
+      "valueHash": "654d2f8a553d8e92",
+      "valueSeen": "https://www.gov.uk/divorce/file-for-divorce",
+      "sourceUrl": "https://www.gov.uk/divorce/file-for-divorce",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "ae26e9b1-b5ec-451f-a235-87e9f323a921",
+      "pageUpdatedAt": "2024-11-12T17:13:31+00:00"
     },
     "hmcts-divorce#contactInfo.phone.number": {
       "valueHash": "0a30d9320c799cb5",
@@ -4279,6 +5190,16 @@
       "valueHash": "33b607bdf8f2cd64",
       "valueSeen": "https://www.gov.uk/divorce"
     },
+    "hmcts-employment-tribunal#agentInteraction.onlineFormUrl": {
+      "valueHash": "2cbf03e3471faaf0",
+      "valueSeen": "https://employmenttribunals.service.gov.uk",
+      "sourceUrl": "https://employmenttribunals.service.gov.uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "hmcts-employment-tribunal#deadline": {
       "valueHash": "92c7a7984960e66d",
       "valueSeen": "3 months minus 1 day from incident",
@@ -4329,6 +5250,18 @@
       "confidence": "confirmed",
       "valueHash": "a7b43906686874b4",
       "valueSeen": "https://www.gov.uk/employment-tribunals"
+    },
+    "hmcts-financial-order#agentInteraction.onlineFormUrl": {
+      "valueHash": "8f84dbaf778625be",
+      "valueSeen": "https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order",
+      "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "373762a3-aa76-4bab-b59c-406cedcfaca7",
+      "pageUpdatedAt": "2025-02-11T13:49:10+00:00"
     },
     "hmcts-financial-order#contactInfo.phone.number": {
       "valueHash": "0a30d9320c799cb5",
@@ -4398,6 +5331,16 @@
       "valueSeen": "https://www.gov.uk/money-property-when-relationship-ends/reaching-an-agreement",
       "rationale": "Graph URL resolves to https://www.gov.uk/money-property-when-relationship-ends; update govuk_url to the canonical path."
     },
+    "hmcts-find-a-will#agentInteraction.onlineFormUrl": {
+      "valueHash": "2a3843e1de165d32",
+      "valueSeen": "https://probatesearch.service.gov.uk/",
+      "sourceUrl": "https://probatesearch.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "HTTP 503: the host refused or failed the automated request. Check in a browser."
+    },
     "hmcts-find-a-will#deptKey": {
       "sourceUrl": "https://www.gov.uk/search-will-probate",
       "sourceQuote": "",
@@ -4428,6 +5371,16 @@
       "confidence": "confirmed",
       "valueHash": "0b353b99d9fede66",
       "valueSeen": "https://www.gov.uk/search-will-probate"
+    },
+    "hmcts-gender-recognition#agentInteraction.onlineFormUrl": {
+      "valueHash": "cc036b891ed147f1",
+      "valueSeen": "https://apply-gender-recognition-certificate.service.gov.uk/",
+      "sourceUrl": "https://apply-gender-recognition-certificate.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmcts-gender-recognition#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-gender-recognition-certificate",
@@ -4469,6 +5422,18 @@
       "confidence": "confirmed",
       "valueHash": "39ab2ac277670583",
       "valueSeen": "https://www.gov.uk/apply-gender-recognition-certificate"
+    },
+    "hmcts-immigration-tribunal#agentInteraction.onlineFormUrl": {
+      "valueHash": "1466466da0a1440a",
+      "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal",
+      "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "3e13f00f-c6f8-43e8-ab51-2e75e569b76a",
+      "pageUpdatedAt": "2014-12-19T15:25:50+00:00"
     },
     "hmcts-immigration-tribunal#deadline": {
       "valueHash": "3fe4b2b6f2b14253",
@@ -4512,6 +5477,18 @@
       "valueHash": "1466466da0a1440a",
       "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal"
     },
+    "hmcts-jury-summons#agentInteraction.onlineFormUrl": {
+      "valueHash": "6587ab5ca6a2e69b",
+      "valueSeen": "https://www.gov.uk/reply-jury-summons",
+      "sourceUrl": "https://www.gov.uk/reply-jury-summons",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "0900f692-039b-49e2-bfbe-fd2e07a5d2e9",
+      "pageUpdatedAt": "2018-07-17T10:04:05+01:00"
+    },
     "hmcts-jury-summons#deadline": {
       "valueHash": "88615916ea53eb59",
       "valueSeen": "within 7 days",
@@ -4542,6 +5519,17 @@
       "confidence": "confirmed",
       "valueHash": "6072174e6be446ce",
       "valueSeen": "https://www.gov.uk/jury-service"
+    },
+    "hmcts-legal-aid#agentInteraction.onlineFormUrl": {
+      "valueHash": "77a18228105b5262",
+      "valueSeen": "https://www.gov.uk/check-legal-aid",
+      "sourceUrl": "https://www.gov.uk/check-legal-aid",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2026-03-19T09:46:23+00:00"
     },
     "hmcts-legal-aid#contactInfo.phone.number": {
       "valueHash": "804c681bcf58ff7f",
@@ -4613,6 +5601,18 @@
       "valueHash": "e8db0122b8cb7812",
       "valueSeen": "https://www.gov.uk/legal-aid"
     },
+    "hmcts-money-claims#agentInteraction.onlineFormUrl": {
+      "valueHash": "1706b92a3504283e",
+      "valueSeen": "https://www.gov.uk/make-court-claim-for-money/make-claim",
+      "sourceUrl": "https://www.gov.uk/make-court-claim-for-money/make-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "6fc19509-621a-4b61-8294-49a756d24ced",
+      "pageUpdatedAt": "2024-11-05T11:00:01+00:00"
+    },
     "hmcts-money-claims#deadline": {
       "valueHash": "9113eaec71d45eed",
       "valueSeen": "6 years from debt arising",
@@ -4645,6 +5645,18 @@
       "valueHash": "d7fd935b3da22d07",
       "valueSeen": "https://www.gov.uk/make-court-claim-for-money"
     },
+    "hmcts-probate#agentInteraction.onlineFormUrl": {
+      "valueHash": "2461e8cfdbada316",
+      "valueSeen": "https://www.gov.uk/applying-for-probate/apply-for-probate",
+      "sourceUrl": "https://www.gov.uk/applying-for-probate/apply-for-probate",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c25b48e9-bdae-4870-845d-5a67c1189fe1",
+      "pageUpdatedAt": "2024-11-08T10:58:10+00:00"
+    },
     "hmcts-probate#contactInfo.phone.number": {
       "valueHash": "f6f230b61a44f8db",
       "valueSeen": "0300 303 0648",
@@ -4653,6 +5665,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "hmcts-probate#contactInfo.webchatUrl": {
+      "valueHash": "eeebd5ff8796263c",
+      "valueSeen": "https://www.apply-for-probate.service.gov.uk/contact-us",
+      "sourceUrl": "https://www.apply-for-probate.service.gov.uk/contact-us",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmcts-probate#deptKey": {
       "sourceUrl": "https://www.gov.uk/applying-for-probate",
@@ -4704,6 +5726,18 @@
       "valueHash": "d697860e35f25e93",
       "valueSeen": "https://www.gov.uk/applying-for-probate"
     },
+    "hmcts-tax-tribunal#agentInteraction.onlineFormUrl": {
+      "valueHash": "95136e5bfef95a32",
+      "valueSeen": "https://www.gov.uk/tax-tribunal",
+      "sourceUrl": "https://www.gov.uk/tax-tribunal",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "000c3ffa-6e21-49e4-b283-2650f0187e82",
+      "pageUpdatedAt": "2015-02-12T11:59:36+00:00"
+    },
     "hmcts-tax-tribunal#deadline": {
       "valueHash": "66280174704deb6f",
       "valueSeen": "30 days from HMRC decision",
@@ -4745,6 +5779,18 @@
       "valueHash": "95136e5bfef95a32",
       "valueSeen": "https://www.gov.uk/tax-tribunal"
     },
+    "hmcts-unclaimed-court-money#agentInteraction.onlineFormUrl": {
+      "valueHash": "d71da437abd68afb",
+      "valueSeen": "https://www.gov.uk/find-unclaimed-court-money",
+      "sourceUrl": "https://www.gov.uk/find-unclaimed-court-money",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "323ca888-7b4f-4862-8da1-b57ca6da69aa",
+      "pageUpdatedAt": "2015-05-05T17:43:42+01:00"
+    },
     "hmcts-unclaimed-court-money#deptKey": {
       "sourceUrl": "https://www.gov.uk/find-unclaimed-court-money",
       "sourceQuote": "",
@@ -4766,6 +5812,18 @@
       "confidence": "confirmed",
       "valueHash": "d71da437abd68afb",
       "valueSeen": "https://www.gov.uk/find-unclaimed-court-money"
+    },
+    "hmpo-lost-stolen-passport#agentInteraction.onlineFormUrl": {
+      "valueHash": "24e98dc0a263c7b4",
+      "valueSeen": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+      "sourceUrl": "https://www.gov.uk/report-a-lost-or-stolen-passport",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "2dd18035-91e9-466a-89c7-b7be88e09e31",
+      "pageUpdatedAt": "2025-06-09T16:55:42+01:00"
     },
     "hmpo-lost-stolen-passport#deptKey": {
       "sourceUrl": "https://www.gov.uk/report-a-lost-or-stolen-passport",
@@ -4789,6 +5847,16 @@
       "confidence": "confirmed",
       "valueHash": "24e98dc0a263c7b4",
       "valueSeen": "https://www.gov.uk/report-a-lost-or-stolen-passport"
+    },
+    "hmpo-passport#agentInteraction.onlineFormUrl": {
+      "valueHash": "92c528386c1ed57c",
+      "valueSeen": "https://www.passport.service.gov.uk/filter",
+      "sourceUrl": "https://www.passport.service.gov.uk/filter",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "Request failed (fetch failed). Check in a browser."
     },
     "hmpo-passport#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-renew-passport",
@@ -4823,6 +5891,18 @@
       "valueHash": "162c4dd62328565e",
       "valueSeen": "https://www.gov.uk/apply-renew-passport"
     },
+    "hmpo-passport-urgent#agentInteraction.onlineFormUrl": {
+      "valueHash": "f0e0fa1a597aa5af",
+      "valueSeen": "https://www.gov.uk/get-a-passport-urgently",
+      "sourceUrl": "https://www.gov.uk/get-a-passport-urgently",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "89426190-c98e-4997-8149-7e0f03aecc8d",
+      "pageUpdatedAt": "2024-11-04T12:30:07+00:00"
+    },
     "hmpo-passport-urgent#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-a-passport-urgently",
       "sourceQuote": "",
@@ -4855,6 +5935,18 @@
       "confidence": "confirmed",
       "valueHash": "f0e0fa1a597aa5af",
       "valueSeen": "https://www.gov.uk/get-a-passport-urgently"
+    },
+    "hmpps-prison-visits#agentInteraction.onlineFormUrl": {
+      "valueHash": "70bd7bc9d0111c9f",
+      "valueSeen": "https://www.gov.uk/prison-visits",
+      "sourceUrl": "https://www.gov.uk/prison-visits",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "8dba2649-fbc8-4285-8436-8a96a760b16c",
+      "pageUpdatedAt": "2017-11-10T11:09:39+00:00"
     },
     "hmpps-prison-visits#deptKey": {
       "sourceUrl": "https://www.gov.uk/prison-visits",
@@ -4918,6 +6010,18 @@
       "confidence": "confirmed",
       "valueHash": "1df510383b51b3c7",
       "valueSeen": "https://www.gov.uk/anti-money-laundering-registration"
+    },
+    "hmrc-cancel-marriage-allowance#agentInteraction.onlineFormUrl": {
+      "valueHash": "4e9b6f7b33d8bd7c",
+      "valueSeen": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
+      "sourceUrl": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "2cba8c94-666b-4edb-b9f5-73172968a65e",
+      "pageUpdatedAt": "2017-11-30T08:32:16+00:00"
     },
     "hmrc-cancel-marriage-allowance#deptKey": {
       "sourceUrl": "https://www.gov.uk/marriage-allowance",
@@ -5012,6 +6116,18 @@
       "valueHash": "23aec2fc520f618c",
       "valueSeen": "https://www.gov.uk/carers-credit"
     },
+    "hmrc-child-benefit#agentInteraction.onlineFormUrl": {
+      "valueHash": "f3389e97a330f3ee",
+      "valueSeen": "https://www.gov.uk/child-benefit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/child-benefit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "aed2cee3-7ca8-4f00-ab17-9193fff516ae",
+      "pageUpdatedAt": "2024-11-22T11:57:33+00:00"
+    },
     "hmrc-child-benefit#contactInfo.phone.number": {
       "valueHash": "a2e971af85612ac5",
       "valueSeen": "+44 300 200 3100",
@@ -5020,6 +6136,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "hmrc-child-benefit#contactInfo.webchatUrl": {
+      "valueHash": "55ce67deffb6fbcb",
+      "valueSeen": "https://www.tax.service.gov.uk/ask-hmrc/chat/child-benefit",
+      "sourceUrl": "https://www.tax.service.gov.uk/ask-hmrc/chat/child-benefit",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmrc-child-benefit#deptKey": {
       "sourceUrl": "https://www.gov.uk/child-benefit",
@@ -5088,6 +6214,18 @@
       "confidence": "confirmed",
       "valueHash": "822f167942069247",
       "valueSeen": "https://www.gov.uk/child-benefit"
+    },
+    "hmrc-child-benefit-transfer#agentInteraction.onlineFormUrl": {
+      "valueHash": "f3389e97a330f3ee",
+      "valueSeen": "https://www.gov.uk/child-benefit/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/child-benefit/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "aed2cee3-7ca8-4f00-ab17-9193fff516ae",
+      "pageUpdatedAt": "2024-11-22T11:57:33+00:00"
     },
     "hmrc-child-benefit-transfer#contactInfo.phone.number": {
       "valueHash": "a2e971af85612ac5",
@@ -5191,6 +6329,16 @@
       "valueHash": "4566bc498f2e829c",
       "valueSeen": "https://www.gov.uk/what-is-the-construction-industry-scheme"
     },
+    "hmrc-corporation-tax#agentInteraction.apiUrl": {
+      "valueHash": "472f12114a1a624d",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Corporation%20Tax%20Online",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Corporation%20Tax%20Online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "hmrc-corporation-tax#contactInfo.phone.number": {
       "valueHash": "dc5e2f652cf36f75",
       "valueSeen": "+44 300 200 3410",
@@ -5259,6 +6407,18 @@
       "confidence": "confirmed",
       "valueHash": "0135df8afd43db1b",
       "valueSeen": "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading"
+    },
+    "hmrc-eori#agentInteraction.onlineFormUrl": {
+      "valueHash": "d09b650550ddb4d2",
+      "valueSeen": "https://www.gov.uk/eori",
+      "sourceUrl": "https://www.gov.uk/eori",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "7dbefa2e-794d-4786-aee1-8f88d1af4922",
+      "pageUpdatedAt": "2025-08-07T08:21:44+01:00"
     },
     "hmrc-eori#deptKey": {
       "sourceUrl": "https://www.gov.uk/eori",
@@ -5352,6 +6512,18 @@
       "valueSeen": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "rationale": "Graph URL resolves to https://www.gov.uk/help-with-childcare-costs; update govuk_url to the canonical path."
     },
+    "hmrc-free-childcare-30#agentInteraction.onlineFormUrl": {
+      "valueHash": "84e6e17146af1d52",
+      "valueSeen": "https://www.gov.uk/free-childcare-if-working/apply-for-free-childcare-if-youre-working",
+      "sourceUrl": "https://www.gov.uk/free-childcare-if-working/apply-for-free-childcare-if-youre-working",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "400ab081-84bd-4fbb-8c47-e599d0863232",
+      "pageUpdatedAt": "2025-04-01T00:01:00+01:00"
+    },
     "hmrc-free-childcare-30#contactInfo.phone.number": {
       "valueHash": "dd5591ab65f174fb",
       "valueSeen": "+44 300 123 4097",
@@ -5437,6 +6609,18 @@
       "valueHash": "706ad1679a18a9d8",
       "valueSeen": "https://www.gov.uk/free-childcare-if-working"
     },
+    "hmrc-guardians-allowance#agentInteraction.onlineFormUrl": {
+      "valueHash": "7f5b2d78e9fc2f37",
+      "valueSeen": "https://www.gov.uk/guardians-allowance/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/guardians-allowance/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "e2644b6d-2c90-47e3-89b7-bf69be25465b",
+      "pageUpdatedAt": "2015-01-12T14:57:27+00:00"
+    },
     "hmrc-guardians-allowance#contactInfo.phone.number": {
       "valueHash": "a2e971af85612ac5",
       "valueSeen": "+44 300 200 3100",
@@ -5504,6 +6688,16 @@
       "valueHash": "a56cfc425b94240c",
       "valueSeen": "https://www.gov.uk/guardians-allowance"
     },
+    "hmrc-help-to-save#agentInteraction.onlineFormUrl": {
+      "valueHash": "03fe83b5bd1fd60e",
+      "valueSeen": "https://www.tax.service.gov.uk/help-to-save/access-account",
+      "sourceUrl": "https://www.tax.service.gov.uk/help-to-save/access-account",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "hmrc-help-to-save#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-help-savings-low-income",
       "sourceQuote": "",
@@ -5570,6 +6764,18 @@
       "confidence": "confirmed",
       "valueHash": "02bac946cc3be833",
       "valueSeen": "https://www.gov.uk/get-help-savings-low-income"
+    },
+    "hmrc-iht400#agentInteraction.onlineFormUrl": {
+      "valueHash": "2a0ae0bf8519ebe3",
+      "valueSeen": "https://www.gov.uk/government/publications/inheritance-tax-inheritance-tax-account-iht400",
+      "sourceUrl": "https://www.gov.uk/government/publications/inheritance-tax-inheritance-tax-account-iht400",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "602d11e5-7631-11e4-a3cb-005056011aef",
+      "pageUpdatedAt": "2026-09-03T15:19:26+01:00"
     },
     "hmrc-iht400#contactInfo.phone.number": {
       "valueHash": "b6059241804a85f2",
@@ -5639,6 +6845,16 @@
       "confidence": "confirmed",
       "valueHash": "a560b3686a4c66b9",
       "valueSeen": "https://www.gov.uk/inheritance-tax"
+    },
+    "hmrc-lisa#agentInteraction.apiUrl": {
+      "valueHash": "2bfd0a533a1e7b6e",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/lisa-api/2.0",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/lisa-api/2.0",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmrc-lisa#deptKey": {
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
@@ -5756,6 +6972,28 @@
       "valueHash": "b18727f73c1601d9",
       "valueSeen": "https://www.gov.uk/machine-game-duty"
     },
+    "hmrc-marriage-allowance#agentInteraction.apiUrl": {
+      "valueHash": "9175480888f3e0f9",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/marriage-allowance/2.0",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/marriage-allowance/2.0",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "hmrc-marriage-allowance#agentInteraction.onlineFormUrl": {
+      "valueHash": "bd519cce325c5388",
+      "valueSeen": "https://www.gov.uk/apply-marriage-allowance",
+      "sourceUrl": "https://www.gov.uk/apply-marriage-allowance",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "58784f96-26e0-444d-ab77-21f102c5f3fd",
+      "pageUpdatedAt": "2017-11-30T08:32:11+00:00"
+    },
     "hmrc-marriage-allowance#deptKey": {
       "sourceUrl": "https://www.gov.uk/marriage-allowance",
       "sourceQuote": "",
@@ -5815,6 +7053,16 @@
       "valueHash": "3e36624ff46f5c5b",
       "valueSeen": "https://www.gov.uk/marriage-allowance"
     },
+    "hmrc-mtd#agentInteraction.apiUrl": {
+      "valueHash": "263aca868cd6d127",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "hmrc-mtd#contactInfo.phone.number": {
       "valueHash": "de236f7f35c58adc",
       "valueSeen": "+44 300 200 3700",
@@ -5823,6 +7071,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "hmrc-mtd#contactInfo.webchatUrl": {
+      "valueHash": "56227d184111a921",
+      "valueSeen": "https://www.tax.service.gov.uk/ask-hmrc/chat/vat-online",
+      "sourceUrl": "https://www.tax.service.gov.uk/ask-hmrc/chat/vat-online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmrc-mtd#deptKey": {
       "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
@@ -5875,6 +7133,28 @@
       "confidence": "confirmed",
       "valueHash": "888f83dd7872b0bf",
       "valueSeen": "https://www.gov.uk/government/collections/making-tax-digital-for-vat"
+    },
+    "hmrc-ni-check#agentInteraction.apiUrl": {
+      "valueHash": "6c9fde82129501d6",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/national-insurance/1.1",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/national-insurance/1.1",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "hmrc-ni-check#agentInteraction.onlineFormUrl": {
+      "valueHash": "86f3fef7a0186ffe",
+      "valueSeen": "https://www.gov.uk/check-national-insurance-record",
+      "sourceUrl": "https://www.gov.uk/check-national-insurance-record",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "cb366ff9-c541-4497-acc6-8f643c901e85",
+      "pageUpdatedAt": "2015-04-24T17:00:51+01:00"
     },
     "hmrc-ni-check#contactInfo.phone.number": {
       "valueHash": "8c3ed8f776531fac",
@@ -5950,6 +7230,16 @@
       "valueSeen": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
       "rationale": "Graph URL resolves to https://www.gov.uk/paye-forms-p45-p60-p11d; update govuk_url to the canonical path."
     },
+    "hmrc-paye#agentInteraction.apiUrl": {
+      "valueHash": "667444f71f531039",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/PAYE%20Online",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/PAYE%20Online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "hmrc-paye#contactInfo.phone.number": {
       "valueHash": "3c0b588bb09baed6",
       "valueSeen": "+44 300 200 3200",
@@ -6000,6 +7290,17 @@
       "valueHash": "2c222789f239a05b",
       "valueSeen": "https://www.gov.uk/register-employer"
     },
+    "hmrc-register-sole-trader#agentInteraction.onlineFormUrl": {
+      "valueHash": "5afe16b4844bc35f",
+      "valueSeen": "https://www.gov.uk/set-up-sole-trader",
+      "sourceUrl": "https://www.gov.uk/set-up-sole-trader",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2024-05-23T13:07:24+01:00"
+    },
     "hmrc-register-sole-trader#contactInfo.phone.number": {
       "valueHash": "3d236099c9f750ac",
       "valueSeen": "+44 300 200 3310",
@@ -6008,6 +7309,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "hmrc-register-sole-trader#contactInfo.webchatUrl": {
+      "valueHash": "6e2761aecd89a930",
+      "valueSeen": "https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment",
+      "sourceUrl": "https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmrc-register-sole-trader#deadline": {
       "valueHash": "cac3b8fc63afca9c",
@@ -6051,6 +7362,28 @@
       "confidence": "confirmed",
       "valueHash": "5afe16b4844bc35f",
       "valueSeen": "https://www.gov.uk/set-up-sole-trader"
+    },
+    "hmrc-sdlt#agentInteraction.apiUrl": {
+      "valueHash": "3a88633bc857bbbd",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Stamp%20Taxes%20Online",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Stamp%20Taxes%20Online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "hmrc-sdlt#agentInteraction.onlineFormUrl": {
+      "valueHash": "f407306619845ae2",
+      "valueSeen": "https://www.gov.uk/sdlt-online",
+      "sourceUrl": "https://www.gov.uk/sdlt-online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5bc69947-9d23-4e43-860f-c778ca3ce8d2",
+      "pageUpdatedAt": "2014-12-24T14:01:34+00:00"
     },
     "hmrc-sdlt#contactInfo.phone.number": {
       "valueHash": "ec3c1bc81ba25f8d",
@@ -6111,6 +7444,28 @@
       "valueHash": "e228646170f5a688",
       "valueSeen": "https://www.gov.uk/stamp-duty-land-tax"
     },
+    "hmrc-self-assessment#agentInteraction.apiUrl": {
+      "valueHash": "263aca868cd6d127",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "hmrc-self-assessment#agentInteraction.onlineFormUrl": {
+      "valueHash": "7b3dbaa3c9cf3037",
+      "valueSeen": "https://www.gov.uk/self-assessment-tax-returns",
+      "sourceUrl": "https://www.gov.uk/self-assessment-tax-returns",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f29ca4a8-8ed9-4b0f-bb6a-11e373095dee",
+      "pageUpdatedAt": "2024-11-05T16:46:12+00:00"
+    },
     "hmrc-self-assessment#contactInfo.phone.number": {
       "valueHash": "3d236099c9f750ac",
       "valueSeen": "+44 300 200 3310",
@@ -6119,6 +7474,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "hmrc-self-assessment#contactInfo.webchatUrl": {
+      "valueHash": "6e2761aecd89a930",
+      "valueSeen": "https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment",
+      "sourceUrl": "https://www.tax.service.gov.uk/ask-hmrc/chat/self-assessment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmrc-self-assessment#deadline": {
       "valueHash": "cac3b8fc63afca9c",
@@ -6546,6 +7911,18 @@
       "valueHash": "a05836791e29c909",
       "valueSeen": "https://www.gov.uk/parental-bereavement-pay-leave"
     },
+    "hmrc-tax-credits#agentInteraction.onlineFormUrl": {
+      "valueHash": "670bea1f00be59c6",
+      "valueSeen": "https://www.gov.uk/tax-credits-have-ended",
+      "sourceUrl": "https://www.gov.uk/tax-credits-have-ended",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "8098053a-b9f5-4d5d-9320-3c3a50b5af75",
+      "pageUpdatedAt": "2025-04-06T00:01:41+01:00"
+    },
     "hmrc-tax-credits#deptKey": {
       "sourceUrl": "https://www.gov.uk/tax-credits-have-ended",
       "sourceQuote": "",
@@ -6597,6 +7974,18 @@
       "confidence": "confirmed",
       "valueHash": "670bea1f00be59c6",
       "valueSeen": "https://www.gov.uk/tax-credits-have-ended"
+    },
+    "hmrc-tax-free-childcare#agentInteraction.onlineFormUrl": {
+      "valueHash": "fb88c8c09b745de9",
+      "valueSeen": "https://www.gov.uk/tax-free-childcare",
+      "sourceUrl": "https://www.gov.uk/tax-free-childcare",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "6e2a4012-2448-47fd-b7ec-a47396e4b114",
+      "pageUpdatedAt": "2024-11-08T18:10:18+00:00"
     },
     "hmrc-tax-free-childcare#contactInfo.phone.number": {
       "valueHash": "dd5591ab65f174fb",
@@ -6693,6 +8082,18 @@
       "valueHash": "fb88c8c09b745de9",
       "valueSeen": "https://www.gov.uk/tax-free-childcare"
     },
+    "hmrc-tax-on-pension#agentInteraction.onlineFormUrl": {
+      "valueHash": "21d70b61d81d390b",
+      "valueSeen": "https://www.gov.uk/tax-on-pension",
+      "sourceUrl": "https://www.gov.uk/tax-on-pension",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "60412ad2-e0a7-4000-8517-41e5460419e6",
+      "pageUpdatedAt": "2024-11-11T10:01:21+00:00"
+    },
     "hmrc-tax-on-pension#deptKey": {
       "sourceUrl": "https://www.gov.uk/tax-on-pension",
       "sourceQuote": "",
@@ -6742,6 +8143,18 @@
       "valueHash": "21d70b61d81d390b",
       "valueSeen": "https://www.gov.uk/tax-on-pension"
     },
+    "hmrc-tax-refund#agentInteraction.onlineFormUrl": {
+      "valueHash": "2b26569af4bcdaf7",
+      "valueSeen": "https://www.gov.uk/claim-tax-refund",
+      "sourceUrl": "https://www.gov.uk/claim-tax-refund",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "2df6d0c1-c3d4-4c44-ae5e-ee046446819e",
+      "pageUpdatedAt": "2024-12-17T09:38:48+00:00"
+    },
     "hmrc-tax-refund#deptKey": {
       "sourceUrl": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
       "sourceQuote": "",
@@ -6783,6 +8196,18 @@
       "valueHash": "18defea317f0e9b7",
       "valueSeen": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working"
     },
+    "hmrc-update-records#agentInteraction.onlineFormUrl": {
+      "valueHash": "c29de879d828ff91",
+      "valueSeen": "https://www.gov.uk/tell-hmrc-change-of-details",
+      "sourceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "928572d0-fc25-45f5-8658-beb6adfa42a0",
+      "pageUpdatedAt": "2024-11-15T10:59:49+00:00"
+    },
     "hmrc-update-records#deptKey": {
       "sourceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
       "sourceQuote": "",
@@ -6814,6 +8239,16 @@
       "valueHash": "c29de879d828ff91",
       "valueSeen": "https://www.gov.uk/tell-hmrc-change-of-details"
     },
+    "hmrc-vat#agentInteraction.apiUrl": {
+      "valueHash": "1c10ee3f0565fc1a",
+      "valueSeen": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0",
+      "sourceUrl": "https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "hmrc-vat#contactInfo.phone.number": {
       "valueHash": "de236f7f35c58adc",
       "valueSeen": "+44 300 200 3700",
@@ -6822,6 +8257,16 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "hmrc-vat#contactInfo.webchatUrl": {
+      "valueHash": "56227d184111a921",
+      "valueSeen": "https://www.tax.service.gov.uk/ask-hmrc/chat/vat-online",
+      "sourceUrl": "https://www.tax.service.gov.uk/ask-hmrc/chat/vat-online",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "hmrc-vat#deptKey": {
       "sourceUrl": "https://www.gov.uk/vat-registration",
@@ -6916,6 +8361,18 @@
       "confidence": "confirmed",
       "valueHash": "c2697e5fd1fbac05",
       "valueSeen": "https://www.gov.uk/biometric-residence-permits"
+    },
+    "ho-citizenship#agentInteraction.onlineFormUrl": {
+      "valueHash": "e10e51070c5ac6cc",
+      "valueSeen": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+      "sourceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "df86209b-1f0d-4280-b637-494ef61d0eac",
+      "pageUpdatedAt": "2025-01-16T09:00:03+00:00"
     },
     "ho-citizenship#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
@@ -7115,6 +8572,18 @@
       "valueHash": "4972f670580e6e35",
       "valueSeen": "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors"
     },
+    "ho-eu-settled-status#agentInteraction.onlineFormUrl": {
+      "valueHash": "99221c24aa36264b",
+      "valueSeen": "https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status",
+      "sourceUrl": "https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "91504a10-f697-42a3-a779-f238b4955ea9",
+      "pageUpdatedAt": "2024-10-31T17:00:11+00:00"
+    },
     "ho-eu-settled-status#contactInfo.phone.number": {
       "valueHash": "7353bcb2e348f6a9",
       "valueSeen": "0300 123 7379",
@@ -7165,6 +8634,18 @@
       "valueHash": "cfd7abc31557187c",
       "valueSeen": "https://www.gov.uk/settled-status-eu-citizens-families"
     },
+    "ho-euss-enquiry#agentInteraction.onlineFormUrl": {
+      "valueHash": "8eb000bc918e7f23",
+      "valueSeen": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+      "sourceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c5d378e5-d800-4475-932f-d5e44615f91b",
+      "pageUpdatedAt": "2024-11-11T10:00:07+00:00"
+    },
     "ho-euss-enquiry#deptKey": {
       "sourceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
       "sourceQuote": "",
@@ -7197,6 +8678,16 @@
       "valueHash": "8eb000bc918e7f23",
       "valueSeen": "https://www.gov.uk/contact-ukvi-inside-outside-uk"
     },
+    "ho-evisa#agentInteraction.onlineFormUrl": {
+      "valueHash": "5fd30211ae368ff9",
+      "valueSeen": "https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk",
+      "sourceUrl": "https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "Request failed (fetch failed). Check in a browser."
+    },
     "ho-evisa#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-access-evisa",
       "sourceQuote": "",
@@ -7228,6 +8719,17 @@
       "confidence": "confirmed",
       "valueHash": "842b1be2343091c8",
       "valueSeen": "https://www.gov.uk/get-access-evisa"
+    },
+    "ho-evisa-error#agentInteraction.onlineFormUrl": {
+      "valueHash": "1d092a18bb577645",
+      "valueSeen": "https://www.gov.uk/report-error-evisa",
+      "sourceUrl": "https://www.gov.uk/report-error-evisa",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2025-07-15T10:15:02+01:00"
     },
     "ho-evisa-error#deptKey": {
       "sourceUrl": "https://www.gov.uk/report-error-evisa",
@@ -7271,6 +8773,18 @@
       "valueHash": "1d092a18bb577645",
       "valueSeen": "https://www.gov.uk/report-error-evisa"
     },
+    "ho-evw#agentInteraction.onlineFormUrl": {
+      "valueHash": "59c7a5b15fcda964",
+      "valueSeen": "https://www.gov.uk/eta",
+      "sourceUrl": "https://www.gov.uk/eta",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5e32d6a3-8aff-4dd0-b7e1-fe2f9fe8b4ec",
+      "pageUpdatedAt": "2025-05-28T11:00:06+01:00"
+    },
     "ho-evw#deptKey": {
       "sourceUrl": "https://www.gov.uk/eta",
       "sourceQuote": "",
@@ -7310,6 +8824,18 @@
       "confidence": "confirmed",
       "valueHash": "59c7a5b15fcda964",
       "valueSeen": "https://www.gov.uk/eta"
+    },
+    "ho-fee-waiver#agentInteraction.onlineFormUrl": {
+      "valueHash": "b2140e2699c1534e",
+      "valueSeen": "https://www.gov.uk/visa-fee-waiver-in-uk",
+      "sourceUrl": "https://www.gov.uk/visa-fee-waiver-in-uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "0f2e49b5-914a-48d9-87e2-1802921638aa",
+      "pageUpdatedAt": "2022-09-27T17:04:46+01:00"
     },
     "ho-fee-waiver#deptKey": {
       "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
@@ -7353,6 +8879,18 @@
       "valueHash": "857dcecefa35a669",
       "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal/fee-waiver",
       "rationale": "Graph URL resolves to https://www.gov.uk/immigration-asylum-tribunal; update govuk_url to the canonical path."
+    },
+    "ho-ilr#agentInteraction.onlineFormUrl": {
+      "valueHash": "634a9fae42c4091e",
+      "valueSeen": "https://www.gov.uk/indefinite-leave-to-remain",
+      "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "a751699c-235d-49db-b9ad-1c2bddf217ed",
+      "pageUpdatedAt": "2024-11-29T14:31:08+00:00"
     },
     "ho-ilr#deptKey": {
       "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
@@ -7413,6 +8951,18 @@
       "valueHash": "634a9fae42c4091e",
       "valueSeen": "https://www.gov.uk/indefinite-leave-to-remain"
     },
+    "ho-immigration-appeal#agentInteraction.onlineFormUrl": {
+      "valueHash": "1466466da0a1440a",
+      "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal",
+      "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "3e13f00f-c6f8-43e8-ab51-2e75e569b76a",
+      "pageUpdatedAt": "2014-12-19T15:25:50+00:00"
+    },
     "ho-immigration-appeal#deadline": {
       "valueHash": "3fe4b2b6f2b14253",
       "valueSeen": "14 days (in-country) / 28 days (out of country)",
@@ -7452,6 +9002,18 @@
       "confidence": "confirmed",
       "valueHash": "1466466da0a1440a",
       "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal"
+    },
+    "ho-life-in-uk#agentInteraction.onlineFormUrl": {
+      "valueHash": "922023e7814ab9f6",
+      "valueSeen": "https://www.gov.uk/life-in-the-uk-test",
+      "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "a7ef13c8-e445-428b-a1eb-1f38193c48de",
+      "pageUpdatedAt": "2024-12-04T15:54:02+00:00"
     },
     "ho-life-in-uk#deptKey": {
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
@@ -7521,6 +9083,18 @@
       "valueHash": "922023e7814ab9f6",
       "valueSeen": "https://www.gov.uk/life-in-the-uk-test"
     },
+    "ho-skilled-worker-dependent-visa#agentInteraction.onlineFormUrl": {
+      "valueHash": "04b9f3276fcc2202",
+      "valueSeen": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+      "sourceUrl": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f9015c31-61c2-4504-8eb0-242cd75aee19",
+      "pageUpdatedAt": "2024-10-31T17:00:39+00:00"
+    },
     "ho-skilled-worker-dependent-visa#deadline": {
       "valueHash": "9484bf60ef063740",
       "valueSeen": "Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)",
@@ -7573,6 +9147,18 @@
       "valueSeen": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
       "rationale": "Graph URL resolves to https://www.gov.uk/skilled-worker-visa; update govuk_url to the canonical path."
     },
+    "ho-skilled-worker-visa#agentInteraction.onlineFormUrl": {
+      "valueHash": "362954c80c3eb52f",
+      "valueSeen": "https://www.gov.uk/skilled-worker-visa/apply",
+      "sourceUrl": "https://www.gov.uk/skilled-worker-visa/apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f9015c31-61c2-4504-8eb0-242cd75aee19",
+      "pageUpdatedAt": "2024-10-31T17:00:39+00:00"
+    },
     "ho-skilled-worker-visa#deptKey": {
       "sourceUrl": "https://www.gov.uk/skilled-worker-visa",
       "sourceQuote": "",
@@ -7613,6 +9199,18 @@
       "confidence": "confirmed",
       "valueHash": "ae08c239d09d28d7",
       "valueSeen": "https://www.gov.uk/skilled-worker-visa"
+    },
+    "ho-student-visa#agentInteraction.onlineFormUrl": {
+      "valueHash": "e0afba32a9b41833",
+      "valueSeen": "https://www.gov.uk/student-visa/apply",
+      "sourceUrl": "https://www.gov.uk/student-visa/apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c0a2a4d9-8d28-449f-8ccb-4c2b7f6e9c0f",
+      "pageUpdatedAt": "2024-10-31T17:00:02+00:00"
     },
     "ho-student-visa#deptKey": {
       "sourceUrl": "https://www.gov.uk/student-visa",
@@ -7655,6 +9253,16 @@
       "valueHash": "e54c2be69391f810",
       "valueSeen": "https://www.gov.uk/student-visa"
     },
+    "ho-view-immigration-status#agentInteraction.onlineFormUrl": {
+      "valueHash": "0b06921f1a1d70e5",
+      "valueSeen": "https://view-immigration-status.service.gov.uk/status",
+      "sourceUrl": "https://view-immigration-status.service.gov.uk/status",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "ho-view-immigration-status#deptKey": {
       "sourceUrl": "https://www.gov.uk/view-prove-immigration-status",
       "sourceQuote": "",
@@ -7687,6 +9295,18 @@
       "confidence": "confirmed",
       "valueHash": "e3d201170ce7e949",
       "valueSeen": "https://www.gov.uk/view-prove-immigration-status"
+    },
+    "ho-visa#agentInteraction.onlineFormUrl": {
+      "valueHash": "f4ee9d73854172c1",
+      "valueSeen": "https://www.gov.uk/apply-to-come-to-the-uk",
+      "sourceUrl": "https://www.gov.uk/apply-to-come-to-the-uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "76698ffe-70ab-4fda-be0d-755234f6d340",
+      "pageUpdatedAt": "2024-10-31T17:00:10+00:00"
     },
     "ho-visa#deptKey": {
       "sourceUrl": "https://www.gov.uk/browse/visas-immigration",
@@ -7730,6 +9350,16 @@
       "confidence": "confirmed",
       "valueHash": "04cf0bba7d2207c7",
       "valueSeen": "https://www.gov.uk/browse/visas-immigration"
+    },
+    "insolvency-bankruptcy#agentInteraction.onlineFormUrl": {
+      "valueHash": "cbcbda881c54bd33",
+      "valueSeen": "https://apply-for-bankruptcy.service.gov.uk/",
+      "sourceUrl": "https://apply-for-bankruptcy.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "insolvency-bankruptcy#contactInfo.phone.number": {
       "valueHash": "d4b047659b62ad6a",
@@ -7783,6 +9413,18 @@
       "valueHash": "5c95a62a0bedce91",
       "valueSeen": "https://www.gov.uk/apply-for-bankruptcy"
     },
+    "insolvency-breathing-space#agentInteraction.onlineFormUrl": {
+      "valueHash": "118cc5859fb34354",
+      "valueSeen": "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space",
+      "sourceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "76b1dd5f-3915-48a6-a570-78f065c1ad0d",
+      "pageUpdatedAt": "2024-11-08T16:00:57+00:00"
+    },
     "insolvency-breathing-space#deptKey": {
       "sourceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts",
       "sourceQuote": "",
@@ -7834,6 +9476,16 @@
       "valueHash": "118cc5859fb34354",
       "valueSeen": "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space",
       "rationale": "Graph URL resolves to https://www.gov.uk/options-for-dealing-with-your-debts; update govuk_url to the canonical path."
+    },
+    "insolvency-dro#agentInteraction.onlineFormUrl": {
+      "valueHash": "36b3bc9e62bbbe0e",
+      "valueSeen": "https://apply-for-debt-relief-order.service.gov.uk",
+      "sourceUrl": "https://apply-for-debt-relief-order.service.gov.uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "insolvency-dro#deptKey": {
       "sourceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts",
@@ -7896,6 +9548,18 @@
       "valueSeen": "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders",
       "rationale": "Graph URL resolves to https://www.gov.uk/options-for-dealing-with-your-debts; update govuk_url to the canonical path."
     },
+    "jaqu-clean-air-zone#agentInteraction.onlineFormUrl": {
+      "valueHash": "405be02e1d46e387",
+      "valueSeen": "https://www.gov.uk/clean-air-zones",
+      "sourceUrl": "https://www.gov.uk/clean-air-zones",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5ff060df-bd8b-4df2-a6bd-64c3f9519758",
+      "pageUpdatedAt": "2020-02-18T12:22:55+00:00"
+    },
     "jaqu-clean-air-zone#deptKey": {
       "sourceUrl": "https://www.gov.uk/clean-air-zones",
       "sourceQuote": "",
@@ -7927,6 +9591,42 @@
       "confidence": "confirmed",
       "valueHash": "405be02e1d46e387",
       "valueSeen": "https://www.gov.uk/clean-air-zones"
+    },
+    "la-blue-badge#agentInteraction.onlineFormUrl": {
+      "valueHash": "0ea313bee370ece0",
+      "valueSeen": "https://www.gov.uk/apply-blue-badge",
+      "sourceUrl": "https://www.gov.uk/apply-blue-badge",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "583e83bf-077e-4892-b8f0-52bfdf286fac",
+      "pageUpdatedAt": "2016-04-06T16:38:36+01:00"
+    },
+    "la-blue-badge#contactInfo.contactFormUrl": {
+      "valueHash": "0ea313bee370ece0",
+      "valueSeen": "https://www.gov.uk/apply-blue-badge",
+      "sourceUrl": "https://www.gov.uk/apply-blue-badge",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "583e83bf-077e-4892-b8f0-52bfdf286fac",
+      "pageUpdatedAt": "2016-04-06T16:38:36+01:00"
+    },
+    "la-blue-badge#contactInfo.officeLocatorUrl": {
+      "valueHash": "6a0d160744198143",
+      "valueSeen": "https://www.gov.uk/find-local-council",
+      "sourceUrl": "https://www.gov.uk/find-local-council",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      "pageUpdatedAt": "2025-08-11T09:26:38+01:00"
     },
     "la-blue-badge#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-blue-badge",
@@ -8063,6 +9763,18 @@
       "method": "literal-presence",
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
+    },
+    "la-carers-assessment#contactInfo.officeLocatorUrl": {
+      "valueHash": "6a0d160744198143",
+      "valueSeen": "https://www.gov.uk/find-local-council",
+      "sourceUrl": "https://www.gov.uk/find-local-council",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      "pageUpdatedAt": "2025-08-11T09:26:38+01:00"
     },
     "la-carers-assessment#eligibility.criteria.0": {
       "valueHash": "a9ff8f1cc9591c56",
@@ -8316,6 +10028,18 @@
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
     },
+    "la-disabled-facilities-grant#contactInfo.officeLocatorUrl": {
+      "valueHash": "6a0d160744198143",
+      "valueSeen": "https://www.gov.uk/find-local-council",
+      "sourceUrl": "https://www.gov.uk/find-local-council",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      "pageUpdatedAt": "2025-08-11T09:26:38+01:00"
+    },
     "la-disabled-facilities-grant#deptKey": {
       "sourceUrl": "https://www.gov.uk/disabled-facilities-grants",
       "sourceQuote": "",
@@ -8376,6 +10100,18 @@
       "valueHash": "61cf60c2261fa9d2",
       "valueSeen": "https://www.gov.uk/disabled-facilities-grants"
     },
+    "la-electoral-roll#agentInteraction.onlineFormUrl": {
+      "valueHash": "968e0c8a5938a69c",
+      "valueSeen": "https://www.gov.uk/register-to-vote",
+      "sourceUrl": "https://www.gov.uk/register-to-vote",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "834a7921-260b-4061-9de1-edda3e998c68",
+      "pageUpdatedAt": "2024-11-04T17:14:23+00:00"
+    },
     "la-electoral-roll#deptKey": {
       "sourceUrl": "https://www.gov.uk/register-to-vote",
       "sourceQuote": "",
@@ -8427,6 +10163,18 @@
       "confidence": "confirmed",
       "valueHash": "968e0c8a5938a69c",
       "valueSeen": "https://www.gov.uk/register-to-vote"
+    },
+    "la-food-hygiene#agentInteraction.onlineFormUrl": {
+      "valueHash": "6aedeac7b77aba39",
+      "valueSeen": "https://www.gov.uk/guidance/food-business-registration",
+      "sourceUrl": "https://www.gov.uk/guidance/food-business-registration",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "7c5a964c-5e1f-44d6-95b8-a05953750db5",
+      "pageUpdatedAt": "2026-06-25T09:00:44+01:00"
     },
     "la-food-hygiene#deadline": {
       "valueHash": "e8750d17eac89696",
@@ -8510,6 +10258,18 @@
       "confidence": "confirmed",
       "valueHash": "d37d0ce7f567ec7f",
       "valueSeen": "https://www.gov.uk/find-licences/food-premises-approval"
+    },
+    "la-free-childcare-2yr#agentInteraction.onlineFormUrl": {
+      "valueHash": "864ac9cd4a3a798d",
+      "valueSeen": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "1a3d4b71-78dc-41b3-97c9-965405892d2e",
+      "pageUpdatedAt": "2015-03-24T16:22:50+00:00"
     },
     "la-free-childcare-2yr#deptKey": {
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs",
@@ -8705,6 +10465,18 @@
       "valueHash": "cfe2de97e50a6199",
       "valueSeen": "https://www.gov.uk/find-licences/house-to-house-collection-licence"
     },
+    "la-postal-vote#agentInteraction.onlineFormUrl": {
+      "valueHash": "6a3e0cfd485f4598",
+      "valueSeen": "https://www.gov.uk/apply-postal-vote",
+      "sourceUrl": "https://www.gov.uk/apply-postal-vote",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "5cff4d83-c21c-4805-808d-27d9d183f09a",
+      "pageUpdatedAt": "2024-12-05T12:05:25+00:00"
+    },
     "la-postal-vote#deadline": {
       "valueHash": "d4052adccd532fcf",
       "valueSeen": "11 working days before election",
@@ -8745,6 +10517,18 @@
       "confidence": "confirmed",
       "valueHash": "6a3e0cfd485f4598",
       "valueSeen": "https://www.gov.uk/apply-postal-vote"
+    },
+    "la-proxy-vote#agentInteraction.onlineFormUrl": {
+      "valueHash": "4cd6528bf3699b89",
+      "valueSeen": "https://www.gov.uk/apply-proxy-vote",
+      "sourceUrl": "https://www.gov.uk/apply-proxy-vote",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "227af258-e0f5-469c-98d9-7fb79090a089",
+      "pageUpdatedAt": "2024-12-05T12:04:56+00:00"
     },
     "la-proxy-vote#deadline": {
       "valueHash": "7003559c326d2c55",
@@ -8957,6 +10741,18 @@
       "verifiedAt": "2026-09-28T11:02:53.069Z",
       "confidence": "confirmed"
     },
+    "la-send-ehc#contactInfo.officeLocatorUrl": {
+      "valueHash": "6a0d160744198143",
+      "valueSeen": "https://www.gov.uk/find-local-council",
+      "sourceUrl": "https://www.gov.uk/find-local-council",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      "pageUpdatedAt": "2025-08-11T09:26:38+01:00"
+    },
     "la-send-ehc#deadline": {
       "valueHash": "4fbf93bfe39c199c",
       "valueSeen": "20 weeks from the date they receive the request for the assessment",
@@ -9025,6 +10821,16 @@
       "valueHash": "54b5463eb241c0f7",
       "valueSeen": "https://www.gov.uk/children-with-special-educational-needs/education-health-care-plans",
       "rationale": "Graph URL resolves to https://www.gov.uk/children-with-special-educational-needs; update govuk_url to the canonical path."
+    },
+    "la-short-term-let#agentInteraction.onlineFormUrl": {
+      "valueHash": "b2803f06497dcf90",
+      "valueSeen": "https://www.mygov.scot/short-term-let-licences",
+      "sourceUrl": "https://www.mygov.scot/short-term-let-licences",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "la-short-term-let#eligibility.criteria.0": {
       "valueHash": "7df97d97be9484b7",
@@ -9204,6 +11010,18 @@
       "valueHash": "6d5d0a7c991be7cd",
       "valueSeen": "https://www.gov.uk/find-licences/temporary-events-notice"
     },
+    "la-voter-authority-cert#agentInteraction.onlineFormUrl": {
+      "valueHash": "d153a57c3a256307",
+      "valueSeen": "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate",
+      "sourceUrl": "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "79ad118e-ff8a-44ba-ab30-34b7cf1584e0",
+      "pageUpdatedAt": "2024-11-22T14:59:56+00:00"
+    },
     "la-voter-authority-cert#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate",
       "sourceQuote": "",
@@ -9247,6 +11065,16 @@
       "valueHash": "d153a57c3a256307",
       "valueSeen": "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate"
     },
+    "llc-local-land-charges#agentInteraction.onlineFormUrl": {
+      "valueHash": "44ff3fbfc05556f9",
+      "valueSeen": "https://search-local-land-charges.service.gov.uk/",
+      "sourceUrl": "https://search-local-land-charges.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "llc-local-land-charges#deptKey": {
       "sourceUrl": "https://www.gov.uk/search-local-land-charges",
       "sourceQuote": "",
@@ -9269,6 +11097,26 @@
       "valueHash": "a5e7b4545dd1e9b9",
       "valueSeen": "https://www.gov.uk/search-local-land-charges"
     },
+    "lr-property-search#agentInteraction.apiUrl": {
+      "valueHash": "5f20ec9598e44e49",
+      "valueSeen": "https://use-land-property-data.service.gov.uk/datasets",
+      "sourceUrl": "https://use-land-property-data.service.gov.uk/datasets",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "Request failed (fetch failed). Check in a browser."
+    },
+    "lr-property-search#agentInteraction.onlineFormUrl": {
+      "valueHash": "56dbd0d490745814",
+      "valueSeen": "https://search-property-information.service.gov.uk/",
+      "sourceUrl": "https://search-property-information.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "HTTP 403: the host refused or failed the automated request. Check in a browser."
+    },
     "lr-property-search#deptKey": {
       "sourceUrl": "https://www.gov.uk/search-property-information-land-registry",
       "sourceQuote": "",
@@ -9290,6 +11138,16 @@
       "confidence": "confirmed",
       "valueHash": "a0eaa4d1e25459d2",
       "valueSeen": "https://www.gov.uk/search-property-information-land-registry"
+    },
+    "lr-registration#agentInteraction.apiUrl": {
+      "valueHash": "46837a09e1bd2363",
+      "valueSeen": "https://landregistry.github.io/bg-dev-pack-redesign/",
+      "sourceUrl": "https://landregistry.github.io/bg-dev-pack-redesign/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "lr-registration#deptKey": {
       "sourceUrl": "https://www.gov.uk/registering-land-or-property-with-land-registry",
@@ -9323,6 +11181,18 @@
       "valueHash": "fc0de36cbe53f585",
       "valueSeen": "https://www.gov.uk/registering-land-or-property-with-land-registry"
     },
+    "lr-sign-mortgage-deed#agentInteraction.onlineFormUrl": {
+      "valueHash": "0dd7e8f620996185",
+      "valueSeen": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
+      "sourceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "ce5631cb-297b-47e5-b7ac-cd0f36b954aa",
+      "pageUpdatedAt": "2023-03-07T11:57:47+00:00"
+    },
     "lr-sign-mortgage-deed#deptKey": {
       "sourceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
       "sourceQuote": "",
@@ -9355,6 +11225,26 @@
       "valueHash": "0dd7e8f620996185",
       "valueSeen": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
     },
+    "mhclg-epc#agentInteraction.apiUrl": {
+      "valueHash": "9ccb8890e1168c08",
+      "valueSeen": "https://epc.opendatacommunities.org/docs/api",
+      "sourceUrl": "https://epc.opendatacommunities.org/docs/api",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "mhclg-epc#agentInteraction.onlineFormUrl": {
+      "valueHash": "d3433e04d42fc592",
+      "valueSeen": "https://find-energy-certificate.service.gov.uk/",
+      "sourceUrl": "https://find-energy-certificate.service.gov.uk/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "mhclg-epc#deptKey": {
       "sourceUrl": "https://www.gov.uk/find-energy-certificate",
       "sourceQuote": "",
@@ -9378,6 +11268,16 @@
       "valueHash": "b174c64fd8a4064a",
       "valueSeen": "https://www.gov.uk/find-energy-certificate"
     },
+    "nhs-111-online#agentInteraction.onlineFormUrl": {
+      "valueHash": "e36ca64d85adc69d",
+      "valueSeen": "https://111.nhs.uk",
+      "sourceUrl": "https://111.nhs.uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "nhs-111-online#contactInfo.phone.number": {
       "valueHash": "d70fa83304965028",
       "valueSeen": "111",
@@ -9397,6 +11297,18 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host 111.nhs.uk has no Content API, so only existence is established."
+    },
+    "nhs-care-assessment#contactInfo.officeLocatorUrl": {
+      "valueHash": "6a0d160744198143",
+      "valueSeen": "https://www.gov.uk/find-local-council",
+      "sourceUrl": "https://www.gov.uk/find-local-council",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "622fda2b-5fa6-4c84-bc3b-22cd3ff08828",
+      "pageUpdatedAt": "2025-08-11T09:26:38+01:00"
     },
     "nhs-care-assessment#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
@@ -9474,6 +11386,16 @@
       "valueHash": "ac2a11fc5bd99f8e",
       "valueSeen": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
     },
+    "nhs-fit-note#agentInteraction.onlineFormUrl": {
+      "valueHash": "0eb27d9c78c67ad4",
+      "valueSeen": "https://send-fit-note.service.gov.uk?lang=en",
+      "sourceUrl": "https://send-fit-note.service.gov.uk?lang=en",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "nhs-fit-note#deptKey": {
       "sourceUrl": "https://www.gov.uk/send-fit-note",
       "sourceQuote": "",
@@ -9514,6 +11436,16 @@
       "confidence": "confirmed",
       "valueHash": "4542e35c9bc93022",
       "valueSeen": "https://www.gov.uk/send-fit-note"
+    },
+    "nhs-free-dental#contactInfo.officeLocatorUrl": {
+      "valueHash": "59cf1d34a55755d9",
+      "valueSeen": "https://www.nhs.uk/service-search/find-a-dentist",
+      "sourceUrl": "https://www.nhs.uk/service-search/find-a-dentist",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "nhs-free-dental#contactInfo.phone.number": {
       "valueHash": "d73bc0d4d77e4826",
@@ -9639,6 +11571,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhs.uk has no Content API, so only existence is established."
     },
+    "nhs-free-sight-tests#contactInfo.officeLocatorUrl": {
+      "valueHash": "7e8cb0c172124917",
+      "valueSeen": "https://www.nhs.uk/service-search/find-an-NHS-sight-test/location",
+      "sourceUrl": "https://www.nhs.uk/service-search/find-an-NHS-sight-test/location",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "nhs-free-sight-tests#contactInfo.phone.number": {
       "valueHash": "d73bc0d4d77e4826",
       "valueSeen": "0300 330 1343",
@@ -9703,6 +11645,36 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhs.uk has no Content API, so only existence is established."
     },
+    "nhs-gp-register#agentInteraction.apiUrl": {
+      "valueHash": "512180315a08517e",
+      "valueSeen": "https://digital.nhs.uk/developer/api-catalogue/register-with-a-gp-surgery",
+      "sourceUrl": "https://digital.nhs.uk/developer/api-catalogue/register-with-a-gp-surgery",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "nhs-gp-register#agentInteraction.onlineFormUrl": {
+      "valueHash": "aef3564aa5447a11",
+      "valueSeen": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
+      "sourceUrl": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "nhs-gp-register#contactInfo.officeLocatorUrl": {
+      "valueHash": "09feec1353620a70",
+      "valueSeen": "https://www.nhs.uk/service-search/find-a-gp",
+      "sourceUrl": "https://www.nhs.uk/service-search/find-a-gp",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "nhs-gp-register#eligibility.criteria.0": {
       "valueHash": "c21b84fefc3f5473",
       "valueSeen": "Must live within the practice boundary (or a GP may agree to register out-of-area).",
@@ -9721,6 +11693,26 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhs.uk has no Content API, so only existence is established."
+    },
+    "nhs-healthy-start#agentInteraction.onlineFormUrl": {
+      "valueHash": "975da13d24c3722b",
+      "valueSeen": "https://www.healthystart.nhs.uk/how-to-apply/",
+      "sourceUrl": "https://www.healthystart.nhs.uk/how-to-apply/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "nhs-healthy-start#contactInfo.contactFormUrl": {
+      "valueHash": "484bedacdc72be4a",
+      "valueSeen": "https://www.healthystart.nhs.uk/contact-us/",
+      "sourceUrl": "https://www.healthystart.nhs.uk/contact-us/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "nhs-healthy-start#contactInfo.phone.number": {
       "valueHash": "37d73e8fa4109ae7",
@@ -9805,6 +11797,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.healthystart.nhs.uk has no Content API, so only existence is established."
+    },
+    "nhs-low-income-scheme#agentInteraction.onlineFormUrl": {
+      "valueHash": "5abb721a89334ee7",
+      "valueSeen": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "nhs-low-income-scheme#contactInfo.phone.number": {
       "valueHash": "d73bc0d4d77e4826",
@@ -9900,6 +11902,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhsbsa.nhs.uk has no Content API, so only existence is established."
     },
+    "nhs-ppc#agentInteraction.onlineFormUrl": {
+      "valueHash": "7e5ecf939eca5da0",
+      "valueSeen": "https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start",
+      "sourceUrl": "https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "unverified",
+      "rationale": "HTTP 403: the host refused or failed the automated request. Check in a browser."
+    },
     "nhs-ppc#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-a-ppc",
       "sourceQuote": "",
@@ -9970,6 +11982,16 @@
       "valueHash": "0e43a6060b2d2a2d",
       "valueSeen": "https://www.gov.uk/get-a-ppc"
     },
+    "ni-discretionary-support#agentInteraction.onlineFormUrl": {
+      "valueHash": "2221d72e1bdf9093",
+      "valueSeen": "https://www.nidirect.gov.uk/articles/discretionary-support",
+      "sourceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "ni-discretionary-support#contactInfo.phone.number": {
       "valueHash": "66d967c2737ee233",
       "valueSeen": "+44 800 587 2750",
@@ -10025,6 +12047,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nidirect.gov.uk has no Content API, so only existence is established."
+    },
+    "ni-rate-rebate#agentInteraction.onlineFormUrl": {
+      "valueHash": "2b1d973cb2a79b6b",
+      "valueSeen": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+      "sourceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "ni-rate-rebate#contactInfo.phone.number": {
       "valueHash": "4287289be49a5b2b",
@@ -10084,6 +12116,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nidirect.gov.uk has no Content API, so only existence is established."
     },
+    "ofsted-check-registered-childcare#agentInteraction.onlineFormUrl": {
+      "valueHash": "3505261551036bda",
+      "valueSeen": "https://reports.ofsted.gov.uk/childcare",
+      "sourceUrl": "https://reports.ofsted.gov.uk/childcare",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "ofsted-check-registered-childcare#govuk_url": {
       "valueHash": "3505261551036bda",
       "valueSeen": "https://reports.ofsted.gov.uk/childcare",
@@ -10093,6 +12135,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host reports.ofsted.gov.uk has no Content API, so only existence is established."
+    },
+    "ofsted-complain-school#agentInteraction.onlineFormUrl": {
+      "valueHash": "6889297fe0fe106b",
+      "valueSeen": "https://contact.ofsted.gov.uk/online-complaints",
+      "sourceUrl": "https://contact.ofsted.gov.uk/online-complaints",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "ofsted-complain-school#deptKey": {
       "sourceUrl": "https://www.gov.uk/complain-to-ofsted",
@@ -10127,6 +12179,16 @@
       "valueHash": "d4699d7795479a31",
       "valueSeen": "https://www.gov.uk/complain-to-ofsted"
     },
+    "ofsted-find-inspection-report#agentInteraction.onlineFormUrl": {
+      "valueHash": "96c6f24d604b535c",
+      "valueSeen": "https://reports.ofsted.gov.uk",
+      "sourceUrl": "https://reports.ofsted.gov.uk",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "ofsted-find-inspection-report#govuk_url": {
       "valueHash": "96c6f24d604b535c",
       "valueSeen": "https://reports.ofsted.gov.uk",
@@ -10136,6 +12198,18 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host reports.ofsted.gov.uk has no Content API, so only existence is established."
+    },
+    "ofsted-register-childminder#agentInteraction.onlineFormUrl": {
+      "valueHash": "07937ccb17576584",
+      "valueSeen": "https://www.gov.uk/become-childminder-nanny/register-childminder",
+      "sourceUrl": "https://www.gov.uk/become-childminder-nanny/register-childminder",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c0e8700b-24ad-4c7a-86d3-9ccc7a8ec11f",
+      "pageUpdatedAt": "2024-10-23T15:24:49+01:00"
     },
     "ofsted-register-childminder#deptKey": {
       "sourceUrl": "https://www.gov.uk/become-childminder-nanny",
@@ -10179,6 +12253,17 @@
       "valueHash": "07937ccb17576584",
       "valueSeen": "https://www.gov.uk/become-childminder-nanny/register-childminder",
       "rationale": "Graph URL resolves to https://www.gov.uk/become-childminder-nanny; update govuk_url to the canonical path."
+    },
+    "opg-deputy-report#agentInteraction.onlineFormUrl": {
+      "valueHash": "de9dcaca816fcd5f",
+      "valueSeen": "https://www.gov.uk/complete-deputy-report",
+      "sourceUrl": "https://www.gov.uk/complete-deputy-report",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "pageUpdatedAt": "2017-03-23T14:32:27+00:00"
     },
     "opg-deputy-report#deadline": {
       "valueHash": "e3e78c8ca69083b7",
@@ -10229,6 +12314,16 @@
       "confidence": "confirmed",
       "valueHash": "de9dcaca816fcd5f",
       "valueSeen": "https://www.gov.uk/complete-deputy-report"
+    },
+    "opg-lpa#agentInteraction.onlineFormUrl": {
+      "valueHash": "6a096731ee751393",
+      "valueSeen": "https://www.lastingpowerofattorney.service.gov.uk/start",
+      "sourceUrl": "https://www.lastingpowerofattorney.service.gov.uk/start",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "opg-lpa#deptKey": {
       "sourceUrl": "https://www.gov.uk/power-of-attorney",
@@ -10332,6 +12427,18 @@
       "valueSeen": "https://www.gov.uk/power-of-attorney/changes-you-need-to-report",
       "rationale": "Graph URL resolves to https://www.gov.uk/power-of-attorney; update govuk_url to the canonical path."
     },
+    "opg-lpa-refund#agentInteraction.onlineFormUrl": {
+      "valueHash": "d52cc7eb21fcee39",
+      "valueSeen": "https://www.gov.uk/power-of-attorney-refund",
+      "sourceUrl": "https://www.gov.uk/power-of-attorney-refund",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c63890f9-2356-4be3-9e07-6cf4b8de7081",
+      "pageUpdatedAt": "2018-02-01T12:09:10+00:00"
+    },
     "opg-lpa-refund#deptKey": {
       "sourceUrl": "https://www.gov.uk/power-of-attorney-refund",
       "sourceQuote": "",
@@ -10405,6 +12512,18 @@
       "valueHash": "880c121dbe198514",
       "valueSeen": "https://www.gov.uk/carers-leave"
     },
+    "other-dbs#agentInteraction.onlineFormUrl": {
+      "valueHash": "bf84481f570045ec",
+      "valueSeen": "https://www.gov.uk/request-copy-criminal-record",
+      "sourceUrl": "https://www.gov.uk/request-copy-criminal-record",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "f855ae48-818f-40de-9a7f-5b0b91c62b5c",
+      "pageUpdatedAt": "2024-12-02T00:01:09+00:00"
+    },
     "other-dbs#contactInfo.phone.number": {
       "valueHash": "77ec54cb4eaeade7",
       "valueSeen": "03000 200 190",
@@ -10473,6 +12592,26 @@
       "confidence": "confirmed",
       "valueHash": "df1c4da602461181",
       "valueSeen": "https://www.gov.uk/dbs-check-applicant-criminal-record"
+    },
+    "other-disabled-railcard#agentInteraction.onlineFormUrl": {
+      "valueHash": "3ccecd95af68d023",
+      "valueSeen": "https://www.railcard.co.uk/disabled-persons-railcard/",
+      "sourceUrl": "https://www.railcard.co.uk/disabled-persons-railcard/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
+    "other-disabled-railcard#contactInfo.contactFormUrl": {
+      "valueHash": "6bf06d4cf5eae39f",
+      "valueSeen": "https://www.railcard.co.uk/help/contact/",
+      "sourceUrl": "https://www.railcard.co.uk/help/contact/",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "other-disabled-railcard#contactInfo.phone.number": {
       "valueHash": "ba99b6411470f220",
@@ -10573,6 +12712,18 @@
       "valueHash": "49783b55374c2ea8",
       "valueSeen": "https://www.gov.uk/employers-liability-insurance"
     },
+    "other-help-to-buy#agentInteraction.onlineFormUrl": {
+      "valueHash": "3eb46dda519fa222",
+      "valueSeen": "https://www.gov.uk/affordable-home-ownership-schemes/help-to-buy-equity-loan",
+      "sourceUrl": "https://www.gov.uk/affordable-home-ownership-schemes/help-to-buy-equity-loan",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "c2b4b7a0-793d-4edb-b0a5-f42687155e35",
+      "pageUpdatedAt": "2014-12-18T11:03:12+00:00"
+    },
     "other-help-to-buy#deptKey": {
       "sourceUrl": "https://www.gov.uk/first-homes-scheme",
       "sourceQuote": "",
@@ -10662,6 +12813,18 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.motability.co.uk has no Content API, so only existence is established."
+    },
+    "other-passport-name#agentInteraction.onlineFormUrl": {
+      "valueHash": "c1aacb58afff7d51",
+      "valueSeen": "https://www.gov.uk/changing-passport-information",
+      "sourceUrl": "https://www.gov.uk/changing-passport-information",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "edc047e5-d91f-4561-bbed-ae7667e75214",
+      "pageUpdatedAt": "2015-03-18T15:00:04+00:00"
     },
     "other-passport-name#contactInfo.phone.number": {
       "valueHash": "f02526614d37b7f1",
@@ -10783,6 +12946,18 @@
       "valueHash": "e7ea1a962e46ac97",
       "valueSeen": "https://www.gov.uk/government/publications/pupil-premium"
     },
+    "other-right-to-work#agentInteraction.onlineFormUrl": {
+      "valueHash": "eb61e7e11516ba2b",
+      "valueSeen": "https://www.gov.uk/prove-right-to-work",
+      "sourceUrl": "https://www.gov.uk/prove-right-to-work",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "ebf341bc-aa8f-4105-a042-b7ba1b7a110e",
+      "pageUpdatedAt": "2024-10-31T17:00:09+00:00"
+    },
     "other-right-to-work#deptKey": {
       "sourceUrl": "https://www.gov.uk/check-job-applicant-right-to-work",
       "sourceQuote": "",
@@ -10826,6 +13001,16 @@
       "valueHash": "f2cefbc63817ceef",
       "valueSeen": "https://www.gov.uk/check-job-applicant-right-to-work"
     },
+    "other-social-tariff-broadband#agentInteraction.onlineFormUrl": {
+      "valueHash": "4f112a0dfdd795a4",
+      "valueSeen": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs",
+      "sourceUrl": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "other-social-tariff-broadband#eligibility.criteria.0": {
       "valueHash": "e1906329ccf1e665",
       "valueSeen": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, or income-related ESA/JSA.",
@@ -10844,6 +13029,18 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.ofcom.org.uk has no Content API, so only existence is established."
+    },
+    "other-statutory-redundancy#agentInteraction.onlineFormUrl": {
+      "valueHash": "46b2520d5301ac83",
+      "valueSeen": "https://www.gov.uk/claim-redundancy",
+      "sourceUrl": "https://www.gov.uk/claim-redundancy",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "a4459daa-d034-43fc-b094-a04cbc0395ed",
+      "pageUpdatedAt": "2017-11-16T14:14:10+00:00"
     },
     "other-statutory-redundancy#deptKey": {
       "sourceUrl": "https://www.gov.uk/redundancy-your-rights",
@@ -10904,6 +13101,18 @@
       "confidence": "confirmed",
       "valueHash": "f8b6f706f4a7eb99",
       "valueSeen": "https://www.gov.uk/redundancy-your-rights"
+    },
+    "other-tv-licence-pension#agentInteraction.onlineFormUrl": {
+      "valueHash": "dbe4dc4699e0227a",
+      "valueSeen": "https://www.gov.uk/free-discount-tv-licence",
+      "sourceUrl": "https://www.gov.uk/free-discount-tv-licence",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "517a99b0-7fec-4362-9a71-4a2480b889c1",
+      "pageUpdatedAt": "2017-04-01T00:01:13+01:00"
     },
     "other-tv-licence-pension#contactInfo.phone.number": {
       "valueHash": "85381ec18bdff18e",
@@ -10976,6 +13185,18 @@
       "valueSeen": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence",
       "rationale": "Graph URL resolves to https://www.gov.uk/tv-licence; update govuk_url to the canonical path."
     },
+    "other-warm-home-discount#agentInteraction.onlineFormUrl": {
+      "valueHash": "6a55143a48af6ada",
+      "valueSeen": "https://www.gov.uk/the-warm-home-discount-scheme",
+      "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "b9787536-5b9c-4caf-b83b-4f593e9a2191",
+      "pageUpdatedAt": "2024-10-14T08:45:44+01:00"
+    },
     "other-warm-home-discount#contactInfo.phone.number": {
       "valueHash": "eccaf0da152db08c",
       "valueSeen": "0800 030 9322",
@@ -11035,6 +13256,18 @@
       "valueHash": "6a55143a48af6ada",
       "valueSeen": "https://www.gov.uk/the-warm-home-discount-scheme"
     },
+    "pins-planning-appeal#agentInteraction.onlineFormUrl": {
+      "valueHash": "925a863b57c6e36a",
+      "valueSeen": "https://www.gov.uk/appeal-planning-decision",
+      "sourceUrl": "https://www.gov.uk/appeal-planning-decision",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "ea699ecf-41ec-4a6d-85b9-cda0c631e8ff",
+      "pageUpdatedAt": "2015-09-08T15:13:50+01:00"
+    },
     "pins-planning-appeal#deadline": {
       "valueHash": "a700bbdaf0227c00",
       "valueSeen": "12 weeks from decision (householder)",
@@ -11085,6 +13318,18 @@
       "confidence": "confirmed",
       "valueHash": "925a863b57c6e36a",
       "valueSeen": "https://www.gov.uk/appeal-planning-decision"
+    },
+    "slc-childcare-grant#agentInteraction.onlineFormUrl": {
+      "valueHash": "c465e8e63d57ee57",
+      "valueSeen": "https://www.gov.uk/childcare-grant/how-to-claim",
+      "sourceUrl": "https://www.gov.uk/childcare-grant/how-to-claim",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "871c1c02-7117-43b6-bec7-60ac68156d4d",
+      "pageUpdatedAt": "2024-11-08T12:57:30+00:00"
     },
     "slc-childcare-grant#deptKey": {
       "sourceUrl": "https://www.gov.uk/childcare-grant",
@@ -11212,6 +13457,18 @@
       "valueHash": "6a1bd8d81d70da45",
       "valueSeen": "https://www.gov.uk/repaying-your-student-loan"
     },
+    "slc-student-finance#agentInteraction.onlineFormUrl": {
+      "valueHash": "980af2ddeebfcf06",
+      "valueSeen": "https://www.gov.uk/student-finance/how-to-apply",
+      "sourceUrl": "https://www.gov.uk/student-finance/how-to-apply",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "d38bafd3-2c46-4be2-b50b-50c2ba7d30ed",
+      "pageUpdatedAt": "2025-01-02T10:40:28+00:00"
+    },
     "slc-student-finance#deptKey": {
       "sourceUrl": "https://www.gov.uk/student-finance",
       "sourceQuote": "",
@@ -11273,6 +13530,16 @@
       "confidence": "confirmed",
       "valueHash": "d95e8c5d83e92f06",
       "valueSeen": "https://www.gov.uk/student-finance"
+    },
+    "sss-adult-disability-payment#agentInteraction.onlineFormUrl": {
+      "valueHash": "5e5a72ec0f57c4f6",
+      "valueSeen": "https://www.mygov.scot/adult-disability-payment",
+      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-adult-disability-payment#eligibility.criteria.0": {
       "valueHash": "2ec0ff57f6d00749",
@@ -11370,6 +13637,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-best-start-foods#agentInteraction.onlineFormUrl": {
+      "valueHash": "c85d541c29025fe2",
+      "valueSeen": "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "sss-best-start-foods#eligibility.criteria.0": {
       "valueHash": "2f8a1203e9929b89",
       "valueSeen": "Must be pregnant or responsible for a child under 3.",
@@ -11444,6 +13721,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-best-start-grant#agentInteraction.onlineFormUrl": {
+      "valueHash": "c85d541c29025fe2",
+      "valueSeen": "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "sss-best-start-grant#eligibility.criteria.0": {
       "valueHash": "031cc1a529f563a5",
       "valueSeen": "Must be responsible for a child (or pregnant for the first payment).",
@@ -11517,6 +13804,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-carer-support-payment#agentInteraction.onlineFormUrl": {
+      "valueHash": "9805e48975622813",
+      "valueSeen": "https://www.mygov.scot/carer-support-payment",
+      "sourceUrl": "https://www.mygov.scot/carer-support-payment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-carer-support-payment#eligibility.criteria.0": {
       "valueHash": "466cc377eb8fe8fe",
@@ -11647,6 +13944,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-child-disability-payment#agentInteraction.onlineFormUrl": {
+      "valueHash": "8dbf81e0f93e8876",
+      "valueSeen": "https://www.mygov.scot/child-disability-payment",
+      "sourceUrl": "https://www.mygov.scot/child-disability-payment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-child-disability-payment#eligibility.criteria.0": {
       "valueHash": "88ce2962554061a3",
@@ -11800,6 +14107,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-funeral-support-payment#agentInteraction.onlineFormUrl": {
+      "valueHash": "7088f90d3bc889e8",
+      "valueSeen": "https://www.mygov.scot/funeral-support-payment",
+      "sourceUrl": "https://www.mygov.scot/funeral-support-payment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "sss-funeral-support-payment#eligibility.criteria.0": {
       "valueHash": "f2e07251266447a0",
       "valueSeen": "Must be responsible for arranging or paying for a funeral.",
@@ -11857,6 +14174,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-pension-winter-heating#agentInteraction.onlineFormUrl": {
+      "valueHash": "38f9202df239fd86",
+      "valueSeen": "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-pension-winter-heating#eligibility.criteria.0": {
       "valueHash": "8de68974ff686e94",
@@ -11924,6 +14251,16 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
+    "sss-scottish-child-payment#agentInteraction.onlineFormUrl": {
+      "valueHash": "29daccb71d18e280",
+      "valueSeen": "https://www.mygov.scot/scottish-child-payment",
+      "sourceUrl": "https://www.mygov.scot/scottish-child-payment",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
+    },
     "sss-scottish-child-payment#eligibility.criteria.0": {
       "valueHash": "258bfbc290bc1618",
       "valueSeen": "Must be responsible for a child under 16.",
@@ -11980,6 +14317,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
+    },
+    "sss-young-carer-grant#agentInteraction.onlineFormUrl": {
+      "valueHash": "cda6c2fa9dac0bd8",
+      "valueSeen": "https://www.mygov.scot/young-carer-grant",
+      "sourceUrl": "https://www.mygov.scot/young-carer-grant",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-young-carer-grant#eligibility.criteria.0": {
       "valueHash": "943be2e293646064",
@@ -12096,6 +14443,18 @@
       "valueHash": "69f0bc5a86ac9978",
       "valueSeen": "https://www.gov.uk/workplace-pensions-employers"
     },
+    "ukri-find-grants#agentInteraction.onlineFormUrl": {
+      "valueHash": "9c20eff01c019b47",
+      "valueSeen": "https://www.gov.uk/business-finance-support",
+      "sourceUrl": "https://www.gov.uk/business-finance-support",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "12fecc5b-c02a-405e-b96e-7aa32ceaf504",
+      "pageUpdatedAt": "2026-04-09T10:03:44+01:00"
+    },
     "ukri-find-grants#deptKey": {
       "sourceUrl": "https://www.gov.uk/business-finance-support",
       "sourceQuote": "",
@@ -12118,6 +14477,18 @@
       "confidence": "confirmed",
       "valueHash": "9c20eff01c019b47",
       "valueSeen": "https://www.gov.uk/business-finance-support"
+    },
+    "voa-business-rates#agentInteraction.onlineFormUrl": {
+      "valueHash": "aa3c221cf0ca2d81",
+      "valueSeen": "https://www.gov.uk/correct-your-business-rates",
+      "sourceUrl": "https://www.gov.uk/correct-your-business-rates",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "01866d5b-ad6a-4b08-ae18-931a648f4236",
+      "pageUpdatedAt": "2022-01-31T15:32:08+00:00"
     },
     "voa-business-rates#deptKey": {
       "sourceUrl": "https://www.gov.uk/correct-your-business-rates",
@@ -12152,6 +14523,18 @@
       "valueHash": "aa3c221cf0ca2d81",
       "valueSeen": "https://www.gov.uk/correct-your-business-rates"
     },
+    "voa-council-tax-band#agentInteraction.onlineFormUrl": {
+      "valueHash": "d5c96443e964e53f",
+      "valueSeen": "https://www.gov.uk/council-tax-bands",
+      "sourceUrl": "https://www.gov.uk/council-tax-bands",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "govuk-content-api",
+      "confidence": "confirmed",
+      "rationale": "GOV.UK Content API resolves the page.",
+      "contentId": "515c819e-34bd-421d-8261-eaa06c4786c5",
+      "pageUpdatedAt": "2015-01-14T13:47:41+00:00"
+    },
     "voa-council-tax-band#deptKey": {
       "sourceUrl": "https://www.gov.uk/council-tax-bands",
       "sourceQuote": "",
@@ -12174,6 +14557,16 @@
       "confidence": "confirmed",
       "valueHash": "d5c96443e964e53f",
       "valueSeen": "https://www.gov.uk/council-tax-bands"
+    },
+    "wg-discretionary-assistance#agentInteraction.onlineFormUrl": {
+      "valueHash": "14b419db8791f994",
+      "valueSeen": "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "wg-discretionary-assistance#contactInfo.phone.number": {
       "valueHash": "5fbf576023ae4400",
@@ -12233,6 +14626,16 @@
       "verifiedAt": "2026-09-28T14:12:44.669Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.gov.wales has no Content API, so only existence is established."
+    },
+    "wg-winter-fuel-support#agentInteraction.onlineFormUrl": {
+      "valueHash": "75728aa4781cf78a",
+      "valueSeen": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+      "sourceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+      "sourceQuote": "",
+      "verifiedAt": "2026-09-28T22:33:47.189Z",
+      "method": "http-status",
+      "confidence": "confirmed",
+      "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "wg-winter-fuel-support#deadline": {
       "valueHash": "c7ad49ff6c036824",

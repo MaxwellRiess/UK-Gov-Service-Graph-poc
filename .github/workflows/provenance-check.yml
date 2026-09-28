@@ -111,3 +111,88 @@ jobs:
               });
               console.log(`Created issue #${data.number}`);
             }
+
+  # Weekly: links other than govuk_url, and figures in prose that no cited page
+  # states. Report-only, in one rolling issue, while the existing backlog is
+  # worked through; neither blocks a PR.
+  prose-and-links:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - name: Check links beyond govuk_url
+        run: npx tsx scripts/verify-links.ts --json links.json
+      - name: Check figures in prose against structured values and cited pages
+        run: npx tsx scripts/check-consistency.ts --online --json consistency.json
+
+      - name: Open, update or close the data-checks issue
+        if: always() && hashFiles('links.json') != '' && hashFiles('consistency.json') != ''
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const links = JSON.parse(fs.readFileSync('links.json', 'utf-8'));
+            const cons = JSON.parse(fs.readFileSync('consistency.json', 'utf-8'));
+            const title = '[Data checks] Dead links and unsourced figures in prose';
+            const label = 'provenance';
+
+            const unsourced = cons.findings.filter(f => f.kind === 'unbacked amount' && f.onPage === false);
+            const staleYears = cons.findings.filter(f => f.kind === 'stale year label');
+            const total = links.dead.length + unsourced.length + staleYears.length;
+
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner: context.repo.owner, repo: context.repo.repo, state: 'open', labels: label,
+            });
+            const existing = open.find(i => i.title === title);
+
+            if (total === 0) {
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number,
+                  body: `No dead links, unsourced figures or stale year labels on ${cons.checkedAt.slice(0, 10)}. Closing.`,
+                });
+                await github.rest.issues.update({
+                  owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, state: 'closed',
+                });
+              }
+              return;
+            }
+
+            const esc = t => String(t).replace(/\|/g, '\\|').slice(0, 140);
+            const body = [
+              `The weekly data checks on ${cons.checkedAt.slice(0, 10)} found ${total} item(s).`,
+              '',
+              `### Dead links (${links.dead.length} of ${links.checked})`,
+              links.dead.length
+                ? ['| Service | Field | URL | Why |', '|---|---|---|---|', ...links.dead.map(d => `| \`${d.id}\` | \`${d.field}\` | ${d.url} | ${esc(d.detail)} |`)].join('\n')
+                : '_None._',
+              '',
+              `### Figures in prose on no cited page (${unsourced.length})`,
+              'Usually a stale copy of a value that has since changed, or a figure with no source. Check the service\'s pages, then correct or remove it.',
+              '',
+              unsourced.length
+                ? ['| Service | Field | Figure | Text |', '|---|---|---|---|', ...unsourced.map(f => `| \`${f.id}\` | \`${f.field}\` | ${esc(f.detail.split(' ')[0])} | ${esc(f.text)} |`)].join('\n')
+                : '_None._',
+              '',
+              `### Stale year labels (${staleYears.length})`,
+              staleYears.length
+                ? ['| Service | Field | Label | Text |', '|---|---|---|---|', ...staleYears.map(f => `| \`${f.id}\` | \`${f.field}\` | ${esc(f.detail)} | ${esc(f.text)} |`)].join('\n')
+                : '_None._',
+              '',
+              `${links.blocked.length} link(s) refused the automated check and need a look in a browser; they are recorded as unverified, not dead.`,
+              '',
+              'Re-run `npx tsx scripts/verify-links.ts` and `npx tsx scripts/check-consistency.ts --online` locally to check a fix. This issue closes itself once both are clean.',
+            ].join('\n');
+
+            if (existing) {
+              await github.rest.issues.update({ owner: context.repo.owner, repo: context.repo.repo, issue_number: existing.number, body });
+            } else {
+              await github.rest.issues.create({ owner: context.repo.owner, repo: context.repo.repo, title, body, labels: [label] });
+            }

@@ -168,6 +168,12 @@ npm run verify:rules
 # Judge eligibility criteria text against the cited pages (needs ANTHROPIC_API_KEY)
 npm run verify:criteria
 
+# Check links beyond govuk_url (form, API, webchat, contact form, office finder)
+npm run verify:links
+
+# Flag figures in prose that match no structured value and appear on no cited page
+npm run check:consistency
+
 # Confirm provenance still matches graph-data.ts (offline, runs in CI)
 npm run check:provenance
 
@@ -201,6 +207,8 @@ scripts/
   verify-tier2-llm.ts             Locates deadlines in page prose (needs ANTHROPIC_API_KEY)
   verify-rules.ts                 Checks eligibility rule thresholds appear on their cited page
   verify-criteria.ts              Judges eligibility criteria text against its source (needs ANTHROPIC_API_KEY)
+  verify-links.ts                 Checks form, API, webchat and contact links resolve
+  check-consistency.ts            Flags figures in prose that no structured value or cited page backs
   check-provenance.ts             Fails the build when data and provenance disagree
   contact-overrides.ts            Department contact data (phone, hours, accessibility)
   merge-contacts.ts               Injects contact overrides into graph-data.ts
@@ -212,7 +220,7 @@ docs/
 experiment-logs/                  Raw JSONL conversation logs and judge scores
 .github/workflows/
   freshness-check.yml             Weekly scheduled action — opens issues when GOV.UK pages change
-  provenance-check.yml            Value-drift check on every PR; weekly quote re-check opens a single issue listing stale values
+  provenance-check.yml            Value-drift check on every PR; weekly jobs keep rolling issues for stale quotes, and for dead links and unsourced figures in prose
 ```
 
 ---
