@@ -276,20 +276,27 @@ async function processNode(n: ServiceNode) {
     else status = 'not_stated';
     bump(status);
 
+    // Quotes for every claim the source supports, kept even when the field as
+    // a whole is not confirmed, so the evidence for those claims stays visible.
+    const good = checked.filter(c => c.verdict === 'supported' && c.ok && c.quote && c.url);
+    const claims = { supported: good.length, total: checked.length };
+    const quotes = good.length ? {
+      sourceUrl: good[0].url!, sourceQuote: good[0].quote!,
+      ...(good.length > 1 ? { additionalQuotes: good.slice(1).map(c => ({ quote: c.quote!, url: c.url! })) } : {}),
+    } : null;
+
     if (status === 'confirmed') {
-      const [first, ...rest] = checked;
-      store.fields[key] = {
-        ...base, sourceUrl: first.url!, sourceQuote: first.quote!, confidence: 'confirmed',
-        ...(rest.length ? { additionalQuotes: rest.map(c => ({ quote: c.quote!, url: c.url! })) } : {}),
-      };
+      store.fields[key] = { ...base, ...quotes!, confidence: 'confirmed', claims };
       continue;
     }
 
     const problems = checked.filter(c => c.verdict !== 'supported' || !c.ok);
     store.fields[key] = {
       ...base,
-      sourceUrl: checked.find(c => c.url)?.url ?? sources[0].url,
-      sourceQuote: '',
+      sourceUrl: quotes?.sourceUrl ?? checked.find(c => c.url)?.url ?? sources[0].url,
+      sourceQuote: status === 'fabricated' ? '' : quotes?.sourceQuote ?? '',
+      ...(status !== 'fabricated' && quotes?.additionalQuotes ? { additionalQuotes: quotes.additionalQuotes } : {}),
+      claims,
       confidence: 'unverified',
       rationale: status === 'fabricated'
         ? 'A quote the model gave is not in the source text, so the judgement was discarded.'

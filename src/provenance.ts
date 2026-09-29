@@ -60,6 +60,13 @@ export interface FieldProvenance {
    * only because every claim has a span; each is re-checked like sourceQuote.
    */
   additionalQuotes?: { quote: string; url: string }[];
+  /**
+   * For a field judged claim by claim: how many claims the source supports.
+   * An unverified description with 3 of 4 claims supported is a different
+   * thing from one with none, and the quotes for the supported claims are
+   * kept so the evidence for them is not lost.
+   */
+  claims?:         { supported: number; total: number };
   /** GOV.UK content_id — stable across URL changes, unlike the URL itself. */
   contentId?:      string;
   /** The source page's public_updated_at when this was verified. */

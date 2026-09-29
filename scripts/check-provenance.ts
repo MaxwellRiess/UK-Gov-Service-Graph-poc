@@ -125,11 +125,17 @@ async function fetchPageText(url: string): Promise<string | null> {
       const res = await fetch(`https://www.gov.uk/api/content${parsed.pathname.replace(/\/$/, '')}`,
         { headers: { 'User-Agent': UA }, redirect: 'follow' });
       if (res.ok) {
-        const det = ((await res.json()) as any).details ?? {};
+        const d = (await res.json()) as any;
+        const det = d.details ?? {};
         const bodies: string[] = [];
         if (typeof det.body === 'string') bodies.push(det.body);
         for (const p of det.parts ?? []) if (typeof p.body === 'string') bodies.push(p.body);
-        if (bodies.length) return htmlToText(bodies.join(' \n '));
+        if (bodies.length) {
+          // Same text the verifiers read (scripts/lib/page-text.ts), title and summary included.
+          const head = [d.title, d.description].filter((x: unknown) => typeof x === 'string' && x).join('. ');
+          if (head) bodies.unshift(head);
+          return htmlToText(bodies.join(' \n '));
+        }
       }
     }
     const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });

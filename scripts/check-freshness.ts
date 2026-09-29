@@ -37,7 +37,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const HASHES_PATH = join(__dirname, '..', '.freshness', 'hashes.json');
 const UPDATE = process.argv.includes('--update');
 /** Bump when what gets hashed changes, so old entries re-baseline instead of alerting. */
-const HASH_METHOD = 'page-text-v2';
+const HASH_METHOD = 'page-text-v3';  // v3: page title and summary included
 
 // ─── TYPES ──────────────────────────────────────────────────────────────────
 

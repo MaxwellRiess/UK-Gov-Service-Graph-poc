@@ -38,6 +38,8 @@ export interface FieldEvidence {
   quote?:     string;
   /** Further spans, for fields made of several claims. */
   moreQuotes?: { quote: string; url: string }[];
+  /** For fields judged claim by claim: how many claims the source supports. */
+  claims?:    { supported: number; total: number };
   method?:    string;
   checkedAt?: string;
   note?:      string;
@@ -123,11 +125,12 @@ function evidenceFor(node: ServiceNode, path: string, about?: string): FieldEvid
     source:    record.sourceUrl || undefined,
     quote:     record.sourceQuote || undefined,
     ...(record.additionalQuotes?.length ? { moreQuotes: record.additionalQuotes } : {}),
+    ...(record.claims && record.claims.total > 1 ? { claims: record.claims } : {}),
     method:    record.method,
     checkedAt: record.verifiedAt.slice(0, 10),
   };
   if (hashValue(getFieldValue(node, path)) !== record.valueHash) {
-    return { ...base, status: 'unverified', quote: undefined, moreQuotes: undefined, note: 'Value has changed since it was checked.' };
+    return { ...base, status: 'unverified', quote: undefined, moreQuotes: undefined, claims: undefined, note: 'Value has changed since it was checked.' };
   }
   if (record.confidence !== 'confirmed' && record.rationale) base.note = record.rationale;
   return base;
@@ -160,7 +163,10 @@ export function provenanceSummary(node: ServiceNode): ProvenanceSummary {
   const { summary, fields } = provenanceFor(node);
   const notConfirmed = Object.entries(fields)
     .filter(([, ev]) => ev.status !== 'confirmed')
-    .map(([path, ev]) => (ev.about ? `${ev.about} (${ev.status})` : `${path} (${ev.status})`));
+    .map(([path, ev]) => {
+      const detail = ev.claims ? `${ev.status}, ${ev.claims.supported} of ${ev.claims.total} claims confirmed` : ev.status;
+      return `${ev.about ?? path} (${detail})`;
+    });
   return { summary, notConfirmed, more: 'Call get_service with provenance: "full" for sources and quotes.' };
 }
 

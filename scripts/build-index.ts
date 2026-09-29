@@ -406,7 +406,9 @@ const html = `<!DOCTYPE html>
         .forEach(function(path) {
           var f = prov.fields[path];
           h += '<details class="pv-field"><summary><span class="pv-dot pv-' + f.status + '"></span>'
-            + '<span class="pv-label">' + esc(fieldName(path, f)) + '</span><span class="pv-status">' + f.status + '</span></summary><div class="pv-body">';
+            + '<span class="pv-label">' + esc(fieldName(path, f)) + '</span><span class="pv-status">' + f.status
+            + (f.claims ? ' \u00B7 ' + f.claims.supported + '/' + f.claims.total + ' claims' : '') + '</span></summary><div class="pv-body">';
+          if (f.claims && f.status !== 'confirmed') h += '<div>' + f.claims.supported + ' of ' + f.claims.total + ' claims confirmed. The quotes support those; the note in amber says what is not.</div>';
           if (f.quote) h += '<div class="pv-quote">\u201C' + esc(f.quote) + '\u201D</div>';
           (f.moreQuotes || []).forEach(function(q) {
             h += '<div class="pv-quote">\u201C' + esc(q.quote) + '\u201D'

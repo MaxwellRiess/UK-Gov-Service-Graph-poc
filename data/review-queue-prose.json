@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T09:12:38.394Z",
+  "generatedAt": "2026-09-29T10:07:50.575Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -222,7 +222,7 @@
         {
           "claim": "Applying online needs a Government Gateway user ID.",
           "verdict": "contradicted",
-          "note": "The text names a childcare account that you set up when you apply, not Government Gateway.",
+          "note": "The text names a childcare account as the sign-in, not a Government Gateway user ID.",
           "quote": "You’ll set up a childcare account when you apply."
         }
       ]
@@ -306,21 +306,6 @@
       ]
     },
     {
-      "id": "ho-fee-waiver",
-      "name": "Immigration fee waiver",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply",
-          "verdict": "contradicted",
-          "note": "The page says you must create an account to use the online appeal service, and legal professionals must use a MyHMCTS account.",
-          "quote": "You’ll need to create an account."
-        }
-      ]
-    },
-    {
       "id": "ho-immigration-appeal",
       "name": "Appeal a visa or immigration decision",
       "field": "agentInteraction.authRequired",
@@ -345,8 +330,8 @@
         {
           "claim": "No account or sign-in is needed to apply.",
           "verdict": "contradicted",
-          "note": "The text says eVisa holders must sign in to their UKVI account to get the share code used for booking, and it also refers to a Life in the UK account.",
-          "quote": "You’ll need to sign in to your UK Visas and Immigration ( UKVI ) account to view your eVisa and get a share code ."
+          "note": "The text refers to a Life in the UK account that you sign into to manage bookings, and says eVisa holders must sign in to their UKVI account to get a share code for booking.",
+          "quote": "Sign into your Life in the UK account ."
         }
       ]
     },
@@ -375,8 +360,8 @@
         {
           "claim": "No account or sign-in is needed to apply.",
           "verdict": "contradicted",
-          "note": "The text says applicants create or sign into a UKVI account, and it links to guidance on how to sign in to your account.",
-          "quote": "use the ‘UK Immigration: ID Check’ app to scan your identity document - you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
+          "note": "The text says applicants create or sign into a UKVI account, and it offers a sign-in to continue an application.",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
         }
       ]
     },
@@ -388,10 +373,10 @@
       "verdict": "contradicted",
       "problems": [
         {
-          "claim": "No account or sign-in is needed to apply.",
+          "claim": "You don't need an account or sign-in to apply.",
           "verdict": "contradicted",
-          "note": "The text says applicants who prove their identity with the app must create or sign into a UKVI account, so the claim that no account is needed conflicts with it.",
-          "quote": "use the ‘UK Immigration: ID Check’ app to scan your identity document - you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
+          "note": "The text says applicants who prove their identity with the ID Check app create or sign into a UKVI account, and that successful applicants must create a UKVI account.",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
         }
       ]
     },
@@ -2920,9 +2905,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "CV and evidence of looking for work.",
+          "claim": "A CV and evidence of job-seeking are needed.",
           "verdict": "partly_supported",
-          "note": "The text asks for proof of looking for work at later appointments, and mentions writing a CV only as a possible Claimant Commitment step. It does not list either as needed to apply.",
+          "note": "The text asks for job-seeking proof at regular appointments and mentions writing a CV as a possible Claimant Commitment step, but it does not list a CV or job-seeking evidence as something needed to apply.",
           "quote": "you must show your work coach what you’ve been doing to look for work, for example proof of job applications and interviews"
         }
       ]
@@ -2937,7 +2922,7 @@
         {
           "claim": "You can apply by phone.",
           "verdict": "partly_supported",
-          "note": "The text says you can apply another way by contacting Jobcentre Plus, but it does not say this is by phone. The phone number given is for reporting changes.",
+          "note": "The text says you can apply another way by contacting Jobcentre Plus, but it does not say this is by phone; the helpline number it gives is for reporting changes.",
           "quote": "You need to either: contact Jobcentre Plus if you live in England, Scotland or Wales"
         }
       ]
@@ -2967,14 +2952,8 @@
         {
           "claim": "You apply online via DWP.",
           "verdict": "partly_supported",
-          "note": "The text says you apply online, but it never names DWP.",
+          "note": "The text says you apply online but never names DWP.",
           "quote": "To get a National Insurance number you need to apply online."
-        },
-        {
-          "claim": "A National Insurance number is needed for work and benefits.",
-          "verdict": "partly_supported",
-          "note": "The text links the number to work and to getting a benefit paid, but it does not say plainly that it is needed for benefits in general.",
-          "quote": "If you do not have a National Insurance number, you must apply for one if you plan to work."
         }
       ]
     },
@@ -2986,28 +2965,16 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A National Insurance number is needed for work and benefits in the UK.",
-          "verdict": "partly_supported",
-          "note": "The text ties the number to work and to benefit payment, but it does not say it is always needed for benefits.",
-          "quote": "If you need a National Insurance number to get your benefit or student loan paid, you’ll be contacted and told how to get one."
-        },
-        {
           "claim": "You apply online via DWP.",
           "verdict": "partly_supported",
-          "note": "The text says you apply online, but DWP is not named.",
+          "note": "Online is stated, but DWP is never named.",
           "quote": "To get a National Insurance number you need to apply online."
         },
         {
-          "claim": "UK citizens should already have one.",
+          "claim": "UK citizens should already have one, so it applies mainly to new arrivals.",
           "verdict": "partly_supported",
-          "note": "The text talks about UK residents, not citizens, and only says they are normally sent one if they live in the UK and a Child Benefit claim was made.",
+          "note": "The text says UK residents are normally sent one if a Child Benefit claim was made, but it does not mention citizenship and does not say the service is mainly for new arrivals.",
           "quote": "You’ll normally be sent a National Insurance number in the 3 months before your 16th birthday if both the following are true:"
-        },
-        {
-          "claim": "The service applies mainly to new arrivals.",
-          "verdict": "not_stated",
-          "note": "The text never describes the service as mainly for new arrivals.",
-          "quote": null
         }
       ]
     },
@@ -3019,9 +2986,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Biometric Residence Permit received and right to work confirmed.",
+          "claim": "Biometric Residence Permit received and right to work confirmed",
           "verdict": "partly_supported",
-          "note": "The text mentions BRPs and requires the right to work, but it does not make receiving a BRP and having the right to work confirmed a condition for applying.",
+          "note": "The text requires the right to work, but it does not make getting a BRP a condition of applying.",
           "quote": "If you have a BRP or eVisa, you might have a National Insurance number already."
         }
       ]
@@ -3034,9 +3001,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Proof of identity (passport or BRP).",
+          "claim": "Proof of identity (passport or BRP)",
           "verdict": "partly_supported",
-          "note": "The text requires proof of identity and lists a passport, but it does not list a BRP as an identity document.",
+          "note": "The text lists a passport and certain national identity cards as identity documents, but not a BRP.",
           "quote": "a passport from any country a national identity card from an EU country or from Norway, Liechtenstein or Switzerland"
         }
       ]
@@ -3775,15 +3742,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A licence is required by law for anyone aged 13 or over fishing with a rod and line in rivers, streams, canals and some stillwaters in England and Wales.",
+          "claim": "The law requires anyone aged 13 or over fishing with a rod and line in rivers, streams, canals and some stillwaters in England and Wales to have a licence.",
           "verdict": "partly_supported",
-          "note": "The text says a licence is needed in England (except the River Tweed) and Wales, but it does not describe the requirement as rivers, streams, canals and 'some stillwaters'; it also covers private lakes.",
+          "note": "The text says a licence is required across England (except the River Tweed) and Wales, including private lakes; it does not limit this to 'rivers, streams, canals and some stillwaters'.",
           "quote": "You must have a rod fishing licence for England and Wales if you’re fishing for salmon, trout, freshwater fish, smelt or eel with a rod and line in: England (except the River Tweed) Wales"
         },
         {
           "claim": "Fishing without a licence is a criminal offence.",
           "verdict": "partly_supported",
-          "note": "The text mentions a fine of up to £2,500 but never calls fishing without a licence a criminal offence.",
+          "note": "The text mentions a fine of up to £2,500 but never calls it a criminal offence.",
           "quote": "You can get a fine of up to £2,500 if you’re fishing in these areas and cannot show a valid rod fishing licence when asked."
         }
       ]
@@ -3813,14 +3780,20 @@
         {
           "claim": "The service is free.",
           "verdict": "not_stated",
-          "note": "The text says nothing about cost for the online service.",
+          "note": "The text says nothing about cost. It only mentions call charges for Floodline.",
           "quote": null
         },
         {
-          "claim": "Anyone can use it to check a property address in England.",
+          "claim": "The service is available to anyone checking a property address in England.",
           "verdict": "partly_supported",
-          "note": "The text covers areas in England, but it does not mention checking by property address or say that anyone can use it.",
-          "quote": "the long term flood risk for an area in England"
+          "note": "The text talks about checking an area in England. It does not mention property addresses or say that anyone can use it.",
+          "quote": "Check the long term flood risk for an area in England."
+        },
+        {
+          "claim": "Results show flood risk from rivers and the sea, surface water, groundwater and reservoirs.",
+          "verdict": "partly_supported",
+          "note": "All four sources are listed, but the text says groundwater is only covered where data is available, and the claim leaves that condition out.",
+          "quote": "rivers and the sea surface water reservoirs groundwater (where data is available)"
         }
       ]
     },
@@ -3945,8 +3918,8 @@
         {
           "claim": "You get an apostille stamp from the FCDO.",
           "verdict": "partly_supported",
-          "note": "The text says the apostille comes from the Legalisation Office. It never names the FCDO as the issuer, which only shows up in the contact email domains.",
-          "quote": "they'll legalise the document by attaching an 'apostille' (stamped official certificate)"
+          "note": "The text says the Legalisation Office attaches the apostille and never names the FCDO as the issuer; the FCDO only appears in the email addresses.",
+          "quote": "they’ll legalise the document by attaching an ‘apostille’ (stamped official certificate)"
         }
       ]
     },
@@ -3958,16 +3931,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The service is available to anyone who needs a UK public document officially recognised abroad.",
-          "verdict": "partly_supported",
-          "note": "The text says what the service is for but never says it is open to anyone, and it lists which documents are eligible.",
-          "quote": "You might need to do this if an official in another country has asked you to provide a UK document and they have said it must be legalised."
-        },
-        {
           "claim": "The document must be an original UK public document or a certified copy.",
           "verdict": "partly_supported",
-          "note": "The text says the documents must be issued in the UK by public bodies, or certified by a UK public official. It does not strictly limit them to originals or certified copies of public documents: other documents, like contracts, count if a notary certifies them.",
-          "quote": "You can also get other documents legalised, as long as they have been certified by a UK 'public official', such as a UK notary or solicitor."
+          "note": "The text says documents must be issued in the UK by particular bodies or certified by a UK public official, but it does not frame this as a strict 'original or certified copy' rule.",
+          "quote": "You can also get other documents legalised, as long as they have been certified by a UK ‘public official’, such as a UK notary or solicitor."
         }
       ]
     },
@@ -3979,10 +3946,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You can apply by post.",
+          "claim": "You can apply or do this by post.",
           "verdict": "partly_supported",
-          "note": "The documents for a paper-based apostille are sent by post, but the application itself is made online.",
-          "quote": "paper-based - you'll need to send your documents by post (or submit them in person, if you're a registered business)"
+          "note": "The application itself is made online; only the documents for a paper-based apostille are sent by post.",
+          "quote": "paper-based - you’ll need to send your documents by post (or submit them in person, if you’re a registered business)"
         }
       ]
     },
@@ -4103,15 +4070,15 @@
     {
       "id": "gro-give-notice",
       "name": "Give notice of marriage",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Passport or birth certificate",
+      "field": "eligibility.evidenceRequired.4",
+      "graph": "Immigration documents if not British/Irish citizen",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Passport or birth certificate",
+          "claim": "Immigration documents are required if not a British/Irish citizen.",
           "verdict": "partly_supported",
-          "note": "The text says the birth certificate must be a UK one, and people born after 1 January 1983 also need evidence of their parents' nationalities; the field leaves both conditions out.",
-          "quote": "a valid passport or UK birth certificate"
+          "note": "The text asks for this if you or your partner are from outside the UK, not specifically if you are not a British or Irish citizen.",
+          "quote": "proof of your current immigration status (for example, a share code or the visa in your passport)"
         }
       ]
     },
@@ -4405,9 +4372,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "It is strongly advised before the final divorce order.",
+          "claim": "A consent order is strongly advised before the final divorce order.",
           "verdict": "partly_supported",
-          "note": "The text only says it is usually simpler to ask for approval before the final order; it never says this is 'strongly advised'.",
+          "note": "The text only says it is usually simpler to ask before the final order; it does not say this is 'strongly advised'.",
           "quote": "before you get your final order or decree absolute – if you ask after this, there may be financial consequences, particularly for pensions"
         }
       ]
@@ -4420,21 +4387,21 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "It is strongly advised before the Final Divorce Order.",
+          "claim": "A consent order is strongly advised before the Final Divorce Order.",
           "verdict": "partly_supported",
           "note": "The text says it is usually simpler to ask before the final order, not that it is strongly advised.",
           "quote": "before you get your final order or decree absolute – if you ask after this, there may be financial consequences, particularly for pensions"
         },
         {
-          "claim": "Without it, either party can make future financial claims.",
+          "claim": "Without a consent order, either party can make future financial claims.",
           "verdict": "not_stated",
-          "note": "The text only says a court cannot enforce an agreement that is not legally binding; it says nothing about future financial claims.",
+          "note": "The text only says a court cannot enforce an agreement that is not legally binding; it says nothing about future claims.",
           "quote": null
         },
         {
-          "claim": "It is usually drafted by solicitors.",
+          "claim": "Consent orders are usually drafted by solicitors.",
           "verdict": "partly_supported",
-          "note": "The text presents a solicitor as one option, but does not say solicitors usually draft it.",
+          "note": "The text says a solicitor can draft it but does not say this is usually what happens.",
           "quote": "You can get legal advice or you can ask a solicitor or divorce specialist to draft a consent order for you."
         }
       ]
@@ -4447,9 +4414,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A draft consent order (D81 form) is needed.",
+          "claim": "Draft consent order (D81 form)",
           "verdict": "partly_supported",
-          "note": "The text requires a draft consent order but never names a 'D81' form.",
+          "note": "The text requires a draft consent order but never names a D81 form.",
           "quote": "draft a consent order sign the draft consent order - you also need 2 photocopies of the signed original"
         }
       ]
@@ -4462,9 +4429,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Financial disclosure from both parties is needed.",
+          "claim": "Financial disclosure from both parties",
           "verdict": "partly_supported",
-          "note": "For a consent order, both parties fill in a statement of information form, but the text does not call this financial disclosure; the financial statement (Form E) is only described for the contested route.",
+          "note": "Both parties must fill in a statement of information form, but the text does not call it financial disclosure or say what it contains.",
           "quote": "fill in a statement of information form"
         }
       ]
@@ -4479,7 +4446,7 @@
         {
           "claim": "You can apply or do this online.",
           "verdict": "not_stated",
-          "note": "The text describes no online application route.",
+          "note": "The text does not mention an online way to apply.",
           "quote": null
         }
       ]
@@ -4494,7 +4461,7 @@
         {
           "claim": "Anyone can search the probate registry once a will has been through the probate process.",
           "verdict": "partly_supported",
-          "note": "The text describes the search service but never says that anyone can use it.",
+          "note": "The text describes the search but never says that anyone is allowed to use it.",
           "quote": "You can use this service to: search for a probate record in England and Wales"
         }
       ]
@@ -4920,13 +4887,13 @@
         {
           "claim": "First-time applicants need a countersignatory.",
           "verdict": "not_stated",
-          "note": "The text does not mention countersignatories.",
+          "note": "The text never mentions countersignatories.",
           "quote": null
         },
         {
           "claim": "Renewals can be done entirely online.",
           "verdict": "partly_supported",
-          "note": "The text says you can renew and pay online, but it does not say the whole process can be done online.",
+          "note": "The text says you can renew and pay online, but it does not say the whole renewal happens online, for example whether documents must be sent.",
           "quote": "Use this service to apply for, renew, replace or update your passport and pay for it online."
         }
       ]
@@ -4941,7 +4908,7 @@
         {
           "claim": "You need a digital photo that meets the requirements.",
           "verdict": "partly_supported",
-          "note": "The text only says Post Office staff can take a digital photo; it does not say a photo is required or name any photo requirements.",
+          "note": "The text mentions a digital photo taken at the Post Office, but it does not say one is required or that it must meet any requirements.",
           "quote": "take your digital photo"
         }
       ]
@@ -4986,13 +4953,13 @@
         {
           "claim": "Family members and friends of prisoners can book visits.",
           "verdict": "partly_supported",
-          "note": "The text says you can book for yourself or someone else, but it never says family members or friends.",
+          "note": "The text says you can book a social visit for yourself or someone else, but it never says family members or friends.",
           "quote": "You can make a booking for yourself or for someone else."
         },
         {
           "claim": "ID may be required.",
           "verdict": "not_stated",
-          "note": "The text lists dates of birth, the prison number and the prison location as needed, but says nothing about ID.",
+          "note": "The text lists dates of birth, the prison number and the prison location, but never mentions ID.",
           "quote": null
         }
       ]
@@ -5172,7 +5139,7 @@
         {
           "claim": "You must notify if the child now lives with a different parent after separation.",
           "verdict": "partly_supported",
-          "note": "The text says any change of circumstances must be reported, but it never names a child moving to the other parent after separation as one of those changes.",
+          "note": "The text says any change of circumstances must be reported, but it never names a child moving to live with the other parent after separation as one of those changes.",
           "quote": "You must report any change of circumstances to the Child Benefit Office."
         }
       ]
@@ -5187,29 +5154,8 @@
         {
           "claim": "If the child's living arrangements change, Child Benefit must be transferred to the main carer.",
           "verdict": "partly_supported",
-          "note": "The text explains how to change who gets Child Benefit, but it does not say this must happen or that it must go to the 'main carer'.",
-          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you’ve done this, tell the other person to make a new claim."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "partly_supported",
-          "note": "The text offers an online route for making a claim, but to change who gets Child Benefit it says to contact the Child Benefit Office and does not say how.",
-          "quote": "Make a claim online Use this service to make a claim for Child Benefit or to add another child to an existing claim."
-        },
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "partly_supported",
-          "note": "The text offers phone for making a claim, but it does not say a transfer can be done by phone.",
-          "quote": "If you cannot apply online, you can: claim by post claim by phone"
+          "note": "The text explains how to change who gets Child Benefit, but it never says the benefit must go to the main carer. It says the people involved agree between themselves, or HMRC decides.",
+          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you've done this, tell the other person to make a new claim."
         }
       ]
     },
@@ -5345,21 +5291,6 @@
     {
       "id": "hmrc-eori",
       "name": "Get an EORI number",
-      "field": "desc",
-      "graph": "Apply for an Economic Operators Registration and Identification (EORI) number, required to import or export goods between Great Britain and the rest of the world.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "An EORI number is required to import or export goods between Great Britain and the rest of the world.",
-          "verdict": "partly_supported",
-          "note": "The text says you must have one when moving goods to or from GB, but elsewhere it says you 'may need' one and lists exemptions, such as non-controlled goods for personal use, so 'required' is too absolute.",
-          "quote": "If you move goods to or from Great Britain you must get an EORI number that starts with GB."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-eori",
-      "name": "Get an EORI number",
       "field": "eligibility.summary",
       "graph": "Required for all UK businesses that import or export goods. Businesses with a UK VAT number can get an EORI number almost instantly online. Non-VAT-registered businesses can also apply.",
       "verdict": "partly_supported",
@@ -5367,13 +5298,13 @@
         {
           "claim": "An EORI number is required for all UK businesses that import or export goods.",
           "verdict": "partly_supported",
-          "note": "The text says you 'may need' one and gives exemptions, so it does not say every importing or exporting business needs one.",
+          "note": "The text says you 'may need' one and gives exceptions and conditions, so it does not say every UK business that imports or exports needs one.",
           "quote": "You may need an Economic Operators Registration and Identification number ( EORI number) if you move goods:"
         },
         {
           "claim": "Businesses with a UK VAT number can get an EORI number almost instantly online.",
           "verdict": "partly_supported",
-          "note": "The text says the number comes immediately unless HMRC makes checks (then up to 5 working days), but it does not link the quick turnaround to having a VAT number.",
+          "note": "The text says the number comes immediately but does not tie this to having a VAT number, and says checks can take up to 5 working days.",
           "quote": "You’ll get your GB EORI number immediately unless HMRC needs to make any checks on your application."
         }
       ]
@@ -5386,10 +5317,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Applying online needs a Government Gateway user ID.",
+          "claim": "Applying online needs a Government Gateway user ID (sign-in).",
           "verdict": "partly_supported",
-          "note": "The text says you must sign in but never names Government Gateway or any other sign-in service.",
-          "quote": "You’ll need to sign in to apply. If you do not already have sign in details, you’ll be able to create them."
+          "note": "The text says you need to sign in but does not name Government Gateway.",
+          "quote": "You’ll need to sign in to apply."
         }
       ]
     },
@@ -5437,9 +5368,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Non-working single parents are excluded and get 15 hours only.",
+          "claim": "Single parents who do not work are excluded and are entitled to 15 hours only.",
           "verdict": "partly_supported",
-          "note": "The text requires work, which excludes non-working parents, but it offers the 15 hours only when the child is 3 to 4 years old, not to every excluded parent.",
+          "note": "The text implies non-working parents are not eligible, but it offers the fallback 15 hours only for children aged 3 to 4, not for all ages.",
           "quote": "If your child is between 3 and 4 years old and you live in England, you can get 15 hours of free childcare a week for 38 weeks of the year ."
         }
       ]
@@ -5452,9 +5383,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Evidence needed is a Tax-Free Childcare account eligibility check, reconfirmed every 3 months.",
+          "claim": "There is a Tax-Free Childcare account eligibility check, reconfirmed every 3 months.",
           "verdict": "partly_supported",
-          "note": "The text says HMRC checks Tax-Free Childcare eligibility when you apply and that you reconfirm every 3 months, but it does not call this check evidence you need to provide.",
+          "note": "The text says HMRC checks Tax-Free Childcare eligibility when you apply, but the 3-monthly reconfirmation it mentions is for Free Childcare for Working Parents, not for this check.",
           "quote": "HM Revenue and Customs ( HMRC ) will check if you’re eligible for Tax-Free Childcare when you apply for Free Childcare for Working Parents."
         }
       ]
@@ -5904,7 +5835,7 @@
         {
           "claim": "A return is required even if no tax is due.",
           "verdict": "partly_supported",
-          "note": "The text only says this for claiming relief, and it lists exemptions where you do not have to file a return, so it does not say a return is always needed.",
+          "note": "The text ties this to claiming relief (and to some cases, such as most transactions under £150,000), and it lists exemptions where no return is needed, so the general statement goes too far.",
           "quote": "You must complete an SDLT return to claim relief, even if no tax is due."
         }
       ]
@@ -5919,7 +5850,7 @@
         {
           "claim": "The return must be filed even if no tax is due.",
           "verdict": "partly_supported",
-          "note": "The text only says this when claiming relief, and it names exemptions where no return is needed.",
+          "note": "The text states this only in the context of claiming relief and some specific cases, and it lists exemptions where no return is needed.",
           "quote": "You must complete an SDLT return to claim relief, even if no tax is due."
         }
       ]
@@ -6127,15 +6058,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "It is used for returns to work.",
+          "claim": "Its purpose is to avoid emergency tax.",
           "verdict": "not_stated",
-          "note": "The text never mentions going back to work after a gap.",
-          "quote": null
-        },
-        {
-          "claim": "It sets the correct tax code before the first payday to avoid emergency tax.",
-          "verdict": "not_stated",
-          "note": "The text doesn't say the checklist sets a tax code, doesn't mention timing before the first payday, and doesn't mention emergency tax.",
+          "note": "The text never mentions emergency tax. It only warns you may pay too much or too little tax.",
           "quote": null
         }
       ]
@@ -6148,45 +6073,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The checklist is required when starting a new job without a P45.",
-          "verdict": "partly_supported",
-          "note": "The text says you 'can' fill it in instead of a P45; it doesn't say it is required.",
-          "quote": "Instead of giving your new employer a P45, you can fill in the starter checklist ."
-        },
-        {
-          "claim": "This applies to a return after a gap.",
-          "verdict": "not_stated",
-          "note": "The text never mentions going back to work after a gap.",
-          "quote": null
-        },
-        {
           "claim": "The employer provides the form.",
           "verdict": "not_stated",
-          "note": "The text doesn't say who provides the checklist.",
+          "note": "The text does not say the employer supplies the form. The employee fills it in online or prints it and sends it to the employer.",
           "quote": null
         },
         {
-          "claim": "The employee self-declares their tax situation.",
+          "claim": "Without it, the employer must apply an emergency tax code.",
           "verdict": "not_stated",
-          "note": "The text doesn't describe what goes on the checklist.",
-          "quote": null
-        },
-        {
-          "claim": "The employee declares their student loan plan type.",
-          "verdict": "not_stated",
-          "note": "The text never mentions student loans.",
-          "quote": null
-        },
-        {
-          "claim": "The employee declares whether they receive any benefits.",
-          "verdict": "not_stated",
-          "note": "The text doesn't say the checklist asks about benefits.",
-          "quote": null
-        },
-        {
-          "claim": "Without the checklist, the employer must apply an emergency tax code.",
-          "verdict": "not_stated",
-          "note": "The text never mentions emergency tax codes; it only says you might pay the wrong tax if you have not had a P45.",
+          "note": "The text does not mention emergency tax codes.",
           "quote": null
         }
       ]
@@ -6199,10 +6094,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "When starting a new job with no P45, the employer must use this checklist to set the correct tax code.",
+          "claim": "Starting a new job with no P45 — employer must use this checklist to set the correct tax code",
           "verdict": "partly_supported",
-          "note": "The text says the employee can fill in the checklist instead of a P45, but not that the employer must use it or that it sets the tax code.",
-          "quote": "Instead of giving your new employer a P45, you can fill in the starter checklist ."
+          "note": "The text says the employer uses the checklist to work out the tax code, but it does not say the employer must use it.",
+          "quote": "so your employer can work out the tax code to use on your first pay"
         }
       ]
     },
@@ -6214,25 +6109,25 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The checklist is excluded if the employee has a valid P45 from their most recent employer; they should hand the P45 to the employer instead.",
+          "claim": "Employee has a valid P45 from their most recent employer (hand P45 to employer instead)",
           "verdict": "partly_supported",
-          "note": "The text says to give the P45 to the new employer, but it also says to fill in the checklist alongside the P45 if your personal details on it are wrong, so it is not a full exclusion.",
-          "quote": "When you start a new job, give your P45 to your new employer."
+          "note": "The text does say to give the P45 to the employer, but the employer may still ask for the checklist, so having a P45 does not rule it out.",
+          "quote": "If you have a P45 give this to your new employer. Your employer may ask you to fill in a starter checklist even if you give them a P45."
         }
       ]
     },
     {
       "id": "hmrc-starter-checklist",
       "name": "PAYE Starter Checklist",
-      "field": "eligibility.exclusions.1",
-      "graph": "Self-employed (not subject to PAYE)",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "No documents required — employee self-declares",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Self-employed people are excluded because they are not subject to PAYE.",
+          "claim": "No documents required — employee self-declares",
           "verdict": "partly_supported",
-          "note": "The text limits the forms to employees, but it never mentions self-employment or PAYE in relation to the checklist.",
-          "quote": "You’ll only get these forms if you’re an employee ."
+          "note": "The text lists information the employee needs to know rather than documents to provide, but it never states that no documents are needed, and it asks for a passport number in some cases.",
+          "quote": "You’ll need to know:"
         }
       ]
     },
@@ -6728,35 +6623,14 @@
     {
       "id": "ho-eu-settled-status",
       "name": "EU Settlement Scheme (Settled / Pre-Settled Status)",
-      "field": "eligibility.summary",
-      "graph": "EU, EEA and Swiss nationals who were living in the UK before 31 December 2020 can apply for settled status (if they have lived in the UK for 5+ continuous years) or pre-settled status (less than 5 years). Applications are free. A separate Brexit-specific route to the right to remain.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "EU, EEA and Swiss nationals who were living in the UK before 31 December 2020 can apply.",
-          "verdict": "partly_supported",
-          "note": "The eligibility matches, but the text says most people had to apply by 30 June 2021 and can now apply only with a later deadline or reasonable grounds, which the claim leaves out.",
-          "quote": "The deadline for most people to apply to the EU Settlement Scheme was 30 June 2021."
-        },
-        {
-          "claim": "It is a separate, Brexit-specific route to the right to remain.",
-          "verdict": "not_stated",
-          "note": "The text does not describe the scheme as a separate Brexit-specific route.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "ho-eu-settled-status",
-      "name": "EU Settlement Scheme (Settled / Pre-Settled Status)",
       "field": "eligibility.evidenceRequired.1",
       "graph": "Evidence of UK residence (payslips, tenancy agreement, bank statements, etc.)",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You need evidence of UK residence, such as payslips, a tenancy agreement or bank statements.",
+          "claim": "Evidence of UK residence is needed, such as payslips, tenancy agreement or bank statements.",
           "verdict": "partly_supported",
-          "note": "The text asks for evidence of residence but does not name payslips, tenancy agreements or bank statements, and says a check using your National Insurance number may mean no documents are needed.",
+          "note": "The text requires residence evidence but does not name payslips, tenancy agreements or bank statements as examples.",
           "quote": "You’ll need to provide evidence of how many years’ continuous residence you have in the UK."
         }
       ]
@@ -6769,15 +6643,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You can contact the Home Office (UKVI) for help.",
+          "claim": "You can contact the Home Office for help with a problem.",
           "verdict": "partly_supported",
-          "note": "The text covers getting help from and contact details for UKVI, but it does not use the name Home Office.",
-          "quote": "Use this tool to get help from UK Visas and Immigration (UKVI)."
+          "note": "The text says you can contact UK Visas and Immigration (UKVI) about a problem, but it never names the Home Office.",
+          "quote": "Find out how to contact UKVI or get online guides and services to help with your problem."
         },
         {
-          "claim": "The contact is about a problem with your EU Settlement Scheme application, status or digital profile.",
+          "claim": "The problem can be about your EU Settlement Scheme application, status or digital profile.",
           "verdict": "not_stated",
-          "note": "The text never mentions the EU Settlement Scheme, status or a digital profile.",
+          "note": "The text never mentions the EU Settlement Scheme, status or digital profiles.",
           "quote": null
         }
       ]
@@ -6792,14 +6666,14 @@
         {
           "claim": "You can apply or do this online.",
           "verdict": "partly_supported",
-          "note": "The text points to an online tool and online guides and services, but it does not say the EUSS enquiry itself can be made online.",
-          "quote": "online guides and services"
+          "note": "The text points to an online tool, online guides and online services, but does not say you can raise this enquiry online.",
+          "quote": "contact details for the right UKVI team to support you online guides and services"
         },
         {
           "claim": "You can apply or do this by phone.",
-          "verdict": "not_stated",
-          "note": "The text mentions contact centre staff but never says phone is a way to contact them.",
-          "quote": null
+          "verdict": "partly_supported",
+          "note": "The text mentions contact centre staff, which suggests a phone line, but it never says phone or gives a number.",
+          "quote": "Contact centre staff cannot give you advice about your personal circumstances."
         }
       ]
     },
@@ -6897,7 +6771,7 @@
         {
           "claim": "The Electronic Visa Waiver page has been withdrawn from GOV.UK.",
           "verdict": "not_stated",
-          "note": "The text never mentions an Electronic Visa Waiver or any page being withdrawn.",
+          "note": "The source never mentions an Electronic Visa Waiver or any page being withdrawn.",
           "quote": null
         }
       ]
@@ -6905,15 +6779,30 @@
     {
       "id": "ho-fee-waiver",
       "name": "Immigration fee waiver",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online.",
+      "field": "desc",
+      "graph": "Apply for a waiver of Home Office immigration or nationality fees if you cannot afford to pay.",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You can apply or do this online.",
-          "verdict": "partly_supported",
-          "note": "The page says tribunal appeals can be made online, but it never describes applying online for a Home Office fee waiver.",
-          "quote": "appeal the decision online - online appeals are quicker than post or email appeals"
+          "claim": "The waiver also covers Home Office nationality fees.",
+          "verdict": "not_stated",
+          "note": "The text only mentions visa application fees for permission to stay. It does not mention nationality fees.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-fee-waiver",
+      "name": "Immigration fee waiver",
+      "field": "eligibility.summary",
+      "graph": "Available to people applying for leave to remain or British citizenship who cannot afford the application fee. Must demonstrate financial need. The fee waiver does not apply to all visa categories.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The waiver is available to people applying for British citizenship.",
+          "verdict": "not_stated",
+          "note": "The text never mentions British citizenship applications.",
+          "quote": null
         }
       ]
     },
@@ -6927,7 +6816,7 @@
         {
           "claim": "ILR gives the right to live, work and study in the UK without immigration restrictions.",
           "verdict": "partly_supported",
-          "note": "The text gives the right to live, work and study, but uses 'without immigration restrictions' only when describing right of abode, not ILR.",
+          "note": "The text confirms the right to live, work and study, but it only uses 'without immigration restrictions' for right of abode, not for ILR.",
           "quote": "It gives you the right to live, work and study here for as long as you like"
         }
       ]
@@ -6976,16 +6865,16 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The test is required for all citizenship routes, including naturalisation, spouse and Irish citizen routes.",
+          "claim": "The test is required for ILR and all citizenship routes (naturalisation, spouse, Irish citizen).",
           "verdict": "partly_supported",
-          "note": "The text refers to British citizenship in general and does not name naturalisation, spouse or Irish citizen routes, or say every route needs the test.",
+          "note": "The text says the test is needed for citizenship or settlement, but it does not name ILR or the specific routes (naturalisation, spouse, Irish citizen), and it does not say every route requires it.",
           "quote": "You need to take the test as part of your application for British citizenship or settlement in the UK."
         },
         {
-          "claim": "You are exempt if under 18 or over 65.",
+          "claim": "You are exempt if over 65.",
           "verdict": "partly_supported",
-          "note": "The text exempts people aged 65 or over, so people who are exactly 65 are exempt too; 'over 65' misstates the age limit.",
-          "quote": "are under 18 are 65 or over"
+          "note": "The text exempts people aged 65 or over, so people aged exactly 65 are exempt too; the field's 'over 65' leaves them out.",
+          "quote": "are 65 or over"
         }
       ]
     },
@@ -6999,20 +6888,20 @@
         {
           "claim": "The test covers British history, culture and values.",
           "verdict": "partly_supported",
-          "note": "The text says the questions are about British traditions and customs; it does not mention history or values.",
-          "quote": "You’ll have 45 minutes to answer 24 questions about British traditions and customs."
+          "note": "The text says the questions are on British traditions and customs; it does not mention history or values.",
+          "quote": "24 questions about British traditions and customs"
         },
         {
-          "claim": "You must take it before applying through any route to British citizenship.",
+          "claim": "It is required before applying for Indefinite Leave to Remain or any route to British citizenship.",
           "verdict": "partly_supported",
-          "note": "The text refers to citizenship in general and does not say that every route needs the test.",
+          "note": "The text says the test is part of a citizenship or settlement application, but it does not name ILR or say every route needs it.",
           "quote": "You need to take the test as part of your application for British citizenship or settlement in the UK."
         },
         {
-          "claim": "You are exempt if under 18 or over 65.",
+          "claim": "You are exempt if over 65.",
           "verdict": "partly_supported",
-          "note": "The text exempts people aged 65 or over, not only those over 65.",
-          "quote": "are under 18 are 65 or over"
+          "note": "The text's exemption also covers people aged exactly 65.",
+          "quote": "are 65 or over"
         }
       ]
     },
@@ -7041,13 +6930,13 @@
         {
           "claim": "Dependants can work and study without restriction.",
           "verdict": "not_stated",
-          "note": "The text never says what work or study rights dependants have.",
+          "note": "The text never mentions dependants' rights to work or study.",
           "quote": null
         },
         {
-          "claim": "Check the current amounts on GOV.UK, as they change.",
+          "claim": "Check the current amounts on GOV.UK, because they change.",
           "verdict": "partly_supported",
-          "note": "The text tells you to check the amounts but never says that they change.",
+          "note": "The text tells you to check the amounts, but it never says the amounts change.",
           "quote": "Check how much money you’ll need ."
         }
       ]
@@ -7062,7 +6951,7 @@
         {
           "claim": "Children aged 18 or over must apply in their own right, unless they already have permission to be in the UK as your dependant.",
           "verdict": "partly_supported",
-          "note": "The text states the exception for children over 18 but never says they must apply in their own right.",
+          "note": "The text covers the exception for children over 18 who already have permission, but it never says other children over 18 must apply in their own right.",
           "quote": "your child over 18 if they currently have permission (‘leave to enter’ or ‘leave to remain’) to be in the UK as your dependant"
         }
       ]
@@ -7075,10 +6964,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A marriage or civil partnership certificate is needed as evidence.",
+          "claim": "Evidence needed: a marriage or civil partnership certificate.",
           "verdict": "partly_supported",
-          "note": "The text asks for evidence of the relationship but never names a marriage or civil partnership certificate.",
-          "quote": "They’ll need to provide evidence of their relationship to you when they apply."
+          "note": "The text says you must prove a marriage or civil partnership, but it never names a certificate as the document.",
+          "quote": "you’re in a civil partnership or marriage that’s recognised in the UK"
         }
       ]
     },
@@ -7090,9 +6979,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Children's birth certificates are needed as evidence.",
+          "claim": "Evidence needed: children's birth certificates.",
           "verdict": "partly_supported",
-          "note": "The text asks for evidence of the relationship but never names birth certificates.",
+          "note": "The text asks for evidence of the relationship, but it never names birth certificates.",
           "quote": "They’ll need to provide evidence of their relationship to you when they apply."
         }
       ]
@@ -7120,9 +7009,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Visas are handled via UK Visas and Immigration.",
+          "claim": "Applications are made through UK Visas and Immigration.",
           "verdict": "not_stated",
-          "note": "The page never names UK Visas and Immigration.",
+          "note": "The page never mentions UK Visas and Immigration.",
           "quote": null
         },
         {
@@ -7141,15 +7030,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "People who are not UK or Irish nationals and want to enter the UK must apply for the appropriate visa.",
+          "claim": "Nationals who are neither British nor Irish and want to enter the UK must apply for the appropriate visa.",
           "verdict": "partly_supported",
-          "note": "The page only tells non-British, non-Irish nationals to check whether they need a visa or ETA; it does not say they must apply for a visa.",
+          "note": "The page only tells non-British, non-Irish nationals to check whether they need a visa or ETA. It does not say they must apply for a visa.",
           "quote": "Check if you need a UK Visa, electronic travel authorisation (ETA) or get access to an eVisa to prove your immigration status if you’re not a British citizen or Irish national"
         },
         {
           "claim": "A visa must usually be obtained before travel.",
           "verdict": "not_stated",
-          "note": "The page does not say when a visa must be obtained.",
+          "note": "The page says nothing about getting a visa before travelling.",
           "quote": null
         }
       ]
@@ -7771,21 +7660,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Registration affects eligibility for jury duty.",
+          "claim": "Registration affects eligibility for jury duty and credit checks.",
           "verdict": "not_stated",
-          "note": "The text does not mention jury duty.",
-          "quote": null
-        },
-        {
-          "claim": "Registration affects credit checks.",
-          "verdict": "not_stated",
-          "note": "The text does not mention credit checks.",
+          "note": "The text does not mention jury duty or credit checks.",
           "quote": null
         },
         {
           "claim": "You also de-register from your old address.",
           "verdict": "not_stated",
-          "note": "The text does not mention de-registering from an old address.",
+          "note": "The text does not mention de-registering from a previous address.",
           "quote": null
         }
       ]
@@ -7844,66 +7727,6 @@
     {
       "id": "la-food-premises-approval",
       "name": "Food establishment approval (animal products)",
-      "field": "desc",
-      "graph": "Food businesses handling products of animal origin (meat, fish, dairy, eggs) that supply other establishments need approval from their local authority rather than food business registration (with some exceptions).",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Food businesses handling products of animal origin need approval from their local authority.",
-          "verdict": "partly_supported",
-          "note": "The text says such businesses 'may' need approval and that the local authority decides; it does not say they always need it.",
-          "quote": "If your business handles products of animal origin, you may require approval by your local authority."
-        },
-        {
-          "claim": "Products of animal origin include meat, fish, dairy and eggs.",
-          "verdict": "not_stated",
-          "note": "The text gives no examples of products of animal origin.",
-          "quote": null
-        },
-        {
-          "claim": "The requirement applies to businesses that supply other establishments.",
-          "verdict": "not_stated",
-          "note": "The text does not mention supplying other establishments.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "la-food-premises-approval",
-      "name": "Food establishment approval (animal products)",
-      "field": "eligibility.summary",
-      "graph": "Required for establishments in England handling products of animal origin (meat, fish, dairy, eggs, processed animal products) that supply other food businesses. An establishment is usually either approved or registered, not both. Operating without required approval is a criminal offence.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Approval is required for establishments handling products of animal origin.",
-          "verdict": "partly_supported",
-          "note": "The text says approval 'may' be required, depending on the local authority's decision, not that it always is.",
-          "quote": "If your business handles products of animal origin, you may require approval by your local authority."
-        },
-        {
-          "claim": "The requirement applies to establishments in England.",
-          "verdict": "not_stated",
-          "note": "The text does not mention England or any other nation.",
-          "quote": null
-        },
-        {
-          "claim": "Products of animal origin include meat, fish, dairy, eggs and processed animal products.",
-          "verdict": "not_stated",
-          "note": "The text gives no examples of products of animal origin.",
-          "quote": null
-        },
-        {
-          "claim": "The requirement applies to establishments that supply other food businesses.",
-          "verdict": "not_stated",
-          "note": "The text does not mention supplying other food businesses.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "la-food-premises-approval",
-      "name": "Food establishment approval (animal products)",
       "field": "eligibility.evidenceRequired.2",
       "graph": "Discussion with local authority Environmental Health team",
       "verdict": "partly_supported",
@@ -7911,7 +7734,7 @@
         {
           "claim": "Discussion with local authority Environmental Health team",
           "verdict": "partly_supported",
-          "note": "The text says to contact the local authority but does not name the Environmental Health team.",
+          "note": "The text says to contact the local authority but never names an Environmental Health team.",
           "quote": "You must contact your local authority to advise them of the activities which you intend to undertake."
         }
       ]
@@ -7997,36 +7820,6 @@
     {
       "id": "la-hmo-licence",
       "name": "House in multiple occupation (HMO) licence",
-      "field": "desc",
-      "graph": "Landlords renting a property to 5 or more people from more than one household who share facilities must obtain a mandatory HMO licence from their local council.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Landlords renting a property to 5 or more people from more than one household who share facilities must have a mandatory HMO licence.",
-          "verdict": "partly_supported",
-          "note": "The text agrees a licence is required, but it adds a third condition that the field leaves out: at least 1 tenant pays rent.",
-          "quote": "it is rented to 5 or more people who form more than 1 household some or all tenants share toilet, bathroom or kitchen facilities at least 1 tenant pays rent (or their employer pays it for them)"
-        }
-      ]
-    },
-    {
-      "id": "la-hmo-licence",
-      "name": "House in multiple occupation (HMO) licence",
-      "field": "eligibility.summary",
-      "graph": "Mandatory for properties rented to 5+ people in 2+ households sharing facilities (toilet, bathroom, or kitchen) in England and Wales. Some councils have additional licensing schemes covering smaller HMOs. Licences last up to 5 years. Unlimited fine for unlicensed operation.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A licence is mandatory for properties rented to 5+ people in 2+ households sharing toilet, bathroom or kitchen facilities.",
-          "verdict": "partly_supported",
-          "note": "The field leaves out the stated condition that at least 1 tenant pays rent.",
-          "quote": "it is rented to 5 or more people who form more than 1 household some or all tenants share toilet, bathroom or kitchen facilities"
-        }
-      ]
-    },
-    {
-      "id": "la-hmo-licence",
-      "name": "House in multiple occupation (HMO) licence",
       "field": "eligibility.evidenceRequired.1",
       "graph": "Smoke alarm records",
       "verdict": "partly_supported",
@@ -8034,7 +7827,7 @@
         {
           "claim": "Smoke alarm records",
           "verdict": "partly_supported",
-          "note": "The text requires installing and maintaining smoke alarms but never mentions records.",
+          "note": "The text requires smoke alarms to be installed and maintained but says nothing about providing records.",
           "quote": "install and maintain smoke alarms"
         }
       ]
@@ -8049,7 +7842,7 @@
         {
           "claim": "Completed local council application form",
           "verdict": "partly_supported",
-          "note": "The text says you apply to the council but does not mention an application form.",
+          "note": "The text says you apply for the licence but never mentions an application form.",
           "quote": "You should apply for the licence yourself, but if you use a managing agent they can apply for you."
         }
       ]
@@ -8064,29 +7857,23 @@
         {
           "claim": "The licence is obtained from the local council.",
           "verdict": "partly_supported",
-          "note": "The text says that in London you apply to the Metropolitan Police, not the council.",
+          "note": "The text says that in London you apply to the Metropolitan Police, not the council, and the claim leaves this out.",
           "quote": "Contact your council (or if you are in London, the Metropolitan Police) to apply for the licence."
-        },
-        {
-          "claim": "This applies in England and Wales.",
-          "verdict": "not_stated",
-          "note": "The text does not name any nations or say where this applies.",
-          "quote": null
         }
       ]
     },
     {
       "id": "la-house-to-house-collection-licence",
       "name": "House-to-house collection licence",
-      "field": "eligibility.summary",
-      "graph": "Required for charitable organisations collecting door-to-door from residential properties in England and Wales. Free to obtain. Apply at least 20 working days before the collection. Licences valid for up to 1 year. Penalty for no licence: up to 6 months imprisonment or £1,000 fine.",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Application to local council (free)",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "This applies in England and Wales.",
-          "verdict": "not_stated",
-          "note": "The text does not mention England and Wales.",
-          "quote": null
+          "claim": "Application to local council (free)",
+          "verdict": "partly_supported",
+          "note": "The text supports applying to the council for free, but says that in London you apply to the Metropolitan Police instead.",
+          "quote": "Contact your council (or if you are in London, the Metropolitan Police) to apply for the licence."
         }
       ]
     },
@@ -8100,8 +7887,8 @@
         {
           "claim": "Your ballot is sent to your home address.",
           "verdict": "partly_supported",
-          "note": "This suggests the pack normally goes to your home, but the text never says so outright, and it says the pack can be sent to a different address.",
-          "quote": "If you'll be away from home when the postal vote ballot pack is sent out, for example, on holiday or because of work commitments, you can apply for your pack to be sent to a different address."
+          "note": "The text says ballot packs are sent out and can be redirected to another address, but it never says they go to your home address by default.",
+          "quote": "you can apply for your pack to be sent to a different address"
         },
         {
           "claim": "The ballot is returned by post or in person.",
@@ -8121,19 +7908,19 @@
         {
           "claim": "You must apply at least 11 working days before the election.",
           "verdict": "not_stated",
-          "note": "The text gives the 11 working day deadline only for stopping a postal vote, applying for a proxy vote or changing where the pack is sent. It gives no deadline for applying for a postal vote.",
+          "note": "The text gives an 11 working day deadline for stopping a postal vote, applying for a proxy vote and changing the address, but gives no deadline for applying for a postal vote.",
           "quote": null
         },
         {
           "claim": "Photo ID is no longer required for postal vote applications.",
           "verdict": "not_stated",
-          "note": "The text does not say whether photo ID is or is no longer required for postal vote applications.",
+          "note": "The text does not say whether photo ID is or was needed for postal vote applications.",
           "quote": null
         },
         {
-          "claim": "A National Insurance number or signature is needed.",
+          "claim": "A National Insurance number or a signature is needed.",
           "verdict": "partly_supported",
-          "note": "The text requires both a National Insurance number (or other identity documents) and an uploaded signature, unless you get a signature waiver. It does not offer them as alternatives.",
+          "note": "The text asks for a National Insurance number or other identity documents, and a signature photo as well, so the signature is not an alternative to the National Insurance number as the claim suggests.",
           "quote": "your National Insurance number or other identity documents, for example a passport"
         }
       ]
@@ -8146,9 +7933,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The proxy is someone you trust.",
+          "claim": "The person you appoint is someone you trust.",
           "verdict": "not_stated",
-          "note": "The text says you must ask your proxy's permission, but it never says the proxy should be someone you trust.",
+          "note": "The text never says the proxy must be someone you trust. It only says you must ask their permission.",
           "quote": null
         }
       ]
@@ -8161,21 +7948,21 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Reasons include work, illness, being abroad and disability.",
+          "claim": "Reasons include work, illness, being abroad, disability, etc.",
           "verdict": "partly_supported",
-          "note": "The text only mentions living abroad; it never lists work, illness or disability as reasons.",
+          "note": "The text mentions living abroad, but not work, illness or disability as reasons.",
           "quote": "If you want to vote by proxy and you live abroad, apply for a proxy vote as soon as possible."
         },
         {
           "claim": "The deadline for a standard proxy is 6 working days before the election.",
           "verdict": "not_stated",
-          "note": "The text gives no standard application deadline and never mentions 6 working days; the only deadline it gives, 11 working days, is for changing an arrangement or switching from a postal vote.",
+          "note": "The text gives no 6-working-day deadline. The only deadlines it gives are 11 working days, for changes and for switching from a postal vote.",
           "quote": null
         },
         {
           "claim": "An emergency proxy is available up to 5pm on polling day.",
           "verdict": "partly_supported",
-          "note": "The text mentions emergency proxy votes but gives no 5pm polling-day deadline.",
+          "note": "The text mentions an emergency proxy but gives no 5pm-on-polling-day deadline.",
           "quote": "If you miss the deadline to apply for a proxy vote before an election, you may be able to apply for an emergency proxy vote ."
         }
       ]
@@ -8230,9 +8017,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The licence cannot be applied for online.",
+          "claim": "Cannot be applied for online.",
           "verdict": "not_stated",
-          "note": "The text says to contact the council but never says whether you can or cannot apply online.",
+          "note": "The text only says to contact the council and never says whether online applications are possible.",
           "quote": null
         }
       ]
@@ -8247,7 +8034,7 @@
         {
           "claim": "Online applications are not accepted.",
           "verdict": "not_stated",
-          "note": "The text does not say whether online applications are accepted or refused.",
+          "note": "The text never says online applications are refused or unavailable.",
           "quote": null
         }
       ]
@@ -8308,15 +8095,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Any person or business buying, selling, or storing scrap metal in England and Wales must hold a licence from their local council.",
-          "verdict": "partly_supported",
-          "note": "The text requires scrap metal dealers to hold a council licence, but it does not say that buying, selling or storing scrap metal is what makes someone a dealer.",
-          "quote": "You must hold either a site or mobile collector’s licence, issued by the council, if you’re a scrap metal dealer in England and Wales."
-        },
-        {
           "claim": "All transactions must be by bank transfer.",
           "verdict": "partly_supported",
-          "note": "The text bans buying for cash and mentions a bank account used to pay, but it never says every transaction must be by bank transfer.",
+          "note": "The text bans cash only for buying and mentions a bank account for payments, but it never says bank transfer or that every transaction must go that way.",
           "quote": "details of the bank account that will be used to pay for scrap metal"
         }
       ]
@@ -8331,7 +8112,7 @@
         {
           "claim": "Bank account details (all transactions must be non-cash)",
           "verdict": "partly_supported",
-          "note": "The text asks for bank account details and bans buying for cash, but it does not say that all transactions must be non-cash.",
+          "note": "The text asks for bank account details, but it only bans cash for buying scrap metal, not for all transactions.",
           "quote": "details of the bank account that will be used to pay for scrap metal"
         }
       ]
@@ -8344,9 +8125,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The local authority must complete the assessment within 20 weeks.",
+          "claim": "The Local Authority must complete the assessment within 20 weeks.",
           "verdict": "partly_supported",
-          "note": "The 20 weeks is for giving the final EHC plan, counted from the request, not for completing the assessment; the text gives 16 weeks to say whether a plan will be made.",
+          "note": "The 20 weeks is the time limit for issuing the final plan, counted from the request; the text gives no 20-week limit for the assessment itself.",
           "quote": "Your local authority has 20 weeks from the date they receive the request for the assessment to give you the final EHC plan."
         }
       ]
@@ -8361,7 +8142,7 @@
         {
           "claim": "School reports and educational assessments",
           "verdict": "partly_supported",
-          "note": "The text mentions reports from the school, but not educational assessments.",
+          "note": "The text mentions reports from school, nursery or childminder, but not educational assessments.",
           "quote": "any reports from your child’s school, nursery or childminder"
         }
       ]
@@ -8376,8 +8157,8 @@
         {
           "claim": "Parental views (required to be included)",
           "verdict": "partly_supported",
-          "note": "A parent's letter about the child's needs is listed, but the text says you 'may be asked' for it, not that it is required.",
-          "quote": "If they decide to carry out an assessment you may be asked for:"
+          "note": "The text says parents 'may be asked' for a letter, so it does not say parental views are required.",
+          "quote": "a letter from you about your child’s needs"
         }
       ]
     },
@@ -8438,41 +8219,20 @@
     {
       "id": "la-skip-permit",
       "name": "Skip permit (public road)",
-      "field": "desc",
-      "graph": "A permit from the local council is required before placing a skip or container on a public road in England and Wales. No permit is needed if the skip is entirely on private land.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A permit from the local council is required before placing a skip or container on a public road in England and Wales.",
-          "verdict": "partly_supported",
-          "note": "The text says a council licence is needed for a skip on a public road, but it does not mention England and Wales or 'containers'.",
-          "quote": "Contact your local council for a skip licence if you want to put a skip on a public road."
-        }
-      ]
-    },
-    {
-      "id": "la-skip-permit",
-      "name": "Skip permit (public road)",
       "field": "eligibility.summary",
       "graph": "Required whenever a skip is placed on a public road in England and Wales. The skip hire company typically obtains the permit, but individuals should confirm with their local council. Safety requirements: reflective markings, traffic cones, lamps at night, and contact details displayed. Fine up to £1,000 for missing safety markings.",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A permit is required whenever a skip is placed on a public road in England and Wales.",
-          "verdict": "partly_supported",
-          "note": "The text supports needing a licence for a public road, but it does not mention England and Wales.",
-          "quote": "Contact your local council for a skip licence if you want to put a skip on a public road."
-        },
-        {
           "claim": "Individuals should confirm with their local council.",
           "verdict": "partly_supported",
-          "note": "The text says that in some areas you apply yourself and tells you to contact the council, but it never says to confirm with the council who is responsible.",
+          "note": "The text tells you to contact the council for a licence and for the rules on lights, but it never says to confirm with the council who is responsible for getting the permit.",
           "quote": "In some areas you’ll need to do it yourself."
         },
         {
           "claim": "Safety requirements include reflective markings, traffic cones, lamps at night and displayed contact details.",
           "verdict": "partly_supported",
-          "note": "The items match, but the text says you 'may' need them and that they 'could' be included, so it does not call them fixed requirements.",
+          "note": "The items are listed, but the text says you 'may need' them and they 'could' apply, so it does not call them fixed requirements.",
           "quote": "You may need to put safety lights and markings on or around the skip. This could include: reflective markings traffic cones night-time safety lamps the name and telephone number of the skip hire company"
         }
       ]
@@ -8487,13 +8247,13 @@
         {
           "claim": "Collecting money or selling items for charity in a public street or place requires a street collection licence.",
           "verdict": "partly_supported",
-          "note": "The text says you only might need a licence depending on your local council, not that one is always required.",
-          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council."
+          "note": "The text says you might need a licence depending on your local council, not that one is always required.",
+          "quote": "you might need a street collection licence, depending on your local council"
         },
         {
-          "claim": "Apply to the local council, or the Metropolitan Police in Greater London.",
+          "claim": "Apply to the local council, or to the Metropolitan Police in Greater London.",
           "verdict": "partly_supported",
-          "note": "The text supports contacting the council or the Metropolitan Police, but the claim leaves out that the City of London is excluded from the Metropolitan Police route.",
+          "note": "The text excludes the City of London from the Metropolitan Police route, and the claim leaves that condition out.",
           "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence."
         }
       ]
@@ -8506,16 +8266,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A licence is required for any charitable collection in a public street or place.",
+          "claim": "A licence is required for any charitable collection in a public street or place in England and Wales.",
           "verdict": "partly_supported",
-          "note": "The text says a licence might be needed depending on the council, and it lists an exception, so 'any' overstates it.",
+          "note": "The text covers England and Wales and public areas, but says a licence might be needed depending on the council, not that it is always required.",
           "quote": "you might need a street collection licence, depending on your local council"
-        },
-        {
-          "claim": "This applies in England and Wales.",
-          "verdict": "not_stated",
-          "note": "The text does not say which nations the licence covers.",
-          "quote": null
         },
         {
           "claim": "The licence is free to obtain.",
@@ -8535,13 +8289,13 @@
         {
           "claim": "Anyone selling goods or services from a street or public place in England and Wales generally requires a street trading licence from their local council.",
           "verdict": "partly_supported",
-          "note": "The text only says to contact the council to find out whether you need a licence; it does not say one is generally required, and it does not mention goods or services or public places.",
-          "quote": "Contact the council to find out if you need a licence to trade in the street in England and Wales."
+          "note": "The text only says you 'may need' a licence to trade in the street; it does not say one is generally required, and it does not mention goods or services or public places.",
+          "quote": "You may need to get a licence to trade in the street in England and Wales"
         },
         {
           "claim": "Councils may restrict hours, location or days.",
           "verdict": "partly_supported",
-          "note": "The text supports restricting days and times, but it does not say councils can restrict location.",
+          "note": "The text says councils can restrict days and times but says nothing about restricting location.",
           "quote": "give you one for fewer days and times than you asked for"
         }
       ]
@@ -8554,15 +8308,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A street trading licence is required for most street trading in England and Wales.",
+          "claim": "A licence is required for most street trading in England and Wales.",
           "verdict": "partly_supported",
-          "note": "The text does not say a licence is needed for most street trading; it only says to contact the council to find out.",
-          "quote": "Contact the council to find out if you need a licence to trade in the street in England and Wales."
+          "note": "The text says you 'may need' a licence and does not say most street trading needs one.",
+          "quote": "You may need to get a licence to trade in the street in England and Wales"
         },
         {
           "claim": "Holders of a valid pedlar's certificate may be exempt for itinerant trading.",
           "verdict": "partly_supported",
-          "note": "The text supports a possible exemption for pedlar's certificate holders, but it does not limit this to itinerant trading.",
+          "note": "The text supports the possible pedlar's certificate exemption but does not limit it to itinerant trading or say the certificate must be valid.",
           "quote": "You might not need a street trading licence if you have a pedlar’s certificate"
         }
       ]
@@ -8740,7 +8494,7 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A solicitor handles it.",
+          "claim": "A solicitor handles the application.",
           "verdict": "partly_supported",
           "note": "The text says a solicitor may apply, but it also says you can apply yourself, so it does not say a solicitor always handles it.",
           "quote": "If you’re a new owner, your solicitor or conveyancer may apply as part of the purchase."
@@ -8748,7 +8502,7 @@
         {
           "claim": "Registration is required for a mortgage to complete.",
           "verdict": "not_stated",
-          "note": "The text does not say registration is needed for a mortgage to complete. Its 'Mortgage completion' section is about paying off a mortgage.",
+          "note": "The text does not say registration is needed for a mortgage to complete.",
           "quote": null
         }
       ]
@@ -8763,25 +8517,19 @@
         {
           "claim": "All property purchases in England and Wales must be registered at HM Land Registry.",
           "verdict": "partly_supported",
-          "note": "The text says bought land must be registered and that HM Land Registry covers England and Wales, but it gives an exception for short leaseholds, so 'all' goes too far.",
+          "note": "The text says bought property must be registered, but it gives an exception for short leases, so it does not say all purchases must be.",
           "quote": "You do not usually need to register leasehold land or property if there are 7 years or less on the lease when you take ownership."
         },
         {
-          "claim": "It is usually handled by the solicitor or conveyancer.",
+          "claim": "Registration is usually handled by the solicitor or conveyancer.",
           "verdict": "partly_supported",
-          "note": "The text says a solicitor 'may' apply, not that one usually does.",
+          "note": "The text says a solicitor may apply, but it does not say this is what usually happens.",
           "quote": "If you’re a new owner, your solicitor or conveyancer may apply as part of the purchase."
         },
         {
-          "claim": "The priority period starts when the application is received.",
+          "claim": "The priority period starts when the application is received, so it must be submitted promptly after completion.",
           "verdict": "not_stated",
-          "note": "The text does not mention a priority period.",
-          "quote": null
-        },
-        {
-          "claim": "The application must be submitted promptly after completion.",
-          "verdict": "not_stated",
-          "note": "The text gives no timing requirement after completion.",
+          "note": "The text does not mention a priority period or any timing.",
           "quote": null
         }
       ]
@@ -8796,7 +8544,7 @@
         {
           "claim": "Property purchase completed and SDLT filed — solicitor handles Land Registry application",
           "verdict": "partly_supported",
-          "note": "The text says a solicitor may apply as part of the purchase, but it does not make completion or filing SDLT a condition, and it says you can also apply yourself.",
+          "note": "The text says a solicitor may apply as part of the purchase, but it does not make SDLT filing a condition or say the solicitor always handles it.",
           "quote": "If you’re a new owner, your solicitor or conveyancer may apply as part of the purchase."
         }
       ]
@@ -8811,8 +8559,8 @@
         {
           "claim": "TR1 transfer deed",
           "verdict": "partly_supported",
-          "note": "The text names a transfer of whole of registered title form but never uses the name TR1.",
-          "quote": "a ‘transfer of whole of registered title’ form"
+          "note": "The text names a transfer of whole of registered title form, but it never uses the name TR1.",
+          "quote": "Include the same forms as for registering for the first time and a ‘transfer of whole of registered title’ form"
         }
       ]
     },
@@ -8826,7 +8574,7 @@
         {
           "claim": "SDLT5 certificate from HMRC",
           "verdict": "partly_supported",
-          "note": "The text names a Land Transaction Return certificate but not 'SDLT5' or HMRC.",
+          "note": "The text mentions a Land Transaction Return certificate, but it does not name SDLT5 or say it comes from HMRC.",
           "quote": "a Land Transaction Return certificate if you’ve paid Stamp Duty"
         }
       ]
@@ -8841,7 +8589,7 @@
         {
           "claim": "AP1 application form",
           "verdict": "partly_supported",
-          "note": "The text requires an application to change the register when ownership is transferred, but it names form AP1 only for name changes.",
+          "note": "The text asks for an application to change the register when ownership is transferred, but it names form AP1 only for name changes.",
           "quote": "Download and fill in an application to change the register ."
         }
       ]
@@ -8856,7 +8604,7 @@
         {
           "claim": "Title deeds (for first registration of unregistered land)",
           "verdict": "partly_supported",
-          "note": "The text refers to deeds during first registration but does not explicitly list title deeds as a document to send.",
+          "note": "The text refers to deeds when describing first registration, but it does not clearly list them as a required document.",
           "quote": "Prepare a scale plan showing where the land is outlined, if it’s not shown in the deeds."
         }
       ]
@@ -9637,10 +9385,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Anyone who wants to childmind in England for payment must register with Ofsted.",
+          "claim": "Ofsted registration is mandatory for anyone who wants to childmind in England for payment.",
           "verdict": "partly_supported",
-          "note": "The text lets you register with Ofsted or a childminder agency, adds conditions (under 8, more than 2 hours a day) and never mentions England.",
-          "quote": "If you want to be paid to look after children under 8, you might need to register with Ofsted or a childminder agency."
+          "note": "The text says you can register with Ofsted or a childminder agency, not only Ofsted. It also makes registration compulsory only when the children are under 8 and you look after them for more than 2 hours a day.",
+          "quote": "You must register with Ofsted or a childminder agency to look after children in your own home or someone else’s home."
         }
       ]
     },
@@ -9652,16 +9400,16 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Registration is required for anyone aged 18 or over who is paid to care for children under 8, in a domestic setting, for more than 2 hours a day.",
+          "claim": "Registration applies to care in a domestic setting.",
           "verdict": "partly_supported",
-          "note": "Under 8, more than 2 hours and payment are stated, and under-18s cannot register, but the text does not limit this to a domestic setting: childminders can also work outside the home.",
-          "quote": "the children are under the age of 8 you look after them for more than 2 hours a day you get paid to look after them"
+          "note": "The text covers home-based childminders but also requires registration for childminders working outside the home, so the 'domestic setting' condition is too narrow.",
+          "quote": "a childminder based outside the home (known as a ‘childminder without domestic premises’)"
         },
         {
           "claim": "Registration involves a suitability inspection by Ofsted.",
           "verdict": "partly_supported",
-          "note": "An inspector visits childminders, but the text says you do not usually get a visit if you only look after children over 5, and agency applicants are visited by the agency, not Ofsted.",
-          "quote": "You will not usually get a registration visit if you're only looking after children aged over 5."
+          "note": "An inspector visits to check suitability, but the text says this does not usually happen for childminders looking after only children over 5, or for those applying through an agency.",
+          "quote": "You will not usually get a registration visit if you’re only looking after children aged over 5."
         }
       ]
     },
@@ -9675,7 +9423,7 @@
         {
           "claim": "Paediatric first aid certificate",
           "verdict": "partly_supported",
-          "note": "The text requires first aid training for the age group but never says 'paediatric' or 'certificate'.",
+          "note": "The text asks for first aid training for the age group you look after but never uses the words 'paediatric' or 'certificate'.",
           "quote": "first aid training for the age group you will look after"
         }
       ]
@@ -10207,15 +9955,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Employers are legally required to verify that every employee has the right to work in the UK before they start.",
-          "verdict": "partly_supported",
-          "note": "The text requires a check before employment, but it does not say 'every employee': existing EU, EEA or Swiss employees who came before 1 July 2021 do not need checks.",
-          "quote": "You must check that a job applicant is allowed to work for you in the UK before you employ them."
-        },
-        {
           "claim": "For non-UK/Irish nationals this is typically done via a Home Office share code online service.",
           "verdict": "partly_supported",
-          "note": "The text implies share codes are for people who are not British or Irish, but it does not say this is the typical method or call the online service a Home Office service.",
+          "note": "The text describes an online share code check that British and Irish citizens cannot use, but it does not say this is the typical method or that the Home Office runs the service.",
           "quote": "British and Irish citizens cannot get an online share code to prove their right to work."
         }
       ]
@@ -10230,7 +9972,7 @@
         {
           "claim": "Evidence is a British/Irish passport, or a BRP/eVisa share code for non-UK/Irish nationals.",
           "verdict": "partly_supported",
-          "note": "The text supports passports for British and Irish citizens and share codes for others, but it never mentions eVisas and says BRPs can no longer be accepted.",
+          "note": "The text supports a passport for British/Irish citizens and a share code for others, but it never mentions eVisas and says BRPs can no longer be accepted.",
           "quote": "You can no longer accept biometric residence cards or permits. Ask the applicant for a share code instead."
         }
       ]
@@ -10304,36 +10046,15 @@
     {
       "id": "other-tv-licence-pension",
       "name": "TV Licence concession",
-      "field": "eligibility.summary",
-      "graph": "Free TV licence for households where at least one person is 75 or over AND receives Pension Credit. The 75+ person or their partner must be the Pension Credit claimant.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The free TV licence is for households where at least one person is 75 or over and receives Pension Credit.",
-          "verdict": "partly_supported",
-          "note": "The text states the age and Pension Credit conditions, but it does not describe eligibility as covering households where at least one person qualifies.",
-          "quote": "You may be able to get a free or discounted TV Licence if you’re 75 or over and get Pension Credit"
-        },
-        {
-          "claim": "The person aged 75 or over, or their partner, must be the Pension Credit claimant.",
-          "verdict": "not_stated",
-          "note": "The text says nothing about partners or about who must be the Pension Credit claimant.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "other-tv-licence-pension",
-      "name": "TV Licence concession",
       "field": "eligibility.evidenceRequired.2",
       "graph": "Apply online at tvlicensing.co.uk",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Apply online at tvlicensing.co.uk",
+          "claim": "You apply online at tvlicensing.co.uk.",
           "verdict": "partly_supported",
-          "note": "The text says you apply on the TV Licensing website but does not give the address tvlicensing.co.uk.",
-          "quote": "Start now on the TV Licensing website"
+          "note": "The text says you can apply online and mentions the TV Licensing website, but it never gives the address tvlicensing.co.uk.",
+          "quote": "You can apply for a free licence online."
         }
       ]
     },
@@ -11068,27 +10789,21 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Anyone can check any property's council tax band.",
-          "verdict": "partly_supported",
-          "note": "The text says a home can be looked up by address or postcode, but it does not say that anyone can do so, and it limits the lookup to England or Wales.",
-          "quote": "Find out the Council Tax band for a home in England or Wales by looking up its address or postcode."
-        },
-        {
           "claim": "Checking a band is free.",
           "verdict": "not_stated",
-          "note": "The text does not mention cost.",
+          "note": "The text never mentions cost or says the service is free.",
           "quote": null
         },
         {
           "claim": "Property owners and tenants can challenge their band.",
           "verdict": "partly_supported",
-          "note": "The text says you can challenge your band but does not say who is eligible, and does not mention owners or tenants.",
+          "note": "The text says you can challenge your band, but it does not say who is eligible or name owners and tenants.",
           "quote": "You can also use this service to challenge your Council Tax band if you think it’s wrong."
         },
         {
-          "claim": "Evidence could be, for example, similar nearby properties being in a lower band.",
+          "claim": "An example of evidence is similar nearby properties being in a lower band.",
           "verdict": "not_stated",
-          "note": "The text gives no examples of evidence.",
+          "note": "The text gives no examples of what counts as evidence.",
           "quote": null
         }
       ]
@@ -11611,8 +11326,8 @@
       ],
       "page": [
         "online",
-        "phone",
-        "post"
+        "post",
+        "phone"
       ]
     },
     {
@@ -11735,13 +11450,23 @@
       ]
     },
     {
-      "id": "ho-fee-waiver",
+      "id": "ho-eu-settled-status",
       "graph": [
         "online"
       ],
       "page": [
         "online",
         "post"
+      ]
+    },
+    {
+      "id": "ho-euss-enquiry",
+      "graph": [
+        "online",
+        "phone"
+      ],
+      "page": [
+        "online"
       ]
     },
     {
@@ -12207,11 +11932,6 @@
       "page": "UKVI account"
     },
     {
-      "id": "ho-fee-waiver",
-      "graph": "none",
-      "page": "MyHMCTS"
-    },
-    {
       "id": "ho-immigration-appeal",
       "graph": "none",
       "page": "MyHMCTS"
@@ -12219,7 +11939,7 @@
     {
       "id": "ho-life-in-uk",
       "graph": "none",
-      "page": "UK Visas and Immigration (UKVI) account"
+      "page": "Life in the UK account"
     },
     {
       "id": "ho-skilled-worker-dependent-visa",

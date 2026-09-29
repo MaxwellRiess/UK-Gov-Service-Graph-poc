@@ -48,7 +48,14 @@ export async function pageText(url: string): Promise<string | null> {
         if (typeof det.body === 'string') bodies.push(det.body);
         for (const p of det.parts ?? []) if (typeof p.body === 'string') bodies.push(p.body);
         // Some formats carry the payload elsewhere; fall through to HTML if empty.
-        if (bodies.length) text = htmlToText(bodies.join(' \n '));
+        if (bodies.length) {
+          // The title and summary are part of what the page says. GOV.UK often
+          // states a service's scope only there: "Become a childminder or nanny
+          // (England)" never says England in its body.
+          const head = [d.title, d.description].filter((x: unknown) => typeof x === 'string' && x).join('. ');
+          if (head) bodies.unshift(head);
+          text = htmlToText(bodies.join(' \n '));
+        }
       }
     } catch { /* fall through to HTML */ }
   }

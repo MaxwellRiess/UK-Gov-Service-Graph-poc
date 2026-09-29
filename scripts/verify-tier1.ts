@@ -75,6 +75,8 @@ interface ApiResult {
   updatedAt?:    string;
   orgs?:         string[];
   withdrawn?:    boolean;
+  /** Slugs of a multi-part guide's parts, so a link to one part can be recognised. */
+  partSlugs?:    string[];
 }
 
 const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
@@ -111,6 +113,7 @@ async function contentApi(path: string): Promise<ApiResult> {
     updatedAt:    d.public_updated_at,
     orgs:         (d.links?.organisations ?? []).map((o: any) => o.title),
     withdrawn:    Boolean(d.withdrawn_notice && Object.keys(d.withdrawn_notice).length),
+    partSlugs:    (d.details?.parts ?? []).map((p: any) => p.slug),
   };
 }
 
@@ -201,7 +204,14 @@ for (let i = 0; i < urls.length; i++) {
   }
 
   const canonical = `https://www.gov.uk${result.basePath}`;
-  if (result.basePath && result.basePath !== path) {
+  // A link to one part of a multi-part guide ("/become-childminder-nanny/register-childminder")
+  // resolves to the guide's base path but is not a stale URL: it is the more
+  // specific page, which is what the review standard asks for. Accept it when
+  // the part still exists.
+  const partSlug = result.basePath && path.startsWith(result.basePath + '/') ? path.slice(result.basePath.length + 1) : null;
+  const isGuidePart = partSlug !== null && (result.partSlugs ?? []).includes(partSlug);
+  const resolves = result.basePath === path || isGuidePart;
+  if (result.basePath && !resolves) {
     for (const n of group) moved.push({ id: n.id, from: url, to: canonical });
   }
   if (result.withdrawn) {
@@ -218,16 +228,18 @@ for (let i = 0; i < urls.length; i++) {
       verifiedAt: now,
       // A node pointing at a stale sub-path or redirect is not confirmed —
       // the page resolves, but not to the URL the graph claims is canonical.
-      confidence: result.basePath === path ? 'confirmed' : 'unverified',
+      confidence: resolves ? 'confirmed' : 'unverified',
     };
 
     store.fields[provenanceKey(n.id, 'govuk_url')] = {
       ...base,
       valueHash: hashValue(n.govuk_url),
       valueSeen: n.govuk_url,
-      rationale: result.basePath === path
-        ? undefined
-        : `Graph URL resolves to ${canonical}; update govuk_url to the canonical path.`,
+      rationale: isGuidePart
+        ? `Links to the "${partSlug}" part of the guide at ${canonical}.`
+        : resolves
+          ? undefined
+          : `Graph URL resolves to ${canonical}; update govuk_url to the canonical path.`,
     };
     if (base.confidence === 'confirmed') confirmed++;
 

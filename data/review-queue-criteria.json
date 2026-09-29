@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T22:45:38.076Z",
+  "generatedAt": "2026-09-29T10:11:43.094Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -328,9 +328,9 @@
       "factor": "ni_record",
       "graph": "Must have paid Class 1 NI contributions in both of the last two complete tax years before the year of claim.",
       "verdict": "partly_supported",
-      "note": "The text requires Class 1 contributions for the previous 2 tax years, but it says this is only 'usually' the case and that credits can count for one year, so actual payment in both years is not required; its example (claims up to 3 January 2026 use 2022-23 and 2023-24) also does not match 'the last two complete tax years before the year of claim'.",
+      "note": "The text says Class 1 contributions for the previous 2 tax years are usually needed, but it lets credits count for one year, and its example (claims up to 3 January 2026 use 2022-23 and 2023-24) shows these are not always the last two complete tax years before the claim.",
       "quote": "To be eligible you must usually have made Class 1 National Insurance contributions for the previous 2 tax years. National Insurance credits can count for one of these years if you did not pay National Insurance contributions.",
-      "url": "https://www.gov.uk/jobseekers-allowance/new-style-jsa"
+      "url": "https://www.gov.uk/jobseekers-allowance"
     },
     {
       "id": "dwp-ni-number",
@@ -339,8 +339,8 @@
       "factor": "immigration",
       "graph": "Must have the right to work in the UK, evidenced by a Biometric Residence Permit, eVisa, or other valid leave to remain.",
       "verdict": "partly_supported",
-      "note": "The text requires the right to work in the UK, but it mentions a BRP or eVisa only as places to find an existing National Insurance number, not as evidence of the right to work, and it never mentions 'other valid leave to remain'.",
-      "quote": "have the right to work in the UK",
+      "note": "The text requires the right to live and work in the UK, but it mentions BRPs and eVisas only as places to find an existing NI number, not as evidence of the right to work, and it never mentions 'other valid leave to remain'.",
+      "quote": "you must have the right to live and work in the UK",
       "url": "https://www.gov.uk/apply-national-insurance-number"
     },
     {
@@ -350,7 +350,7 @@
       "factor": "citizenship",
       "graph": "UK citizens are automatically assigned one — applies mainly to non-UK nationals who have arrived to work or study.",
       "verdict": "partly_supported",
-      "note": "The text describes automatic issue that depends on living in the UK and a Child Benefit claim, not on UK citizenship, and it does not say the application applies mainly to non-UK nationals arriving to work or study.",
+      "note": "The text says UK residents are normally sent a number automatically only if a Child Benefit claim was made, not UK citizens in general, and it does not say the service applies mainly to non-UK nationals arriving to work or study.",
       "quote": "You’ll normally be sent a National Insurance number in the 3 months before your 16th birthday if both the following are true: you live in the UK a parent or guardian has filled in a Child Benefit claim form for you",
       "url": "https://www.gov.uk/apply-national-insurance-number"
     },
@@ -498,6 +498,17 @@
       "url": "https://www.gov.uk/winter-fuel-payment"
     },
     {
+      "id": "ea-fishing-licence",
+      "name": "Get a rod fishing licence",
+      "criterion": 1,
+      "factor": "geography",
+      "graph": "One licence covers England and Wales, including all of the Border Esk. Scotland and Northern Ireland have separate arrangements.",
+      "verdict": "partly_supported",
+      "note": "The text confirms the licence covers Wales and the whole Border Esk, and that Scotland and Northern Ireland have different rules, but it excludes the River Tweed from England's coverage, which the criterion leaves out.",
+      "quote": "England (except the River Tweed) Wales the Border Esk region, including the parts of the river that are in Scotland",
+      "url": "https://www.gov.uk/fishing-licences/buy-a-fishing-licence"
+    },
+    {
       "id": "fco-emergency-travel-doc",
       "name": "Emergency travel document",
       "criterion": 1,
@@ -526,9 +537,9 @@
       "factor": "age",
       "graph": "Both parties must be 18 or over (16-17 with parental consent in exceptional circumstances).",
       "verdict": "partly_supported",
-      "note": "The text gives the minimum age as 18, but says nothing about 16 to 17 year olds marrying with parental consent in exceptional circumstances.",
+      "note": "The text gives 18 or over but says nothing about 16-17 year olds marrying with parental consent.",
       "quote": "You can get married or form a civil partnership in England or Wales if you’re: 18 or over",
-      "url": "https://www.gov.uk/marriages-civil-partnerships/giving-notice"
+      "url": "https://www.gov.uk/marriages-civil-partnerships/give-notice"
     },
     {
       "id": "gro-marriage-cert",
@@ -559,7 +570,7 @@
       "factor": "bereavement",
       "graph": "A person has died in England or Wales.",
       "verdict": "partly_supported",
-      "note": "The text covers registering a death in the UK or abroad, but it never names England or Wales as a condition.",
+      "note": "The text covers registering a death in the UK or abroad, but it never names England or Wales as the place where the death must have happened.",
       "quote": "Find out how to register a death in the UK or abroad.",
       "url": "https://www.gov.uk/register-a-death"
     },
@@ -713,9 +724,9 @@
       "factor": "family",
       "graph": "Child has moved to live primarily with a different parent after separation.",
       "verdict": "partly_supported",
-      "note": "The text covers a child living with an ex-partner after a family splits up, but it never says that a child moving to live mainly with the other parent is the trigger for transferring Child Benefit.",
+      "note": "The text covers families splitting up with a child living with an ex-partner, and says you can change who gets Child Benefit, but it never says that a child moving to live mainly with the other parent is a reason to transfer the claim.",
       "quote": "If you have 2 children and one lives with you and the other lives with someone else (for example, your ex-partner), you’ll each get £27.05 a week.",
-      "url": "https://www.gov.uk/child-benefit/change-of-circumstances"
+      "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
     },
     {
       "id": "hmrc-child-benefit-transfer",
@@ -724,9 +735,9 @@
       "factor": "relationship_status",
       "graph": "Parents have separated and current Child Benefit claimant is no longer the main carer.",
       "verdict": "partly_supported",
-      "note": "The text covers families splitting up and says you can change who gets Child Benefit, but it never says a transfer depends on the current claimant no longer being the main carer.",
-      "quote": "If a family splits up, you get £27.05 a week for the eldest child.",
-      "url": "https://www.gov.uk/child-benefit/change-of-circumstances"
+      "note": "The text describes how to transfer a claim and mentions families splitting up, but it does not tie a transfer to the current claimant no longer being the main carer after separation.",
+      "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you’ve done this, tell the other person to make a new claim.",
+      "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
     },
     {
       "id": "hmrc-corporation-tax",
@@ -749,17 +760,6 @@
       "note": "Asking for a company registration number in the written application suggests the company is already registered, but the text never says Companies House registration must be in place before registering for Corporation Tax.",
       "quote": "the company’s name and registration number",
       "url": "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading"
-    },
-    {
-      "id": "hmrc-eori",
-      "name": "Get an EORI number",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Must be a UK business intending to import or export goods.",
-      "verdict": "partly_supported",
-      "note": "The text backs the import/export part and says a business usually needs premises in the country, but it does not make being a UK business a strict requirement: it lists cases where a business not based there should still get an EORI number, and it also covers individuals and sole traders.",
-      "quote": "To get an EORI number, your business usually needs to have premises based in the country you want to import to or export from - this is called ‘being established’.",
-      "url": "https://www.gov.uk/eori"
     },
     {
       "id": "hmrc-marriage-allowance",
@@ -823,7 +823,7 @@
       "factor": "property",
       "graph": "Any purchase of land or property in England (or Northern Ireland) — thresholds vary for first-time buyers, additional properties, etc.",
       "verdict": "partly_supported",
-      "note": "The text covers purchases in England and Northern Ireland and gives different thresholds or rates for first-time buyers and additional properties, but it does not cover 'any purchase': some transactions need no return, such as a freehold bought for less than £40,000.",
+      "note": "The text limits SDLT to purchases over a certain price, with different rates for first-time buyers and additional properties, and it lists exemptions where no return is needed (for example a freehold under £40,000), so it does not support 'any purchase'.",
       "quote": "You must pay Stamp Duty Land Tax ( SDLT ) if you buy a property or land over a certain price in England and Northern Ireland.",
       "url": "https://www.gov.uk/stamp-duty-land-tax"
     },
@@ -927,17 +927,6 @@
       "url": "https://www.gov.uk/citizenship-ceremonies"
     },
     {
-      "id": "ho-eu-settled-status",
-      "name": "EU Settlement Scheme (Settled / Pre-Settled Status)",
-      "criterion": 1,
-      "factor": "residency",
-      "graph": "Must have been living in the UK before 31 December 2020.",
-      "verdict": "partly_supported",
-      "note": "The text applies this 'by 31 December 2020' test to EU/EEA/Swiss nationals, but joining family members only need their EU/EEA/Swiss relative to have been living in the UK by that date, and can arrive later themselves.",
-      "quote": "you’re from the EU , Switzerland, Norway, Iceland or Liechtenstein and you started living in the UK by 31 December 2020",
-      "url": "https://www.gov.uk/settled-status-eu-citizens-families"
-    },
-    {
       "id": "ho-evisa-error",
       "name": "Report an error with your eVisa",
       "criterion": 1,
@@ -949,13 +938,35 @@
       "url": "https://www.gov.uk/report-error-evisa"
     },
     {
+      "id": "ho-fee-waiver",
+      "name": "Immigration fee waiver",
+      "criterion": 0,
+      "factor": "income",
+      "graph": "Must demonstrate that payment of the visa fee would leave you (or your family) destitute or at risk of destitution.",
+      "verdict": "partly_supported",
+      "note": "The text describes not being able to afford the fee because you lack housing or essential living costs, which is close to destitution, but it never says 'destitute' or 'at risk of destitution', and it adds a separate route: very low income where paying would harm your child's wellbeing.",
+      "quote": "You can apply for a fee waiver if you cannot afford to pay the fee because you: do not have a place to live in the UK and you cannot afford one have a place to live but cannot afford essential living costs like food or heating",
+      "url": "https://www.gov.uk/visa-fee-waiver-in-uk"
+    },
+    {
+      "id": "ho-fee-waiver",
+      "name": "Immigration fee waiver",
+      "criterion": 1,
+      "factor": "immigration",
+      "graph": "Must be applying for a qualifying leave to remain or citizenship application.",
+      "verdict": "partly_supported",
+      "note": "The text supports applications for permission to stay (leave to remain) on certain routes, but it says nothing about citizenship applications.",
+      "quote": "You can apply for a fee waiver if you’re applying for permission to stay in the UK.",
+      "url": "https://www.gov.uk/visa-fee-waiver-in-uk"
+    },
+    {
       "id": "ho-ilr",
       "name": "Indefinite Leave to Remain",
       "criterion": 0,
       "factor": "immigration",
       "graph": "Met the qualifying period of lawful residence (usually 5 years on eligible visa such as Skilled Worker, Family, or Tier routes).",
       "verdict": "partly_supported",
-      "note": "The usual 5-year period is stated for work visas such as Skilled Worker, and Tier 1 time counts, but the text gives no qualifying period for the Family route.",
+      "note": "The usual 5-year period is stated for work visas such as Skilled Worker and Tier 2, but the text gives no qualifying period for the Family route, and Tier 1 can be 2 or 3 years.",
       "quote": "You must usually have lived and worked in the UK for 5 years.",
       "url": "https://www.gov.uk/indefinite-leave-to-remain"
     },
@@ -966,20 +977,9 @@
       "factor": "immigration",
       "graph": "Applying for Indefinite Leave to Remain or British citizenship (by naturalisation, as spouse/civil partner of a British citizen, or as an Irish citizen).",
       "verdict": "partly_supported",
-      "note": "The text covers citizenship and settlement applications in general, but it doesn't name the specific routes (naturalisation, spouse/civil partner of a British citizen, Irish citizen).",
+      "note": "The text covers citizenship and settlement applications in general, but it does not name the specific routes: naturalisation, spouse/civil partner of a British citizen, or Irish citizen.",
       "quote": "You need to take the test as part of your application for British citizenship or settlement in the UK.",
       "url": "https://www.gov.uk/life-in-the-uk-test"
-    },
-    {
-      "id": "ho-skilled-worker-dependent-visa",
-      "name": "Skilled Worker dependant visa",
-      "criterion": 0,
-      "factor": "immigration",
-      "graph": "The main applicant holds a valid Skilled Worker visa.",
-      "verdict": "partly_supported",
-      "note": "The text ties dependants to a Skilled Worker visa holder or applicant, but it does not require the main applicant to already hold a valid visa, since dependants can apply at the same time as the main applicant.",
-      "quote": "Your partner and children may also be able to apply to join you or stay in the UK as your ‘dependants’.",
-      "url": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
     },
     {
       "id": "ho-student-visa",
@@ -988,7 +988,7 @@
       "factor": "immigration",
       "graph": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
       "verdict": "partly_supported",
-      "note": "The text suggests that people who already have settled or pre-settled status don't need this visa, but it never says British or Irish nationals are excluded, and it never states a general rule about existing leave that covers the course.",
+      "note": "The text says people with EU Settlement Scheme status do not need a visa, but it never says applicants must be non-British or non-Irish nationals, and it has no general rule about already holding leave that covers the course.",
       "quote": "If you have settled or pre-settled status under the EU Settlement Scheme, you do not need to apply for a visa.",
       "url": "https://www.gov.uk/student-visa"
     },
@@ -1010,7 +1010,7 @@
       "factor": "citizenship",
       "graph": "Non-UK, non-Irish national wishing to enter the UK (some nationalities require visa; others may enter visa-free for short stays).",
       "verdict": "partly_supported",
-      "note": "The text applies to people who are not British citizens or Irish nationals and implies that not everyone needs a visa, but it never says which nationalities need one or that others can enter visa-free for short stays.",
+      "note": "The text covers people who are not British or Irish and says they may need a visa or an ETA, but it never says outright that some nationalities can enter visa-free for short stays.",
       "quote": "Check if you need a UK Visa, electronic travel authorisation (ETA) or get access to an eVisa to prove your immigration status if you’re not a British citizen or Irish national",
       "url": "https://www.gov.uk/browse/visas-immigration"
     },
@@ -1021,8 +1021,8 @@
       "factor": "immigration",
       "graph": "Must apply for the specific visa type matching the purpose of entry (Skilled Worker, Student, Family Visa, etc.).",
       "verdict": "partly_supported",
-      "note": "The text names visa types for each purpose (Skilled Worker, Student, family visas) but never says an applicant must apply for the type that matches their reason for coming.",
-      "quote": "Skilled Worker visa, Graduate visa, other work visas, right to work",
+      "note": "The text groups visa types by purpose (work, study, family) and names Skilled Worker and Student visas, but it does not say you must apply for the visa that matches your purpose of entry.",
+      "quote": "Work in the UK Skilled Worker visa, Graduate visa, other work visas, right to work Study in the UK Student visas",
       "url": "https://www.gov.uk/browse/visas-immigration"
     },
     {
@@ -1164,7 +1164,7 @@
       "factor": "age",
       "graph": "Must be 16 or over to register (18 to vote in most elections).",
       "verdict": "partly_supported",
-      "note": "The text gives 16 as the minimum age to register only for England and Northern Ireland. It gives 14 for Scotland and Wales and never states that the voting age is 18.",
+      "note": "The text gives 16 as the minimum age to register in England and Northern Ireland but 14 in Scotland and Wales, and it never states that the voting age is 18.",
       "quote": "If you live in England or Northern Ireland You must be aged 16 or over to register.",
       "url": "https://www.gov.uk/register-to-vote"
     },
@@ -1175,20 +1175,9 @@
       "factor": "citizenship",
       "graph": "British, Irish, or qualifying Commonwealth citizen (EU citizens can vote in local elections).",
       "verdict": "partly_supported",
-      "note": "The text supports British, Irish and qualifying Commonwealth citizens registering, but it does not say EU citizens can vote in local elections; it only lets certain EU citizens register, and only in England and Northern Ireland.",
+      "note": "The text supports registration for British, Irish and qualifying Commonwealth citizens, but it does not say that EU citizens can vote in local elections; it only lists certain EU citizens who can register.",
       "quote": "You can register to vote if you’re a British citizen or an Irish citizen. You can also register if you have permission (or do not need permission) to enter or stay in the UK, Channel Islands or Isle of Man and you’re: a Commonwealth citizen",
       "url": "https://www.gov.uk/register-to-vote"
-    },
-    {
-      "id": "la-food-premises-approval",
-      "name": "Food establishment approval (animal products)",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Handling products of animal origin AND supplying other food establishments, not only direct-to-consumer retail.",
-      "verdict": "partly_supported",
-      "note": "The text covers handling products of animal origin, but it never says approval depends on supplying other food establishments rather than selling only direct to consumers; it just says approval is not required in certain circumstances.",
-      "quote": "If your business handles products of animal origin, you may require approval by your local authority.",
-      "url": "https://www.gov.uk/find-licences/food-premises-approval"
     },
     {
       "id": "la-free-school-meals",
@@ -1202,24 +1191,13 @@
       "url": "https://www.gov.uk/apply-free-school-meals"
     },
     {
-      "id": "la-house-to-house-collection-licence",
-      "name": "House-to-house collection licence",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Collecting money or goods door-to-door from residential properties for charitable purposes in England and Wales.",
-      "verdict": "partly_supported",
-      "note": "The text covers collecting money or goods from people's homes for charity, but it never says the rule applies in England and Wales.",
-      "quote": "You must apply to your council for a licence if you want to collect money or goods (that you plan to sell at a later date) from people’s homes for charity.",
-      "url": "https://www.gov.uk/find-licences/house-to-house-collection-licence"
-    },
-    {
       "id": "la-proxy-vote",
       "name": "Apply for a proxy vote",
       "criterion": 1,
       "factor": "employment",
       "graph": "Typical reasons include being at work, abroad, or unable to attend due to disability or illness.",
       "verdict": "partly_supported",
-      "note": "The text gives being unable to go to the polling station in person as the general reason and mentions living abroad, but it never names being at work, disability or illness as reasons.",
+      "note": "The text gives the general reason (you cannot go to the polling station) and covers applicants who live abroad, but it never names being at work, disability or illness as reasons.",
       "quote": "You can get someone else to vote on your behalf (a proxy) if you cannot go to the polling station in person.",
       "url": "https://www.gov.uk/apply-proxy-vote"
     },
@@ -1246,17 +1224,6 @@
       "url": "https://www.gov.uk/apply-for-primary-school-place"
     },
     {
-      "id": "la-scrap-metal-dealer-licence",
-      "name": "Scrap metal dealer licence",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Buying, selling, or storing scrap metal in England or Wales, whether from fixed premises or as a mobile collector.",
-      "verdict": "partly_supported",
-      "note": "The text covers scrap metal dealers in England and Wales who operate from a site or as mobile collectors, but it never defines a dealer as someone who buys, sells or stores scrap metal, and storing is not mentioned as a qualifying activity.",
-      "quote": "You must hold either a site or mobile collector’s licence, issued by the council, if you’re a scrap metal dealer in England and Wales.",
-      "url": "https://www.gov.uk/find-licences/scrap-metal-dealer-registration"
-    },
-    {
       "id": "la-short-term-let",
       "name": "Short-term let licence (Scotland)",
       "criterion": 0,
@@ -1268,36 +1235,14 @@
       "url": "https://www.mygov.scot/short-term-let-licences"
     },
     {
-      "id": "la-skip-permit",
-      "name": "Skip permit (public road)",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "Public roads in England and Wales.",
-      "verdict": "partly_supported",
-      "note": "Public roads are mentioned, but the text never says the rule is limited to England and Wales or names any area.",
-      "quote": "if you want to put a skip on a public road",
-      "url": "https://www.gov.uk/find-licences/apply-skip-permit"
-    },
-    {
-      "id": "la-street-collection-licence",
-      "name": "Street collection licence",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Collecting money or selling items for a charitable purpose in a public street, shop doorway, or car park in England and Wales.",
-      "verdict": "partly_supported",
-      "note": "The text covers collecting money or selling items for charity on the street, and elsewhere names shop doorways and car parks, but it never says the licence applies in England and Wales.",
-      "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence",
-      "url": "https://www.gov.uk/find-licences/street-collection-licence"
-    },
-    {
       "id": "la-street-trading-licence",
       "name": "Street trading licence",
       "criterion": 0,
       "factor": "employment",
       "graph": "Selling goods or services from a street or public place in England and Wales.",
       "verdict": "partly_supported",
-      "note": "The text covers trading in the street in England and Wales, but it never mentions trading in other public places, and it doesn't spell out goods or services.",
-      "quote": "Contact the council to find out if you need a licence to trade in the street in England and Wales.",
+      "note": "The text covers trading in the street in England and Wales, but it never mentions a 'public place' or says 'goods or services'.",
+      "quote": "You may need to get a licence to trade in the street in England and Wales",
       "url": "https://www.gov.uk/find-licences/street-trading-licence"
     },
     {
@@ -1329,7 +1274,7 @@
       "factor": "property",
       "graph": "Any purchase of land or property in England or Wales. Also required for remortgages, transfers of equity, and first-time registrations of unregistered land.",
       "verdict": "partly_supported",
-      "note": "The text covers purchases and mortgages of land in England and Wales, and first registration of unregistered land, but it exempts leases with 7 years or less left (so not 'any purchase'), and it never names remortgages or transfers of equity (only mortgaging and adding a joint owner).",
+      "note": "The text covers purchases, mortgaging, adding a joint owner and first registration of unregistered land in England and Wales, but it does not name remortgages or transfers of equity, and it excludes leases with 7 years or less left, so 'any purchase' goes too far.",
       "quote": "You must register all land or property with HM Land Registry if you’ve: bought it been given it inherited it received it in exchange for other property or land mortgaged the property",
       "url": "https://www.gov.uk/registering-land-or-property-with-land-registry"
     },
@@ -1431,6 +1376,17 @@
       "note": "The text says you must already have complained to the school and the problem is still unresolved, but it never says the school's full complaints procedure has to be completed first.",
       "quote": "you’ve complained to the school and the problem has not been resolved",
       "url": "https://www.gov.uk/complain-to-ofsted"
+    },
+    {
+      "id": "ofsted-register-childminder",
+      "name": "Register as a childminder with Ofsted",
+      "criterion": 1,
+      "factor": "geography",
+      "graph": "England only. Scotland, Wales and Northern Ireland have separate requirements.",
+      "verdict": "partly_supported",
+      "note": "The title limits the guidance to England, but the text never says that Scotland, Wales and Northern Ireland have separate requirements.",
+      "quote": "Become a childminder or nanny (England).",
+      "url": "https://www.gov.uk/become-childminder-nanny/register-childminder"
     },
     {
       "id": "opg-lpa",
@@ -1560,8 +1516,8 @@
       "factor": "employment",
       "graph": "Required for all new employees before they begin work. Employer faces civil penalty if not done.",
       "verdict": "partly_supported",
-      "note": "The text requires a check before employment, but it ties the civil penalty to employing an illegal worker without a correct check, not simply to failing to do the check.",
-      "quote": "You could face a civil penalty if you employ an illegal worker and have not carried out a correct right to work check.",
+      "note": "The text requires the check before employment, but it only mentions a civil penalty if the employer employs an illegal worker without a correct check, not simply for skipping the check.",
+      "quote": "You must check that a job applicant is allowed to work for you in the UK before you employ them.",
       "url": "https://www.gov.uk/check-job-applicant-right-to-work"
     },
     {
@@ -1571,7 +1527,7 @@
       "factor": "immigration",
       "graph": "Non-UK/Irish nationals provide a share code via the UK Visas & Immigration online portal. British/Irish citizens present their passport.",
       "verdict": "partly_supported",
-      "note": "The text supports passports for British/Irish citizens and share codes for online checks, but it never names a UK Visas & Immigration portal, and it lets other nationals show original documents or use IDVT instead of a share code.",
+      "note": "The text mentions share codes and passports for British/Irish citizens, but it does not name a UK Visas & Immigration portal, and it lets other nationals use original documents or IDVT instead of a share code.",
       "quote": "British and Irish citizens cannot get an online share code to prove their right to work. You’ll need to check their original documents - for example, their passport or passport card - or use an identity service provider instead.",
       "url": "https://www.gov.uk/check-job-applicant-right-to-work"
     },
@@ -1585,28 +1541,6 @@
       "note": "The text supports the 2-year service requirement, but it does not say the employment must be continuous for redundancy pay, or that the redundancy must be compulsory rather than voluntary.",
       "quote": "You’ll normally be entitled to statutory redundancy pay if you’re an employee and you’ve been working for your current employer for 2 years or more.",
       "url": "https://www.gov.uk/redundancy-your-rights"
-    },
-    {
-      "id": "other-tv-licence-pension",
-      "name": "TV Licence concession",
-      "criterion": 0,
-      "factor": "age",
-      "graph": "At least one person in the household must be 75 or over.",
-      "verdict": "partly_supported",
-      "note": "The text sets the age at 75 or over, but only for the applicant ('you're'). It says nothing about any person in the household meeting it.",
-      "quote": "You may be able to get a free or discounted TV Licence if you’re 75 or over and get Pension Credit",
-      "url": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence"
-    },
-    {
-      "id": "other-tv-licence-pension",
-      "name": "TV Licence concession",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Must be receiving Pension Credit (Guarantee or Savings Credit), or be the partner of a Pension Credit claimant.",
-      "verdict": "partly_supported",
-      "note": "The text requires getting Pension Credit, but it does not name the Guarantee Credit or Savings Credit types. It also does not mention being the partner of a Pension Credit claimant.",
-      "quote": "if you’re 75 or over and get Pension Credit",
-      "url": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence"
     },
     {
       "id": "slc-loan-repayment",
