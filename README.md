@@ -58,7 +58,7 @@ A hand-built graph of 244 services has no subject matter expert behind it, so th
 
 **Verifiable against an authoritative source.** Whether a service exists, its canonical URL, and whether it has been withdrawn all come from the [GOV.UK Content API](https://www.gov.uk/api/content/child-benefit), which is written by the publishers themselves. `scripts/verify-tier1.ts` checks every node against it and records the `content_id`, which survives the URL changes that break plain link checking.
 
-**Verifiable against source text.** Money amounts and phone numbers are literals: if the graph says Child Benefit is £26.05 a week, that string has to appear on the page the graph cites. `scripts/verify-tier2.ts` searches for it and stores the surrounding sentence as evidence. No model is involved, so there is nothing to hallucinate and a reviewer can see exactly what each claim rests on. `scripts/verify-rules.ts` does the same for the numbers inside the machine eligibility rules (ages, income limits, day counts), which decide what `check_eligibility` tells a user. Eligibility criteria are prose, so `scripts/verify-criteria.ts` asks a model to judge each one against the cited pages only (supported, partly supported, contradicted or not stated) and to quote the span it relied on. Quotes not found in the source are discarded, only "supported" becomes confirmed, and the rest go to `data/review-queue-criteria.json` for a person. Deadlines and eligibility are prose rather than literals, so `scripts/verify-tier2-llm.ts` asks a model to *locate* them in supplied page text and discards any quote that does not actually appear in it.
+**Verifiable against source text.** Money amounts and phone numbers are literals: if the graph says Child Benefit is £26.05 a week, that string has to appear on the page the graph cites. `scripts/verify-tier2.ts` searches for it and stores the surrounding sentence as evidence. No model is involved, so there is nothing to hallucinate and a reviewer can see exactly what each claim rests on. `scripts/verify-rules.ts` does the same for the numbers inside the machine eligibility rules (ages, income limits, day counts), which decide what `check_eligibility` tells a user. `scripts/verify-prose.ts` applies the same method to descriptions, summaries, auto-qualifiers, exclusions, evidence, and the ways to apply and sign in: prose is split into single claims, and a field is confirmed only when every claim has a verified quote. Eligibility criteria are prose, so `scripts/verify-criteria.ts` asks a model to judge each one against the cited pages only (supported, partly supported, contradicted or not stated) and to quote the span it relied on. Quotes not found in the source are discarded, only "supported" becomes confirmed, and the rest go to `data/review-queue-criteria.json` for a person. Deadlines and eligibility are prose rather than literals, so `scripts/verify-tier2-llm.ts` asks a model to *locate* them in supplied page text and discards any quote that does not actually appear in it.
 
 **Not verifiable from any published source.** Edges, `proactive` and `gated` are authored judgements. Nobody publishes "Child Benefit requires birth registration first" as structured data. These are recorded as `inferred` so they are never mistaken for sourced facts.
 
@@ -168,6 +168,9 @@ npm run verify:rules
 # Judge eligibility criteria text against the cited pages (needs ANTHROPIC_API_KEY)
 npm run verify:criteria
 
+# Judge descriptions, summaries, qualifiers, exclusions, evidence, and ways to apply and sign in (needs ANTHROPIC_API_KEY)
+npm run verify:prose
+
 # Check links beyond govuk_url (form, API, webchat, contact form, office finder)
 npm run verify:links
 
@@ -207,6 +210,7 @@ scripts/
   verify-tier2-llm.ts             Locates deadlines in page prose (needs ANTHROPIC_API_KEY)
   verify-rules.ts                 Checks eligibility rule thresholds appear on their cited page
   verify-criteria.ts              Judges eligibility criteria text against its source (needs ANTHROPIC_API_KEY)
+  verify-prose.ts                 Judges descriptions, summaries and agent facts claim by claim (needs ANTHROPIC_API_KEY)
   verify-links.ts                 Checks form, API, webchat and contact links resolve
   check-consistency.ts            Flags figures in prose that no structured value or cited page backs
   check-provenance.ts             Fails the build when data and provenance disagree

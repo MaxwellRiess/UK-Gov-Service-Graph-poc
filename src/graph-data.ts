@@ -881,7 +881,7 @@ export const NODES: Record<string, ServiceNode> = {
         'When did the death or stillbirth occur? (Must claim within 56 weeks.)',
       ],
       means_tested: false,
-      evidenceRequired: ['Notice to employer (no formal form required)', 'Death or stillbirth certificate may be requested'],
+      evidenceRequired: ['Notice to employer (no formal form required)'],
       ruleIn: ['Child under 18 died or stillbirth after 24 weeks', 'Employee at time of bereavement'],
       ruleOut: [],      rules: [
         {
@@ -1469,7 +1469,7 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-cancel-marriage-allowance': {
     id: 'hmrc-cancel-marriage-allowance', name: 'Cancel Marriage Allowance', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Must be cancelled after divorce or separation. Done via Self Assessment or HMRC phone.',
+    desc: 'Must be cancelled after divorce or separation. Cancel online or by phone; leaving the Self Assessment section blank does not cancel it.',
     govuk_url: 'https://www.gov.uk/marriage-allowance/if-your-circumstances-change',
     serviceType: 'obligation',
     proactive: true,
@@ -1960,7 +1960,7 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-corporation-tax': {
     id: 'hmrc-corporation-tax', name: 'Register for Corporation Tax', dept: 'HMRC', deptKey: 'hmrc',
     deadline: '3 months',
-    desc: 'Required within 3 months of starting to trade. Limited companies only.',
+    desc: 'Required within 3 months of starting to trade. Applies to limited companies, and to unincorporated organisations such as clubs and associations that become active.',
     govuk_url: 'https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading',
     serviceType: 'obligation',
     proactive: true,
@@ -2880,7 +2880,7 @@ export const NODES: Record<string, ServiceNode> = {
         'When did they die? (Claim within 3 months for maximum payment.)',
         'Do you have children? (Higher rate applies if you have children.)',
       ],
-      exclusions: ['Not available if partner died before 6 April 2017 (different scheme applied).', 'Not available if you were cohabiting but not married or in a civil partnership.'],
+      exclusions: ['Not available if partner died before 6 April 2017 (different scheme applied).'],
       means_tested: false,
       evidenceRequired: ['Death certificate', 'Marriage or civil partnership certificate', 'NI numbers for both parties'],
       ruleIn: ['Spouse or civil partner died', 'Under State Pension age at time of death', 'Deceased had 25+ weeks NI contributions'],
@@ -3130,7 +3130,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Were you ever in a contracted-out workplace pension? (This may reduce your State Pension.)',
         'Would you like to defer your State Pension to get a higher weekly amount later?',
       ],
-      autoQualifiers: ['Reached State Pension age with 35+ qualifying NI years'],
+      autoQualifiers: ['Reached State Pension age with at least 10 qualifying NI years (35 for the full rate)'],
       means_tested: false,
       evidenceRequired: ['NI number', 'Bank account details for payment'],
       ruleIn: ['Reached State Pension age (66+)', '10+ qualifying NI years'],
@@ -3332,7 +3332,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you live in England, Wales or Northern Ireland?',
         'Is your own total income over £35,000? (If so, HMRC will take the payment back.)',
       ],
-      autoQualifiers: ['Born on or before 27 June 1960 and getting State Pension or another qualifying benefit'],
+      autoQualifiers: ['Born on or before 27 June 1960 and usually living in England, Wales or Northern Ireland (paid automatically with a listed benefit; otherwise you need to claim)'],
       exclusions: ['Lives in Scotland (Pension Age Winter Heating Payment instead)', 'In hospital or prison for the whole qualifying week, or has no recourse to public funds', 'In a care home for the whole period from 29 June 2026 while getting Pension Credit, UC or income-related ESA'],
       means_tested: false,
       evidenceRequired: ['Usually automatic. Claim by post or phone (deadline 31 March 2027) only if you have not had it before and get none of the listed benefits, or have deferred your State Pension'],
@@ -3536,7 +3536,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Available to adults assessed as having a primary health need that is complex, intense, or unpredictable. Eligibility is assessed by a multidisciplinary team using the NHS Continuing Healthcare Decision Support Tool. Available at any age, in any setting.',
+      summary: 'Available to adults assessed as having a primary health need that is complex, intense, or unpredictable. Eligibility is assessed by a multidisciplinary team using the NHS Continuing Healthcare Decision Support Tool. Available to people aged 18 or over, in any setting.',
       universal: false,
       criteria: [
         { factor: 'disability', description: 'Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.' },
@@ -3805,7 +3805,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Are you actively looking for work?',
         'Are you currently receiving Universal Credit?',
       ],
-      exclusions: ['Time-limited to 6 months.', 'Not available if income or capital would disqualify in isolation (but can be paid alongside UC).'],
+      exclusions: ['Time-limited to 6 months.'],
       means_tested: false,
       evidenceRequired: ['P45 from employer', 'NI number', 'Bank details', 'CV and job-seeking evidence'],
       ruleIn: ['Class 1 NI contributions in last two tax years', 'Actively seeking work'],
@@ -4334,7 +4334,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: '£86.45/week for carers spending at least 35 hours/week caring for someone receiving a qualifying disability benefit. Also provides NI credits and a gateway to UC Carer element.',
+      summary: '£86.45/week for carers spending at least 35 hours/week caring for someone receiving a qualifying disability benefit. Also provides National Insurance credits. The Universal Credit carer element is available whether or not you get Carer\'s Allowance.',
       universal: false,
       criteria: [
         { factor: 'caring', description: 'Caring for someone for at least 35 hours per week.' },
@@ -4798,13 +4798,13 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-ni-number': {
     id: 'dwp-ni-number', name: 'National Insurance number', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Apply online via DWP. Required before starting work or claiming benefits in the UK.',
+    desc: 'Apply online via DWP. Needed for work and benefits, but you can start work before it arrives if you can prove your right to work, and start a benefit application without one.',
     govuk_url: 'https://www.gov.uk/apply-national-insurance-number',
     serviceType: 'registration',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Required before starting work or claiming benefits in the UK. Apply online via DWP. Must have the right to work in the UK. UK citizens should already have one — applies mainly to new arrivals.',
+      summary: 'Needed for work and benefits in the UK, but you can start work before you receive it if you can prove your right to work, and you do not need one to start a benefit application. Apply online via DWP. Must have the right to work in the UK. UK citizens should already have one — applies mainly to new arrivals.',
       universal: false,
       criteria: [
         { factor: 'immigration', description: 'Must have the right to work in the UK, evidenced by a Biometric Residence Permit, eVisa, or other valid leave to remain.' },
@@ -4850,7 +4850,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
+      methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-national-insurance-number',
       authRequired: 'none',
@@ -5479,7 +5479,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Tell Us Once completed — DVLA notified automatically'],
       means_tested: false,
-      evidenceRequired: ['Physical driving licence if available', 'D27 form', 'Death certificate'],
+      evidenceRequired: ['Physical driving licence if available', 'D27 form'],
       ruleIn: ['Deceased held GB driving licence'],
       ruleOut: [],      rules: [
         {
@@ -5649,7 +5649,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['You do not need a SORN if you have already notified DVLA that you have sold the vehicle.'],
       means_tested: false,
-      evidenceRequired: ['Vehicle registration number', '11-digit reference from V5C or tax reminder letter'],
+      evidenceRequired: ['Vehicle registration number', '11-digit reference from the V5C, or 16-digit reference from a tax reminder letter'],
       ruleIn: ['Registered keeper keeping vehicle off public roads'],
       ruleOut: ['Vehicle already sold (notify DVLA of sale instead)'],
     },
@@ -5691,7 +5691,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Anyone can register a limited company in the UK. Same-day registration online for £50. Company name must be available and not too similar to existing names. At least one director required.',
+      summary: 'Anyone can register a limited company in the UK. Registering online costs £100 and usually takes up to 24 hours. Company name must be available and not too similar to existing names. At least one director required.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Directors must be at least 16 years old.' },
@@ -5722,7 +5722,7 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://developer.company-information.service.gov.uk/',
       onlineFormUrl: 'https://www.gov.uk/limited-company-formation/register-your-company',
-      authRequired: 'companies-house',
+      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check company name availability using Companies House WebCHeck',
@@ -7006,13 +7006,13 @@ export const NODES: Record<string, ServiceNode> = {
   'la-food-premises-approval': {
     id: 'la-food-premises-approval', name: 'Food establishment approval (animal products)', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
-    desc: 'Food businesses handling products of animal origin (meat, fish, dairy, eggs) that supply other establishments require formal approval from their local authority, beyond basic food business registration.',
+    desc: 'Food businesses handling products of animal origin (meat, fish, dairy, eggs) that supply other establishments need approval from their local authority rather than food business registration (with some exceptions).',
     govuk_url: 'https://www.gov.uk/find-licences/food-premises-approval',
     serviceType: 'registration',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Required for establishments in England handling products of animal origin (meat, fish, dairy, eggs, processed animal products) that supply other food businesses. Separate from and in addition to basic food hygiene registration. Operating without required approval is a criminal offence.',
+      summary: 'Required for establishments in England handling products of animal origin (meat, fish, dairy, eggs, processed animal products) that supply other food businesses. An establishment is usually either approved or registered, not both. Operating without required approval is a criminal offence.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Handling products of animal origin AND supplying other food establishments, not only direct-to-consumer retail.' },
@@ -7240,13 +7240,13 @@ export const NODES: Record<string, ServiceNode> = {
   'la-temporary-events-notice': {
     id: 'la-temporary-events-notice', name: 'Temporary Events Notice (TEN)', dept: 'Local Authority', deptKey: 'la',
     deadline: '10 clear working days',
-    desc: 'Allows an individual to hold licensable activities (alcohol sales, entertainment, late-night refreshment) on unlicensed premises for up to 7 days with a maximum of 500 attendees. Fee: £21.',
+    desc: 'Allows an individual to hold licensable activities (alcohol sales, entertainment, late-night refreshment) on unlicensed premises for up to 7 days with fewer than 500 people at all times. Fee: £21.',
     govuk_url: 'https://www.gov.uk/find-licences/temporary-events-notice',
     serviceType: 'application',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Applicant must be an individual aged 18+ (organisations cannot apply). Maximum 500 people including staff; event up to 168 hours (7 days). Must be submitted at least 10 clear working days before the event. Annual limits apply per individual and per premises.',
+      summary: 'Applicant must be an individual aged 18+ (organisations cannot apply). Fewer than 500 people at all times, including staff; event up to 168 hours (7 days). Must be submitted at least 10 clear working days before the event. Annual limits apply per individual and per premises.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Applicant must be an individual aged 18 or over; organisations cannot apply.' },
@@ -7276,7 +7276,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Any public screening of films or TV — whether ticketed or free — requires a copyright licence, a premises licence from the local council, and a TV licence if using TV-receiving equipment. Multiple licences are typically needed simultaneously. Commercial streaming subscriptions (e.g. Netflix) do not permit public screening. State school curriculum use is exempt.',
+      summary: 'Any public screening of films or TV — whether ticketed or free — requires a copyright licence, a premises licence from the local council, and a TV licence if using TV-receiving equipment. Multiple licences are typically needed simultaneously. Personal streaming subscriptions do not usually permit public screening; a commercial or business subscription may already give permission. State school curriculum use is exempt.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Showing films or TV programmes in a public or communal setting: cinema club, hotel, pub, outdoor event, community hall, retail display, or staff room.' },
@@ -7526,7 +7526,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you passed the test before?',
       ],
       means_tested: false,
-      evidenceRequired: ['Test pass certificate (issued at test centre)', 'Booking required online — £50 fee per attempt'],
+      evidenceRequired: ['Life in the UK Test unique reference number (given when you pass)', 'Booking required online — £50 fee per attempt'],
       ruleIn: ['Applying for ILR or any citizenship route', 'Aged 18 to 64'],
       ruleOut: ['Under 18 or aged 65 and over (exempt)'],
       rules: [
@@ -7590,7 +7590,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Have you passed the Life in the UK test?',
       ],
       means_tested: false,
-      evidenceRequired: ['Passport(s) covering entire qualifying period', 'Proof of continuous residence (payslips, bank statements, tenancy agreements)', 'Life in the UK test certificate', 'English language evidence', 'SET(O) or relevant form'],
+      evidenceRequired: ['Passport(s) covering entire qualifying period', 'Proof of continuous residence (payslips, bank statements, tenancy agreements)', 'Life in the UK test certificate', 'English language evidence (not needed for main Skilled Worker, Health and Care Worker, T2 or Tier 2 applicants)', 'SET(O) or relevant form'],
       ruleIn: ['5 years lawful residence on eligible visa', 'Not exceeded 180 days abroad in any 12-month period'],
       ruleOut: [],      rules: [
         {
@@ -8313,7 +8313,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'A criminal record check required for roles involving work with children or vulnerable adults. Employers apply on behalf of the employee. Three levels: Basic (anyone), Standard (specified roles), Enhanced (children/vulnerable adult work).',
+      summary: 'A criminal record check required for roles involving work with children or vulnerable adults. Employers apply on behalf of the employee. Four levels: basic (anyone aged 16 or over), standard, enhanced, and enhanced with barred lists.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Role involves working with children or vulnerable adults, or is otherwise in a specified list of eligible positions (healthcare, legal, financial services roles).' },
@@ -8576,7 +8576,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Has your employer been informed of your caring responsibilities?',
       ],
       means_tested: false,
-      evidenceRequired: ['Employer may request written evidence of the caring situation in some cases'],
+      evidenceRequired: [],
       ruleIn: ['Employee (not self-employed)', 'Dependant with long-term care need'],
       ruleOut: [],      rules: [
         {
@@ -12123,7 +12123,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Available to anyone in England who pays for NHS prescriptions and needs more than one item per month (3-month) or 11+ items per year (annual). Not available to those already exempt from prescription charges (e.g. UC claimants, over-60s).',
+      summary: 'Available to anyone in England who pays for NHS prescriptions and needs more than one item per month (3-month) or 12 or more items in 12 months (annual). Not available to those already exempt from prescription charges (e.g. UC claimants, over-60s).',
       universal: false,
       criteria: [
         { factor: 'income', description: 'Only worthwhile if you pay for NHS prescriptions — exempt groups should not apply.' },
@@ -12419,7 +12419,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Anyone can use Money Claims Online to pursue a debt through the civil courts. Claims up to £10,000 are usually handled in the small claims track. Filing fees range from £35 to £455 depending on claim value.',
+      summary: 'Most people can use Money Claims Online to pursue a debt through the civil courts, though some claims cannot be made online (for example if you do not know how much to claim). Claims up to £10,000 are usually handled in the small claims track. Fees depend on the claim value, rising to 5% of the claim above £10,000 and £10,000 for claims over £200,000.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -12848,7 +12848,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Anyone can search for local land charges on a property in England. The search is typically done as part of property conveyancing. Fees apply and vary by local authority.',
+      summary: 'Anyone can search for local land charges on a property in England. The search is typically done as part of property conveyancing. Searching is free; an official search certificate costs £15.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -12877,7 +12877,7 @@ export const NODES: Record<string, ServiceNode> = {
   'ea-flood-risk': {
     id: 'ea-flood-risk', name: 'Check long-term flood risk', dept: 'Environment Agency', deptKey: 'other',
     deadline: null,
-    desc: 'Check whether a property in England is at risk of flooding from rivers, the sea or surface water using the Environment Agency\'s official flood risk tool.',
+    desc: 'Check the long-term flood risk for an area in England from rivers, the sea or surface water using the Environment Agency\'s flood risk tool. It does not tell you whether an individual property will flood.',
     govuk_url: 'https://www.gov.uk/check-long-term-flood-risk',
     serviceType: 'application',
     proactive: true,
@@ -13029,7 +13029,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords verify your status without seeing your personal details.',
+      summary: 'Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.',
       universal: false,
       criteria: [
         { factor: 'immigration', description: 'Must have a UKVI account with an eVisa or EU Settlement Scheme status.' },
@@ -13120,7 +13120,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Are you applying from overseas or from inside the UK?',
       ],
       autoQualifiers: ['Has Skilled Worker visa'],
-      exclusions: ['Children aged 18 or over must apply in their own right'],
+      exclusions: ['Children aged 18 or over must apply in their own right, unless they already have permission to be in the UK as your dependant'],
       means_tested: false,
       evidenceRequired: ['Main applicant\'s visa or BRP', 'Marriage or civil partnership certificate', 'Children\'s birth certificates', 'Proof of relationship for unmarried partners'],
       ruleIn: ['Holds a valid Skilled Worker visa', 'Has a partner or children under 18 wanting to join them'],
@@ -13435,7 +13435,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Available to any UK driving licence holder. Lets you see your entitlements, any penalty points, and driving test passes. Generates a one-time check code valid for 21 days.',
+      summary: 'Available if your licence was issued in England, Wales or Scotland; Northern Ireland has a separate service. Lets you see your entitlements, any penalty points, and driving test passes. Generates a one-time check code valid for 21 days.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must hold a UK driving licence.' },
@@ -13547,7 +13547,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Available to directors of a limited company that has not traded in the last 3 months, has no outstanding liabilities and has not changed its name in the last 3 months. The application is made by all directors. HMRC must be notified separately.',
+      summary: 'Available to directors of a limited company that has not traded in the last 3 months and has not changed its name in the last 3 months. The application is made by all directors. HMRC must be notified separately.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must be a director of a UK limited company that has not traded or otherwise been used for a purpose in the past 3 months.' },
@@ -13557,7 +13557,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Are there any outstanding debts or liabilities?',
         'Have all directors agreed to the strike-off?',
       ],
-      exclusions: ['Company has outstanding debts', 'Has traded in last 3 months', 'Subject to legal proceedings'],
+      exclusions: ['Has traded in last 3 months', 'Subject to legal proceedings'],
       means_tested: false,
       ruleIn: ['Dormant company', 'No outstanding liabilities', 'All directors agree'],
       ruleOut: ['Company has debts or liabilities', 'Traded recently'],
@@ -13848,13 +13848,13 @@ export const NODES: Record<string, ServiceNode> = {
   'dbs-basic-check': {
     id: 'dbs-basic-check', name: 'Basic DBS criminal record check', dept: 'DBS', deptKey: 'other',
     deadline: null,
-    desc: 'Apply for a basic Disclosure and Barring Service check that shows only unspent criminal convictions — available to anyone.',
+    desc: 'Apply for a basic Disclosure and Barring Service check that shows only unspent criminal convictions — available to anyone aged 16 or over.',
     govuk_url: 'https://www.gov.uk/request-copy-criminal-record',
     serviceType: 'application',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Anyone can apply for a basic DBS check on themselves. Costs £21.50. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
+      summary: 'Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £21.50. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -13869,7 +13869,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/request-copy-criminal-record',
-      authRequired: 'none',
+      authRequired: 'gov-uk-one-login',
       agentCanComplete: 'partial',
       agentSteps: [
         'Clarify whether a basic, standard or enhanced check is needed',
@@ -14010,7 +14010,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Open to anyone aged 16 or over in England who is not in full-time education. Apprenticeships are available in hundreds of occupations across all sectors. Must be in England and not in full-time education.',
+      summary: 'Open to anyone aged 16 or over in England who is not in education (full or part-time). Apprenticeships are available in hundreds of occupations across all sectors. Must be in England and not in education (full or part-time).',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must be at least 16 years old.' },
@@ -14242,7 +14242,7 @@ export const NODES: Record<string, ServiceNode> = {
   'hmcts-find-a-will': {
     id: 'hmcts-find-a-will', name: 'Find a will', dept: 'HMCTS', deptKey: 'hmcts',
     deadline: null,
-    desc: 'Search the probate registry to find a will or grant of probate for someone who has died in England or Wales. Free to search; copies cost a small fee.',
+    desc: 'Search the probate registry to find a will or grant of probate for someone who has died in England or Wales. A search by post costs £16.',
     govuk_url: 'https://www.gov.uk/search-will-probate',
     serviceType: 'document',
     proactive: true,
@@ -14287,7 +14287,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Any UK driving licence holder whose photocard is expiring or who has changed their name or address. Photo renewal is required every 10 years. Not the same as the age-70 renewal, which involves a medical declaration and has a separate process.',
+      summary: 'Driving licence holders resident in Great Britain whose photocard is expiring (Northern Ireland has a different service). Photo renewal is required every 10 years. Not the same as the age-70 renewal, which involves a medical declaration and has a separate process.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must hold a valid UK driving licence. Photo expiry renewal applies every 10 years for drivers under 70.' },
@@ -14559,7 +14559,7 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-evisa-error': {
     id: 'ho-evisa-error', name: 'Report an error with your eVisa', dept: 'Home Office', deptKey: 'ho',
     deadline: null,
-    desc: 'Report incorrect information on your eVisa — such as a wrong name, passport number, conditions of stay or expiry date — to UKVI for correction.',
+    desc: 'Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.',
     govuk_url: 'https://www.gov.uk/report-error-evisa',
     serviceType: 'application',
     proactive: false,

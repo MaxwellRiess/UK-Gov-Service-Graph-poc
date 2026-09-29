@@ -54,6 +54,12 @@ export interface FieldProvenance {
   sourceUrl:       string;
   /** Verbatim span from the source. Empty for methods where no span applies. */
   sourceQuote:     string;
+  /**
+   * Further verbatim spans, for a field made of several claims (a description
+   * that states an age limit, a deadline and a fee). The field is confirmed
+   * only because every claim has a span; each is re-checked like sourceQuote.
+   */
+  additionalQuotes?: { quote: string; url: string }[];
   /** GOV.UK content_id — stable across URL changes, unlike the URL itself. */
   contentId?:      string;
   /** The source page's public_updated_at when this was verified. */

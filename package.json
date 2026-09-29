@@ -11,6 +11,7 @@
     "verify:deadlines": "tsx scripts/verify-tier2-llm.ts --write",
     "verify:rules": "tsx scripts/verify-rules.ts --write",
     "verify:criteria": "tsx scripts/verify-criteria.ts --write",
+    "verify:prose": "tsx scripts/verify-prose.ts --write",
     "check:types": "tsc --noEmit",
     "check:provenance": "tsx scripts/check-provenance.ts",
     "check:consistency": "tsx scripts/check-consistency.ts --online",

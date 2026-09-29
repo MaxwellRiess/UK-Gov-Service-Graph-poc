@@ -13,6 +13,7 @@ npm run verify:tier1    # Check URLs and ownership against the GOV.UK Content AP
 npm run verify:tier2    # Check rates and phone numbers appear on their cited page
 npm run verify:rules    # Check eligibility rule thresholds appear on their cited page
 npm run verify:criteria # Judge eligibility criteria text against its source (needs ANTHROPIC_API_KEY)
+npm run verify:prose    # Judge descriptions, summaries and agent facts claim by claim (needs ANTHROPIC_API_KEY)
 npm run verify:links    # Check form, API, webchat and contact links resolve
 npm run check:consistency # Flag figures in prose that no structured value or cited page backs
 npm run check:provenance # Confirm provenance still matches graph-data.ts (runs in CI)

@@ -56,10 +56,10 @@ function resolveContact(n: (typeof NODES)[string]): ContactInfo | undefined {
   return n.contactInfo ?? DEPT_CONTACTS[n.deptKey];
 }
 
-// Descriptions, summaries and agent steps have no verification pass yet, so
-// every service scores the same on them. Colouring by sourcing leaves them
-// out so it shows differences between services; the panel still lists them.
-const UNCHECKED_PROSE = new Set(['desc', 'eligibility.summary', 'agentInteraction.agentSteps']);
+// Agent steps have no verification pass (they are judgements about what an
+// agent could do, not facts a page states), so every service scores the same
+// on them. Colouring by sourcing leaves them out; the panel still lists them.
+const UNCHECKED_PROSE = new Set(['agentInteraction.agentSteps']);
 
 function nodeProvenance(n: (typeof NODES)[string]) {
   const { summary, fields } = provenanceFor(n);
@@ -315,7 +315,7 @@ const html = `<!DOCTYPE html>
         <span class="pv-sw" style="background:#15803d"></span>80% or more<br>
         <span class="pv-sw" style="background:#b45309"></span>50 to 79%<br>
         <span class="pv-sw" style="background:#b91c1c"></span>under 50%<br>
-        Descriptions, summaries and agent steps are not checked yet, so they are left out of this score.
+        Agent steps are judgements rather than facts a page states, so they are left out of this score.
       </div>
     </div>
     <div class="sb-sec">
@@ -408,6 +408,10 @@ const html = `<!DOCTYPE html>
           h += '<details class="pv-field"><summary><span class="pv-dot pv-' + f.status + '"></span>'
             + '<span class="pv-label">' + esc(fieldName(path, f)) + '</span><span class="pv-status">' + f.status + '</span></summary><div class="pv-body">';
           if (f.quote) h += '<div class="pv-quote">\u201C' + esc(f.quote) + '\u201D</div>';
+          (f.moreQuotes || []).forEach(function(q) {
+            h += '<div class="pv-quote">\u201C' + esc(q.quote) + '\u201D'
+              + (q.url !== f.source ? ' <a href="' + esc(q.url) + '" target="_blank" rel="noopener" style="font-style:normal;color:var(--accent);text-decoration:none">\u2197</a>' : '') + '</div>';
+          });
           if (f.note) h += '<div class="pv-note">' + esc(f.note) + '</div>';
           if (!f.quote && !f.note) h += '<div>' + esc(STATUS_TEXT[f.status]) + '.</div>';
           var meta = [];

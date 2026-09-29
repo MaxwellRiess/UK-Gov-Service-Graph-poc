@@ -177,6 +177,19 @@ if (ONLINE) {
       }
     }
 
+    // Fields made of several claims carry a span per claim; all must survive.
+    for (const extra of found ? record.additionalQuotes ?? [] : []) {
+      let extraText = cache.get(extra.url);
+      if (extraText === undefined) {
+        extraText = await fetchPageText(extra.url);
+        cache.set(extra.url, extraText);
+        await sleep(150);
+      }
+      if (extraText === null) { unreachable.add(extra.url); continue; }
+      const extraCore = normaliseForMatch(extra.quote.replace(/^…|…$/g, ''));
+      if (extraCore && !normaliseForMatch(extraText).includes(extraCore)) { found = false; break; }
+    }
+
     if (!found) {
       const [nodeId, field] = key.split('#');
       const value = record.valueSeen ?? '';

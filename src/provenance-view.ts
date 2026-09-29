@@ -36,6 +36,8 @@ export interface FieldEvidence {
   about?:     string;
   source?:    string;
   quote?:     string;
+  /** Further spans, for fields made of several claims. */
+  moreQuotes?: { quote: string; url: string }[];
   method?:    string;
   checkedAt?: string;
   note?:      string;
@@ -64,6 +66,15 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
   ];
   node.eligibility.criteria.forEach((c, i) =>
     out.push({ path: `eligibility.criteria.${i}`, about: `Eligibility criterion ${i + 1} (${c.factor})` }));
+  // Checked by verify-prose.ts, item by item.
+  const items: [string, string[] | undefined, string][] = [
+    ['eligibility.autoQualifiers', node.eligibility.autoQualifiers, 'Auto-qualifier'],
+    ['eligibility.exclusions', node.eligibility.exclusions, 'Exclusion'],
+    ['eligibility.evidenceRequired', node.eligibility.evidenceRequired, 'Evidence required'],
+  ];
+  for (const [base, list, label] of items) {
+    (list ?? []).forEach((t, i) => out.push({ path: `${base}.${i}`, about: `${label}: ${t.length > 60 ? t.slice(0, 57) + '...' : t}` }));
+  }
   if (node.deadline) out.push({ path: 'deadline' });
   if (node.nations) out.push({ path: 'nations' });
   for (const key of Object.keys(node.financialData?.rates ?? {})) {
@@ -94,7 +105,11 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
   ];
   for (const [path, url, about] of links) if (url) out.push({ path, about });
 
-  if (node.agentInteraction) out.push({ path: 'agentInteraction.agentSteps' });
+  if (node.agentInteraction) {
+    out.push({ path: 'agentInteraction.methods', about: `Ways to apply: ${node.agentInteraction.methods.join(', ')}` });
+    out.push({ path: 'agentInteraction.authRequired', about: `Sign-in needed: ${node.agentInteraction.authRequired}` });
+    out.push({ path: 'agentInteraction.agentSteps' });
+  }
   return out;
 }
 
@@ -107,11 +122,12 @@ function evidenceFor(node: ServiceNode, path: string, about?: string): FieldEvid
     ...(about ? { about } : {}),
     source:    record.sourceUrl || undefined,
     quote:     record.sourceQuote || undefined,
+    ...(record.additionalQuotes?.length ? { moreQuotes: record.additionalQuotes } : {}),
     method:    record.method,
     checkedAt: record.verifiedAt.slice(0, 10),
   };
   if (hashValue(getFieldValue(node, path)) !== record.valueHash) {
-    return { ...base, status: 'unverified', quote: undefined, note: 'Value has changed since it was checked.' };
+    return { ...base, status: 'unverified', quote: undefined, moreQuotes: undefined, note: 'Value has changed since it was checked.' };
   }
   if (record.confidence !== 'confirmed' && record.rationale) base.note = record.rationale;
   return base;
