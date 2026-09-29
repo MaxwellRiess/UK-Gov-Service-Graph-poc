@@ -2,4 +2,6 @@ node_modules/
 report.json
 .DS_Store
 function.zip
-dist/.cache/
+dist/
+.cache/
+
