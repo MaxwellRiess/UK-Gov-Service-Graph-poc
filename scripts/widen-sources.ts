@@ -32,6 +32,7 @@
  *   npx tsx scripts/widen-sources.ts --resume msgbatch_... --write
  *   npx tsx scripts/widen-sources.ts --resume msgbatch_... --direct --write   # cached inputs, direct calls
  *   npx tsx scripts/widen-sources.ts --fields dvla-sorn#desc,dwp-pip#eligibility.criteria.2 --write
+ *   npx tsx scripts/widen-sources.ts --from-proposals --split-all --write   # re-verify applied fixes
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -59,7 +60,12 @@ const DIRECT = process.argv.includes('--direct');
 const ONLY = arg('--only')?.split(',');
 // Re-judge named fields (id#path) whatever the queues say: for re-verifying a
 // field after correcting it, with the same linked pages the widening used.
-const FIELDS = arg('--fields')?.split(',');
+// --from-proposals: every fix apply-fixes.ts applied that still awaits re-verification.
+const FIELDS = process.argv.includes('--from-proposals')
+  ? (JSON.parse(readFileSync('data/fix-proposals.json', 'utf-8')).proposals as { id: string; path: string; applied?: string; action: string }[])
+      .filter(p => p.applied && p.action === 'rewrite')
+      .map(p => `${p.id}#${p.path}`)
+  : arg('--fields')?.split(',');
 // Judge every field claim by claim, criteria and single items included, so no
 // field can be confirmed on one quote that covers only part of it.
 const SPLIT_ALL = process.argv.includes('--split-all');
