@@ -1,0 +1,1438 @@
+{
+  "generatedAt": "2026-09-29T16:25:48.503Z",
+  "model": "claude-opus-5-5",
+  "proposals": [
+    {
+      "id": "dwp-maternity-allowance",
+      "path": "eligibility.evidenceRequired.2",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Payslips or accounts",
+      "action": "rewrite",
+      "new": "Original payslips",
+      "explanation": "Removed 'accounts', which the page never mentions, and kept original payslips, which it does ask for.",
+      "claims": [
+        {
+          "claim": "Original payslips are required as proof of income",
+          "quote": "You need to provide original payslips as proof of income.",
+          "url": "https://www.gov.uk/maternity-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.967Z"
+    },
+    {
+      "id": "dwp-maternity-allowance",
+      "path": "agentInteraction.methods",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "You can apply or do this online. You can apply or do this by post.",
+      "action": "rewrite",
+      "new": "post",
+      "explanation": "Removed online because the form can be filled in online but must be printed and posted, and added phone because the page says changes can be reported by telephone.",
+      "claims": [
+        {
+          "claim": "The MA1 claim form is sent by post to the address on the form",
+          "quote": "Send your claim to the address on the form.",
+          "url": "https://www.gov.uk/maternity-allowance",
+          "found": true
+        },
+        {
+          "claim": "The form can be filled in online but must be printed",
+          "quote": "fill it in online and print it",
+          "url": "https://www.gov.uk/maternity-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "Amended: dropped \"phone\", which the draft added because changes can be reported by phone; that is not a way to apply.",
+      "applied": "2026-09-29T16:26:59.969Z"
+    },
+    {
+      "id": "dwp-maternity-allowance",
+      "path": "eligibility.evidenceRequired.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Employment or self-employment evidence",
+      "action": "rewrite",
+      "new": "Information about your employment in the 66 weeks before your baby is due (the Test Period)",
+      "explanation": "Replaced the unsupported 'self-employment evidence' with the employment information the page actually asks for on the form.",
+      "claims": [
+        {
+          "claim": "The claim needs information about employment in the 66 weeks before the baby is due, called the Test Period",
+          "quote": "You’ll need to give information about your employment in the 66 weeks before your baby is due (called the ‘Test Period’).",
+          "url": "https://www.gov.uk/maternity-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.969Z"
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "path": "eligibility.criteria.0",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Must have been continuously employed for at least 2 years and been made compulsorily redundant.",
+      "action": "rewrite",
+      "new": "Must have been continuously employed for at least 2 years and been dismissed as redundant, laid off or put on short-time working.",
+      "explanation": "Replaced 'compulsorily redundant' with the source's condition, which also covers people who are laid off or put on short-time working.",
+      "claims": [
+        {
+          "claim": "Must have at least 2 years' continuous service",
+          "quote": "have at least 2 years continuous service",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations",
+          "found": true
+        },
+        {
+          "claim": "Must have been dismissed, laid off or put on short-time working",
+          "quote": "have been dismissed, laid off or put on short-time working - those who opted for early retirement do not qualify",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.970Z"
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "A legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment. Amount depends on age, weekly pay (capped at £751/week for redundancies on or after 6 April 2026, maximum £22,530 total), and length of service. Employer must pay — Employment Tribunal if they refuse.",
+      "action": "rewrite",
+      "new": "A legal entitlement for employees with 2 or more years of continuous employment who are made redundant, laid off or put on short-time working. Amount depends on age, weekly pay (capped at £751/week for redundancies on or after 6 April 2026, maximum £22,530 total), and length of service. Employer must pay — Employment Tribunal if they refuse.",
+      "explanation": "Took out the limit to compulsory redundancy, because the eligibility rule also covers employees who are laid off or put on short-time working; the rest is unchanged and supported.",
+      "claims": [
+        {
+          "claim": "Employees with 2 or more years' service are normally entitled",
+          "quote": "You’ll normally be entitled to statutory redundancy pay if you’re an employee and you’ve been working for your current employer for 2 years or more.",
+          "url": "https://www.gov.uk/redundancy-your-rights",
+          "found": true
+        },
+        {
+          "claim": "Continuous service of at least 2 years; dismissed, laid off or put on short-time working",
+          "quote": "have at least 2 years continuous service have been dismissed, laid off or put on short-time working",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations",
+          "found": true
+        },
+        {
+          "claim": "Amount depends on age and length of service",
+          "quote": "These are based on an employee’s age and length of employment and are counted back from the date of dismissal.",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations",
+          "found": true
+        },
+        {
+          "claim": "Weekly pay capped at £751 and maximum £22,530 for redundancies on or after 6 April 2026",
+          "quote": "If you were made redundant on or after 6 April 2026, your weekly pay is capped at £751 and the maximum statutory redundancy pay you can get is £22,530.",
+          "url": "https://www.gov.uk/redundancy-your-rights",
+          "found": true
+        },
+        {
+          "claim": "Employer must pay",
+          "quote": "You must make the payment when you dismiss the employee, or soon after.",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations",
+          "found": true
+        },
+        {
+          "claim": "Employee can go to an employment tribunal if the employer does not pay",
+          "quote": "If you fail to pay redundancy pay or if an employee disagrees with the amount, they have 3 months from the date their employment ended to make a claim for payment to an employment tribunal.",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.970Z"
+    },
+    {
+      "id": "hmcts-employment-tribunal",
+      "path": "eligibility.exclusions.1",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Out of time — more than 3 months since incident",
+      "action": "rewrite",
+      "new": "Out of time — usually more than 3 months since employment ended (unfair dismissal) or the incident happened (discrimination or pay); the time limit is put on hold while Acas helps resolve the dispute",
+      "explanation": "Added 'usually', the correct start points for the time limit, and the pause during Acas involvement, as the source states.",
+      "claims": [
+        {
+          "claim": "Claims usually must be made within 3 months of employment ending or the problem happening",
+          "quote": "You usually have to make a claim within 3 months of your employment ending or the problem happening.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "For unfair dismissal the period starts when employment ended",
+          "quote": "If you think you’ve lost your job unfairly, the 3 month period begins from the date your employment ended.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "For discrimination or pay the period starts when the incident happened",
+          "quote": "If your claim is about discrimination or a dispute over pay, the 3 month period begins when the incident or dispute happened.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Time limit paused during Acas help",
+          "quote": "The time limit for making a claim is put on hold while Acas helps you resolve your dispute.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.971Z"
+    },
+    {
+      "id": "hmcts-employment-tribunal",
+      "path": "eligibility.criteria.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Must have an employment dispute — unfair dismissal requires at least 2 years' service; discrimination claims have no service requirement.",
+      "action": "rewrite",
+      "new": "Must think you have been treated unlawfully (for example unfair dismissal, discrimination, breach of contract or unauthorised pay deductions) — to claim unfair dismissal you must be an employee and normally have worked for your employer for at least 2 years.",
+      "explanation": "Removed the unsupported statement that discrimination claims have no service requirement, and added that the 2-year period applies 'normally' and to employees.",
+      "claims": [
+        {
+          "claim": "Can claim if treated unlawfully",
+          "quote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Types of unlawful treatment",
+          "quote": "Unlawful treatment can include: unfair dismissal discrimination at work breach of contract unauthorised deductions from your pay",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Unfair dismissal needs employee status and normally 2 years",
+          "quote": "You must be classed as an employee and have worked for your employer for a minimum period - normally 2 years - before you qualify for the right to claim unfair dismissal at a tribunal.",
+          "url": "https://www.gov.uk/dismissal/unfair-and-constructive-dismissal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.971Z"
+    },
+    {
+      "id": "hmcts-employment-tribunal",
+      "path": "eligibility.criteria.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Must have an Acas EC certificate (early conciliation must be attempted first).",
+      "action": "rewrite",
+      "new": "Must usually have an Acas early conciliation certificate for each respondent (you must tell Acas first, but you can choose not to take part in conciliation; some exceptions apply, such as unfair dismissal claims with interim relief only).",
+      "explanation": "Changed to say a certificate is usually needed and that conciliation itself is optional, which is what the source says.",
+      "claims": [
+        {
+          "claim": "Usually need a certificate for each respondent",
+          "quote": "You’ll usually need an early conciliation certificate for each respondent before you make a claim .",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Must tell Acas",
+          "quote": "You must tell Acas (Advisory, Conciliation and Arbitration Service) that you’re planning to make a claim.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Can choose not to take part and still get certificate",
+          "quote": "If early conciliation does not work or you choose not to take part, Acas will send you an early conciliation certificate.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Exception for interim relief-only unfair dismissal",
+          "quote": "you’re only claiming for unfair dismissal and applying for interim relief as part of that claim",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.971Z"
+    },
+    {
+      "id": "hmcts-employment-tribunal",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Anyone can make a claim to an Employment Tribunal for a qualifying employment rights violation. Must have gone through Acas early conciliation first (in most cases). Time limit is 3 months minus 1 day from the act complained of.",
+      "action": "rewrite",
+      "new": "You can make a claim to an Employment Tribunal if you think someone, such as your employer, has treated you unlawfully (there's a different way to claim in Northern Ireland). You must tell Acas first and will usually need an early conciliation certificate, though you can choose not to take part in conciliation. You usually have to claim within 3 months of your employment ending (unfair dismissal) or the problem happening.",
+      "explanation": "Replaced 'anyone' with the source's condition and added the Northern Ireland note; made conciliation optional while notifying Acas stays required; removed the unsupported 'minus 1 day' and gave the correct start points.",
+      "claims": [
+        {
+          "claim": "Can claim if treated unlawfully by e.g. employer",
+          "quote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully, such as your employer",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Different way in Northern Ireland",
+          "quote": "There’s a different way to claim if you live in Northern Ireland .",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Must tell Acas first",
+          "quote": "Before you make a claim to an employment tribunal, you must tell Acas",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Usually need certificate",
+          "quote": "You’ll usually need an early conciliation certificate for each respondent before you make a claim .",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Can choose not to take part",
+          "quote": "If early conciliation does not work or you choose not to take part, Acas will send you an early conciliation certificate.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Usual 3-month limit",
+          "quote": "You usually have to make a claim within 3 months of your employment ending or the problem happening.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        },
+        {
+          "claim": "Unfair dismissal starts from end of employment",
+          "quote": "If you think you’ve lost your job unfairly, the 3 month period begins from the date your employment ended.",
+          "url": "https://www.gov.uk/employment-tribunals",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.972Z"
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "path": "eligibility.criteria.0",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Disposable income must be below £2,657/month and disposable capital below £8,000 (thresholds vary by case type).",
+      "action": "rewrite",
+      "new": "Joint monthly income (you and your partner) must usually be £2,657 or less before tax and other deductions, and assets usually £8,000 or less.",
+      "explanation": "Changed 'disposable income' to joint gross monthly income, and dropped the unsupported claim that thresholds vary by case type.",
+      "claims": [
+        {
+          "claim": "You and your partner usually need a joint monthly income of £2,657 or less before tax and other deductions",
+          "quote": "have a joint monthly income of £2,657 or less (before tax and other deductions)",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "You are usually not eligible if you and your partner have assets over £8,000",
+          "quote": "You will not usually be eligible if you and your partner have assets of over £8,000.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.972Z"
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "path": "eligibility.autoQualifiers.0",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Domestic abuse victim in family proceedings with supporting evidence",
+      "action": "rewrite",
+      "new": "Domestic abuse victim (you or your children) with evidence who cannot afford legal costs",
+      "explanation": "Removed the unsupported limit to family proceedings and added the affordability condition the source states.",
+      "claims": [
+        {
+          "claim": "You may get legal aid if you have evidence of domestic abuse against you or your children and cannot afford legal costs",
+          "quote": "You might be able to get legal aid if you have evidence that you or your children have experienced domestic abuse and you cannot afford to pay legal costs.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.972Z"
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "path": "eligibility.evidenceRequired.0",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "CW2 means test form",
+      "action": "rewrite",
+      "new": "Form CW2 (IMM), for exceptional case funding in immigration cases that go to a court or tribunal",
+      "explanation": "Corrected the form name to CW2 (IMM) and limited it to immigration exceptional case funding cases, not a general means test form.",
+      "claims": [
+        {
+          "claim": "Form CW2 (IMM) is used with CIV ECF 1 for immigration cases that go to a court or tribunal",
+          "quote": "Immigration cases that go to a court or tribunal Complete the ECF application form CIV ECF 1 and form CW2 (IMM) .",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.972Z"
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "path": "agentInteraction.methods",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "You can apply or do this online. You can apply or do this by phone.",
+      "action": "rewrite",
+      "new": "online, phone",
+      "explanation": "Online and phone are for checking eligibility only; the application itself is made by a legal adviser, so the field no longer says you can apply this way.",
+      "claims": [
+        {
+          "claim": "You can check eligibility online",
+          "quote": "Use the ‘Check if you can get legal aid’ service to check your eligibility and find out how to apply.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "You can check eligibility by phone through the Civil Legal Advice helpline",
+          "quote": "If you cannot use the online service, contact the Civil Legal Advice helpline to check if you can get legal aid.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "A legal adviser applies for you, not the applicant",
+          "quote": "A legal adviser will apply for legal aid for you. You cannot apply for legal aid on your own.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": false,
+      "review": "Rejected: the field has no value for \"a legal adviser applies for you\"; left for the agent interaction decision."
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "path": "desc",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Means and merits tested. Available in domestic abuse cases. Applied via Legal Aid Agency.",
+      "action": "rewrite",
+      "new": "Means tested, and the problem must be serious. Available in domestic abuse cases. A legal adviser applies for you.",
+      "explanation": "Replaced 'merits tested' with the stated 'problem is serious' condition, and replaced 'applied via Legal Aid Agency' with a legal adviser applying for you.",
+      "claims": [
+        {
+          "claim": "Legal aid is usually means tested",
+          "quote": "your income is below a certain amount the value of your savings, investments and property are below a certain amount",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "The problem must be serious",
+          "quote": "the problem is serious",
+          "url": "https://www.gov.uk/find-legal-advice/find-legal-adviser",
+          "found": true
+        },
+        {
+          "claim": "Available in domestic abuse cases",
+          "quote": "protecting yourself or a child from abuse or harassment, for example domestic abuse",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "A legal adviser applies for you",
+          "quote": "A legal adviser will apply for legal aid for you.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Government funding for legal advice and representation in certain cases. Both means-tested (income/capital) and merits-tested (strength of case). Domestic abuse cases have wider automatic eligibility. Applied via a legal aid solicitor.",
+      "action": "rewrite",
+      "new": "Government funding for legal advice and representation in certain cases. Usually means-tested (income/capital), and the problem must be serious. Domestic abuse cases may still qualify above the income and asset limits. A legal adviser applies for you.",
+      "explanation": "Removed the unsupported 'strength of case' merits test and 'automatic' eligibility for domestic abuse, and changed 'legal aid solicitor' to 'legal adviser' to match the source.",
+      "claims": [
+        {
+          "claim": "Legal aid helps pay for legal advice and representation",
+          "quote": "Legal aid helps pay for legal advice, mediation or representation in court",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "Usually means-tested on income and capital",
+          "quote": "To get legal aid, you’ll usually need to show that both: your income is below a certain amount the value of your savings, investments and property are below a certain amount",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "The problem must be serious",
+          "quote": "the problem is serious",
+          "url": "https://www.gov.uk/find-legal-advice/find-legal-adviser",
+          "found": true
+        },
+        {
+          "claim": "Domestic abuse cases may qualify with a higher income",
+          "quote": "You might still be eligible if you have a higher income and your case is about: domestic abuse",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "Domestic abuse cases may qualify with assets over £8,000",
+          "quote": "You might still be eligible if you have assets worth more than £8,000 if: you’re over State Pension age you’re disputing ownership of your home your case is about domestic abuse",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        },
+        {
+          "claim": "A legal adviser applies for you",
+          "quote": "A legal adviser will apply for legal aid for you.",
+          "url": "https://www.gov.uk/legal-aid",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmrc-tax-refund",
+      "path": "agentInteraction.methods",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
+      "action": "rewrite",
+      "new": "online, post",
+      "explanation": "Removed phone because the page only describes claiming online or by printing the form and posting it to HMRC.",
+      "claims": [
+        {
+          "claim": "You can claim online.",
+          "quote": "The quickest way to claim is online.",
+          "url": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
+          "found": true
+        },
+        {
+          "claim": "You can claim by post.",
+          "quote": "Print the form. Sign the declaration. Post to HMRC.",
+          "url": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmrc-tax-refund",
+      "path": "eligibility.criteria.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Unemployed for 4 weeks or more, not claiming taxable state benefits, and not returning to work or starting a taxable pension in the same tax year — if you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary instead.",
+      "action": "rewrite",
+      "new": "Unemployed for 4 weeks or more and not claiming taxable state benefits — if you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary instead.",
+      "explanation": "Dropped the unsupported 'not returning to work or starting a taxable pension in the same tax year' condition, which the page does not state as an eligibility requirement (not going back to work is listed as a separate example).",
+      "claims": [
+        {
+          "claim": "Unemployed for 4 weeks or more and not claiming taxable state benefits.",
+          "quote": "have been unemployed for 4 weeks or more and are not claiming taxable state benefits",
+          "url": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
+          "found": true
+        },
+        {
+          "claim": "If you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary.",
+          "quote": "are unemployed, and expect to start a new job within 4 weeks — your new employer will make any repayment due to you through your salary",
+          "url": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmcts-financial-order",
+      "path": "agentInteraction.methods",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "You can apply or do this online. You can apply or do this by post.",
+      "action": "rewrite",
+      "new": "post",
+      "explanation": "Removed online because the sources give no online route for getting a consent order approved; they only say to send the forms to a postal address.",
+      "claims": [
+        {
+          "claim": "You send the signed forms, copies and fee by post to a court or HMCTS postal address.",
+          "quote": "send the signed forms and copies with the £62 fee to: HMCTS Financial Remedy PO Box 12746 Harlow CM20 9QZ",
+          "url": "https://www.gov.uk/money-property-when-relationship-ends",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmcts-financial-order",
+      "path": "eligibility.evidenceRequired.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Draft consent order (D81 form)",
+      "action": "rewrite",
+      "new": "Signed draft consent order",
+      "explanation": "Removed the D81 form number, which the sources never give, and kept the signed draft consent order the sources do require.",
+      "claims": [
+        {
+          "claim": "A signed draft consent order is required.",
+          "quote": "sign the draft consent order - you also need 2 photocopies of the signed original",
+          "url": "https://www.gov.uk/money-property-when-relationship-ends",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmcts-financial-order",
+      "path": "eligibility.evidenceRequired.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Financial disclosure from both parties",
+      "action": "rewrite",
+      "new": "Statement of information form filled in by both parties",
+      "explanation": "Replaced the unsupported 'financial disclosure' wording with the statement of information form the sources say both parties must fill in.",
+      "claims": [
+        {
+          "claim": "Both parties must fill in a statement of information form.",
+          "quote": "You and your ex-partner have to: draft a consent order sign the draft consent order - you also need 2 photocopies of the signed original fill in a statement of information form",
+          "url": "https://www.gov.uk/money-property-when-relationship-ends",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmrc-p45",
+      "path": "eligibility.summary",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "All employees are entitled to a P45 when leaving a job. The employer is legally required to issue it. Needed for a new employer, tax refund, or benefit claim.",
+      "action": "rewrite",
+      "new": "Employees should get a P45 from their employer when leaving a job. Give it to a new employer, or to Jobcentre Plus if claiming taxable benefits. It can also help HMRC get the details needed for a tax refund.",
+      "explanation": "I changed 'legally required' to 'should', limited benefit claims to taxable benefits, and said the P45 can help HMRC with a refund rather than that it is needed for one.",
+      "claims": [
+        {
+          "claim": "Employees should get a P45 from their employer when leaving a job.",
+          "quote": "When you leave a job, your employer should give you a P45 form",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        },
+        {
+          "claim": "Only employees get these forms.",
+          "quote": "You’ll only get these forms if you’re an employee",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        },
+        {
+          "claim": "Give it to a new employer.",
+          "quote": "When you start a new job, give your P45 to your new employer.",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        },
+        {
+          "claim": "Give it to Jobcentre Plus if claiming taxable benefits.",
+          "quote": "If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus.",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        },
+        {
+          "claim": "It can help HMRC get the details needed for a refund.",
+          "quote": "If your previous employer did not give you a P45, ask them for one. This can give HMRC the details they need.",
+          "url": "https://www.gov.uk/tax-codes/how-to-update-your-tax-code",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.973Z"
+    },
+    {
+      "id": "hmrc-p45",
+      "path": "desc",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Employer must provide on last day. Required for new job or benefit claim.",
+      "action": "rewrite",
+      "new": "Employer should provide when you leave. Give to a new employer, or to Jobcentre Plus if claiming taxable benefits.",
+      "explanation": "I took out 'must' and 'on last day', and changed 'Required' to 'Give to', because a starter checklist can be used instead of a P45.",
+      "claims": [
+        {
+          "claim": "Employer should provide a P45 when you leave.",
+          "quote": "When you leave a job, your employer should give you a P45 form",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        },
+        {
+          "claim": "Give to a new employer.",
+          "quote": "When you start a new job, give your P45 to your new employer.",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        },
+        {
+          "claim": "Give to Jobcentre Plus if claiming taxable benefits.",
+          "quote": "If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus.",
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "hmcts-child-arrangements",
+      "path": "eligibility.criteria.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Separated parents with children under 16 (or up to 18 if the order already exists).",
+      "action": "rewrite",
+      "new": "Parents with parental responsibility (for example, the child's mother or father) who cannot agree on child arrangements, or another relative of the child such as a grandparent, aunt or uncle.",
+      "explanation": "Removed the child age limits, which the sources do not give, and changed the criterion to match the stated rule: people with parental responsibility or other relatives can apply.",
+      "claims": [
+        {
+          "claim": "You can apply for a court order if you have parental responsibility, for example as the child's mother or father.",
+          "quote": "You can apply for a court order if you have parental responsibility . For example, you’re the child’s mother or father.",
+          "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
+          "found": true
+        },
+        {
+          "claim": "Another relative such as a grandparent, aunt or uncle can also apply.",
+          "quote": "You can also apply if you’re another relative of the child, such as a grandparent, aunt or uncle.",
+          "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
+          "found": true
+        },
+        {
+          "claim": "You can apply for a court order if you cannot agree.",
+          "quote": "You can apply for a court order if you cannot agree after using a mediator or getting help.",
+          "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "gro-register-birth",
+      "path": "eligibility.criteria.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Deadline is 42 days in England, Wales and Northern Ireland, and 21 days in Scotland.",
+      "action": "rewrite",
+      "new": "Deadline is 42 days in England, Wales and Northern Ireland; there are different rules for Scotland.",
+      "explanation": "Removed the 21-day Scotland deadline, which the source does not give, and said instead that Scotland has different rules, as the source states.",
+      "claims": [
+        {
+          "claim": "Births in England, Wales and Northern Ireland must be registered within 42 days",
+          "quote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born.",
+          "url": "https://www.gov.uk/register-birth",
+          "found": true
+        },
+        {
+          "claim": "Different rules apply in Scotland",
+          "quote": "There are different rules for registering a birth in Scotland",
+          "url": "https://www.gov.uk/register-birth",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "gro-register-birth",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Required for every birth. In England, Wales and Northern Ireland it must be registered within 42 days; in Scotland within 21 days (different process). Usually done by a parent; others can register if the parents cannot.",
+      "action": "rewrite",
+      "new": "All births in England, Wales and Northern Ireland must be registered within 42 days; there are different rules for Scotland. Parents can register; certain other people can register if the parents cannot.",
+      "explanation": "Limited the requirement to England, Wales and Northern Ireland, replaced the unsupported Scotland deadline with the source's note that Scotland has different rules, and dropped the unsupported 'usually'.",
+      "claims": [
+        {
+          "claim": "All births in England, Wales and Northern Ireland must be registered within 42 days",
+          "quote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born.",
+          "url": "https://www.gov.uk/register-birth",
+          "found": true
+        },
+        {
+          "claim": "Different rules apply in Scotland",
+          "quote": "There are different rules for registering a birth in Scotland",
+          "url": "https://www.gov.uk/register-birth",
+          "found": true
+        },
+        {
+          "claim": "Parents can register",
+          "quote": "Either parent can register the birth on their own.",
+          "url": "https://www.gov.uk/register-birth",
+          "found": true
+        },
+        {
+          "claim": "Others can register if the parents cannot",
+          "quote": "If the parents cannot register the birth (for example, for medical reasons), certain other people can do it",
+          "url": "https://www.gov.uk/register-birth",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "hmrc-free-childcare-15",
+      "path": "desc",
+      "severity": "high",
+      "event": "reviewed",
+      "old": "Every 3 and 4-year-old in England gets 570 free hours a year (usually 15 hours a week for 38 weeks), from the term after their 3rd birthday. No income test and no application: arrange it with the childcare provider.",
+      "action": "rewrite",
+      "new": "All 3 and 4-year-olds in England can get 570 free hours a year (usually 15 hours a week for 38 weeks), from the term after their 3rd birthday. It must be with an approved childcare provider. Contact your childcare provider or local council to find out more.",
+      "explanation": "I removed \"no application\", \"arrange it with the childcare provider\" and \"no income test\" because the source doesn't say any of them. In their place I used what the source does say: the childcare must be with an approved provider, and parents should contact the provider or council to find out more.",
+      "claims": [
+        {
+          "claim": "All 3 and 4-year-olds in England can get 570 free hours a year",
+          "quote": "All 3 to 4-year-olds in England can get 570 free hours per year.",
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "found": true
+        },
+        {
+          "claim": "Usually taken as 15 hours a week for 38 weeks",
+          "quote": "It’s usually taken as 15 hours a week for 38 weeks of the year.",
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "found": true
+        },
+        {
+          "claim": "Available from the term after the child's 3rd birthday",
+          "quote": "You can get it from the term after your child’s 3rd birthday, starting on 1 January, 1 April or 1 September.",
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "found": true
+        },
+        {
+          "claim": "Must be with an approved childcare provider",
+          "quote": "The free early education and childcare: must be with an approved childcare provider",
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "found": true
+        },
+        {
+          "claim": "Contact the provider or local council to find out more",
+          "quote": "Contact your childcare provider or local council to find out more.",
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "dwp-new-style-jsa",
+      "path": "eligibility.criteria.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Must have paid Class 1 NI contributions in both of the last two complete tax years before the year of claim.",
+      "action": "rewrite",
+      "new": "Must usually have made Class 1 NI contributions for the previous 2 tax years. NI credits can count for one of these years if you did not pay contributions.",
+      "explanation": "Changed 'must have paid in both years' to 'usually' and added that credits can count for one year, which is what the source says.",
+      "claims": [
+        {
+          "claim": "You must usually have made Class 1 NI contributions for the previous 2 tax years",
+          "quote": "To be eligible you must usually have made Class 1 National Insurance contributions for the previous 2 tax years.",
+          "url": "https://www.gov.uk/jobseekers-allowance",
+          "found": true
+        },
+        {
+          "claim": "NI credits can count for one of these years if you did not pay contributions",
+          "quote": "National Insurance credits can count for one of these years if you did not pay National Insurance contributions.",
+          "url": "https://www.gov.uk/jobseekers-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "dwp-new-style-jsa",
+      "path": "eligibility.evidenceRequired.3",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "CV and job-seeking evidence",
+      "action": "rewrite",
+      "new": "Proof of job-seeking, such as job applications and interviews, shown at regular work coach appointments",
+      "explanation": "Took out the CV, because the source only mentions a CV as something the Claimant Commitment might include, not as evidence you must provide.",
+      "claims": [
+        {
+          "claim": "At regular work coach appointments you must show proof of job-seeking such as job applications and interviews",
+          "quote": "At these appointments, you must show your work coach what you’ve been doing to look for work, for example proof of job applications and interviews.",
+          "url": "https://www.gov.uk/jobseekers-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "dwp-new-style-jsa",
+      "path": "agentInteraction.methods",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "You can apply or do this online. You can apply or do this by phone.",
+      "action": "rewrite",
+      "new": "online",
+      "explanation": "Removed phone, because the JSA page only says to 'contact Jobcentre Plus' for other ways to apply and never says by phone; its only phone number is the helpline for reporting changes.",
+      "claims": [
+        {
+          "claim": "You can apply online",
+          "quote": "Apply online You cannot apply online if you’re applying as an appointee on someone else’s behalf. Apply for New Style JSA",
+          "url": "https://www.gov.uk/jobseekers-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "hmrc-cancel-marriage-allowance",
+      "path": "eligibility.criteria.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Previously claimed Marriage Allowance and relationship has now ended (separated, divorced, or partner died).",
+      "action": "rewrite",
+      "new": "Previously claimed Marriage Allowance and relationship has now ended (divorced, civil partnership dissolved, or legally separated).",
+      "explanation": "Took out the partner's death, because the source only lists divorce, dissolution and legal separation as reasons to cancel and covers death separately.",
+      "claims": [
+        {
+          "claim": "You must cancel Marriage Allowance if your relationship ends because of divorce, dissolution of a civil partnership or legal separation.",
+          "quote": "You must cancel Marriage Allowance if any of the following apply: your relationship ends - because you’ve divorced, ended (‘dissolved’) your civil partnership or legally separated",
+          "url": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.974Z"
+    },
+    {
+      "id": "hmrc-cancel-marriage-allowance",
+      "path": "eligibility.evidenceRequired.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Government Gateway account or contact HMRC by phone",
+      "action": "rewrite",
+      "new": "Prove your identity online using information HMRC holds about you, or contact Marriage Allowance enquiries by phone",
+      "explanation": "Replaced Government Gateway, which the source never names, with the identity check the source describes and the Marriage Allowance enquiries phone contact.",
+      "claims": [
+        {
+          "claim": "When cancelling online you prove your identity using information HMRC holds about you.",
+          "quote": "You can cancel Marriage Allowance online . You’ll be asked to prove your identity using information HMRC holds about you.",
+          "url": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
+          "found": true
+        },
+        {
+          "claim": "You can cancel by phoning Marriage Allowance enquiries.",
+          "quote": "Contact Marriage Allowance enquiries to cancel or get help.",
+          "url": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.975Z"
+    },
+    {
+      "id": "hmcts-divorce",
+      "path": "eligibility.criteria.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Must have been married or in a civil partnership for at least 1 year.",
+      "action": "rewrite",
+      "new": "Must have been married for over a year.",
+      "explanation": "Removed the civil partnership condition and changed 'at least 1 year' to 'over a year', because the divorce page covers marriage only and says 'over a year'; civil partnerships are ended through a separate process.",
+      "claims": [
+        {
+          "claim": "You must have been married for over a year to get a divorce.",
+          "quote": "you’ve been married for over a year",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.975Z"
+    },
+    {
+      "id": "hmcts-divorce",
+      "path": "eligibility.evidenceRequired.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Marriage or civil partnership certificate",
+      "action": "rewrite",
+      "new": "Original marriage certificate or a certified copy",
+      "explanation": "Removed the civil partnership certificate, because the divorce page asks only for a marriage certificate (original or certified copy).",
+      "claims": [
+        {
+          "claim": "You need your original marriage certificate or a certified copy to apply.",
+          "quote": "your original marriage certificate or a certified copy",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.975Z"
+    },
+    {
+      "id": "hmcts-divorce",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "No-fault divorce since April 2022 — no reasons needed. Apply online or on paper. Minimum timescale: 20 weeks to apply for the conditional order, then at least 43 days before applying for the final order. Fee £628. Can apply jointly or individually.",
+      "action": "rewrite",
+      "new": "Apply online or by post. Minimum timescale: 20 weeks after the application is issued to apply for the conditional order, then at least 43 days before applying for the final order. Fee £628. Can apply jointly or on your own.",
+      "explanation": "Removed the statement that divorce is no-fault and needs no reasons, because the sources never say this; the other details are kept, with wording that matches the source.",
+      "claims": [
+        {
+          "claim": "You can apply online or by post.",
+          "quote": "You will need to decide if you want to apply online or by post.",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        },
+        {
+          "claim": "You must wait 20 weeks after the application is issued before applying for a conditional order.",
+          "quote": "You must wait 20 weeks after your divorce application has been issued by the court before you can apply for a conditional order.",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        },
+        {
+          "claim": "You must wait at least 43 days after the conditional order before applying to end the marriage.",
+          "quote": "You need to wait at least 43 days (6 weeks and 1 day) after the date of the conditional order or decree nisi before you can apply to end your marriage.",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        },
+        {
+          "claim": "The fee is £628.",
+          "quote": "There’s a £628 fee to apply for a divorce.",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        },
+        {
+          "claim": "You can apply jointly or on your own.",
+          "quote": "You must decide whether you want to make a joint application with your husband or wife or whether you want to apply on your own.",
+          "url": "https://www.gov.uk/divorce",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.976Z"
+    },
+    {
+      "id": "hmrc-smp",
+      "path": "eligibility.evidenceRequired.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Written notice to employer of intended leave start date",
+      "action": "rewrite",
+      "new": "Notice to employer of intended leave start date (in writing if the employer asks for it)",
+      "explanation": "The notice only has to be in writing if the employer asks for it, so the field no longer says written notice is always required.",
+      "claims": [
+        {
+          "claim": "You must tell your employer when you want to start your maternity leave.",
+          "quote": "tell your employer when the baby is due and when you want to start your maternity leave. Your employer can ask for this in writing.",
+          "url": "https://www.gov.uk/maternity-pay-leave/pay",
+          "found": true
+        },
+        {
+          "claim": "For SMP, notice only has to be in writing if the employer asks for it.",
+          "quote": "You must give them at least 28 days’ notice (in writing if they ask for it) and proof that you’re pregnant.",
+          "url": "https://www.gov.uk/maternity-pay-leave/pay",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.976Z"
+    },
+    {
+      "id": "hmrc-spp",
+      "path": "eligibility.criteria.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Continuously employed with the same employer for at least 26 weeks and earning at or above the Lower Earnings Limit.",
+      "action": "rewrite",
+      "new": "Continuously employed with the same employer for at least 26 weeks up to the end of any day in the 'qualifying week' (the 15th week before the baby is due), and earning an average of at least £129 a week (before tax).",
+      "explanation": "Swapped the unsupported 'Lower Earnings Limit' for the £129 average weekly earnings figure the source gives, and added that the 26 weeks must be reached by the qualifying week.",
+      "claims": [
+        {
+          "claim": "Must have been continuously employed by the employer for at least 26 weeks up to the end of any day in the qualifying week.",
+          "quote": "have been continuously employed by your employer for at least 26 weeks up to the end of any day in the ‘qualifying week’",
+          "url": "https://www.gov.uk/paternity-pay-leave",
+          "found": true
+        },
+        {
+          "claim": "The qualifying week is the 15th week before the baby is due.",
+          "quote": "The ‘qualifying week’ is the 15th week before the baby is due.",
+          "url": "https://www.gov.uk/paternity-pay-leave",
+          "found": true
+        },
+        {
+          "claim": "Must earn an average of at least £129 a week before tax.",
+          "quote": "earn an average of at least £129 a week (before tax)",
+          "url": "https://www.gov.uk/paternity-pay-leave",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "hmrc-spl",
+      "path": "eligibility.criteria.2",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Mother must be eligible for SMP or Maternity Allowance for SPL to be available.",
+      "action": "rewrite",
+      "new": "Mother must cut short her maternity leave and pay (or Maternity Allowance), taking less than 52 weeks' leave and 39 weeks' pay, for SPL to be available.",
+      "explanation": "The sources don't say the mother must be eligible for SMP or Maternity Allowance, so that was replaced with what they do say: she must cut her maternity leave and pay (or Maternity Allowance) short.",
+      "claims": [
+        {
+          "claim": "To get SPL and ShPP, maternity leave must be cut to less than 52 weeks and maternity pay (or Maternity Allowance) to less than 39 weeks, with the rest used as SPL and ShPP.",
+          "quote": "To get SPL and ShPP , you or your partner has to: take less than the 52 weeks of maternity or adoption leave and use the rest as SPL take less than the 39 weeks of maternity or adoption pay (or Maternity Allowance) and use the rest as ShPP",
+          "url": "https://www.gov.uk/shared-parental-leave-and-pay",
+          "found": true
+        },
+        {
+          "claim": "The mother must end maternity pay or Maternity Allowance so that she or her partner can get SPL.",
+          "quote": "The mother or adopter must end any maternity pay, adoption pay or Maternity Allowance so that they or their partner can get SPL .",
+          "url": "https://www.gov.uk/shared-parental-leave-and-pay",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "hmrc-child-benefit-transfer",
+      "path": "eligibility.criteria.0",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Child has moved to live primarily with a different parent after separation.",
+      "action": "rewrite",
+      "new": "The person who will claim is responsible for the child, for example because they live with the child.",
+      "explanation": "Replaced the unsupported condition about the child moving to the other parent after separation with the source's rule on responsibility, which includes living with the child.",
+      "claims": [
+        {
+          "claim": "You are usually responsible for a child if you live with them or pay towards looking after them.",
+          "quote": "You’ll usually be responsible for a child if either: you live with them you’re paying at least the same amount as Child Benefit (or the equivalent in kind) towards looking after them",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+          "found": true
+        },
+        {
+          "claim": "Child Benefit goes to someone responsible for bringing up the child.",
+          "quote": "You get Child Benefit if you’re responsible for bringing up a child",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "hmrc-child-benefit-transfer",
+      "path": "eligibility.criteria.1",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Parents have separated and current Child Benefit claimant is no longer the main carer.",
+      "action": "rewrite",
+      "new": "The current Child Benefit claimant wants someone else to claim Child Benefit for the child.",
+      "explanation": "Removed the unsupported 'no longer the main carer' and separation conditions and stated the trigger the source actually gives for changing who gets Child Benefit.",
+      "claims": [
+        {
+          "claim": "The service applies when the current claimant wants someone else to claim.",
+          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner.",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "hmrc-child-benefit-transfer",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "After separation, only one parent can claim Child Benefit per child. If the child's living arrangements change, Child Benefit must be transferred to the main carer.",
+      "action": "rewrite",
+      "new": "Only one person can get Child Benefit for a child. If you want someone else to claim, contact the Child Benefit Office, then the other person makes a new claim. If you cannot agree who gets it, HMRC decides.",
+      "explanation": "Replaced the unsupported rule that benefit must go to the main carer when living arrangements change with the source's actual process for changing who gets Child Benefit.",
+      "claims": [
+        {
+          "claim": "Only one person can get Child Benefit for a child.",
+          "quote": "Only one person can get Child Benefit for a child.",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+          "found": true
+        },
+        {
+          "claim": "To change who claims, contact the Child Benefit Office and the other person then makes a new claim.",
+          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you’ve done this, tell the other person to make a new claim.",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+          "found": true
+        },
+        {
+          "claim": "If people responsible for the same child cannot agree, HMRC decides.",
+          "quote": "If you cannot agree, HM Revenue and Customs ( HMRC ) will decide who will get it.",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "dwp-child-maintenance",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "A statutory service for parents who cannot reach a private maintenance arrangement. CMS calculates payments based on the paying parent's income. A fee applies to use the Collect & Pay service.",
+      "action": "rewrite",
+      "new": "A service parents can use instead of a private arrangement to arrange child maintenance. CMS can work out an amount to pay and arrange payments.",
+      "explanation": "I removed the word 'statutory', the 'cannot reach' limit, the income basis and the fee/Collect & Pay detail, because the source doesn't state any of them.",
+      "claims": [
+        {
+          "claim": "Child maintenance can be arranged privately if both parents agree or through the CMS",
+          "quote": "Child maintenance can be arranged: privately between parents , if both parents agree through the Child Maintenance Service",
+          "url": "https://www.gov.uk/child-maintenance",
+          "found": true
+        },
+        {
+          "claim": "CMS can work out an amount to pay and arrange payments",
+          "quote": "The Child Maintenance Service can: work out an amount to pay arrange payments and take action if a parent does not pay",
+          "url": "https://www.gov.uk/child-maintenance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "dwp-child-maintenance",
+      "path": "desc",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "If parents cannot agree privately. CMS calculates based on paying parent's income.",
+      "action": "rewrite",
+      "new": "An alternative to arranging child maintenance privately. CMS works out an amount to pay.",
+      "explanation": "I removed the claim that CMS is only for parents who cannot agree, and the income basis, because the source supports neither.",
+      "claims": [
+        {
+          "claim": "CMS is an alternative to a private arrangement",
+          "quote": "Child maintenance can be arranged: privately between parents , if both parents agree through the Child Maintenance Service",
+          "url": "https://www.gov.uk/child-maintenance",
+          "found": true
+        },
+        {
+          "claim": "CMS works out an amount to pay",
+          "quote": "The Child Maintenance Service can: work out an amount to pay",
+          "url": "https://www.gov.uk/child-maintenance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.977Z"
+    },
+    {
+      "id": "dhsc-baby-loss-certificate",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Available to parents who experienced the loss of a baby before 24 weeks gestation (including miscarriage and ectopic pregnancy). Free and optional. The certificate is not a legal document (it cannot be used to claim benefits) and is not added to the GP record. Losses before 1 October 1992 are covered up to 28 weeks. England only; arrives by post within 21 days.",
+      "action": "rewrite",
+      "new": "Available to parents who experienced the loss of a baby before 24 weeks of pregnancy. Free and optional. The certificate is not a legal document (it cannot be used to claim benefits) and is not added to the GP record. Losses before 1 October 1992 are covered up to 28 weeks. England only; can take up to 21 days to arrive by post.",
+      "explanation": "Removed the unsupported mention of miscarriage and ectopic pregnancy, and changed 'arrives within 21 days' to 'can take up to 21 days', which is how the source puts it.",
+      "claims": [
+        {
+          "claim": "Available to parents who lost a baby before 24 weeks of pregnancy",
+          "quote": "you’ve lost a baby before 24 weeks of pregnancy (or 28 weeks before 1 October 1992) you’re one of the baby’s parents or surrogate",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "Free",
+          "quote": "It’s free to get a certificate.",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "Optional",
+          "quote": "It’s optional.",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "Not a legal document; cannot be used to claim benefits",
+          "quote": "The certificate is not a legal document - for example, you cannot use it to claim benefits.",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "Not added to GP record",
+          "quote": "The certificate will not be added to your GP record.",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "Losses before 1 October 1992 covered up to 28 weeks",
+          "quote": "(or 28 weeks if your pregnancy ended before 1 October 1992)",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "England only",
+          "quote": "you live in England",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        },
+        {
+          "claim": "Can take up to 21 days to arrive by post",
+          "quote": "Your certificate can take up to 21 days to arrive in the post.",
+          "url": "https://www.gov.uk/request-baby-loss-certificate",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.978Z"
+    },
+    {
+      "id": "hmrc-tax-free-childcare",
+      "path": "eligibility.summary",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child per quarter, or £1,000 if disabled). Must be in work and earning at least NMW for 16 hours.",
+      "action": "rewrite",
+      "new": "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child every 3 months, or £1,000 if the child is disabled). Usually must be in work (or returning to work) and expect to earn at least the National Minimum Wage or Living Wage for 16 hours a week on average. A parent who is not working may still be eligible if their partner works and they get certain benefits.",
+      "explanation": "I changed 'must be in work' to 'usually', added the exception for a parent who isn't working but whose partner works, and made the quarterly and disabled-child wording match the source.",
+      "claims": [
+        {
+          "claim": "For every £8 paid in, the government adds £2.",
+          "quote": "For every £8 you pay into the account, the government will top it up by £2.",
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "found": true
+        },
+        {
+          "claim": "Up to £500 per child every 3 months.",
+          "quote": "The total top up you can get for each child is £500 every 3 months (up to £2,000 a year).",
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "found": true
+        },
+        {
+          "claim": "£1,000 every 3 months if the child is disabled.",
+          "quote": "This goes up to £1,000 every 3 months if your child is disabled (up to £4,000 a year).",
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "found": true
+        },
+        {
+          "claim": "Usually must be working or returning to work.",
+          "quote": "You’ll usually need to be working (or returning to work)",
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "found": true
+        },
+        {
+          "claim": "The earnings threshold is NMW or Living Wage for 16 hours a week on average.",
+          "quote": "This is the National Minimum Wage or Living Wage for 16 hours a week on average.",
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "found": true
+        },
+        {
+          "claim": "A non-working parent may be eligible if the partner works and they get certain benefits.",
+          "quote": "You may still be eligible if your partner is working and you’re eligible for any of the following:",
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.978Z"
+    },
+    {
+      "id": "acas-early-conciliation",
+      "path": "desc",
+      "severity": "medium",
+      "event": "reviewed",
+      "old": "Mandatory pre-tribunal step for most employment disputes; a free Acas conciliation service that tries to resolve disputes before a tribunal claim is lodged.",
+      "action": "rewrite",
+      "new": "Notifying Acas is a required step before most employment tribunal claims (some claims are exempt); Acas then offers voluntary early conciliation, which tries to help resolve the dispute before a tribunal claim.",
+      "explanation": "Made it clear that only notifying Acas is required and that taking part in conciliation is voluntary, and dropped 'free', which the sources don't say about early conciliation.",
+      "claims": [
+        {
+          "claim": "You must notify Acas before making an employment tribunal claim.",
+          "quote": "You must notify Acas if you want to make a claim to an employment tribunal.",
+          "url": "https://www.acas.org.uk/early-conciliation",
+          "found": true
+        },
+        {
+          "claim": "Some claims are exempt from early conciliation.",
+          "quote": "Some types of claim are 'exempt' from (do not have to go to) early conciliation.",
+          "url": "https://www.acas.org.uk/guide-print/360",
+          "found": true
+        },
+        {
+          "claim": "Acas then offers early conciliation.",
+          "quote": "We will then offer early conciliation.",
+          "url": "https://www.acas.org.uk/early-conciliation",
+          "found": true
+        },
+        {
+          "claim": "Early conciliation is voluntary.",
+          "quote": "Early conciliation is voluntary. You and your employer can choose whether to take part.",
+          "url": "https://www.acas.org.uk/early-conciliation",
+          "found": true
+        },
+        {
+          "claim": "It tries to help resolve the dispute before a tribunal claim.",
+          "quote": "During early conciliation, an Acas conciliator tries to help you reach a legal agreement with your employer. This can help you avoid going to an employment tribunal.",
+          "url": "https://www.acas.org.uk/early-conciliation",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "applied": "2026-09-29T16:26:59.978Z"
+    }
+  ]
+}

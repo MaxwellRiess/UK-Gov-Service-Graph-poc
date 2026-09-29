@@ -214,6 +214,8 @@ scripts/
   verify-links.ts                 Checks form, API, webchat and contact links resolve
   widen-sources.ts                Re-judges partly supported fields against filtered linked pages (needs ANTHROPIC_API_KEY)
   triage-partly.ts                Ranks partly supported fields by severity into docs/review-worklist.md (needs ANTHROPIC_API_KEY)
+  propose-fixes.ts                Drafts quote-backed corrections for worklist items into data/fix-proposals.json (needs ANTHROPIC_API_KEY)
+  apply-fixes.ts                  Applies reviewed proposals to graph-data.ts and records them as awaiting re-verification
   check-consistency.ts            Flags figures in prose that no structured value or cited page backs
   check-provenance.ts             Fails the build when data and provenance disagree
   contact-overrides.ts            Department contact data (phone, hours, accessibility)

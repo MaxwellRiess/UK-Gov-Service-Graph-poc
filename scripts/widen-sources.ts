@@ -37,8 +37,8 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { NODES, type ServiceNode } from '../src/graph-data.js';
-import { loadProvenance, saveProvenance, htmlToText, normaliseForMatch } from '../src/provenance.js';
-import { pageText } from './lib/page-text.js';
+import { loadProvenance, saveProvenance } from '../src/provenance.js';
+import { gatherSources } from './lib/sources.js';
 import {
   buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, METHOD_WORDS,
   type FieldToJudge, type Source, type ReviewItem, type ProseResponse,
@@ -67,7 +67,6 @@ const MODEL = arg('--model') ?? 'claude-opus-5-5';
 const MAX_LINKED = 3;
 const LINKED_CHARS = 20_000;
 const MIN_SCORE = 3;
-const UA = 'UK-Gov-Service-Graph-Provenance/1.0';
 const PROSE_QUEUE = 'data/review-queue-prose.json';
 const CRITERIA_QUEUE = 'data/review-queue-criteria.json';
 const CACHE_DIR = '.cache';
@@ -135,89 +134,13 @@ for (const r of FIELDS ? [] : criteriaQueue.review as CriteriaItem[]) {
   });
 }
 
-// ─── LINKED PAGES ───────────────────────────────────────────────────────────
-
-const SKIP_PATH = /^\/(government\/(organisations|publications\/[^/]+\/?$|people)|search|browse|help|contact$|world\/|topic\/|find-local-council$|call-charges$)/;
-
-/** Pages linked from one cited page: body links, and GOV.UK's related items. */
-async function linksFrom(url: string): Promise<string[]> {
-  const u = new URL(url);
-  const out = new Set<string>();
-  try {
-    if (u.host === 'www.gov.uk') {
-      const r = await fetch(`https://www.gov.uk/api/content${u.pathname.replace(/\/$/, '')}`, { headers: { 'User-Agent': UA } });
-      if (!r.ok) return [];
-      const d: any = await r.json();
-      const det = d.details ?? {};
-      const html = [det.body, ...(det.parts ?? []).map((p: any) => p.body)].filter(x => typeof x === 'string').join(' ');
-      for (const m of html.matchAll(/href="(\/[a-z0-9][^"#?]*)"/gi)) out.add(m[1]);
-      for (const m of html.matchAll(/href="https:\/\/www\.gov\.uk(\/[^"#?]*)"/gi)) out.add(m[1]);
-      for (const rel of d.links?.ordered_related_items ?? []) if (rel.base_path) out.add(rel.base_path);
-      return [...out].filter(p => !SKIP_PATH.test(p)).map(p => `https://www.gov.uk${p.replace(/\/$/, '')}`);
-    }
-    // Other hosts: same-site links in the page's main content.
-    const r = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });
-    if (!r.ok) return [];
-    const html = await r.text();
-    const main = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? '';
-    for (const m of main.matchAll(/href="([^"#?]+)"/gi)) {
-      try {
-        const abs = new URL(m[1], url);
-        if (abs.host === u.host && abs.pathname !== u.pathname) out.add(`${abs.origin}${abs.pathname.replace(/\/$/, '')}`);
-      } catch { /* ignore bad hrefs */ }
-    }
-    return [...out];
-  } catch {
-    return [];
-  }
-}
-
-const STOP = new Set(('the and for with that this from have been your must will can not are but any also only more than when what which there their they them into such some other text page says does never mention mentions stated state claim criterion ' +
-  'under over each within after before about would could should applies apply applying service services people person you').split(' '));
-
-/** Figures count most; then the content words of the claims and notes. */
-function termsOf(text: string): { figures: string[]; words: string[] } {
-  const figures = [...new Set((text.match(/£?\d[\d,]*(\.\d+)?%?/g) ?? []).filter(f => f.replace(/\D/g, '').length >= 2 || f.startsWith('£')))];
-  const words = [...new Set((text.toLowerCase().match(/[a-z][a-z'-]{4,}/g) ?? []).filter(w => !STOP.has(w)))];
-  return { figures, words };
-}
-
-function score(pageTextNorm: string, t: { figures: string[]; words: string[] }): number {
-  let s = 0;
-  for (const f of t.figures) if (pageTextNorm.includes(f.toLowerCase())) s += 3;
-  for (const w of t.words) if (pageTextNorm.includes(w)) s += 1;
-  return s;
-}
-
 interface Prepared { id: string; fields: FieldToJudge[]; sources: Source[] }
 
 async function prepare(id: string, list: Target[]): Promise<Prepared | null> {
-  const n = NODES[id];
-  const own = [...new Set([n.govuk_url, n.financialData?.source, ...(n.eligibility.sources ?? [])].filter(Boolean) as string[])];
-  const sources: Source[] = [];
-  for (const url of own) {
-    const text = await pageText(url);
-    if (text && text.length > 200) sources.push({ url, text });
-  }
-  if (!sources.length) return null;
-
-  const ownBases = own.map(u => u.replace(/\/$/, ''));
-  const candidates = [...new Set((await Promise.all(own.map(linksFrom))).flat())]
-    .filter(l => !ownBases.some(o => l === o || l.startsWith(o + '/') || o.startsWith(l + '/')));
-  const t = termsOf(list.map(x => x.terms).join(' '));
-
-  const scored: { url: string; text: string; s: number }[] = [];
-  for (const url of candidates) {
-    const text = await pageText(url);
-    if (!text || text.length < 200) continue;
-    const s = score(normaliseForMatch(text), t);
-    if (s >= MIN_SCORE) scored.push({ url, text, s });
-  }
-  scored.sort((a, b) => b.s - a.s);
-  const picked = scored.slice(0, MAX_LINKED);
-  if (!picked.length && !FIELDS) return null;   // nothing new to show the model
-  for (const p of picked) sources.push({ url: p.url, text: p.text.slice(0, LINKED_CHARS), linked: true });
-  return { id, fields: list.map(x => x.field), sources };
+  const sources = await gatherSources(NODES[id], list.map(x => x.terms).join(' '), {
+    maxLinked: MAX_LINKED, linkedChars: LINKED_CHARS, minScore: MIN_SCORE, requireLinked: !FIELDS,
+  });
+  return sources ? { id, fields: list.map(x => x.field), sources } : null;
 }
 
 // ─── RUN ────────────────────────────────────────────────────────────────────
