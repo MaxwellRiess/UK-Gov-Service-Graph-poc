@@ -212,6 +212,8 @@ scripts/
   verify-criteria.ts              Judges eligibility criteria text against its source (needs ANTHROPIC_API_KEY)
   verify-prose.ts                 Judges descriptions, summaries and agent facts claim by claim (needs ANTHROPIC_API_KEY)
   verify-links.ts                 Checks form, API, webchat and contact links resolve
+  widen-sources.ts                Re-judges partly supported fields against filtered linked pages (needs ANTHROPIC_API_KEY)
+  triage-partly.ts                Ranks partly supported fields by severity into docs/review-worklist.md (needs ANTHROPIC_API_KEY)
   check-consistency.ts            Flags figures in prose that no structured value or cited page backs
   check-provenance.ts             Fails the build when data and provenance disagree
   contact-overrides.ts            Department contact data (phone, hours, accessibility)
