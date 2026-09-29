@@ -718,7 +718,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Does either parent or partner earn over £60,000 per year?',
         'Has the birth been registered?',
       ],
-      autoQualifiers: ['Birth registered, no parent earns over £60k'],
+      autoQualifiers: ['Responsible for a child under 16 who lives with you (higher earners can still claim and pay the High Income Child Benefit Charge)'],
       exclusions: ['If either partner\'s adjusted net income is £80,000 or more, the charge cancels the payment. Still claim and opt out of payments, to get National Insurance credits and the child\'s automatic NI number.'],
       means_tested: false,
       evidenceRequired: ['Child\'s birth or adoption certificate, if you have it (you can claim without it)', 'Bank account details', 'Your and your partner\'s National Insurance numbers'],
@@ -3446,7 +3446,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone', 'post'],
+      methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/attendance-allowance/how-to-claim',
       authRequired: 'none',
@@ -4526,7 +4526,7 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-access-to-work': {
     id: 'dwp-access-to-work', name: 'Access to Work', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'Grants for workplace adaptations, travel costs and support workers. Apply before starting job.',
+    desc: 'Grants for workplace adaptations, travel costs and support workers. Apply if you are in paid work, or about to start or return to paid work in the next 12 weeks.',
     govuk_url: 'https://www.gov.uk/access-to-work',
     serviceType: 'grant',
     proactive: true,
@@ -5431,7 +5431,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Marriage or civil partnership certificate received and current licence name is now incorrect'],
       means_tested: false,
-      evidenceRequired: ['D1 form (or online application)', 'Current driving licence', 'Marriage certificate or deed poll', 'Passport photo'],
+      evidenceRequired: ['D1 form (name changes must be made by post)', 'Current driving licence', 'Marriage certificate or deed poll', 'Passport photo'],
       ruleIn: ['Legal name change after marriage, civil partnership, or deed poll', 'Holds GB driving licence'],
       ruleOut: [],      rules: [
         {
@@ -5444,7 +5444,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'post'],
+      methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/change-name-driving-licence',
       authRequired: 'government-gateway',
@@ -5631,13 +5631,13 @@ export const NODES: Record<string, ServiceNode> = {
   'dvla-sorn': {
     id: 'dvla-sorn', name: 'Make a SORN', dept: 'DVLA', deptKey: 'dvla',
     deadline: 'When tax expires',
-    desc: 'Free Statutory Off Road Notification — required when a vehicle is taken off the road and not being taxed. Tax is cancelled and remaining full months refunded. SORN stays active until the vehicle is taxed again. Driving a SORNed vehicle on a public road is a criminal offence (fine up to £1,000).',
+    desc: 'Free Statutory Off Road Notification — required when a vehicle is taken off the road and not being taxed. Tax is cancelled and remaining full months refunded. SORN stays active until the vehicle is taxed again. Using a SORNed vehicle on a public road can lead to prosecution and a fine of up to £2,500.',
     govuk_url: 'https://www.gov.uk/make-a-sorn',
     serviceType: 'obligation',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'A free SORN must be made when a registered keeper stops taxing a vehicle and keeps it off public roads. The vehicle cannot be driven or parked on a public road — doing so is a criminal offence (fine up to £1,000, vehicle may be clamped or impounded). SORN remains in place until the vehicle is taxed again.',
+      summary: 'A free SORN must be made when a registered keeper stops taxing a vehicle and keeps it off public roads. The vehicle cannot be driven or parked on a public road — doing so can lead to prosecution and a fine of up to £2,500, and the vehicle may be clamped or impounded. SORN remains in place until the vehicle is taxed again.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Registered keeper of a vehicle whose tax has lapsed or is about to lapse, and which will be kept off public roads.' },
@@ -6570,7 +6570,7 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'income', description: 'Receiving Universal Credit (no income test from the 2026-27 academic year); or income-related ESA; or support under Part VI of the Immigration and Asylum Act 1999; or the guarantee element of Pension Credit.' },
-        { factor: 'family', description: 'Child is of compulsory school age and attends a state-funded school in England.' },
+        { factor: 'family', description: 'Child attends a government-funded school in England (children younger than compulsory school age may also qualify).' },
       ],
       keyQuestions: [
         'Are you receiving Universal Credit, income-related ESA, Pension Credit, or support under the Immigration and Asylum Act?',
@@ -11607,7 +11607,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,900; Plan 2: £29,385; Plan 4: £33,795; Plan 5: £25,000; Postgraduate Loan: £21,000). Repayments are 9% of income above the threshold (6% for postgraduate loans), collected via PAYE or Self Assessment automatically.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Annual income must exceed the threshold for the applicable repayment plan before any deductions are made.' },
+        { factor: 'income', description: 'Repayments are deducted when pay goes over the weekly or monthly threshold for the repayment plan, even if annual income ends up below the yearly threshold.' },
         { factor: 'employment', description: 'Employed borrowers repay via PAYE payroll deductions; self-employed borrowers repay via their annual Self Assessment return.' },
         { factor: 'dependency', description: 'Must hold an outstanding UK government student or postgraduate loan.' },
       ],
@@ -12489,7 +12489,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.',
       universal: false,
       criteria: [
-        { factor: 'dependency', description: 'Must have received a formal decision from HMRC and exercised the right to request HMRC review first (in most cases).' },
+        { factor: 'dependency', description: 'Must have an HMRC decision to appeal. Indirect tax decisions can usually go straight to the tribunal; direct tax decisions must usually be appealed to HMRC first.' },
       ],
       keyQuestions: [
         'Has HMRC issued a formal decision letter?',
@@ -13326,7 +13326,7 @@ export const NODES: Record<string, ServiceNode> = {
   'dvsa-mot-history': {
     id: 'dvsa-mot-history', name: 'Check MOT history', dept: 'DVSA', deptKey: 'dvsa',
     deadline: null,
-    desc: 'View the complete MOT test history of any vehicle — past pass/fail results, mileage at each test and advisory notices.',
+    desc: 'View the MOT test history of a vehicle: past pass/fail results, mileage at each test and advisory notices. Results go back to 2005 for cars, motorcycles and vans, and to 2018 for HGVs, trailers, buses and coaches.',
     govuk_url: 'https://www.gov.uk/check-mot-history',
     serviceType: 'application',
     proactive: false,
@@ -13473,7 +13473,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'All limited companies incorporated in the UK must file annual accounts at Companies House within 9 months of their financial year end. Small companies may file abridged or micro-entity accounts. From 1 April 2028 accounts must be filed using commercial software.',
       universal: false,
       criteria: [
-        { factor: 'dependency', description: 'Must be an officer of a UK limited company (Ltd or PLC).' },
+        { factor: 'dependency', description: 'Filed for a UK company by an officer, or by anyone with the company\'s authentication code such as an accountant. Limited liability partnerships can file only certain package accounts.' },
       ],
       keyQuestions: [
         'When does the company\'s financial year end?',
@@ -13547,7 +13547,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Available to directors of a limited company that has not traded in the last 3 months and has not changed its name in the last 3 months. The application is made by all directors. HMRC must be notified separately.',
+      summary: 'Available to directors of a limited company that has not traded in the last 3 months and has not changed its name in the last 3 months. The application must be signed by a majority of the company\'s directors. HMRC must be notified separately.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must be a director of a UK limited company that has not traded or otherwise been used for a purpose in the past 3 months.' },

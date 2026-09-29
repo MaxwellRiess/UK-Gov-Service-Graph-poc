@@ -39,10 +39,12 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { NODES, type ServiceNode } from '../src/graph-data.js';
-import {
-  loadProvenance, saveProvenance, provenanceKey, hashValue, normaliseForMatch, getFieldValue,
-} from '../src/provenance.js';
+import { loadProvenance, saveProvenance } from '../src/provenance.js';
 import { pageText } from './lib/page-text.js';
+import {
+  METHOD_WORDS, AUTH_WORDS, buildPrompt, requestParams, readResponse, recordField,
+  type FieldToJudge, type ProseResponse, type ReviewItem,
+} from './lib/judge-prose.js';
 
 const arg = (name: string) => {
   const i = process.argv.indexOf(name);
@@ -56,7 +58,6 @@ const ONLY = arg('--only')?.split(',');
 // trial Sonnet flagged restatements as partial and missed real changes.
 const MODEL = arg('--model') ?? 'claude-opus-5-5';
 const CONCURRENCY = 4;
-const PER_SOURCE_CHARS = 30_000;
 const QUEUE_PATH = 'data/review-queue-prose.json';
 
 if (!process.env.ANTHROPIC_API_KEY) {
@@ -65,25 +66,6 @@ if (!process.env.ANTHROPIC_API_KEY) {
 }
 
 const client = new Anthropic({ maxRetries: 4 });
-
-type Verdict = 'supported' | 'partly_supported' | 'contradicted' | 'not_stated';
-
-const METHOD_WORDS: Record<string, string> = {
-  online: 'You can apply or do this online',
-  phone: 'You can apply or do this by phone',
-  post: 'You can apply or do this by post',
-  'in-person': 'You can apply or do this in person',
-};
-const AUTH_WORDS: Record<string, string> = {
-  'government-gateway': 'Applying online needs a Government Gateway user ID (sign-in)',
-  'gov-uk-one-login': 'Applying online needs a GOV.UK One Login',
-  'gov-uk-verify': 'Applying online needs GOV.UK Verify',
-  'nhs-login': 'Applying online needs an NHS login',
-  'companies-house': 'Applying online needs a Companies House account or sign-in',
-  none: 'No account or sign-in is needed to apply',
-};
-
-interface FieldToJudge { key: string; path: string; text: string; split: boolean }
 
 /** The prose fields to judge for one service, each with a short key the model echoes back. */
 function fieldsFor(n: ServiceNode): FieldToJudge[] {
@@ -106,100 +88,8 @@ function fieldsFor(n: ServiceNode): FieldToJudge[] {
   return out.filter(f => f.text && f.text.trim());
 }
 
-interface Claim { claim: string; verdict: Verdict; quote: string | null; source: number | null; note: string }
-interface FieldResult { key: string; claims: Claim[] }
-interface Response { fields: FieldResult[]; methods_on_page: string[]; sign_in_on_page: string | null }
-
-const TOOL: Anthropic.Tool = {
-  name: 'report_prose',
-  description: 'Report, for each field, its claims and whether the source text states each one, with the span relied on.',
-  input_schema: {
-    type: 'object',
-    properties: {
-      fields: {
-        type: 'array',
-        items: {
-          type: 'object',
-          properties: {
-            key: { type: 'string', description: 'The field key exactly as given.' },
-            claims: {
-              type: 'array',
-              items: {
-                type: 'object',
-                properties: {
-                  claim:   { type: 'string', description: 'One factual statement from the field, in its own words.' },
-                  verdict: { type: 'string', enum: ['supported', 'partly_supported', 'contradicted', 'not_stated'] },
-                  quote: {
-                    type: ['string', 'null'],
-                    description: 'The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated.',
-                  },
-                  source: { type: ['integer', 'null'], description: 'Which SOURCE the quote comes from.' },
-                  note: { type: 'string', description: 'One sentence. For anything other than supported, say exactly what differs or is missing.' },
-                },
-                required: ['claim', 'verdict', 'quote', 'source', 'note'],
-              },
-            },
-          },
-          required: ['key', 'claims'],
-        },
-      },
-      methods_on_page: {
-        type: 'array',
-        items: { type: 'string', enum: ['online', 'phone', 'post', 'in-person'] },
-        description: 'Every way the source text says you can apply for or do this service.',
-      },
-      sign_in_on_page: {
-        type: ['string', 'null'],
-        description: 'The account or sign-in the source text says is needed to apply online (for example "Government Gateway", "GOV.UK One Login"), or null if it names none.',
-      },
-    },
-    required: ['fields', 'methods_on_page', 'sign_in_on_page'],
-  },
-};
-
-async function judge(node: ServiceNode, fields: FieldToJudge[], sources: { url: string; text: string }[]): Promise<Response> {
-  const listing = fields
-    .map(f => `[${f.key}]${f.split ? ' (split into claims)' : ''} ${f.text}`)
-    .join('\n');
-  const texts = sources
-    .map((s, i) => `--- SOURCE ${i}: ${s.url} ---\n${s.text.slice(0, PER_SOURCE_CHARS)}`)
-    .join('\n\n');
-
-  const res = await client.messages.create({
-    model: MODEL,
-    max_tokens: 8192,
-    // Not forced: some current models reject a forced tool_choice.
-    tool_choice: { type: 'auto' },
-    tools: [TOOL],
-    messages: [{
-      role: 'user',
-      content:
-        `A service graph describes the UK government service "${node.name}" with the fields below. ` +
-        `Judge them against the source text that follows, and nothing else.\n\n` +
-        `Do not use anything you know about UK government services. The question is whether this text says it, ` +
-        `not whether it is true.\n\n` +
-        `For a field marked "(split into claims)", split it into single factual statements and judge each. ` +
-        `Together the claims must cover every factual statement in the field: do not skip one because it is ` +
-        `hard to judge. For any other field, return it as one claim.\n\n` +
-        `- supported: the text states it, including every figure, age, date and condition it names. Paraphrase ` +
-        `is fine, and so is anything the text plainly implies.\n` +
-        `- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.\n` +
-        `- contradicted: the claim and the text cannot both be true: a different figure, a route or method the ` +
-        `text says does not exist, a sign-in the text names differently. A detail the text leaves out is ` +
-        `partly_supported, not contradicted.\n` +
-        `- not_stated: the text does not address it.\n\n` +
-        `Also list every way the text says you can apply (methods_on_page), and the sign-in it names for ` +
-        `applying online, if any (sign_in_on_page).\n\n` +
-        `The verdict and the note must agree. Quotes must be copied exactly from the source text, not ` +
-        `paraphrased or stitched together.\n\n` +
-        `Report by calling report_prose once, covering every field.\n\n` +
-        `FIELDS\n${listing}\n\n${texts}`,
-    }],
-  });
-
-  const block = res.content.find(b => b.type === 'tool_use') as Anthropic.ToolUseBlock | undefined;
-  if (!block) throw new Error('model did not call report_prose');
-  return block.input as Response;
+async function judge(node: ServiceNode, fields: FieldToJudge[], sources: { url: string; text: string }[]): Promise<ProseResponse> {
+  return readResponse(await client.messages.create(requestParams(MODEL, buildPrompt(node.name, fields, sources))));
 }
 
 // ─── RUN ────────────────────────────────────────────────────────────────────
@@ -210,14 +100,9 @@ const nodes = Object.values(NODES)
 const store = loadProvenance();
 const now = new Date().toISOString();
 
-type FieldStatus = 'confirmed' | Verdict | 'fabricated';
 const counts: Record<string, number> = {};
 const bump = (k: string) => { counts[k] = (counts[k] ?? 0) + 1; };
 
-interface ReviewItem {
-  id: string; name: string; field: string; graph: string; verdict: Verdict;
-  problems: { claim: string; verdict: Verdict; note: string; quote: string | null }[];
-}
 const review: ReviewItem[] = [];
 const methodGaps: { id: string; graph: string[]; page: string[] }[] = [];
 const authGaps: { id: string; graph: string; page: string | null }[] = [];
@@ -238,7 +123,7 @@ async function processNode(n: ServiceNode) {
   if (!sources.length) { unreachable++; return; }
 
   const fields = fieldsFor(n);
-  let out: Response;
+  let out: ProseResponse;
   try {
     out = await judge(n, fields, sources);
   } catch (err: any) {
@@ -248,66 +133,9 @@ async function processNode(n: ServiceNode) {
   }
 
   for (const f of fields) {
-    const r = out.fields.find(x => x.key === f.key);
-    if (!r || !r.claims?.length) { bump('missing'); continue; }
-
-    // Verify every quote against the source it names, or any source.
-    const checked = r.claims.map(c => {
-      if (!c.quote) return { ...c, url: null as string | null, ok: c.verdict === 'not_stated' };
-      const needle = normaliseForMatch(c.quote);
-      const claimed = c.source != null ? sources[c.source] : undefined;
-      const hit = [claimed, ...sources].find(s => s && normaliseForMatch(s.text).includes(needle));
-      return { ...c, url: hit?.url ?? null, ok: Boolean(hit) };
-    });
-
-    const base = {
-      valueHash: hashValue(getFieldValue(n, f.path)),
-      valueSeen: f.text.slice(0, 200),
-      method: 'llm-extraction' as const,
-      verifiedAt: now,
-    };
-    const key = provenanceKey(n.id, f.path);
-
-    let status: FieldStatus;
-    if (checked.some(c => c.quote && !c.ok)) status = 'fabricated';
-    else if (checked.every(c => c.verdict === 'supported')) status = 'confirmed';
-    else if (checked.some(c => c.verdict === 'contradicted')) status = 'contradicted';
-    else if (checked.some(c => c.verdict === 'supported' || c.verdict === 'partly_supported')) status = 'partly_supported';
-    else status = 'not_stated';
-    bump(status);
-
-    // Quotes for every claim the source supports, kept even when the field as
-    // a whole is not confirmed, so the evidence for those claims stays visible.
-    const good = checked.filter(c => c.verdict === 'supported' && c.ok && c.quote && c.url);
-    const claims = { supported: good.length, total: checked.length };
-    const quotes = good.length ? {
-      sourceUrl: good[0].url!, sourceQuote: good[0].quote!,
-      ...(good.length > 1 ? { additionalQuotes: good.slice(1).map(c => ({ quote: c.quote!, url: c.url! })) } : {}),
-    } : null;
-
-    if (status === 'confirmed') {
-      store.fields[key] = { ...base, ...quotes!, confidence: 'confirmed', claims };
-      continue;
-    }
-
-    const problems = checked.filter(c => c.verdict !== 'supported' || !c.ok);
-    store.fields[key] = {
-      ...base,
-      sourceUrl: quotes?.sourceUrl ?? checked.find(c => c.url)?.url ?? sources[0].url,
-      sourceQuote: status === 'fabricated' ? '' : quotes?.sourceQuote ?? '',
-      ...(status !== 'fabricated' && quotes?.additionalQuotes ? { additionalQuotes: quotes.additionalQuotes } : {}),
-      claims,
-      confidence: 'unverified',
-      rationale: status === 'fabricated'
-        ? 'A quote the model gave is not in the source text, so the judgement was discarded.'
-        : problems.map(c => `${c.verdict.replace('_', ' ')}: ${c.note}`).join(' '),
-    };
-    if (status === 'contradicted' || status === 'partly_supported') {
-      review.push({
-        id: n.id, name: n.name, field: f.path, graph: f.text, verdict: status,
-        problems: problems.map(c => ({ claim: c.claim, verdict: c.verdict, note: c.note, quote: c.quote })),
-      });
-    }
+    const res = recordField(store, n, f, out.fields.find(x => x.key === f.key), sources, now);
+    bump(res.status);
+    if (res.review) review.push(res.review);
   }
 
   // Methods the page offers that the graph leaves out, and sign-in mismatches.
