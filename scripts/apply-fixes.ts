@@ -27,7 +27,7 @@ const DATA = 'src/graph-data.ts';
 interface Proposal {
   id: string; path: string; old: string; action: 'rewrite' | 'remove' | 'no_change'; new: string | null;
   claims: { claim: string; quote: string; url: string | null; found: boolean }[];
-  verified: boolean; accepted: boolean | null; applied?: string; explanation: string;
+  verified: boolean; accepted: boolean | null; applied?: string; explanation: string; review?: string;
 }
 const file = JSON.parse(readFileSync(PROPOSALS, 'utf-8'));
 const proposals: Proposal[] = file.proposals;
@@ -102,7 +102,8 @@ if (!RECORD) {
       method: 'llm-extraction',
       verifiedAt: now,
       confidence: 'unverified',
-      rationale: `Corrected on ${now.slice(0, 10)} from quoted sources (${p.explanation}) Awaiting independent re-verification.`,
+      // A reviewer's note overrides the drafting model's explanation, which may describe a draft the reviewer changed.
+      rationale: `Corrected on ${now.slice(0, 10)} from quoted sources (${p.review ?? p.explanation}) Awaiting independent re-verification.`,
     };
     touched.add(p.id);
     written++;
