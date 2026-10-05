@@ -1,32 +1,35 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-09-28T13:26:00.061Z",
+  "lastRun": "2026-10-05T14:09:07.993Z",
   "hashes": {
     "https://www.gov.uk/register-birth": {
-      "sha256": "5836dc7adeb1b014440b00bfe4127b3661afefc181638ab7b8ff1c96f554fc76",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f1c95ebf529cd386e993624a82f93b0029b0719f11365e1bad5690891a49ef75",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "gro-register-birth"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/register-a-death": {
       "sha256": "62baaa1057abe56be6b4fa597f07667b875c76af43813a91febae7d5d9a2fdbb",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "gro-register-death"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/order-copy-birth-death-marriage-certificate": {
-      "sha256": "756a7d015ed6759c3db36166276ce7cc013870e9b18550dda3f520de0412b1a4",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3c39eb4c826a3f34eaf24cfec1dbe9cf6e2c0cb3074c0a381d18a50949e1ebab",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "gro-death-certificate",
         "gro-marriage-cert",
         "gro-certificates"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/marriages-civil-partnerships/giving-notice": {
       "sha256": "6211941d5e0a1e294619cc64ff8158aa3b0adb8138af4eb80c13a1e7d007c1b7",
@@ -37,116 +40,130 @@
       ]
     },
     "https://www.gov.uk/child-benefit": {
-      "sha256": "91df7cf1a2f81ea0594902541df920628ba1df3956360aef5b0f4277231daef9",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "73b8255934493e99d495269e91a7e47046f25462d23f55d98e1d0af9355b6999",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-child-benefit"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/guardians-allowance": {
-      "sha256": "46d096c1dd017cf46343917c42306fe5a3bbd748afa66e2da9bd6af4a6fdecf8",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e1d2512509b95bd9100b9155054eb7a40bf5fe0a97f031f3750db9a017904144",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-guardians-allowance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/parental-bereavement-pay-leave": {
-      "sha256": "f724ffbcc6d57837b13410a68eb7c38e897b3c005ea9e79e935b742dcd0d58ac",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "06c1efdb20c5c8234597a628f3d48bb57771fe478e465d6d99ad6aa3ed5debe2",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-statutory-parental-bereavement"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/maternity-pay-leave/pay": {
-      "sha256": "093019921683caabcf1ebe1bc76872683e97ecf6f0e97dbd3b85fb98e81bb4f6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "75e5cd2401c430e4ef5fe8d759cd69e607b2d7241ba09513ada12ec4a0d78ec2",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-smp"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/paternity-pay-leave": {
-      "sha256": "cb68dcc669e650a80331a3ec917bc8830f6a1b7156f6c677ba9fcf8a3bcfcac0",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "63dcecb720df203769fe9370b520cdc5d95be52ed39092bf354e7e90ca7895e1",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-spp"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/shared-parental-leave-and-pay": {
-      "sha256": "c541842a77b024ebd0066466374c47ad2fbb778003e5e8fec5cad740a8f299a3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f832d12690bef01c544e5413f60f1b1ed7236ca02b24c58a729be0f934dcec00",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-spl"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tax-free-childcare": {
-      "sha256": "869bef3aaeaa24a17f97fd249e3573ed38a402022044ef89a2a43407d3f93ace",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "8b7ffcb94cdf02d4f8fac9bc22f92fd9a8d1a40751aee64ab17d97db8ad1415f",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmrc-tax-free-childcare"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/marriage-allowance": {
-      "sha256": "da030f9089b3f2c6c47dfcbc4500c0bbaea6c03f7bde129471c4e7ccabbd7484",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "fe020b2d22e253d484d545d5ab86b577cc9a6243769c95398f58f220df92d3c8",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-marriage-allowance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/marriage-allowance/if-your-circumstances-change": {
-      "sha256": "dd7fc32f2cd6932f0f434db2ae91e3cd66f8a331138263a4371a5ad25938027d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "fe020b2d22e253d484d545d5ab86b577cc9a6243769c95398f58f220df92d3c8",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-cancel-marriage-allowance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tell-hmrc-change-of-details": {
-      "sha256": "9f0ca064d576b2c9bd29779909c5a2cd4cda395e99860c625bcde88f8c097676",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ac095274811a6842cb289b4ba3f0e487e622a5a72097651d7eb87e8343d5c113",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-update-records"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/stamp-duty-land-tax": {
-      "sha256": "881f2e02143d4794c950e513d54dd070703c0d5b193f4f23f4fe969bbb1899a5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "cb6b417d0f7f1576beda1fb28dc4a84f14b8be50942866cbeb85be373dc99191",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-sdlt"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/lifetime-isa": {
-      "sha256": "dc5eaac0b42852297be4580b582b69cf91ef3fccddfd0dd1c3c4248cff39534a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7e537eacf2db877ab408832ab623baf254d96892b1f2fc623f5c07060dbe2bfe",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-lisa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/inheritance-tax": {
-      "sha256": "a3cc3f215e22baae99af30675c47748eb9e3459f18c451175d0aacce4f8dacf3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6c4cec8dc43184d23ac1869c907a1ae2e4f6e9065600050372e9ef55fea508a2",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-iht400"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/paye-forms-p45-p60-p11d/p45": {
-      "sha256": "c782a5299f248a1d9e45371c9a4fc7f8805514c333bafa5f452bc59e2518003e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "eea2332bcf6541519549b1862e2037b78d982421066960d8b202f65ce73b626e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-p45"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/claim-tax-refund/you-get-a-pension": {
       "sha256": "660696c77611d050a139037ab66abc1420aefa50e249b4f2f013d88bc18a377e",
@@ -157,52 +174,58 @@
       ]
     },
     "https://www.gov.uk/register-for-self-assessment": {
-      "sha256": "c51c623a63290d055df3aa5fc39d04efdea317071a6614e43c6aa3c32ef6fe7e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3148549bb44537fd1fc74759dfcd5e61a4c177e439ae323e3352acf5fc7219e9",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmrc-self-assessment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/vat-registration": {
-      "sha256": "57592f5843c771764c97d4ed6a1ecff0e96693b915bd6d844a98da0460f61172",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "32a755441f424bc618fe91c5308263b65e068620dab4fa938b1958ed9dd79b2b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "hmrc-vat"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/register-employer": {
-      "sha256": "42971679b1a15acb0731a9f980daa5907c9a36cd39c290ed8fd57d8e1cf3ff0f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6dde10ccf3cafc3e4e109dd623a1181aa208e44be7e68506775910ff7ba45e48",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-paye"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/what-is-the-construction-industry-scheme": {
-      "sha256": "d233bf4110c33fade385cdf25dcda35bc0877c975f162911bb7a04e1d0d0bd38",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1653ea27efd10214ed17f486a166b2fa0fd25392f31da3f24dd1af2f805eb552",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-cis"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/set-up-sole-trader": {
-      "sha256": "a4363a55cd5495b45c1e01a405f63867fd577f9794f0b99cf956e0d145cf84f1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "fef2f4373e4b6981d464d310323563a18fd3d49dc426ba5b222b200b7027f571",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-register-sole-trader"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/carers-credit": {
-      "sha256": "21504af472ef867d4c785e5be0f7e9b5f7b7973d3476bf34c138accf527de66f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1b38bb3ee305f03b23097bbfb8d8c7047bfd7d9d1e190bb40c4976cbce9fe8dd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-carers-credit"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/child-benefit/change-of-circumstances": {
       "sha256": "91df7cf1a2f81ea0594902541df920628ba1df3956360aef5b0f4277231daef9",
@@ -213,36 +236,40 @@
       ]
     },
     "https://www.gov.uk/check-national-insurance-record": {
-      "sha256": "299f625436398eaf1515f5d47185b7f552fa77d753c34c6da0832b7362cea8cb",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "84099097f5868cba80d0e4568c5afbbb87578e6b2caab53583165788d8d4d68d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmrc-ni-check"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tax-on-pension": {
-      "sha256": "5b16babdb4e246c17da021a0f3b71379925a1b17ea0d3c22b58ba591983193ef",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bababe5ba46b1e34618f6ae03ea6d5d138613eed212e2a235a4116490de5f8ad",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-tax-on-pension"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/anti-money-laundering-registration": {
-      "sha256": "e4b48eb8c4b05da6bc3b653dd6b060cce506b1330e9556a4e51294c1cdee49f6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "67110b96f38b231fbc3dd352b845181fbf033d444800be48e0d6c443a3b631af",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-aml-registration"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/machine-game-duty": {
-      "sha256": "b78ece729ac68b7633f7936fa09426d0598d2c57cee328f09be72a75d4f5d894",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0acab639bc4385a4857fb80fed1a5d34941aa4674bc3320ef6defbde47765a39",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-machine-games-duty"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/paye-forms-p45-p60-p11d/starter-checklist": {
       "sha256": "cfbc36ef846ae2a83381e7092af1b5d5b020b3d8e7b3fd39880e2fb3e64e229b",
@@ -253,100 +280,112 @@
       ]
     },
     "https://www.gov.uk/statutory-sick-pay": {
-      "sha256": "95294e4202603078afeb538105dc5e998ac8d783752cf179245bc4b5f1809320",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e31d6cc07c9056392778b7f6e5c673df3fe2056667e4a6ad0ba7e6ed6c7e4b78",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-ssp"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once": {
-      "sha256": "ee3732c28b64b47e81803e349b697a6e0935fa9e0225c17a3b6d349cb17ef784",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "665f46db305a56357e6c6516df339b494cbd9274ab82c6e5da608af75657128d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-tell-us-once"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/bereavement-support-payment": {
-      "sha256": "a64ae675794fe0f467af6e9f26c4860fb5c67f41066f6fac448fce061e60a9f9",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "00facae636f914e33580ddebbf01fd3358726991113cad1c119d6f927ee5d7ba",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-bereavement-support"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/funeral-payments": {
-      "sha256": "a91a31ea60e73a63ffe02b862d2251c2f86b9a763d0aed5b461ed0905d4e9e85",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5e712a83757dbb00b877a7f283d33d7f98eed8cd3ec3c0383a5be00bbd4f321b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-funeral-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/voluntary-national-insurance-contributions": {
-      "sha256": "45dd8984c02115585c477806099977f7665effe30778974a167ac7ab2c2af2ce",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a49fcaec8e2e1534a4edfaaf0221f2219ca439454b692ed439cbfbed69d95b8c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-voluntary-ni-contributions"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/new-state-pension/eligibility": {
-      "sha256": "49945190169384ff9c28058827f97c56225e80762aa71cfab0a0a3ad47fb6667",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "927a69adcce1b94e807cb456c45b3114b99301e4c7a7c4ce761f0e32c58282b8",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-state-pension"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner": {
-      "sha256": "e27fdb673b5ead573d5fa47c861af04d9d62c406cd8d2e259d9b149819cd2127",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "927a69adcce1b94e807cb456c45b3114b99301e4c7a7c4ce761f0e32c58282b8",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-inherited-state-pension"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/pension-credit": {
-      "sha256": "486e311e9d6718f85dbea588ebf6f8059b1573bd4f00f9dbaaede9a2f0f53b5a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b6c8a0feff5299f33f7b8533d8f8dff706204636ed32deaca951ed7ccac68ee8",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-pension-credit"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/winter-fuel-payment": {
-      "sha256": "be7bd59217305f9c272316203cde15da208ecd21a23e8536038ed2c3fd466a54",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "23f832b6cebd909309af90b9dae30d128fba3488ade668cf075d0081d06893db",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dwp-winter-fuel"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/attendance-allowance": {
-      "sha256": "18e4699a2dd90694ce939c87c26f146b054a58f47bcbf7a74b0cb6aa01c8fedb",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "29348cb9b36291e74cef1dc91af4e1fe9e9df35939249a9c3f79c42d443d9dad",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-attendance-allowance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/pip": {
-      "sha256": "c75cca4dfdf56da12dbe0edf8a930ecb173bc0f9cc1bab992be633680c1189a1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d1bf7fc93fdf9baa87a9e30a0d32b0936682f88f9bda1d29dcd4563f3bb869a3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-pip"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/universal-credit": {
-      "sha256": "d8e59a091544204375641ead70adb9a84d7016b2517d40e022d7ecca9c16a482",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "df349dae5a03c78285dd8a36e25c34fa20e33f14ccf35f46f9e89bc0676e29a4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-universal-credit"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/jobseekers-allowance/new-style-jsa": {
       "sha256": "323884289f3beab7491dbfe76132cf1eee5b6e2dd9e330207f49118ea11177dd",
@@ -357,93 +396,104 @@
       ]
     },
     "https://www.gov.uk/employment-support-allowance/eligibility": {
-      "sha256": "fe073dca8c5e01498484c550f296e8c45979979a8bea9f3b583cb655035740a6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "999ea2137ac3692a0a47f5622f75488abe0439c1b71378febf269de5baf305af",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-new-style-esa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/mandatory-reconsideration": {
-      "sha256": "897f878818415d8af6cd7a74ea6dcaa9a6a0c32ae7e8b64e357aa362da1e1696",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "26db6c3033b3dca6566e9aaee402d842df9caffff76ccf1f3e57bb7cc7b30a1e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-mandatory-reconsideration"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/maternity-allowance": {
-      "sha256": "c3bbe73ac7ae159166d3aa7562d9cbbae94917d4d94b51eace1775d4dd1077da",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "07f524611528110686807b85cd92d18db67c32138a7e59659f627b4c9b73fcc0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-maternity-allowance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/sure-start-maternity-grant": {
-      "sha256": "12863f544303f4b7446b762dbdce6b47e61410790f9947bbfaf2fd2b1079b6e8",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6288cd7a68653823833ea2b756811ce5a99e5de3bfaf61d5a6081b61f05c570d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-sure-start-grant"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/national-insurance-credits": {
-      "sha256": "16825c8d1439a6a1e437f19d6265514c2cee1e49faf422261107863feaa2fc04",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0260405a5fe947113d062c97cfb7904fd85e44a14f42176cd3278447c506a839",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-ni-credits"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/carers-allowance": {
-      "sha256": "138c7248b56da1a920fb1f89dea2318c4cc7222860360556c3ed3c67f4dc9c91",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a1ca9571407a099aec0112b8fc21e6ea3d383b0359ee392080387dc290f2f41e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-carers-allowance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/universal-credit/what-youll-get": {
-      "sha256": "202742251aca20b563407ec275b53d8b078308d68980d0a906c7d95f6c9de219",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "df349dae5a03c78285dd8a36e25c34fa20e33f14ccf35f46f9e89bc0676e29a4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-uc-carer",
         "dwp-uc-health"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/access-to-work": {
-      "sha256": "c5e95e3386fc58725e2aa6abb4ff45e9a87c7ca65171daf0674511f4ce96e44e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a2db8b92d17dba672a4cf1c84c81f4e814061bd7765ab99abd4ac5a32ac43d1c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-access-to-work"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/child-maintenance": {
-      "sha256": "55f03b6de39c5ed6266f44200e46b288181e7706e7a5467377738860ee7378f0",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "669537c0515ddb0af37e7b4b04a73dce7ab8d4ee63e5f4d6253efb9e95266543",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-child-maintenance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-national-insurance-number": {
-      "sha256": "2bde07bfb0e103c55abb6443a4b3f39b0e55902df45b8461b3c738cc6cfc3af6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6a05ba56851f6416a9d638ecb363d9ce4f8dfafd9c1ffb6fabbd84cfddb7a583",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-ni-number"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.healthystart.nhs.uk/": {
-      "sha256": "771cf5e4f89e2bdc2bbafd95da243a932d67428cbc3139ed940eb05e78f6c250",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0ae14496e9f10f1a0b3f75f24eb8f09f6f9de4752b51b73c5f03a3f90e169492",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "nhs-healthy-start"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/help-nhs-costs/maternity-exemption-certificates": {
       "sha256": "def0101d8babc9add9a750048a0f107bfdc02929bbe08fbefd8cc5e1523e5fa8",
@@ -454,108 +504,121 @@
       ]
     },
     "https://www.gov.uk/apply-first-provisional-driving-licence": {
-      "sha256": "884427717aa4c1a528da6503e19ef73aa7ef92e882dded34c05a615c7ca1cb8c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "4a1a4324d5f7c58d7047ca516a1b5415b7252cecf7fd4a7d9d4fe2bb108438b3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dvla-provisional-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/book-theory-test": {
-      "sha256": "79366ff12dc3bb454dc4cdf1cf80b697a658cc551301ecd81e8db1e4ed624e0a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "80454971b04aae834735483f09b53c75c178cd47a60b3fd5fce27e071c8e5a2c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dvsa-theory-test"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/book-driving-test": {
-      "sha256": "83222f6c8bab9535bc8398a528d6d7fd13bfcf4c67e8cbf3dc7e9c085fa9c591",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bd0dd33a68ec403dd6c14e779e3da85b14dacaeba0557ad68db2723bdf6bfd8f",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dvsa-driving-test"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/change-address-driving-licence": {
-      "sha256": "af9655a6cbac05ae50000edb1f95df903a0eee6bc6a4b9900324a4fcb880b3a7",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7c6de1fbada93f34f13f2fb0477b3af42efe4fc00516811c7506488272774a2d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dvla-update-address"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/change-name-driving-licence": {
-      "sha256": "7108e8973fa80cc4e247272b60e4f1a29fac2f81d4ee09cffdfa4fcd921abb57",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "8205417035a5f899d3d726f0de7030e20b1bc16ef1558a8c0cee98cb5bd36c30",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dvla-name-change"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/health-conditions-and-driving": {
-      "sha256": "f2bfb9e26789ed0cf7e7cafd226351192517e415ce752d3d083431bd1050faa9",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "c608e1ab0c54f1b9fdc12e19a3bf292e6f6f27856f6f9761df1d035e8a94b4d4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dvla-notify-condition"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/renew-driving-licence-at-70": {
-      "sha256": "b161083757bacc758492741cecff9e51c998de5e1ceed145941af661c1933b79",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "25a6a79f0b083b6c32157e5276b913c93569dbf09db363db613de08a6d2cda36",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "dvla-renew-at-70"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/vehicle-tax": {
-      "sha256": "90f4ec3ca90462f2a93ccf21a177def79b63c40468b82e474a3f752308a7306e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "40b158b75bdd1e7685d37a6da8e0dd0103c7085070d149cc7fed69b581812867",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dvla-vehicle-tax"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/make-a-sorn": {
-      "sha256": "6b06963c302929c29359015471c3ce8a52ded4aa278d20d6313a488820b56d37",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "308d40bbe5000f66275f3bd9ba629733ee98c64e2a8c1978a319007888fdd885",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dvla-sorn"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/sold-bought-vehicle": {
-      "sha256": "9f6789e499253738f77b625950206555e737b9287437bb061bbeaa9013626105",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3e1f33848cae57747c239847489fb5ec837aa8b2172e9b76af4fa40ba3a1fd4a",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "dvla-vehicle-sale"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/limited-company-formation/register-your-company": {
-      "sha256": "6b218886efe71d9caafd1600d10c98a5ba138c518d2140d4fcb4952f6a0c085b",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "40d5ee74f4a5e29e28754c073017dd36979653869c6c0296839b6c18532bc1dd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ch-register-ltd"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/applying-for-probate": {
-      "sha256": "9da755830ba686441c8df699db04b59e1fcd7f6cf51f5475b051a6ac10d6cfd7",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "4a9ee2b7139dae449f19e3e4a3251c28ecd564c6cd28926248cde1e0a6263463",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-probate"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/divorce": {
-      "sha256": "b1c3b3fcc7d4ca61ed043514f8054cb6d400547f17c762a3b2a15becb1dc7dce",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "45e252be45f117545a42633b46ec795b8c1b0d01d13de282c7b6552bce22e5fe",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmcts-divorce"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/money-property-when-relationship-ends/reaching-an-agreement": {
       "sha256": "881d776ac68f9b5b69b3cb839cc5f9d3859e3d1d486cda0392a6364c7c9ea105",
@@ -566,84 +629,94 @@
       ]
     },
     "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order": {
-      "sha256": "1f2db6a71c6e470cfebe029049b3f6751bbdfa54436efd623c3d56723f71e44d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e52343909a47dc21d0c52276a7ac5568ebc1e0cabd255179afd40fd3be91710c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmcts-child-arrangements"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/legal-aid": {
-      "sha256": "dd03aa5ec8d71cfaf80e7d80389118bf8d9f45f4eb6bf224cb57b71f30e33733",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0a261286794fcdc962ab77eeb004f59c3c4a493a18f2fc1539dba01c383eb9d7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmcts-legal-aid"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/appeal-benefit-decision": {
-      "sha256": "6e67fb328b924ee079b5e9923b49c778c7faa5d80ec29477151552ab58edae61",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "9ef631c9b7c9fd55f86b9a42cb474926d553164b54eb9b1b3283c845bab09cdb",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-benefit-tribunal"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/register-to-vote": {
-      "sha256": "460145492b27db6ffefded6990ec6f0d769973bb8306062c01d0bd08312b128f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "675b4f734b50265051cb159970b713741d75ac3780dd4c5eb0a5f56de66e6a55",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-electoral-roll"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate": {
-      "sha256": "9ff79bce10cf51f1c7bacebf4daa37b602cb559ac27126aa5b10fd7591821390",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "08d87c703b2077b0cf181333afca9e93e1507fda6b7366988b85fa36f9c169c3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-voter-authority-cert"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/council-tax": {
-      "sha256": "7ce40786ec8c9a7691bf26b0085bc39d81a04cdc952fa10f3d919c065926bec4",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "041246ddc15bd42ddc3ec0d2e975ccf75481e5df0fa7f954b3d4e74753c1c4d3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-council-tax"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-council-tax-reduction": {
-      "sha256": "9dd8574c56b300b249079f806fa49974650282beda08aa36e5346741f945442d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "4305377913c8b5c417390db6d704d74e491c91237c685aaba7f3b0e61171580a",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-council-tax-reduction"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-for-elderly-person-bus-pass": {
-      "sha256": "ed172164c658c6b7133d33ec2c1cfe10a9bd69ab9861d154d161d2149fc708ac",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a25c5c51e8acb8cc13fd39bf82d88751b3c3f7ef30f0dca63d7cfd98d031d2ca",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-bus-pass"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-for-primary-school-place": {
-      "sha256": "0e3d072c653abc99e0cb28948e4cf9f1c1f9efd56fb71cc4ecbbea2137a721d8",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "accdbaaf3fceb63213acc0c1c98bec6d36c4f3b7ebfd53f594fe124575245e48",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-school-place"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-free-school-meals": {
-      "sha256": "bc38b292ec46fdaaad3841f487877e9f5b2652845dda8806e4b95232921e6982",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5557f9433b45808c923a04ea5963f639580a3554f604b94e52bbdc42f3b8ddad",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-free-school-meals"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/children-with-special-educational-needs/education-health-care-plans": {
       "sha256": "b47e1cd860625a324f67c155e5794ac9d6b88083b2ec7f0ae15d57a26b669f9a",
@@ -654,28 +727,31 @@
       ]
     },
     "https://www.gov.uk/apply-blue-badge": {
-      "sha256": "747a4f408c5c0cba9f4a652c22e083ac1c3d1470edecfcbbc5fdec28796d3430",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7b173857767d5caf2a3045c4affb9f06d36c25b2c9fae7bfe2d6fd4a387692a7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-blue-badge"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/disabled-facilities-grants": {
-      "sha256": "9cc52514ed7d80bceb7b2335fa85db52f273975ad21b3531ec689643cce04fce",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "cc2e55f0a2f5c383666ed8999fc40cdbdfaf54a0f396e32426f7c74d686e85e7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-disabled-facilities-grant"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/introduction-to-business-rates": {
-      "sha256": "fdca35b83a94747ab3720278e3fcc6faf5c685a115a0fe66770be0ac3cf2c993",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "80d814af38da54169507ba8971eb195776aed9e8a84db3cc18a13064fe3d0430",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "la-business-rates"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/food-business-registration": {
       "sha256": "7b1bb791453d29885dde5cd0f5dcfcda5282a722223f9b315e3a8c81402f51f5",
@@ -686,172 +762,193 @@
       ]
     },
     "https://www.gov.uk/find-licences/food-premises-approval": {
-      "sha256": "fbdacc8109a5650b7b8a9c30d51b8454e31d0e36cbbf8c46555f27be395451f4",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5b4419cb775ef0205cd1d411a7620f82e24b9a00810e1b56d3894fb93b5b64fd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-food-premises-approval"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/house-in-multiple-occupation-licence": {
-      "sha256": "01d0d60fbf7ec9a626e1bc9de8586c406ce6ad04b65951a2f135c43f9a74aa4c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "512518f3791c0e55d8b91086666f023ad1b2f543aee28e30e259423f39184471",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-hmo-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-for-child-performance-licence": {
-      "sha256": "0cee6efb9fecac48159374e52dd1ce7b1bdc1c5aec04c55bdce5eae6a9529d27",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b080adef9007e181ed83ef36ebddd1aae1d5793bd4cf827f4c698b14617ff6d4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-child-performance-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/house-to-house-collection-licence": {
-      "sha256": "73798ef1939c25c99e438ed45395ef30127cf36d3f370e31710028a3bf5eed7f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b97c3e0dc588e86b6c8b6730a951549ab6301456890018d2d933456df4fa7905",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-house-to-house-collection-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/road-occupation-licence-for-building-work": {
-      "sha256": "881b108f06e3b2d0e616491ff0c23ceca0368d8e493753454a8b383d2d9edbf8",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "dafc17d8c8cb404ec6b3528f3e84f1be1cd12bc4a6ad916d9b2c24871ab51616",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-road-occupation-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/scrap-metal-dealer-registration": {
-      "sha256": "fbf28f0ed0c0f7b7a04c0580633ba28e912852bb6aaefa8a02f323d932f49d89",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b5a7db880337440cc2722f3783e502ac9c4be3858ea794c98fbdf46cd2eafc2c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-scrap-metal-dealer-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/apply-skip-permit": {
-      "sha256": "2af897b6bc757b36be96bc2cce6d2ecebcc0d568c2532d5d0864e227861967fa",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "8897ffa69bfa8197f3dabfe5929e7c88236154991eff841cc6ae38d66c060de1",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-skip-permit"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/street-collection-licence": {
-      "sha256": "d9a6b677053738da17bf9d2065a5c1a903872cd78dd2fc23304919e1dceed3ea",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f19b931f27975247f47ebf75cf18996f312c84115e7a41a4f41e4ce9bd4e08ec",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-street-collection-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/street-trading-licence": {
-      "sha256": "e6312dde73b3651c02bc78852618549be3018ff9075f83f93a9b43996bc6807d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1d4b49ce8fc4d05797b229f707014a8c610f2f9ee2092851c99169968e8f7293",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-street-trading-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/temporary-events-notice": {
-      "sha256": "f94c6ced509b9ac22ce595865e0552af4bee7b98c010bb3b8472fc1bc233df35",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "cd3b975477caf9b63de4449274a69007d704d950e8dc3cdb4fd7c9c6b8ff654b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-temporary-events-notice"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/showing-films-in-public": {
-      "sha256": "ef3ca4f21d108c46e89cd4029f72fe99bba5d37f3a0a479516d95497a065ad43",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "50576f2908f5c74e2ec817c92da90023285193533582e7042c6f96ce61fc1466",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-public-film-screening"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/register-renew-waste-carrier-broker-dealer-england": {
-      "sha256": "9d757262fe3f732544829c6403556de823f633db9f602a49ef6cb9f625bbd45a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "cbb90eaf40093fc0a5272021a39a824fdb1710d28269aeab7b47bec0f41f7d17",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ea-waste-carrier-registration"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/settled-status-eu-citizens-families": {
-      "sha256": "f1f218830e439c1c0469a3d857b44fae6e9a158044a20763af5148257041e430",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "cbb26a6611097b3b97df583704e281c801819b3fc108928534cadce764a73b65",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-eu-settled-status"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/biometric-residence-permits": {
-      "sha256": "7fbc25ff86ee84842d9c85d374f7685bffff8980bdc2d560fdc300bfcc8b5227",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "40dcc55f206b47a6751e83ceb3c0ee5e371d588cc0a56285da10e5ad4e2a0c93",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-brp"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/life-in-the-uk-test": {
-      "sha256": "dfc38d0addd6a2b7e84d62123734e281201e3a904f0eeebbc18fcf9561f1ecdd",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "10bb26e0ee192187de6a0d20bc0e7532e53ab0fce0c00cdfcdd529716a149a5f",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-life-in-uk"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/indefinite-leave-to-remain": {
-      "sha256": "6cc4875ea679418edc082561aa7218dcd53cdf1d4c028fdecbd89ca4228a1c6e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "82122aec48c3581bda5734c561034c7e2b796d658c4c9cd17ec6da737407657d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-ilr"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain": {
-      "sha256": "784c03dab499a204b20e9ba8058c88974bb08a6cdb85db0f848ef0be3fe93700",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "efa73834e54352b58055dadbf07977a1a8848c1c24e75d016d4e8082a1f06738",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-citizenship"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-citizenship-spouse": {
-      "sha256": "c5e9a52af97de8a25cd00ea34892e57be98ca549def3c4cede95b92ba9ffcdcc",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "9d7b5a0a7c175d55281069101a14a84dc79ca6c5136a926789cd3ce698f193f5",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-citizenship-spouse"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/citizenship-ceremonies": {
-      "sha256": "7507443c0463bd4638f20fc97caf0fa93500ddadf45afc660957ad85a616f601",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "27f65dff42ae6b19e455e35b8a885eab09267fc53ff4c2f0c9f38aca782ef02d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-citizenship-ceremony"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors": {
-      "sha256": "1f681d6fc2bd33002e30c4a4b67618b8b3c668f63c8bec6884aac5d4399985bb",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5cadb51056dbe91e0efef688a3290fa439e7f9a770b6e1ed76c7c6d5af5e696b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-drug-precursor-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/power-of-attorney": {
-      "sha256": "99844fc69936d7de5ed75948871511d24b70c7a519541fd5928f5be52c81ca6d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b1f3104342e2319ea78e766920cc25e01d35c14e526aa9a1c93e674e64724a64",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "opg-lpa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/power-of-attorney/end-a-poa": {
       "sha256": "99844fc69936d7de5ed75948871511d24b70c7a519541fd5928f5be52c81ca6d",
@@ -862,20 +959,22 @@
       ]
     },
     "https://www.gov.uk/registering-land-or-property-with-land-registry": {
-      "sha256": "8099f427a3c07a86985988e5e5ac927cebbcfa787376736c191058c9eee8460c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "58ae510077595476a87f18b04419d582b5858c917d9a2b95239021c208a18cfd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "lr-registration"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/renew-adult-passport": {
-      "sha256": "1847b48c72ec10e3a08c81c15ec395bc1e668cc75fe611b43005ee33594292fb",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1bf1ddea784ad39759fd8f94b43387a6e245b13106ffe15c6c88ac3641965b85",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "other-passport-name"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence": {
       "sha256": "f3871d86f05da51a8f3fc461cb769371d10cb0b9769a9548cd759123d4db6090",
@@ -886,12 +985,13 @@
       ]
     },
     "https://www.motability.co.uk/": {
-      "sha256": "674ab14331f02819191e67b4d23d710e7632cb90ed6aeee1960767dcccc2d679",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0dce25f66d317c65648948ee5c961a657294c89c50d3eb54654c1205feee73ee",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "other-motability"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.disabledpersons-railcard.co.uk/": {
       "sha256": "2f925e451560bf44bd071dc03b485c2429f3379fc36bab6290bb5a75da6cb2f8",
@@ -902,36 +1002,40 @@
       ]
     },
     "https://www.gov.uk/employers-liability-insurance": {
-      "sha256": "2fc991061b24d35dda6fb1455e357070078bd1c74f4adb1fbe2602275e2f713f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "44a7dfae3147676f45b573b8c7cb2bad7075ed712452150ced2f13e7be5bb185",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "other-employers-liability"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/dbs-check-applicant-criminal-record": {
-      "sha256": "d72923b493031d5245bcf50f975de2067797f0f7c157955d467f621ba825bff1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ade8afc29a44e557b9e6b8bc71687912d600091c9ed96f80a3a96d03f4ad76b1",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "other-dbs"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/check-job-applicant-right-to-work": {
-      "sha256": "57c914eef37e41f1ae94c39576a76d75a3126f12f3dee19c77f972caf6eafe73",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "14688792d9da6974c3e48f6e0e974627815143fb666d78202153c93602f462b0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "other-right-to-work"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/government/publications/pupil-premium": {
-      "sha256": "ebc89acf6bb286434fb844f7843220cc6c67340cc86d700866e19f4bdd74d518",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "52e05a9670ef1083f70361638c2c3abf69829407aa02dce899746616a2e61bfd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "other-pupil-premium"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/redundancy-payments-helpline": {
       "sha256": "de6de8092d9fc0049b78d0b7f52ec9ef7f51c3709fee4c0d67a5db8c4240a5a5",
@@ -942,76 +1046,85 @@
       ]
     },
     "https://www.gov.uk/carers-leave": {
-      "sha256": "1371e32ae738ecffef47ac995be6f7a13426d6cf7ed54a92dad394c19797a0bf",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "53c3236d2823143a105660117b2691dd647706f20e5027a91a221c6cc10cc178",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "other-carers-leave"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/first-homes-scheme": {
-      "sha256": "f8ee3fb81db7699be96c08f8a06c4fe695b7976fc64779d31034252c8b3fa1d9",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "dde5139a6924612cc356d8fbab0c417084e7e8897cdc5e0d87f2d80aaf17ee15",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "other-help-to-buy"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/workplace-pensions-employers": {
-      "sha256": "4cf069981283beb44f7a159da2f92c6993f119ee39a9a912f639875be3647faf",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "48e8373d7fdc8a747103037c67b61d442c5cd124631d17a2bf55155d5efb7d5e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "tpr-workplace-pension"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/student-finance": {
-      "sha256": "b7747a466274cc65158ce4be43719faec32373a18592aadf10d20b9d919726fe",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e10a5f0179671f346629b5b9b13630f2f24cdae6225277f105f337cb18c85c49",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "slc-student-finance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/housing-benefit": {
-      "sha256": "8c355172e8a99e6353ef0ed2c349e7d9452d5f4e4f6b508f9f75b4a8ff03fdc7",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "77a4a372cacc80f66271190c8d36f226cd9a679a495bc8c51b74d27659093ef1",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-housing-benefit"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/the-warm-home-discount-scheme": {
-      "sha256": "6bf9350826e73366b7659e782eff91b50d1515ad9267440f5919c8a9914816a3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f9a7b6e702b079cfc9f183fc5aa06a7c56cf313ba1d049820312e56245256349",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "other-warm-home-discount"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/scottish-child-payment": {
-      "sha256": "3723a361df2e674292b8fc4bade01c357b5736765d33a88058548a2ed0754ca6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "de0c5f99e4e5d0be7f927702ecdd20cef33336059d56a8404a569ce4dfa8454a",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-scottish-child-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/carer-support-payment": {
-      "sha256": "ffeba83c5b0ec68f75047cdb86e1a5f9ed3ab1f56392874b689bf8bd620970c1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a860ac0c84fb521134e7872a161d057f19c416b93bdee707804157508e058cdd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-carer-support-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/carers-allowance-supplement": {
-      "sha256": "9c4f7e7cffd356c0155e5cdd1b7bb3cd0eda6def83dcafb3eb79ab9f3e1e3430",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "17f7552d342619fc8c65aba565e17b57efaae52b531c79c6ace1c263087df8d0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-carers-allowance-supplement"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/child-winter-heating-assistance": {
       "sha256": "90da5cabcaa59d823624e044656a067916db46132ac595f085e3821633a9b0a3",
@@ -1022,44 +1135,49 @@
       ]
     },
     "https://www.mygov.scot/pension-age-winter-heating-payment": {
-      "sha256": "aa00bcacad6f3f39578765bea3e705a6645769849236e9e5c264fda68dd4559a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "410ee51841e28ed4518e987b8ea6f884550561b28995855b6cc5ba52154ac78e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-pension-winter-heating"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/funeral-support-payment": {
-      "sha256": "98ac45c5ba47cc0a7a1e3b2e2146b0bb9233bb7258d153788f29ec838fc94632",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0f94570d4e2d9dd43cf32bba666cc7719c2f09996db7948f5c503d377c20a375",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-funeral-support-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nidirect.gov.uk/articles/discretionary-support": {
-      "sha256": "2de8e168621c3378386ffbd9d7278e01baf2ba9d81f957c9b93336d27be50b60",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ae7a31e1ec8fb6b9620317adcbd2ed205327cab9425b4e87b5b05fbce837a706",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ni-discretionary-support"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/disability-living-allowance-children": {
-      "sha256": "1425e116f0eb45d505e1f142ca648382f1785675918b19a00e799e13b0d22eea",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bf061393d574dfdbb2121894f9d8ba4744428d5dd367d39947bed43d3da3d3ba",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-dla-child"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/council-tax/discounts-for-disabled-people": {
-      "sha256": "9f532128072a8b862ab0eb86f2d495892bcfbd72f35fc546dd1ca9e2e6d11f1a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "041246ddc15bd42ddc3ec0d2e975ccf75481e5df0fa7f954b3d4e74753c1c4d3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-council-tax-disability-reduction"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhs.uk/nhs-services/dentists/dental-costs/get-help-with-dental-costs/": {
       "sha256": "270f5ded851d86add639582d60b8cf34326ed7d450db1baecf56a9986ff402e3",
@@ -1070,44 +1188,49 @@
       ]
     },
     "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/": {
-      "sha256": "864b4b226b9e27aa0a0b856f1f63336996ec28f281ebcbd5e89ce49de4faecff",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5735156cb82ce48b0d2e8ffbcab1f4204a87be3cd500ece30eb4833118049bf5",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "nhs-free-sight-tests"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/support-for-mortgage-interest": {
-      "sha256": "10191ad5ac8fc0d409557e7ce5c4afab51ae86ce664a27544beecda301bc864c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b0855938d22b2f5df8c826af8979dbd11ff1df6d97d27bbc6f2b18797c4f8fe6",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-smi"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/cold-weather-payment": {
-      "sha256": "2a89edc96b54076842097a9712dd430bb352e49efdfef5709e3bdb05c7ff433a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e55f429c23237d515c46fff80411492bfc266fd1b6afa3b8f77fe2304a330f58",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dwp-cold-weather-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/financial-help-disabled/vehicles-and-transport": {
-      "sha256": "7f389b5c852b4e05caeb0c07c9446685b1e384bf61bb5af9e22ee69a8883f94e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5352884b5cd99486f940f8c8650ab2eb4415b20e75d05a7fd1e6d03a22c229b9",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dvla-ved-exemption"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-help-with-court-fees": {
-      "sha256": "e1f66b33eb6ef9df2d782214aada98f9334e1c09b7714f98cc37b4ebeac27b0d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f623d7a5fd465782efa60fe91007a832a611e74c0e9c67f98ec1549686c556a3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-court-fee-remission"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds": {
       "sha256": "1cdd977d308fb4e676dae7f12b5dbae1b6bb0c58ff7bdbdc36b9cbe8f69bc432",
@@ -1118,101 +1241,113 @@
       ]
     },
     "https://www.gov.uk/childcare-grant": {
-      "sha256": "9c9679cd9abf7681b6a830828896f486581b2e8fdc8f9332db7bc2fab96ca34e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "276977013a861896994b34d0bfb1c4290b30b7780a7ee3b3b180e3995502f509",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "slc-childcare-grant"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/best-start-grant-best-start-foods": {
-      "sha256": "4022a792ff9847cb06e2f107596619e51b52ee80ca57a4b8abdca11f605fb60e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1e8ea4ee0f521bc45ec6187bcaddda2426d8d211599e3cd8ddc9065cd1346c7d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "sss-best-start-grant",
         "sss-best-start-foods"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/adult-disability-payment": {
-      "sha256": "6353cb132ad9aeb909e62aaf727294ee22b968d984131e03531b3c514f1ec476",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "22c3a7b20244fd8f78af5e9d1f4efe115d377c93ead414d174f3b287e1bd3e8b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-adult-disability-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/child-disability-payment": {
-      "sha256": "4a923affd49cf47c9deb8bada9fec6cd04c34f4191f3a34c85d24f91080aed90",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f8f41fd08528a071ca2fdd6fe42eaa91d1a055a54d330e26407c88efbbae7762",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "sss-child-disability-payment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/young-carer-grant": {
-      "sha256": "41bc35cdf8044bb7fa93b950bd3e618c109a3ceef7a3d1aca3a60a2816660dc0",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "65ff3958c6494e9b012a96c0f4ab3ac5ee5a08b426c58e728b12212410b5732b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "sss-young-carer-grant"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/repaying-your-student-loan": {
-      "sha256": "a8f3bbf7c5a628743c907434d6250e9b54fdfaf980ca06ace2aa110d276be56b",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "11d39ba2f38339a4b76c24669ee535c0b94a2c91f709d1b0cbe760497bedaea4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "slc-loan-repayment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-renew-passport": {
-      "sha256": "c77b0f81f17284f042de5f41b8fd2e720c831ef2161a55717de2d950f6fa4c88",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f6b374aa0c99570ffed0ffa29870692315f8f75af9ce38a01e72b3656220b62b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmpo-passport"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-a-passport-urgently": {
-      "sha256": "c74cee25368c0bdc194014956ede4dcb84a55a80ac1e9ceba74dbf66ddb3fa1c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a756ae933ef98206812e6a786c8eeb382c1ab671cffbcf725b2f63f4860ad89f",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmpo-passport-urgent"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/report-a-lost-or-stolen-passport": {
-      "sha256": "533544aeb2ecd0dccee9db27d10d648500c409711c6a3bb6986755fc32ea6b0a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "2749141162795e98cf737aa2c05587c62f7abc1e9aa8f2b7c375b28ffbc8912e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmpo-lost-stolen-passport"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/emergency-travel-document": {
-      "sha256": "8f4c60afc7c4da64a0b8bda85c45b50366b9416deb85c868bd4afe0835146385",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f252f328aa3e3b31539c399fb68f1d911829ac307f80cb5d5c55e3acc6874552",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "fco-emergency-travel-doc"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-document-legalised": {
-      "sha256": "cb5e5ea8a7081677a5de10678c9b5df420baac880bb775a0b2a70a41087a32d5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "cb41ad8e50ec38160598c016a2a299d92b8d921030f5bda9ee812fb1f2c862f8",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "fco-document-legalisation"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-help-savings-low-income": {
-      "sha256": "2ad39ea834bfb87566abcb4c6233cdb2e01ed9dc20740b62d6941f0970f61fe6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0459d830be7de5ef72eb3461db72cc640df4a31b88b6f44a291f695919af98af",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-help-to-save"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/budgeting-help-benefits/budgeting-loans": {
       "sha256": "42f530ef65cfaa13932d2116778be6f22bcbf98eea89dd69ee302c68a1e6399c",
@@ -1231,229 +1366,257 @@
       ]
     },
     "https://www.gov.uk/claim-compensation-criminal-injury": {
-      "sha256": "e17165d40f6f2e052c977bf9c5f49124e231028c1fde59efa79c81911e8fc139",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "c22b01d9cca9aa36d2747c76ebe839ad4e904cfba40bea09454496089f80ff37",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "cica-compensation"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-pension-contact-details": {
-      "sha256": "979f137ecc3725c15ea9f86f5b9f835a229a3cc74c7d8e76fc3d93738f3d905d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1533a09be531bbe451bf3250e2808f98a9f3d81a5a01e6cc3f535af28fa2ee89",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-pension-tracing"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/send-fit-note": {
-      "sha256": "1e355783e8c4502ded85ed4d603493e7176df52c46e29ae4a69eefa20f933bcc",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "75c6ee51a268b1dc8ef0027b7d0c3072142047aaa7b674523625aa18b1810c17",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "nhs-fit-note"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-a-ppc": {
-      "sha256": "519b052badee46ec08db60d8316a250188b594cbc7a924fad1587c38bb942c8a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "8a515a36d4f24b1ff87e1a34b76747626d5cb758ee437e2ba540d642a21f9ff6",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "nhs-ppc"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/employment-tribunals": {
-      "sha256": "bc814e1a5f3cf9c99c1555e816de357b135eb1fe8d899ab35ae4c37997696361",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b7421a39b739545133d159d10560e91d88c3fd63796bfd8fdaae86fc1e7bd792",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-employment-tribunal"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-a-job": {
-      "sha256": "3a92c6dedea579801f1848b6968d6505bb16fd0a5fd78155bb214315244f1119",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d7b43b5e17c79b413dafc3af58b2b7ea796d44f282a302eba1696b59f872fea7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dwp-find-a-job"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-for-bankruptcy": {
-      "sha256": "ece8d2d58ad1607dc09232116599b5168334f42ad3cd9ee4b56efb56d5f39b6b",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3f6d6f092d011fcadea384f22381ce8ae506de91830c9baa3a7309df6932a260",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "insolvency-bankruptcy"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space": {
-      "sha256": "3897721a0fb7ef41380b7de216f5c319c2ac36746f048a8a916103661082a124",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5c5f3208723d7e443333bb88e6b3e23e93c2ccaa82243fe0347999bc735862ab",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "insolvency-breathing-space"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders": {
-      "sha256": "3a50a19c8b2fcdcd78a7ddb58dbc9efffb3b3932c38a8c73095b05090c59b7f1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5c5f3208723d7e443333bb88e6b3e23e93c2ccaa82243fe0347999bc735862ab",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "insolvency-dro"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/make-court-claim-for-money": {
-      "sha256": "10571d0cec3745b5e60450e4509d6563cde771eaaa836ebb8af313ea35824251",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bbea4ca447b7ee3cceb13ac2377acd0b1a713e5e7bc3d2afa74873f059a519b2",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-money-claims"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/pay-court-fine-online": {
-      "sha256": "4eb68b8e06a5ffdbe9d7eacbea277887c4acb248cdaa107b5c6def42ce519477",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "69591d51adec881e514bb4145892fc6f6e6ad8090eddae36b6fc90c50ed32655",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-court-fines"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tax-tribunal": {
-      "sha256": "04d2661529c64de0d3a04ec461dff5d95a96e1af0f86223a2052dbfda5195de9",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "609c92cb450ca4e8e98a6833e3e8ebeb3afeb1085af763bd30d01a78c178ab5b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-tax-tribunal"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/immigration-asylum-tribunal": {
-      "sha256": "542c3dd5e2a52d5a1da295d2f78db1d14aeddb1ff5421e34b80d8a91236a3539",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "235bc6e4582247406487aeffc1c6dbcbd9cf1852f0875ccb78aee6d998994a26",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-immigration-tribunal",
         "ho-immigration-appeal"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/appeal-planning-decision": {
-      "sha256": "38d2f7e18b8633e7f844d09ed1297ed4f582a3f9eda9c6c33c86da579f4667aa",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6bf25d9dc916a19e5f10e6e2a7d7aa4b228a8869c848554b6f40d152d2462ffe",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "pins-planning-appeal"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-unclaimed-court-money": {
-      "sha256": "91c1bac0d1600fc3a4b1071298fd5039866e83c08efb923abaa8fbf24be47df5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "2c6372a9fa17d551013f8486c594f5fcb46216f71ef2e619768aa9f943331380",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-unclaimed-court-money"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/jury-service": {
-      "sha256": "4d127b7e6fefb5c97ee7aabbc925df193269376f515356bf817834307dbaf123",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "4fca401558f06e4ef4734afdd804d865dcd212b12432a6fa8000461c467750f9",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmcts-jury-summons"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/prison-visits": {
-      "sha256": "70e8e7377fef684dca75dcbcd39fbe9d883379a6914bcb2607930e70864b1d2e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "805509fd0276ffcbbcd5e5ee1fc4f638528074c62d8adf3c2c572f930844fd9c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmpps-prison-visits"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/search-property-information-land-registry": {
-      "sha256": "582dfe06095e025543a35447c24376055bb7be230a4879c72274484be06c7f18",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bec2c6717c1d3a362bd93c4fb53397b782d186b2c145e69a4db774a2c78d85a5",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "lr-property-search"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/find-energy-certificate": {
-      "sha256": "698c966fb0761538c7e5e168e036d30feeb94696d253dc5b4f4268d8ed0ed8c9",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "dba29bf0065bfd60fa9d5de9d749ee2e5dabdde8ee799b941e28d57a9acdd6ca",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "mhclg-epc"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/search-local-land-charges": {
-      "sha256": "da310cd1294a37e6d5324763499f154af1398b9bf842a9a7f41afab8f458cfae",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b15247ad080217cca06806e2d122debe8ab267998430b98f911c45ea585d7685",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "llc-local-land-charges"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/check-long-term-flood-risk": {
-      "sha256": "bd5a4ea44bde3a7813ea805ab90725d138f61ce990b7c8ff7dad480fb324674f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "0f7d91963587084e81d80a873494c3eaf9f6490fcdb7b2a0c91613a12d41bea0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ea-flood-risk"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/council-tax-bands": {
-      "sha256": "bd4b154f0a4888a27d22469b1f6e154ded2a713f78ce646d10b1cd4336eda5cf",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a295584eb67600d927e40bcba5206688d86d933bbfa02ad50ea9e5af32dc47ff",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "voa-council-tax-band"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/correct-your-business-rates": {
-      "sha256": "0863ba2a61c62387b8929a196c15d2c5bcfd416d34ac90589be4536a98152276",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6b6d68127328dbcafd0167b9b6016ef32a082a04a1535719e8fdc2713845b387",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "voa-business-rates"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-access-evisa": {
-      "sha256": "9e7a89fa63e5ac8b9b73cad8ac805da0f044eab8bf495375ad521fbf729480b5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3de8775c8925822bae0fb272d10281145a14776cbe18a2b514c7112c3f3827cb",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-evisa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/view-prove-immigration-status": {
-      "sha256": "cbc90f2459a527aa134a1c88e58866281ea3ce53a1ccfc0af25e7eb1984adbdd",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b922f228315b3239962acc178afa72d76a5dace3342f2e8d0c93fa5ab0bff53c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-view-immigration-status"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/skilled-worker-visa": {
-      "sha256": "c418709cc2552b2b3c510d62cc3b2bddb2e0a2e4245e368c23563610ed19f9ed",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "016b6403214acb8d785f51bd8a6472a95d8f625a5daeb9cdb1894e2676b243bb",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "ho-skilled-worker-visa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/skilled-worker-visa/your-partner-and-children": {
-      "sha256": "0319890ade038fc90f60a446108586f81cdd79b9bb65bce2ff70512a4dcecdd8",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "016b6403214acb8d785f51bd8a6472a95d8f625a5daeb9cdb1894e2676b243bb",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-skilled-worker-dependent-visa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/student-visa": {
-      "sha256": "0a4b51d3ee60a6a45257cf4b7e2b28dc93c0cab2609847c90aa561278baf0095",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7951a1230abe6864a0f797329a1e1549aeb17baadcb6d2580c6e5484f1a21d21",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-student-visa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/immigration-asylum-tribunal/fee-waiver": {
       "sha256": "542c3dd5e2a52d5a1da295d2f78db1d14aeddb1ff5421e34b80d8a91236a3539",
@@ -1464,532 +1627,679 @@
       ]
     },
     "https://www.gov.uk/contact-ukvi-inside-outside-uk": {
-      "sha256": "541c66456a55fb8fcdc36ba5a0ac868b522ecb59d28a96073f06cf42c1b906cc",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bfd9c439bc426896b742d4fffe560871b3ba9ba8933f298be33c0561146e7454",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-euss-enquiry"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/get-vehicle-information-from-dvla": {
-      "sha256": "884ac13059d45da19f181376b32dc19a883a030f9895c4de73abffbbb09bbf9c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "fe622db52783941d9443660a0adf1c014742334560bea7398e33797460bd7a4d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dvla-vehicle-enquiry"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/check-mot-history": {
-      "sha256": "2a62b2c60e2d10a848567d3be84420992e136c5ef398ec4dec470bd00dba55c4",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "684f223067bb3cfc49e9a705319669f6340014df4a7f1c54b18776adbe74acaa",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "dvsa-mot-history"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/change-address-v5c": {
-      "sha256": "9ed1aa5eb628e4807e46eecb46c26f9e8bccfd00d78c4b772d7921b080c0df25",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "9060b32c5eb5eda769ee4734db7a69609a5ff1db42238c5f74e0311883736b90",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dvla-change-address-v5c"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/clean-air-zones": {
-      "sha256": "39d690526101f8785e7a4d68621b07299237de7c26a89e58023011a78ae40ab2",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ecc0b08da033e30de0f8abecc68918e9e15e56802e6c860597e026218c36ab9b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "jaqu-clean-air-zone"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/view-driving-licence": {
-      "sha256": "6c2e482b7095b8b1f9fa27322eef7b95435d5cc8ca413344d4a2da2c3cdfd51b",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1e37c0fadebe264a9c4f7c54bf5da6711b68ec76e0fe6a07dd5f18702668b354",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dvla-check-driving-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/file-your-company-annual-accounts": {
-      "sha256": "9e1acaf09548bc48fee71e4ff6f063862b876fedba4981470def9f9cb73ac8ab",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7c3c7f4453bad87313c09cd7445dfd0d06983fd02dc12a2c840648f43592cdf1",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "ch-file-accounts"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/closing-a-limited-company": {
-      "sha256": "91ea583125e4ec2ab58db282723622a16b965cfb3ae43891b8ec8f175b873c17",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "115461a190fe2203c572000ed75bb2ed6b275f48866ce7243626691a37370a90",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ch-close-company"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/eori": {
-      "sha256": "448bafb3d379cd7a4bf2301b3c452f91b955d646dea1dab799d6c003c3a97714",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d8f84bd02a93675af0b0a3f0bab18f3e85cc4f4228895d070e0b42f5d7d69574",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmrc-eori"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/business-finance-support": {
-      "sha256": "4d755121a7c1d93e7543bc872d7263a656648136862152bc40d13ac80ccab2b1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "04219973e7fc235039526e0e13f2e35053137f543db6e8aeae36feb3f94ab6cf",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "ukri-find-grants"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/contracts-finder": {
-      "sha256": "e6271884c8e6921c9ed08710d4f0f553b0fc0003298d92a8b899f23f2f21c7d6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d7f008f0dcefd19e7081bf333335efd3272c8630a2ca00e71e8394588b88b42c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "co-contracts-finder"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-postal-vote": {
-      "sha256": "483e4d364db8e8a5baa6b7851d73f94f6b33c7448a89160e96161f8036521e36",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5526f39a49f8a92a3bd7f409b9672a3a4e67b977da6c78236ff89b32dab2a528",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-postal-vote"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-proxy-vote": {
-      "sha256": "ef66106d2dcae79dae0b7820b74055115fbf6087a25b79eb0a3d5369e64ba0dc",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ed377b8b72468f273c0ba18c74bdb17633de9bca5c7696d8355fdcb13347321d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "la-proxy-vote"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-gender-recognition-certificate": {
-      "sha256": "fee8d6c6c5c7ec0ae34b2c3c33d1f37e085a49288e8fb0b4520fa504c9c30d97",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f89667dff1634ac77afb7878fe8ee9e096717bcdb9285a1a740940864038a4c3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "hmcts-gender-recognition"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/request-baby-loss-certificate": {
-      "sha256": "205a47264fec820a2ba9aa9a6361ea8242ab9fa454993cc46f5019e3b9e7f879",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "369b29869b94980288a223ada3c24dbea4354f894f7c82e559bc4bd8b1d52228",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dhsc-baby-loss-certificate"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/request-copy-criminal-record": {
-      "sha256": "6b6e19be27c1194cb0e577516d7ab54408f644a353db6220575890530f42aa7b",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3870916df7f5c3bebef7639e44c38c15d7eb51c4cadebfe3b7005ef6ac9402e5",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dbs-basic-check"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/honours": {
-      "sha256": "63b3edeb320295c09c2e3336ce7a47f0ab5f38c82b7877021298754b659bfdbc",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "347e121793a7646ef4faed08164b251ed0c771c6240333e14d849113ade17b8c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "cabinetoffice-uk-honours"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/care-to-learn": {
-      "sha256": "3a40866cf48ea09fa8c36bb6007696f815d648e3776eb1776ca1c0bbef805be4",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b88ce696a1129b6dca4dafba4c216b77db72bfa7d29dd2db96d83011d7937880",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dfe-care-to-learn"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-apprenticeship": {
-      "sha256": "261417a2648c3025074d78a3b29cafa5d54a781156e01d8ff0e6d16afbd986e3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d16ef9cd2b30c477b3f49f0a65dcfa9d68be900ea456a63d9959b71c9799505a",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dfe-find-apprenticeship"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-for-teacher-training": {
-      "sha256": "bda024b227d9935d716d45387e26324fce5b50b713353a538fd2f24a8f3d856a",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e264d4225a9dc858008496886fe67d4db6cc3dfaa47d12976d8aeea8f56c98cc",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "dfe-apply-teacher-training"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://reports.ofsted.gov.uk": {
-      "sha256": "9f037616f29478c807bc12e43eb9449facdcb165f1797e9ae914474978a4b59f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "65784a8a164f02198f9678a967af39cda2c268b546b1c41195ad935ae73bb8bb",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ofsted-find-inspection-report"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://reports.ofsted.gov.uk/childcare": {
-      "sha256": "cee328b545041c2bda44fe53449cc65ff5e34f117b8bdafe8082a17a364a5f6f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7d5b4d70513faf95e594c5ea13b8f502efeddc694025d1705e46157cb41ae01c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ofsted-check-registered-childcare"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/become-childminder-nanny/register-childminder": {
-      "sha256": "95d504360845d7a19c010e62210cb42f84c2c7b77a9cae2ee3494a3dbb54ff7d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1d55b50b94beb3060ad331ecc605eb1f75b3c07b206dcf9b8052ac8d51bbeaae",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ofsted-register-childminder"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/renew-driving-licence": {
-      "sha256": "4bfc7c920c1ad36f2d8fabf87a56c9df3bc89f274813349be5a39492af6eee44",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d280afe56508d1625d7f837f1815addff1ac39e733e93e746a3a3ccfc53a2627",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "dvla-renew-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/sign-up-for-flood-warnings": {
-      "sha256": "bcef845a50b31431e59ac2d337053a98144e14886eeef891b97ff8705cbc14e6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "abdff51d9fd0810ac17a238a3f23b9cdc1a43d42301169688f489d328d1a6962",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ea-flood-warnings"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://111.nhs.uk": {
       "sha256": "84a85578f44fb098e3a5b3ddfcc3f80760e344394ea42e4ac884ddde4d7f92a5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "nhs-111-online"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/complete-deputy-report": {
-      "sha256": "761165c89c62bd76729322e3d17a2a845b7ee209333afd6ea2787567dca59485",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "c5a02d6e4ed68a9262edeec1077dd8ce76e2b6480d564701146f3b0ac41992ff",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "opg-deputy-report"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/fishing-licences/buy-a-fishing-licence": {
-      "sha256": "3dfeb3066f13dcf41e64841c4e6e2fb30f44062113cc904ae1e744186437fe83",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5a5dc146d3ca385881834f8b87e1cd72b652ccaacf03bfec4ca9a62705937bbb",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ea-fishing-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/report-error-evisa": {
-      "sha256": "9691ae86e428d3be41682a2f63e5aa82bd8f3091dc1da79d5c384a56bc7b7427",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7fd8bef34ef38c39b26f834d4d660cf2a679a5588aff49cfbdc1fc7daf69c226",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-08-10T08:32:05.456Z",
       "serviceIds": [
         "ho-evisa-error"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds": {
-      "sha256": "21ce7252e493766c752f70fc7182a2f337d13c43bbf48c011c5b6a99ce932692",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7cf39e227ff2ebd72a4d455989cbd5af094daf559b22e0f58b7dcf671ad26389",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmrc-free-childcare-15"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/free-childcare-if-working": {
-      "sha256": "088b28b1e6a0b0a0e41178810d2d5c6b17af1661da4dc5891fa6b206beb30bc6",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "49c263dcff73401b388b5895ab070ce8ad997b610acadef34aa8fd94ef8f5ccc",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "hmrc-free-childcare-30"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates": {
-      "sha256": "86c94521afaeffe9a5fee6f8121981f11ad3c6066708791129e3ccc5793bb6a8",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "fe2faffa7b4a1b8b89920ac2d817a929414b64b3b25ec878fe03e80f5d6e232e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "nhs-maternity-exemption"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme": {
-      "sha256": "c8418b2b559e456f7010c7d40c330022acfcdb5657eac2f8ebb45beedbebdb5f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ca34c3312e21b5f5296aced3354e6762ca7c75415614b3e93749e69a408c1307",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "nhs-low-income-scheme"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs": {
-      "sha256": "783da5af43c1eaf1c95406346b57cd927f1abee226d08a559f6b5c5e6df41573",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "4247ce4e9ff954892f2793c4f148628eb72bd6c9e9544a55c53931455f629e4b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "wg-winter-fuel-support"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nidirect.gov.uk/articles/applying-rate-rebate": {
-      "sha256": "18cae4379b872a15125fbcfb15ec6dd86e03bc80d884096fa08fb1698e4d9442",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "da5b002eb68828cef8fc0fcbcd7f1b776c1ed5fb6ddbaa29e986feebbaa52a89",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "ni-rate-rebate"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/": {
-      "sha256": "cfb9f49dc6f8667ddd7327f8dd9737fb8e5eeba0d2f16e620110ad59a41dee5d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6c141b82f048f2161466e3270176694825ac003414376a81a4e10c7f45aa4eea",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "nhs-free-dental"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support": {
-      "sha256": "cf5a563c8930c27916bf03e9db8316eba4d808bc37bd69819e1300c213da1182",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "7cf39e227ff2ebd72a4d455989cbd5af094daf559b22e0f58b7dcf671ad26389",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "la-free-childcare-2yr"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.wales/discretionary-assistance-fund-daf": {
-      "sha256": "66d0aba8038261af13001c8e70e906faa5f01ab3a24cc9ef5a23fafc86f4257d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "3e78060206827f6ae058ec2506c686be357af14bcca6877951270e51f3b86ff0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "wg-discretionary-assistance"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/budgeting-help-benefits": {
-      "sha256": "42f530ef65cfaa13932d2116778be6f22bcbf98eea89dd69ee302c68a1e6399c",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6b9c83d9ad642ebd43752cd5e70c3321303f07bd30c1958ccdc2034fa48c7027",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dwp-budgeting-loan"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/benefit-overpayments": {
-      "sha256": "eaf8639459b720e9eac759f8832354a353600ea72de86525d9425904f2ec42d1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "bd64bf05d763779cf2f920780f3aedf0a12853760ca8b581d6672705335f9ef7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-25T13:29:53.289Z",
       "serviceIds": [
         "dwp-benefit-debt-repayment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working": {
-      "sha256": "7f36c8d5c2b1b730c1614215bfa910c4ecfb0a396e5e129a589b5ed029c6b07e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "6d69f83b23eee32957aa48433d5f5ab6687517f6cdbf60de0b2ef4b24f627a2d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "hmrc-tax-refund"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading": {
-      "sha256": "5ce3980a51c0af46a6a0dc3f5532f04d1db8d9f81c152a51232bd4b91dcafac5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "1d3be73646583cc80cf1636708ff9b38de0d3525672311d579336f183c02b92c",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "hmrc-corporation-tax"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/government/collections/making-tax-digital-for-vat": {
-      "sha256": "f16426acd9a52981bd4231b7dcc528c75549a8169f177226b355727f332b5b3d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "80c551de4b19e6474dd8b98830ebfe3014ce6c99355c8a3999c7505dd649e39e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "hmrc-mtd"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form": {
-      "sha256": "2e6ca527d2f757f6cf8bfae57499c5f02c68349d79365edd4a2ada484fdef55f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "38b35967060ee82eb45014b183c77e563b2efc825e97d6eb21eac66b65e12f4b",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "dwp-sr1-form"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care": {
-      "sha256": "82b84bc9b89ad35b0d0902f662c92dedb8195bc3a5913908d8eba66644f160f3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "d9c0d89b012d709476d5b1819b27fe57a78b31b2d0aebe9d8de857fca30cfc50",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "nhs-continuing-healthcare"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/": {
-      "sha256": "3de91f5c0d2a00bea3b985b066fa7a431420411d5ca1fd2a6785f442a870dcb3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "23b2185a97349030bc628ebf38f85d42aafcb4164a89714cb83e700205bba1c6",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "nhs-gp-register"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/": {
       "sha256": "cd0d47f0dee1f7871ad9c6314d1f010d2b843725207167f446763f0266fb64a7",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "nhs-free-prescriptions"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/apply-needs-assessment-social-services": {
-      "sha256": "f84edb4be865f0d6587e7fd10a0dc4edf1000b99b237c7fa140089855284161f",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f737f547ebc0c0f4387f1fd672200020deafabdc8e4c70ba626ad7daf8ca65c0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "nhs-care-assessment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tell-dvla-about-bereavement": {
-      "sha256": "346f5404ed5ac144d561895d13c2e72778b154fbd08f9c187b6e3798803b4c1b",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "277c5fd1251eb9e9a53b0108bc9b65c1958a6aa4d50e590c78eca21d7015c5f7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "dvla-cancel-licence"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/council-tax/who-has-to-pay": {
-      "sha256": "1a07cb57e59c981899bb8b78ef4804392a2199fb1a53603dfe22bb4775b9d717",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "041246ddc15bd42ddc3ec0d2e975ccf75481e5df0fa7f954b3d4e74753c1c4d3",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "la-council-tax-single-discount"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-assessments/": {
-      "sha256": "2869b4c10b1bcc0e484bc646c9f67f8745ce9270aca90df09d6c48ae84539ead",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "745ff758dfd1d884953391c889ea3ca9a4618f4aef4c308f5bdad4358e71b9d2",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "la-carers-assessment"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/guidance/food-business-registration": {
-      "sha256": "7b1bb791453d29885dde5cd0f5dcfcda5282a722223f9b315e3a8c81402f51f5",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a5345da29c6f2e0c1627395a467e89d9c6b8fa8d8e90b05c4212d9ca9a81c0ab",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "la-food-hygiene"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/browse/visas-immigration": {
-      "sha256": "0b37bb4866ca95e75dbce4add55db75cb184fb03f303000a7ba6f1bb860869f3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "a358289933b909ec53d672af60a0f0cf82f12e0050a269de44f0b24fc909af05",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "ho-visa"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/power-of-attorney/changes-you-need-to-report": {
-      "sha256": "ca512d6d9efd5233829cf2d671952ac1860a2ce3aebd4f4cf042be79e6a0df42",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b1f3104342e2319ea78e766920cc25e01d35c14e526aa9a1c93e674e64724a64",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "opg-lpa-activation"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.railcard.co.uk/disabled-persons-railcard/": {
-      "sha256": "1f5dc503cea35c68449f8bffbcc053b78a14f0e1dc2901b2919bd50134369dc1",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "995d357f749b474cc66476a8b5d6f73a04f1b0263c11532752db4e267a5147e4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "other-disabled-railcard"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/redundancy-your-rights": {
-      "sha256": "bb0dde3a00a1239049cb2c25a52f1af56c2a1a6bb3cd9e94fe6eac2ca1feca1e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e48a9479e825f879a5722c5f298ae7f0134fdb32f00b81021dd0523ac8905c67",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "other-statutory-redundancy"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/child-winter-heating-payment": {
-      "sha256": "90da5cabcaa59d823624e044656a067916db46132ac595f085e3821633a9b0a3",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "44abee191b5ca2cfce1395d699a52b8bd1940a2f001dc664593c9ce7b9e18e6d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "sss-child-winter-heating"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/tax-credits-have-ended": {
-      "sha256": "ac12b6cad3996f2d330aee2940addd9de53ccfe3010eebfe31876ae520dcfb32",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "ec0f6345dbee956c89d580b1b6fd28e62d44af95472ed8922b4d1aa3ea0455e2",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "hmrc-tax-credits"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.acas.org.uk/early-conciliation": {
-      "sha256": "fcdee4541e599ffc4712d2b98bccb5c531c8f07e4ac4cd4684e6dff2467ac8e0",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "5b12abeb2d8a985d74366a2d2657877ed375558124a2b1d9c3e8f57928e83a98",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "acas-early-conciliation"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/power-of-attorney-refund": {
-      "sha256": "3dc2ed7a81acdae4cbe661a9bfbaca37a2080404e74bdd33aef9815a4c1eeefa",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "f2823e17dc363cf2b61073b9e035763c8f4a11c128c38e2fb08e26399aa0b313",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "opg-lpa-refund"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed": {
-      "sha256": "9876bd6951790a7509fe7702333630e81229005f12b9156447dc5da24231007e",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "e8df2cb1685827a387726c63e44f48c5620c626e3cef37d32f9615cdf2e252c4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "lr-sign-mortgage-deed"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/file-your-confirmation-statement-with-companies-house": {
-      "sha256": "6d3d752af138db9ae23dc46de969d2d3aa4a29bfc365e4f06c294e83eed5c125",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "eed1f57eedf1eb200aa5af86d8c7af5a432c59b4ee42bcb0a45e6f085995bf1d",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "ch-confirmation-statement"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/complain-to-ofsted": {
-      "sha256": "b72b2fa5f2cb5b19b40af8b7a01695217e50d0fe47f046b6b156bccd9f18c472",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "4ecb25ba251c8b6cec2cd07e237d596ed122b38c54921e8e971a40d5434699a4",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "ofsted-complain-school"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/search-will-probate": {
-      "sha256": "b06e4e2ce710adc97c6606c402e9f4b621318d9b79b2d6f92d32825943581112",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "c27c54e00f5a4cf8382d077ebe431ab648ce66cc97526791db354c524139177e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "hmcts-find-a-will"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.mygov.scot/short-term-let-licences": {
-      "sha256": "ce38fadba752386484c17bffa9324a2adfe878c76d04a0832c2560d7bcf7571d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "b71e60382750728a7a60aa22cbc2e8ea13ad56f9c5f31609bc168a383bbc7091",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "la-short-term-let"
-      ]
+      ],
+      "method": "page-text-v3"
     },
     "https://www.gov.uk/eta": {
-      "sha256": "1dcaf77787425eacb7e15cb0bf63d57e4396390b1e532fe2cfc3507d01f5ed9d",
-      "lastChecked": "2026-09-28T13:26:00.061Z",
+      "sha256": "dd9d68dc2bf5db2b0ffa542883b0eec69bef5c6894fc0138cee19324e12fd420",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
       "lastChanged": "2026-09-28T13:26:00.061Z",
       "serviceIds": [
         "ho-evw"
-      ]
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/marriages-civil-partnerships/give-notice": {
+      "sha256": "18bdea987103400bef342e58d56345f9fe7aead9dec063cb05a3f77f2950c7b0",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "gro-give-notice"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/child-benefit/make-a-change-to-your-claim": {
+      "sha256": "73b8255934493e99d495269e91a7e47046f25462d23f55d98e1d0af9355b6999",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "hmrc-child-benefit-transfer"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/guidance/starter-checklist-for-paye": {
+      "sha256": "fcc7c9bccba967a830c8a3a2797e20362bd9690cb69cc53938f01e4f14be947e",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "hmrc-starter-checklist"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/jobseekers-allowance": {
+      "sha256": "b16f01a6a01db7c20717eda8dbd16a4589ba8c53da20aeeaa7ee961ee4544251",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "dwp-new-style-jsa"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/money-property-when-relationship-ends": {
+      "sha256": "7f06488562f82844d8e05d685bf7a9fe094ad54c90966aa4a1d5dae374257f97",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "hmcts-financial-order"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help": {
+      "sha256": "b25a78e03423d726dc28beeb9d0ecf779a0ffb56aaa98078db4daff0bb6cefe7",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "la-send-ehc"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/free-discount-tv-licence": {
+      "sha256": "249f6464a136ffa6a490e6448098c866afdf59f029f386b5225675ffffcc4c83",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "other-tv-licence-pension"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://www.gov.uk/visa-fee-waiver-in-uk": {
+      "sha256": "7a54f2c84d9ab1e0da749ad05b6dddc1b1bca7f3f529141d6745c290a466a5fd",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "ho-fee-waiver"
+      ],
+      "method": "page-text-v3"
+    },
+    "https://nationalcareers.service.gov.uk/": {
+      "sha256": "d8fb95ff05d0a382cfd9f238a9ba532f904cba800e06b97e34c2e9aaafca2350",
+      "lastChecked": "2026-10-05T14:09:07.993Z",
+      "lastChanged": "2026-10-05T14:09:07.993Z",
+      "serviceIds": [
+        "dfe-national-careers"
+      ],
+      "method": "page-text-v3"
     }
   }
 }
