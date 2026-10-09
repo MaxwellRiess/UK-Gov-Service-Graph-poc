@@ -24,15 +24,16 @@ const pageCache = new Map<string, string | null>();
  * numbers in "contact", so both need the whole guide.
  *
  * The cache key is the origin path, since every part of a guide resolves to
- * the same API document.
+ * the same API document. A failed fetch is cached too, so the verifiers do not
+ * hammer an unreachable page once per field; pass `refetch` to retry it.
  */
-export async function pageText(url: string): Promise<string | null> {
+export async function pageText(url: string, refetch = false): Promise<string | null> {
   let parsed: URL;
   try { parsed = new URL(url); } catch { return null; }
 
   const isGovUk = parsed.host === 'www.gov.uk' || parsed.host === 'gov.uk';
   const cacheKey = isGovUk ? `api:${parsed.pathname.replace(/\/$/, '')}` : url;
-  if (pageCache.has(cacheKey)) return pageCache.get(cacheKey)!;
+  if (pageCache.has(cacheKey) && !(refetch && pageCache.get(cacheKey) === null)) return pageCache.get(cacheKey)!;
 
   let text: string | null = null;
 
