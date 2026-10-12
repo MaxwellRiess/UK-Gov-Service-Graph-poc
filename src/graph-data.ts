@@ -711,7 +711,7 @@ export const NODES: Record<string, ServiceNode> = {
       universal: true,
       criteria: [
         { factor: 'family', description: 'Responsible for a child under 16, or under 20 if in qualifying education or training.' },
-        { factor: 'income', description: 'High Income Child Benefit Charge claws back the payment if either partner\'s individual adjusted net income is over £60,000; the charge equals the full benefit at £80,000 or more. It does not affect eligibility.' },
+        { factor: 'income', description: 'High Income Child Benefit Charge claws back the payment if either partner\'s individual adjusted net income is over £60,000; the charge equals the full benefit over £80,000. It does not affect eligibility.' },
       ],
       keyQuestions: [
         'Are you responsible for a child under 16?',
@@ -719,7 +719,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Has the birth been registered?',
       ],
       autoQualifiers: ['Responsible for a child under 16 who lives with you (higher earners can still claim and pay the High Income Child Benefit Charge)'],
-      exclusions: ['If either partner\'s adjusted net income is £80,000 or more, the charge cancels the payment. Still claim and opt out of payments, to get National Insurance credits and the child\'s automatic NI number.'],
+      exclusions: ['If either partner\'s adjusted net income is over £80,000, the charge cancels the payment. Still claim and opt out of payments, to get National Insurance credits and the child\'s automatic NI number.'],
       means_tested: false,
       evidenceRequired: ['Child\'s birth or adoption certificate, if you have it (you can claim without it)', 'Bank account details', 'Your and your partner\'s National Insurance numbers'],
       ruleIn: ['Responsible for child under 16'],
@@ -8361,7 +8361,7 @@ export const NODES: Record<string, ServiceNode> = {
     financialData: {
       taxYear: '2026-27',
       frequency: 'one-off',
-      rates: { basic_check: 21.50, standard_check: 21.50, enhanced_check: 49.50 },
+      rates: { basic_check: 20, standard_check: 20, enhanced_check: 41 },
       source: 'https://www.gov.uk/dbs-check-applicant-criminal-record',
     },
       contactInfo: {
@@ -12164,7 +12164,7 @@ export const NODES: Record<string, ServiceNode> = {
 
   'acas-early-conciliation': {
     id: 'acas-early-conciliation', name: 'ACAS early conciliation', dept: 'Acas', deptKey: 'other',
-    deadline: '3 months minus 1 day from incident',
+    deadline: '6 months from employment ending or the incident',
     desc: 'Notifying Acas is a required step before most employment tribunal claims (some claims are exempt); Acas then offers voluntary early conciliation, which tries to help resolve the dispute before a tribunal claim.',
     govuk_url: 'https://www.acas.org.uk/early-conciliation',
     nations: ['england', 'scotland', 'wales'],
@@ -12180,11 +12180,11 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'What is the nature of the employment dispute?',
         'When did the incident or dismissal occur?',
-        'Is the claimant within the 3-month time limit?',
+        'Is the claimant within the 6-month tribunal time limit?',
       ],
       means_tested: false,
-      ruleIn: ['Employment dispute within 3 months', 'Intending to make a tribunal claim'],
-      ruleOut: ['Outside 3-month time limit (unless exceptional circumstances)'],
+      ruleIn: ['Employment dispute within 6 months', 'Intending to make a tribunal claim'],
+      ruleOut: ['Outside 6-month time limit (unless exceptional circumstances)'],
     },
     agentInteraction: {
       methods: ['online', 'phone'],
@@ -12194,7 +12194,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the nature and date of the dispute',
-        'Advise that notification must be submitted within 3 months minus 1 day',
+        'Advise that Acas must be notified within the 6-month tribunal time limit',
         'Explain what happens during conciliation',
         'Help user complete the Acas early conciliation notification form',
       ],
@@ -12203,14 +12203,14 @@ export const NODES: Record<string, ServiceNode> = {
 
   'hmcts-employment-tribunal': {
     id: 'hmcts-employment-tribunal', name: 'Employment Tribunal claim', dept: 'HMCTS', deptKey: 'hmcts',
-    deadline: '3 months minus 1 day from incident',
+    deadline: '6 months from employment ending or the incident',
     desc: 'Make a formal claim to an Employment Tribunal for unfair dismissal, discrimination, unpaid wages or other employment rights violations.',
     govuk_url: 'https://www.gov.uk/employment-tribunals',
     serviceType: 'legal_process',
     proactive: false,
     gated: true,
     eligibility: {
-      summary: 'You can make a claim to an Employment Tribunal if you think someone, such as your employer, has treated you unlawfully (there\'s a different way to claim in Northern Ireland). You must tell Acas first and will usually need an early conciliation certificate, though you can choose not to take part in conciliation. You usually have to claim within 3 months of your employment ending (unfair dismissal) or the problem happening.',
+      summary: 'You can make a claim to an Employment Tribunal if you think someone, such as your employer, has treated you unlawfully (there\'s a different way to claim in Northern Ireland). You must tell Acas first and will usually need an early conciliation certificate, though you can choose not to take part in conciliation. You usually have to claim within 6 months of your employment ending (unfair dismissal) or the problem happening.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Must think you have been treated unlawfully (for example unfair dismissal, discrimination, breach of contract or unauthorised pay deductions) — to claim unfair dismissal you must be an employee and normally have worked for your employer for at least 2 years.' },
@@ -12221,9 +12221,9 @@ export const NODES: Record<string, ServiceNode> = {
         'Do they have their Acas EC certificate reference number?',
         'What type of claim are they making?',
       ],
-      exclusions: ['No Acas EC certificate (early conciliation not completed)', 'Out of time — usually more than 3 months since employment ended (unfair dismissal) or the incident happened (discrimination or pay); the time limit is put on hold while Acas helps resolve the dispute'],
+      exclusions: ['No Acas EC certificate (early conciliation not completed)', 'Out of time — usually more than 6 months since employment ended (unfair dismissal) or the incident happened (discrimination or pay); the time limit is put on hold while Acas helps resolve the dispute'],
       means_tested: false,
-      ruleIn: ['Has Acas EC certificate', 'Within 3-month time limit', 'Employment dispute'],
+      ruleIn: ['Has Acas EC certificate', 'Within 6-month time limit', 'Employment dispute'],
       ruleOut: ['Out of time', 'No Acas EC certificate'],
     },
     agentInteraction: {
@@ -12235,7 +12235,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Confirm Acas early conciliation has been completed and EC certificate obtained',
         'Identify the type(s) of claim being made',
-        'Check the claim is within the 3-month time limit',
+        'Check the claim is within the 6-month time limit',
         'Guide user through the online ET1 claim form',
       ],
     },
@@ -13854,7 +13854,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £21.50. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
+      summary: 'Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £20. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -13874,7 +13874,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Clarify whether a basic, standard or enhanced check is needed',
         'Explain basic checks are self-applied; standard/enhanced are employer-led',
-        'Guide user through the online application (£21.50 fee)',
+        'Guide user through the online application (£20 fee)',
       ],
     },
   },
@@ -14604,7 +14604,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Free for anyone in England aged 13 or over. Provides one-to-one careers advice (phone, webchat, online), a skills assessment tool, job profiles and a course finder.',
+      summary: 'Online careers information and advice: a skills assessment, job profiles and a course finder. Adults aged 18 or over in England can speak to a DWP careers adviser through the Jobs and Careers Service, including by phone.',
       universal: true,
       criteria: [
         { factor: 'geography', description: 'Free adviser-led guidance is available to adults in England. Scotland, Wales and NI have their own careers services.' },
@@ -14627,7 +14627,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Identify whether user needs skills assessment, course finder or one-to-one advice',
         'Point to the relevant section of the National Careers Service',
-        'Signpost to the free telephone helpline for personalised guidance',
+        'Signpost adults to a DWP careers adviser through the Jobs and Careers Service or the free phone line',
       ],
     },
   },
