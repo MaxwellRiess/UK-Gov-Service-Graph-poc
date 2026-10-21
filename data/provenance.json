@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T13:59:37.146Z",
+  "lastRun": "2026-10-21T14:14:27.326Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.authRequired": {
       "valueHash": "30a0924a3360be68",
@@ -33856,6 +33856,30 @@
       "verifiedAt": "2026-10-14T10:12:26.258Z",
       "confidence": "confirmed"
     },
+    "other-warm-home-discount#deadline": {
+      "valueHash": "1672ed3c05d38a32",
+      "valueSeen": "Before 26 February 2027, if no letter has arrived or the letter asks you to confirm your details",
+      "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
+      "sourceQuote": "You must contact them before 26 February 2027.",
+      "additionalQuotes": [
+        {
+          "quote": "Contact the Warm Home Discount Scheme if you do not get a letter by early January 2027 and you think you’re eligible.",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
+          "quote": "If you need to give more information, your letter will tell you to call the helpline by 26 February 2027 to confirm your details.",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        }
+      ],
+      "claims": {
+        "supported": 3,
+        "total": 3
+      },
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:14:27.256Z",
+      "confidence": "unverified",
+      "rationale": "Corrected on 2026-10-21 from quoted sources (the page names Pension Credit, not Guarantee Credit, and sets a 26 February 2027 contact deadline) Awaiting independent re-verification."
+    },
     "other-warm-home-discount#deptKey": {
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
       "sourceQuote": "",
@@ -33889,18 +33913,28 @@
       "rationale": "partly supported: The page lists these four qualifying benefits and says you'll 'usually' get the discount automatically, but it never labels this list as the England and Wales criteria and does not say the discount is always automatic for all four."
     },
     "other-warm-home-discount#eligibility.autoQualifiers.0": {
-      "valueHash": "08e3e6b43bec7558",
-      "valueSeen": "Receiving Pension Credit Guarantee Credit — discount applied automatically",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:11:59.706Z",
+      "valueHash": "cc86f758e01e5b7c",
+      "valueSeen": "Receiving Pension Credit: the discount is usually applied automatically",
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
-      "sourceQuote": "",
+      "sourceQuote": "You’ll usually get the discount automatically if you’re eligible.",
+      "additionalQuotes": [
+        {
+          "quote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
+          "quote": "You’ll get the discount automatically if you or your partner: get Pension Credit",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        }
+      ],
       "claims": {
-        "supported": 0,
-        "total": 2
+        "supported": 3,
+        "total": 3
       },
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:14:27.256Z",
       "confidence": "unverified",
-      "rationale": "partly supported: The source says getting Pension Credit qualifies, but it never mentions the Guarantee Credit part specifically. partly supported: The source says the discount is automatic for anyone getting Pension Credit, but it does not single out Guarantee Credit."
+      "rationale": "Corrected on 2026-10-21 from quoted sources (the page names Pension Credit, not Guarantee Credit, and sets a 26 February 2027 contact deadline) Awaiting independent re-verification."
     },
     "other-warm-home-discount#eligibility.criteria.0": {
       "valueHash": "b01df15e53be106d",

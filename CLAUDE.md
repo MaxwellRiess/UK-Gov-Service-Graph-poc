@@ -76,3 +76,7 @@ Two rules when adding data:
 - **Rule thresholds need a source too.** A number in `eligibility.rules` decides who `check_eligibility` says qualifies. Where a guide states criteria on subpages the landing page does not (common on mygov.scot and gov.wales), list them in `eligibility.sources` so `verify:rules` can find them.
 - **Never write a value you cannot point at a source for.** If GOV.UK does not publish it, leave the field out. An absent field is honest; a plausible-looking invented one is not, and it will pass review precisely because it looks right. This is why `agentInteraction` is optional and why 24 nodes go without it.
 - **Rates carry a `taxYear`.** They go stale every 6 April, and `verify:tier2` detects this by finding the old amount no longer on the page. The weekly Provenance Check does the same for every stored quote and keeps one `[Provenance] Stale source quotes` issue open while any are stale, listing values that have vanished from their page first.
+
+## Authorship
+
+Commits, pull requests and other GitHub activity go out under Maxwell Riess's name only. Do not add Claude attribution: no `Co-Authored-By` or `Claude-Session` trailers, no "Generated with Claude Code" lines, and no session links. Surface Claude's involvement only when Maxwell asks for it explicitly in the request. `.claude/settings.json` turns off the built-in attribution and sets the git author at session start.
