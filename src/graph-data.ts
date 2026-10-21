@@ -8893,7 +8893,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'One-off £150 discount applied by the electricity supplier. England and Wales: automatic if on the qualifying date you or your partner got Universal Credit, Housing Benefit, income-related ESA or Pension Credit, your name was on the bill and your supplier is in the scheme. Scotland: automatic for Pension Credit and some other groups; others apply to their supplier (broader group). Not available in Northern Ireland. The winter 2026 to 2027 scheme opens in October 2026.',
+      summary: 'One-off £150 discount applied by the electricity supplier. England and Wales: usually automatic if on the qualifying date you or your partner got Universal Credit, Housing Benefit, income-related ESA or Pension Credit, your name was on the bill and your supplier is in the scheme. Scotland: automatic for Pension Credit and some other groups; others apply to their supplier (broader group). Not available in Northern Ireland. Letters go out between late October 2026 and early January 2027, and the supplier applies the discount by 31 March 2027.',
       universal: false,
       criteria: [
         { factor: 'income', description: 'England and Wales: Universal Credit, Housing Benefit, income-related ESA or Pension Credit on the qualifying date (23 August 2026). Scotland: Pension Credit, or certain disability, pensioner or under-5 circumstances with UC, income-related ESA or SMI; others apply to their supplier.' },
