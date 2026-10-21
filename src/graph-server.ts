@@ -252,6 +252,7 @@ Use this when the user asks for more detail about a service, or when you need to
 
 const UserContextSchema = z.object({
   age:                                     z.number().optional(),
+  date_of_birth:                           z.string().optional().describe('YYYY-MM-DD. Needed for State Pension age, which age alone does not settle for people aged 66 or 67.'),
   nation:                                  z.enum(['england', 'scotland', 'wales', 'northern-ireland']).optional(),
   is_uk_resident:                          z.boolean().optional(),
   citizenship:                             z.string().optional(),

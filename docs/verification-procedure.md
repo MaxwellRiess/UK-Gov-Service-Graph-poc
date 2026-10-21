@@ -140,11 +140,17 @@ These carry over from the work so far and apply to every stage:
 
 **Settled (21 October 2026): `authRequired` is optional, and absent means not stated.** `scripts/remove-claims.ts --field agentInteraction.authRequired --write` deleted the 173 values no page stated: 136 `'none'` and 37 named sign-ins, mostly Government Gateway, where the page says "sign in" but doesn't name the account. All 173 are in `data/removed-claims.json`. A page that names a sign-in the graph lacks still shows up as a gap in `verify-prose`'s `authGaps`.
 
+**Settled (21 October 2026): sources outside GOV.UK count.** Local council sites, the NHS, Citizens Advice, Shelter and similar pages can confirm a claim. The guards don't change: the quote must be on the page, and the page must be about this service or state a rule that plainly applies to it.
+
+**Settled (21 October 2026): State Pension age is worked out from date of birth.** A new `state_pension_age` rule replaces the 11 rules that stored 66.
+- It computes the date someone reaches State Pension age from the GOV.UK timetable (`statePensionDate` in `src/rules.ts`). It is checked against the three worked examples the timetable prints.
+- `UserContext` gains `date_of_birth`. With only an age, the rule settles under 66 (not reached) and 68 or over (reached), and asks for the date of birth in between.
+- `verify-rules` now confirms that each service's page names State Pension age as the condition.
+- A `born` rule handles fixed cut-offs, for example Winter Fuel Payment's "born on or before 27 June 1960".
+
 Still open:
 
 1. **Should `agentSteps` be `inferred` by default?** The alternative is judging every step as prose. That costs more and would remove most of them.
-2. **When does the procedure accept a non-GOV.UK source?** NHS, mygov.scot, nidirect, Acas and Motability pages are already cited. Charity and advice sites (Citizens Advice, Shelter) are not, and the procedure as written doesn't allow them.
-3. **How should State Pension age be modelled?** Eleven rules store "State Pension age (66)". None of the service pages state 66; they say "State Pension age" and link to the calculator, which states no number either. The age is now rising from 66 to 67 for people born after 5 April 1960, so a fixed `66` is going wrong for them as well as being unsourced. A rule that tests State Pension age itself, from date of birth, would fix both.
 
 ## Judging without API credit
 
@@ -220,6 +226,40 @@ The field says "applying online needs X". These go to stage 5, which needs to de
 - The Arriving in the UK journey goes from 30 services to 29.
 - This also clears two stage 1 leftovers, the `ho-brp` deadline and the 10-day rule. 35 remain.
 
+## Rule and deadline fixes (21 October 2026)
+
+These were wrong against their page, so they decided eligibility wrongly:
+
+| Service | Was | Now | Source |
+|---|---|---|---|
+| `sss-child-winter-heating` | under 16 | under 19 | mygov.scot: "under 19 years old" |
+| `hmrc-iht400` | file within 6 months | send full details within 12 months | "within 12 months of the person dying" |
+| 11 services | age 66 | State Pension age from date of birth | GOV.UK State Pension age timetable |
+| `dwp-winter-fuel` | age 66 or over | born on or before 27 June 1960 | the service page |
+
+These rules were removed and logged because no page states them:
+- `dwp-sure-start-grant` "baby under 1". The 6-month deadline rule already covers it.
+- `slc-student-finance` "at least 18". The page says only that there is no upper age limit.
+- The £250-a-week "low income" lines in `la-council-tax-reduction` and `ni-rate-rebate`. These told anyone earning more than £250 a week that they didn't qualify.
+
+New sources, added to `eligibility.sources`, confirm `hmrc-mtd`'s £50,000 and the NHS prescription ages (60 and under 16).
+
+**Deadlines:**
+- `hmrc-register-sole-trader`: changed to "5 October", from the Self Assessment registration page.
+- `hmrc-spp`: 52 weeks was right. "It must end within 52 weeks of the baby's birth" is on the page; the judge had picked a different sentence.
+- Removed and logged:
+  - `hmcts-money-claims`: 6 years
+  - `hmrc-starter-checklist`: before first payday
+  - `ho-skilled-worker-dependent-visa`: before travelling
+  - `la-proxy-vote`: 6 working days. The page's "11 working days" covers stopping or switching a proxy, not applying, so it is not a replacement. A first correction to 11 was caught and undone on rereading the page around the quote. A quote can match exactly and still be about something else.
+
+**Left from stage 1 (8):**
+- Rule values:
+  - `dvla-provisional-licence`: the page says 15 years 9 months, but ages are whole numbers in `UserContext`.
+  - `dvsa-theory-test`: 17 is on the page, but the matcher needs an age word next to it.
+- Rates and phone numbers: the State Pension basic rate's page, railcard "1/3", the NI Discretionary Support phone number.
+- Three links that refuse automated checks.
+
 ## Progress
 
 | Date | Change | Confirmed | Share |
@@ -229,3 +269,4 @@ The field says "applying online needs X". These go to stage 5, which needs to de
 | 21 Oct 2026 | Stage 1: re-judged applied fixes, browser-checked links, rule subpages | 1,725 of 3,043 | 56.7% |
 | 21 Oct 2026 | Stage 2: corrected all 32 contradicted fields | 1,748 of 3,041 | 57.5% |
 | 21 Oct 2026 | Retired `ho-brp` (5 confirmed and 8 unconfirmed fields went with it) | 1,743 of 3,028 | 57.6% |
+| 21 Oct 2026 | Rule and deadline fixes, State Pension age from date of birth | 1,762 of 3,020 | 58.3% |

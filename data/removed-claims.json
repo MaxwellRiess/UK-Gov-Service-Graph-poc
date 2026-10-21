@@ -1582,5 +1582,79 @@
       "https://www.gov.uk/biometric-residence-permits"
     ],
     "note": "Node retired: \"All BRPs have now expired and have been replaced by eVisas.\" Edges moved to ho-evisa; 12 provenance records removed with it."
+  },
+  {
+    "key": "dwp-sure-start-grant#eligibility.rules (youngest_child_age == 0)",
+    "value": "{\n                  \"type\": \"comparison\",\n                  \"field\": \"youngest_child_age\",\n                  \"operator\": \"==\",\n                  \"value\": 0,\n                  \"label\": \"Baby under 1 year old\"\n                }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.gov.uk/sure-start-maternity-grant"
+    ],
+    "note": "The page sets no child-age test; it says claim within 6 months of the birth, which the deadline rule already checks."
+  },
+  {
+    "key": "slc-student-finance#eligibility.rules (age >= 18)",
+    "value": "{\n          \"type\": \"comparison\",\n          \"field\": \"age\",\n          \"operator\": \">=\",\n          \"value\": 18,\n          \"label\": \"Must be at least 18 years old\"\n        }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students",
+      "https://www.gov.uk/student-finance/who-qualifies"
+    ],
+    "note": "No page states a minimum age; the eligibility page says only that there is no upper age limit for tuition fee loans."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.rules (weekly_income < 250)",
+    "value": "{\n              \"type\": \"comparison\",\n              \"field\": \"weekly_income\",\n              \"operator\": \"<\",\n              \"value\": 250,\n              \"label\": \"Low weekly income\"\n            }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "note": "No page gives an income figure: each council runs its own scheme. The £250 a week line told anyone above it they did not qualify."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.rules (weekly_income < 250)",
+    "value": "{\n              \"type\": \"comparison\",\n              \"field\": \"weekly_income\",\n              \"operator\": \"<\",\n              \"value\": 250,\n              \"label\": \"Low weekly income\"\n            }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "note": "No page gives an income figure. The £250 a week line told anyone above it they did not qualify."
+  },
+  {
+    "key": "hmcts-money-claims#deadline",
+    "value": "6 years from debt arising",
+    "removedAt": "2026-10-21T15:08:23.126272Z",
+    "searched": [
+      "https://www.gov.uk/make-court-claim-for-money"
+    ],
+    "note": "No page states a 6-year limit; the only deadline on the page is 21 days to appeal a decision. Judge: Page states \"within 21 days of getting the decision\"; graph says \"6 years from debt arising\". Needs a human decision."
+  },
+  {
+    "key": "hmrc-starter-checklist#deadline",
+    "value": "Before first payday",
+    "removedAt": "2026-10-21T15:08:23.126272Z",
+    "searched": [
+      "https://www.gov.uk/paye-forms-p45-p60-p11d/starter-checklist"
+    ],
+    "note": "The page states no deadline for the starter checklist. Judge: Page states \"by 31 May\"; graph says \"Before first payday\". Needs a human decision."
+  },
+  {
+    "key": "ho-skilled-worker-dependent-visa#deadline",
+    "value": "Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)",
+    "removedAt": "2026-10-21T15:08:23.126272Z",
+    "searched": [
+      "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
+    ],
+    "note": "Not stated; the 3-month deadline on the page applies to the main applicant's certificate of sponsorship. Judge: Page states \"within 3 months of getting your certificate of sponsorship\"; graph says \"Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)\". Needs a human decision."
+  },
+  {
+    "key": "la-proxy-vote#deadline",
+    "value": "6 working days before election",
+    "removedAt": "2026-10-21T15:08:56.301718Z",
+    "searched": [
+      "https://www.gov.uk/apply-proxy-vote"
+    ],
+    "note": "The page gives no deadline for applying for a proxy vote. Its \"11 working days before the election\" applies to stopping a proxy or switching between postal and proxy voting, so it is not a replacement value."
   }
 ]

@@ -93,6 +93,11 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
       out.push({ path: `${path}.value`, about: `Eligibility rule: ${rule.label}` });
     } else if (rule.type === 'deadline') {
       out.push({ path: `${path}.maxDays`, about: `Deadline rule: ${rule.label}` });
+    } else if (rule.type === 'state_pension_age') {
+      out.push({ path: `${path}.reached`, about: `Eligibility rule: ${rule.label}` });
+    } else if (rule.type === 'born') {
+      if (rule.onOrBefore) out.push({ path: `${path}.onOrBefore`, about: `Eligibility rule: ${rule.label}` });
+      if (rule.onOrAfter) out.push({ path: `${path}.onOrAfter`, about: `Eligibility rule: ${rule.label}` });
     }
   };
   (node.eligibility.rules ?? []).forEach((r, i) => walk(r, `eligibility.rules.${i}`));

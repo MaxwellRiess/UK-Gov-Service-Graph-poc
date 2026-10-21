@@ -18,6 +18,7 @@ import type { JourneyResult } from './graph-engine.js';
 export interface UserContext {
   // Demographics
   age?:                number;
+  date_of_birth?:      string;   // YYYY-MM-DD; settles State Pension age where age alone cannot
   nation?:             'england' | 'scotland' | 'wales' | 'northern-ireland';
   is_uk_resident?:     boolean;
   citizenship?:        string;
@@ -86,6 +87,8 @@ export type Rule =
   | EnumRule
   | DependencyRule
   | DeadlineRule
+  | StatePensionAgeRule
+  | BornRule
   | CompositeRule;
 
 /** Numeric comparison: age >= 18, savings < 16000 */
@@ -128,6 +131,21 @@ export interface DeadlineRule {
   triggerLabel: string;
   maxDays:      number;
   label:        string;
+}
+
+/** Has (or has not) reached State Pension age, worked out from date of birth */
+export interface StatePensionAgeRule {
+  type:    'state_pension_age';
+  reached: boolean;
+  label:   string;
+}
+
+/** Date of birth on or before / on or after a fixed date (YYYY-MM-DD) */
+export interface BornRule {
+  type:        'born';
+  onOrBefore?: string;
+  onOrAfter?:  string;
+  label:       string;
 }
 
 /** Composite: ALL / ANY / NOT */
@@ -180,6 +198,48 @@ function diffDays(from: Date, to: Date): number {
   return Math.floor((to.getTime() - from.getTime()) / (1000 * 60 * 60 * 24));
 }
 
+// ─── STATE PENSION AGE ───────────────────────────────────────────────────────
+// From the legislated timetable, https://www.gov.uk/government/publications/
+// state-pension-age-timetable/state-pension-age-timetable. A fixed age (66)
+// stopped being right in May 2026, when the rise to 67 began.
+
+export const SPA_TIMETABLE_URL =
+  'https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable';
+
+const ymd = (s: string) => new Date(`${s}T00:00:00Z`);
+const addMonths = (d: Date, years: number, months: number) => {
+  const r = new Date(d);
+  r.setUTCFullYear(r.getUTCFullYear() + years, r.getUTCMonth() + months);
+  // 31 July 1960 + 66y4m lands on 31 Nov, which does not exist; the timetable
+  // says such a person reaches it on 30 November, the last day of the month.
+  if (r.getUTCDate() !== d.getUTCDate()) r.setUTCDate(0);
+  return r;
+};
+
+/**
+ * The date someone reaches State Pension age, or null where it is not yet
+ * settled (born after 5 April 1977: rises to 68 between 2044 and 2046, and
+ * subject to review). Everyone born before 6 October 1954 reached it by
+ * 6 September 2020, so the earlier cohorts are reported as their 65th birthday,
+ * which is early enough for any date this graph will be asked about.
+ */
+export function statePensionDate(dob: Date): Date | null {
+  if (dob < ymd('1954-10-06')) return addMonths(dob, 65, 0);
+  if (dob < ymd('1960-04-06')) return addMonths(dob, 66, 0);   // "6 October 1954 – 5 April 1960 66th birthday"
+  if (dob < ymd('1961-03-06')) {
+    // "6 April 1960 – 5 May 1960 66 years and 1 month" … "6 February 1961 – 5 March 1961 66 years and 11 months"
+    const extra = (dob.getUTCFullYear() - 1960) * 12 + dob.getUTCMonth() - 3 + (dob.getUTCDate() >= 6 ? 1 : 0);
+    return addMonths(dob, 66, extra);
+  }
+  if (dob < ymd('1977-04-06')) return addMonths(dob, 67, 0);   // "6 March 1961 – 5 April 1977* 67"
+  return null;
+}
+
+/** The range of birth dates consistent with an age today: (earliest, latest]. */
+function birthRange(age: number, today: Date): [Date, Date] {
+  return [addMonths(today, -(age + 1), 0), addMonths(today, -age, 0)];
+}
+
 // ─── SINGLE-RULE EVALUATION ──────────────────────────────────────────────────
 
 export function evaluateRule(rule: Rule, ctx: UserContext): RuleResult {
@@ -221,6 +281,37 @@ export function evaluateRule(rule: Rule, ctx: UserContext): RuleResult {
         return { rule, verdict: 'unknown', missingField: `trigger_dates.${rule.triggerEvent}`, missingQuestion: `What is the ${rule.triggerLabel}?` };
       const days = diffDays(new Date(dateStr), new Date());
       return { rule, verdict: days <= rule.maxDays ? 'pass' : 'fail' };
+    }
+
+    case 'state_pension_age': {
+      const today = new Date();
+      let reached: boolean | null = null;
+      if (ctx.date_of_birth) {
+        const spa = statePensionDate(ymd(ctx.date_of_birth));
+        // Born after 5 April 1977: not before 6 May 2044 under any timetable.
+        reached = spa ? today >= spa : (today < ymd('2044-05-06') ? false : null);
+      } else if (typeof ctx.age === 'number') {
+        if (ctx.age < 66) reached = false;
+        else if (ctx.age >= 68) reached = true;
+      }
+      if (reached === null)
+        return { rule, verdict: 'unknown', missingField: 'date_of_birth', missingQuestion: 'What is your date of birth? (State Pension age depends on it)' };
+      return { rule, verdict: reached === rule.reached ? 'pass' : 'fail' };
+    }
+
+    case 'born': {
+      const before = rule.onOrBefore ? ymd(rule.onOrBefore) : null;
+      const after  = rule.onOrAfter  ? ymd(rule.onOrAfter)  : null;
+      const fits = (d: Date) => (!before || d <= before) && (!after || d >= after);
+      if (ctx.date_of_birth) return { rule, verdict: fits(ymd(ctx.date_of_birth)) ? 'pass' : 'fail' };
+      if (typeof ctx.age === 'number') {
+        // Every birth date the age allows passes, or none does; otherwise ask.
+        const [lo, hi] = birthRange(ctx.age, new Date());
+        const earliest = new Date(lo.getTime() + 86_400_000);
+        if (fits(earliest) && fits(hi)) return { rule, verdict: 'pass' };
+        if ((before && earliest > before) || (after && hi < after)) return { rule, verdict: 'fail' };
+      }
+      return { rule, verdict: 'unknown', missingField: 'date_of_birth', missingQuestion: 'What is your date of birth?' };
     }
 
     case 'all': {

@@ -1731,7 +1731,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['IHT400 form and supplementary schedules', 'Valuations of all assets', 'Details of gifts made in the last 7 years', 'Copy of will'],
       ruleIn: ['Estate value exceeds £325,000 nil-rate band'],
-      ruleOut: ['Estate below nil-rate band with no gifts'],      rules: [
+      ruleOut: ['Estate below nil-rate band with no gifts'],      sources: [
+        'https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value',
+      ],
+      rules: [
         {
           "type": "boolean",
           "field": "has_experienced_bereavement",
@@ -1749,8 +1752,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "deadline",
           "triggerEvent": "death_date",
           "triggerLabel": "Date of death",
-          "maxDays": 180,
-          "label": "IHT400 must be filed within 6 months of death"
+          "maxDays": 365,
+          "label": "Send full details of the estate (IHT400) within 12 months of the death"
         }
       ],
 
@@ -2260,7 +2263,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['MTD-compatible software (e.g. Xero, QuickBooks, FreeAgent)', 'VAT registration number'],
       ruleIn: ['VAT-registered business', 'Self-employed or landlord with income over £50k (from 2026)'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step',
+      ],
+      rules: [
         {
           "type": "any",
           "label": "VAT-registered or self-employed/landlord with income over £50k",
@@ -2328,7 +2334,7 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'hmrc-register-sole-trader': {
     id: 'hmrc-register-sole-trader', name: 'Register as sole trader', dept: 'HMRC', deptKey: 'hmrc',
-    deadline: '5 Oct (yr 2)',
+    deadline: '5 October',
     desc: 'Tell HMRC you are self-employed. Done via Self Assessment registration.',
     govuk_url: 'https://www.gov.uk/set-up-sole-trader',
     serviceType: 'registration',
@@ -2716,7 +2722,7 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'hmrc-starter-checklist': {
     id: 'hmrc-starter-checklist', name: 'PAYE Starter Checklist', dept: 'HMRC', deptKey: 'hmrc',
-    deadline: 'Before first payday',
+    deadline: null,
     desc: 'Completed with a new employer when no P45 is available — first jobs, returns to work, and second jobs. Sets the correct tax code before the first payday to avoid emergency tax.',
     govuk_url: 'https://www.gov.uk/guidance/starter-checklist-for-paye',
     serviceType: 'obligation',
@@ -2891,11 +2897,9 @@ export const NODES: Record<string, ServiceNode> = {
           ]
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66) at time of partner's death"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must have been under State Pension age when your partner died"
         },
         {
           "type": "deadline",
@@ -3116,11 +3120,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Reached State Pension age (66+)', '10+ qualifying NI years'],
       ruleOut: ['Under 66'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "comparison",
@@ -3235,11 +3237,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Reached State Pension age (66+)', 'Weekly income below Pension Credit threshold'],
       ruleOut: ['Savings above £10,000 reducing entitlement to zero'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "comparison",
@@ -3316,11 +3316,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Born on or before 27 June 1960', 'Lives in England, Wales or Northern Ireland'],
       ruleOut: ['Born after 27 June 1960', 'Lives in Scotland'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must be born on or before 27 June 1960 (approximately State Pension age)"
+          "type": "born",
+          "onOrBefore": "1960-06-27",
+          "label": "Must be born on or before 27 June 1960"
         },
       ],
 
@@ -3388,11 +3386,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Aged 66 or over', 'Personal care needs due to physical or mental condition'],
       ruleOut: ['Under State Pension age'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must be aged 66 or over (State Pension age)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "any",
@@ -3581,11 +3577,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 16 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "any",
@@ -3695,11 +3689,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 18 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "boolean",
@@ -3791,11 +3783,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 18 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "boolean",
@@ -4141,13 +4131,6 @@ export const NODES: Record<string, ServiceNode> = {
                   "field": "has_children",
                   "expected": true,
                   "label": "Has children"
-                },
-                {
-                  "type": "comparison",
-                  "field": "youngest_child_age",
-                  "operator": "==",
-                  "value": 0,
-                  "label": "Baby under 1 year old"
                 }
               ]
             }
@@ -5018,7 +5001,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Benefit award letter or FP92A medical exemption form signed by GP'],
       ruleIn: ['Receiving PIP, DLA, or qualifying medical condition', 'Under 16, or 60 and over'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions',
+      ],
+      rules: [
         {
           "type": "any",
           "label": "Meets at least one free prescription criterion",
@@ -6379,13 +6365,6 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-pension-credit",
               "condition": "receiving",
               "label": "Receiving Pension Credit"
-            },
-            {
-              "type": "comparison",
-              "field": "weekly_income",
-              "operator": "<",
-              "value": 250,
-              "label": "Low weekly income"
             }
           ]
         }
@@ -6434,11 +6413,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Reached State Pension age or has a qualifying disability",
           "rules": [
             {
-              "type": "comparison",
-              "field": "age",
-              "operator": ">=",
-              "value": 66,
-              "label": "Reached State Pension age (66)"
+              "type": "state_pension_age",
+              "reached": true,
+              "label": "Must have reached State Pension age"
             },
             {
               "type": "boolean",
@@ -8633,13 +8610,6 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 18,
-          "label": "Must be at least 18 years old"
-        },
-        {
           "type": "boolean",
           "field": "is_uk_resident",
           "expected": true,
@@ -8701,11 +8671,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['State Pension age', 'Renting', 'Low income/savings'],
       ruleOut: ['Working age (claim UC instead)', 'Homeowner', 'Savings over £16,000'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "not",
@@ -8875,7 +8843,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of income', 'Bank statements showing savings', 'National Insurance number', 'Details of housing costs'],
       ruleIn: ['Low income', 'Not entitled via another exemption', 'Savings under £16,000'],
-      ruleOut: ['Capital over £16,000', 'Already has automatic NHS exemption'],      rules: [
+      ruleOut: ['Capital over £16,000', 'Already has automatic NHS exemption'],      sources: [
+        'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions',
+      ],
+      rules: [
         {
           "type": "boolean",
           "field": "is_uk_resident",
@@ -9270,8 +9241,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "comparison",
           "field": "youngest_child_age",
           "operator": "<",
-          "value": 16,
-          "label": "Child must be under 16 (or under 19 in qualifying education)"
+          "value": 19,
+          "label": "Child must be under 19"
         },
         {
           "type": "any",
@@ -9351,11 +9322,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must live in Scotland"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         }
       ],
 
@@ -9587,13 +9556,6 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-pension-credit",
               "condition": "receiving",
               "label": "Receiving Pension Credit"
-            },
-            {
-              "type": "comparison",
-              "field": "weekly_income",
-              "operator": "<",
-              "value": 250,
-              "label": "Low weekly income"
             }
           ]
         }
@@ -11120,11 +11082,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 16 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "any",
@@ -12243,7 +12203,7 @@ export const NODES: Record<string, ServiceNode> = {
 
   'hmcts-money-claims': {
     id: 'hmcts-money-claims', name: 'Money Claims Online', dept: 'HMCTS', deptKey: 'hmcts',
-    deadline: '6 years from debt arising',
+    deadline: null,
     desc: 'Make a court claim online to recover money owed (up to £100,000) through the small claims or fast-track court process.',
     govuk_url: 'https://www.gov.uk/make-court-claim-for-money',
     serviceType: 'legal_process',
@@ -12919,7 +12879,7 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-skilled-worker-dependent-visa': {
     id: 'ho-skilled-worker-dependent-visa', name: 'Skilled Worker dependant visa',
     dept: 'Home Office', deptKey: 'ho',
-    deadline: 'Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)',
+    deadline: null,
     desc: 'Family members (partner and children under 18) of a Skilled Worker visa holder can apply to join them in the UK as dependants. They can work and study without restriction.',
     govuk_url: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
     serviceType: 'application',
@@ -13533,7 +13493,7 @@ export const NODES: Record<string, ServiceNode> = {
 
   'la-proxy-vote': {
     id: 'la-proxy-vote', name: 'Apply for a proxy vote', dept: 'Local Authority', deptKey: 'la',
-    deadline: '6 working days before election',
+    deadline: null,
     desc: 'Appoint someone you trust to vote on your behalf if you cannot get to the polling station.',
     govuk_url: 'https://www.gov.uk/apply-proxy-vote',
     serviceType: 'application',
