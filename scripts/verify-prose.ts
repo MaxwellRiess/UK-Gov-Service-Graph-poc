@@ -83,7 +83,9 @@ function fieldsFor(n: ServiceNode): FieldToJudge[] {
       key: 'methods', path: 'agentInteraction.methods', split: true,
       text: ai.methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.',
     });
-    out.push({ key: 'auth', path: 'agentInteraction.authRequired', split: false, text: AUTH_WORDS[ai.authRequired] ?? ai.authRequired });
+    if (ai.authRequired) {
+      out.push({ key: 'auth', path: 'agentInteraction.authRequired', split: false, text: AUTH_WORDS[ai.authRequired] ?? ai.authRequired });
+    }
   }
   return out.filter(f => f.text && f.text.trim());
 }
@@ -148,13 +150,15 @@ async function processNode(n: ServiceNode) {
     const auth = n.agentInteraction.authRequired;
     const named = (out.sign_in_on_page ?? '').toLowerCase();
     const matches =
+      // Absent means the graph makes no claim; a page that names a sign-in is still a gap to fill.
+      (auth === undefined && !named) ||
       (auth === 'none' && !named) ||
       (auth === 'government-gateway' && named.includes('gateway')) ||
       (auth === 'gov-uk-one-login' && named.includes('one login')) ||
       (auth === 'nhs-login' && named.includes('nhs')) ||
       (auth === 'companies-house' && named.includes('companies house')) ||
       (auth === 'gov-uk-verify' && named.includes('verify'));
-    if (!matches) authGaps.push({ id: n.id, graph: auth, page: out.sign_in_on_page });
+    if (!matches) authGaps.push({ id: n.id, graph: auth ?? 'not stated', page: out.sign_in_on_page });
   }
 
   done++;

@@ -39,7 +39,7 @@
  *   apiAvailable      — true if a transactional API exists
  *   apiUrl?           — link to API documentation
  *   onlineFormUrl?    — direct link to the online application form
- *   authRequired      — authentication needed (government-gateway, none, etc.)
+ *   authRequired?     — authentication needed (government-gateway, none, etc.); absent = not stated
  *   agentCanComplete  — 'full' | 'partial' | 'inform-only'
  *   agentSteps[]      — step-by-step what an agent can do for the user
  *   missingBenefitId? — ID for MissingBenefit.com eligibility calculator API

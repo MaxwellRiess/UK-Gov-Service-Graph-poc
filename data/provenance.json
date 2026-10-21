@@ -1,17 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T13:59:37.146Z",
+  "lastRun": "2026-10-21T14:33:13.079Z",
   "fields": {
-    "acas-early-conciliation#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.acas.org.uk/early-conciliation",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or signing in."
-    },
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -112,16 +102,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.acas.org.uk has no Content API, so only existence is established."
     },
-    "cabinetoffice-uk-honours#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/honours",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never says whether an account or sign-in is needed for an online nomination."
-    },
     "cabinetoffice-uk-honours#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -200,16 +180,6 @@
       "confidence": "confirmed",
       "valueHash": "cf0e76d3fa5c5adf",
       "valueSeen": "https://www.gov.uk/honours"
-    },
-    "ch-close-company#agentInteraction.authRequired": {
-      "valueHash": "f1f3e1fe76a33e9e",
-      "valueSeen": "Applying online needs a Companies House account or sign-in",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/closing-a-limited-company",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in."
     },
     "ch-close-company#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -1206,16 +1176,6 @@
       "valueHash": "46f2c1948e836bbf",
       "valueSeen": "https://www.gov.uk/apply-for-teacher-training"
     },
-    "dfe-care-to-learn#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/care-to-learn",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in at all."
-    },
     "dfe-care-to-learn#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -1398,16 +1358,6 @@
       "valueHash": "86f6ba591c6375c5",
       "valueSeen": "https://www.gov.uk/care-to-learn"
     },
-    "dfe-find-apprenticeship#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/apply-apprenticeship",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "dfe-find-apprenticeship#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -1514,16 +1464,6 @@
       "confidence": "confirmed",
       "valueHash": "549ee698a30bd4d8",
       "valueSeen": "https://www.gov.uk/apply-apprenticeship"
-    },
-    "dfe-national-careers#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://nationalcareers.service.gov.uk/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account or sign-in."
     },
     "dfe-national-careers#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -1637,16 +1577,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host nationalcareers.service.gov.uk has no Content API, so only existence is established."
-    },
-    "dhsc-baby-loss-certificate#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/request-baby-loss-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text asks for an NHS number or postcode and contact details, but it does not say whether an account or sign-in is needed."
     },
     "dhsc-baby-loss-certificate#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -1793,16 +1723,6 @@
       "valueHash": "c603ab1128560c3a",
       "valueSeen": "https://www.gov.uk/request-baby-loss-certificate"
     },
-    "dvla-cancel-licence#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/tell-dvla-about-bereavement",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions an account or sign-in either way."
-    },
     "dvla-cancel-licence#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
       "valueSeen": "You can apply or do this by post.",
@@ -1910,16 +1830,6 @@
       "confidence": "confirmed",
       "valueHash": "fad4544594162eed",
       "valueSeen": "https://www.gov.uk/tell-dvla-about-bereavement"
-    },
-    "dvla-change-address-v5c#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/change-address-v5c",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text doesn't say whether an account or sign-in is needed. It names none, but it doesn't say one isn't required either."
     },
     "dvla-change-address-v5c#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -2123,16 +2033,6 @@
       "valueHash": "12dcd3954806334d",
       "valueSeen": "https://www.gov.uk/view-driving-licence"
     },
-    "dvla-name-change#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/change-name-driving-licence",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention applying online or any sign-in."
-    },
     "dvla-name-change#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
       "valueSeen": "You can apply or do this by post.",
@@ -2287,16 +2187,6 @@
       "confidence": "confirmed",
       "valueHash": "68df17e6ddcafefe",
       "valueSeen": "https://www.gov.uk/change-name-driving-licence"
-    },
-    "dvla-notify-condition#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/health-conditions-and-driving",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text asks for driving licence and condition details but says nothing about whether an account or sign-in is needed."
     },
     "dvla-notify-condition#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -2753,20 +2643,6 @@
       "valueHash": "ed2bb60181ba7c36",
       "valueSeen": "https://www.gov.uk/renew-driving-licence-at-70"
     },
-    "dvla-renew-licence#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/renew-driving-licence",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The source says you need to sign in but doesn't name the account, so Government Gateway isn't stated."
-    },
     "dvla-renew-licence#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -3133,16 +3009,6 @@
       "valueHash": "00d83e3375cef54e",
       "valueSeen": "https://www.gov.uk/change-address-driving-licence"
     },
-    "dvla-ved-exemption#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in requirement either way."
-    },
     "dvla-ved-exemption#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -3286,16 +3152,6 @@
       "method": "http-status",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
-    },
-    "dvla-vehicle-enquiry#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-vehicle-information-from-dvla",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "dvla-vehicle-enquiry#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -3658,16 +3514,6 @@
       "valueHash": "d05d25e66a29b5bd",
       "valueSeen": "https://www.gov.uk/vehicle-tax"
     },
-    "dvsa-driving-test#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/book-driving-test",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account for booking online."
-    },
     "dvsa-driving-test#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -3948,16 +3794,6 @@
       "valueHash": "dd65f98fb1a12bf6",
       "valueSeen": "https://www.gov.uk/check-mot-history"
     },
-    "dvsa-theory-test#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/book-theory-test",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in; it only lists a driving licence number, an email address and a card."
-    },
     "dvsa-theory-test#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -4131,16 +3967,6 @@
       "valueHash": "f66f56f54703434a",
       "valueSeen": "https://www.gov.uk/book-theory-test"
     },
-    "dwp-access-to-work#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/access-to-work",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account to apply. It names a GOV.UK One Login only for claiming money from a grant online, not for applying."
-    },
     "dwp-access-to-work#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -4309,16 +4135,6 @@
       "confidence": "confirmed",
       "valueHash": "081fbacfe27af3c2",
       "valueSeen": "https://www.gov.uk/access-to-work"
-    },
-    "dwp-attendance-allowance#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/attendance-allowance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether online applications need an account or sign-in."
     },
     "dwp-attendance-allowance#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -4650,16 +4466,6 @@
       "valueHash": "a98455b9c29d5f81",
       "valueSeen": "https://www.gov.uk/benefit-overpayments"
     },
-    "dwp-bereavement-support#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about whether an account or sign-in is needed."
-    },
     "dwp-bereavement-support#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -4918,16 +4724,6 @@
       "valueHash": "1bf2a87d47863ecd",
       "valueSeen": "https://www.gov.uk/bereavement-support-payment"
     },
-    "dwp-budgeting-loan#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/budgeting-help-benefits",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed to apply online."
-    },
     "dwp-budgeting-loan#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
@@ -5072,16 +4868,6 @@
       "confidence": "confirmed",
       "valueHash": "4d5ca9d8405c5a73",
       "valueSeen": "https://www.gov.uk/budgeting-help-benefits"
-    },
-    "dwp-carers-allowance#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/carers-allowance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, so it neither confirms nor rules one out."
     },
     "dwp-carers-allowance#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -5311,16 +5097,6 @@
       "confidence": "confirmed",
       "valueHash": "53724a8ee80e2534",
       "valueSeen": "https://www.gov.uk/carers-allowance"
-    },
-    "dwp-child-maintenance#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/child-maintenance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text mentions signing in only for people who already have an account and says nothing about sign-in requirements for applying."
     },
     "dwp-child-maintenance#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -5605,16 +5381,6 @@
       "valueHash": "ff4cf7ccb3744d75",
       "valueSeen": "https://www.gov.uk/cold-weather-payment"
     },
-    "dwp-dla-child#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text describes only paper and phone routes and says nothing about accounts or sign-in."
-    },
     "dwp-dla-child#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
       "valueSeen": "You can apply or do this by phone. You can apply or do this by post.",
@@ -5850,16 +5616,6 @@
       "valueHash": "41bd66b1699d2f4b",
       "valueSeen": "https://www.gov.uk/disability-living-allowance-children"
     },
-    "dwp-find-a-job#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/find-a-job",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "dwp-find-a-job#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -5938,16 +5694,6 @@
       "confidence": "confirmed",
       "valueHash": "4c2fdfed03542583",
       "valueSeen": "https://www.gov.uk/find-a-job"
-    },
-    "dwp-funeral-payment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/funeral-payments",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text gives only phone and post routes and says nothing about whether an account or sign-in is needed."
     },
     "dwp-funeral-payment#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
@@ -6123,16 +5869,6 @@
       "confidence": "confirmed",
       "valueHash": "4d6a61c5ff7ff401",
       "valueSeen": "https://www.gov.uk/funeral-payments"
-    },
-    "dwp-housing-benefit#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/housing-benefit",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "dwp-housing-benefit#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -6356,16 +6092,6 @@
       "confidence": "confirmed",
       "valueHash": "63a7c73d896980af",
       "valueSeen": "https://www.gov.uk/housing-benefit"
-    },
-    "dwp-inherited-state-pension#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in and does not say none is needed. It mentions only an invitation code for online applications."
     },
     "dwp-inherited-state-pension#agentInteraction.methods": {
       "valueHash": "a4b7d53e7005c5ea",
@@ -6682,16 +6408,6 @@
       "valueHash": "805e34ae87771644",
       "valueSeen": "https://www.gov.uk/mandatory-reconsideration"
     },
-    "dwp-maternity-allowance#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/maternity-allowance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions an account or sign-in for applying."
-    },
     "dwp-maternity-allowance#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
       "valueSeen": "[\"post\"]",
@@ -6906,16 +6622,6 @@
       "valueHash": "afc6f1b6b44b134a",
       "valueSeen": "https://www.gov.uk/maternity-allowance"
     },
-    "dwp-new-style-esa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/employment-support-allowance/eligibility",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed to apply online."
-    },
     "dwp-new-style-esa#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
       "valueSeen": "You can apply or do this by phone. You can apply or do this by post.",
@@ -7111,20 +6817,6 @@
       "valueHash": "6eb000dea7e061fa",
       "valueSeen": "https://www.gov.uk/employment-support-allowance/eligibility",
       "rationale": "Links to the \"eligibility\" part of the guide at https://www.gov.uk/employment-support-allowance."
-    },
-    "dwp-new-style-jsa#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name any sign-in or account for applying online."
     },
     "dwp-new-style-jsa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -7378,16 +7070,6 @@
       "valueHash": "62063de66db16673",
       "valueSeen": "https://www.gov.uk/jobseekers-allowance"
     },
-    "dwp-ni-credits#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/national-insurance-credits",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, either to require one or to say none is needed."
-    },
     "dwp-ni-credits#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -7519,20 +7201,6 @@
       "confidence": "confirmed",
       "valueHash": "c1744cc2320b1f5f",
       "valueSeen": "https://www.gov.uk/national-insurance-credits"
-    },
-    "dwp-ni-number#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/apply-national-insurance-number",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in for applying, and it also never says that none is needed."
     },
     "dwp-ni-number#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -7717,16 +7385,6 @@
       "confidence": "confirmed",
       "valueHash": "3ba0276ef8ab2a80",
       "valueSeen": "https://www.gov.uk/apply-national-insurance-number"
-    },
-    "dwp-pension-credit#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/pension-credit",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in and does not say whether one is needed. It only says you can apply online if you have already applied for your State Pension."
     },
     "dwp-pension-credit#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -7971,16 +7629,6 @@
       "confidence": "confirmed",
       "valueHash": "0b9fc96641619b3c",
       "valueSeen": "https://www.gov.uk/pension-credit"
-    },
-    "dwp-pension-tracing#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/find-pension-contact-details",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The page does not say whether an account or sign-in is needed."
     },
     "dwp-pension-tracing#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -8572,16 +8220,6 @@
       "valueHash": "42acdcc26d8f524a",
       "valueSeen": "https://www.gov.uk/support-for-mortgage-interest"
     },
-    "dwp-sr1-form#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed for the online route."
-    },
     "dwp-sr1-form#agentInteraction.methods": {
       "valueHash": "77b0f6bd12363f29",
       "valueSeen": "You can apply or do this by post. You can apply or do this by phone.",
@@ -8670,16 +8308,6 @@
       "confidence": "confirmed",
       "valueHash": "b8fef09df0e85111",
       "valueSeen": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form"
-    },
-    "dwp-state-pension#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in account for applying online, only an invitation code from a letter."
     },
     "dwp-state-pension#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -9090,16 +8718,6 @@
       "confidence": "confirmed",
       "valueHash": "d0e07a0c3cd86ca9",
       "valueSeen": "https://www.gov.uk/sure-start-maternity-grant"
-    },
-    "dwp-tell-us-once#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed; it only mentions the reference number."
     },
     "dwp-tell-us-once#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -9903,16 +9521,6 @@
       "valueHash": "53378cb47d48eea4",
       "valueSeen": "https://www.gov.uk/universal-credit"
     },
-    "dwp-voluntary-ni-contributions#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/voluntary-national-insurance-contributions",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name any sign-in or account."
-    },
     "dwp-voluntary-ni-contributions#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -10091,16 +9699,6 @@
       "confidence": "confirmed",
       "valueHash": "27c52900ec68cbd3",
       "valueSeen": "https://www.gov.uk/voluntary-national-insurance-contributions"
-    },
-    "dwp-winter-fuel#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, and it does not offer an online claim route."
     },
     "dwp-winter-fuel#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
@@ -10343,20 +9941,6 @@
       "valueHash": "f672e54f439d07a9",
       "valueSeen": "https://www.gov.uk/winter-fuel-payment"
     },
-    "ea-fishing-licence#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/fishing-licences/buy-a-fishing-licence",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text lists what you need to apply online but does not say whether an account or sign-in is needed."
-    },
     "ea-fishing-licence#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -10494,20 +10078,6 @@
       "valueHash": "522ffe38b5a7100a",
       "valueSeen": "https://www.gov.uk/fishing-licences/buy-a-fishing-licence",
       "rationale": "Links to the \"buy-a-fishing-licence\" part of the guide at https://www.gov.uk/fishing-licences."
-    },
-    "ea-flood-risk#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/check-long-term-flood-risk",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, and it does not say explicitly that none is needed either."
     },
     "ea-flood-risk#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -10787,20 +10357,6 @@
       "valueHash": "7354356db41cf766",
       "valueSeen": "https://www.gov.uk/register-renew-waste-carrier-broker-dealer-england"
     },
-    "fco-document-legalisation#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/get-document-legalised",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "fco-document-legalisation#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -10893,16 +10449,6 @@
       "confidence": "confirmed",
       "valueHash": "bd1020b8645f1d27",
       "valueSeen": "https://www.gov.uk/get-document-legalised"
-    },
-    "fco-emergency-travel-doc#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/emergency-travel-document",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in."
     },
     "fco-emergency-travel-doc#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
@@ -11217,20 +10763,6 @@
       "confidence": "confirmed",
       "valueHash": "302c22d317674c5e",
       "valueSeen": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
-    },
-    "gro-give-notice#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/give-notice",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
     },
     "gro-give-notice#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
@@ -11578,16 +11110,6 @@
       "valueHash": "302c22d317674c5e",
       "valueSeen": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
     },
-    "gro-register-birth#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/register-birth",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
-    },
     "gro-register-birth#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
@@ -11751,20 +11273,6 @@
       "confidence": "confirmed",
       "valueHash": "c89acc71db5f4feb",
       "valueSeen": "https://www.gov.uk/register-birth"
-    },
-    "gro-register-death#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "gro-register-death#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
@@ -12065,16 +11573,6 @@
       "valueHash": "066392bf12404e60",
       "valueSeen": "https://www.gov.uk/appeal-benefit-decision"
     },
-    "hmcts-child-arrangements#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in for the online application."
-    },
     "hmcts-child-arrangements#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -12249,16 +11747,6 @@
       "valueSeen": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
       "rationale": "Links to the \"apply-for-court-order\" part of the guide at https://www.gov.uk/looking-after-children-divorce."
     },
-    "hmcts-court-fee-remission#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account or sign-in to apply."
-    },
     "hmcts-court-fee-remission#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -12432,16 +11920,6 @@
       "valueHash": "223b08543ea9914b",
       "valueSeen": "https://www.gov.uk/get-help-with-court-fees"
     },
-    "hmcts-court-fines#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/pay-court-fine-online",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in and does not say whether one is needed."
-    },
     "hmcts-court-fines#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -12518,16 +11996,6 @@
       "confidence": "confirmed",
       "valueHash": "f3ef488aca21a8ae",
       "valueSeen": "https://www.gov.uk/pay-court-fine-online"
-    },
-    "hmcts-divorce#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/divorce",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions Government Gateway; the only account it names is MyHMCTS, and that is for solicitors."
     },
     "hmcts-divorce#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -12706,16 +12174,6 @@
       "confidence": "confirmed",
       "valueHash": "33b607bdf8f2cd64",
       "valueSeen": "https://www.gov.uk/divorce"
-    },
-    "hmcts-employment-tribunal#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/employment-tribunals",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "hmcts-employment-tribunal#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -12932,20 +12390,6 @@
       "valueHash": "a7b43906686874b4",
       "valueSeen": "https://www.gov.uk/employment-tribunals"
     },
-    "hmcts-financial-order#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in and does not mention applying online."
-    },
     "hmcts-financial-order#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
       "valueSeen": "[\"post\"]",
@@ -13127,20 +12571,6 @@
       "valueHash": "9223dd4ea2c91859",
       "valueSeen": "https://www.gov.uk/money-property-when-relationship-ends"
     },
-    "hmcts-find-a-will#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/search-will-probate",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions an account or sign-in, either way."
-    },
     "hmcts-find-a-will#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -13236,16 +12666,6 @@
       "confidence": "confirmed",
       "valueHash": "0b353b99d9fede66",
       "valueSeen": "https://www.gov.uk/search-will-probate"
-    },
-    "hmcts-gender-recognition#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-gender-recognition-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "hmcts-gender-recognition#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -13494,16 +12914,6 @@
       "valueHash": "1466466da0a1440a",
       "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal"
     },
-    "hmcts-jury-summons#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/jury-service",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "hmcts-jury-summons#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -13622,16 +13032,6 @@
       "confidence": "confirmed",
       "valueHash": "6072174e6be446ce",
       "valueSeen": "https://www.gov.uk/jury-service"
-    },
-    "hmcts-legal-aid#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/legal-aid",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
     },
     "hmcts-legal-aid#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -13853,16 +13253,6 @@
       "valueHash": "e8db0122b8cb7812",
       "valueSeen": "https://www.gov.uk/legal-aid"
     },
-    "hmcts-money-claims#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/make-court-claim-for-money",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed to apply. It only mentions a Money Claims online account 'if you have one'."
-    },
     "hmcts-money-claims#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -13961,16 +13351,6 @@
       "confidence": "confirmed",
       "valueHash": "d7fd935b3da22d07",
       "valueSeen": "https://www.gov.uk/make-court-claim-for-money"
-    },
-    "hmcts-probate#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/applying-for-probate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text only says to sign in to the probate service and never mentions Government Gateway or any named account."
     },
     "hmcts-probate#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -14195,16 +13575,6 @@
       "valueHash": "d697860e35f25e93",
       "valueSeen": "https://www.gov.uk/applying-for-probate"
     },
-    "hmcts-tax-tribunal#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/tax-tribunal",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed to appeal online."
-    },
     "hmcts-tax-tribunal#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -14305,16 +13675,6 @@
       "valueHash": "95136e5bfef95a32",
       "valueSeen": "https://www.gov.uk/tax-tribunal"
     },
-    "hmcts-unclaimed-court-money#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/find-unclaimed-court-money",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "hmcts-unclaimed-court-money#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -14398,16 +13758,6 @@
       "valueHash": "d71da437abd68afb",
       "valueSeen": "https://www.gov.uk/find-unclaimed-court-money"
     },
-    "hmpo-lost-stolen-passport#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/report-a-lost-or-stolen-passport",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in and does not say whether one is needed; it only says you need a phone number."
-    },
     "hmpo-lost-stolen-passport#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -14484,20 +13834,6 @@
       "confidence": "confirmed",
       "valueHash": "24e98dc0a263c7b4",
       "valueSeen": "https://www.gov.uk/report-a-lost-or-stolen-passport"
-    },
-    "hmpo-passport#agentInteraction.authRequired": {
-      "valueHash": "9d2c8efbcc7b172d",
-      "valueSeen": "Applying online needs GOV.UK Verify",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/apply-renew-passport",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account for applying online; it only says you need a debit or credit card."
     },
     "hmpo-passport#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -14635,16 +13971,6 @@
       "valueHash": "162c4dd62328565e",
       "valueSeen": "https://www.gov.uk/apply-renew-passport"
     },
-    "hmpo-passport-urgent#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-a-passport-urgently",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "hmpo-passport-urgent#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
@@ -14754,20 +14080,6 @@
       "confidence": "confirmed",
       "valueHash": "f0e0fa1a597aa5af",
       "valueSeen": "https://www.gov.uk/get-a-passport-urgently"
-    },
-    "hmpps-prison-visits#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/prison-visits",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account or sign-in."
     },
     "hmpps-prison-visits#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -14969,16 +14281,6 @@
       "confidence": "confirmed",
       "valueHash": "1df510383b51b3c7",
       "valueSeen": "https://www.gov.uk/anti-money-laundering-registration"
-    },
-    "hmrc-cancel-marriage-allowance#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in for cancelling online. It only says you prove your identity using information HMRC holds."
     },
     "hmrc-cancel-marriage-allowance#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -15263,16 +14565,6 @@
       "valueHash": "23aec2fc520f618c",
       "valueSeen": "https://www.gov.uk/carers-credit"
     },
-    "hmrc-child-benefit#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/child-benefit",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account for the online claim."
-    },
     "hmrc-child-benefit#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
@@ -15510,20 +14802,6 @@
       "valueHash": "822f167942069247",
       "valueSeen": "https://www.gov.uk/child-benefit"
     },
-    "hmrc-child-benefit-transfer#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in for the online service."
-    },
     "hmrc-child-benefit-transfer#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -15686,16 +14964,6 @@
       "valueHash": "f72b02978a513192",
       "valueSeen": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
       "rationale": "Links to the \"make-a-change-to-your-claim\" part of the guide at https://www.gov.uk/child-benefit."
-    },
-    "hmrc-cis#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name Government Gateway or any sign-in for registering."
     },
     "hmrc-cis#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -16128,16 +15396,6 @@
       "valueHash": "d09b650550ddb4d2",
       "valueSeen": "https://www.gov.uk/eori"
     },
-    "hmrc-free-childcare-15#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in for this entitlement."
-    },
     "hmrc-free-childcare-15#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
@@ -16533,16 +15791,6 @@
       "valueHash": "706ad1679a18a9d8",
       "valueSeen": "https://www.gov.uk/free-childcare-if-working"
     },
-    "hmrc-guardians-allowance#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/guardians-allowance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say anything about accounts or signing in."
-    },
     "hmrc-guardians-allowance#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
       "valueSeen": "You can apply or do this by post.",
@@ -16706,16 +15954,6 @@
       "valueHash": "a56cfc425b94240c",
       "valueSeen": "https://www.gov.uk/guardians-allowance"
     },
-    "hmrc-help-to-save#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-help-savings-low-income",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says you need to sign in, but it does not name Government Gateway or any other sign-in service."
-    },
     "hmrc-help-to-save#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -16856,16 +16094,6 @@
       "confidence": "confirmed",
       "valueHash": "02bac946cc3be833",
       "valueSeen": "https://www.gov.uk/get-help-savings-low-income"
-    },
-    "hmrc-iht400#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/inheritance-tax",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account."
     },
     "hmrc-iht400#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -17044,16 +16272,6 @@
       "method": "http-status",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
-    },
-    "hmrc-lisa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/lifetime-isa",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention an account or sign-in."
     },
     "hmrc-lisa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -17348,16 +16566,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
-    "hmrc-marriage-allowance#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/marriage-allowance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in for applying online. It only says that to cancel online you prove your identity using information HMRC holds."
-    },
     "hmrc-marriage-allowance#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -17528,16 +16736,6 @@
       "method": "http-status",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
-    },
-    "hmrc-mtd#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name any sign-in or account."
     },
     "hmrc-mtd#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -17837,16 +17035,6 @@
       "valueHash": "86f3fef7a0186ffe",
       "valueSeen": "https://www.gov.uk/check-national-insurance-record"
     },
-    "hmrc-p45#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not talk about signing in to get a P45. It only mentions the personal tax account for viewing pay and tax details."
-    },
     "hmrc-p45#agentInteraction.methods": {
       "valueHash": "a4b7d53e7005c5ea",
       "valueSeen": "You can apply or do this by phone.",
@@ -17978,16 +17166,6 @@
       "method": "http-status",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
-    },
-    "hmrc-paye#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/register-employer",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name Government Gateway or any sign-in for registering; it only mentions getting a login for PAYE Online after registering."
     },
     "hmrc-paye#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -18158,16 +17336,6 @@
       "valueHash": "2c222789f239a05b",
       "valueSeen": "https://www.gov.uk/register-employer"
     },
-    "hmrc-register-sole-trader#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/set-up-sole-trader",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name Government Gateway or any other sign-in."
-    },
     "hmrc-register-sole-trader#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -18300,20 +17468,6 @@
       "method": "http-status",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
-    },
-    "hmrc-sdlt#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/stamp-duty-land-tax",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name Government Gateway or any other sign-in."
     },
     "hmrc-sdlt#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -18499,16 +17653,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
-    "hmrc-self-assessment#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/register-for-self-assessment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account for applying online."
-    },
     "hmrc-self-assessment#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -18686,16 +17830,6 @@
       "confidence": "confirmed",
       "valueHash": "b7029136aafde719",
       "valueSeen": "https://www.gov.uk/register-for-self-assessment"
-    },
-    "hmrc-smp#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts, sign-in or applying online. It only says to tell your employer."
     },
     "hmrc-smp#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
@@ -18877,16 +18011,6 @@
       "valueSeen": "https://www.gov.uk/maternity-pay-leave/pay",
       "rationale": "Links to the \"pay\" part of the guide at https://www.gov.uk/maternity-pay-leave."
     },
-    "hmrc-spl#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/shared-parental-leave-and-pay",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about any account or sign-in."
-    },
     "hmrc-spl#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
       "valueSeen": "You can apply or do this by phone. You can apply or do this by post.",
@@ -19032,16 +18156,6 @@
       "confidence": "confirmed",
       "valueHash": "fe2492d61e352a12",
       "valueSeen": "https://www.gov.uk/shared-parental-leave-and-pay"
-    },
-    "hmrc-spp#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "hmrc-spp#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
@@ -19572,16 +18686,6 @@
       "valueHash": "f6e56e5a7a94efe2",
       "valueSeen": "https://www.gov.uk/guidance/starter-checklist-for-paye"
     },
-    "hmrc-statutory-parental-bereavement#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/parental-bereavement-pay-leave",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text doesn't mention any account or sign-in, either as required or as not required."
-    },
     "hmrc-statutory-parental-bereavement#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
       "valueSeen": "You can apply or do this by phone. You can apply or do this by post.",
@@ -19696,16 +18800,6 @@
       "confidence": "confirmed",
       "valueHash": "a05836791e29c909",
       "valueSeen": "https://www.gov.uk/parental-bereavement-pay-leave"
-    },
-    "hmrc-tax-credits#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/tax-credits-have-ended",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account."
     },
     "hmrc-tax-credits#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -19866,20 +18960,6 @@
       "confidence": "confirmed",
       "valueHash": "670bea1f00be59c6",
       "valueSeen": "https://www.gov.uk/tax-credits-have-ended"
-    },
-    "hmrc-tax-free-childcare#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/tax-free-childcare",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text only mentions a 'user ID and password' for signing in to the childcare account and never names Government Gateway."
     },
     "hmrc-tax-free-childcare#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -20097,16 +19177,6 @@
       "confidence": "confirmed",
       "valueHash": "fb88c8c09b745de9",
       "valueSeen": "https://www.gov.uk/tax-free-childcare"
-    },
-    "hmrc-tax-on-pension#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/tax-on-pension",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text mentions a personal tax account but never names Government Gateway or any sign-in."
     },
     "hmrc-tax-on-pension#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -20396,20 +19466,6 @@
       "valueHash": "18defea317f0e9b7",
       "valueSeen": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working"
     },
-    "hmrc-update-records#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page says you need to sign in but does not name Government Gateway."
-    },
     "hmrc-update-records#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -20534,16 +19590,6 @@
       "method": "http-status",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
-    },
-    "hmrc-vat#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/vat-registration",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name any sign-in or account for applying online."
     },
     "hmrc-vat#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -20794,16 +19840,6 @@
       "confidence": "confirmed",
       "valueHash": "c2697e5fd1fbac05",
       "valueSeen": "https://www.gov.uk/biometric-residence-permits"
-    },
-    "ho-citizenship#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "ho-citizenship#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -21464,20 +20500,6 @@
       "valueHash": "4972f670580e6e35",
       "valueSeen": "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors"
     },
-    "ho-eu-settled-status#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/settled-status-eu-citizens-families",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text never says whether an account or sign-in is needed to apply; it mentions a UKVI account only for updating details after pre-settled status."
-    },
     "ho-eu-settled-status#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -21632,20 +20654,6 @@
       "confidence": "confirmed",
       "valueHash": "cfd7abc31557187c",
       "valueSeen": "https://www.gov.uk/settled-status-eu-citizens-families"
-    },
-    "ho-euss-enquiry#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
     },
     "ho-euss-enquiry#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -21814,16 +20822,6 @@
       "valueHash": "842b1be2343091c8",
       "valueSeen": "https://www.gov.uk/get-access-evisa"
     },
-    "ho-evisa-error#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/report-error-evisa",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text lists the details you must give but does not say whether you need to sign in to report an error."
-    },
     "ho-evisa-error#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -21905,20 +20903,6 @@
       "confidence": "confirmed",
       "valueHash": "1d092a18bb577645",
       "valueSeen": "https://www.gov.uk/report-error-evisa"
-    },
-    "ho-evw#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/eta",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text lists what you need (a passport, an email address, a payment method) but never says whether an account or sign-in is needed."
     },
     "ho-evw#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -22040,20 +21024,6 @@
       "valueHash": "59c7a5b15fcda964",
       "valueSeen": "https://www.gov.uk/eta"
     },
-    "ho-fee-waiver#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/visa-fee-waiver-in-uk",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "ho-fee-waiver#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -22158,20 +21128,6 @@
       "confidence": "confirmed",
       "valueHash": "b2140e2699c1534e",
       "valueSeen": "https://www.gov.uk/visa-fee-waiver-in-uk"
-    },
-    "ho-ilr#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed; it only says you can save your form and complete it later."
     },
     "ho-ilr#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -23268,20 +22224,6 @@
       "valueHash": "e3d201170ce7e949",
       "valueSeen": "https://www.gov.uk/view-prove-immigration-status"
     },
-    "ho-visa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/browse/visas-immigration",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page does not mention accounts or sign-in at all."
-    },
     "ho-visa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -23556,16 +22498,6 @@
       "valueHash": "5c95a62a0bedce91",
       "valueSeen": "https://www.gov.uk/apply-for-bankruptcy"
     },
-    "insolvency-breathing-space#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
-    },
     "insolvency-breathing-space#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -23717,16 +22649,6 @@
       "valueHash": "118cc5859fb34354",
       "valueSeen": "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space",
       "rationale": "Links to the \"breathing-space\" part of the guide at https://www.gov.uk/options-for-dealing-with-your-debts."
-    },
-    "insolvency-dro#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text doesn't mention any account or sign-in."
     },
     "insolvency-dro#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -24015,16 +22937,6 @@
       "valueHash": "405be02e1d46e387",
       "valueSeen": "https://www.gov.uk/clean-air-zones"
     },
-    "la-blue-badge#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-blue-badge",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed; it only says you can save and return to your application."
-    },
     "la-blue-badge#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -24189,16 +23101,6 @@
       "valueHash": "0ea313bee370ece0",
       "valueSeen": "https://www.gov.uk/apply-blue-badge"
     },
-    "la-bus-pass#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in."
-    },
     "la-bus-pass#agentInteraction.methods": {
       "valueHash": "4511e53f6e590b93",
       "valueSeen": "You can apply or do this online. You can apply or do this in person.",
@@ -24333,16 +23235,6 @@
       "valueHash": "7f3ded9bcefcd13f",
       "valueSeen": "https://www.gov.uk/apply-for-elderly-person-bus-pass"
     },
-    "la-business-rates#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/introduction-to-business-rates",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether applying needs an account; it mentions a business rates valuation account only for reporting changes and challenging values."
-    },
     "la-business-rates#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -24473,16 +23365,6 @@
       "confidence": "confirmed",
       "valueHash": "8cdbf474a07996b2",
       "valueSeen": "https://www.gov.uk/introduction-to-business-rates"
-    },
-    "la-carers-assessment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-assessments/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions whether you need an account or sign-in."
     },
     "la-carers-assessment#agentInteraction.methods": {
       "valueHash": "8061f478d426d78c",
@@ -24735,16 +23617,6 @@
       "valueHash": "02ef669bc70c0b46",
       "valueSeen": "https://www.gov.uk/apply-for-child-performance-licence"
     },
-    "la-council-tax#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/council-tax",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "la-council-tax#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -24840,16 +23712,6 @@
       "confidence": "confirmed",
       "valueHash": "a2c81fe13b6a8cec",
       "valueSeen": "https://www.gov.uk/council-tax"
-    },
-    "la-council-tax-disability-reduction#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
     },
     "la-council-tax-disability-reduction#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -24979,16 +23841,6 @@
       "valueHash": "424806830b6215fd",
       "valueSeen": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
       "rationale": "Links to the \"discounts-for-disabled-people\" part of the guide at https://www.gov.uk/council-tax."
-    },
-    "la-council-tax-reduction#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-council-tax-reduction",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about whether an account or sign-in is needed."
     },
     "la-council-tax-reduction#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -25124,16 +23976,6 @@
       "valueHash": "2234cb5fdbd9d08c",
       "valueSeen": "https://www.gov.uk/apply-council-tax-reduction"
     },
-    "la-council-tax-single-discount#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/council-tax/who-has-to-pay",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in at all."
-    },
     "la-council-tax-single-discount#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -25232,16 +24074,6 @@
       "valueHash": "183018a84ce1b1d8",
       "valueSeen": "https://www.gov.uk/council-tax/who-has-to-pay",
       "rationale": "Links to the \"who-has-to-pay\" part of the guide at https://www.gov.uk/council-tax."
-    },
-    "la-disabled-facilities-grant#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/disabled-facilities-grants",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in."
     },
     "la-disabled-facilities-grant#agentInteraction.methods": {
       "valueHash": "8061f478d426d78c",
@@ -25434,20 +24266,6 @@
       "valueHash": "61cf60c2261fa9d2",
       "valueSeen": "https://www.gov.uk/disabled-facilities-grants"
     },
-    "la-electoral-roll#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/register-to-vote",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "la-electoral-roll#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -25579,16 +24397,6 @@
       "confidence": "confirmed",
       "valueHash": "968e0c8a5938a69c",
       "valueSeen": "https://www.gov.uk/register-to-vote"
-    },
-    "la-food-hygiene#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/guidance/food-business-registration",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "la-food-hygiene#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -25844,16 +24652,6 @@
       "valueHash": "d37d0ce7f567ec7f",
       "valueSeen": "https://www.gov.uk/find-licences/food-premises-approval"
     },
-    "la-free-childcare-2yr#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account or sign-in for this scheme."
-    },
     "la-free-childcare-2yr#agentInteraction.methods": {
       "valueHash": "3ab9e43cbe17ff9e",
       "valueSeen": "You can apply or do this in person. You can apply or do this by phone.",
@@ -26037,16 +24835,6 @@
       "valueHash": "864ac9cd4a3a798d",
       "valueSeen": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
       "rationale": "Links to the \"free-childcare-2-year-olds-extra-support\" part of the guide at https://www.gov.uk/help-with-childcare-costs."
-    },
-    "la-free-school-meals#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-free-school-meals",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "la-free-school-meals#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -26460,20 +25248,6 @@
       "valueHash": "cfe2de97e50a6199",
       "valueSeen": "https://www.gov.uk/find-licences/house-to-house-collection-licence"
     },
-    "la-postal-vote#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/apply-postal-vote",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is or is not needed."
-    },
     "la-postal-vote#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -26573,20 +25347,6 @@
       "confidence": "confirmed",
       "valueHash": "6a3e0cfd485f4598",
       "valueSeen": "https://www.gov.uk/apply-postal-vote"
-    },
-    "la-proxy-vote#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/apply-proxy-vote",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "la-proxy-vote#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -26947,16 +25707,6 @@
       "valueHash": "a46ed3f249502e84",
       "valueSeen": "https://www.gov.uk/find-licences/road-occupation-licence-for-building-work"
     },
-    "la-school-place#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-for-primary-school-place",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "la-school-place#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -27235,20 +25985,6 @@
       "valueHash": "7fab28d70d299f8b",
       "valueSeen": "https://www.gov.uk/find-licences/scrap-metal-dealer-registration"
     },
-    "la-send-ehc#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
-    },
     "la-send-ehc#agentInteraction.methods": {
       "valueHash": "f5af896d19f35253",
       "valueSeen": "You can apply or do this by phone. You can apply or do this by post.",
@@ -27450,16 +26186,6 @@
       "valueHash": "f4a7403fcac86f2d",
       "valueSeen": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
       "rationale": "Links to the \"extra-SEN-help\" part of the guide at https://www.gov.uk/children-with-special-educational-needs."
-    },
-    "la-short-term-let#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/short-term-let-licences",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say anything about accounts or signing in."
     },
     "la-short-term-let#agentInteraction.methods": {
       "valueHash": "4511e53f6e590b93",
@@ -28075,16 +26801,6 @@
       "valueHash": "6d5d0a7c991be7cd",
       "valueSeen": "https://www.gov.uk/find-licences/temporary-events-notice"
     },
-    "la-voter-authority-cert#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "la-voter-authority-cert#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -28463,20 +27179,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
-    "lr-registration#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/registering-land-or-property-with-land-registry",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
-    },
     "lr-registration#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -28637,16 +27339,6 @@
       "valueHash": "fc0de36cbe53f585",
       "valueSeen": "https://www.gov.uk/registering-land-or-property-with-land-registry"
     },
-    "lr-sign-mortgage-deed#agentInteraction.authRequired": {
-      "valueHash": "31453c0a60b7eb62",
-      "valueSeen": "Applying online needs a GOV.UK One Login",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account."
-    },
     "lr-sign-mortgage-deed#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -28730,16 +27422,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
-    "mhclg-epc#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/find-energy-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "mhclg-epc#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -28819,16 +27501,6 @@
       "valueHash": "b174c64fd8a4064a",
       "valueSeen": "https://www.gov.uk/find-energy-certificate"
     },
-    "nhs-111-online#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://111.nhs.uk",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed; it mentions the NHS App only as one option."
-    },
     "nhs-111-online#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -28888,16 +27560,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host 111.nhs.uk has no Content API, so only existence is established."
-    },
-    "nhs-care-assessment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
     },
     "nhs-care-assessment#agentInteraction.methods": {
       "valueHash": "8061f478d426d78c",
@@ -29002,16 +27664,6 @@
       "valueHash": "edadc084aeeb4c90",
       "valueSeen": "https://www.gov.uk/apply-needs-assessment-social-services"
     },
-    "nhs-continuing-healthcare#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts, sign-in or applying online."
-    },
     "nhs-continuing-healthcare#agentInteraction.methods": {
       "valueHash": "8061f478d426d78c",
       "valueSeen": "You can apply or do this by phone. You can apply or do this in person.",
@@ -29114,16 +27766,6 @@
       "confidence": "confirmed",
       "valueHash": "ac2a11fc5bd99f8e",
       "valueSeen": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
-    },
-    "nhs-fit-note#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/send-fit-note",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no account or sign-in, but it doesn't say that none is needed. It mentions only the National Insurance number."
     },
     "nhs-fit-note#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -29233,16 +27875,6 @@
       "confidence": "confirmed",
       "valueHash": "4542e35c9bc93022",
       "valueSeen": "https://www.gov.uk/send-fit-note"
-    },
-    "nhs-free-dental#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "nhs-free-dental#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
@@ -29442,16 +28074,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhs.uk has no Content API, so only existence is established."
     },
-    "nhs-free-prescriptions#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "nhs-free-prescriptions#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -29596,16 +28218,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhs.uk has no Content API, so only existence is established."
-    },
-    "nhs-free-sight-tests#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never says whether an account or sign-in is needed."
     },
     "nhs-free-sight-tests#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
@@ -29840,16 +28452,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
-    "nhs-gp-register#agentInteraction.authRequired": {
-      "valueHash": "fcbe17a189d715e2",
-      "valueSeen": "Applying online needs an NHS login",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions an NHS login. Online registration is done through the NHS website, and only the separate NHS App route mentions logging in."
-    },
     "nhs-gp-register#agentInteraction.methods": {
       "valueHash": "4511e53f6e590b93",
       "valueSeen": "You can apply or do this online. You can apply or do this in person.",
@@ -29943,16 +28545,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhs.uk has no Content API, so only existence is established."
-    },
-    "nhs-healthy-start#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.healthystart.nhs.uk/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in to apply."
     },
     "nhs-healthy-start#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -30151,16 +28743,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.healthystart.nhs.uk has no Content API, so only existence is established."
-    },
-    "nhs-low-income-scheme#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "nhs-low-income-scheme#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -30363,16 +28945,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhsbsa.nhs.uk has no Content API, so only existence is established."
     },
-    "nhs-maternity-exemption#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, or say that none is needed."
-    },
     "nhs-maternity-exemption#agentInteraction.methods": {
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
@@ -30498,16 +29070,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nhsbsa.nhs.uk has no Content API, so only existence is established."
-    },
-    "nhs-ppc#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/get-a-ppc",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "nhs-ppc#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -30651,16 +29213,6 @@
       "confidence": "confirmed",
       "valueHash": "0e43a6060b2d2a2d",
       "valueSeen": "https://www.gov.uk/get-a-ppc"
-    },
-    "ni-discretionary-support#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in at all."
     },
     "ni-discretionary-support#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -30979,16 +29531,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.nidirect.gov.uk has no Content API, so only existence is established."
     },
-    "ofsted-check-registered-childcare#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://reports.ofsted.gov.uk/childcare",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, either to require one or to say none is needed."
-    },
     "ofsted-check-registered-childcare#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -31037,16 +29579,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host reports.ofsted.gov.uk has no Content API, so only existence is established."
-    },
-    "ofsted-complain-school#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/complain-to-ofsted",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed. The 'You'll need' list does not include one, but it does not rule one out either."
     },
     "ofsted-complain-school#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -31120,16 +29652,6 @@
       "valueHash": "d4699d7795479a31",
       "valueSeen": "https://www.gov.uk/complain-to-ofsted"
     },
-    "ofsted-find-inspection-report#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://reports.ofsted.gov.uk",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention an account or sign-in either way."
-    },
     "ofsted-find-inspection-report#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -31183,20 +29705,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host reports.ofsted.gov.uk has no Content API, so only existence is established."
-    },
-    "ofsted-register-childminder#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/become-childminder-nanny/register-childminder",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "ofsted-register-childminder#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -31387,16 +29895,6 @@
       "valueHash": "07937ccb17576584",
       "valueSeen": "https://www.gov.uk/become-childminder-nanny/register-childminder",
       "rationale": "Links to the \"register-childminder\" part of the guide at https://www.gov.uk/become-childminder-nanny."
-    },
-    "opg-deputy-report#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/complete-deputy-report",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text names no sign-in or account."
     },
     "opg-deputy-report#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -31675,16 +30173,6 @@
       "valueHash": "7e86a4424d8f1c09",
       "valueSeen": "https://www.gov.uk/power-of-attorney"
     },
-    "opg-lpa-activation#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/power-of-attorney/changes-you-need-to-report",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about an account for notifying OPG of a death; the only account it mentions is for making an LPA online."
-    },
     "opg-lpa-activation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -31825,16 +30313,6 @@
       "valueSeen": "https://www.gov.uk/power-of-attorney/changes-you-need-to-report",
       "rationale": "Links to the \"changes-you-need-to-report\" part of the guide at https://www.gov.uk/power-of-attorney."
     },
-    "opg-lpa-refund#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/power-of-attorney-refund",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, and it does not say that none is needed."
-    },
     "opg-lpa-refund#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -31927,16 +30405,6 @@
       "confidence": "confirmed",
       "valueHash": "d52cc7eb21fcee39",
       "valueSeen": "https://www.gov.uk/power-of-attorney-refund"
-    },
-    "other-carers-leave#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/carers-leave",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account, sign-in or online application."
     },
     "other-carers-leave#agentInteraction.methods": {
       "valueHash": "a4b7d53e7005c5ea",
@@ -32031,16 +30499,6 @@
       "confidence": "confirmed",
       "valueHash": "880c121dbe198514",
       "valueSeen": "https://www.gov.uk/carers-leave"
-    },
-    "other-dbs#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed to apply; it mentions a DBS online account only for viewing certificates."
     },
     "other-dbs#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -32200,16 +30658,6 @@
       "confidence": "confirmed",
       "valueHash": "df1c4da602461181",
       "valueSeen": "https://www.gov.uk/dbs-check-applicant-criminal-record"
-    },
-    "other-disabled-railcard#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.railcard.co.uk/disabled-persons-railcard/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed to apply online."
     },
     "other-disabled-railcard#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -32402,16 +30850,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.railcard.co.uk has no Content API, so only existence is established."
     },
-    "other-employers-liability#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/employers-liability-insurance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
-    },
     "other-employers-liability#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -32547,16 +30985,6 @@
       "confidence": "confirmed",
       "valueHash": "49783b55374c2ea8",
       "valueSeen": "https://www.gov.uk/employers-liability-insurance"
-    },
-    "other-help-to-buy#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/first-homes-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in either way."
     },
     "other-help-to-buy#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -32725,16 +31153,6 @@
       "valueHash": "48b3d54bb01bb48b",
       "valueSeen": "https://www.gov.uk/first-homes-scheme"
     },
-    "other-motability#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.motability.co.uk/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts, signing in or how to apply."
-    },
     "other-motability#agentInteraction.methods": {
       "valueHash": "a4b7d53e7005c5ea",
       "valueSeen": "You can apply or do this by phone.",
@@ -32833,16 +31251,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.motability.co.uk has no Content API, so only existence is established."
-    },
-    "other-passport-name#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/renew-adult-passport",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text doesn't name any account or sign-in for applying online."
     },
     "other-passport-name#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -32992,16 +31400,6 @@
       "valueHash": "140d091eac4cfe08",
       "valueSeen": "https://www.gov.uk/renew-adult-passport"
     },
-    "other-pupil-premium#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/government/publications/pupil-premium",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention applying, accounts or signing in."
-    },
     "other-pupil-premium#agentInteraction.methods": {
       "valueHash": "a4b7d53e7005c5ea",
       "valueSeen": "You can apply or do this by phone.",
@@ -33133,20 +31531,6 @@
       "confidence": "confirmed",
       "valueHash": "e7ea1a962e46ac97",
       "valueSeen": "https://www.gov.uk/government/publications/pupil-premium"
-    },
-    "other-right-to-work#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/check-job-applicant-right-to-work",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about whether an account or sign-in is needed."
     },
     "other-right-to-work#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -33284,16 +31668,6 @@
       "valueHash": "f2cefbc63817ceef",
       "valueSeen": "https://www.gov.uk/check-job-applicant-right-to-work"
     },
-    "other-social-tariff-broadband#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "other-social-tariff-broadband#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -33394,16 +31768,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.ofcom.org.uk has no Content API, so only existence is established."
-    },
-    "other-statutory-redundancy#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/redundancy-your-rights",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or sign-in."
     },
     "other-statutory-redundancy#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -33615,20 +31979,6 @@
       "valueHash": "f8b6f706f4a7eb99",
       "valueSeen": "https://www.gov.uk/redundancy-your-rights"
     },
-    "other-tv-licence-pension#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/free-discount-tv-licence",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
-    },
     "other-tv-licence-pension#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -33814,16 +32164,6 @@
       "confidence": "confirmed",
       "valueHash": "dbe4dc4699e0227a",
       "valueSeen": "https://www.gov.uk/free-discount-tv-licence"
-    },
-    "other-warm-home-discount#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
     },
     "other-warm-home-discount#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -34020,16 +32360,6 @@
       "valueHash": "6a55143a48af6ada",
       "valueSeen": "https://www.gov.uk/the-warm-home-discount-scheme"
     },
-    "pins-planning-appeal#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/appeal-planning-decision",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about whether an account or sign-in is needed."
-    },
     "pins-planning-appeal#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -34148,16 +32478,6 @@
       "confidence": "confirmed",
       "valueHash": "925a863b57c6e36a",
       "valueSeen": "https://www.gov.uk/appeal-planning-decision"
-    },
-    "slc-childcare-grant#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/childcare-grant",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention Government Gateway or name any sign-in needed to apply online."
     },
     "slc-childcare-grant#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -34530,16 +32850,6 @@
       "valueHash": "6a1bd8d81d70da45",
       "valueSeen": "https://www.gov.uk/repaying-your-student-loan"
     },
-    "slc-student-finance#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/student-finance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text refers to logging in to your account but does not name Government Gateway or any other sign-in."
-    },
     "slc-student-finance#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -34729,16 +33039,6 @@
       "confidence": "confirmed",
       "valueHash": "d95e8c5d83e92f06",
       "valueSeen": "https://www.gov.uk/student-finance"
-    },
-    "sss-adult-disability-payment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account or sign-in."
     },
     "sss-adult-disability-payment#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -34932,16 +33232,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
-    },
-    "sss-best-start-foods#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether an account or sign-in is needed."
     },
     "sss-best-start-foods#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -35140,16 +33430,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
-    "sss-best-start-grant#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention whether an account or sign-in is needed."
-    },
     "sss-best-start-grant#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -35345,16 +33625,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
-    },
-    "sss-carer-support-payment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/carer-support-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in requirement either way."
     },
     "sss-carer-support-payment#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -35708,16 +33978,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
-    "sss-child-disability-payment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/child-disability-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or signing in."
-    },
     "sss-child-disability-payment#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
@@ -35921,16 +34181,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
-    "sss-child-winter-heating#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/child-winter-heating-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account, sign-in or application process."
-    },
     "sss-child-winter-heating#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -36055,16 +34305,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
-    },
-    "sss-funeral-support-payment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/funeral-support-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in."
     },
     "sss-funeral-support-payment#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -36262,16 +34502,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
-    "sss-pension-winter-heating#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in either way."
-    },
     "sss-pension-winter-heating#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
@@ -36421,16 +34651,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
-    },
-    "sss-scottish-child-payment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/scottish-child-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention accounts or signing in."
     },
     "sss-scottish-child-payment#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -36586,16 +34806,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
-    },
-    "sss-young-carer-grant#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/young-carer-grant",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any account or sign-in, either way."
     },
     "sss-young-carer-grant#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -36805,16 +35015,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.mygov.scot has no Content API, so only existence is established."
     },
-    "tpr-workplace-pension#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/workplace-pensions-employers",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
-    },
     "tpr-workplace-pension#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -36960,16 +35160,6 @@
       "valueHash": "69f0bc5a86ac9978",
       "valueSeen": "https://www.gov.uk/workplace-pensions-employers"
     },
-    "ukri-find-grants#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/business-finance-support",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The page does not mention any account or sign-in, either to say one is needed or that none is needed."
-    },
     "ukri-find-grants#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -37044,16 +35234,6 @@
       "valueHash": "9c20eff01c019b47",
       "valueSeen": "https://www.gov.uk/business-finance-support"
     },
-    "voa-business-rates#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/correct-your-business-rates",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text mentions a business rates valuation account but does not name Government Gateway or any other sign-in."
-    },
     "voa-business-rates#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
@@ -37127,20 +35307,6 @@
       "confidence": "confirmed",
       "valueHash": "aa3c221cf0ca2d81",
       "valueSeen": "https://www.gov.uk/correct-your-business-rates"
-    },
-    "voa-council-tax-band#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/council-tax-bands",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say whether you need an account or sign-in. It names none but does not confirm that none is needed."
     },
     "voa-council-tax-band#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -37222,16 +35388,6 @@
       "confidence": "confirmed",
       "valueHash": "d5c96443e964e53f",
       "valueSeen": "https://www.gov.uk/council-tax-bands"
-    },
-    "wg-discretionary-assistance#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
     },
     "wg-discretionary-assistance#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -37406,16 +35562,6 @@
       "verifiedAt": "2026-10-14T10:11:28.461Z",
       "confidence": "confirmed",
       "rationale": "HTTP 200. Host www.gov.wales has no Content API, so only existence is established."
-    },
-    "wg-winter-fuel-support#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says nothing about accounts or signing in."
     },
     "wg-winter-fuel-support#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",

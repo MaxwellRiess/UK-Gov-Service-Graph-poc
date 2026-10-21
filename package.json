@@ -14,6 +14,7 @@
     "verify:prose": "tsx scripts/verify-prose.ts --write",
     "check:types": "tsc --noEmit",
     "check:provenance": "tsx scripts/check-provenance.ts",
+    "report:coverage": "tsx scripts/report-coverage.ts",
     "check:consistency": "tsx scripts/check-consistency.ts --online",
     "verify:links": "tsx scripts/verify-links.ts --write",
     "check:provenance:online": "tsx scripts/check-provenance.ts --online",

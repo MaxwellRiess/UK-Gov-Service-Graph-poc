@@ -97,7 +97,7 @@ function proseField(n: ServiceNode, path: string): FieldToJudge | null {
   if (path === 'agentInteraction.methods' && n.agentInteraction) {
     return { key: 'methods', path, split: true, text: n.agentInteraction.methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.' };
   }
-  if (path === 'agentInteraction.authRequired' && n.agentInteraction) {
+  if (path === 'agentInteraction.authRequired' && n.agentInteraction?.authRequired) {
     return { key: 'auth', path, split: false, text: AUTH_WORDS[n.agentInteraction.authRequired] ?? n.agentInteraction.authRequired };
   }
   const m = path.match(/^eligibility\.(autoQualifiers|exclusions|evidenceRequired)\.(\d+)$/);

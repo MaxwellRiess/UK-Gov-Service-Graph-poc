@@ -109,7 +109,9 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
 
   if (node.agentInteraction) {
     out.push({ path: 'agentInteraction.methods', about: `Ways to apply: ${node.agentInteraction.methods.join(', ')}` });
-    out.push({ path: 'agentInteraction.authRequired', about: `Sign-in needed: ${node.agentInteraction.authRequired}` });
+    if (node.agentInteraction.authRequired) {
+      out.push({ path: 'agentInteraction.authRequired', about: `Sign-in needed: ${node.agentInteraction.authRequired}` });
+    }
     out.push({ path: 'agentInteraction.agentSteps' });
   }
   return out;
