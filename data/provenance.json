@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-14T10:18:03.837Z",
+  "lastRun": "2026-10-21T13:59:37.146Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.authRequired": {
       "valueHash": "30a0924a3360be68",
@@ -33945,16 +33945,25 @@
       "rationale": "not stated: The text never mentions a benefit confirmation letter for the broader group; the only confirmation letter it mentions comes from the Warm Home Discount Scheme."
     },
     "other-warm-home-discount#eligibility.summary": {
-      "valueHash": "a4c06df39a72b8fb",
-      "valueSeen": "One-off £150 discount applied by the electricity supplier. England and Wales: automatic if on the qualifying date you or your partner got Universal Credit, Housing Benefit, income-related ESA or Pensi",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "valueHash": "ac5d4c7d95ccdbb8",
+      "valueSeen": "One-off £150 discount applied by the electricity supplier. England and Wales: usually automatic if on the qualifying date you or your partner got Universal Credit, Housing Benefit, income-related ESA ",
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
-      "sourceQuote": "If you’re eligible, your electricity supplier will apply the discount to your bill.",
-      "confidence": "confirmed",
+      "sourceQuote": "The Warm Home Discount Scheme is a one-off £150 discount off your electricity bill.",
       "additionalQuotes": [
         {
+          "quote": "If you’re eligible, your electricity supplier will apply the discount to your bill.",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
+          "quote": "You’ll usually get the discount automatically if you’re eligible.",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
           "quote": "You may be eligible if all of the following applied on 23 August 2026: your energy supplier is part of the scheme you (or your partner) get certain means-tested benefits your name (or your partner’s) is on the electricity bill",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
+          "quote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
@@ -33966,14 +33975,30 @@
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
+          "quote": "This is known as being in the ‘broader group’.",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
           "quote": "The Warm Home Discount scheme is not available in Northern Ireland.",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
-          "quote": "It will reopen in October 2026. Check if you’re eligible for the discount for winter 2026 to 2027.",
+          "quote": "You’ll get a letter between late October 2026 and early January 2027 if:",
+          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
+        },
+        {
+          "quote": "Your electricity supplier will apply the discount to your bill by 31 March 2027.",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         }
-      ]
+      ],
+      "claims": {
+        "supported": 11,
+        "total": 11
+      },
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T13:59:37.129Z",
+      "confidence": "unverified",
+      "rationale": "Corrected on 2026-10-21 from quoted sources (freshness and provenance checks of 19 October 2026: the reopening sentence was removed from the page) Awaiting independent re-verification."
     },
     "other-warm-home-discount#financialData.rates.discount": {
       "valueHash": "9ae2bdd7beedc2e7",
