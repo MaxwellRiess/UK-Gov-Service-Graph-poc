@@ -8886,7 +8886,7 @@ export const NODES: Record<string, ServiceNode> = {
   // DESNZ — Warm Home Discount ─────────────────────────────────────────────
   'other-warm-home-discount': {
     id: 'other-warm-home-discount', name: 'Warm Home Discount', dept: 'DESNZ', deptKey: 'other',
-    deadline: null,
+    deadline: 'Before 26 February 2027, if no letter has arrived or the letter asks you to confirm your details',
     desc: '£150 off the electricity bill each winter. In England and Wales it is automatic for households getting Universal Credit, Housing Benefit, income-related ESA or Pension Credit. In Scotland some groups must apply to their supplier.',
     govuk_url: 'https://www.gov.uk/the-warm-home-discount-scheme',
     serviceType: 'benefit',
@@ -8900,11 +8900,11 @@ export const NODES: Record<string, ServiceNode> = {
         { factor: 'geography', description: 'Available in England, Scotland and Wales only. Not available in Northern Ireland.' },
       ],
       keyQuestions: [
-        'Do you receive Pension Credit Guarantee Credit?',
+        'Do you receive Pension Credit?',
         'Are you on Universal Credit, Housing Benefit or income-related ESA?',
         'Do you live in England, Scotland or Wales?',
       ],
-      autoQualifiers: ['Receiving Pension Credit Guarantee Credit — discount applied automatically'],
+      autoQualifiers: ['Receiving Pension Credit: the discount is usually applied automatically'],
       means_tested: false,
       evidenceRequired: ['Electricity account number', 'Benefit confirmation letter (for Broader Group)'],
       ruleIn: ['On UC, Housing Benefit, income-related ESA or Pension Credit', 'Supplier is in the scheme'],
@@ -8959,7 +8959,7 @@ export const NODES: Record<string, ServiceNode> = {
       authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Check if user is in Core Group (Pension Credit Guarantee — automatic)',
+        'Check if user gets Pension Credit (core group, usually automatic)',
         'In England and Wales explain the discount is automatic; in Scotland, if not automatic, advise applying to the supplier',
         'Confirm user lives in England, Scotland or Wales',
         'Advise that discount is applied directly to electricity bill',
