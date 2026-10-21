@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T15:19:53.276Z",
+  "generatedAt": "2026-10-21T20:15:45.432Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -1362,8 +1362,19 @@
       "factor": "citizenship",
       "graph": "Must be a British national (citizen, overseas territory citizen, etc.).",
       "verdict": "partly_supported",
-      "note": "The text implies citizens of a British overseas territory can apply, but it never lists which categories count as British national, so British citizens and the other unspecified categories are not set out.",
-      "quote": "Citizen of a British overseas territory and born before 1 January 1983",
+      "note": "The text gives documents for overseas territory citizens born before 1983 and for people with naturalisation or registration certificates, but never lists which nationality types count as British nationals.",
+      "quote": "Citizen of a British overseas territory and born before 1 January 1983 You’ll need all of the following",
+      "url": null
+    },
+    {
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "criterion": 1,
+      "factor": "family",
+      "graph": "Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.",
+      "verdict": "partly_supported",
+      "note": "The Act names the occupier of the house (if they knew of the death), not an administrator of the premises; only a single council page equates occupier with an establishment's manager or senior administrator.",
+      "quote": "(d) the occupier of the house if he knew of the happening of the death;",
       "url": null
     },
     {
@@ -1373,8 +1384,19 @@
       "factor": "residency",
       "graph": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
       "verdict": "partly_supported",
-      "note": "The six-month residence ground applies only to the applicant, who must also be domiciled there, and requires six months immediately before the application, not 6 of the last 12 months; otherwise habitual residence needs one year or applies to the respondent, both parties, or either party in a joint application.",
-      "quote": "(e) the applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately before the application was made;",
+      "note": "The six-month residence ground applies only to an applicant who is also domiciled in England and Wales and requires six months immediately before applying; residence alone needs at least one year, and the text has no '6 of the last 12 months' rule.",
+      "quote": "the applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately before the application was made",
+      "url": null
+    },
+    {
+      "id": "hmcts-gender-recognition",
+      "name": "Apply for a Gender Recognition Certificate",
+      "criterion": 1,
+      "factor": "residency",
+      "graph": "Must be a UK national or permanently resident in the UK.",
+      "verdict": "partly_supported",
+      "note": "The eligibility requirements listed (age 18+, UK diagnosis, 2 years living in affirmed gender, intention to continue) say nothing about nationality.",
+      "quote": null,
       "url": null
     },
     {
@@ -1384,8 +1406,8 @@
       "factor": "income",
       "graph": "Case must pass the merits test — chances of success and proportionality to cost.",
       "verdict": "partly_supported",
-      "note": "A prospects of success criterion (reg. 43) applies to full representation, but the regulations do not apply it to other forms of legal aid such as legal help.",
-      "quote": "An individual may qualify for full representation only if the Director is satisfied that the criteria in regulation 39 (standard criteria for determinations for legal representation) and the following criteria are met",
+      "note": "The prospects of success criterion applies to full (and investigative) representation, not to every form of legal aid such as legal help or family help.",
+      "quote": "The prospects of success criterion is only met if the Director is satisfied that the prospects of success are—",
       "url": null
     },
     {
@@ -1395,8 +1417,19 @@
       "factor": "disability",
       "graph": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
       "verdict": "partly_supported",
-      "note": "The text treats non-visible (hidden) conditions as a route to eligibility, with criteria such as struggling severely to plan or follow a journey, but it does not use a 'very considerable difficulty' threshold for hidden conditions.",
-      "quote": "If you cannot walk or find walking difficult or you have a non-visible (hidden) condition",
+      "note": "The text covers applicants with hidden conditions, but does not state a 'very considerable difficulty' test for them; it lists specific journey-related criteria instead.",
+      "quote": "If you have a non-visible (hidden) condition, you will also be asked questions around how journeys between your vehicle and destination are affected by your condition.",
+      "url": null
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "criterion": 2,
+      "factor": "geography",
+      "graph": "Must live in Scotland.",
+      "verdict": "partly_supported",
+      "note": "Living in Scotland is required only in most cases; the sources say some people living in the EU, Switzerland, Norway, Iceland, Liechtenstein, Gibraltar or Ireland with a link to Scotland can also apply.",
+      "quote": "In most cases, you must also: be between 16 years old and State Pension age, and live in Scotland.",
       "url": null
     }
   ]

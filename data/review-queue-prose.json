@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T15:19:53.276Z",
+  "generatedAt": "2026-10-21T20:15:45.432Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -8427,6 +8427,21 @@
       ]
     },
     {
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "field": "eligibility.summary",
+      "graph": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Registering the death is required for every death in England and Wales.",
+          "verdict": "partly_supported",
+          "note": "The source says it is a criminal offence not to register a death, but this advice is stated for England; the sources do not state the requirement for every death in Wales in the same terms.",
+          "quote": "It’s a criminal offence not to register a death."
+        }
+      ]
+    },
+    {
       "id": "la-blue-badge",
       "name": "Blue Badge",
       "field": "eligibility.autoQualifiers.0",
@@ -8434,9 +8449,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Receiving the enhanced rate of the PIP mobility component, once confirmed, qualifies you.",
+          "claim": "Receiving the enhanced rate of the PIP mobility component qualifies you for a Blue Badge.",
           "verdict": "partly_supported",
-          "note": "The text grants automatic eligibility for PIP mobility based on a score of 8 or more points for moving around, or 10 points under descriptor E, and asks for proof of the PIP award, but it never mentions the enhanced rate.",
+          "note": "The text ties automatic qualification to specific PIP mobility scores (8+ points for moving around, or 10 points under descriptor E), not to the enhanced rate as such.",
           "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)"
         }
       ]
@@ -8449,10 +8464,16 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "People already entitled to the full new State Pension are excluded from paying voluntary Class 3 contributions.",
+          "claim": "People already entitled to the full new State Pension cannot pay (or are excluded from paying) voluntary contributions.",
           "verdict": "partly_supported",
-          "note": "The text excludes people with no gaps in their record, not people already entitled to the full State Pension; it only says voluntary contributions do not always increase the State Pension.",
-          "quote": "You cannot pay voluntary contributions if you: do not have gaps in your National Insurance record"
+          "note": "The text implies extra years add nothing beyond the full rate, but the stated bar on paying is having no gaps in your record, not being entitled to the full State Pension.",
+          "quote": "Each qualifying year after 6 April 2016 added to your National Insurance record increases your State Pension amount, up to the full rate ( £241.30 a week)."
+        },
+        {
+          "claim": "You need 35 qualifying years to get the full new State Pension.",
+          "verdict": "partly_supported",
+          "note": "The text gives 35 years only for records starting after April 2016 and says people who were contracted out usually need more than 35.",
+          "quote": "If your National Insurance record started after April 2016 you will need 35 qualifying years to get the full rate of new State Pension."
         }
       ]
     },
@@ -8464,10 +8485,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A person who is already bankrupt cannot apply for bankruptcy.",
+          "claim": "You cannot get bankruptcy through this service if you are already bankrupt.",
           "verdict": "partly_supported",
-          "note": "The Act bars an order where a bankruptcy order already covers the debts in the application, but does not say that being already bankrupt excludes the person outright.",
-          "quote": "no bankruptcy order has been made in respect of any of the debts which are the subject of the application at the date of the determination."
+          "note": "The Act bars an order only where a bankruptcy order has already been made for any of the debts in the application (or a petition is pending); it does not state a general exclusion for anyone already bankrupt.",
+          "quote": "(d) no bankruptcy order has been made in respect of any of the debts which are the subject of the application at the date of the determination."
         }
       ]
     },
@@ -8481,7 +8502,7 @@
         {
           "claim": "It covers specialist support.",
           "verdict": "not_stated",
-          "note": "The sources describe health and social care but do not mention specialist support.",
+          "note": "The sources describe health and social care in various settings but do not mention specialist support.",
           "quote": null
         }
       ]
@@ -8494,25 +8515,31 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You can apply for a Disabled Facilities Grant in person.",
+          "claim": "You can apply by phone.",
+          "verdict": "partly_supported",
+          "note": "Only one council (BCP) says you can apply by phone; the GOV.UK page just says to apply through your local council without naming a method, so this does not establish phone applications everywhere.",
+          "quote": "Alternatively, you can call us on 01202 123 654 or send a letter to:"
+        },
+        {
+          "claim": "You can apply in person.",
           "verdict": "not_stated",
-          "note": "None of the sources mention applying in person; they describe applying through the council online, by phone or by letter, and an occupational therapist visit as part of assessment.",
+          "note": "No source says you can apply in person; the occupational therapist visit is part of how the assessment is delivered, not a way to apply.",
           "quote": null
         }
       ]
     },
     {
-      "id": "dwp-inherited-state-pension",
-      "name": "Inherited State Pension (Additional or extra)",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Marriage or civil partnership certificate",
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this in person.",
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A marriage or civil partnership certificate is needed as evidence.",
-          "verdict": "partly_supported",
-          "note": "The text asks for the date of the most recent marriage or civil partnership when claiming, but never mentions providing a marriage or civil partnership certificate.",
-          "quote": "the date of your most recent marriage, civil partnership or divorce"
+          "claim": "You can ask for a needs assessment in person.",
+          "verdict": "not_stated",
+          "note": "The text says the assessment itself can happen face-to-face, but that is how it is delivered; no source says you can ask for one in person.",
+          "quote": null
         }
       ]
     },
@@ -8524,10 +8551,25 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A copy of the child's birth certificate is needed as evidence for a school place application.",
+          "claim": "A child's birth certificate is needed as evidence for a school place application.",
           "verdict": "partly_supported",
-          "note": "Only Bromley council's admissions page requires the child's birth certificate (long form only); the GOV.UK page does not say it is needed by councils generally.",
+          "note": "Only one council (Bromley) states this requirement for its own applications; no source says it applies to all councils.",
           "quote": "Parent(s)/carer(s) must provide a copy of the applicant child&rsquo;s birth certificate - long form."
+        }
+      ]
+    },
+    {
+      "id": "other-help-to-buy",
+      "name": "First Homes / Help to Buy scheme",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of first-time buyer status",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof that they are first-time buyers.",
+          "verdict": "partly_supported",
+          "note": "GOV.UK says you must be a first-time buyer and the developer checks eligibility, but only one council page describes how this is evidenced, and it is by a signed declaration rather than proof.",
+          "quote": "Sign legal declarations confirming (for example) that all buyers are first-time buyers"
         }
       ]
     },
@@ -8539,9 +8581,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "When moving, the registration is updated at both the old and the new address.",
+          "claim": "When you move, the electoral roll is updated at both your old and new address.",
           "verdict": "partly_supported",
-          "note": "The text says you give both addresses on one register to vote form and are then removed from the old address automatically, not that you update at both addresses separately.",
+          "note": "GOV.UK only says to register again with your new details; asking for the previous address and removing you from the old address is stated only by one council (Bracknell Forest), so it is not shown as a general rule.",
           "quote": "Include both your new address and, where requested, your previous address."
         }
       ]

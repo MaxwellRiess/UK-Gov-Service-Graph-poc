@@ -129,7 +129,11 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
         `GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it ` +
         `is about this service, in the part of the UK the service covers, or states a general rule that ` +
         `plainly applies to it. A page about a similar service, or another nation's version, does not support ` +
-        `the claim.\n\n`
+        `the claim.\n\n` +
+        `A page from one local council speaks only for that council. Use it for a claim about a service ` +
+        `councils run locally only if it states a rule that applies everywhere (a law, a national scheme, ` +
+        `"all councils must"); a council's own phone number, form or document list shows what that council ` +
+        `does, so the claim is at most partly_supported from it.\n\n`
       : '') +
     `For a field marked "(split into claims)", split it into single factual statements and judge each. ` +
     `Together the claims must cover every factual statement in the field: do not skip one because it is ` +
@@ -141,6 +145,9 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
     `text says does not exist, a sign-in the text names differently. A detail the text leaves out is ` +
     `partly_supported, not contradicted.\n` +
     `- not_stated: the text does not address it.\n\n` +
+    `A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported ` +
+    `only where the text says you can apply, ask or start the service that way. How the service itself is ` +
+    `delivered (an assessment held face-to-face, a payment made by post) does not count.\n\n` +
     `Also list every way the text says you can apply (methods_on_page), and the sign-in it names for ` +
     `applying online, if any (sign_in_on_page).\n\n` +
     `The verdict and the note must agree. Quotes must be copied exactly from the source text, not ` +
