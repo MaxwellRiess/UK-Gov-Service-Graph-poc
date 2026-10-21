@@ -260,6 +260,18 @@ New sources, added to `eligibility.sources`, confirm `hmrc-mtd`'s £50,000 and t
 - Rates and phone numbers: the State Pension basic rate's page, railcard "1/3", the NI Discretionary Support phone number.
 - Three links that refuse automated checks.
 
+## Stage 3 pilot (21 October 2026)
+
+The wider search runs in three separate steps, so the model that finds a page never judges it:
+
+1. **Finder subagents** search the web for each not-stated claim and nominate up to three pages each, with the searches they ran. The pages can come from GOV.UK, devolved government, the NHS, councils, the body that runs the service, Citizens Advice, Shelter or legislation.gov.uk.
+2. **`widen-sources --candidates <file>`** fetches the nominated pages itself and adds them to the judge prompt marked FOUND, with instructions about scope and nation.
+3. **Judge subagents** decide each claim. `--import` keeps a verdict only where its quote is on the fetched page.
+
+`scripts/review-sample.ts` writes the result as a page someone can check by hand. The pilot's inputs are in `data/stage3-pilot/`.
+
+**Result on 25 fields:** 9 confirmed from a page found by search, 12 partly supported, 4 still not found. All 34 nominated pages were readable and no quote was rejected. The review, including two confirmations that look too lenient and the prompt changes proposed before the full run, is in [stage3-pilot-review.md](stage3-pilot-review.md).
+
 ## Progress
 
 | Date | Change | Confirmed | Share |
@@ -270,3 +282,4 @@ New sources, added to `eligibility.sources`, confirm `hmrc-mtd`'s £50,000 and t
 | 21 Oct 2026 | Stage 2: corrected all 32 contradicted fields | 1,748 of 3,041 | 57.5% |
 | 21 Oct 2026 | Retired `ho-brp` (5 confirmed and 8 unconfirmed fields went with it) | 1,743 of 3,028 | 57.6% |
 | 21 Oct 2026 | Rule and deadline fixes, State Pension age from date of birth | 1,762 of 3,020 | 58.3% |
+| 21 Oct 2026 | Stage 3 pilot (25 fields) | 1,771 of 3,020 | 58.6% |

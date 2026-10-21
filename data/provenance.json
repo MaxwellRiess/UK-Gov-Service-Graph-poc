@@ -1,16 +1,25 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T15:08:29.414Z",
+  "lastRun": "2026-10-21T15:19:53.284Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.acas.org.uk/early-conciliation",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: There is a link titled 'Notify Acas about making a claim', but the text does not say how you notify, online or otherwise. not stated: The text mentions the Acas helpline only for questions about your own circumstances, not as a way to notify Acas."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.acas.org.uk/notify-acas",
+      "sourceQuote": "You can notify Acas using our online form.",
+      "additionalQuotes": [
+        {
+          "quote": "If you cannot use the online form, you can notify Acas by contacting the early conciliation team. Telephone: 0300 123 1122",
+          "url": "https://www.acas.org.uk/notify-acas"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "acas-early-conciliation#agentInteraction.onlineFormUrl": {
       "valueHash": "eb674e1e99a7a09b",
@@ -264,11 +273,15 @@
       "valueHash": "2376002b6cbe76eb",
       "valueSeen": "Subject to legal proceedings",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
       "sourceUrl": "https://www.gov.uk/closing-a-limited-company",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions legal proceedings as an exclusion."
+      "rationale": "not stated: The text does not mention legal proceedings as a bar to closing a company."
     },
     "ch-close-company#eligibility.summary": {
       "valueHash": "c8eebd39c0feb3db",
@@ -1787,11 +1800,15 @@
       "valueHash": "99bc5c7812f89c7b",
       "valueSeen": "D27 form",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
       "sourceUrl": "https://www.gov.uk/tell-dvla-about-bereavement",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions a D27 form."
+      "rationale": "not stated: The source never mentions a D27 form; it says to write a letter to DVLA and include the person's driving licence."
     },
     "dvla-cancel-licence#eligibility.summary": {
       "valueHash": "608e57f191ef87b2",
@@ -6178,7 +6195,7 @@
       "valueHash": "856602531cc50c57",
       "valueSeen": "Marriage or civil partnership certificate",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
       "sourceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
       "sourceQuote": "",
       "claims": {
@@ -6186,7 +6203,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text asks only for the date of your most recent marriage, civil partnership or divorce and never mentions a certificate."
+      "rationale": "partly supported: The text asks for the date of the most recent marriage or civil partnership when claiming, but never mentions providing a marriage or civil partnership certificate."
     },
     "dwp-inherited-state-pension#eligibility.evidenceRequired.2": {
       "valueHash": "06e752c831899078",
@@ -9640,11 +9657,15 @@
       "valueHash": "3fce6382fc3677b5",
       "valueSeen": "Already entitled to full new State Pension (35 qualifying years)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/voluntary-national-insurance-contributions",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/new-state-pension",
+      "sourceQuote": "If your National Insurance record started after April 2016 you will need 35 qualifying years to get the full rate of new State Pension.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention 35 qualifying years or list full entitlement as an exclusion. It only mentions needing at least 10 qualifying years to get a State Pension."
+      "rationale": "partly supported: The text excludes people with no gaps in their record, not people already entitled to the full State Pension; it only says voluntary contributions do not always increase the State Pension."
     },
     "dwp-voluntary-ni-contributions#eligibility.summary": {
       "valueHash": "16bb1053136dac8a",
@@ -11366,11 +11387,28 @@
       "valueHash": "e220e2450d9c6947",
       "valueSeen": "Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:06:35.927Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never says who may register a death, and it does not mention relatives, people present at the death or administrators of the premises."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://wandsworth.gov.uk/registration-services/deaths/register-a-death",
+      "sourceQuote": "Qualified informants can register a death.",
+      "additionalQuotes": [
+        {
+          "quote": "A qualified informant can be: A relative A person who was present at the death",
+          "url": "https://wandsworth.gov.uk/registration-services/deaths/register-a-death"
+        },
+        {
+          "quote": "A qualified informant can be: A relative A person who was present at the death",
+          "url": "https://wandsworth.gov.uk/registration-services/deaths/register-a-death"
+        },
+        {
+          "quote": "Occupier of the house / home where the death happened - if in an establishment the occupier could be the establishment's manager or senior administrator",
+          "url": "https://www.wokingham.gov.uk/births-deaths-and-ceremonies/deaths/register-death"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 4,
+        "total": 4
+      }
     },
     "gro-register-death#eligibility.evidenceRequired.0": {
       "valueHash": "5c34f640f90c30a1",
@@ -11413,15 +11451,24 @@
       "valueHash": "b8950d24294e1b4f",
       "valueSeen": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.wokingham.gov.uk/births-deaths-and-ceremonies/deaths/register-death",
+      "sourceQuote": "All deaths must be registered at the Register Office for the area where death occurred within 5 days of the Registrar receiving the completed paperwork.",
+      "additionalQuotes": [
+        {
+          "quote": "A qualified informant can be: A relative A person who was present at the death",
+          "url": "https://wandsworth.gov.uk/registration-services/deaths/register-a-death"
+        },
+        {
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "url": "https://www.gov.uk/after-a-death/register-the-death"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 3,
         "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text talks about registering deaths in the UK or abroad but never says registration is required for every death in England and Wales. not stated: The text does not say who can register a death. not stated: The text gives no time limit for registering a death. Its only date is 1 January 1983, for deaths abroad."
+      }
     },
     "gro-register-death#govuk_url": {
       "sourceUrl": "https://www.gov.uk/register-a-death",
@@ -12095,11 +12142,15 @@
       "valueHash": "8d0595a027de8e0a",
       "valueSeen": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
-      "sourceUrl": "https://www.gov.uk/divorce",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.legislation.gov.uk/ukpga/1973/45/section/5",
+      "sourceQuote": "(g) either of the parties to the marriage is domiciled in England and Wales. ]",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention domicile or habitual residence in England or Wales, or any 6-of-12-months residence rule."
+      "rationale": "partly supported: The six-month residence ground applies only to the applicant, who must also be domiciled there, and requires six months immediately before the application, not 6 of the last 12 months; otherwise habitual residence needs one year or applies to the respondent, both parties, or either party in a joint application."
     },
     "hmcts-divorce#eligibility.evidenceRequired.0": {
       "valueHash": "fbccc90a80869ea1",
@@ -12736,11 +12787,15 @@
       "valueHash": "b879c3135f8cec5c",
       "valueSeen": "Must be a UK national or permanently resident in the UK.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
       "sourceUrl": "https://www.gov.uk/apply-gender-recognition-certificate",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The source never mentions a UK nationality or permanent residence requirement; the only residence condition ('you currently live in the UK') applies just to the route for people without a gender dysphoria diagnosis."
+      "rationale": "not stated: The listed requirements (age 18+, UK diagnosis, 2 years living in affirmed gender, intention to continue) say nothing about nationality or permanent residence; only the separate no-diagnosis route requires that you currently live in the UK."
     },
     "hmcts-gender-recognition#eligibility.evidenceRequired.0": {
       "valueHash": "76639219648d7c2d",
@@ -13178,11 +13233,21 @@
       "valueHash": "7b9e265e904acc26",
       "valueSeen": "Case must pass the merits test — chances of success and proportionality to cost.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
-      "sourceUrl": "https://www.gov.uk/legal-aid",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.legislation.gov.uk/uksi/2013/104/part/4",
+      "sourceQuote": "PART 4 E+W GENERAL MERITS CRITERIA",
+      "additionalQuotes": [
+        {
+          "quote": "there is likely to be sufficient benefit to the individual, having regard to all the circumstances of the case, including the circumstances of the individual, to justify the cost of provision of legal help.",
+          "url": "https://www.legislation.gov.uk/uksi/2013/104/part/4"
+        }
+      ],
+      "claims": {
+        "supported": 2,
+        "total": 3
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions a merits test covering chances of success or whether the case is worth its cost."
+      "rationale": "partly supported: A prospects of success criterion (reg. 43) applies to full representation, but the regulations do not apply it to other forms of legal aid such as legal help."
     },
     "hmcts-legal-aid#eligibility.evidenceRequired.0": {
       "valueHash": "c839ebe9108cddda",
@@ -13917,11 +13982,15 @@
       "valueHash": "911cd29c02f64719",
       "valueSeen": "Must be a British national (citizen, overseas territory citizen, etc.).",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:06:35.927Z",
-      "sourceUrl": "https://www.gov.uk/apply-renew-passport",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/apply-first-adult-passport",
+      "sourceQuote": "you’re a British national",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text covers applying online for a UK passport, fees and ways to apply, but never says who is eligible or that the applicant must be a British national."
+      "rationale": "partly supported: The text implies citizens of a British overseas territory can apply, but it never lists which categories count as British national, so British citizens and the other unspecified categories are not set out."
     },
     "hmpo-passport#eligibility.evidenceRequired.0": {
       "valueHash": "a2f3a8b8a5d9342d",
@@ -22250,15 +22319,14 @@
       "valueHash": "54c6e4031effb0d4",
       "valueSeen": "Immigration Health Surcharge payment",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/browse/visas-immigration",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/healthcare-immigration-application",
+      "sourceQuote": "Most people need to pay the immigration health surcharge ( IHS ) as part of their online immigration application.",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 1,
         "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page does not mention the Immigration Health Surcharge."
+      }
     },
     "ho-visa#eligibility.summary": {
       "valueHash": "1a7515eab9384ae8",
@@ -22378,11 +22446,15 @@
       "valueHash": "9e28186e302181ff",
       "valueSeen": "Already bankrupt",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-for-bankruptcy",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.legislation.gov.uk/ukpga/1986/45/section/263K",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention people who are already bankrupt."
+      "rationale": "partly supported: The Act bars an order where a bankruptcy order already covers the debts in the application, but does not say that being already bankrupt excludes the person outright."
     },
     "insolvency-bankruptcy#eligibility.exclusions.1": {
       "valueHash": "c1fee231c90bcf36",
@@ -22929,21 +23001,39 @@
       "valueHash": "542cbf179f83671a",
       "valueSeen": "Enhanced Rate PIP mobility component confirmed",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-blue-badge",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention PIP or any qualifying benefit."
+      "rationale": "partly supported: The text grants automatic eligibility for PIP mobility based on a score of 8 or more points for moving around, or 10 points under descriptor E, and asks for proof of the PIP award, but it never mentions the enhanced rate."
     },
     "la-blue-badge#eligibility.criteria.0": {
       "valueHash": "44ef3b0dc7c46343",
       "valueSeen": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
-      "sourceUrl": "https://www.gov.uk/apply-blue-badge",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge",
+      "sourceQuote": "you cannot walk at all",
+      "additionalQuotes": [
+        {
+          "quote": "you find walking very difficult due to pain, breathlessness or the time it takes",
+          "url": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+        },
+        {
+          "quote": "you are registered blind (severely sight impaired)",
+          "url": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+        }
+      ],
+      "claims": {
+        "supported": 3,
+        "total": 4
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The page links to 'Who can get a Blue Badge' but never sets out the eligibility criteria: walking difficulty, severe sight impairment and hidden disability are not mentioned."
+      "rationale": "partly supported: The text treats non-visible (hidden) conditions as a route to eligibility, with criteria such as struggling severely to plan or follow a journey, but it does not use a 'very considerable difficulty' threshold for hidden conditions."
     },
     "la-blue-badge#eligibility.criteria.1": {
       "valueHash": "b20a102268c08bf0",
@@ -23985,11 +24075,15 @@
       "valueHash": "8061f478d426d78c",
       "valueSeen": "You can apply or do this by phone. You can apply or do this in person.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/disabled-facilities-grants",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.bcpcouncil.gov.uk/adult-social-care-and-health/support-for-adults-with-a-disability/disabled-facilities-grants/apply-for-a-disabled-facilities-grant",
+      "sourceQuote": "Alternatively, you can call us on 01202 123 654 or send a letter to:",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text only says to apply through your local council and names no phone method. not stated: The text names no in-person method."
+      "rationale": "not stated: None of the sources mention applying in person; they describe applying through the council online, by phone or by letter, and an occupational therapist visit as part of assessment."
     },
     "la-disabled-facilities-grant#contactInfo.additionalPhones.0.number": {
       "valueHash": "798428dda9036b3d",
@@ -24213,15 +24307,21 @@
       "valueHash": "cf5727efee7aadbd",
       "valueSeen": "Update at both old and new address. Affects jury duty and credit checks.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/register-to-vote",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/electoral-register",
+      "sourceQuote": "jury summoning in England, Wales and Northern Ireland",
+      "additionalQuotes": [
+        {
+          "quote": "checking applications for loans or credit",
+          "url": "https://www.gov.uk/electoral-register"
+        }
+      ],
       "claims": {
-        "supported": 0,
-        "total": 2
+        "supported": 2,
+        "total": 3
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text only says to register again with your new details. It says nothing about updating at your old address. not stated: The text does not mention jury duty or credit checks."
+      "rationale": "partly supported: The text says you give both addresses on one register to vote form and are then removed from the old address automatically, not that you update at both addresses separately."
     },
     "la-electoral-roll#eligibility.criteria.0": {
       "valueHash": "7d524f206ed53fa6",
@@ -25675,11 +25775,15 @@
       "valueHash": "ea588f94c0426115",
       "valueSeen": "Child's birth certificate",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://bromley.gov.uk/schools-colleges/school-admissions-terms-conditions/2",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text lists no documents."
+      "rationale": "partly supported: Only Bromley council's admissions page requires the child's birth certificate (long form only); the GOV.UK page does not say it is needed by councils generally."
     },
     "la-school-place#eligibility.evidenceRequired.1": {
       "valueHash": "2eec7b860f030688",
@@ -27479,11 +27583,20 @@
       "valueHash": "8061f478d426d78c",
       "valueSeen": "You can apply or do this by phone. You can apply or do this in person.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not name phone as a way to apply. not stated: The text does not name in person as a way to apply."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/",
+      "sourceQuote": "Contact social services at your local council and ask for a needs assessment. You can call them or do it online.",
+      "additionalQuotes": [
+        {
+          "quote": "The needs assessment can happen: face-to-face",
+          "url": "https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "nhs-care-assessment#contactInfo.officeLocatorUrl": {
       "valueHash": "6a0d160744198143",
@@ -27604,21 +27717,50 @@
       "valueHash": "d27df7180d4191fd",
       "valueSeen": "Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
       "sourceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
-      "sourceQuote": "",
+      "sourceQuote": "NHS continuing healthcare is an ongoing package of health and social care that is arranged and funded solely by the NHS where an individual is found to have a primary health need.",
+      "additionalQuotes": [
+        {
+          "quote": "Such care is provided to an individual aged 18 or over",
+          "url": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+        },
+        {
+          "quote": "Some people with long-term complex health needs qualify for free health and social care arranged and funded solely by the NHS.",
+          "url": "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/"
+        },
+        {
+          "quote": "If you live in a care home, NHS continuing healthcare can pay for your care home fees, including board and accommodation.",
+          "url": "https://www.dorsetcouncil.gov.uk/w/what-is-nhs-continuing-healthcare-"
+        },
+        {
+          "quote": "NHS continuing healthcare can be provided in a variety of settings outside hospital, such as in your own home or in a care home.",
+          "url": "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/"
+        },
+        {
+          "quote": "NHS continuing healthcare is not means tested",
+          "url": "https://www.dorsetcouncil.gov.uk/w/what-is-nhs-continuing-healthcare-"
+        }
+      ],
+      "claims": {
+        "supported": 6,
+        "total": 7
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text says 'primary health need' but never calls it complex. not stated: The text does not say what the package covers. not stated: The text does not mention a means test."
+      "rationale": "not stated: The sources describe health and social care but do not mention specialist support."
     },
     "nhs-continuing-healthcare#eligibility.autoQualifiers.0": {
       "valueHash": "0a5f5cebdc03ac25",
       "valueSeen": "Terminal illness (fast-track CHC)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention terminal illness or a fast-track route."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/",
+      "sourceQuote": "However, if you need care urgently – for example, if you're terminally ill – your assessment may be fast-tracked.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "nhs-continuing-healthcare#eligibility.autoQualifiers.1": {
       "valueHash": "fe1c7b01876fdb4c",
@@ -30440,11 +30582,14 @@
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text describes a paper application form sent to DBS or an umbrella body; online is mentioned only for checking the update service and viewing certificates, not for applying."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.gov.uk/government/organisations/disclosure-and-barring-service/about",
+      "sourceQuote": "An individual can apply for a Basic check directly to DBS through our online application route",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "other-dbs#agentInteraction.onlineFormUrl": {
       "valueHash": "bf84481f570045ec",
@@ -31002,11 +31147,14 @@
       "valueHash": "b4539747682c0b73",
       "valueSeen": "Proof of first-time buyer status",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/first-homes-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says the developer checks eligibility, but it never mentions proof of first-time buyer status as evidence."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.whitehorsedc.gov.uk/first-homes-from-applying-to-moving-in/",
+      "sourceQuote": "Sign legal declarations confirming (for example) that all buyers are first-time buyers",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "other-help-to-buy#eligibility.evidenceRequired.1": {
       "valueHash": "29e3486ce166d6cb",
@@ -33037,11 +33185,14 @@
       "valueHash": "06923e206a14ab32",
       "valueSeen": "Must live in Scotland.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
-      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text mentions Social Security Scotland but never says the applicant must live in Scotland."
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/scotland/benefits/sick-or-disabled-people-and-carers/adult-disability-payment/adult-disability-s/",
+      "sourceQuote": "In most cases, you must also: be between 16 years old and State Pension age, and live in Scotland.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "sss-adult-disability-payment#eligibility.evidenceRequired.0": {
       "valueHash": "c4f95d36b042ea96",
@@ -33258,11 +33409,15 @@
       "valueHash": "c0016001738e4b03",
       "valueSeen": "Proof of pregnancy or child's age",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T15:19:53.276Z",
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any evidence requirements."
+      "rationale": "not stated: The text says when you can apply during pregnancy but does not say any proof of pregnancy is required. not stated: The text sets age limits for the child but does not say any proof of the child's age is required."
     },
     "sss-best-start-foods#eligibility.rules.1.rules.1.rules.1.value": {
       "valueHash": "4e07408562bedb8b",

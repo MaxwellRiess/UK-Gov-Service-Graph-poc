@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T14:52:33.527Z",
+  "generatedAt": "2026-10-21T15:19:53.276Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -1036,33 +1036,6 @@
           "claim": "You can apply or do this by phone.",
           "verdict": "not_stated",
           "note": "The text refers to 'other ways to contact 111' without naming phone.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "nhs-continuing-healthcare",
-      "name": "NHS Continuing Healthcare (CHC)",
-      "field": "desc",
-      "graph": "Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The primary health need is complex.",
-          "verdict": "not_stated",
-          "note": "The text says 'primary health need' but never calls it complex.",
-          "quote": null
-        },
-        {
-          "claim": "It covers nursing home fees, home care and specialist support.",
-          "verdict": "not_stated",
-          "note": "The text does not say what the package covers.",
-          "quote": null
-        },
-        {
-          "claim": "There is no means test.",
-          "verdict": "not_stated",
-          "note": "The text does not mention a means test.",
           "quote": null
         }
       ]
@@ -8450,6 +8423,126 @@
           "verdict": "partly_supported",
           "note": "The text names a UKVI account only for applicants who prove identity with the ID Check app; others give biometrics at a visa application centre, and it does not say a UKVI account is needed to apply in all cases (it is needed afterwards to access the eVisa).",
           "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
+        }
+      ]
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "field": "eligibility.autoQualifiers.0",
+      "graph": "Enhanced Rate PIP mobility component confirmed",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Receiving the enhanced rate of the PIP mobility component, once confirmed, qualifies you.",
+          "verdict": "partly_supported",
+          "note": "The text grants automatic eligibility for PIP mobility based on a score of 8 or more points for moving around, or 10 points under descriptor E, and asks for proof of the PIP award, but it never mentions the enhanced rate.",
+          "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)"
+        }
+      ]
+    },
+    {
+      "id": "dwp-voluntary-ni-contributions",
+      "name": "Voluntary National Insurance contributions (Class 3)",
+      "field": "eligibility.exclusions.0",
+      "graph": "Already entitled to full new State Pension (35 qualifying years)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "People already entitled to the full new State Pension are excluded from paying voluntary Class 3 contributions.",
+          "verdict": "partly_supported",
+          "note": "The text excludes people with no gaps in their record, not people already entitled to the full State Pension; it only says voluntary contributions do not always increase the State Pension.",
+          "quote": "You cannot pay voluntary contributions if you: do not have gaps in your National Insurance record"
+        }
+      ]
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "field": "eligibility.exclusions.0",
+      "graph": "Already bankrupt",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A person who is already bankrupt cannot apply for bankruptcy.",
+          "verdict": "partly_supported",
+          "note": "The Act bars an order where a bankruptcy order already covers the debts in the application, but does not say that being already bankrupt excludes the person outright.",
+          "quote": "no bankruptcy order has been made in respect of any of the debts which are the subject of the application at the date of the determination."
+        }
+      ]
+    },
+    {
+      "id": "nhs-continuing-healthcare",
+      "name": "NHS Continuing Healthcare (CHC)",
+      "field": "desc",
+      "graph": "Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "It covers specialist support.",
+          "verdict": "not_stated",
+          "note": "The sources describe health and social care but do not mention specialist support.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "la-disabled-facilities-grant",
+      "name": "Disabled Facilities Grant",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this in person.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for a Disabled Facilities Grant in person.",
+          "verdict": "not_stated",
+          "note": "None of the sources mention applying in person; they describe applying through the council online, by phone or by letter, and an occupational therapist visit as part of assessment.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dwp-inherited-state-pension",
+      "name": "Inherited State Pension (Additional or extra)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Marriage or civil partnership certificate",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A marriage or civil partnership certificate is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text asks for the date of the most recent marriage or civil partnership when claiming, but never mentions providing a marriage or civil partnership certificate.",
+          "quote": "the date of your most recent marriage, civil partnership or divorce"
+        }
+      ]
+    },
+    {
+      "id": "la-school-place",
+      "name": "School place application",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Child's birth certificate",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A copy of the child's birth certificate is needed as evidence for a school place application.",
+          "verdict": "partly_supported",
+          "note": "Only Bromley council's admissions page requires the child's birth certificate (long form only); the GOV.UK page does not say it is needed by councils generally.",
+          "quote": "Parent(s)/carer(s) must provide a copy of the applicant child&rsquo;s birth certificate - long form."
+        }
+      ]
+    },
+    {
+      "id": "la-electoral-roll",
+      "name": "Electoral roll update",
+      "field": "desc",
+      "graph": "Update at both old and new address. Affects jury duty and credit checks.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "When moving, the registration is updated at both the old and the new address.",
+          "verdict": "partly_supported",
+          "note": "The text says you give both addresses on one register to vote form and are then removed from the old address automatically, not that you update at both addresses separately.",
+          "quote": "Include both your new address and, where requested, your previous address."
         }
       ]
     }

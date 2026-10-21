@@ -1,0 +1,301 @@
+[
+  {
+    "key": "hmpo-passport#eligibility.criteria.0",
+    "service": "Apply for or renew a passport",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-renew-passport",
+    "claim": "Must be a British national (citizen, overseas territory citizen, etc.).",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "whyNotFound": "not stated: The text covers applying online for a UK passport, fees and ways to apply, but never says who is eligible or that the applicant must be a British national."
+  },
+  {
+    "key": "gro-register-death#eligibility.criteria.1",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text never says who may register a death, and it does not mention relatives, people present at the death or administrators of the premises."
+  },
+  {
+    "key": "hmcts-divorce#eligibility.criteria.1",
+    "service": "Divorce application (D8)",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/divorce",
+    "claim": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
+    "alreadySearched": [
+      "https://www.gov.uk/divorce"
+    ],
+    "whyNotFound": "not stated: The text does not mention domicile or habitual residence in England or Wales, or any 6-of-12-months residence rule."
+  },
+  {
+    "key": "hmcts-gender-recognition#eligibility.criteria.1",
+    "service": "Apply for a Gender Recognition Certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-gender-recognition-certificate",
+    "claim": "Must be a UK national or permanently resident in the UK.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-gender-recognition-certificate"
+    ],
+    "whyNotFound": "not stated: The source never mentions a UK nationality or permanent residence requirement; the only residence condition ('you currently live in the UK') applies just to the route for people without a gender dysphoria diagnosis."
+  },
+  {
+    "key": "hmcts-legal-aid#eligibility.criteria.1",
+    "service": "Legal Aid application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/legal-aid",
+    "claim": "Case must pass the merits test — chances of success and proportionality to cost.",
+    "alreadySearched": [
+      "https://www.gov.uk/legal-aid"
+    ],
+    "whyNotFound": "not stated: The text never mentions a merits test covering chances of success or whether the case is worth its cost."
+  },
+  {
+    "key": "la-blue-badge#eligibility.criteria.0",
+    "service": "Blue Badge",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-blue-badge",
+    "claim": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "whyNotFound": "not stated: The page links to 'Who can get a Blue Badge' but never sets out the eligibility criteria: walking difficulty, severe sight impairment and hidden disability are not mentioned."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.criteria.2",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text mentions Social Security Scotland but never says the applicant must live in Scotland."
+  },
+  {
+    "key": "ch-close-company#eligibility.exclusions.1",
+    "service": "Close a limited company",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/closing-a-limited-company",
+    "claim": "Subject to legal proceedings",
+    "alreadySearched": [
+      "https://www.gov.uk/closing-a-limited-company"
+    ],
+    "whyNotFound": "not stated: The text never mentions legal proceedings as an exclusion."
+  },
+  {
+    "key": "dwp-voluntary-ni-contributions#eligibility.exclusions.0",
+    "service": "Voluntary National Insurance contributions (Class 3)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/voluntary-national-insurance-contributions",
+    "claim": "Already entitled to full new State Pension (35 qualifying years)",
+    "alreadySearched": [
+      "https://www.gov.uk/voluntary-national-insurance-contributions",
+      "https://www.gov.uk/voluntary-national-insurance-contributions/rates"
+    ],
+    "whyNotFound": "not stated: The text does not mention 35 qualifying years or list full entitlement as an exclusion. It only mentions needing at least 10 qualifying years to get a State Pension."
+  },
+  {
+    "key": "insolvency-bankruptcy#eligibility.exclusions.0",
+    "service": "Apply for bankruptcy",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-bankruptcy",
+    "claim": "Already bankrupt",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-bankruptcy"
+    ],
+    "whyNotFound": "not stated: The text does not mention people who are already bankrupt."
+  },
+  {
+    "key": "la-blue-badge#eligibility.autoQualifiers.0",
+    "service": "Blue Badge",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-blue-badge",
+    "claim": "Enhanced Rate PIP mobility component confirmed",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "whyNotFound": "not stated: The text does not mention PIP or any qualifying benefit."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.autoQualifiers.0",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Terminal illness (fast-track CHC)",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not mention terminal illness or a fast-track route."
+  },
+  {
+    "key": "acas-early-conciliation#agentInteraction.methods",
+    "service": "ACAS early conciliation",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.acas.org.uk/early-conciliation",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.acas.org.uk/early-conciliation"
+    ],
+    "whyNotFound": "not stated: There is a link titled 'Notify Acas about making a claim', but the text does not say how you notify, online or otherwise. not stated: The text mentions the Acas helpline only for questions about your own circumstances, not as a way to notify Acas."
+  },
+  {
+    "key": "la-disabled-facilities-grant#agentInteraction.methods",
+    "service": "Disabled Facilities Grant",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/disabled-facilities-grants",
+    "claim": "You can apply or do this by phone. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/disabled-facilities-grants"
+    ],
+    "whyNotFound": "not stated: The text only says to apply through your local council and names no phone method. not stated: The text names no in-person method."
+  },
+  {
+    "key": "nhs-care-assessment#agentInteraction.methods",
+    "service": "Care needs assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
+    "claim": "You can apply or do this by phone. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-needs-assessment-social-services"
+    ],
+    "whyNotFound": "not stated: The text does not name phone as a way to apply. not stated: The text does not name in person as a way to apply."
+  },
+  {
+    "key": "other-dbs#agentInteraction.methods",
+    "service": "DBS check",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/dbs-check-applicant-criminal-record",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/dbs-check-applicant-criminal-record"
+    ],
+    "whyNotFound": "not stated: The text describes a paper application form sent to DBS or an umbrella body; online is mentioned only for checking the update service and viewing certificates, not for applying."
+  },
+  {
+    "key": "dvla-cancel-licence#eligibility.evidenceRequired.1",
+    "service": "Cancel driving licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tell-dvla-about-bereavement",
+    "claim": "D27 form",
+    "alreadySearched": [
+      "https://www.gov.uk/tell-dvla-about-bereavement"
+    ],
+    "whyNotFound": "not stated: The text never mentions a D27 form."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.1",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "Marriage or civil partnership certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text asks only for the date of your most recent marriage, civil partnership or divorce and never mentions a certificate."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.3",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Immigration Health Surcharge payment",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page does not mention the Immigration Health Surcharge."
+  },
+  {
+    "key": "la-school-place#eligibility.evidenceRequired.0",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Child's birth certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The text lists no documents."
+  },
+  {
+    "key": "other-help-to-buy#eligibility.evidenceRequired.0",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "Proof of first-time buyer status",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text says the developer checks eligibility, but it never mentions proof of first-time buyer status as evidence."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.evidenceRequired.1",
+    "service": "Best Start Foods",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of pregnancy or child's age",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "la-electoral-roll#desc",
+    "service": "Electoral roll update",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-to-vote",
+    "claim": "Update at both old and new address. Affects jury duty and credit checks.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-to-vote"
+    ],
+    "whyNotFound": "not stated: The text only says to register again with your new details. It says nothing about updating at your old address. not stated: The text does not mention jury duty or credit checks."
+  },
+  {
+    "key": "nhs-continuing-healthcare#desc",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text says 'primary health need' but never calls it complex. not stated: The text does not say what the package covers. not stated: The text does not mention a means test."
+  },
+  {
+    "key": "gro-register-death#eligibility.summary",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text talks about registering deaths in the UK or abroad but never says registration is required for every death in England and Wales. not stated: The text does not say who can register a death. not stated: The text gives no time limit for registering a death. Its only date is 1 January 1983, for deaths abroad."
+  }
+]

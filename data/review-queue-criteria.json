@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T14:52:33.527Z",
+  "generatedAt": "2026-10-21T15:19:53.276Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -1353,6 +1353,50 @@
       "verdict": "partly_supported",
       "note": "The text says a single England and Wales licence is needed, but it excludes the River Tweed, and the claim leaves that exception out.",
       "quote": "You must have a rod fishing licence for England and Wales if you’re fishing for salmon, trout, freshwater fish, smelt or eel with a rod and line in: England (except the River Tweed) Wales",
+      "url": null
+    },
+    {
+      "id": "hmpo-passport",
+      "name": "Apply for or renew a passport",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Must be a British national (citizen, overseas territory citizen, etc.).",
+      "verdict": "partly_supported",
+      "note": "The text implies citizens of a British overseas territory can apply, but it never lists which categories count as British national, so British citizens and the other unspecified categories are not set out.",
+      "quote": "Citizen of a British overseas territory and born before 1 January 1983",
+      "url": null
+    },
+    {
+      "id": "hmcts-divorce",
+      "name": "Divorce application (D8)",
+      "criterion": 1,
+      "factor": "residency",
+      "graph": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
+      "verdict": "partly_supported",
+      "note": "The six-month residence ground applies only to the applicant, who must also be domiciled there, and requires six months immediately before the application, not 6 of the last 12 months; otherwise habitual residence needs one year or applies to the respondent, both parties, or either party in a joint application.",
+      "quote": "(e) the applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately before the application was made;",
+      "url": null
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "name": "Legal Aid application",
+      "criterion": 1,
+      "factor": "income",
+      "graph": "Case must pass the merits test — chances of success and proportionality to cost.",
+      "verdict": "partly_supported",
+      "note": "A prospects of success criterion (reg. 43) applies to full representation, but the regulations do not apply it to other forms of legal aid such as legal help.",
+      "quote": "An individual may qualify for full representation only if the Director is satisfied that the criteria in regulation 39 (standard criteria for determinations for legal representation) and the following criteria are met",
+      "url": null
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
+      "verdict": "partly_supported",
+      "note": "The text treats non-visible (hidden) conditions as a route to eligibility, with criteria such as struggling severely to plan or follow a journey, but it does not use a 'very considerable difficulty' threshold for hidden conditions.",
+      "quote": "If you cannot walk or find walking difficult or you have a non-visible (hidden) condition",
       "url": null
     }
   ]

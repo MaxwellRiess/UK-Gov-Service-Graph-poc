@@ -17,7 +17,8 @@ export type Verdict = 'supported' | 'partly_supported' | 'contradicted' | 'not_s
 export type FieldStatus = 'confirmed' | Verdict | 'fabricated';
 
 export interface FieldToJudge { key: string; path: string; text: string; split: boolean }
-export interface Source { url: string; text: string; linked?: boolean }
+/** linked: a page the service's own pages link to. found: a page found by searching for the claim. */
+export interface Source { url: string; text: string; linked?: boolean; found?: boolean }
 
 export interface Claim { claim: string; verdict: Verdict; quote: string | null; source: number | null; note: string }
 export interface FieldResult { key: string; claims: Claim[] }
@@ -108,9 +109,10 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
     .map(f => `[${f.key}]${f.split ? ' (split into claims)' : ''} ${f.text}`)
     .join('\n');
   const texts = sources
-    .map((s, i) => `--- SOURCE ${i}${s.linked ? ' (LINKED)' : ''}: ${s.url} ---\n${s.text.slice(0, PER_SOURCE_CHARS)}`)
+    .map((s, i) => `--- SOURCE ${i}${s.linked ? ' (LINKED)' : s.found ? ' (FOUND)' : ''}: ${s.url} ---\n${s.text.slice(0, PER_SOURCE_CHARS)}`)
     .join('\n\n');
   const hasLinked = sources.some(s => s.linked);
+  const hasFound = sources.some(s => s.found);
 
   return (
     `A service graph describes the UK government service "${serviceName}" with the fields below. ` +
@@ -121,6 +123,13 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
       ? `Sources marked LINKED are pages the service's own pages link to. A linked page may describe a ` +
         `different service. Use one for a claim only if it is about this service, or states a general rule ` +
         `that plainly applies to it; otherwise treat the claim as not stated there.\n\n`
+      : '') +
+    (hasFound
+      ? `Sources marked FOUND were found by searching the web for these claims, and may come from outside ` +
+        `GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it ` +
+        `is about this service, in the part of the UK the service covers, or states a general rule that ` +
+        `plainly applies to it. A page about a similar service, or another nation's version, does not support ` +
+        `the claim.\n\n`
       : '') +
     `For a field marked "(split into claims)", split it into single factual statements and judge each. ` +
     `Together the claims must cover every factual statement in the field: do not skip one because it is ` +

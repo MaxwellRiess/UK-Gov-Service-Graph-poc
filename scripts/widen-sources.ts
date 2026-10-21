@@ -40,6 +40,12 @@
  * back through the same recordField, so quotes are checked exactly as before.
  *   npx tsx scripts/widen-sources.ts --fields ... --split-all --export .cache/judge-1
  *   npx tsx scripts/widen-sources.ts --import .cache/judge-1 --write
+ *
+ * --candidates <file> adds pages found by searching (stage 3 of
+ * docs/verification-procedure.md): a JSON object of "id#path" -> [url, ...].
+ * The pages are fetched here, not taken from whoever found them, and are
+ * marked FOUND in the prompt.
+ *   npx tsx scripts/widen-sources.ts --fields ... --candidates .cache/stage3/candidates.json --split-all --export .cache/stage3/judge
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -47,6 +53,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { NODES, type ServiceNode } from '../src/graph-data.js';
 import { loadProvenance, saveProvenance } from '../src/provenance.js';
 import { gatherSources } from './lib/sources.js';
+import { pageText } from './lib/page-text.js';
 import {
   buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, TOOL, methodsText,
   type FieldToJudge, type Source, type ReviewItem, type ProseResponse,
@@ -61,6 +68,7 @@ const DRY = process.argv.includes('--dry-run');
 const BATCH = process.argv.includes('--batch');
 const EXPORT = arg('--export');
 const IMPORT = arg('--import');
+const CANDIDATES: Record<string, string[]> = arg('--candidates') ? JSON.parse(readFileSync(arg('--candidates')!, 'utf-8')) : {};
 const VERBOSE = process.argv.includes('--verbose');
 const RESUME = arg('--resume');
 // With --resume, call the API directly on the cached inputs instead of collecting the batch
@@ -155,7 +163,15 @@ async function prepare(id: string, list: Target[]): Promise<Prepared | null> {
   const sources = await gatherSources(NODES[id], list.map(x => x.terms).join(' '), {
     maxLinked: MAX_LINKED, linkedChars: LINKED_CHARS, minScore: MIN_SCORE, requireLinked: !FIELDS,
   });
-  return sources ? { id, fields: list.map(x => x.field), sources } : null;
+  if (!sources) return null;
+  const found = [...new Set(list.flatMap(x => CANDIDATES[`${id}#${x.field.path}`] ?? []))]
+    .filter(u => !sources.some(s => s.url === u));
+  for (const url of found) {
+    const text = await pageText(url);
+    if (text && text.length > 200) sources.push({ url, text: text.slice(0, LINKED_CHARS), found: true });
+    else console.error(`  ${id}: could not read candidate ${url}`);
+  }
+  return { id, fields: list.map(x => x.field), sources };
 }
 
 // ─── RUN ────────────────────────────────────────────────────────────────────
