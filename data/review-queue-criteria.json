@@ -839,17 +839,6 @@
       "url": null
     },
     {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "criterion": 0,
-      "factor": "immigration",
-      "graph": "Granted a UK visa or leave to remain for more than 6 months.",
-      "verdict": "partly_supported",
-      "note": "The text links holding a BRP to being granted permission to live or work in the UK, but it gives no 'more than 6 months' length and instead names a cut-off date of 31 October 2024.",
-      "quote": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024.",
-      "url": null
-    },
-    {
       "id": "ho-citizenship",
       "name": "British citizenship (naturalisation)",
       "criterion": 2,

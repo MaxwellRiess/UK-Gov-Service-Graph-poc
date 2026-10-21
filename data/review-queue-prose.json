@@ -5241,27 +5241,6 @@
       ]
     },
     {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "partly_supported",
-          "note": "The text describes online steps (signing in, creating a UKVI account to get an eVisa), but not an online application for a BRP, which the text says have all expired and been replaced.",
-          "quote": "You can only use it to: sign in to view your eVisa and get a share code create a UKVI account to get access to your eVisa apply to extend your permission to stay in the UK"
-        },
-        {
-          "claim": "You can apply or do this by post.",
-          "verdict": "partly_supported",
-          "note": "The only postal route in the text is for sending back someone else's lost or stolen BRP that you have found; it names no postal way to apply.",
-          "quote": "If you're in the UK, post the BRP to the Home Office using an envelope without a window."
-        }
-      ]
-    },
-    {
       "id": "ho-citizenship",
       "name": "British citizenship (naturalisation)",
       "field": "eligibility.evidenceRequired.2",
@@ -8998,16 +8977,6 @@
       ]
     },
     {
-      "id": "ho-brp",
-      "graph": [
-        "online",
-        "post"
-      ],
-      "page": [
-        "post"
-      ]
-    },
-    {
       "id": "ho-citizenship",
       "graph": [
         "online",
@@ -9490,11 +9459,6 @@
       "id": "hmrc-vat",
       "graph": "government-gateway",
       "page": null
-    },
-    {
-      "id": "ho-brp",
-      "graph": "none",
-      "page": "UK Visas and Immigration (UKVI) account"
     },
     {
       "id": "ho-evisa",

@@ -27,7 +27,7 @@ This is a proof-of-concept service graph and MCP server for UK government life e
 
 ### Source Files
 
-- **`src/graph-data.ts`** — The entire dataset: 244 service nodes, 301 typed edges, and 17 life events. This is the primary file to edit when adding/modifying services or relationships.
+- **`src/graph-data.ts`** — The entire dataset: 243 service nodes, 299 typed edges, and 17 life events. This is the primary file to edit when adding/modifying services or relationships.
 - **`src/graph-engine.ts`** — Pure journey-planning logic. BFS discovers reachable services from life event entry nodes; Kahn's topological sort (REQUIRES edges only) assigns services to phases.
 - **`src/graph-server.ts`** — MCP server (STDIO transport). Exposes 4 tools (`list_life_events`, `plan_journey`, `get_service`, `check_eligibility`), 2 resources, and 2 prompts.
 - **`src/provenance.ts`** — Per-field evidence records: types, value hashing, and quote matching.

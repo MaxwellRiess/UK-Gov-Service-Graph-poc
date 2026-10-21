@@ -7387,59 +7387,6 @@ export const NODES: Record<string, ServiceNode> = {
       ],
     },
   },
-  'ho-brp': {
-    id: 'ho-brp', name: 'Biometric Residence Permit', dept: 'Home Office', deptKey: 'ho',
-    deadline: '10 days',
-    desc: 'All BRPs have expired and been replaced by eVisas. An expired BRP may still be usable for up to 24 months after its expiry date, or until 31 December 2026 if sooner, to view your eVisa, create a UKVI account or apply to extend your stay.',
-    govuk_url: 'https://www.gov.uk/biometric-residence-permits',
-    serviceType: 'document',
-    proactive: true,
-    gated: true,
-    eligibility: {
-      summary: 'You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024. All BRPs have now expired and been replaced by eVisas, which you use to prove your immigration status.',
-      universal: false,
-      criteria: [
-        { factor: 'immigration', description: 'Granted a UK visa or leave to remain for more than 6 months.' },
-      ],
-      keyQuestions: [
-        'Has your visa been approved?',
-        'Which post office were you told to collect your BRP from?',
-        'Do you have your passport vignette sticker available?',
-      ],
-      autoQualifiers: ['Visa granted for over 6 months — BRP collection instructions given with visa'],
-      means_tested: false,
-      evidenceRequired: ['Passport containing visa vignette sticker', 'BRP collection letter or email from Home Office'],
-      ruleIn: ['Granted UK visa or leave to remain for 6+ months'],
-      ruleOut: [],      rules: [
-        {
-          "type": "dependency",
-          "serviceId": "ho-visa",
-          "condition": "completed",
-          "label": "Must have been granted a UK visa for 6+ months"
-        },
-        {
-          "type": "deadline",
-          "triggerEvent": "uk_arrival_date",
-          "triggerLabel": "Date of arrival in the UK",
-          "maxDays": 10,
-          "label": "Must collect BRP within 10 days of arriving in the UK"
-        }
-      ],
-
-    },
-    agentInteraction: {
-      methods: ['online', 'post'],
-      apiAvailable: false,
-      authRequired: 'ukvi-account',
-      agentCanComplete: 'inform-only',
-      agentSteps: [
-        'Explain the BRP collection process and 10-day deadline',
-        'Help user identify their designated post office for collection',
-        'Advise on what to do if the BRP has not arrived or contains errors',
-        'Explain that BRP proves right to work and rent in the UK',
-      ],
-    },
-  },
   'ho-life-in-uk': {
     id: 'ho-life-in-uk', name: 'Life in the UK test', dept: 'Home Office', deptKey: 'ho',
     deadline: null,
@@ -14609,11 +14556,11 @@ export const EDGES: Edge[] = [
   { from: 'la-school-place',          to: 'la-send-ehc',                    type: 'RELATED' },
 
   // Immigration
-  { from: 'ho-visa',                  to: 'ho-brp',                         type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'other-right-to-work',            type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
+  { from: 'ho-visa',                  to: 'ho-evisa',                         type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'other-right-to-work',            type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-life-in-uk',            to: 'ho-citizenship-spouse',          type: 'REQUIRES' },
   { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'RELATED' },   // useful, reviewed as part of the application, but not a strict precondition to submit
@@ -14814,7 +14761,6 @@ export const EDGES: Edge[] = [
   { from: 'ho-fee-waiver',              to: 'ho-student-visa',                type: 'RELATED' },
 
   // eVisa replaces BRP
-  { from: 'ho-brp',                     to: 'ho-evisa',                       type: 'RELATED' },
   { from: 'ho-eu-settled-status',       to: 'ho-evisa',                       type: 'RELATED' },
   { from: 'ho-evisa',                   to: 'ho-view-immigration-status',     type: 'RELATED' },
   { from: 'ho-view-immigration-status', to: 'other-right-to-work',            type: 'RELATED' },
@@ -14981,7 +14927,7 @@ export const EDGES: Edge[] = [
   { from: 'nhs-111-online',             to: 'nhs-care-assessment',            type: 'RELATED' },
 
   // Electronic Visa Waiver (immigration)
-  { from: 'ho-evw',                     to: 'ho-brp',                         type: 'RELATED' },
+  { from: 'ho-evw',                     to: 'ho-evisa',                         type: 'RELATED' },
 
   // OPG deputy report (bereavement / retirement without LPA)
   { from: 'gro-register-death',         to: 'opg-deputy-report',              type: 'RELATED' },

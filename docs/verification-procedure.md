@@ -213,7 +213,12 @@ The field says "applying online needs X". These go to stage 5, which needs to de
 
 **A bug fixed along the way.** `apply-fixes.ts --record` rewrote the record of every fix ever applied, which reset 45 fields stage 1 had just confirmed. They were restored from the previous commit, and `--record` now writes each fix's record only once.
 
-**Still to do: the `ho-brp` node.** Its desc and summary are now right, but everything else still describes collecting a BRP within 10 days: the deadline, the deadline rule, the key questions, evidence, criteria and agent steps. It is `proactive`, so agents raise it unprompted. It needs reworking into a node about the BRP-to-eVisa switch, or retiring in favour of `ho-evisa`.
+**`ho-brp` retired.** Apart from its desc and summary, the node still described collecting a BRP within 10 days, and the page says "All BRPs have now expired and have been replaced by eVisas."
+- Its six other edges now point to or from `ho-evisa`. The `ho-brp` → `ho-evisa` edge was dropped.
+- Its 12 provenance records went with it.
+- The node's full source and edges are in `data/removed-claims.json`.
+- The Arriving in the UK journey goes from 30 services to 29.
+- This also clears two stage 1 leftovers, the `ho-brp` deadline and the 10-day rule. 35 remain.
 
 ## Progress
 
@@ -223,3 +228,4 @@ The field says "applying online needs X". These go to stage 5, which needs to de
 | 21 Oct 2026 | Deleted 173 unstated `authRequired` values | 1,665 of 3,043 | 54.7% |
 | 21 Oct 2026 | Stage 1: re-judged applied fixes, browser-checked links, rule subpages | 1,725 of 3,043 | 56.7% |
 | 21 Oct 2026 | Stage 2: corrected all 32 contradicted fields | 1,748 of 3,041 | 57.5% |
+| 21 Oct 2026 | Retired `ho-brp` (5 confirmed and 8 unconfirmed fields went with it) | 1,743 of 3,028 | 57.6% |

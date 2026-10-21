@@ -28,14 +28,6 @@
       "reviewNote": "31 May is the P60 deadline, a different form covered by the same combined guide. The starter checklist itself has no explicit stated deadline on this page beyond the practical need to complete it before your new employer runs your first payroll."
     },
     {
-      "id": "ho-brp",
-      "graph": "10 days",
-      "extracted": "24 months after the expiry date printed on the card, or until 31 December 2026, whichever comes first",
-      "quote": "You might be able to use your expired BRP for 24 months after the expiry date printed on the card, or until 31 December 2026 - whichever comes first.",
-      "url": "https://www.gov.uk/biometric-residence-permits",
-      "reviewNote": "That quote is about using an EXPIRED BRP as evidence, a different scenario from this node's fact (collecting a new BRP within 10 days of arrival). Not found on this page in the extracted span."
-    },
-    {
       "id": "hmcts-money-claims",
       "graph": "6 years from debt arising",
       "extracted": "within 21 days of getting the decision",
