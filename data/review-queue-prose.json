@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T15:11:59.706Z",
+  "generatedAt": "2026-10-21T14:42:47.287Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -507,48 +507,6 @@
       ]
     },
     {
-      "id": "dfe-national-careers",
-      "name": "National Careers Service",
-      "field": "eligibility.summary",
-      "graph": "Free for anyone in England aged 13 or over. Provides one-to-one careers advice (phone, webchat, online), a skills assessment tool, job profiles and a course finder.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The service is free.",
-          "verdict": "not_stated",
-          "note": "The text never mentions cost.",
-          "quote": null
-        },
-        {
-          "claim": "The service is available to anyone in England.",
-          "verdict": "not_stated",
-          "note": "The text does not mention England or say who can use the service.",
-          "quote": null
-        },
-        {
-          "claim": "The service is for people aged 13 or over.",
-          "verdict": "not_stated",
-          "note": "The text gives no age limit.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dhsc-baby-loss-certificate",
-      "name": "Request a baby loss certificate",
-      "field": "eligibility.summary",
-      "graph": "Available to parents who experienced the loss of a baby before 24 weeks gestation (including miscarriage and ectopic pregnancy). Free and optional. The certificate is not a legal document (it cannot be used to claim benefits) and is not added to the GP record. Losses before 1 October 1992 are covered up to 28 weeks. England only; arrives by post within 21 days.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "This includes miscarriage and ectopic pregnancy.",
-          "verdict": "not_stated",
-          "note": "The text never mentions miscarriage or ectopic pregnancy.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "dvla-update-address",
       "name": "Update driving licence address",
       "field": "agentInteraction.authRequired",
@@ -560,60 +518,6 @@
           "verdict": "partly_supported",
           "note": "The text says you need to sign in but does not name Government Gateway.",
           "quote": "You’ll need to sign in to use this service."
-        }
-      ]
-    },
-    {
-      "id": "dwp-child-maintenance",
-      "name": "Child Maintenance Service",
-      "field": "desc",
-      "graph": "If parents cannot agree privately. CMS calculates based on paying parent's income.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The Child Maintenance Service is used if parents cannot agree privately.",
-          "verdict": "partly_supported",
-          "note": "The text gives private arrangement (if both parents agree) and the CMS as two options, but it never says the CMS is only for parents who cannot agree.",
-          "quote": "privately between parents , if both parents agree through the Child Maintenance Service"
-        },
-        {
-          "claim": "CMS calculates based on the paying parent's income.",
-          "verdict": "partly_supported",
-          "note": "The text says the CMS works out an amount to pay but does not say this is based on the paying parent's income.",
-          "quote": "work out an amount to pay"
-        }
-      ]
-    },
-    {
-      "id": "dwp-child-maintenance",
-      "name": "Child Maintenance Service",
-      "field": "eligibility.summary",
-      "graph": "A statutory service for parents who cannot reach a private maintenance arrangement. CMS calculates payments based on the paying parent's income. A fee applies to use the Collect & Pay service.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The CMS is a statutory service.",
-          "verdict": "not_stated",
-          "note": "The text does not describe the service as statutory.",
-          "quote": null
-        },
-        {
-          "claim": "It is for parents who cannot reach a private maintenance arrangement.",
-          "verdict": "partly_supported",
-          "note": "The CMS is presented as an alternative to a private arrangement, but the text does not limit it to parents who cannot reach one.",
-          "quote": "privately between parents , if both parents agree through the Child Maintenance Service"
-        },
-        {
-          "claim": "CMS calculates payments based on the paying parent's income.",
-          "verdict": "partly_supported",
-          "note": "The text says the CMS works out an amount but does not mention income as the basis.",
-          "quote": "work out an amount to pay"
-        },
-        {
-          "claim": "A fee applies to use the Collect & Pay service.",
-          "verdict": "not_stated",
-          "note": "The text does not mention fees or Collect & Pay.",
-          "quote": null
         }
       ]
     },
@@ -2036,27 +1940,6 @@
     {
       "id": "acas-early-conciliation",
       "name": "ACAS early conciliation",
-      "field": "desc",
-      "graph": "Mandatory pre-tribunal step for most employment disputes; a free Acas conciliation service that tries to resolve disputes before a tribunal claim is lodged.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Early conciliation is a mandatory pre-tribunal step for most employment disputes.",
-          "verdict": "partly_supported",
-          "note": "Notifying Acas is mandatory and some claims are exempt, but the text says taking part in conciliation itself is voluntary, so only the notification is a required step.",
-          "quote": "You must notify Acas if you want to make a claim to an employment tribunal."
-        },
-        {
-          "claim": "The Acas early conciliation service is free.",
-          "verdict": "not_stated",
-          "note": "The text never says early conciliation is free; the only thing it calls free is the penalty enforcement scheme.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "acas-early-conciliation",
-      "name": "ACAS early conciliation",
       "field": "eligibility.summary",
       "graph": "Required before submitting most employment tribunal claims. Free to use. A conciliator contacts both parties to try to reach a settlement. If no settlement is reached, Acas issues an EC certificate needed to proceed to tribunal.",
       "verdict": "partly_supported",
@@ -2240,27 +2123,6 @@
           "verdict": "not_stated",
           "note": "The text never mentions a £25,000 threshold or a publishing duty for other public bodies.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dbs-basic-check",
-      "name": "Basic DBS criminal record check",
-      "field": "eligibility.summary",
-      "graph": "Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £21.50. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "People in Scotland or Northern Ireland can also apply.",
-          "verdict": "partly_supported",
-          "note": "People there can apply only if the job is in England or Wales, a condition the claim leaves out; jobs in Scotland or Northern Ireland use a different process.",
-          "quote": "You can also get a basic DBS check if you live in Northern Ireland or Scotland but the job you’re applying for is in England or Wales."
-        },
-        {
-          "claim": "Standard and enhanced checks are applied for by employers.",
-          "verdict": "partly_supported",
-          "note": "Employers do run standard and enhanced checks, but Source 2 says self-employed people and personal employees can apply for an enhanced check themselves, so these checks are not applied for only by employers.",
-          "quote": "As an employer or Registered Body, you provide the candidate with a DBS application form to complete and return to you."
         }
       ]
     },
@@ -3570,51 +3432,6 @@
       ]
     },
     {
-      "id": "dwp-maternity-allowance",
-      "name": "Maternity Allowance",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Employment or self-employment evidence",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Employment or self-employment evidence is needed.",
-          "verdict": "partly_supported",
-          "note": "The page asks for information about employment on the form and for payslips as proof of income, but it never asks for self-employment evidence as such.",
-          "quote": "You’ll need to give information about your employment in the 66 weeks before your baby is due"
-        }
-      ]
-    },
-    {
-      "id": "dwp-maternity-allowance",
-      "name": "Maternity Allowance",
-      "field": "eligibility.evidenceRequired.2",
-      "graph": "Payslips or accounts",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Payslips or accounts are needed.",
-          "verdict": "partly_supported",
-          "note": "Original payslips are required, but the page never mentions accounts.",
-          "quote": "You need to provide original payslips as proof of income."
-        }
-      ]
-    },
-    {
-      "id": "dwp-maternity-allowance",
-      "name": "Maternity Allowance",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply online.",
-          "verdict": "partly_supported",
-          "note": "You can fill in the MA1 form online, but it has to be printed and sent to the address on the form, so the page describes no way to submit online.",
-          "quote": "fill it in online and print it"
-        }
-      ]
-    },
-    {
       "id": "dwp-new-style-esa",
       "name": "New Style ESA",
       "field": "desc",
@@ -3713,36 +3530,6 @@
           "verdict": "not_stated",
           "note": "The text never mentions applying by post; writing to Jobcentre Plus is mentioned only for reporting changes of circumstances.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dwp-new-style-jsa",
-      "name": "New Style Jobseeker's Allowance",
-      "field": "eligibility.evidenceRequired.3",
-      "graph": "CV and job-seeking evidence",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "CV and job-seeking evidence is needed for this service.",
-          "verdict": "partly_supported",
-          "note": "The text says you must show proof of job-seeking at regular appointments, but it mentions a CV only as something the Claimant Commitment might ask you to write, not as evidence you must provide.",
-          "quote": "you must show your work coach what you’ve been doing to look for work, for example proof of job applications and interviews"
-        }
-      ]
-    },
-    {
-      "id": "dwp-new-style-jsa",
-      "name": "New Style Jobseeker's Allowance",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "partly_supported",
-          "note": "The text says you can apply another way by contacting Jobcentre Plus but does not say this is by phone; the only phone number given is the helpline for reporting changes, not for applying.",
-          "quote": "You need to either: contact Jobcentre Plus if you live in England, Scotland or Wales"
         }
       ]
     },
@@ -4563,27 +4350,6 @@
       ]
     },
     {
-      "id": "gro-register-birth",
-      "name": "Register the birth",
-      "field": "eligibility.summary",
-      "graph": "Required for every birth. In England, Wales and Northern Ireland it must be registered within 42 days; in Scotland within 21 days (different process). Usually done by a parent; others can register if the parents cannot.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Every birth must be registered.",
-          "verdict": "partly_supported",
-          "note": "The source only says this for births in England, Wales and Northern Ireland, not for every birth.",
-          "quote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born."
-        },
-        {
-          "claim": "In Scotland a birth must be registered within 21 days.",
-          "verdict": "not_stated",
-          "note": "The source gives no deadline for Scotland.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "hmcts-benefit-tribunal",
       "name": "Social Security & Child Support Tribunal",
       "field": "desc",
@@ -4701,78 +4467,6 @@
       ]
     },
     {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "field": "eligibility.summary",
-      "graph": "No-fault divorce since April 2022 — no reasons needed. Apply online or on paper. Minimum timescale: 20 weeks to apply for the conditional order, then at least 43 days before applying for the final order. Fee £628. Can apply jointly or individually.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Divorce has been no-fault since April 2022 and no reasons are needed.",
-          "verdict": "not_stated",
-          "note": "The text refers to applications issued before and after 6 April 2022, and to reasons only for older cases, but it never says divorce is no-fault or that no reasons are needed.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Marriage or civil partnership certificate",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You need a marriage or civil partnership certificate.",
-          "verdict": "partly_supported",
-          "note": "The divorce page asks for a marriage certificate; civil partnership certificates belong to the separate process for ending a civil partnership.",
-          "quote": "your original marriage certificate or a certified copy (and a certified translation if it’s not in English)"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "field": "eligibility.summary",
-      "graph": "Anyone can make a claim to an Employment Tribunal for a qualifying employment rights violation. Must have gone through Acas early conciliation first (in most cases). Time limit is 3 months minus 1 day from the act complained of.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Anyone can make a claim to an Employment Tribunal for a qualifying employment rights violation.",
-          "verdict": "partly_supported",
-          "note": "The text says you can claim if you think you were treated unlawfully, but it never says 'anyone', and it notes a different way to claim in Northern Ireland.",
-          "quote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully, such as your employer, a potential employer or a trade union."
-        },
-        {
-          "claim": "In most cases you must have gone through Acas early conciliation before claiming.",
-          "verdict": "partly_supported",
-          "note": "The text says you must notify Acas and will usually need a certificate, but you can choose not to take part in conciliation, so going through it is not required.",
-          "quote": "If early conciliation does not work or you choose not to take part, Acas will send you an early conciliation certificate."
-        },
-        {
-          "claim": "The time limit is 3 months minus 1 day from the act complained of.",
-          "verdict": "partly_supported",
-          "note": "The text gives 3 months but does not mention 'minus 1 day', and for unfair dismissal the period starts when employment ended.",
-          "quote": "You usually have to make a claim within 3 months of your employment ending or the problem happening."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "field": "eligibility.exclusions.1",
-      "graph": "Out of time — more than 3 months since incident",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A claim is out of time if more than 3 months have passed since the incident.",
-          "verdict": "partly_supported",
-          "note": "The text says 'usually', starts the clock at the end of employment for unfair dismissal, and pauses the time limit during Acas conciliation, none of which the field mentions.",
-          "quote": "You usually have to make a claim within 3 months of your employment ending or the problem happening."
-        }
-      ]
-    },
-    {
       "id": "hmcts-financial-order",
       "name": "Financial Consent Order",
       "field": "eligibility.summary",
@@ -4790,51 +4484,6 @@
           "verdict": "partly_supported",
           "note": "The text presents a solicitor drafting it as one option, but never says this is what usually happens.",
           "quote": "You can get legal advice or you can ask a solicitor or divorce specialist to draft a consent order for you."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-financial-order",
-      "name": "Financial Consent Order",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Draft consent order (D81 form)",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A draft consent order (D81 form) is needed.",
-          "verdict": "partly_supported",
-          "note": "The text requires a signed draft consent order but never gives any form number such as D81.",
-          "quote": "draft a consent order sign the draft consent order - you also need 2 photocopies of the signed original"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-financial-order",
-      "name": "Financial Consent Order",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Financial disclosure from both parties",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Financial disclosure from both parties is needed.",
-          "verdict": "partly_supported",
-          "note": "Both parties must fill in a statement of information form, but the text does not call this financial disclosure or say what goes in it; the detailed financial statement (Form E) is only for the contested route.",
-          "quote": "fill in a statement of information form"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-financial-order",
-      "name": "Financial Consent Order",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "not_stated",
-          "note": "The text gives no online route for getting a consent order approved; the online options it mentions are for divorce and child arrangements, not this service.",
-          "quote": null
         }
       ]
     },
@@ -4886,78 +4535,6 @@
           "verdict": "partly_supported",
           "note": "The source requires a statutory declaration but does not say it confirms intent.",
           "quote": "Download and fill in a statutory declaration ."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "desc",
-      "graph": "Means and merits tested. Available in domestic abuse cases. Applied via Legal Aid Agency.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Legal aid is merits tested.",
-          "verdict": "partly_supported",
-          "note": "The text says the problem must be serious, but it never calls this a merits test and never mentions assessing the case's prospects.",
-          "quote": "You’ll usually need to show that: your case is eligible for legal aid the problem is serious you cannot pay for legal costs"
-        },
-        {
-          "claim": "You apply through the Legal Aid Agency.",
-          "verdict": "partly_supported",
-          "note": "The text says a legal adviser applies for you; it only mentions the Legal Aid Agency deciding exceptional case funding applications, not as the place you apply.",
-          "quote": "A legal adviser will apply for legal aid for you. You cannot apply for legal aid on your own."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "eligibility.summary",
-      "graph": "Government funding for legal advice and representation in certain cases. Both means-tested (income/capital) and merits-tested (strength of case). Domestic abuse cases have wider automatic eligibility. Applied via a legal aid solicitor.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Legal aid is merits tested on the strength of the case.",
-          "verdict": "not_stated",
-          "note": "The text never mentions judging the strength of the case.",
-          "quote": null
-        },
-        {
-          "claim": "Domestic abuse cases have wider automatic eligibility.",
-          "verdict": "partly_supported",
-          "note": "The text says domestic abuse cases may still qualify above the limits, but it does not say eligibility is automatic.",
-          "quote": "You might still be eligible if you have a higher income and your case is about: domestic abuse"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "eligibility.autoQualifiers.0",
-      "graph": "Domestic abuse victim in family proceedings with supporting evidence",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Domestic abuse victim in family proceedings with supporting evidence",
-          "verdict": "partly_supported",
-          "note": "The text covers victims with evidence who cannot afford legal costs, but it does not limit this to family proceedings and adds the affordability condition.",
-          "quote": "You might be able to get legal aid if you have evidence that you or your children have experienced domestic abuse and you cannot afford to pay legal costs."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "CW2 means test form",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "CW2 means test form",
-          "verdict": "partly_supported",
-          "note": "The text only names form CW2 (IMM), for immigration exceptional case funding cases, and does not call it a means test form.",
-          "quote": "Immigration cases that go to a court or tribunal Complete the ECF application form CIV ECF 1 and form CW2 (IMM) ."
         }
       ]
     },
@@ -5274,21 +4851,6 @@
       ]
     },
     {
-      "id": "hmrc-cancel-marriage-allowance",
-      "name": "Cancel Marriage Allowance",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Government Gateway account or contact HMRC by phone",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Cancelling needs a Government Gateway account, or you can contact HMRC by phone.",
-          "verdict": "partly_supported",
-          "note": "The text supports cancelling online or by phone through Marriage Allowance enquiries, but it never names Government Gateway. It only says you will prove your identity using information HMRC holds about you.",
-          "quote": "You must cancel online or by phone."
-        }
-      ]
-    },
-    {
       "id": "hmrc-carers-credit",
       "name": "Carer's Credit",
       "field": "eligibility.evidenceRequired.0",
@@ -5330,21 +4892,6 @@
           "verdict": "partly_supported",
           "note": "The text says to report changes of circumstances and to contact the office to change who gets Child Benefit, but it never mentions a child moving to the other parent after separation as the trigger.",
           "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "field": "eligibility.summary",
-      "graph": "After separation, only one parent can claim Child Benefit per child. If the child's living arrangements change, Child Benefit must be transferred to the main carer.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "If the child's living arrangements change, Child Benefit must be transferred to the main carer.",
-          "verdict": "partly_supported",
-          "note": "The text describes changing who gets Child Benefit when you want someone else to claim, but it never says the benefit must be transferred to the main carer when living arrangements change.",
-          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you've done this, tell the other person to make a new claim."
         }
       ]
     },
@@ -5483,21 +5030,6 @@
           "verdict": "partly_supported",
           "note": "The text says you must sign in to apply but never names Government Gateway or any other sign-in service.",
           "quote": "You’ll need to sign in to apply. If you do not already have sign in details, you’ll be able to create them."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-free-childcare-15",
-      "name": "Free childcare — 15 hours (3 and 4-year-olds)",
-      "field": "desc",
-      "graph": "Every 3 and 4-year-old in England gets 570 free hours a year (usually 15 hours a week for 38 weeks), from the term after their 3rd birthday. No income test and no application: arrange it with the childcare provider.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "No application is needed; you arrange it with the childcare provider.",
-          "verdict": "partly_supported",
-          "note": "The text points parents to the provider or council to find out more, but it never says that no application is needed or that the provider arranges it.",
-          "quote": "Contact your childcare provider or local council to find out more."
         }
       ]
     },
@@ -5829,54 +5361,6 @@
       ]
     },
     {
-      "id": "hmrc-p45",
-      "name": "Obtain P45 from employer",
-      "field": "desc",
-      "graph": "Employer must provide on last day. Required for new job or benefit claim.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The employer must provide the P45 on the employee's last day.",
-          "verdict": "partly_supported",
-          "note": "The text says the employer should give a P45 when you leave, but it does not say this must happen on the last day or that it is compulsory.",
-          "quote": "When you leave a job, your employer should give you a P45 form"
-        },
-        {
-          "claim": "A P45 is required for a new job or a benefit claim.",
-          "verdict": "partly_supported",
-          "note": "The text says to give the P45 to a new employer or to Jobcentre Plus for taxable benefits, but it also offers the starter checklist instead of a P45, so it does not say the P45 is required.",
-          "quote": "When you start a new job, give your P45 to your new employer. They use it to work out how much tax you’ll pay. If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-p45",
-      "name": "Obtain P45 from employer",
-      "field": "eligibility.summary",
-      "graph": "All employees are entitled to a P45 when leaving a job. The employer is legally required to issue it. Needed for a new employer, tax refund, or benefit claim.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The employer is legally required to issue the P45.",
-          "verdict": "partly_supported",
-          "note": "The text says the employer 'should' give a P45 but never says this is a legal requirement.",
-          "quote": "When you leave a job, your employer should give you a P45 form"
-        },
-        {
-          "claim": "A P45 is needed for a tax refund.",
-          "verdict": "partly_supported",
-          "note": "The linked page says a P45 can help HMRC get the details needed for a refund, but it does not say the P45 itself is needed to claim one.",
-          "quote": "You cannot get a refund until HMRC get your income details from your employer, pension provider or benefits office. If you’ve changed jobs, give the P45 from your previous job to your new employer."
-        },
-        {
-          "claim": "A P45 is needed for a benefit claim.",
-          "verdict": "partly_supported",
-          "note": "The text covers only claims for taxable benefits, not benefit claims in general.",
-          "quote": "If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus."
-        }
-      ]
-    },
-    {
       "id": "hmrc-sdlt",
       "name": "Stamp Duty Land Tax return",
       "field": "desc",
@@ -5933,21 +5417,6 @@
           "verdict": "partly_supported",
           "note": "The text says Maternity Allowance is the option for anyone not eligible for SMP, but it never mentions self-employed people.",
           "quote": "If you're not eligible for Statutory Maternity Pay, you could get Maternity Allowance from the government."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-smp",
-      "name": "Statutory Maternity Pay",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Written notice to employer of intended leave start date",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You must give your employer written notice of the date you intend to start leave.",
-          "verdict": "partly_supported",
-          "note": "The text requires notice of the start date, but it only has to be in writing if the employer asks for it.",
-          "quote": "You must give them at least 28 days' notice (in writing if they ask for it) and proof that you're pregnant."
         }
       ]
     },
@@ -6126,21 +5595,6 @@
       ]
     },
     {
-      "id": "hmrc-tax-free-childcare",
-      "name": "Tax-Free Childcare account",
-      "field": "eligibility.summary",
-      "graph": "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child per quarter, or £1,000 if disabled). Must be in work and earning at least NMW for 16 hours.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The parent must be in work.",
-          "verdict": "partly_supported",
-          "note": "The text says 'usually' and gives exceptions, such as a non-working parent whose partner works and who gets certain benefits, so 'must' goes further than the text.",
-          "quote": "You’ll usually need to be working (or returning to work)"
-        }
-      ]
-    },
-    {
       "id": "hmrc-tax-on-pension",
       "name": "Income tax on pension",
       "field": "agentInteraction.methods",
@@ -6151,21 +5605,6 @@
           "claim": "You can apply or do this by phone.",
           "verdict": "not_stated",
           "note": "The service page says to contact HMRC but never mentions phone; the phone routes on the linked pages are for other services (Self Assessment forms and State Pension claims).",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "hmrc-tax-refund",
-      "name": "Income tax refund (P50)",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply by phone.",
-          "verdict": "not_stated",
-          "note": "The page does not mention claiming by phone.",
           "quote": null
         }
       ]
@@ -8322,21 +7761,6 @@
       ]
     },
     {
-      "id": "other-statutory-redundancy",
-      "name": "Statutory Redundancy Pay",
-      "field": "eligibility.summary",
-      "graph": "A legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment. Amount depends on age, weekly pay (capped at £751/week for redundancies on or after 6 April 2026, maximum £22,530 total), and length of service. Employer must pay — Employment Tribunal if they refuse.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is a legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment.",
-          "verdict": "partly_supported",
-          "note": "The text supports employees with 2 or more years' continuous service, but it does not limit the entitlement to compulsory redundancy: staff who are laid off or put on short-time working can also qualify.",
-          "quote": "have been dismissed, laid off or put on short-time working - those who opted for early retirement do not qualify"
-        }
-      ]
-    },
-    {
       "id": "other-tv-licence-pension",
       "name": "TV Licence concession",
       "field": "eligibility.evidenceRequired.2",
@@ -9290,6 +8714,132 @@
           "verdict": "partly_supported",
           "note": "The source says the discount is automatic for anyone getting Pension Credit, but it does not single out Guarantee Credit.",
           "quote": "You’ll get the discount automatically if you or your partner: get Pension Credit"
+        }
+      ]
+    },
+    {
+      "id": "dbs-basic-check",
+      "name": "Basic DBS criminal record check",
+      "field": "eligibility.summary",
+      "graph": "Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £20. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "People in Scotland or Northern Ireland can also apply.",
+          "verdict": "partly_supported",
+          "note": "The text adds a condition the claim leaves out: the job must be in England or Wales, and jobs in Scotland or Northern Ireland use a different route.",
+          "quote": "You can also get a basic DBS check if you live in Northern Ireland or Scotland but the job you’re applying for is in England or Wales."
+        },
+        {
+          "claim": "Standard and enhanced checks are applied for by employers.",
+          "verdict": "partly_supported",
+          "note": "Employers usually request these checks, but the text also lets eligible self-employed people and personal employees apply for enhanced checks themselves.",
+          "quote": "You can apply for an enhanced check or an enhanced check with barred list if:"
+        }
+      ]
+    },
+    {
+      "id": "dfe-national-careers",
+      "name": "National Careers Service",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can use this service by phone.",
+          "verdict": "not_stated",
+          "note": "The text mentions no phone route.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dfe-national-careers",
+      "name": "National Careers Service",
+      "field": "eligibility.summary",
+      "graph": "Careers information and advice in England: a skills assessment, job profiles and a course finder online. Adults (18 or over) can speak to a careers adviser through the DWP Jobs and Careers Service, including by phone. Under-18s are directed to the careers adviser at their school, college or training provider, or to their local authority.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is for England.",
+          "verdict": "not_stated",
+          "note": "The text does not say which country the service covers.",
+          "quote": null
+        },
+        {
+          "claim": "Adults aged 18 or over can speak to a careers adviser through the DWP Jobs and Careers Service.",
+          "verdict": "not_stated",
+          "note": "The text does not mention speaking to a careers adviser, DWP or an age threshold.",
+          "quote": null
+        },
+        {
+          "claim": "Adults can speak to a careers adviser by phone.",
+          "verdict": "not_stated",
+          "note": "The text mentions no phone route.",
+          "quote": null
+        },
+        {
+          "claim": "Under-18s are directed to the careers adviser at their school, college or training provider, or to their local authority.",
+          "verdict": "not_stated",
+          "note": "The text does not say where under-18s should go for advice.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "name": "Legal Aid application",
+      "field": "eligibility.summary",
+      "graph": "Government funding for legal advice and representation in certain cases. Usually means-tested (income/capital), and the problem must be serious. Domestic abuse cases may still qualify above the income and asset limits. A legal adviser applies for you.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Legal aid is government funding for legal advice and representation in certain cases.",
+          "verdict": "partly_supported",
+          "note": "The text says legal aid helps pay for advice and representation but does not say it is government funding.",
+          "quote": "Legal aid helps pay for legal advice, mediation or representation in court"
+        }
+      ]
+    },
+    {
+      "id": "nhs-gp-register",
+      "name": "Register with new GP",
+      "field": "desc",
+      "graph": "Register at nearest surgery. Medical records transfer automatically from old practice.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You register at your nearest surgery.",
+          "verdict": "partly_supported",
+          "note": "The text says most people register near where they live, not necessarily at the nearest surgery, and some can register further away.",
+          "quote": "Most people will need to register near where they live but some surgeries accept patients from further away."
+        },
+        {
+          "claim": "Medical records transfer automatically from the old practice.",
+          "verdict": "partly_supported",
+          "note": "The text says the old surgery is told automatically, but it does not say medical records transfer automatically.",
+          "quote": "They&#x27;ll be told automatically once you&#x27;re registered with your new surgery."
+        }
+      ]
+    },
+    {
+      "id": "nhs-gp-register",
+      "name": "Register with new GP",
+      "field": "eligibility.summary",
+      "graph": "Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Practices must accept patients living in their area.",
+          "verdict": "contradicted",
+          "note": "The text says a surgery may refuse registration if it is not accepting new patients, so local patients are not guaranteed acceptance.",
+          "quote": "A GP surgery may refuse your registration if: they're not accepting new patients"
+        },
+        {
+          "claim": "Medical records transfer automatically from the old practice.",
+          "verdict": "partly_supported",
+          "note": "The text says the old surgery is told automatically, but it does not say medical records transfer automatically.",
+          "quote": "They&#x27;ll be told automatically once you&#x27;re registered with your new surgery."
         }
       ]
     }

@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-09-29T15:11:59.706Z",
+  "generatedAt": "2026-10-21T14:42:47.287Z",
   "model": "claude-opus-5-5",
   "review": [
-    {
-      "id": "dfe-national-careers",
-      "name": "National Careers Service",
-      "criterion": 0,
-      "factor": "geography",
-      "graph": "Free adviser-led guidance is available to adults in England. Scotland, Wales and NI have their own careers services.",
-      "verdict": "partly_supported",
-      "note": "The text confirms you can get guidance from a careers adviser, but it does not say the service is free, for adults, or limited to England, and it does not mention separate services in Scotland, Wales or Northern Ireland.",
-      "quote": "Wherever you are with your decisions, you can contact us to get advice from a careers adviser.",
-      "url": "https://nationalcareers.service.gov.uk/"
-    },
     {
       "id": "fco-emergency-travel-doc",
       "name": "Emergency travel document",
@@ -531,17 +520,6 @@
       "url": null
     },
     {
-      "id": "dwp-new-style-jsa",
-      "name": "New Style Jobseeker's Allowance",
-      "criterion": 0,
-      "factor": "ni_record",
-      "graph": "Must have paid Class 1 NI contributions in both of the last two complete tax years before the year of claim.",
-      "verdict": "partly_supported",
-      "note": "The text says Class 1 contributions for the previous 2 tax years are usually needed, but it also says credits can count for one of those years, so it does not say you must have paid in both years.",
-      "quote": "To be eligible you must usually have made Class 1 National Insurance contributions for the previous 2 tax years. National Insurance credits can count for one of these years if you did not pay National Insurance contributions.",
-      "url": null
-    },
-    {
       "id": "dwp-ni-number",
       "name": "National Insurance number",
       "criterion": 0,
@@ -740,17 +718,6 @@
       "url": null
     },
     {
-      "id": "gro-register-birth",
-      "name": "Register the birth",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "Deadline is 42 days in England, Wales and Northern Ireland, and 21 days in Scotland.",
-      "verdict": "partly_supported",
-      "note": "The source supports the 42-day deadline but gives no 21-day deadline for Scotland.",
-      "quote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born.",
-      "url": null
-    },
-    {
       "id": "hmcts-benefit-tribunal",
       "name": "Social Security & Child Support Tribunal",
       "criterion": 0,
@@ -759,50 +726,6 @@
       "verdict": "partly_supported",
       "note": "The linked page supports needing the notice, but the main page says some people can appeal straight away without reconsideration, and DWP is never named.",
       "quote": "You cannot appeal to the Social Security and Child Support Tribunal until you get your mandatory reconsideration notice.",
-      "url": null
-    },
-    {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "criterion": 0,
-      "factor": "relationship_status",
-      "graph": "Must have been married or in a civil partnership for at least 1 year.",
-      "verdict": "partly_supported",
-      "note": "The divorce page says you must have been married for over a year; the civil partnership condition comes from a linked page about a different service.",
-      "quote": "you’ve been married for over a year",
-      "url": null
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Must have an employment dispute — unfair dismissal requires at least 2 years' service; discrimination claims have no service requirement.",
-      "verdict": "partly_supported",
-      "note": "The linked dismissal page gives the normal 2-year period for unfair dismissal, but the text never says discrimination claims have no service requirement.",
-      "quote": "You must be classed as an employee and have worked for your employer for a minimum period - normally 2 years - before you qualify for the right to claim unfair dismissal at a tribunal.",
-      "url": null
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Must have an Acas EC certificate (early conciliation must be attempted first).",
-      "verdict": "partly_supported",
-      "note": "The text says a certificate is usually needed and lists exceptions; it also says you can choose not to take part in conciliation, so conciliation does not have to be attempted.",
-      "quote": "You’ll usually need an early conciliation certificate for each respondent before you make a claim .",
-      "url": null
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "criterion": 0,
-      "factor": "income",
-      "graph": "Disposable income must be below £2,657/month and disposable capital below £8,000 (thresholds vary by case type).",
-      "verdict": "partly_supported",
-      "note": "The figures match, but the text describes £2,657 as joint gross income (before deductions), not disposable income, and says nothing about thresholds varying by case type.",
-      "quote": "have a joint monthly income of £2,657 or less (before tax and other deductions)",
       "url": null
     },
     {
@@ -817,17 +740,6 @@
       "url": null
     },
     {
-      "id": "hmrc-cancel-marriage-allowance",
-      "name": "Cancel Marriage Allowance",
-      "criterion": 0,
-      "factor": "relationship_status",
-      "graph": "Previously claimed Marriage Allowance and relationship has now ended (separated, divorced, or partner died).",
-      "verdict": "partly_supported",
-      "note": "Divorce, dissolution and legal separation are stated reasons to cancel, but a partner's death is not. The text treats death separately, describing how the allowances change rather than calling for cancellation.",
-      "quote": "your relationship ends - because you’ve divorced, ended (‘dissolved’) your civil partnership or legally separated",
-      "url": null
-    },
-    {
       "id": "hmrc-carers-credit",
       "name": "Carer's Credit",
       "criterion": 1,
@@ -836,28 +748,6 @@
       "verdict": "partly_supported",
       "note": "The Carer's Credit page does not mention Universal Credit, and the linked Carer's Allowance page only says UC gives Class 3 credits, without linking that to Carer's Credit eligibility.",
       "quote": null,
-      "url": null
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "criterion": 0,
-      "factor": "family",
-      "graph": "Child has moved to live primarily with a different parent after separation.",
-      "verdict": "partly_supported",
-      "note": "The text links entitlement to living with the child, but it does not name a child moving to the other parent after separation as a condition for this service.",
-      "quote": "You'll usually be responsible for a child if either: you live with them",
-      "url": null
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "criterion": 1,
-      "factor": "relationship_status",
-      "graph": "Parents have separated and current Child Benefit claimant is no longer the main carer.",
-      "verdict": "partly_supported",
-      "note": "The text covers families splitting up, but it never says the current claimant no longer being the main carer is a condition for changing who gets Child Benefit.",
-      "quote": "If a family splits up, you get £27.05 a week for the eldest child.",
       "url": null
     },
     {
@@ -924,17 +814,6 @@
       "verdict": "partly_supported",
       "note": "The text confirms England and Northern Ireland and a different threshold for first-time buyers, but for additional properties it describes a 5% higher rate rather than a different threshold, and it lists exemptions (for example freeholds under £40,000) where neither tax nor a return is needed, so not every purchase is covered.",
       "quote": "SDLT starts to apply when you buy property that costs: £125,000 for residential properties £300,000 for first-time buyers buying a residential property worth £500,000 or less",
-      "url": null
-    },
-    {
-      "id": "hmrc-spl",
-      "name": "Shared Parental Leave & Pay",
-      "criterion": 2,
-      "factor": "dependency",
-      "graph": "Mother must be eligible for SMP or Maternity Allowance for SPL to be available.",
-      "verdict": "partly_supported",
-      "note": "The text requires maternity leave and pay (or Maternity Allowance) to be cut short, but it never says the mother must be eligible for SMP or Maternity Allowance. Where the partner takes SPL, the mother's criteria are about work and earnings instead.",
-      "quote": "take less than the 39 weeks of maternity or adoption pay (or Maternity Allowance) and use the rest as ShPP",
       "url": null
     },
     {
@@ -1323,17 +1202,6 @@
       "url": null
     },
     {
-      "id": "other-statutory-redundancy",
-      "name": "Statutory Redundancy Pay",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Must have been continuously employed for at least 2 years and been made compulsorily redundant.",
-      "verdict": "partly_supported",
-      "note": "The 2 years' continuous service is supported, but the text does not require compulsory redundancy: people who are laid off or put on short-time working can also qualify.",
-      "quote": "have been dismissed, laid off or put on short-time working - those who opted for early retirement do not qualify",
-      "url": null
-    },
-    {
       "id": "slc-student-finance",
       "name": "Student Finance (tuition fee + maintenance loans)",
       "criterion": 0,
@@ -1433,17 +1301,6 @@
       "url": null
     },
     {
-      "id": "hmcts-child-arrangements",
-      "name": "Child Arrangements Order",
-      "criterion": 1,
-      "factor": "relationship_status",
-      "graph": "Separated parents with children under 16 (or up to 18 if the order already exists).",
-      "verdict": "partly_supported",
-      "note": "The text says parents who separate can apply for a court order, but it gives no age limit for the child (neither under 16 nor up to 18 if an order already exists), and it also lets other relatives apply.",
-      "quote": "You can apply for a court order if you have parental responsibility . For example, you’re the child’s mother or father.",
-      "url": null
-    },
-    {
       "id": "hmcts-immigration-tribunal",
       "name": "Appeal to Immigration Tribunal",
       "criterion": 0,
@@ -1452,17 +1309,6 @@
       "verdict": "partly_supported",
       "note": "The text does require a legal right to appeal, but says you will only 'usually' be told about it in the decision letter, so it does not require the letter to grant the right explicitly; it also covers decisions other than refusals, such as revocation and deportation.",
       "quote": "You can only appeal to the tribunal if you have the legal right to appeal - you’ll usually be told if you do in your decision letter.",
-      "url": null
-    },
-    {
-      "id": "hmrc-spp",
-      "name": "Statutory Paternity Pay",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Continuously employed with the same employer for at least 26 weeks and earning at or above the Lower Earnings Limit.",
-      "verdict": "partly_supported",
-      "note": "The text supports the 26 weeks of continuous employment and gives the earnings test as an average of at least £129 a week, but it never mentions the 'Lower Earnings Limit' or links £129 to it, and the field leaves out that the 26 weeks must be reached by the qualifying week.",
-      "quote": "earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your employer for at least 26 weeks",
       "url": null
     },
     {
@@ -1518,17 +1364,6 @@
       "verdict": "partly_supported",
       "note": "The text says a single England and Wales licence is needed, but it excludes the River Tweed, and the claim leaves that exception out.",
       "quote": "You must have a rod fishing licence for England and Wales if you’re fishing for salmon, trout, freshwater fish, smelt or eel with a rod and line in: England (except the River Tweed) Wales",
-      "url": null
-    },
-    {
-      "id": "hmrc-tax-refund",
-      "name": "Income tax refund (P50)",
-      "criterion": 1,
-      "factor": "income",
-      "graph": "Unemployed for 4 weeks or more, not claiming taxable state benefits, and not returning to work or starting a taxable pension in the same tax year — if you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary instead.",
-      "verdict": "partly_supported",
-      "note": "The page says to check for taxable income, including a works pension, before the end of the tax year, but it does not name 'starting a taxable pension' as an eligibility condition.",
-      "quote": "Check if you get other taxable income or benefits before the end of the tax year — this also includes a works pension from your old employer.",
       "url": null
     }
   ]

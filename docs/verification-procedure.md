@@ -146,30 +146,44 @@ Still open:
 2. **When does the procedure accept a non-GOV.UK source?** NHS, mygov.scot, nidirect, Acas and Motability pages are already cited. Charity and advice sites (Citizens Advice, Shelter) are not, and the procedure as written doesn't allow them.
 3. **How should State Pension age be modelled?** Eleven rules store "State Pension age (66)". None of the service pages state 66; they say "State Pension age" and link to the calculator, which states no number either. The age is now rising from 66 to 67 for people born after 5 April 1960, so a fixed `66` is going wrong for them as well as being unsourced. A rule that tests State Pension age itself, from date of birth, would fix both.
 
-## Stage 1 findings (21 October 2026)
+## Judging without API credit
 
-- **Re-judging the 57 applied fixes is blocked.** The Anthropic API account behind `ANTHROPIC_API_KEY` is out of credit, so all 27 calls failed and nothing was written. Re-run it once credit is added:
-  `npx tsx scripts/widen-sources.ts --fields <the 56 keys> --split-all --write`
-  The 57th, `hmcts-employment-tribunal#deadline`, goes through `verify:deadlines`.
-- **Re-running the 3 discarded prose judgements** is blocked for the same reason.
-- **Blocked links (8), checked in a browser:**
-  - Load correctly: baby loss certificate, passport, prescription prepayment certificate, Land Registry data (redirects to the service home page), eVisa.
-  - Find a Will was down for maintenance.
-  - MOT history rendered a blank page.
-  - Search property information sits behind a Cloudflare bot check.
+The judge passes don't need the API. `widen-sources.ts --export <dir>` writes each service's prompt, with the response schema in place of the tool call. Any model that can read and write files can answer them; for stage 1 that was four Claude Code subagents working in parallel, each judging only from the text in its prompt files. `--import <dir> --write` then sends the answers through the same `recordField` the API path uses, so a quote that isn't on its page is thrown out exactly as before.
 
-  None is recorded yet. `verify-links --write` overwrites every link record, so a manual confirmation would be lost on its next run. It needs to keep a `manual` record while the value hash still matches.
-- **Rule values that failed literal matching (27):**
-  - 11 are State Pension age (decision 3 above).
-  - Some are approximations the page contradicts:
-    - provisional licence: rule says 16, page says 15 years and 9 months
-    - Winter Fuel Payment: rule says age 66, page says born on or before 27 June 1960
-    - railcard: rule says 33%, page says 1/3
-  - The rest state their number on a guide subpage that isn't in `eligibility.sources` yet: death registration days, the IHT400 deadline, NHS prescription ages, mygov.scot and gov.wales ages. Add those subpages, then re-run `verify:rules`.
-- **Deadlines (7):** these are real disagreements between the graph and the page.
-  - `ho-brp` "10 days" has been out of date since BRPs were replaced by eVisas.
-  - `la-proxy-vote` says 6 working days; the page says 11.
-  - The others need someone to read them.
+The subagents never drafted the fixes they judged, so this counts as the independent re-judgement the guards require.
+
+## Stage 1 results (21 October 2026)
+
+**Done:**
+
+- **The 56 applied fixes and 3 discarded prose judgements were re-judged.** 52 are now confirmed, 5 partly supported, 1 not stated and 1 contradicted. No quote was rejected as fabricated.
+  - The contradiction is `nhs-gp-register#eligibility.summary`. It says practices must accept local patients, but the page says a practice may refuse if it isn't taking new patients. It goes to stage 2.
+- **Five links were checked in a browser** and recorded with `verify-links.ts --confirm <key> --note "<what the page showed>"`: baby loss certificate, passport, prescription prepayment certificate, Land Registry data and eVisa. `verify-links` now keeps a manual record while the URL is unchanged, unless the link has gone dead.
+- **Three rule values were confirmed** by adding the guide subpage that states them to `eligibility.sources`: death registration within 5 days, Adult Disability Payment from 16, and the Discretionary Assistance Fund over 16.
+
+**Left over (37 fields): every one needs a decision on the data, not another check.**
+
+- **Links (3):** Find a Will was down for maintenance, MOT history rendered blank, and Search property information sits behind a Cloudflare bot check. Try them again later.
+- **Rule values (24):**
+  - 11 are State Pension age (see decision 3).
+  - These are wrong against their page:
+    - `hmrc-iht400`: the rule says file within 6 months. GOV.UK says full details are due within 12 months; 6 months is when the tax must be *paid*.
+    - `dwp-sure-start-grant`: the rule says "baby under 1". The page says claim within 6 months of the birth.
+    - `sss-child-winter-heating`: the rule says under 16. The page says under 19.
+    - `ho-brp`: the rule says collect within 10 days. BRPs have been replaced by eVisas.
+  - These are approximations the page doesn't state:
+    - `dvla-provisional-licence`: the rule says 16; the page says 15 years and 9 months.
+    - `dwp-winter-fuel`: the rule is an age; the page gives a birth date.
+    - `slc-student-finance`: the rule says at least 18; the page gives no lower age limit.
+    - `la-council-tax-reduction` and `ni-rate-rebate`: a £250 "low income" line that no page gives.
+    - `hmrc-mtd`: £50,000, cited to a collection page.
+  - The NHS prescription ages are on a checker start page that has no text to match.
+  - `dvsa-theory-test`: 17 is on the page ("start learning to drive when they're 17"), but the matcher needs an age word next to the number.
+- **Deadlines (7):** real disagreements, unchanged. See the previous list in git history (`ho-brp`, `la-proxy-vote` 6 vs 11 working days, `hmcts-money-claims`, `hmrc-register-sole-trader`, `hmrc-spp`, `hmrc-starter-checklist`, `ho-skilled-worker-dependent-visa`).
+- **Rates and contacts (3):**
+  - `dwp-state-pension` basic rate £184.90 is on `/state-pension/what-youll-get`, not on the new State Pension page the rates cite.
+  - The railcard saving is stored as 33; the page says 1/3.
+  - The NI Discretionary Support phone number isn't on its page.
 
 ## Progress
 
@@ -177,3 +191,4 @@ Still open:
 |---|---|---|---|
 | 21 Oct 2026 | Baseline | 1,665 of 3,216 | 51.8% |
 | 21 Oct 2026 | Deleted 173 unstated `authRequired` values | 1,665 of 3,043 | 54.7% |
+| 21 Oct 2026 | Stage 1: re-judged applied fixes, browser-checked links, rule subpages | 1,725 of 3,043 | 56.7% |

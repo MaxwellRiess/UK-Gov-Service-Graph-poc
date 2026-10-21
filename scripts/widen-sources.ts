@@ -33,6 +33,13 @@
  *   npx tsx scripts/widen-sources.ts --resume msgbatch_... --direct --write   # cached inputs, direct calls
  *   npx tsx scripts/widen-sources.ts --fields dvla-sorn#desc,dwp-pip#eligibility.criteria.2 --write
  *   npx tsx scripts/widen-sources.ts --from-proposals --split-all --write   # re-verify applied fixes
+ *
+ * Without API credit, the judging can be done by any model that can read a
+ * file and write one (a Claude Code subagent, say). --export writes each
+ * service's prompt and the exact response shape; --import reads the answers
+ * back through the same recordField, so quotes are checked exactly as before.
+ *   npx tsx scripts/widen-sources.ts --fields ... --split-all --export .cache/judge-1
+ *   npx tsx scripts/widen-sources.ts --import .cache/judge-1 --write
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -41,7 +48,7 @@ import { NODES, type ServiceNode } from '../src/graph-data.js';
 import { loadProvenance, saveProvenance } from '../src/provenance.js';
 import { gatherSources } from './lib/sources.js';
 import {
-  buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, METHOD_WORDS,
+  buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, METHOD_WORDS, TOOL,
   type FieldToJudge, type Source, type ReviewItem, type ProseResponse,
 } from './lib/judge-prose.js';
 
@@ -52,6 +59,8 @@ const arg = (name: string) => {
 const WRITE = process.argv.includes('--write');
 const DRY = process.argv.includes('--dry-run');
 const BATCH = process.argv.includes('--batch');
+const EXPORT = arg('--export');
+const IMPORT = arg('--import');
 const VERBOSE = process.argv.includes('--verbose');
 const RESUME = arg('--resume');
 // With --resume, call the API directly on the cached inputs instead of collecting the batch
@@ -151,7 +160,7 @@ async function prepare(id: string, list: Target[]): Promise<Prepared | null> {
 
 // ─── RUN ────────────────────────────────────────────────────────────────────
 
-if (!DRY && !process.env.ANTHROPIC_API_KEY) {
+if (!DRY && !EXPORT && !IMPORT && !process.env.ANTHROPIC_API_KEY) {
   console.error('ANTHROPIC_API_KEY is not set. This pass needs it (use --dry-run to preview without it).');
   process.exit(2);
 }
@@ -161,7 +170,10 @@ const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 let prepared: Prepared[] = [];
 let batchId = RESUME ?? null;
 
-if (RESUME) {
+if (IMPORT) {
+  prepared = JSON.parse(readFileSync(`${IMPORT}/prepared.json`, 'utf-8'));
+  console.error(`Importing answers for ${prepared.length} services from ${IMPORT}`);
+} else if (RESUME) {
   prepared = JSON.parse(readFileSync(`${CACHE_DIR}/widen-${RESUME}.json`, 'utf-8'));
   console.error(`Resuming batch ${RESUME} (${prepared.length} services)`);
 } else {
@@ -182,11 +194,34 @@ console.error(`\n${prepared.length} of ${targets.size} services have a linked pa
 console.error(`Estimated input: ~${Math.round(inputChars / 4 / 1000)}k tokens (${Math.round(inputChars / 4 / Math.max(1, prepared.length))} per call).`);
 if (DRY) process.exit(0);
 
+if (EXPORT) {
+  mkdirSync(EXPORT, { recursive: true });
+  writeFileSync(`${EXPORT}/prepared.json`, JSON.stringify(prepared));
+  const shape = JSON.stringify(TOOL.input_schema, null, 2);
+  for (const p of prepared) {
+    writeFileSync(`${EXPORT}/${p.id}.prompt.txt`,
+      buildPrompt(NODES[p.id].name, p.fields, p.sources).replace(
+        'Report by calling report_prose once, covering every field.',
+        `Report by writing one JSON object, and nothing else, to the file ${EXPORT}/${p.id}.response.json. ` +
+        `It must match this JSON schema:\n${shape}`,
+      ));
+  }
+  console.error(`Wrote ${prepared.length} prompts to ${EXPORT}. Answer each, then run with --import ${EXPORT}.`);
+  process.exit(0);
+}
+
 // Collect responses, directly or through a batch.
 const responses = new Map<string, ProseResponse>();
 const failures: string[] = [];
 
-if ((BATCH || RESUME) && !DIRECT) {
+if (IMPORT) {
+  for (const p of prepared) {
+    const file = `${IMPORT}/${p.id}.response.json`;
+    if (!existsSync(file)) { failures.push(`${p.id}: no ${file}`); continue; }
+    try { responses.set(p.id, JSON.parse(readFileSync(file, 'utf-8')) as ProseResponse); }
+    catch (e: any) { failures.push(`${p.id}: ${e.message}`); }
+  }
+} else if ((BATCH || RESUME) && !DIRECT) {
   if (!batchId) {
     const batch = await client.messages.batches.create({
       requests: prepared.map(p => ({ custom_id: p.id, params: requestParams(MODEL, buildPrompt(NODES[p.id].name, p.fields, p.sources)) })),

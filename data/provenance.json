@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T14:33:13.079Z",
+  "lastRun": "2026-10-21T14:43:21.732Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -25,6 +25,8 @@
     "acas-early-conciliation#desc": {
       "valueHash": "18eb542053f2cd00",
       "valueSeen": "Notifying Acas is a required step before most employment tribunal claims (some claims are exempt); Acas then offers voluntary early conciliation, which tries to help resolve the dispute before a tribu",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.acas.org.uk/early-conciliation",
       "sourceQuote": "You must notify Acas if you want to make a claim to an employment tribunal.",
       "additionalQuotes": [
@@ -37,7 +39,7 @@
           "url": "https://www.acas.org.uk/early-conciliation"
         },
         {
-          "quote": "Early conciliation is voluntary. You and your employer can choose whether to take part.",
+          "quote": "Early conciliation is voluntary.",
           "url": "https://www.acas.org.uk/early-conciliation"
         },
         {
@@ -45,14 +47,11 @@
           "url": "https://www.acas.org.uk/early-conciliation"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 5,
         "total": 5
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Made it clear that only notifying Acas is required and that taking part in conciliation is voluntary, and dropped 'free', which the sources don't say about early conciliation.) Awaiting independent re-verification."
+      }
     },
     "acas-early-conciliation#eligibility.criteria.0": {
       "valueHash": "19bf2144b3bbe3d6",
@@ -656,7 +655,7 @@
       "sourceUrl": "https://www.gov.uk/limited-company-formation/register-your-company",
       "sourceQuote": "…ny and making sure company accounts and reports are properly prepared. A director must be 16 or over. Directors do not have to live in the UK but companies must have a UK registered office a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "ch-register-ltd#eligibility.summary": {
@@ -1039,7 +1038,7 @@
       "valueHash": "6f7116d552c0318b",
       "valueSeen": "Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £20. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can als",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/request-copy-criminal-record",
       "sourceQuote": "You must be 16 or over to apply.",
       "additionalQuotes": [
@@ -1056,16 +1055,20 @@
           "url": "https://www.gov.uk/request-copy-criminal-record"
         },
         {
-          "quote": "An exempted question applies when the individual will be working in specific occupations, for certain licenses or specified positions.",
+          "quote": "The types of DBS check are: a basic check, which shows unspent convictions and conditional cautions a standard check, which shows any spent and unspent convictions",
+          "url": "https://www.gov.uk/criminal-record-checks-apply-role"
+        },
+        {
+          "quote": "Access to Standard, Enhanced, and Enhanced with Barred List(s) DBS checks is only available to employers who are entitled by law to ask an individual to reveal their full criminal history",
           "url": "https://www.gov.uk/guidance/dbs-check-requests-guidance-for-employers"
         }
       ],
       "claims": {
-        "supported": 5,
-        "total": 7
+        "supported": 6,
+        "total": 8
       },
       "confidence": "unverified",
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+      "rationale": "partly supported: The text adds a condition the claim leaves out: the job must be in England or Wales, and jobs in Scotland or Northern Ireland use a different route. partly supported: Employers usually request these checks, but the text also lets eligible self-employed people and personal employees apply for enhanced checks themselves."
     },
     "dbs-basic-check#govuk_url": {
       "sourceUrl": "https://www.gov.uk/request-copy-criminal-record",
@@ -1467,27 +1470,17 @@
     },
     "dfe-national-careers#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
-      "valueSeen": "[\"online\",\"phone\"]",
+      "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://nationalcareers.service.gov.uk/",
-      "sourceQuote": "Take a skills assessment",
-      "confidence": "unverified",
-      "additionalQuotes": [
-        {
-          "quote": "If you’re aged 18 or older and live in England, you can contact a careers adviser through the DWP Jobs and Careers Service",
-          "url": "https://nationalcareers.service.gov.uk/contact-us"
-        },
-        {
-          "quote": "you can call 0800 072 0288 to speak to a DWP careers adviser",
-          "url": "https://nationalcareers.service.gov.uk/contact-us"
-        }
-      ],
+      "sourceQuote": "Take a skills assessment Answer questions about your interests and see some careers that might suit you.",
       "claims": {
-        "supported": 2,
+        "supported": 1,
         "total": 2
       },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+      "confidence": "unverified",
+      "rationale": "not stated: The text mentions no phone route."
     },
     "dfe-national-careers#agentInteraction.onlineFormUrl": {
       "valueHash": "b5567212da2b8513",
@@ -1520,53 +1513,45 @@
     },
     "dfe-national-careers#eligibility.criteria.0": {
       "valueHash": "2557c95fe427268d",
-      "valueSeen": "{\"factor\":\"geography\",\"description\":\"Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers ser",
+      "valueSeen": "Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers services.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
-      "sourceUrl": "https://nationalcareers.service.gov.uk/contact-us",
-      "sourceQuote": "If you’re aged 18 or older and live in England, you can contact a careers adviser through the DWP Jobs and Careers Service",
-      "confidence": "unverified",
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification.",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
+      "sourceUrl": "https://nationalcareers.service.gov.uk/",
+      "sourceQuote": "",
       "claims": {
-        "supported": 1,
+        "supported": 0,
         "total": 2
-      }
+      },
+      "confidence": "unverified",
+      "rationale": "not stated: The text does not mention DWP, the Jobs and Careers Service or careers advisers for adults. not stated: The text does not mention the other UK nations."
     },
     "dfe-national-careers#eligibility.summary": {
       "valueHash": "8aefcb588ed8b144",
       "valueSeen": "Careers information and advice in England: a skills assessment, job profiles and a course finder online. Adults (18 or over) can speak to a careers adviser through the DWP Jobs and Careers Service, in",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://nationalcareers.service.gov.uk/",
-      "sourceQuote": "Take a skills assessment",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-10-14 after the source changed (freshness and provenance checks, week of 12 October 2026), from quoted sources. Drafted by Claude; awaiting independent re-verification.",
+      "sourceQuote": "Get careers information and advice",
       "additionalQuotes": [
         {
-          "quote": "Explore careers",
+          "quote": "Take a skills assessment Answer questions about your interests and see some careers that might suit you.",
           "url": "https://nationalcareers.service.gov.uk/"
         },
         {
-          "quote": "Find a course",
+          "quote": "Browse hundreds of job profiles to discover what different roles involve.",
           "url": "https://nationalcareers.service.gov.uk/"
         },
         {
-          "quote": "If you’re aged 18 or older and live in England, you can contact a careers adviser through the DWP Jobs and Careers Service",
-          "url": "https://nationalcareers.service.gov.uk/contact-us"
-        },
-        {
-          "quote": "contact the careers adviser at your school, college or provider",
-          "url": "https://nationalcareers.service.gov.uk/contact-us"
-        },
-        {
-          "quote": "contact your local authority to see if they offer careers support",
-          "url": "https://nationalcareers.service.gov.uk/contact-us"
+          "quote": "Find a course Search for online and classroom courses near you to develop your skills.",
+          "url": "https://nationalcareers.service.gov.uk/"
         }
       ],
       "claims": {
         "supported": 4,
-        "total": 4
-      }
+        "total": 8
+      },
+      "confidence": "unverified",
+      "rationale": "not stated: The text does not say which country the service covers. not stated: The text does not mention speaking to a careers adviser, DWP or an age threshold. not stated: The text mentions no phone route. not stated: The text does not say where under-18s should go for advice."
     },
     "dfe-national-careers#govuk_url": {
       "valueHash": "b5567212da2b8513",
@@ -1592,10 +1577,10 @@
       "valueSeen": "https://www.request-a-baby-loss-certificate.service.gov.uk/request-a-baby-loss-certificate",
       "sourceUrl": "https://www.request-a-baby-loss-certificate.service.gov.uk/request-a-baby-loss-certificate",
       "sourceQuote": "",
-      "verifiedAt": "2026-09-28T22:33:47.189Z",
-      "method": "http-status",
-      "confidence": "unverified",
-      "rationale": "HTTP 403: the host refused or failed the automated request. Check in a browser."
+      "verifiedAt": "2026-10-21T14:41:38.215Z",
+      "method": "manual",
+      "confidence": "confirmed",
+      "rationale": "Checked in a browser: 21 Oct 2026: opens the eligibility question 'Do you live in England?' of Request a baby loss certificate"
     },
     "dhsc-baby-loss-certificate#contactInfo.phone.number": {
       "valueHash": "3f548e077272c66a",
@@ -1671,6 +1656,8 @@
     "dhsc-baby-loss-certificate#eligibility.summary": {
       "valueHash": "f96fdeb0c4b66c95",
       "valueSeen": "Available to parents who experienced the loss of a baby before 24 weeks of pregnancy. Free and optional. The certificate is not a legal document (it cannot be used to claim benefits) and is not added ",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/request-baby-loss-certificate",
       "sourceQuote": "you’ve lost a baby before 24 weeks of pregnancy (or 28 weeks before 1 October 1992) you’re one of the baby’s parents or surrogate",
       "additionalQuotes": [
@@ -1679,7 +1666,7 @@
           "url": "https://www.gov.uk/request-baby-loss-certificate"
         },
         {
-          "quote": "It’s optional.",
+          "quote": "You do not need to request a certificate if you prefer not to. It’s optional.",
           "url": "https://www.gov.uk/request-baby-loss-certificate"
         },
         {
@@ -1703,14 +1690,11 @@
           "url": "https://www.gov.uk/request-baby-loss-certificate"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 8,
         "total": 8
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the unsupported mention of miscarriage and ectopic pregnancy, and changed 'arrives within 21 days' to 'can take up to 21 days', which is how the source puts it.) Awaiting independent re-verification."
+      }
     },
     "dhsc-baby-loss-certificate#govuk_url": {
       "sourceUrl": "https://www.gov.uk/request-baby-loss-certificate",
@@ -2470,7 +2454,7 @@
       "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be at least 15 years and 9 months old (age 16 rounded)\": 16 not found in a matching form on https://www.gov.uk/apply-first-provisional-driving-licence."
     },
@@ -3911,7 +3895,7 @@
       "sourceUrl": "https://www.gov.uk/book-theory-test",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be at least 17 years old (16 for moped)\": 17 not found in a matching form on https://www.gov.uk/book-theory-test."
     },
@@ -4297,7 +4281,7 @@
       "sourceUrl": "https://www.gov.uk/attendance-allowance",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be aged 66 or over (State Pension age)\": 66 not found in a matching form on https://www.gov.uk/attendance-allowance or https://www.gov.uk/attendance-allowance/what-youll-get."
     },
@@ -4637,7 +4621,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be under State Pension age (66) at time of partner's death\": 66 not found in a matching form on https://www.gov.uk/bereavement-support-payment or https://www.gov.uk/bereavement-support-payment/what-youll-get."
     },
@@ -4647,7 +4631,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "…ou’re in prison. When you need to make your claim You usually need to make a claim within 21 months of your partner’s death. If it’s been over 21 months since your partner’s death, you may…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#eligibility.summary": {
@@ -5047,7 +5031,7 @@
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "…e who should receive the benefit. The type of care you provide You need to spend at least 35 hours a week caring for someone. This can include: helping with washing and cooking taking the…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#eligibility.rules.3.value": {
@@ -5056,7 +5040,7 @@
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "…g for 21 hours a week or more you’re not subject to immigration control your earnings are £204 or less a week after tax, National Insurance and expenses If you live in Scotland, you ne…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#eligibility.summary": {
@@ -5144,6 +5128,8 @@
     "dwp-child-maintenance#desc": {
       "valueHash": "eb0fecdf78f4d207",
       "valueSeen": "An alternative to arranging child maintenance privately. CMS works out an amount to pay.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-maintenance",
       "sourceQuote": "Child maintenance can be arranged: privately between parents , if both parents agree through the Child Maintenance Service",
       "additionalQuotes": [
@@ -5152,14 +5138,11 @@
           "url": "https://www.gov.uk/child-maintenance"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (I removed the claim that CMS is only for parents who cannot agree, and the income basis, because the source supports neither.) Awaiting independent re-verification."
+      }
     },
     "dwp-child-maintenance#eligibility.criteria.0": {
       "valueHash": "4eba18a3bdb426b3",
@@ -5212,22 +5195,25 @@
     "dwp-child-maintenance#eligibility.summary": {
       "valueHash": "19458721f7c3d7c6",
       "valueSeen": "A service parents can use instead of a private arrangement to arrange child maintenance. CMS can work out an amount to pay and arrange payments.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-maintenance",
       "sourceQuote": "Child maintenance can be arranged: privately between parents , if both parents agree through the Child Maintenance Service",
       "additionalQuotes": [
         {
-          "quote": "The Child Maintenance Service can: work out an amount to pay arrange payments and take action if a parent does not pay",
+          "quote": "The Child Maintenance Service can: work out an amount to pay",
+          "url": "https://www.gov.uk/child-maintenance"
+        },
+        {
+          "quote": "arrange payments and take action if a parent does not pay",
           "url": "https://www.gov.uk/child-maintenance"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
-        "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (I removed the word 'statutory', the 'cannot reach' limit, the income basis and the fee/Collect & Pay detail, because the source doesn't state any of them.) Awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "dwp-child-maintenance#govuk_url": {
       "sourceUrl": "https://www.gov.uk/child-maintenance",
@@ -5537,7 +5523,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
       "sourceQuote": "Disability Living Allowance (DLA) for children. Help for children under 16 with disabilities - DLA rate, eligibility, how to apply, claim form. Disability Living Al…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#eligibility.summary": {
@@ -5833,7 +5819,7 @@
       "sourceUrl": "https://www.gov.uk/funeral-payments",
       "sourceQuote": "…child cannot claim (for example, they live abroad or are in prison) You must apply within 6 months of the funeral, even if you’re waiting for a decision on a qualifying benefit . You can m…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-funeral-payment#eligibility.summary": {
@@ -6055,7 +6041,7 @@
       "sourceUrl": "https://www.gov.uk/housing-benefit",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/housing-benefit."
     },
@@ -6065,7 +6051,7 @@
       "sourceUrl": "https://www.gov.uk/housing-benefit",
       "sourceQuote": "…not be able to claim Usually, you will not get Housing Benefit if: your savings are over £16,000 - unless you get Guarantee Credit of Pension Credit you’re paying a mortgage on your own…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-housing-benefit#eligibility.summary": {
@@ -6380,7 +6366,7 @@
       "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
       "sourceQuote": "…are on your decision letter. You usually need to ask for mandatory reconsideration within one month of the date on your decision letter. If you’re writing, the letter or form must arrive by…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-mandatory-reconsideration#eligibility.summary": {
@@ -6410,23 +6396,16 @@
     },
     "dwp-maternity-allowance#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
-      "valueSeen": "[\"post\"]",
+      "valueSeen": "You can apply or do this by post.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/maternity-allowance",
       "sourceQuote": "Send your claim to the address on the form.",
-      "additionalQuotes": [
-        {
-          "quote": "fill it in online and print it",
-          "url": "https://www.gov.uk/maternity-allowance"
-        }
-      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
-        "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed online: the form can be filled in online but must be printed and posted. Phone is not a way to apply; the page mentions it only for reporting changes.) Awaiting independent re-verification."
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-maternity-allowance#agentInteraction.onlineFormUrl": {
       "valueHash": "3e649b01a80237fd",
@@ -6518,30 +6497,28 @@
     "dwp-maternity-allowance#eligibility.evidenceRequired.1": {
       "valueHash": "69af25895a007bb4",
       "valueSeen": "Information about your employment in the 66 weeks before your baby is due (the Test Period)",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/maternity-allowance",
       "sourceQuote": "You’ll need to give information about your employment in the 66 weeks before your baby is due (called the ‘Test Period’).",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced the unsupported 'self-employment evidence' with the employment information the page actually asks for on the form.) Awaiting independent re-verification."
+      }
     },
     "dwp-maternity-allowance#eligibility.evidenceRequired.2": {
       "valueHash": "04716823d6d8b32d",
       "valueSeen": "Original payslips",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/maternity-allowance",
       "sourceQuote": "You need to provide original payslips as proof of income.",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed 'accounts', which the page never mentions, and kept original payslips, which it does ask for.) Awaiting independent re-verification."
+      }
     },
     "dwp-maternity-allowance#eligibility.evidenceRequired.3": {
       "valueHash": "f03d9eda1a0d636f",
@@ -6820,17 +6797,16 @@
     },
     "dwp-new-style-jsa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
-      "valueSeen": "[\"online\"]",
+      "valueSeen": "You can apply or do this online.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "Apply online You cannot apply online if you’re applying as an appointee on someone else’s behalf. Apply for New Style JSA",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed phone, because the JSA page only says to 'contact Jobcentre Plus' for other ways to apply and never says by phone; its only phone number is the helpline for reporting changes.) Awaiting independent re-verification."
+      }
     },
     "dwp-new-style-jsa#agentInteraction.onlineFormUrl": {
       "valueHash": "232d192a15f95149",
@@ -6889,7 +6865,9 @@
     },
     "dwp-new-style-jsa#eligibility.criteria.0": {
       "valueHash": "76544035b057a0f9",
-      "valueSeen": "{\"factor\":\"ni_record\",\"description\":\"Must usually have made Class 1 NI contributions for the previous 2 tax years. NI credits can count for one of these years if you did not pay contributions.\"}",
+      "valueSeen": "Must usually have made Class 1 NI contributions for the previous 2 tax years. NI credits can count for one of these years if you did not pay contributions.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "To be eligible you must usually have made Class 1 National Insurance contributions for the previous 2 tax years.",
       "additionalQuotes": [
@@ -6898,14 +6876,11 @@
           "url": "https://www.gov.uk/jobseekers-allowance"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Changed 'must have paid in both years' to 'usually' and added that credits can count for one year, which is what the source says.) Awaiting independent re-verification."
+      }
     },
     "dwp-new-style-jsa#eligibility.criteria.1": {
       "valueHash": "e2fd18f74c09f387",
@@ -6967,16 +6942,15 @@
     "dwp-new-style-jsa#eligibility.evidenceRequired.3": {
       "valueHash": "9d740d81f91e9523",
       "valueSeen": "Proof of job-seeking, such as job applications and interviews, shown at regular work coach appointments",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "At these appointments, you must show your work coach what you’ve been doing to look for work, for example proof of job applications and interviews.",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Took out the CV, because the source only mentions a CV as something the Claimant Commitment might include, not as evidence you must provide.) Awaiting independent re-verification."
+      }
     },
     "dwp-new-style-jsa#eligibility.exclusions.0": {
       "valueHash": "a780199c7c4edb74",
@@ -6997,7 +6971,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "…. There are different eligibility rules if you’re in Northern Ireland . You must also: be 18 or over be under the State Pension age be in Great Britain not be working 16 or more hours per we…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-jsa#eligibility.rules.1.value": {
@@ -7006,7 +6980,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/jobseekers-allowance."
     },
@@ -7542,7 +7516,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/pension-credit or https://www.gov.uk/pension-credit/what-youll-get."
     },
@@ -7552,7 +7526,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit",
       "sourceQuote": "…artner, your income is calculated together. Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner If your income…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#eligibility.summary": {
@@ -7919,7 +7893,7 @@
       "sourceUrl": "https://www.gov.uk/pip",
       "sourceQuote": "…an get Personal Independence Payment ( PIP ) if all of the following apply to you: you’re 16 or over you have a long-term physical or mental health condition or disability you have difficult…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-pip#eligibility.rules.1.value": {
@@ -7928,7 +7902,7 @@
       "sourceUrl": "https://www.gov.uk/pip",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/pip or https://www.gov.uk/pip/what-youll-get."
     },
@@ -8449,7 +8423,7 @@
       "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must have reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/new-state-pension/eligibility or https://www.gov.uk/new-state-pension/what-youll-get."
     },
@@ -8459,7 +8433,7 @@
       "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
       "sourceQuote": "…t the criteria and the time can be added, you could get the new State Pension if you have 10 or more years in total. The amount you get paid will be based on the qualifying years in your UK Nation…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-state-pension#eligibility.summary": {
@@ -8655,7 +8629,7 @@
       "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Baby under 1 year old\": 0 not found in a matching form on https://www.gov.uk/sure-start-maternity-grant or https://www.gov.uk/sure-start-maternity-grant/what-youll-get."
     },
@@ -8665,7 +8639,7 @@
       "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant",
       "sourceQuote": "…ertain benefits You must claim the grant within 11 weeks of the baby’s due date or within 6 months after the baby’s birth. You do not have to pay the grant back and it will not affect your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-sure-start-grant#eligibility.summary": {
@@ -8985,7 +8959,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…ent – either rate of the daily living part You need to provide care for them for at least 35 hours a week. You’ll get an extra monthly amount of £209.34. If you live with your partner and…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-uc-carer#eligibility.summary": {
@@ -9402,7 +9376,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "…work, for example because of a health condition To claim you must: live in the UK be aged 18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#eligibility.rules.1.value": {
@@ -9411,7 +9385,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/universal-credit or https://www.gov.uk/universal-credit/what-youll-get."
     },
@@ -9421,7 +9395,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "…18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or less in money, savings and investments You can use a benefits calculator to check what…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#eligibility.summary": {
@@ -9855,7 +9829,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be born on or before 27 June 1960 (approximately State Pension age)\": 66 not found in a matching form on https://www.gov.uk/winter-fuel-payment."
     },
@@ -10942,7 +10916,7 @@
       "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/give-notice",
       "sourceQuote": "…ying fees. You can get married or form a civil partnership in England or Wales if you’re: 18 or over not already married or in a civil partnership not closely related Same sex couples can co…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "gro-give-notice#eligibility.rules.3.maxDays": {
@@ -10951,7 +10925,7 @@
       "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/give-notice",
       "sourceQuote": "…form a civil partnership. This is known as ‘giving notice’. You must give notice at least 29 days before your ceremony. For example, if you give notice on 1 May, the earliest date you can…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "gro-give-notice#eligibility.summary": {
@@ -11190,7 +11164,9 @@
     },
     "gro-register-birth#eligibility.criteria.1": {
       "valueHash": "76c576806458a3c6",
-      "valueSeen": "{\"factor\":\"geography\",\"description\":\"Deadline is 42 days in England, Wales and Northern Ireland; there are different rules for Scotland.\"}",
+      "valueSeen": "Deadline is 42 days in England, Wales and Northern Ireland; there are different rules for Scotland.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/register-birth",
       "sourceQuote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born.",
       "additionalQuotes": [
@@ -11199,14 +11175,11 @@
           "url": "https://www.gov.uk/register-birth"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the 21-day Scotland deadline, which the source does not give, and said instead that Scotland has different rules, as the source states.) Awaiting independent re-verification."
+      }
     },
     "gro-register-birth#eligibility.evidenceRequired.0": {
       "valueHash": "e26693d4f731b954",
@@ -11232,12 +11205,14 @@
       "sourceUrl": "https://www.gov.uk/register-birth",
       "sourceQuote": "…certificates All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born. You should do this at the local register office for the area whe…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "gro-register-birth#eligibility.summary": {
       "valueHash": "5d976a9a4be337cc",
       "valueSeen": "All births in England, Wales and Northern Ireland must be registered within 42 days; there are different rules for Scotland. Parents can register; certain other people can register if the parents cann",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/register-birth",
       "sourceQuote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born.",
       "additionalQuotes": [
@@ -11254,14 +11229,11 @@
           "url": "https://www.gov.uk/register-birth"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 4,
         "total": 4
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Limited the requirement to England, Wales and Northern Ireland, replaced the unsupported Scotland deadline with the source's note that Scotland has different rules, and dropped the unsupported 'usually'.) Awaiting independent re-verification."
+      }
     },
     "gro-register-birth#govuk_url": {
       "sourceUrl": "https://www.gov.uk/register-birth",
@@ -11390,12 +11362,11 @@
     "gro-register-death#eligibility.rules.1.maxDays": {
       "valueHash": "ef2d127de37b942b",
       "valueSeen": "5",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
+      "sourceQuote": "…edical examiner’s office to confirm you can register the death. Register the death within 5 days (8 days in Scotland) of getting the confirmation. This includes weekends and bank holiday…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
-      "confidence": "unverified",
-      "rationale": "\"Must register within 5 days of death\": 5 not found in a matching form on https://www.gov.uk/register-a-death."
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
+      "confidence": "confirmed"
     },
     "gro-register-death#eligibility.summary": {
       "valueHash": "b8950d24294e1b4f",
@@ -11646,27 +11617,26 @@
     },
     "hmcts-child-arrangements#eligibility.criteria.1": {
       "valueHash": "107b78cc8ad21da2",
-      "valueSeen": "{\"factor\":\"relationship_status\",\"description\":\"Parents with parental responsibility (for example, the child's mother or father) who cannot agree on child arrangements, or another relative of the child",
+      "valueSeen": "Parents with parental responsibility (for example, the child's mother or father) who cannot agree on child arrangements, or another relative of the child such as a grandparent, aunt or uncle.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order",
       "sourceQuote": "You can apply for a court order if you have parental responsibility . For example, you’re the child’s mother or father.",
       "additionalQuotes": [
         {
-          "quote": "You can also apply if you’re another relative of the child, such as a grandparent, aunt or uncle.",
+          "quote": "You can apply for a court order if you cannot agree after using a mediator or getting help.",
           "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"
         },
         {
-          "quote": "You can apply for a court order if you cannot agree after using a mediator or getting help.",
+          "quote": "You can also apply if you’re another relative of the child, such as a grandparent, aunt or uncle.",
           "url": "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 3,
         "total": 3
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the child age limits, which the sources do not give, and changed the criterion to match the stated rule: people with parental responsibility or other relatives can apply.) Awaiting independent re-verification."
+      }
     },
     "hmcts-child-arrangements#eligibility.evidenceRequired.0": {
       "valueHash": "db94041b144d3f1d",
@@ -11853,7 +11823,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
       "sourceQuote": "…n have depends on how much the court or tribunal fee is. For example, you can have: up to £4,250 in savings if your fee is £1,420 or less up to £16,000 in savings if your fee is over £7,…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#eligibility.rules.0.rules.1.rules.0.value": {
@@ -11862,7 +11832,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
       "sourceQuote": "…ort whichever income is lower. You can get money off your fee if your reported income is: £1,420 or less, if you’re single £2,130 or less, if you have a partner For each child you have,…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#eligibility.rules.0.rules.1.rules.1.value": {
@@ -11871,7 +11841,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
       "sourceQuote": "…ou must also have less than the maximum amount of money in savings. This is usually up to £4,250. Your income Your income includes anything you earn before tax and any other payments you…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#eligibility.summary": {
@@ -12069,17 +12039,16 @@
     },
     "hmcts-divorce#eligibility.criteria.0": {
       "valueHash": "202e76ad01b61fcc",
-      "valueSeen": "{\"factor\":\"relationship_status\",\"description\":\"Must have been married for over a year.\"}",
+      "valueSeen": "Must have been married for over a year.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/divorce",
       "sourceQuote": "you’ve been married for over a year",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the civil partnership condition and changed 'at least 1 year' to 'over a year', because the divorce page covers marriage only and says 'over a year'; civil partnerships are ended through a separate process.) Awaiting independent re-verification."
+      }
     },
     "hmcts-divorce#eligibility.criteria.1": {
       "valueHash": "8d0595a027de8e0a",
@@ -12094,16 +12063,15 @@
     "hmcts-divorce#eligibility.evidenceRequired.0": {
       "valueHash": "fbccc90a80869ea1",
       "valueSeen": "Original marriage certificate or a certified copy",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/divorce",
-      "sourceQuote": "your original marriage certificate or a certified copy",
+      "sourceQuote": "your original marriage certificate or a certified copy (and a certified translation if it’s not in English)",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the civil partnership certificate, because the divorce page asks only for a marriage certificate (original or certified copy).) Awaiting independent re-verification."
+      }
     },
     "hmcts-divorce#eligibility.evidenceRequired.1": {
       "valueHash": "85f09b6f6405703a",
@@ -12126,9 +12094,15 @@
     "hmcts-divorce#eligibility.summary": {
       "valueHash": "df6f0506b870d6aa",
       "valueSeen": "Apply online or by post. Minimum timescale: 20 weeks after the application is issued to apply for the conditional order, then at least 43 days before applying for the final order. Fee £628. Can apply ",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/divorce",
       "sourceQuote": "You will need to decide if you want to apply online or by post.",
       "additionalQuotes": [
+        {
+          "quote": "Fill in a divorce application form D8 to start a divorce.",
+          "url": "https://www.gov.uk/divorce"
+        },
         {
           "quote": "You must wait 20 weeks after your divorce application has been issued by the court before you can apply for a conditional order.",
           "url": "https://www.gov.uk/divorce"
@@ -12146,14 +12120,11 @@
           "url": "https://www.gov.uk/divorce"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 5,
-        "total": 5
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the statement that divorce is no-fault and needs no reasons, because the sources never say this; the other details are kept, with wording that matches the source.) Awaiting independent re-verification."
+        "supported": 6,
+        "total": 6
+      }
     },
     "hmcts-divorce#financialData.rates.fee": {
       "valueHash": "67c312330b0371a0",
@@ -12248,9 +12219,11 @@
     },
     "hmcts-employment-tribunal#eligibility.criteria.0": {
       "valueHash": "50c3505eb72bb56a",
-      "valueSeen": "{\"factor\":\"employment\",\"description\":\"Must think you have been treated unlawfully (for example unfair dismissal, discrimination, breach of contract or unauthorised pay deductions) — to claim unfair di",
+      "valueSeen": "Must think you have been treated unlawfully (for example unfair dismissal, discrimination, breach of contract or unauthorised pay deductions) — to claim unfair dismissal you must be an employee and no",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/employment-tribunals",
-      "sourceQuote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully",
+      "sourceQuote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully, such as your employer, a potential employer or a trade union.",
       "additionalQuotes": [
         {
           "quote": "Unlawful treatment can include: unfair dismissal discrimination at work breach of contract unauthorised deductions from your pay",
@@ -12259,25 +12232,28 @@
         {
           "quote": "You must be classed as an employee and have worked for your employer for a minimum period - normally 2 years - before you qualify for the right to claim unfair dismissal at a tribunal.",
           "url": "https://www.gov.uk/dismissal/unfair-and-constructive-dismissal"
+        },
+        {
+          "quote": "You must be classed as an employee and have worked for your employer for a minimum period - normally 2 years - before you qualify for the right to claim unfair dismissal at a tribunal.",
+          "url": "https://www.gov.uk/dismissal/unfair-and-constructive-dismissal"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 3,
-        "total": 3
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the unsupported statement that discrimination claims have no service requirement, and added that the 2-year period applies 'normally' and to employees.) Awaiting independent re-verification."
+        "supported": 4,
+        "total": 4
+      }
     },
     "hmcts-employment-tribunal#eligibility.criteria.1": {
       "valueHash": "72a0208e0fb439fa",
-      "valueSeen": "{\"factor\":\"dependency\",\"description\":\"Must usually have an Acas early conciliation certificate for each respondent (you must tell Acas first, but you can choose not to take part in conciliation; some ",
+      "valueSeen": "Must usually have an Acas early conciliation certificate for each respondent (you must tell Acas first, but you can choose not to take part in conciliation; some exceptions apply, such as unfair dismi",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/employment-tribunals",
       "sourceQuote": "You’ll usually need an early conciliation certificate for each respondent before you make a claim .",
       "additionalQuotes": [
         {
-          "quote": "You must tell Acas (Advisory, Conciliation and Arbitration Service) that you’re planning to make a claim.",
+          "quote": "Before you make a claim to an employment tribunal, you must tell Acas (Advisory, Conciliation and Arbitration Service).",
           "url": "https://www.gov.uk/employment-tribunals"
         },
         {
@@ -12289,14 +12265,11 @@
           "url": "https://www.gov.uk/employment-tribunals"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 4,
         "total": 4
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Changed to say a certificate is usually needed and that conciliation itself is optional, which is what the source says.) Awaiting independent re-verification."
+      }
     },
     "hmcts-employment-tribunal#eligibility.exclusions.0": {
       "valueHash": "9e91dc5e621f4e6e",
@@ -12310,9 +12283,15 @@
     "hmcts-employment-tribunal#eligibility.exclusions.1": {
       "valueHash": "dfe4351e8befe732",
       "valueSeen": "Out of time — usually more than 6 months (3 months if the problem happened before 1 October 2026) since employment ended (unfair dismissal), the most recent incident (discrimination) or the date pay w",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/employment-tribunals",
-      "sourceQuote": "How long you have to make a claim depends on when the problem happened. You usually have: 6 months if the problem happened on or after 1 October 2026 3 months if the problem happened before 1 October 2026",
+      "sourceQuote": "6 months if the problem happened on or after 1 October 2026",
       "additionalQuotes": [
+        {
+          "quote": "3 months if the problem happened before 1 October 2026",
+          "url": "https://www.gov.uk/employment-tribunals"
+        },
         {
           "quote": "If you think you’ve lost your job unfairly, the period begins from the date your employment ended.",
           "url": "https://www.gov.uk/employment-tribunals"
@@ -12330,27 +12309,26 @@
           "url": "https://www.gov.uk/employment-tribunals"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 4,
-        "total": 4
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
-      "confidence": "unverified",
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 6,
+        "total": 6
+      }
     },
     "hmcts-employment-tribunal#eligibility.summary": {
       "valueHash": "4f200978dd57a64e",
       "valueSeen": "You can make a claim to an Employment Tribunal if you think someone, such as your employer, has treated you unlawfully (there's a different way to claim in Northern Ireland). You must tell Acas first ",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/employment-tribunals",
-      "sourceQuote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully, such as your employer",
+      "sourceQuote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully, such as your employer, a potential employer or a trade union.",
       "additionalQuotes": [
         {
           "quote": "There’s a different way to claim if you live in Northern Ireland .",
           "url": "https://www.gov.uk/employment-tribunals"
         },
         {
-          "quote": "Before you make a claim to an employment tribunal, you must tell Acas",
+          "quote": "Before you make a claim to an employment tribunal, you must tell Acas (Advisory, Conciliation and Arbitration Service).",
           "url": "https://www.gov.uk/employment-tribunals"
         },
         {
@@ -12362,7 +12340,11 @@
           "url": "https://www.gov.uk/employment-tribunals"
         },
         {
-          "quote": "How long you have to make a claim depends on when the problem happened. You usually have: 6 months if the problem happened on or after 1 October 2026 3 months if the problem happened before 1 October 2026",
+          "quote": "6 months if the problem happened on or after 1 October 2026",
+          "url": "https://www.gov.uk/employment-tribunals"
+        },
+        {
+          "quote": "3 months if the problem happened before 1 October 2026",
           "url": "https://www.gov.uk/employment-tribunals"
         },
         {
@@ -12370,14 +12352,11 @@
           "url": "https://www.gov.uk/employment-tribunals"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 7,
-        "total": 7
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
-      "confidence": "unverified",
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 8,
+        "total": 8
+      }
     },
     "hmcts-employment-tribunal#govuk_url": {
       "sourceUrl": "https://www.gov.uk/employment-tribunals",
@@ -12392,17 +12371,16 @@
     },
     "hmcts-financial-order#agentInteraction.methods": {
       "valueHash": "c1741718978c05a4",
-      "valueSeen": "[\"post\"]",
+      "valueSeen": "You can apply or do this by post.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
-      "sourceQuote": "send the signed forms and copies with the £62 fee to: HMCTS Financial Remedy PO Box 12746 Harlow CM20 9QZ",
+      "sourceQuote": "If you’re divorcing, send the signed forms and copies with the £62 fee to: HMCTS Financial Remedy PO Box 12746 Harlow CM20 9QZ",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed online because the sources give no online route for getting a consent order approved; they only say to send the forms to a postal address.) Awaiting independent re-verification."
+      }
     },
     "hmcts-financial-order#agentInteraction.onlineFormUrl": {
       "valueHash": "8f84dbaf778625be",
@@ -12476,30 +12454,28 @@
     "hmcts-financial-order#eligibility.evidenceRequired.0": {
       "valueHash": "eb742b65b05c9fab",
       "valueSeen": "Signed draft consent order",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
       "sourceQuote": "sign the draft consent order - you also need 2 photocopies of the signed original",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the D81 form number, which the sources never give, and kept the signed draft consent order the sources do require.) Awaiting independent re-verification."
+      }
     },
     "hmcts-financial-order#eligibility.evidenceRequired.1": {
       "valueHash": "cebf9f69a84ba8a2",
       "valueSeen": "Statement of information form filled in by both parties",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/money-property-when-relationship-ends",
       "sourceQuote": "You and your ex-partner have to: draft a consent order sign the draft consent order - you also need 2 photocopies of the signed original fill in a statement of information form",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced the unsupported 'financial disclosure' wording with the statement of information form the sources say both parties must fill in.) Awaiting independent re-verification."
+      }
     },
     "hmcts-financial-order#eligibility.evidenceRequired.2": {
       "valueHash": "026a1aa3c00c00e9",
@@ -13082,15 +13058,17 @@
     "hmcts-legal-aid#desc": {
       "valueHash": "f842fd9de2547358",
       "valueSeen": "Means tested, and the problem must be serious. Available in domestic abuse cases. A legal adviser applies for you.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/legal-aid",
-      "sourceQuote": "your income is below a certain amount the value of your savings, investments and property are below a certain amount",
+      "sourceQuote": "To get legal aid, you’ll usually need to show that both: your income is below a certain amount the value of your savings, investments and property are below a certain amount",
       "additionalQuotes": [
         {
           "quote": "the problem is serious",
           "url": "https://www.gov.uk/find-legal-advice/find-legal-adviser"
         },
         {
-          "quote": "protecting yourself or a child from abuse or harassment, for example domestic abuse",
+          "quote": "You might be able to get legal aid if you have evidence that you or your children have experienced domestic abuse and you cannot afford to pay legal costs.",
           "url": "https://www.gov.uk/legal-aid"
         },
         {
@@ -13098,32 +13076,40 @@
           "url": "https://www.gov.uk/legal-aid"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 4,
         "total": 4
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced 'merits tested' with the stated 'problem is serious' condition, and replaced 'applied via Legal Aid Agency' with a legal adviser applying for you.) Awaiting independent re-verification."
+      }
     },
     "hmcts-legal-aid#eligibility.autoQualifiers.0": {
       "valueHash": "f30e70debb392739",
       "valueSeen": "Domestic abuse victim (you or your children) with evidence who cannot afford legal costs",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "You might be able to get legal aid if you have evidence that you or your children have experienced domestic abuse and you cannot afford to pay legal costs.",
+      "additionalQuotes": [
+        {
+          "quote": "You’ll usually need to provide evidence to show that you or your children have experienced domestic abuse.",
+          "url": "https://www.gov.uk/legal-aid"
+        },
+        {
+          "quote": "you cannot afford to pay legal costs",
+          "url": "https://www.gov.uk/legal-aid"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
-        "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the unsupported limit to family proceedings and added the affordability condition the source states.) Awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "hmcts-legal-aid#eligibility.criteria.0": {
       "valueHash": "dfdcb1ac12b24fbc",
-      "valueSeen": "{\"factor\":\"income\",\"description\":\"Joint monthly income (you and your partner) must usually be £2,657 or less before tax and other deductions, and assets usually £8,000 or less.\"}",
+      "valueSeen": "Joint monthly income (you and your partner) must usually be £2,657 or less before tax and other deductions, and assets usually £8,000 or less.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "have a joint monthly income of £2,657 or less (before tax and other deductions)",
       "additionalQuotes": [
@@ -13132,14 +13118,11 @@
           "url": "https://www.gov.uk/legal-aid"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Changed 'disposable income' to joint gross monthly income, and dropped the unsupported claim that thresholds vary by case type.) Awaiting independent re-verification."
+      }
     },
     "hmcts-legal-aid#eligibility.criteria.1": {
       "valueHash": "7b9e265e904acc26",
@@ -13154,16 +13137,15 @@
     "hmcts-legal-aid#eligibility.evidenceRequired.0": {
       "valueHash": "c839ebe9108cddda",
       "valueSeen": "Form CW2 (IMM), for exceptional case funding in immigration cases that go to a court or tribunal",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "Immigration cases that go to a court or tribunal Complete the ECF application form CIV ECF 1 and form CW2 (IMM) .",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Corrected the form name to CW2 (IMM) and limited it to immigration exceptional case funding cases, not a general means test form.) Awaiting independent re-verification."
+      }
     },
     "hmcts-legal-aid#eligibility.evidenceRequired.1": {
       "valueHash": "20889664b895dd0a",
@@ -13194,7 +13176,7 @@
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "…and property You will not usually be eligible if you and your partner have assets of over £8,000. Assets are: savings and investments any equity in your home over £100,000 (equity is the…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmcts-legal-aid#eligibility.rules.1.rules.0.value": {
@@ -13203,19 +13185,17 @@
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "…’ll usually need to show that you and your partner either: have a joint monthly income of £2,657 or less (before tax and other deductions) get a qualifying benefit Qualifying benefits ar…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmcts-legal-aid#eligibility.summary": {
       "valueHash": "ea72159c4af7538f",
       "valueSeen": "Government funding for legal advice and representation in certain cases. Usually means-tested (income/capital), and the problem must be serious. Domestic abuse cases may still qualify above the income",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/legal-aid",
-      "sourceQuote": "Legal aid helps pay for legal advice, mediation or representation in court",
+      "sourceQuote": "To get legal aid, you’ll usually need to show that both: your income is below a certain amount the value of your savings, investments and property are below a certain amount",
       "additionalQuotes": [
-        {
-          "quote": "To get legal aid, you’ll usually need to show that both: your income is below a certain amount the value of your savings, investments and property are below a certain amount",
-          "url": "https://www.gov.uk/legal-aid"
-        },
         {
           "quote": "the problem is serious",
           "url": "https://www.gov.uk/find-legal-advice/find-legal-adviser"
@@ -13234,13 +13214,11 @@
         }
       ],
       "claims": {
-        "supported": 6,
+        "supported": 5,
         "total": 6
       },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
       "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the unsupported 'strength of case' merits test and 'automatic' eligibility for domestic abuse, and changed 'legal aid solicitor' to 'legal adviser' to match the source.) Awaiting independent re-verification."
+      "rationale": "partly supported: The text says legal aid helps pay for advice and representation but does not say it is government funding."
     },
     "hmcts-legal-aid#govuk_url": {
       "sourceUrl": "https://www.gov.uk/legal-aid",
@@ -13859,10 +13837,10 @@
       "valueSeen": "https://www.passport.service.gov.uk/filter",
       "sourceUrl": "https://www.passport.service.gov.uk/filter",
       "sourceQuote": "",
-      "verifiedAt": "2026-09-28T22:33:47.189Z",
-      "method": "http-status",
-      "confidence": "unverified",
-      "rationale": "Request failed (fetch failed). Check in a browser."
+      "verifiedAt": "2026-10-21T14:41:38.858Z",
+      "method": "manual",
+      "confidence": "confirmed",
+      "rationale": "Checked in a browser: 21 Oct 2026: opens 'Do you live in the UK? – Apply for a passport'"
     },
     "hmpo-passport#deptKey": {
       "sourceUrl": "https://www.gov.uk/apply-renew-passport",
@@ -14350,37 +14328,41 @@
     },
     "hmrc-cancel-marriage-allowance#eligibility.criteria.0": {
       "valueHash": "11b3a4b61c0a8bca",
-      "valueSeen": "{\"factor\":\"relationship_status\",\"description\":\"Previously claimed Marriage Allowance and relationship has now ended (divorced, civil partnership dissolved, or legally separated).\"}",
-      "sourceUrl": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
-      "sourceQuote": "You must cancel Marriage Allowance if any of the following apply: your relationship ends - because you’ve divorced, ended (‘dissolved’) your civil partnership or legally separated",
-      "claims": {
-        "supported": 1,
-        "total": 1
-      },
+      "valueSeen": "Previously claimed Marriage Allowance and relationship has now ended (divorced, civil partnership dissolved, or legally separated).",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Took out the partner's death, because the source only lists divorce, dissolution and legal separation as reasons to cancel and covers death separately.) Awaiting independent re-verification."
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
+      "sourceUrl": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
+      "sourceQuote": "Your Personal Allowance will transfer automatically to your partner every year until you cancel Marriage Allowance",
+      "additionalQuotes": [
+        {
+          "quote": "your relationship ends - because you’ve divorced, ended (‘dissolved’) your civil partnership or legally separated",
+          "url": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "hmrc-cancel-marriage-allowance#eligibility.evidenceRequired.0": {
       "valueHash": "1fe19db2bbeee3af",
       "valueSeen": "Prove your identity online using information HMRC holds about you, or contact Marriage Allowance enquiries by phone",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change",
-      "sourceQuote": "You can cancel Marriage Allowance online . You’ll be asked to prove your identity using information HMRC holds about you.",
+      "sourceQuote": "You’ll be asked to prove your identity using information HMRC holds about you.",
       "additionalQuotes": [
         {
           "quote": "Contact Marriage Allowance enquiries to cancel or get help.",
           "url": "https://www.gov.uk/marriage-allowance/if-your-circumstances-change"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced Government Gateway, which the source never names, with the identity check the source describes and the Marriage Allowance enquiries phone contact.) Awaiting independent re-verification."
+      }
     },
     "hmrc-cancel-marriage-allowance#eligibility.summary": {
       "valueHash": "90415aefdd99063e",
@@ -14528,7 +14510,7 @@
       "sourceUrl": "https://www.gov.uk/carers-credit",
       "sourceQuote": "…y and how to claim You could get Carer’s Credit if you’re caring for someone for at least 20 hours a week. Carer’s Credit is a National Insurance credit that helps with gaps in your Nation…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-carers-credit#eligibility.summary": {
@@ -14673,17 +14655,26 @@
     },
     "hmrc-child-benefit#eligibility.criteria.1": {
       "valueHash": "c0128ba4bf65a8f3",
-      "valueSeen": "{\"factor\":\"income\",\"description\":\"High Income Child Benefit Charge claws back the payment if either partner's individual adjusted net income is over £60,000; the charge equals the full benefit over £8",
+      "valueSeen": "High Income Child Benefit Charge claws back the payment if either partner's individual adjusted net income is over £60,000; the charge equals the full benefit over £80,000. It does not affect eligibil",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-benefit-tax-charge",
-      "sourceQuote": "You’ll pay back 1% of your Child Benefit for every £200 you earn over £60,000. If you earn over £80,000 you’ll pay it all back.",
-      "confidence": "unverified",
+      "sourceQuote": "You’ll pay back 1% of your Child Benefit for every £200 you earn over £60,000.",
+      "additionalQuotes": [
+        {
+          "quote": "If you earn over £80,000 you’ll pay it all back.",
+          "url": "https://www.gov.uk/child-benefit-tax-charge"
+        },
+        {
+          "quote": "If your income is over the threshold You can choose to either: get Child Benefit payments and pay the tax charge",
+          "url": "https://www.gov.uk/child-benefit-tax-charge"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
-        "total": 1
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "hmrc-child-benefit#eligibility.evidenceRequired.0": {
       "valueHash": "7a2c4b57a5c19e25",
@@ -14726,15 +14717,24 @@
       "valueHash": "2306ed7577643f28",
       "valueSeen": "If either partner's adjusted net income is over £80,000, the charge cancels the payment. Still claim and opt out of payments, to get National Insurance credits and the child's automatic NI number.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-benefit-tax-charge",
       "sourceQuote": "If you earn over £80,000 you’ll pay it all back.",
-      "confidence": "unverified",
+      "additionalQuotes": [
+        {
+          "quote": "You can make a claim and opt out of getting payments if you do not want to pay the charge. You can still get the other advantages provided by Child Benefit, like National Insurance credits.",
+          "url": "https://www.gov.uk/child-benefit"
+        },
+        {
+          "quote": "a National Insurance number for your child, without them having to apply shortly before they turn 16 years old",
+          "url": "https://www.gov.uk/child-benefit-tax-charge"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
-        "total": 1
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "hmrc-child-benefit#eligibility.rules.1.value": {
       "valueHash": "b17ef6d19c7a5b1e",
@@ -14742,14 +14742,14 @@
       "sourceUrl": "https://www.gov.uk/child-benefit",
       "sourceQuote": "…aim form CH2. You get Child Benefit if you’re responsible for bringing up a child who is: under 16 under 20 if they stay in approved education or training Only one person can get Child Ben…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-child-benefit#eligibility.summary": {
       "valueHash": "40652107c08290d1",
       "valueSeen": "Available to anyone responsible for a child under 16 (or under 20 in approved education or training). Backdatable 3 months. High Income Child Benefit Charge applies if either partner's adjusted net in",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-benefit",
       "sourceQuote": "You get Child Benefit if you’re responsible for bringing up a child who is: under 16 under 20 if they stay in approved education or training",
       "additionalQuotes": [
@@ -14758,7 +14758,7 @@
           "url": "https://www.gov.uk/child-benefit"
         },
         {
-          "quote": "You’ll pay back 1% of your Child Benefit for every £200 you earn over £60,000.",
+          "quote": "over £60,000 for tax years starting from 2024 to 2025",
           "url": "https://www.gov.uk/child-benefit-tax-charge"
         },
         {
@@ -14766,12 +14766,11 @@
           "url": "https://www.gov.uk/child-benefit"
         }
       ],
-      "confidence": "unverified",
+      "confidence": "confirmed",
       "claims": {
         "supported": 4,
         "total": 4
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+      }
     },
     "hmrc-child-benefit#financialData.rates.first_child": {
       "valueHash": "5cd727242e802d88",
@@ -14869,37 +14868,35 @@
     },
     "hmrc-child-benefit-transfer#eligibility.criteria.0": {
       "valueHash": "4ca44d3541c9fbd1",
-      "valueSeen": "{\"factor\":\"family\",\"description\":\"The person who will claim is responsible for the child, for example because they live with the child.\"}",
+      "valueSeen": "The person who will claim is responsible for the child, for example because they live with the child.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
-      "sourceQuote": "You’ll usually be responsible for a child if either: you live with them you’re paying at least the same amount as Child Benefit (or the equivalent in kind) towards looking after them",
+      "sourceQuote": "You normally qualify for Child Benefit if you’re responsible for a child under 16 and you live in the UK.",
       "additionalQuotes": [
         {
-          "quote": "You get Child Benefit if you’re responsible for bringing up a child",
+          "quote": "You’ll usually be responsible for a child if either: you live with them",
           "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced the unsupported condition about the child moving to the other parent after separation with the source's rule on responsibility, which includes living with the child.) Awaiting independent re-verification."
+      }
     },
     "hmrc-child-benefit-transfer#eligibility.criteria.1": {
       "valueHash": "601bff5b51a28587",
-      "valueSeen": "{\"factor\":\"relationship_status\",\"description\":\"The current Child Benefit claimant wants someone else to claim Child Benefit for the child.\"}",
+      "valueSeen": "The current Child Benefit claimant wants someone else to claim Child Benefit for the child.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
       "sourceQuote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner.",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed the unsupported 'no longer the main carer' and separation conditions and stated the trigger the source actually gives for changing who gets Child Benefit.) Awaiting independent re-verification."
+      }
     },
     "hmrc-child-benefit-transfer#eligibility.evidenceRequired.0": {
       "valueHash": "750f5f4acd4064ff",
@@ -14932,11 +14929,17 @@
     "hmrc-child-benefit-transfer#eligibility.summary": {
       "valueHash": "8f3ecc8de4969edf",
       "valueSeen": "Only one person can get Child Benefit for a child. If you want someone else to claim, contact the Child Benefit Office, then the other person makes a new claim. If you cannot agree who gets it, HMRC d",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
       "sourceQuote": "Only one person can get Child Benefit for a child.",
       "additionalQuotes": [
         {
-          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you’ve done this, tell the other person to make a new claim.",
+          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner.",
+          "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
+        },
+        {
+          "quote": "After you’ve done this, tell the other person to make a new claim.",
           "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
         },
         {
@@ -14944,14 +14947,11 @@
           "url": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 3,
-        "total": 3
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced the unsupported rule that benefit must go to the main carer when living arrangements change with the source's actual process for changing who gets Child Benefit.) Awaiting independent re-verification."
+        "supported": 4,
+        "total": 4
+      }
     },
     "hmrc-child-benefit-transfer#govuk_url": {
       "sourceUrl": "https://www.gov.uk/child-benefit",
@@ -15265,7 +15265,7 @@
       "sourceUrl": "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading",
       "sourceQuote": "…rds Board. Tell HMRC your company or organisation is now active You must tell HMRC within 3 months of starting your tax accounting period if your limited company is within the charge of Co…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-corporation-tax#eligibility.summary": {
@@ -15421,6 +15421,8 @@
     "hmrc-free-childcare-15#desc": {
       "valueHash": "35b63f59948c56bc",
       "valueSeen": "All 3 and 4-year-olds in England can get 570 free hours a year (usually 15 hours a week for 38 weeks), from the term after their 3rd birthday. It must be with an approved childcare provider. Contact y",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "All 3 to 4-year-olds in England can get 570 free hours per year.",
       "additionalQuotes": [
@@ -15433,7 +15435,7 @@
           "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
         },
         {
-          "quote": "The free early education and childcare: must be with an approved childcare provider",
+          "quote": "must be with an approved childcare provider",
           "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
         },
         {
@@ -15441,14 +15443,11 @@
           "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 5,
         "total": 5
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (I removed \"no application\", \"arrange it with the childcare provider\" and \"no income test\" because the source doesn't say any of them. In their place I used what the source does say: the childcare must be with an approved provider, and parents should contact the provider or council to find out more.) Awaiting independent re-verification."
+      }
     },
     "hmrc-free-childcare-15#eligibility.autoQualifiers.0": {
       "valueHash": "84ede1d895b00935",
@@ -15493,7 +15492,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "…in Wales , provides childcare in Scotland or provides childcare in Northern Ireland . All 3 to 4-year-olds in England can get 570 free hours per year. It’s usually taken as 15 hours a week for 38…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-15#eligibility.rules.2.value": {
@@ -15502,7 +15501,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "…care for your child outside your home. Foster carers If you’re a foster parent of a child aged 9 months to 4 years old you can claim Free Childcare for Working Parents as long as: you’re in paid wor…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-15#eligibility.summary": {
@@ -15729,7 +15728,7 @@
       "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
       "sourceQuote": "…arents. If you live in England and work you may be able to get free childcare for a child aged 9 months to 4 years old. Check if you're eligible and how and when to apply. You may be able to get 30…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-30#eligibility.rules.3.value": {
@@ -15738,7 +15737,7 @@
       "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
       "sourceQuote": "…ou or your partner’s expected adjusted net income (including any foreign income ) is over £100,000 for the current tax year Your child’s age and circumstances If your child is aged 9 month…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-30#eligibility.summary": {
@@ -16225,7 +16224,7 @@
       "sourceUrl": "https://www.gov.uk/inheritance-tax",
       "sourceQuote": "…ere’s normally no Inheritance Tax to pay if either: the value of your estate is below the £325,000 threshold you leave everything above the £325,000 threshold to your spouse, civil partner…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-iht400#eligibility.rules.2.maxDays": {
@@ -16234,7 +16233,7 @@
       "sourceUrl": "https://www.gov.uk/inheritance-tax",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"IHT400 must be filed within 6 months of death\": 180 not found in a matching form on https://www.gov.uk/inheritance-tax."
     },
@@ -16374,7 +16373,7 @@
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "…y open and your savings will still earn interest or investment returns. You must be 18 or over but under 40 to open a Lifetime ISA . To open and continue to pay into a Lifetime ISA you must also be…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-lisa#eligibility.rules.2.value": {
@@ -16383,7 +16382,7 @@
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "…ur savings to help you buy your first home if all the following apply: the property costs £450,000 or less you buy the property at least 12 months after you make your first payment into th…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-lisa#eligibility.summary": {
@@ -16684,7 +16683,7 @@
       "sourceUrl": "https://www.gov.uk/marriage-allowance",
       "sourceQuote": "…ays Income Tax at the basic rate, which usually means their income is between £12,571 and £50,270 before they receive Marriage Allowance You cannot claim Marriage Allowance if you’re livi…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-marriage-allowance#eligibility.summary": {
@@ -16864,7 +16863,7 @@
       "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Income exceeds £50,000\": 50000 not found in a matching form on https://www.gov.uk/government/collections/making-tax-digital-for-vat."
     },
@@ -17059,6 +17058,8 @@
     "hmrc-p45#desc": {
       "valueHash": "5fa1107f7ffa44c3",
       "valueSeen": "Employer should provide when you leave. Give to a new employer, or to Jobcentre Plus if claiming taxable benefits.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
       "sourceQuote": "When you leave a job, your employer should give you a P45 form",
       "additionalQuotes": [
@@ -17071,14 +17072,11 @@
           "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 3,
         "total": 3
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (I took out 'must' and 'on last day', and changed 'Required' to 'Give to', because a starter checklist can be used instead of a P45.) Awaiting independent re-verification."
+      }
     },
     "hmrc-p45#eligibility.criteria.0": {
       "valueHash": "3172c5ac7575c6d2",
@@ -17116,13 +17114,11 @@
     "hmrc-p45#eligibility.summary": {
       "valueHash": "4f2967e56aab9d88",
       "valueSeen": "Employees should get a P45 from their employer when leaving a job. Give it to a new employer, or to Jobcentre Plus if claiming taxable benefits. It can also help HMRC get the details needed for a tax ",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
-      "sourceQuote": "When you leave a job, your employer should give you a P45 form",
+      "sourceQuote": "You’ll only get these forms if you’re an employee .",
       "additionalQuotes": [
-        {
-          "quote": "You’ll only get these forms if you’re an employee",
-          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
-        },
         {
           "quote": "When you start a new job, give your P45 to your new employer.",
           "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
@@ -17132,18 +17128,15 @@
           "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
         },
         {
-          "quote": "If your previous employer did not give you a P45, ask them for one. This can give HMRC the details they need.",
+          "quote": "This can give HMRC the details they need.",
           "url": "https://www.gov.uk/tax-codes/how-to-update-your-tax-code"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 5,
-        "total": 5
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (I changed 'legally required' to 'should', limited benefit claims to taxable benefits, and said the P45 can help HMRC with a refund rather than that it is needed for one.) Awaiting independent re-verification."
+        "supported": 4,
+        "total": 4
+      }
     },
     "hmrc-p45#govuk_url": {
       "sourceUrl": "https://www.gov.uk/paye-forms-p45-p60-p11d",
@@ -17605,7 +17598,7 @@
       "sourceUrl": "https://www.gov.uk/stamp-duty-land-tax",
       "sourceQuote": "…on is complicated. How and when to pay Send an SDLT return to HMRC and pay the tax within 14 days of completion . If you have a solicitor, agent or conveyancer, they’ll usually file your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-sdlt#eligibility.summary": {
@@ -17917,22 +17910,21 @@
     "hmrc-smp#eligibility.evidenceRequired.1": {
       "valueHash": "83c168474852bc09",
       "valueSeen": "Notice to employer of intended leave start date (in writing if the employer asks for it)",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
-      "sourceQuote": "tell your employer when the baby is due and when you want to start your maternity leave. Your employer can ask for this in writing.",
+      "sourceQuote": "Tell your employer you want to stop work to have a baby and the day you want your SMP to start.",
       "additionalQuotes": [
         {
           "quote": "You must give them at least 28 days’ notice (in writing if they ask for it) and proof that you’re pregnant.",
           "url": "https://www.gov.uk/maternity-pay-leave/pay"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (The notice only has to be in writing if the employer asks for it, so the field no longer says written notice is always required.) Awaiting independent re-verification."
+      }
     },
     "hmrc-smp#eligibility.exclusions.0": {
       "valueHash": "d9c79389cefad4dd",
@@ -17963,7 +17955,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
       "sourceQuote": "…ad. Statutory Maternity Pay ( SMP ) To qualify for SMP you must: earn on average at least £129 a week give the correct notice and proof you’re pregnant have worked for your employer co…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-smp#eligibility.summary": {
@@ -18067,23 +18059,26 @@
     },
     "hmrc-spl#eligibility.criteria.2": {
       "valueHash": "3bc3183c45a4d1b0",
-      "valueSeen": "{\"factor\":\"dependency\",\"description\":\"Mother must cut short her maternity leave and pay (or Maternity Allowance), taking less than 52 weeks' leave and 39 weeks' pay, for SPL to be available.\"}",
+      "valueSeen": "Mother must cut short her maternity leave and pay (or Maternity Allowance), taking less than 52 weeks' leave and 39 weeks' pay, for SPL to be available.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/shared-parental-leave-and-pay",
-      "sourceQuote": "To get SPL and ShPP , you or your partner has to: take less than the 52 weeks of maternity or adoption leave and use the rest as SPL take less than the 39 weeks of maternity or adoption pay (or Maternity Allowance) and use the rest as ShPP",
+      "sourceQuote": "take less than the 52 weeks of maternity or adoption leave and use the rest as SPL",
       "additionalQuotes": [
+        {
+          "quote": "take less than the 39 weeks of maternity or adoption pay (or Maternity Allowance) and use the rest as ShPP",
+          "url": "https://www.gov.uk/shared-parental-leave-and-pay"
+        },
         {
           "quote": "The mother or adopter must end any maternity pay, adoption pay or Maternity Allowance so that they or their partner can get SPL .",
           "url": "https://www.gov.uk/shared-parental-leave-and-pay"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
-        "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (The sources don't say the mother must be eligible for SMP or Maternity Allowance, so that was replaced with what they do say: she must cut her maternity leave and pay (or Maternity Allowance) short.) Awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "hmrc-spl#eligibility.evidenceRequired.0": {
       "valueHash": "38b49797bdf5bf2c",
@@ -18217,7 +18212,9 @@
     },
     "hmrc-spp#eligibility.criteria.0": {
       "valueHash": "1f5f83b48f6b3e95",
-      "valueSeen": "{\"factor\":\"employment\",\"description\":\"Continuously employed with the same employer for at least 26 weeks up to the end of any day in the 'qualifying week' (the 15th week before the baby is due), and e",
+      "valueSeen": "Continuously employed with the same employer for at least 26 weeks up to the end of any day in the 'qualifying week' (the 15th week before the baby is due), and earning an average of at least £129 a w",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
       "sourceQuote": "have been continuously employed by your employer for at least 26 weeks up to the end of any day in the ‘qualifying week’",
       "additionalQuotes": [
@@ -18230,14 +18227,11 @@
           "url": "https://www.gov.uk/paternity-pay-leave"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 3,
         "total": 3
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Swapped the unsupported 'Lower Earnings Limit' for the £129 average weekly earnings figure the source gives, and added that the 26 weeks must be reached by the qualifying week.) Awaiting independent re-verification."
+      }
     },
     "hmrc-spp#eligibility.criteria.1": {
       "valueHash": "7e10b19c44d22f5d",
@@ -18263,7 +18257,7 @@
       "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
       "sourceQuote": "…ou must: be employed by your employer up to the date of birth earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your emplo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-spp#eligibility.rules.3.maxDays": {
@@ -18272,7 +18266,7 @@
       "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
       "sourceQuote": "…n a week of leave is 2 days. Your leave cannot start before the birth. It must end within 52 weeks of the baby’s birth (or the due date if the baby is early). The start and end date rules…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-spp#eligibility.summary": {
@@ -18773,7 +18767,7 @@
       "sourceUrl": "https://www.gov.uk/parental-bereavement-pay-leave",
       "sourceQuote": "…. The leave: can start on or after the date of the death or stillbirth must finish within 56 weeks of the date of the death or stillbirth Taking leave with other types of statutory leave I…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-statutory-parental-bereavement#eligibility.summary": {
@@ -19101,7 +19095,7 @@
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "…a year). You’ll usually need to be working (or returning to work) and your child must be 11 or younger (16 or younger if they’re disabled). Your childcare provider must be signed up to the Tax…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#eligibility.rules.3.value": {
@@ -19110,12 +19104,14 @@
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "…ou or your partner’s expected adjusted net income (including any foreign income ) is over £100,000 for the current tax year you or your partner get a childcare bursary or grant If you clai…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#eligibility.summary": {
       "valueHash": "4b80deec9968a0b6",
       "valueSeen": "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child every 3 months, or £1,000 if the child is disabled). Usually must be in work (or returning to work) and expe",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "For every £8 you pay into the account, the government will top it up by £2.",
       "additionalQuotes": [
@@ -19140,14 +19136,11 @@
           "url": "https://www.gov.uk/tax-free-childcare"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 6,
         "total": 6
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (I changed 'must be in work' to 'usually', added the exception for a parent who isn't working but whose partner works, and made the quarterly and disabled-child wording match the source.) Awaiting independent re-verification."
+      }
     },
     "hmrc-tax-free-childcare#financialData.rates.max_disabled_child": {
       "valueHash": "b090147020e03353",
@@ -19279,20 +19272,37 @@
       "valueHash": "05613b260816ec06",
       "valueSeen": "12570",
       "sourceUrl": "https://www.gov.uk/tax-on-pension",
-      "sourceQuote": "…f your total annual income adds up to less than your Personal Allowance - this is usually £12,570. Lump sums from your pension You can usually take up to 25% of the amount built up in any…",
+      "sourceQuote": "…f your total annual income adds up to more than your Personal Allowance - this is usually £12,570. This guide is also available in Welsh (Cymraeg) . Types of pensions There are different…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-on-pension#eligibility.summary": {
       "valueHash": "2c590f0b39b706e5",
       "valueSeen": "State Pension is taxable income, though paid without deduction. Private and workplace pensions are taxed via PAYE. Anyone whose total income exceeds the Personal Allowance (£12,570) will owe tax.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/tax-on-pension",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "A quote the model gave is not in the source text, so the judgement was discarded."
+      "sourceQuote": "You’ll usually pay tax on income from your pensions. This includes your State Pension.",
+      "additionalQuotes": [
+        {
+          "quote": "When you get your State Pension, it is not taxed before you receive it.",
+          "url": "https://www.gov.uk/tax-on-pension"
+        },
+        {
+          "quote": "Most pension providers deduct Income Tax using Pay As You Earn ( PAYE ).",
+          "url": "https://www.gov.uk/tax-on-pension"
+        },
+        {
+          "quote": "You pay tax if your total annual income adds up to more than your Personal Allowance - this is usually £12,570.",
+          "url": "https://www.gov.uk/tax-on-pension"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 4,
+        "total": 4
+      }
     },
     "hmrc-tax-on-pension#govuk_url": {
       "sourceUrl": "https://www.gov.uk/tax-on-pension",
@@ -19321,7 +19331,9 @@
     },
     "hmrc-tax-refund#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
-      "valueSeen": "[\"online\",\"post\"]",
+      "valueSeen": "You can apply or do this online. You can apply or do this by post.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
       "sourceQuote": "The quickest way to claim is online.",
       "additionalQuotes": [
@@ -19330,14 +19342,11 @@
           "url": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Removed phone because the page only describes claiming online or by printing the form and posting it to HMRC.) Awaiting independent re-verification."
+      }
     },
     "hmrc-tax-refund#agentInteraction.onlineFormUrl": {
       "valueHash": "2b26569af4bcdaf7",
@@ -19392,7 +19401,9 @@
     },
     "hmrc-tax-refund#eligibility.criteria.1": {
       "valueHash": "0690a6e0e6c5c7ef",
-      "valueSeen": "{\"factor\":\"income\",\"description\":\"Unemployed for 4 weeks or more and not claiming taxable state benefits — if you expect to start a new job within 4 weeks, your new employer will make any repayment th",
+      "valueSeen": "Unemployed for 4 weeks or more and not claiming taxable state benefits — if you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary instead.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working",
       "sourceQuote": "have been unemployed for 4 weeks or more and are not claiming taxable state benefits",
       "additionalQuotes": [
@@ -19401,14 +19412,11 @@
           "url": "https://www.gov.uk/guidance/claim-back-income-tax-when-youve-stopped-working"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Dropped the unsupported 'not returning to work or starting a taxable pension in the same tax year' condition, which the page does not state as an eligibility requirement (not going back to work is listed as a separate example).) Awaiting independent re-verification."
+      }
     },
     "hmrc-tax-refund#eligibility.evidenceRequired.0": {
       "valueHash": "0ebfbd6def6b6ef5",
@@ -19687,7 +19695,7 @@
       "sourceUrl": "https://www.gov.uk/vat-registration",
       "sourceQuote": "…You must register if either: your total taxable turnover for the last 12 months goes over £90,000 (the VAT threshold) you expect your taxable turnover to go over £90,000 in the next 30 da…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "hmrc-vat#eligibility.summary": {
@@ -19816,7 +19824,7 @@
       "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must collect BRP within 10 days of arriving in the UK\": 10 not found in a matching form on https://www.gov.uk/biometric-residence-permits."
     },
@@ -20765,10 +20773,10 @@
       "valueSeen": "https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk",
       "sourceUrl": "https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk",
       "sourceQuote": "",
-      "verifiedAt": "2026-09-28T22:33:47.189Z",
-      "method": "http-status",
-      "confidence": "unverified",
-      "rationale": "Request failed (fetch failed). Check in a browser."
+      "verifiedAt": "2026-10-21T14:41:41.013Z",
+      "method": "manual",
+      "confidence": "confirmed",
+      "rationale": "Checked in a browser: 21 Oct 2026: redirects into the live UKVI flow, first question 'When were you granted your most recent permission to come to or stay in the UK?'"
     },
     "ho-evisa#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-access-evisa",
@@ -21472,17 +21480,16 @@
     },
     "ho-life-in-uk#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
-      "valueSeen": "[\"online\"]",
+      "valueSeen": "You can apply or do this online.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
-      "sourceQuote": "You must book your test online",
-      "confidence": "unverified",
+      "sourceQuote": "You must book your test online at least 3 days in advance.",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
         "total": 1
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+      }
     },
     "ho-life-in-uk#agentInteraction.onlineFormUrl": {
       "valueHash": "922023e7814ab9f6",
@@ -21575,15 +21582,24 @@
       "valueHash": "50c51b6a21b71bc1",
       "valueSeen": "Booking required online — £50 fee per attempt",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
-      "sourceQuote": "You must book your test online at least 3 days in advance. It costs £50.",
-      "confidence": "unverified",
+      "sourceQuote": "You must book your test online at least 3 days in advance.",
+      "additionalQuotes": [
+        {
+          "quote": "It costs £50.",
+          "url": "https://www.gov.uk/life-in-the-uk-test"
+        },
+        {
+          "quote": "You can rebook the test as many times as you need. You’ll have to pay each time.",
+          "url": "https://www.gov.uk/life-in-the-uk-test"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
-        "total": 1
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "ho-life-in-uk#eligibility.rules.0.value": {
       "valueHash": "4ec9599fc203d176",
@@ -21591,7 +21607,7 @@
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
       "sourceQuote": "…When you do not need to take the test You do not need to take the test if you: are under 18 are 65 or over have passed it before - for example, if you’re applying to become a citizen and already p…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "ho-life-in-uk#eligibility.rules.1.value": {
@@ -21600,7 +21616,7 @@
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
       "sourceQuote": "…ou do not need to take the test You do not need to take the test if you: are under 18 are 65 or over have passed it before - for example, if you’re applying to become a citizen and already p…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "ho-life-in-uk#eligibility.summary": {
@@ -23196,7 +23212,7 @@
       "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Reached State Pension age (66)\": 66 not found in a matching form on https://www.gov.uk/apply-for-elderly-person-bus-pass."
     },
@@ -23941,7 +23957,7 @@
       "sourceUrl": "https://www.gov.uk/apply-council-tax-reduction",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Low weekly income\": 250 not found in a matching form on https://www.gov.uk/apply-council-tax-reduction."
     },
@@ -24364,7 +24380,7 @@
       "sourceUrl": "https://www.gov.uk/register-to-vote",
       "sourceQuote": "…les around voting in the UK . If you live in England or Northern Ireland You must be aged 16 or over to register. You can register to vote if you’re a British citizen or an Irish citizen. Yo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "la-electoral-roll#eligibility.summary": {
@@ -24509,7 +24525,7 @@
       "sourceUrl": "https://www.gov.uk/guidance/food-business-registration",
       "sourceQuote": "…and charities . England, Wales and Northern Ireland You are required to register at least 28 days before trading. We recommend that you do not register too early, but that you wait until…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "la-food-hygiene#eligibility.summary": {
@@ -24780,7 +24796,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
       "sourceQuote": "…or approved childcare - Tax-Free Childcare, 15 and 30 hours childcare, Early Learning for 2 year olds, childcare vouchers, Learner Support. You can get help with the cost of childcare throug…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "la-free-childcare-2yr#eligibility.rules.3.rules.0.rules.1.value": {
@@ -24789,7 +24805,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
       "sourceQuote": "…lds if any of the following apply: you get Universal Credit, and your household income is £15,400 a year or less after tax (not including benefit payments) you get Income Support, income-…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "la-free-childcare-2yr#eligibility.summary": {
@@ -26139,7 +26155,7 @@
       "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
       "sourceQuote": "…an education, health and care ( EHC ) plan - a plan of care for children and young people aged up to 25 who have more complex needs If you or your child got support before September 2014 this w…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "la-send-ehc#eligibility.rules.1.maxDays": {
@@ -26148,7 +26164,7 @@
       "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
       "sourceQuote": "…r child goes to a specialist needs school or specialist college. Your local authority has 20 weeks from the date they receive the request for the assessment to give you the final EHC plan.…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "la-send-ehc#eligibility.summary": {
@@ -27062,10 +27078,10 @@
       "valueSeen": "https://use-land-property-data.service.gov.uk/datasets",
       "sourceUrl": "https://use-land-property-data.service.gov.uk/datasets",
       "sourceQuote": "",
-      "verifiedAt": "2026-09-28T22:33:47.189Z",
-      "method": "http-status",
-      "confidence": "unverified",
-      "rationale": "Request failed (fetch failed). Check in a browser."
+      "verifiedAt": "2026-10-21T14:41:40.253Z",
+      "method": "manual",
+      "confidence": "confirmed",
+      "rationale": "Checked in a browser: 21 Oct 2026: redirects to the 'Use land and property data' home page"
     },
     "lr-property-search#agentInteraction.authRequired": {
       "valueHash": "30a0924a3360be68",
@@ -28033,7 +28049,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
       "sourceQuote": "…nd treatment in England You can get free NHS dental appointments and treatment if: you're aged under 18, or under 19 and in full-time education you're pregnant or have had a baby in the last 12…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "nhs-free-dental#eligibility.summary": {
@@ -28181,7 +28197,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Aged 60 or over\": 60 not found in a matching form on https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/."
     },
@@ -28191,7 +28207,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Under 16\": 16 not found in a matching form on https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/."
     },
@@ -28377,7 +28393,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
       "sourceQuote": "…e costs yourself. Free NHS eye tests You're entitled to a free NHS sight test if you: are under 16 are 16, 17 or 18 and in full-time education (this includes being taught full-time at a sc…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "nhs-free-sight-tests#eligibility.rules.0.rules.1.value": {
@@ -28386,7 +28402,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
       "sourceQuote": "…on (this includes being taught full-time at a school, college, university or at home) are 60 or over are registered as partially sighted or blind have been diagnosed with diabetes or glaucom…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "nhs-free-sight-tests#eligibility.summary": {
@@ -28491,11 +28507,15 @@
       "valueHash": "3fe669f5fdeb08cb",
       "valueSeen": "Register at nearest surgery. Medical records transfer automatically from old practice.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "A quote the model gave is not in the source text, so the judgement was discarded."
+      "rationale": "partly supported: The text says most people register near where they live, not necessarily at the nearest surgery, and some can register further away. partly supported: The text says the old surgery is told automatically, but it does not say medical records transfer automatically."
     },
     "nhs-gp-register#eligibility.criteria.0": {
       "valueHash": "c21b84fefc3f5473",
@@ -28530,11 +28550,15 @@
       "valueHash": "f8d97f5c9cc64466",
       "valueSeen": "Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
-      "sourceQuote": "",
+      "sourceQuote": "Everyone in England can register with a GP surgery or change their GP surgery for free.",
+      "claims": {
+        "supported": 1,
+        "total": 3
+      },
       "confidence": "unverified",
-      "rationale": "A quote the model gave is not in the source text, so the judgement was discarded."
+      "rationale": "contradicted: The text says a surgery may refuse registration if it is not accepting new patients, so local patients are not guaranteed acceptance. partly supported: The text says the old surgery is told automatically, but it does not say medical records transfer automatically."
     },
     "nhs-gp-register#govuk_url": {
       "valueHash": "aef3564aa5447a11",
@@ -28895,7 +28919,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
       "sourceQuote": "…Who cannot apply You cannot apply if you or your partner (or both of you) have more than: £16,000 in savings, investments or property (not including the place where you live) £23,250 in s…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "nhs-low-income-scheme#eligibility.rules.2.rules.0.rules.0.value": {
@@ -28904,7 +28928,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Aged 60 or over (auto-exempt)\": 60 not found in a matching form on https://www.nhsbsa.nhs.uk/nhs-low-income-scheme."
     },
@@ -29091,10 +29115,10 @@
       "valueSeen": "https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start",
       "sourceUrl": "https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start",
       "sourceQuote": "",
-      "verifiedAt": "2026-09-28T22:33:47.189Z",
-      "method": "http-status",
-      "confidence": "unverified",
-      "rationale": "HTTP 403: the host refused or failed the automated request. Check in a browser."
+      "verifiedAt": "2026-10-21T14:41:39.515Z",
+      "method": "manual",
+      "confidence": "confirmed",
+      "rationale": "Checked in a browser: 21 Oct 2026: opens 'Buy an NHS Prescription Prepayment Certificate (PPC)'"
     },
     "nhs-ppc#deptKey": {
       "sourceUrl": "https://www.gov.uk/get-a-ppc",
@@ -29320,7 +29344,7 @@
       "sourceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
       "sourceQuote": "…must live in Northern Ireland the crisis must have arisen in Northern Ireland you must be over 18 or at least 16 if you do not have any parental support your and your partner’s (if you have one) total a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "ni-discretionary-support#eligibility.summary": {
@@ -29486,7 +29510,7 @@
       "sourceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Low weekly income\": 250 not found in a matching form on https://www.nidirect.gov.uk/articles/applying-rate-rebate."
     },
@@ -30122,7 +30146,7 @@
       "sourceUrl": "https://www.gov.uk/power-of-attorney",
       "sourceQuote": "…If you’ve already made an LPA , you can manage or use your LPA . Eligibility You must be 18 or over and have mental capacity (the ability to make your own decisions) when you make your LPA…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "opg-lpa#eligibility.summary": {
@@ -31107,7 +31131,7 @@
       "sourceUrl": "https://www.gov.uk/first-homes-scheme",
       "sourceQuote": "…uyer be able to get a mortgage for at least half the price of the home not earn more than £80,000 a year before tax (£90,000 if the property is in London) - this is your income from the p…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "other-help-to-buy#eligibility.summary": {
@@ -31807,25 +31831,30 @@
       "valueHash": "df831cf9083ea735",
       "valueSeen": "Employer obligation based on age and length of service. Employment tribunal if refused.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/staff-redundant/redundancy-consultations",
-      "sourceQuote": "These are based on an employee’s age and length of employment and are counted back from the date of dismissal.",
+      "sourceQuote": "You must make the payment when you dismiss the employee, or soon after.",
       "additionalQuotes": [
+        {
+          "quote": "These are based on an employee’s age and length of employment and are counted back from the date of dismissal.",
+          "url": "https://www.gov.uk/staff-redundant/redundancy-consultations"
+        },
         {
           "quote": "If you fail to pay redundancy pay or if an employee disagrees with the amount, they have 6 months from the date their employment ended to make a claim for payment to an employment tribunal.",
           "url": "https://www.gov.uk/staff-redundant/redundancy-consultations"
         }
       ],
-      "confidence": "unverified",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
-        "total": 2
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 3,
+        "total": 3
+      }
     },
     "other-statutory-redundancy#eligibility.criteria.0": {
       "valueHash": "bef24784e6dca050",
-      "valueSeen": "{\"factor\":\"employment\",\"description\":\"Must have been continuously employed for at least 2 years and been dismissed as redundant, laid off or put on short-time working.\"}",
+      "valueSeen": "Must have been continuously employed for at least 2 years and been dismissed as redundant, laid off or put on short-time working.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/staff-redundant/redundancy-consultations",
       "sourceQuote": "have at least 2 years continuous service",
       "additionalQuotes": [
@@ -31834,14 +31863,11 @@
           "url": "https://www.gov.uk/staff-redundant/redundancy-consultations"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 2,
         "total": 2
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Replaced 'compulsorily redundant' with the source's condition, which also covers people who are laid off or put on short-time working.) Awaiting independent re-verification."
+      }
     },
     "other-statutory-redundancy#eligibility.criteria.1": {
       "valueHash": "04edffb936c27482",
@@ -31917,11 +31943,13 @@
     "other-statutory-redundancy#eligibility.summary": {
       "valueHash": "7f587e0a43717c9b",
       "valueSeen": "A legal entitlement for employees with 2 or more years of continuous employment who are made redundant, laid off or put on short-time working. Amount depends on age, weekly pay (capped at £751/week fo",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/redundancy-your-rights",
       "sourceQuote": "You’ll normally be entitled to statutory redundancy pay if you’re an employee and you’ve been working for your current employer for 2 years or more.",
       "additionalQuotes": [
         {
-          "quote": "have at least 2 years continuous service have been dismissed, laid off or put on short-time working",
+          "quote": "have been dismissed, laid off or put on short-time working - those who opted for early retirement do not qualify",
           "url": "https://www.gov.uk/staff-redundant/redundancy-consultations"
         },
         {
@@ -31933,22 +31961,23 @@
           "url": "https://www.gov.uk/redundancy-your-rights"
         },
         {
+          "quote": "If you were made redundant on or after 6 April 2026, your weekly pay is capped at £751 and the maximum statutory redundancy pay you can get is £22,530.",
+          "url": "https://www.gov.uk/redundancy-your-rights"
+        },
+        {
           "quote": "You must make the payment when you dismiss the employee, or soon after.",
           "url": "https://www.gov.uk/staff-redundant/redundancy-consultations"
         },
         {
-          "quote": "If you fail to pay redundancy pay or if an employee disagrees with the amount, they have 3 months from the date their employment ended to make a claim for payment to an employment tribunal.",
+          "quote": "If you fail to pay redundancy pay or if an employee disagrees with the amount, they have 6 months from the date their employment ended to make a claim for payment to an employment tribunal.",
           "url": "https://www.gov.uk/staff-redundant/redundancy-consultations"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 6,
-        "total": 6
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T16:27:02.490Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-09-29 from quoted sources (Took out the limit to compulsory redundancy, because the eligibility rule also covers employees who are laid off or put on short-time working; the rest is unchanged and supported.) Awaiting independent re-verification."
+        "supported": 7,
+        "total": 7
+      }
     },
     "other-statutory-redundancy#financialData.rates.max_total": {
       "valueHash": "16efe0e23064218e",
@@ -32123,7 +32152,7 @@
       "sourceUrl": "https://www.gov.uk/free-discount-tv-licence",
       "sourceQuote": "Get a free or discounted TV licence. You can get a free TV licence if you're 75 or over and you get Pension Credit, or a discount if you're blind or in residential care - who qu…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "other-tv-licence-pension#eligibility.summary": {
@@ -32287,6 +32316,8 @@
     "other-warm-home-discount#eligibility.summary": {
       "valueHash": "ac5d4c7d95ccdbb8",
       "valueSeen": "One-off £150 discount applied by the electricity supplier. England and Wales: usually automatic if on the qualifying date you or your partner got Universal Credit, Housing Benefit, income-related ESA ",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
       "sourceQuote": "The Warm Home Discount Scheme is a one-off £150 discount off your electricity bill.",
       "additionalQuotes": [
@@ -32299,11 +32330,11 @@
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
-          "quote": "You may be eligible if all of the following applied on 23 August 2026: your energy supplier is part of the scheme you (or your partner) get certain means-tested benefits your name (or your partner’s) is on the electricity bill",
+          "quote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
-          "quote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
+          "quote": "your energy supplier is part of the scheme you (or your partner) get certain means-tested benefits your name (or your partner’s) is on the electricity bill",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
@@ -32312,10 +32343,6 @@
         },
         {
           "quote": "If you do not get the discount automatically, you’ll need to apply directly to your energy supplier.",
-          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
-        },
-        {
-          "quote": "This is known as being in the ‘broader group’.",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         },
         {
@@ -32331,14 +32358,11 @@
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 11,
-        "total": 11
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T13:59:37.129Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-10-21 from quoted sources (freshness and provenance checks of 19 October 2026: the reopening sentence was removed from the page) Awaiting independent re-verification."
+        "supported": 10,
+        "total": 10
+      }
     },
     "other-warm-home-discount#financialData.rates.discount": {
       "valueHash": "9ae2bdd7beedc2e7",
@@ -32997,7 +33021,7 @@
       "sourceUrl": "https://www.gov.uk/student-finance",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
       "rationale": "\"Must be at least 18 years old\": 18 not found in a matching form on https://www.gov.uk/student-finance or https://www.gov.uk/student-finance/new-fulltime-students."
     },
@@ -33150,12 +33174,11 @@
     "sss-adult-disability-payment#eligibility.rules.1.value": {
       "valueHash": "b17ef6d19c7a5b1e",
       "valueSeen": "16",
-      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.mygov.scot/adult-disability-payment/applicants",
+      "sourceQuote": "…ility Payment Adults with a disability, long term or terminal illness You must be between 16 and State Pension age . Apply if you have a: disability long-term physical or mental health condition terminal…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
-      "confidence": "unverified",
-      "rationale": "\"Must be aged 16 or over\": 16 not found in a matching form on https://www.mygov.scot/adult-disability-payment."
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
+      "confidence": "confirmed"
     },
     "sss-adult-disability-payment#eligibility.rules.2.value": {
       "valueHash": "3ada92f28b4ceda3",
@@ -33163,9 +33186,9 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
-      "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.mygov.scot/adult-disability-payment."
+      "rationale": "\"Must be under State Pension age (66)\": 66 not found in a matching form on https://www.mygov.scot/adult-disability-payment or https://www.mygov.scot/adult-disability-payment/applicants."
     },
     "sss-adult-disability-payment#eligibility.summary": {
       "valueHash": "d05dd48cac62a712",
@@ -33346,7 +33369,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3. Best Start Foods is paid every 4 weeks. The payments are: £22.40 during pregnancy (you’l…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-best-start-foods#eligibility.summary": {
@@ -33777,7 +33800,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment/who-can-apply",
       "sourceQuote": "…ort Payment If you work If you study To get carer benefits in Scotland, you must: be aged 16 or over usually live in Scotland, or have lived in England, Wales, Ireland, the Channel Islands,…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#eligibility.rules.3.value": {
@@ -33786,7 +33809,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment/who-can-apply",
       "sourceQuote": "…Carer Support Payment To get Carer Support Payment you must also: provide unpaid care for 35 hours or more a week not earn above a certain amount, if you work Carer Additional Person Payme…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#eligibility.rules.5.value": {
@@ -33795,7 +33818,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment/if-you-work",
       "sourceQuote": "…work If you study To get Carer Support Payment, your ‘take home pay’ cannot be more than £204 a week. This is about the same as £884 a month, or £10,608 a year. This 'earnings limit'…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#eligibility.summary": {
@@ -34109,7 +34132,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…ayment helps with the extra costs a disabled child might have. You can apply for children under 16 with a physical or mental disability. You can also apply if the child does not have a dia…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#eligibility.summary": {
@@ -34269,9 +34292,9 @@
       "sourceUrl": "https://www.mygov.scot/child-winter-heating-payment",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "unverified",
-      "rationale": "\"Child must be under 16 (or under 19 in qualifying education)\": 16 not found in a matching form on https://www.mygov.scot/child-winter-heating-payment."
+      "rationale": "\"Child must be under 16 (or under 19 in qualifying education)\": 16 not found in a matching form on https://www.mygov.scot/child-winter-heating-payment or https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment."
     },
     "sss-child-winter-heating#eligibility.summary": {
       "valueHash": "086e5e3ad8695d32",
@@ -34594,7 +34617,7 @@
       "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
       "sourceQuote": "…e usually paid into. One of you was 66 years and 3 months, to 79 years old. The other was aged under 66 years and 3 months. This means only one of you was born between 28 September 1946 and 27…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-pension-winter-heating#eligibility.summary": {
@@ -34771,7 +34794,7 @@
       "sourceUrl": "https://www.mygov.scot/scottish-child-payment",
       "sourceQuote": "…ly. It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age. You'll get the payment every 4 weeks if your application is successful. Sco…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-scottish-child-payment#eligibility.summary": {
@@ -34940,7 +34963,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…of £405.10 for young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#eligibility.rules.2.value": {
@@ -34949,7 +34972,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#eligibility.rules.4.value": {
@@ -34958,7 +34981,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…l need to re-apply. You must also have been caring for 1, 2 or 3 people for an average of 16 hours a week for at least the last 3 months. If you care for more than one person, you can comb…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#eligibility.summary": {
@@ -35197,21 +35220,28 @@
       "valueHash": "12605cf5c0dc6f87",
       "valueSeen": "Search the government's business finance and grant database to find funding schemes available to your business.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-14T10:18:01.032Z",
+      "verifiedAt": "2026-10-21T14:42:47.287Z",
       "sourceUrl": "https://www.gov.uk/business-finance-support",
       "sourceQuote": "Search Finance and support for your business",
-      "confidence": "unverified",
       "additionalQuotes": [
         {
-          "quote": "Type of support Finance Equity Grant Loan",
+          "quote": "From: Department for Business, Innovation, Science and Trade",
+          "url": "https://www.gov.uk/business-finance-support"
+        },
+        {
+          "quote": "Type of support Type of support Finance Equity Grant Loan",
+          "url": "https://www.gov.uk/business-finance-support"
+        },
+        {
+          "quote": "Filter 166 schemes Type of support",
           "url": "https://www.gov.uk/business-finance-support"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
-        "total": 2
-      },
-      "rationale": "Quotes refreshed on 2026-10-14 after the source was reworded; value unchanged. Drafted by Claude; awaiting independent re-verification."
+        "supported": 4,
+        "total": 4
+      }
     },
     "ukri-find-grants#eligibility.summary": {
       "valueHash": "5b03ea7b1eaba0d2",
@@ -35518,12 +35548,11 @@
     "wg-discretionary-assistance#eligibility.rules.1.value": {
       "valueHash": "b17ef6d19c7a5b1e",
       "valueSeen": "16",
-      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
-      "sourceQuote": "",
+      "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility",
+      "sourceQuote": "…tems be in a crisis situation and in need of immediate financial support live in Wales be over 16 (there is no upper age limit for this grant) have no other money for example savings Indi…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
-      "confidence": "unverified",
-      "rationale": "\"Must be aged 16 or over\": 16 not found in a matching form on https://www.gov.wales/discretionary-assistance-fund-daf."
+      "verifiedAt": "2026-10-21T14:43:02.859Z",
+      "confidence": "confirmed"
     },
     "wg-discretionary-assistance#eligibility.summary": {
       "valueHash": "1bb209cb1a3398e7",

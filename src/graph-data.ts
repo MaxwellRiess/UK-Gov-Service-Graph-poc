@@ -456,7 +456,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Medical Certificate of Cause of Death (MCCD)', 'Deceased\'s NHS number and personal details if available'],
       ruleIn: [],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/after-a-death/register-the-death',
+      ],
+      rules: [
         {
           "type": "boolean",
           "field": "has_experienced_bereavement",
@@ -9295,7 +9298,10 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Child on highest-rate CDP/DLA care in Scotland — paid automatically'],
       means_tested: false,
       ruleIn: ['Child on highest-rate care component', 'Lives in Scotland'],
-      ruleOut: ['Child not on highest-rate care', 'Does not live in Scotland'],      rules: [
+      ruleOut: ['Child not on highest-rate care', 'Does not live in Scotland'],      sources: [
+        'https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11144,7 +11150,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Medical evidence of condition', 'Details of how condition affects daily life', 'GP or consultant details'],
       ruleIn: ['Aged 16 to State Pension age', 'Long-term condition affecting daily living/mobility', 'Lives in Scotland'],
-      ruleOut: ['Under 16 (claim CDP instead)', 'Over State Pension age (claim AA instead)', 'Does not live in Scotland'],      rules: [
+      ruleOut: ['Under 16 (claim CDP instead)', 'Over State Pension age (claim AA instead)', 'Does not live in Scotland'],      sources: [
+        'https://www.mygov.scot/adult-disability-payment/applicants',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11439,7 +11448,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of identity', 'Proof of Welsh residency', 'Details of the emergency or need'],
       ruleIn: ['Financial hardship', 'Lives in Wales', 'Aged 16+'],
-      ruleOut: ['Does not live in Wales', 'Under 16', 'Exceeded annual application limit'],      rules: [
+      ruleOut: ['Does not live in Wales', 'Under 16', 'Exceeded annual application limit'],      sources: [
+        'https://www.gov.wales/discretionary-assistance-fund-daf/eligibility',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",

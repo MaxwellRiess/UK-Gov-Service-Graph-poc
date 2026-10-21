@@ -23,7 +23,12 @@
  * 5xx) are recorded `unverified` with the reason, not reported as dead: two
  * sites in this graph refuse automated requests but work in a browser.
  *
+ * A link checked by hand in a browser is recorded with --confirm, as `manual`.
+ * Later runs keep that record while the URL is unchanged and the host still
+ * refuses automated requests; a dead link (404, 410) still overrides it.
+ *
  * Usage:
+ *   npx tsx scripts/verify-links.ts --confirm nhs-ppc#agentInteraction.onlineFormUrl --note "Start page loads"
  *   npx tsx scripts/verify-links.ts            # report only
  *   npx tsx scripts/verify-links.ts --write    # also write data/provenance.json
  *   npx tsx scripts/verify-links.ts --json links.json   # machine-readable report for CI
@@ -109,6 +114,31 @@ async function check(url: string): Promise<Outcome> {
 const store = loadProvenance();
 const now = new Date().toISOString();
 
+const confirmArg = process.argv.indexOf('--confirm');
+if (confirmArg !== -1) {
+  const key = process.argv[confirmArg + 1];
+  const noteArg = process.argv.indexOf('--note');
+  const note = noteArg !== -1 ? process.argv[noteArg + 1] : '';
+  const [id, field] = key.split('#');
+  const [group, prop] = field.split('.');
+  const url = (NODES as any)[id]?.[group]?.[prop];
+  if (!(LINK_FIELDS as readonly string[]).includes(field) || typeof url !== 'string') {
+    console.error(`No link at ${key}`);
+    process.exit(1);
+  }
+  if (!note) {
+    console.error('--note is required: say what the page showed.');
+    process.exit(1);
+  }
+  store.fields[provenanceKey(id, field)] = {
+    valueHash: hashValue(url), valueSeen: url, sourceUrl: url, sourceQuote: '', verifiedAt: now,
+    method: 'manual', confidence: 'confirmed', rationale: `Checked in a browser: ${note}`,
+  };
+  saveProvenance(store);
+  console.error(`Recorded ${key} as confirmed (manual)`);
+  process.exit(0);
+}
+
 const targets: { id: string; field: string; url: string }[] = [];
 for (const n of Object.values(NODES) as any[]) {
   for (const field of LINK_FIELDS) {
@@ -141,6 +171,9 @@ for (const t of targets) {
     };
   } else {
     (r.kind === 'dead' ? dead : blocked).push(t);
+    // A browser check outlives a refused automated one; only a dead link overrides it.
+    const prior = store.fields[provenanceKey(t.id, t.field)];
+    if (r.kind === 'blocked' && prior?.method === 'manual' && prior.confidence === 'confirmed' && prior.valueHash === base.valueHash) continue;
     store.fields[provenanceKey(t.id, t.field)] = {
       ...base, method: 'http-status', confidence: 'unverified',
       rationale: r.kind === 'dead' ? `Link is dead: ${r.detail}` : r.detail,
