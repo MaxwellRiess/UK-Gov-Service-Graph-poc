@@ -298,6 +298,14 @@ for (const p of prepared) {
   if (!out) continue;
   const n = NODES[p.id];
   for (const f of p.fields) {
+    const criterion = f.path.match(/^eligibility\.criteria\.(\d+)$/);
+    const currentText = criterion
+      ? n.eligibility.criteria[Number(criterion[1])]?.description
+      : proseField(n, f.path)?.text;
+    if (currentText !== f.text) {
+      failures.push(`${p.id}#${f.path}: graph text changed since the judge prompt was prepared`);
+      continue;
+    }
     const res = recordField(store, n, f, out.fields.find(x => x.key === f.key), p.sources, now);
     counts[res.status] = (counts[res.status] ?? 0) + 1;
     fromLinked += res.linkedQuotes;

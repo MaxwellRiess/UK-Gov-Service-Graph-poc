@@ -1,0 +1,75 @@
+{
+  "sss-pension-winter-heating#agentInteraction.methods": [
+    "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+    "https://www.mygov.scot/pension-age-winter-heating-payment/contact"
+  ],
+  "sss-pension-winter-heating#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible"
+  ],
+  "sss-pension-winter-heating#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible"
+  ],
+  "sss-scottish-child-payment#agentInteraction.methods": [
+    "https://www.mygov.scot/scottish-child-payment/how-to-apply"
+  ],
+  "sss-scottish-child-payment#eligibility.criteria.1": [
+    "https://www.mygov.scot/scottish-child-payment/who-should-apply"
+  ],
+  "sss-scottish-child-payment#eligibility.criteria.2": [
+    "https://www.mygov.scot/scottish-child-payment/who-should-apply"
+  ],
+  "sss-scottish-child-payment#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/scottish-child-payment/who-should-apply"
+  ],
+  "sss-scottish-child-payment#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/scottish-child-payment/how-to-apply"
+  ],
+  "sss-scottish-child-payment#eligibility.evidenceRequired.2": [],
+  "sss-young-carer-grant#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/young-carer-grant/how-to-apply"
+  ],
+  "sss-young-carer-grant#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/young-carer-grant/how-to-apply",
+    "https://www.mygov.scot/young-carer-grant/length-of-time-caring"
+  ],
+  "sss-young-carer-grant#eligibility.evidenceRequired.2": [],
+  "tpr-workplace-pension#agentInteraction.methods": [
+    "https://www.thepensionsregulator.gov.uk/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance",
+    "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist"
+  ],
+  "tpr-workplace-pension#eligibility.evidenceRequired.0": [
+    "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
+    "https://www.thepensionsregulator.gov.uk/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance"
+  ],
+  "tpr-workplace-pension#eligibility.evidenceRequired.1": [
+    "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist"
+  ],
+  "voa-business-rates#desc": [
+    "https://www.gov.uk/government/collections/how-to-challenge-your-business-rates-valuation",
+    "https://www.gov.uk/business-rates-valuation-account",
+    "https://www.gov.uk/guidance/challenge-the-valuation"
+  ],
+  "wg-discretionary-assistance#agentInteraction.methods": [
+    "https://www.gov.wales/discretionary-assistance-fund-daf/how-apply"
+  ],
+  "wg-discretionary-assistance#eligibility.criteria.0": [
+    "https://www.gov.wales/discretionary-assistance-fund-requesting-review-html"
+  ],
+  "wg-discretionary-assistance#eligibility.criteria.2": [],
+  "wg-discretionary-assistance#eligibility.evidenceRequired.0": [
+    "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf",
+    "https://www.gov.wales/discretionary-assistance-fund-requesting-review-html"
+  ],
+  "wg-discretionary-assistance#eligibility.evidenceRequired.1": [
+    "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf",
+    "https://www.gov.wales/discretionary-assistance-fund-privacy-notice-html"
+  ],
+  "wg-discretionary-assistance#eligibility.evidenceRequired.2": [
+    "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf"
+  ],
+  "wg-discretionary-assistance#eligibility.exclusions.0": [
+    "https://www.gov.wales/discretionary-assistance-fund-daf/how-apply",
+    "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf"
+  ],
+  "wg-winter-fuel-support#agentInteraction.methods": []
+}

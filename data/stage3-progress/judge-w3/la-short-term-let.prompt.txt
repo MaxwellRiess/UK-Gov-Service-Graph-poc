@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Short-term let licence (Scotland)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/la-short-term-let.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this in person.
+
+--- SOURCE 0: https://www.mygov.scot/short-term-let-licences ---
+Getting a short-term let licence About short-term let licences Last updated 9 Oct 2025 Contents About short-term let licences When you need a short-term let licence Legal requirements for short-term let accommodation Planning permission and control areas for short-term lets Types of short-term let licence How to apply for a short-term let licence A short-term let licence gives you legal permission to let out accommodation to guests who stay on a temporary basis. You must get a licence before you take bookings or receive guests. A licence usually lasts for 3 years. If you do not get a licence It’s a criminal offence to operate a short-term let without a licence: you can be fined up to £2,500 you can be banned from applying for a licence for one year you cannot offer lets while you are banned Non-domestic rates (business rates) You may need to pay non-domestic rates on your property. These are often referred to as 'business rates'. Get information on how non-domestic rates apply to short-term lets . When you need a short-term let licence Related content Check if you need a short-term let licence Check if a property has a short-term let licence Report problems with a short-term let Thanks for your feedback
+
+--- SOURCE 1 (FOUND): https://www.mygov.scot/short-term-let-licences/apply ---
+Getting a short-term let licence How to apply for a short-term let licence Last updated 9 Oct 2025 Contents About short-term let licences When you need a short-term let licence Legal requirements for short-term let accommodation Planning permission and control areas for short-term lets Types of short-term let licence How to apply for a short-term let licence You can apply for a short-term let licence through your local council’s website. The cost for a licence depends on the accommodation and type of let. Contact the local council to check how much your licence will cost. Select the local council Choose your council Aberdeen City Council Aberdeenshire Council Angus Council Argyll and Bute Council Clackmannanshire Council Comhairle nan Eilean Siar Dumfries and Galloway Council Dundee City Council East Ayrshire Council East Dunbartonshire Council East Lothian Council East Renfrewshire Council Edinburgh Council Falkirk Council Fife Council Glasgow City Council Highland Council Inverclyde Council Midlothian Council Moray Council North Ayrshire Council North Lanarkshire Council Orkney Islands Council Perth and Kinross Council Renfrewshire Council Scottish Borders Council Shetland Islands Council South Ayrshire Council South Lanarkshire Council Stirling Council West Dunbartonshire Council West Lothian Council Select the local council Aberdeen City Council Aberdeenshire Council Angus Council Argyll and Bute Council Clackmannanshire Council Comhairle nan Eilean Siar Dumfries and Galloway Council Dundee City Council East Ayrshire Council East Dunbartonshire Council East Lothian Council East Renfrewshire Council Edinburgh Council Falkirk Council Fife Council Glasgow City Council Highland Council Inverclyde Council Midlothian Council Moray Council North Ayrshire Council North Lanarkshire Council Orkney Islands Council Perth and Kinross Council Renfrewshire Council Scottish Borders Council Shetland Islands Council South Ayrshire Council South Lanarkshire Council Stirling Council West Dunbartonshire Council West Lothian Council How long an application can take Councils must process your application within 9 months. If the council needs longer to process your application, it must apply to the sheriff court and ask for an extension. If the council does not apply to the sheriff court and misses the 9 month deadline, it must give you a licence for up to one year while they continue processing your application. Advertising that you’ve applied When you apply, you must display a public notice at or near the accommodation. This must tell people: your name and address the address of the accommodation that you’ve applied for a licence the type of licence you’ve applied for how they can object to the local council You must display this for 21 days, starting from the date that you submitted your application. Advertising the accommodation Once you have a licence, you must include your licence number in adverts for the accommodation. If your application is refused The council can only refuse your application if they have a good reason. They should explain why and give you an opportunity to amend your application. Appealing against the council's decision You can appeal against a refusal at the sheriff court. You must appeal within 28 days of the council’s decision. You cannot reapply for one year, unless your circumstances materially change. Transferring a licence You can apply to transfer your licence to another person. For example, if you sell your accommodation and the new owner plans to continue to offer short-term lets. Contact the council to do this. More information on applying for a licence You can get more guidance on applying for a licence on gov.scot . Types of short-term let licence Related content Check if you need a short-term let licence Check if a property has a short-term let licence Report problems with a short-term let Thanks for your feedback
+
+--- SOURCE 2 (FOUND): https://www.gov.scot/publications/short-term-lets-licensing-scheme-part-2-supplementary-guidance-licensing-authorities-letting-agencies-booking-platforms/pages/1/ ---
+Publication - Advice and guidance Short Term Lets Licensing Scheme Part 2 - Supplementary Guidance for Licensing Authorities, Letting Agencies and Booking Platforms Published 25 March 2026 Directorate Local Government and Housing Directorate Topic Business, industry and innovation , Communities and third sector , Economy ISBN 9781807750596 Licensing guidance part 2 is intended for Scottish licensing authorities, letting agencies and platforms facilitating short-term lets in Scotland. Supporting documents Choose section Errata notice 1. Introduction 2. Licence types and policies 3. Setting licences fees 4. Handling licence applications 5. Setting additional licence conditions 6. Complaints and enforcement 7. Licensing data 8. Responsibilities upon obtaining a licence Annex A : Licence number specification Annex B : Public register specification Footnotes 1. Introduction 1.1. The Civic Government (Scotland) Act 1982 (Licensing of Short-term Lets) Order 2022 [1] (referred to in this guidance as the Licensing Order) was passed by the Scottish Parliament on 19 January 2022 and came into force on 1 March 2022. Amendment Orders to the Licensing Order were made in 2023 [2] and 2024 [3] . 1.2. The Scottish Government originally published guidance for licensing authorities in March 2022. This version was updated in March 2026 and takes into account recommendations from a group chaired by VisitScotland, comprising industry and local authority representatives. The non-statutory guidance is split into two parts: Part 1 [4] is for hosts and operators and Part 2 for Scottish licensing authorities, letting agencies and platforms facilitating short-term lets in Scotland. It should not be interpreted as offering definitive legal advice and, if in doubt, you should seek your own legal advice. 1.3. Separate guidance has been produced in respect of planning considerations for hosts and operators. Planning Circular 1/2023 [5] provides guidance on the need for planning permission for short-term letting, and on short-term let control areas. (a) Purpose of guidance 1.4. Guidance Part 2 is designed to help licensing authorities implement and operate a licensing scheme in their area which is: compliant with the statutory provision of the legislation in line with the Scottish Government’s overall policy aims for the licensing of short-term lets (see Guidance Part 1) efficient, effective and proportionate customised to the licensing authority’s local policies and the needs/ circumstances of the licensing authority’s local area 1.5. Scotland’s Housing Network hosts a forum for licensing authorities to come together to consider opportunities to adopt a consistent operational approach, where it is possible to do so. (b) Language used in Guidance Part 2 1.6. The glossary for Guidance Part 1 also has effect for this Guidance Part 2. 1.7. In Guidance Part 2 we additionally use the following terms from the 1982 Act and Licensing Order: “ applicant ” means the person making the application for the licence, normally the host or operator “ licence holder ” means any one of the persons named on the licence application including, but not limited to, the host or operator (c) Updates 1.8. Ownership of this guidance rests with the Scottish Government and the latest version will always be available at: Getting a short-term let licence - mygov.scot. We will notify licensing authorities of any updates. (d) Information for applicants (and the application form) 1.9. The Scottish Government encourages licensing authorities to take active steps to publicise their licensing schemes to raise awareness amongst current and potential short-term let hosts and operators. 1.10. One of these steps is for licensing authorities to have a dedicated section on their website for their short-term let licensing scheme where hosts and operators can find all the information that they need to apply and comply. The landing webpage might helpfully include: a. clear information about who needs a licence and that the licence must be obtained before hosts can accept bookings and receive guests b. what types of licence can be applied for (including whether the licensing authority will consider applications for a temporary licence or exemption) c. prominent information for licence holders about renewing their licence d. that the maximum period for processing applications is 9 months as set out in the legislation. The authority may wish to supplement this with information about local targets it has set to turnaround certain applications within a specified timeframe, for example applications for temporary exemptions e. information and guidance about short-term let licensing (ideally in one place/ document that provides users with a breakdown of contents to enable them to easily navigate to the authority’s local licensing policy statement (including its policy on temporary exemptions), guidance notes, any frequently asked questions information, checklists and further links to other relevant guidance such as published by the Scottish Government) f. a table of fees for applications and renewals (and any other fees), even if this is included in the licensing authority’s policy statement g. the application form (this may be online but a pdf version should also be available so applicants can see what this covers in its entirety before starting the online process) h. how to make an appeal i. the licensing authority’s public register j. contact information for the licensing department (or equivalent area leading on administration) including email address and telephone number 1.11. Grouping information together enables applicants to find supporting information in one place/document and avoids applicants needing to open or click through multiple webpages/ documents to find answers. For example, applicants should clearly and easily be able to find information on: a. mandatory conditions, including what is required to demonstrate compliance. b. additional conditions set by the licensing authority and how these will be applied (for example, whether these apply to all applicants or will be applied on a case-by-case basis) c. how they should apply if they have multiple accommodation units on the same premises that may be suitable for a single licence d. whether it is the licensing authority’s policy to visit all accommodation or types of accommodation as part of the application determination, or whether it will undertake visits on a risk-based approach on the circumstances of individual applications 1.12. The Scottish Government would like hosts and operators to be able to conduct as many transactions as possible with licensing authorities in an online or electronic format. It is therefore desirable for licensing authorities to work towards a digital first approach (in line with Scottish Government’s Digital Strategy). Online information should be provided in line with Scottish Government’s digital accessibility requirements [6] and be compatible with assistive technology and licensing legislation. 1.13. Licensing authorities are expected to still have paper copies of relevant information, and the application form, available upon request for people who cannot access them online, and provide support to access online services at their offices. Application checklist 1.14. Licensing Guidance Part 1 (Annex B) has an example application checklist for hosts and operators. Licensing authorities are encouraged to provide a checklist on their websites that explains to applicants the specific documentation and evidence they will expect to see as part of a short-term let licence application. As per 1.10 and 1.11, it is recommended this is provided as part of information for applicants that is accessible from their short-term let licensing landing web page. Information about how many licences are required 1.15. In this guidance, accommodation means any building or structure that is let out or any part of the building or structure. It may be conventional accommodation like rooms in a house, a whole premises, or it may include unconventional accommodation like a yurt, a treehouse, glamping pod or shepherd’s hut, etc. 1.16. The Licensing Order states that ‘accommodation on a single premises requires only one short-term let licence’ [7] . Licensing authority guidance should indicate how they will apply this provision. Applicants should be able to understand how many applications they will need to summit and the cost of the application fee/s. The intention of this provision is to reduce the burden on applicants and licensing authorities. In order to still ensure that licensing authorities recover the cost of processing a larger single application, they may decide to charge higher fees for a single application that covers multiple accommodation units. 1.17. The table below is provided as a guide only, licensing authorities should provide their own guidance for applicants outlining when more than one accommodation unit might be included on a single licence or when a single licence may be required for each premises. Examples of multiple accommodation that licensing authorities may choose to decide can be included on a single licence Examples of accommodation that licensing authorities may choose to decide require individual licences Several pods, huts or other unconventional dwellings on the same field Detached, semi-detached or terraced houses A flat containing multiple individually lockable guest bedrooms Flats within a shared stairwell A main house with an attached annex Separate premises such as outbuildings or converted garages 1.18. For a self-catering cottage, the accommodation and the premises are one and the same. If the applicant is letting out two rooms in their own home, both are classed as accommodation (assuming they can be let out separately) and the whole home is the premises. This distinction is important as some licence conditions will apply to the premises and others only to the accommodation. 1.19. In this guidance, the applicant’s own home means their principal home (the place where they normally live). Exclusions 1.20. Unless specified as excluded, under Schedule 1 of the Civic Government (Scotland) Act 1982 (Licensing of Short-term Lets) Order 2022 [8] , short-term let accommodation will require a licence to operate and this includes guest houses. Licensing authorities may find it helpful to review the Policy Note [9] about specific exclusions to inform setting of their licensing policies. 1.21. The exemption of hotels with planning permission to operate as a hotel has two components to it. Whether 1) the accommodation is a hotel and 2) it has planning permission to operate as a hotel. Hosts should take their own legal advice to consider if they meet both components for this exclusion. 1.22. As part of enforcement activities, other information about short-term accommodation may determine whether an exclusion is applicable. This may include information such as the core description of the premises held by the Scottish Assessors Association ( SAA ) for the purposes of non-domestic rates, which applies different practice notes for the valuation of hotels compared to guest houses. 1.23. The first point should therefore be established irrespective of point two - whether the premises can be considered to have planning permission granted for use within Planning Use Class 7 (this use class covers hotels and guest houses). 1.24. Timeshare resorts and accommodation operate under diverse ownership and rental models. Licensing authorities should consider whether an exclusion applies on a case-by-case basis. (e) Information for residents and neighbours 1.25. In addition to the information on their website set out at 1.10, it would also be helpful for licensing authorities to include an Information Pack for Residents and Neighbours providing information on: how to make a complaint how to report suspected unlicensed short-term lets and breaches of licence conditions how to raise an objection after becoming aware of an application. (f) Court of Session judgement 1.26. On 8 June 2023 Lord Braid set out his decision on the Judicial Review against the City of Edinburgh’s licensing policy [10] . We encourage licensing authorities to take note of this judgement (and any subsequent case law) when developing/ reviewing their local licensing policies. It remains our view that the licensing of short-term lets can be operated effectively by licensing authorities so as to respect the rights of hosts and guests in short-term let accommodation, and is appropriate for the whole of Scotland. Errata notice 2. Licence types and policies Contact Email: shorttermlets@gov.scot Thanks for your feedback

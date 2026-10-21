@@ -1,0 +1,74 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Funeral Support Payment helps people in Scotland pay funeral costs.",
+          "verdict": "supported",
+          "quote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
+          "source": 0,
+          "note": "The overview directly states the purpose and residence condition."
+        },
+        {
+          "claim": "Receiving a qualifying benefit is an eligibility condition.",
+          "verdict": "supported",
+          "quote": "You or your partner must get one or more of the following: Universal Credit (UC) Income Support Pension Credit Housing Benefit income-based Jobseeker's Allowance (JSA), not contribution-based JSA income-related Employment and Support Allowance (ESA), not contribution-based ESA",
+          "source": 5,
+          "note": "The eligibility page lists the qualifying benefits."
+        },
+        {
+          "claim": "A person awaiting a decision on a qualifying benefit can apply.",
+          "verdict": "supported",
+          "quote": "If you or your partner are waiting to hear about your application for one of these benefits, you can still apply for Funeral Support Payment.",
+          "source": 5,
+          "note": "The page explicitly permits an application while a benefit decision is pending."
+        },
+        {
+          "claim": "The payment usually covers the burial, cremation or hydrolysis cost in Scotland.",
+          "verdict": "partly_supported",
+          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland.",
+          "source": 1,
+          "note": "The figure is stated on the page for funerals of people aged 18 or over, not established for every baby or child funeral in the summary."
+        },
+        {
+          "claim": "The payment includes £1,327.75 towards other funeral costs.",
+          "verdict": "partly_supported",
+          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car.",
+          "source": 1,
+          "note": "The amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group."
+        },
+        {
+          "claim": "The amount for other funeral costs is reduced to £162.05 if the deceased had a funeral plan.",
+          "verdict": "partly_supported",
+          "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05.",
+          "source": 1,
+          "note": "The reduced amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group."
+        },
+        {
+          "claim": "The payment can help with some travel, transport, document and medical costs.",
+          "verdict": "partly_supported",
+          "quote": "It can help pay towards: burial, cremation or hydrolysis costs funeral costs your travel costs transport costs to move the person who died document costs medical costs",
+          "source": 1,
+          "note": "These cost categories are listed for funerals of people aged 18 or over, not all child funerals."
+        },
+        {
+          "claim": "The payment includes funerals of babies and stillborn babies.",
+          "verdict": "supported",
+          "quote": "You can use the payment towards funeral costs for a baby, child or adult. This includes babies who were stillborn.",
+          "source": 0,
+          "note": "The overview explicitly includes both."
+        },
+        {
+          "claim": "Applications can be made after the death until six months after the funeral.",
+          "verdict": "supported",
+          "quote": "you're applying after the person has died, until 6 months after the date of their funeral",
+          "source": 5,
+          "note": "The eligibility page explicitly gives this window, with some exceptions for late applications."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

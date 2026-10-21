@@ -1,0 +1,40 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Proof of identity",
+          "verdict": "supported",
+          "quote": "Send in proof of identity , if needed.",
+          "source": 2,
+          "note": "The application guide explicitly requests identity proof when needed."
+        },
+        {
+          "claim": "Passport details can be used as identity proof",
+          "verdict": "supported",
+          "quote": "When you apply online, you’ll be asked to give valid passport details.",
+          "source": 2,
+          "note": "Passport details are requested for an online application."
+        }
+      ]
+    },
+    {
+      "key": "evidence_3",
+      "claims": [
+        {
+          "claim": "National Insurance number",
+          "verdict": "partly_supported",
+          "quote": "You’ll need your National Insurance number when you apply.",
+          "source": 8,
+          "note": "Student Finance England says it is needed, but a general NI number page in the prompt says a student-loan applicant without one does not need one."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": "student finance account"
+}

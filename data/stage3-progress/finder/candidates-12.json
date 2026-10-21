@@ -1,0 +1,59 @@
+{
+  "other-tv-licence-pension#eligibility.evidenceRequired.0": [],
+  "other-tv-licence-pension#eligibility.evidenceRequired.1": [
+    "https://www.tvlicensing.co.uk/privacy-security-policies?rendermode=preview%2F1000"
+  ],
+  "other-warm-home-discount#agentInteraction.methods": [],
+  "other-warm-home-discount#eligibility.evidenceRequired.1": [],
+  "pins-planning-appeal#eligibility.criteria.1": [
+    "https://www.gov.uk/government/publications/planning-appeals-procedural-guide/procedural-guide-planning-appeals-england",
+    "https://www.gov.wales/appeal-planning-decision",
+    "https://www.gov.scot/policies/planning-environmental-appeals/appealing-decisions-orders-notices/"
+  ],
+  "slc-childcare-grant#eligibility.evidenceRequired.0": [],
+  "slc-childcare-grant#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/guidance/getting-paid-as-a-childcare-provider"
+  ],
+  "slc-childcare-grant#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/guidance/getting-paid-as-a-childcare-provider"
+  ],
+  "slc-childcare-grant#eligibility.evidenceRequired.3": [
+    "https://www.gov.uk/apply-for-student-finance/household-income"
+  ],
+  "slc-student-finance#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/apply-for-student-finance/proof-of-identity",
+    "https://www.studentfinancewales.co.uk/forms/undergraduate-full-time/",
+    "https://www.nidirect.gov.uk/articles/completing-your-student-finance-application"
+  ],
+  "slc-student-finance#eligibility.evidenceRequired.1": [],
+  "slc-student-finance#eligibility.evidenceRequired.3": [
+    "https://studentfinance.campaign.gov.uk/help-applying/",
+    "https://www.nidirect.gov.uk/articles/national-insurance-numbers"
+  ],
+  "sss-adult-disability-payment#eligibility.criteria.0": [
+    "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/5/"
+  ],
+  "sss-adult-disability-payment#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/adult-disability-payment/what-you-need"
+  ],
+  "sss-adult-disability-payment#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/adult-disability-payment/what-you-need"
+  ],
+  "sss-adult-disability-payment#eligibility.evidenceRequired.2": [
+    "https://www.mygov.scot/adult-disability-payment/what-you-need"
+  ],
+  "sss-best-start-foods#eligibility.criteria.1": [
+    "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+  ],
+  "sss-best-start-foods#eligibility.evidenceRequired.0": [],
+  "sss-best-start-grant#eligibility.criteria.1": [
+    "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+  ],
+  "sss-best-start-grant#eligibility.evidenceRequired.0": [],
+  "sss-best-start-grant#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+  ],
+  "sss-best-start-grant#eligibility.evidenceRequired.2": [
+    "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "nhs-free-sight-tests#eligibility.evidenceRequired.0": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf"
+  ],
+  "nhs-free-sight-tests#eligibility.evidenceRequired.1": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf"
+  ],
+  "nhs-free-sight-tests#eligibility.evidenceRequired.2": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf"
+  ],
+  "nhs-healthy-start#agentInteraction.methods": [
+    "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+    "https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-30132/en-us"
+  ],
+  "nhs-healthy-start#eligibility.criteria.1": [
+    "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+    "https://www.nidirect.gov.uk/articles/healthy-start-help-buy-healthy-food-and-milk",
+    "https://www.gov.uk/government/publications/healthy-start-extension-application-guidance/healthy-start-extension-application-guidance"
+  ],
+  "nhs-healthy-start#eligibility.evidenceRequired.0": [
+    "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+  ],
+  "nhs-healthy-start#eligibility.evidenceRequired.1": [
+    "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+  ],
+  "nhs-healthy-start#eligibility.evidenceRequired.2": [
+    "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+  ],
+  "nhs-low-income-scheme#eligibility.criteria.2": [],
+  "nhs-low-income-scheme#eligibility.evidenceRequired.2": [],
+  "nhs-ppc#eligibility.exclusions.0": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf"
+  ],
+  "ni-discretionary-support#agentInteraction.methods": [
+    "https://www.communities-ni.gov.uk/contacts/finance-support-service"
+  ],
+  "ni-discretionary-support#eligibility.evidenceRequired.0": [],
+  "ni-discretionary-support#eligibility.evidenceRequired.1": [],
+  "ni-rate-rebate#eligibility.criteria.2": [
+    "https://www.nidirect.gov.uk/articles/homeowners-and-tenants-applying-rate-rebate"
+  ],
+  "ni-rate-rebate#eligibility.evidenceRequired.0": [],
+  "ni-rate-rebate#eligibility.evidenceRequired.1": [],
+  "ni-rate-rebate#eligibility.evidenceRequired.2": [],
+  "opg-deputy-report#agentInteraction.methods": [
+    "https://www.complete-deputy-report.service.gov.uk/terms",
+    "https://www.gov.uk/government/publications/deputy-annual-report-accounting-for-your-actions/filling-in-your-deputy-report-form-property-and-financial-decisions-opg103a"
+  ],
+  "opg-lpa-activation#eligibility.evidenceRequired.2": []
+}

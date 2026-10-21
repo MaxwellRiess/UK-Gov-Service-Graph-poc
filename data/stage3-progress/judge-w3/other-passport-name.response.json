@@ -1,0 +1,93 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Getting a new passport after marriage is not legally required.",
+          "verdict": "partly_supported",
+          "quote": "You do not need to get a new passport if you: change your address or contact details get a new job change your appearance slightly - for example, dye your hair or grow a beard change your marital status (divorce, marry or form a civil partnership) but keep your name",
+          "source": 4,
+          "note": "The text says no new passport is needed when marrying without changing name, but does not state a general legal rule after marriage."
+        },
+        {
+          "claim": "Getting a passport in a new name after marriage is strongly recommended.",
+          "verdict": "partly_supported",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name",
+          "source": 4,
+          "note": "The text says a new passport is needed for travel or identity proof after a name change, without calling it a strong recommendation."
+        },
+        {
+          "claim": "Use a marriage certificate for a passport in the new name.",
+          "verdict": "supported",
+          "quote": "Send your marriage or civil partnership certificate when you apply for a passport in your new name - this includes double-barrelled names.",
+          "source": 4,
+          "note": "The page explicitly requires the certificate for a new-name passport after marriage."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A marriage certificate is supporting evidence for the passport name change.",
+          "verdict": "supported",
+          "quote": "Send your marriage or civil partnership certificate when you apply for a passport in your new name - this includes double-barrelled names.",
+          "source": 4,
+          "note": "The page explicitly names the marriage certificate."
+        },
+        {
+          "claim": "A deed poll is supporting evidence for the passport name change.",
+          "verdict": "supported",
+          "quote": "You can change your name on your passport with one of the following documents: a deed poll a statutory declaration an affidavit",
+          "source": 4,
+          "note": "The page explicitly names a deed poll for a passport name change."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "A new passport after a name change is not a legal requirement.",
+          "verdict": "partly_supported",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name",
+          "source": 4,
+          "note": "The page describes when a new passport is needed, but does not state whether a name change itself creates a legal obligation."
+        },
+        {
+          "claim": "A new passport after a name change is strongly recommended.",
+          "verdict": "partly_supported",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name",
+          "source": 4,
+          "note": "The page gives a functional need for travel or identity proof but does not describe a recommendation."
+        },
+        {
+          "claim": "A passport in the new name is accepted as proof of identity for employment, travel, and financial services.",
+          "verdict": "partly_supported",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name",
+          "source": 4,
+          "note": "Travel and identity proof are addressed, but employment and financial services are not named."
+        },
+        {
+          "claim": "Use a marriage certificate as supporting evidence.",
+          "verdict": "supported",
+          "quote": "Send your marriage or civil partnership certificate when you apply for a passport in your new name - this includes double-barrelled names.",
+          "source": 4,
+          "note": "The page directly names the marriage certificate."
+        },
+        {
+          "claim": "Use a deed poll as supporting evidence.",
+          "verdict": "supported",
+          "quote": "You can change your name on your passport with one of the following documents: a deed poll a statutory declaration an affidavit",
+          "source": 4,
+          "note": "The page directly names a deed poll."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

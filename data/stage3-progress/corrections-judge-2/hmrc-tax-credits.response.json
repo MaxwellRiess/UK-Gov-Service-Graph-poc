@@ -1,0 +1,14 @@
+{
+  "fields":[
+    {"key":"criterion_0","claims":[
+      {"claim":"The person had a tax credits award before tax credits ended.","verdict":"supported","quote":"You’ll get a letter called your Annual Review when your tax credits award ends.","source":0,"note":"The page addresses people whose tax credits award ended."},
+      {"claim":"The person has an Annual Review letter to check.","verdict":"supported","quote":"You’ll need to check that the information in the letter is correct (known as ‘finalising’ your tax credits).","source":0,"note":"The page says to check the Annual Review letter."}
+    ]},
+    {"key":"methods","claims":[
+      {"claim":"A claimant can finalise the Annual Review by phone.","verdict":"partly_supported","quote":"To make their Annual Declaration when they get the form they can either phone the Helpline and complete the Annual Declaration over the phone","source":2,"note":"The manual allows an Annual Declaration by phone, but it does not identify that older declaration process as the final Annual Review after tax credits ended."},
+      {"claim":"A claimant can finalise the Annual Review by post.","verdict":"partly_supported","quote":"complete the Annual Declaration and return it in the envelope provided.","source":2,"note":"The manual allows returning an Annual Declaration by post, but it does not identify that older declaration process as the final Annual Review after tax credits ended."}
+    ]}
+  ],
+  "methods_on_page":[],
+  "sign_in_on_page":null
+}

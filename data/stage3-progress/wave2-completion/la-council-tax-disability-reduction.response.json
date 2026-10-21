@@ -1,0 +1,37 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for the Council Tax Disability Reduction online.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The relevant Council Tax sources give no online application method for this reduction."
+        },
+        {
+          "claim": "You can apply for the Council Tax Disability Reduction by phone.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The relevant Council Tax sources say to ask the council but give no phone application method."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Applicants must prove that the disabled person lives at the property.",
+          "verdict": "partly_supported",
+          "quote": "You must be able to show that a disabled person lives in the property to claim a reduction.",
+          "source": 4,
+          "note": "The evidence requirement is stated on an England-only page, while the broader Council Tax source does not establish it across the service's full scope."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

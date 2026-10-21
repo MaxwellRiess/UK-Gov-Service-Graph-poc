@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "You can check a business property’s rateable value.",
+          "verdict": "supported",
+          "quote": "Use this service to find the ‘rateable value’ of a property in England or Wales.",
+          "source": 0,
+          "note": "The service explicitly provides rateable values."
+        },
+        {
+          "claim": "You can challenge an incorrect rateable value through a check case and challenge.",
+          "verdict": "supported",
+          "quote": "You must raise a check case and receive a decision before you can start a challenge.",
+          "source": 3,
+          "note": "The challenge guidance requires a check first and permits challenge on grounds including a wrong valuation."
+        },
+        {
+          "claim": "You can appeal the outcome of a challenge.",
+          "verdict": "supported",
+          "quote": "If you disagree with the outcome of a challenge, you can appeal the decision with the Valuation Tribunal.",
+          "source": 1,
+          "note": "The guidance gives the appeal route after a challenge."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": "business rates valuation account"
+}

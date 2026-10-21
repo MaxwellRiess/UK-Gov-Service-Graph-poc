@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for a visa to come to the UK online.",
+          "verdict": "supported",
+          "quote": "Prepare any evidence and documents you need for your application. Apply online.",
+          "source": 1,
+          "note": "The visa application guide explicitly instructs applicants to apply online."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A valid passport is needed for a visa application.",
+          "verdict": "partly_supported",
+          "quote": "usually have a valid passport or travel document",
+          "source": 1,
+          "note": "The guide says a valid passport or travel document is usually needed, so a passport is not an unconditional requirement."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Financial evidence showing sufficient funds is needed for a visa application.",
+          "verdict": "partly_supported",
+          "quote": "proof you have enough money to support yourself and pay for your course - this will vary depending on your circumstances",
+          "source": 2,
+          "note": "The Student visa page supports this for some applicants, but it does not establish a requirement for every visa route."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "A Skilled Worker visa requires a confirmed job offer.",
+          "verdict": "supported",
+          "quote": "You must have a confirmed job offer before you apply for your visa.",
+          "source": 3,
+          "note": "The Skilled Worker visa page states this requirement."
+        },
+        {
+          "claim": "A Skilled Worker visa requires a certificate of sponsorship from the employer.",
+          "verdict": "supported",
+          "quote": "have a ‘certificate of sponsorship’ ( CoS ) from your employer with information about the role you’ve been offered in the UK",
+          "source": 3,
+          "note": "The Skilled Worker visa page states this requirement."
+        },
+        {
+          "claim": "A Student visa application requires a Confirmation of Acceptance for Studies from the course provider.",
+          "verdict": "supported",
+          "quote": "a Confirmation of Acceptance for Studies ( CAS ) from your course provider",
+          "source": 2,
+          "note": "The Student visa page lists this among the documents applicants must provide."
+        },
+        {
+          "claim": "A visa application for a dependant can require evidence of the relationship.",
+          "verdict": "supported",
+          "quote": "You’ll need to provide evidence of your relationship when you apply, for example:",
+          "source": 2,
+          "note": "The Student visa page specifies this evidence for dependants."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": ["online"],
+  "sign_in_on_page": null
+}

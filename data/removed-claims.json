@@ -1676,5 +1676,201 @@
       "https://www.gov.uk/dormant-company/dormant-for-companies-house"
     ],
     "note": "Companies House says dormant companies must still file. The current filing guidance states £50 online and £110 by post and gives no dormant-company waiver."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.0",
+    "value": "Income must be below the relevant threshold (varies by household type and hours worked).",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.1",
+    "value": "Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.2",
+    "value": "Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.autoQualifiers.0",
+    "value": "Already receiving Tax Credits and not yet migrated to UC",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.exclusions.0",
+    "value": "New claimants must use Universal Credit — Tax Credits is closed to new applications",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#agentInteraction.onlineFormUrl",
+    "value": "https://www.gov.uk/tax-credits-have-ended",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "insolvency-dro#agentInteraction.onlineFormUrl",
+    "value": "https://apply-for-debt-relief-order.service.gov.uk",
+    "removedAt": "2026-10-21T21:02:57.482Z",
+    "searched": [
+      "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders",
+      "https://www.gov.uk/guidance/technical-guidance-for-official-receivers/60-debt-relief-orders"
+    ],
+    "note": "This is the approved intermediary submission portal. The GOV.UK guidance tells applicants to contact an approved debt adviser and says they cannot apply on their own."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.0",
+    "value": "Fit note from GP (SC1 or equivalent)",
+    "searched": [
+      "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+    ],
+    "note": "Current DWP guidance accepts fit notes from several healthcare professionals, gives a seven-day rule and exceptions, and does not call a fit note SC1.",
+    "removedAt": "2026-10-21T21:04:13.955Z"
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.0",
+    "value": "Received tax credits before they ended and has an Annual Review letter to check.",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "note": "The judge found that receiving a payment is too narrow; a person with a former award gets an Annual Review even if no payment was made.",
+    "removedAt": "2026-10-21T21:04:13.955Z"
+  },
+  {
+    "key": "la-school-place#eligibility.criteria.0",
+    "value": "Child reaching compulsory school age: Reception at 4-5, Secondary at 11.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.gov.uk/schools-admissions/school-starting-age"
+    ],
+    "note": "Reception usually starts after the fourth birthday; compulsory school age follows the fifth. The unqualified secondary age was not stated in the supplied source."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.criteria.2",
+    "value": "Must live in Scotland.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-disability-payment/applicants"
+    ],
+    "note": "Some children in the EEA, Switzerland or Gibraltar can apply with a sufficient Scottish link."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.exclusions.1",
+    "value": "Does not live in Scotland",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-disability-payment/applicants"
+    ],
+    "note": "Outside-Scotland residence alone is not an exclusion under the published limited exception."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.0",
+    "value": "Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "The source also lists enhanced daily living PIP and Adult Disability Payment."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.1",
+    "value": "Child must be under 16 (or under 19 if still in qualifying education).",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "The general age limit is under 19; no education condition is stated."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.2",
+    "value": "Must live in Scotland.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "Limited eligibility extends to some people in eligible EEA countries or Switzerland."
+  },
+  {
+    "key": "sss-child-winter-heating#agentInteraction.methods",
+    "value": "Online application for Child Winter Heating Payment",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "Eligible people in Scotland are paid automatically; applicants abroad use phone or a paper form."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.autoQualifiers.0",
+    "value": "Child on highest-rate CDP/DLA care in Scotland — paid automatically",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "The automatic route includes two more qualifying disability awards."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.0",
+    "value": "Not on a qualifying benefit",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+    ],
+    "note": "A person waiting for a decision on a qualifying benefit can apply."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.1",
+    "value": "Another close relative could reasonably pay",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+    ],
+    "note": "Another relative is considered but is not an automatic exclusion."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.criteria.1",
+    "value": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Under-18s need no qualifying benefit; some 18- or 19-year-olds and people awaiting a benefit decision may also apply."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.criteria.1",
+    "value": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Under-18s need no qualifying benefit; some 18- or 19-year-olds and people awaiting a benefit decision may also apply."
   }
 ]

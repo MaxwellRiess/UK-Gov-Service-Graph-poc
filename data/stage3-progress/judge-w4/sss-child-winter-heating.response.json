@@ -1,0 +1,78 @@
+{
+  "fields": [
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {
+          "claim": "A child on highest-rate Child Disability Payment or Disability Living Allowance care can qualify",
+          "verdict": "supported",
+          "quote": "the highest rate of the care component of Child Disability Payment the highest rate of the care component of Disability Living Allowance for children",
+          "source": 1,
+          "note": "Both listed care components qualify, subject to the other scheme conditions."
+        },
+        {
+          "claim": "The child must be in Scotland",
+          "verdict": "partly_supported",
+          "quote": "If a child or young person gets a qualifying benefit but did not live in Scotland between 21 September and 29 September 2026, they might still qualify",
+          "source": 1,
+          "note": "Children outside Scotland can also qualify under the stated EEA or Swiss conditions."
+        },
+        {
+          "claim": "Payment is automatic",
+          "verdict": "partly_supported",
+          "quote": "Eligible children and young people living in Scotland do not need to apply. They’ll get their payment automatically.",
+          "source": 1,
+          "note": "Automatic payment applies to eligible children living in Scotland; eligible children abroad must apply."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "The child must receive highest-rate Child Disability Payment care or highest-rate Disability Living Allowance for children care",
+          "verdict": "contradicted",
+          "quote": "the enhanced daily living component of Personal Independence Payment the enhanced rate of the daily living component of Adult Disability Payment",
+          "source": 1,
+          "note": "The source gives PIP and Adult Disability Payment as additional qualifying benefits."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "The child must be under 16, unless an extension applies",
+          "verdict": "contradicted",
+          "quote": "Children and young people in Scotland can get the assistance if they're under 19 years old",
+          "source": 1,
+          "note": "The stated general age limit is under 19, not under 16."
+        },
+        {
+          "claim": "A person aged 16 to under 19 qualifies only if still in qualifying education",
+          "verdict": "contradicted",
+          "quote": "Children and young people in Scotland can get the assistance if they're under 19 years old",
+          "source": 1,
+          "note": "The source sets no qualifying-education condition for ages 16 to 18."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The child must live in Scotland",
+          "verdict": "contradicted",
+          "quote": "If the child or young person lives in an eligible European Economic Area (EEA) country or Switzerland they may be able to get Child Winter Heating Payment.",
+          "source": 1,
+          "note": "Eligible children abroad can qualify with a sufficient link to Scotland."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

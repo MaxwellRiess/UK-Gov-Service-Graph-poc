@@ -1,0 +1,8 @@
+{
+  "fields":[{"key":"evidence_0","claims":[
+    {"claim":"A fit note is required if a health condition or disability affects capability for work for more than 7 days.","verdict":"supported","quote":"You must get a fit note (also known as a ‘sick note’) if your health condition or disability affects your capability to work for longer than 7 days.","source":2,"note":"The health condition guide states this threshold."},
+    {"claim":"Some exceptions apply to the fit note requirement.","verdict":"supported","quote":"You might not need to get a fit note if you’ve moved or are moving from Employment and Support Allowance ( ESA ) to Universal Credit .","source":2,"note":"The guide gives a possible exception for people moving from ESA."}
+  ]}],
+  "methods_on_page":["online","phone"],
+  "sign_in_on_page":"Universal Credit account"
+}

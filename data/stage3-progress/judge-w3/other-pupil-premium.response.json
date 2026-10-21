@@ -1,0 +1,60 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Pupil premium is additional funding for schools in England.",
+          "verdict": "supported",
+          "quote": "Pupil premium is funding to improve education outcomes for disadvantaged pupils in schools in England.",
+          "source": 0,
+          "note": "The overview identifies funding for English schools."
+        },
+        {
+          "claim": "The 2026 to 2027 rate is £1,550 per eligible pupil from reception through year 6.",
+          "verdict": "supported",
+          "quote": "Pupils in year groups reception to year 6 recorded as FSM Ever 6 £1,550",
+          "source": 1,
+          "note": "The technical note gives this rate and year range."
+        },
+        {
+          "claim": "The 2026 to 2027 rate is £1,100 per eligible pupil in years 7 to 11.",
+          "verdict": "supported",
+          "quote": "Pupils in years 7 to 11 recorded as FSM Ever 6 £1,100",
+          "source": 1,
+          "note": "The technical note gives this rate and year range."
+        },
+        {
+          "claim": "The 2026 to 2027 rate is £2,690 for looked-after and previously looked-after children.",
+          "verdict": "supported",
+          "quote": "Looked-after children ( LAC ) £2,690 Previously looked-after children ( PLAC ) £2,690",
+          "source": 1,
+          "note": "The technical note gives the same amount for both groups."
+        },
+        {
+          "claim": "From the start of the 2026 to 2027 academic year, all Universal Credit households with children qualify for free school meals.",
+          "verdict": "supported",
+          "quote": "From the start of the 2026 to 2027 academic year, all children from households receiving Universal Credit are entitled to a free school meal.",
+          "source": 2,
+          "note": "The free school meal expansion is stated."
+        },
+        {
+          "claim": "Only targeted free school meals under the £7,400 income threshold bring pupil premium, while expanded free school meals do not.",
+          "verdict": "supported",
+          "quote": "Benefits linked to free school meal eligibility, including pupil premium, will only be available to the Targeted FSM cohort.",
+          "source": 1,
+          "note": "The same source defines Targeted FSM using the existing £7,400 income threshold."
+        },
+        {
+          "claim": "Parents should make sure the school records their child’s eligibility.",
+          "verdict": "partly_supported",
+          "quote": "Record each eligible pupil’s FSM category as targeted or expanded in the autumn school census by 2 November 2026.",
+          "source": 2,
+          "note": "The page tells schools and local authorities to record the category accurately and families to apply, but does not directly instruct parents to check the school record."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

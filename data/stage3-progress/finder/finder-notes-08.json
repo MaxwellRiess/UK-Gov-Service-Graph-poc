@@ -1,0 +1,190 @@
+{
+  "la-council-tax#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk council tax tell council moved home register council tax online telephone tenancy agreement date moved in",
+      "site:gov.uk \"register for Council Tax\" \"phone\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-council-tax#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:gov.uk council tax tell council moved home register council tax online telephone tenancy agreement date moved in",
+      "site:gov.uk \"Council Tax\" \"tenancy agreement\" register"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-council-tax#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk council tax tell council moved home register council tax online telephone tenancy agreement date moved in",
+      "site:gov.uk \"Council Tax\" \"register\" \"move-in date\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-disabled-facilities-grant#eligibility.evidenceRequired.1": {
+    "queries": [
+      "disabled facilities grant estimates quotes proposed works site:gov.uk"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/disabled-facilities-grant-dfg-delivery-guidance-for-local-authorities-in-england/disabled-facilities-grant-dfg-delivery-guidance-for-local-authorities-in-england",
+        "why": "England DFG guidance says applications normally include “at least 2 estimates from different contractors” for proposed works."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-disabled-facilities-grant#eligibility.evidenceRequired.3": {
+    "queries": [
+      "disabled facilities grant proof disability medical evidence application site:gov.uk",
+      "disabled facilities grant applicant proof disability occupational therapist assessment site:gov.uk"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-food-hygiene#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk \"food business\" \"register online\" food standards agency"
+    ],
+    "urls": [
+      {
+        "url": "https://register.food.gov.uk/new/",
+        "why": "FSA online registration page has a “Begin registration” control for a new food business."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-food-hygiene#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:register.food.gov.uk/new establishment address contact details phone email food business registration"
+    ],
+    "urls": [
+      {
+        "url": "https://register.food.gov.uk/new/registration-summary?lang=en",
+        "why": "FSA registration summary has “Establishment address”, “Phone number” and “Email address” fields."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-food-hygiene#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:register.food.gov.uk/new business type describe your food business"
+    ],
+    "urls": [
+      {
+        "url": "https://register.food.gov.uk/new/business-other-details?lang=en",
+        "why": "FSA registration form asks applicants to “Describe your food business”."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-food-premises-approval#eligibility.evidenceRequired.1": {
+    "queries": [
+      "food establishment approval existing food business registration prerequisite site:food.gov.uk",
+      "animal product premises approval must first register food business site:gov.uk"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-free-childcare-2yr#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk \"free childcare for 2 year olds\" \"phone\" \"in person\" apply",
+      "site:gov.uk free childcare 2 year olds extra support apply telephone in person national insurance number date of birth proof benefits"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-free-childcare-2yr#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:gov.uk \"free childcare for 2 year olds\" \"proof of benefits\"",
+      "site:gov.uk \"early learning\" \"proof of benefit\" \"2\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-free-childcare-2yr#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk \"free childcare for 2 year olds\" \"date of birth\" application",
+      "site:gov.uk \"early learning for 2-year-olds\" \"date of birth\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-free-childcare-2yr#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:gov.uk \"Early Learning for 2 year olds\" \"National Insurance number\"",
+      "site:gov.uk \"two year old entitlement\" \"National Insurance number\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-free-school-meals#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:gov.uk free school meals apply evidence proof benefits council guidance"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/free-school-meals-guidance-for-schools-and-local-authorities/evidence-of-eligibility-for-free-school-meals-annex-b",
+        "why": "England guidance says self-employed Universal Credit claimants provide “their Universal Credit award letter”; other UC applicants should provide an award statement."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-house-to-house-collection-licence#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk house to house collection licence application charitable purpose form",
+      "site:legislation.gov.uk house to house collections regulations 1947 application form charitable purposes proceeds"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-school-place#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk school admissions reception fourth birthday compulsory school age secondary 11"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/schools-admissions/school-starting-age",
+        "why": "England guidance says “Most children start reception full-time in September after their fourth birthday” and compulsory school age follows the fifth birthday."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-school-place#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk school admissions application proof of address"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/schools-admissions/how-to-apply",
+        "why": "For families moving area, England guidance says they may need to “supply proof of your new address”."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-school-place#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:gov.uk school admission faith school baptism certificate evidence",
+      "site:legislation.gov.uk school admissions baptism certificate faith"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-send-ehc#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk education health care assessment request phone post child views evidence",
+      "site:gov.uk SEND statutory guidance request education health care needs assessment written postal"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-send-ehc#eligibility.evidenceRequired.3": {
+    "queries": [
+      "site:gov.uk \"EHC needs assessment\" \"child’s views\" evidence",
+      "site:legislation.gov.uk children families act 2014 section 19 views wishes feelings child education health care plan"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "quote": "people do not need to actively prove they claim benefits whilst on a tariff designed for those on low incomes",
+          "source": 1,
+          "note": "Qualifying benefit entitlement is checked, but DWP automatic verification means customers of participating providers need not actively provide proof."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

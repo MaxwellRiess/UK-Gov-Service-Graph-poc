@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Land Registry registration (AP1)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/lr-registration.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+
+--- SOURCE 0: https://www.gov.uk/registering-land-or-property-with-land-registry ---
+Registering land or property with HM Land Registry. Registering land or property in England - first time registration, transfer of ownership, changing your details on the register, where to register in Scotland or Northern Ireland This guide is also available in Welsh (Cymraeg) . You must register all land or property with HM Land Registry if you’ve: bought it been given it inherited it received it in exchange for other property or land mortgaged the property You do not usually need to register leasehold land or property if there are 7 years or less on the lease when you take ownership. You must register your land with the Rural Land Register as well as HM Land Registry if you own agricultural land. Your property might not be registered if you owned it before 1990 and have not mortgaged it since. Check if your property’s registered . Once you’re registered Information about your property will be available to the public from HM Land Registry, including: the names of the owners a plan of the property’s ‘general’ boundaries - the plan will not show where the exact legal boundaries are You cannot opt out of your property information being publicly available. If you live in Scotland or Northern Ireland HM Land Registry only deals with land and property in England and Wales. Scotland Register your land or property with Registers of Scotland . Northern Ireland Register your land or property with Land and Property Services . Land or property must be registered for the first time if it’s unregistered when you take ownership of it or mortgage it. Even if you do not have to register, registering voluntarily: gives you proof of ownership helps protect your land from fraud makes it easier to change, sell or give your property away in the future You can apply to register a property yourself or get a solicitor or conveyancer to do it for you. The process involves legal steps and can be complicated. If you choose to apply yourself, find out what to consider before making an application without legal representation . Register land or property for the first time Search the register to make sure your property is not already registered. Apply for a search from the Land Charges Department to search against all previous owners since 1925. They will send you the results. Fill in an application for first registration . Prepare a scale plan showing where the land is outlined, if it’s not shown in the deeds. Find the forms you need depending on your circumstances and fill out 2 copies of the list of documents form . Find out the correct registration fee - this depends on the value of your property. Send your documents, forms and fee to HM Land Registry . If you bought the property Include the same forms as for registering for the first time and a ‘transfer of whole of registered title’ form . If you inherited the property Include the same forms as for registering for the first time and include either: a completed ‘whole of registered title assent’ form - the executor needs to fill this out if the property was in the name of a sole registered owner and it’s been left to you in a will a completed ‘transfer of whole of registered title’ form - the surviving owner needs to fill this out if they jointly owned the property and you are inheriting a share Contact HM Land Registry if you’re unsure which form you need. Other documents you may need You may also need to send: a ‘proof of identity’ form if you are not a legal professional, such as a conveyancer a ‘disclosable interests’ form if there are unregistered interests in the property not mentioned in the deeds (such as a short-term lease or a right of occupation) - read detailed guidance on unregistered rights from HM Land Registry a Land Transaction Return certificate if you’ve paid Stamp Duty (for a property in England and Northern Ireland) or Land Transaction Tax (for properties sold in Wales or after 1 April 2018) a certified copy of the lease, if you’re applying to register leasehold land or property You must apply to HM Land Registry to change the registered owner name for a property if you’re either: the new owner of a property adding someone else as joint owner How to apply You can transfer ownership of a property yourself or use a solicitor or conveyancer to help. If you’re a new owner, your solicitor or conveyancer may apply as part of the purchase. The process involves legal steps and can be complicated. If you choose to apply yourself, find out what to consider before making an application without legal representation . Otherwise, follow these steps. Download and fill in an application to change the register . Fill in either a ‘transfer of whole of registered title’ form , if you’re transferring your whole property, or a ‘transfer of part of registered title’ form if you’re only transferring part of your property. Fill in a certificate of identity for a private individual . Find out the correct fee. Use the Scale 2 fees in the registration services fees guidance if you’re transferring ownership of a property without selling it, for example as inheritance. Use the Land Registry fee calculator if you’re transferring part or all of a property as a sale. Send your documents, forms and fee to HM Land Registry . You must tell HM Land Registry if anything in the register changes or it is incorrect. Update or correct contact addresses You can register up to 3 addresses (including an email address) for each property with HM Land Registry. One of them must be a postal address. It does not need to be in the UK. You can update or correct the register yourself, or get help from a solicitor or conveyancer. The process involves legal steps and can be complicated. If you choose to apply yourself, find out what to consider before making an application without legal representation . To change your contact details or those of other owners or agents send a request to update registered owners’ contact address . You do not have to pay anything to do this. Change your name When you change your name, you must send original or certified copies of documents that link your new name to the name currently on the register. You do not have to pay anything to do this. If you’re applying yourself, HM Land Registry will return your original documents after the register has been updated. If you’re using a solicitor or conveyancer, check with them if they’ll return your documents. Use form AP1 and send it with one of the following: your marriage or civil partnership certificate (if you’ve changed your surname) a copy of a deed poll a statement of truth a statutory declaration sworn before a magistrate, a solicitor or a commissioner of oaths If you’re not using a solicitor or conveyancer, you must also send: a filled-in confirmation of identity form in your new name - use form ID1 if someone checks your identity in person, or form ID3 if an authorised professional checks it remotely a copy of an official document in your former name, such as a passport, driving licence or utility bill Change of name for your affirmed gender You can use either form AP1 or form CNG to change your name. Both forms update your name on the register in the same way. Use: form AP1 if you want to send standard documents that show your change of name (for example a deed poll, statement of truth or statutory declaration) form CNG if you want to send more sensitive documents that show your name has changed You must send original or certified copies of documents that link your new name to the name currently on the register. If you use form CNG , you can send one of the following documents that shows both your former and current names, such as: a deed poll a statement of truth a statutory declaration sworn before a magistrate, a solicitor or a commissioner of oaths If you do not have a single document that shows both names, send one document showing your current name and one showing your former name. For example: old and new passports or driving licences a gender recognition certificate a new birth certificate a utility bill in your former name a letter from a UK-based medical practitioner (such as a doctor) confirming you live in your affirmed gender and that you use your new name Send the completed form and documents to the address on the form. If you’re sending a gender recognition certificate, write ‘Private and confidential’ on the envelope. Returning to your original surname To return to your original surname after a divorce or dissolution of a civil partnership send HM Land Registry: application form AP1 an original or certified copy of your final order (formerly called a decree absolute for marriages or a dissolution order for civil partnerships) You can only use your final order if it shows both your original and married names, and the proceedings were taken in your original name. If the final order does not show both names, include either: a copy of your marriage or civil partnership certificate, or a certificate by a conveyancer confirming the change of name. If you’re reverting to a name that is not shown on either the marriage or civil partnership certificate, you’ll need to provide formal evidence such as a deed poll. HM Land Registry will let you know if they need more information. Stop your previous name being seen on old documents Your previous name will still appear on any documents that were filed with HM Land Registry before you changed your name. Previous names cannot be changed but you might be able to stop them from being copied or inspected by making an exempt document application . It costs: £12 per document for electronic applications - only businesses and organisations can apply electronically, for example conveyancers £25 per document for paper applications You will need to fill in form EX1 and form EX1A . Mortgage completion You must tell HM Land Registry if a mortgage on a registered property is paid off (‘discharged’). Usually your mortgage lender will do this for you automatically but they may send you a completed ‘cancellation of charges’ form . Once you have this, fill in an application to ‘cancel entries relating to a charge’ and a confirmation of identity form . Send all forms to the Citizen Centre. HM Land Registry will update your details and tell you that the register has been updated. Other changes Transfer ownership of your property if you’ve: sold it divorced or separated and want to remove an owner married and want to add an owner given the property away Send your requests Send completed forms to the HM Land Registry Citizen Centre. HM Land Registry Citizen Centre PO Box 7806 Bilston WV1 9QR
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/guidance/hm-land-registry-digital-applications ---
+HM Land Registry: digital applications. Applications to change the register are now digital by default for business customers. The switch to digital applications For business customers, we are moving towards fully digital applications and away from paper-based electronic applications. Rather than a scan or a PDF, the details of the application are entered directly into our services or via legal software, capturing the data digitally. Digital applications see fewer errors and requisitions and help speed up the process of land registration. From 30 November 2022, digital applications are the default for business customers submitting applications to change the register. Requisitions for incorrect name and fee errors have fallen 40% for applications submitted through the Digital Registration Service. How to submit digitally You can submit applications digitally: using the Digital Registration Service in the HM Land Registry portal through legal software connected to HM Land Registry systems Both options reduce errors and requisitions by improving the quality of the initial application. There are different benefits to each route, and lots of options when submitting through legal software. If you’re not submitting digitally already, click through the links above to find out more about which option might suit you. Customers submitted more than 1.3 million applications through these 2 routes from October 2021 to September 2022. Your business If you do not already use a case management system and have no requirement for a bespoke solution, then the Digital Registration Service is likely to be for you. It is free to use and available to all with a portal account. Submitting through legal software can bring some additional benefits including reducing duplication and time spent manually inputting data. If you already have a case management system and are interested in linking your processes together with submitting applications and other possible time savings, investing in legal software could be for you.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/government/publications/hm-land-registry-where-to-submit-an-application-in-the-portal/where-to-submit-an-application-on-the-portal ---
+Where to submit an application on the portal Where to submit an application This guide has been written to assist you in finding where to submit an application by using the HM Land Registry portal following the homepage redesign. Applications can be submitted using the Digital Registration Service. There are 2 ways to access the Digital Registration Service. On the homepage, and through the Services list across the top menu. The Digital Registration Service start page will guide you as to which service to use to submit your application. There is a section at the top for applications that the Digital Registration Service will accept. Along with when the legacy Document Registration Service should be used and a link to access. The Digital Registration Service can be accessed by clicking the ‘Start new application’ button.

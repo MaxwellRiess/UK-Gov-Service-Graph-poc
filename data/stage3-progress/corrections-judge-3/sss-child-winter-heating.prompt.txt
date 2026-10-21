@@ -1,0 +1,136 @@
+A service graph describes the UK government service "Child Winter Heating Payment" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/corrections-judge-3/sss-child-winter-heating.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this by phone. You can apply or do this by post.
+[desc] (split into claims) £265.50 a year to help disabled children and young people with winter heating costs. Eligible children in Scotland are paid automatically; those who qualify from abroad must apply. Formerly Child Winter Heating Assistance.
+[qualifier_0] (split into claims) Eligible young person living in Scotland and receiving a qualifying disability award — paid automatically
+[criterion_0] (split into claims) Must receive the highest care rate of Child Disability Payment or DLA for children, or the enhanced daily living rate of PIP or Adult Disability Payment, during the qualifying week.
+[criterion_1] (split into claims) Must be under 19.
+[criterion_2] (split into claims) Usually lives in Scotland; a young person in an eligible EEA country or Switzerland may qualify with a genuine and sufficient link to Scotland.
+[summary] (split into claims) Annual payment of £265.50 for eligible children and young people under 19 receiving the qualifying rate of Child Disability Payment, DLA for children, PIP or Adult Disability Payment. Payment is automatic for those living in Scotland; some people abroad can qualify but must apply.
+
+--- SOURCE 0: https://www.mygov.scot/child-winter-heating-payment ---
+Child Winter Heating Payment Overview Last updated 10 Aug 2026 Contents Overview Who can get Child Winter Heating Payment If you need to contact Social Security Scotland Child Winter Heating Payment used to be called Child Winter Heating Assistance. Child Winter Heating Payment is a benefit from the Scottish Government. It was first paid in 2020. It’s a payment to help disabled children and young people and their families with increased heating costs over winter. It’s paid once a year from October and through the winter. This does not depend on how cold it is. The current payment is £265.50. Who can get Child Winter Heating Payment Related content Children and family Payments, grants and discounts to help with energy bills Thanks for your feedback
+
+--- SOURCE 1: https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment ---
+Child Winter Heating Payment Who can get Child Winter Heating Payment Last updated 10 Aug 2026 Contents Overview Who can get Child Winter Heating Payment If you need to contact Social Security Scotland Children and young people in Scotland can get the assistance if they're under 19 years old and get one of the following 'qualifying benefits': the highest rate of the care component of Child Disability Payment the highest rate of the care component of Disability Living Allowance for children the enhanced daily living component of Personal Independence Payment the enhanced rate of the daily living component of Adult Disability Payment They must be getting this on at least one day in the third full week of September. In 2026 this will be Monday 21 September to Saturday 29 September. When you'll get Child Winter Heating payment If you meet the requirements above on at least one day of this week: You’ll get Child Winter Heating Payment at the end of this year: 21 to 27 September 2020 2020 20 to 26 September 2021 2021 19 to 25 September 2022 2022 18 to 24 September 2023 2023 16 to 22 September 2024 2024 15 to 21 September 2025 2025 21 to 29 September 2026 2026 This includes if a qualifying benefit is backdated to this period. If there is more than one child or young person who qualifies in the household, they each get a payment. You do not need to show receipts or proof of how you spend the money. If a child or young person gets a qualifying benefit but did not live in Scotland between 21 September and 29 September 2026, they might still qualify if they: live in certain European Economic Area (EEA) countries or Switzerland can show they have a genuine and sufficient link to Scotland Find out what to do if the child no longer lives in Scotland . You can apply from abroad at any time. If successful, you can receive a Child Winter Heating payment for each year that you were eligible. Payment is usually automatic Eligible children and young people living in Scotland do not need to apply. They’ll get their payment automatically. Child Winter Heating Payment will usually be paid into the same bank account as their: Child Disability Payment Disability Living Allowance for children Personal Independence Payment Adult Disability Payment You'll get a letter from Social Security Scotland before they make the payment. If qualifying benefit was not being paid If the child or young person usually gets one of the qualifying benefits but this was not being paid between 21 September and 29 September 2026, they might still be entitled to Child Winter Heating Payment. It depends on why payments were not being made that week. If this was because the child or young person was staying in residential care or was in hospital, they can still get Child Winter Heating Payment. They’ll get an automatic payment. If the qualifying benefit was not paid for any other reason, you’ll get a letter telling you that the child or young person does not qualify for Child Winter Heating Payment. The letter will include details of how to ask Social Security Scotland to look at their decision again . If the child no longer lives in Scotland If the child or young person lives in an eligible European Economic Area (EEA) country or Switzerland they may be able to get Child Winter Heating Payment. They’ll not be eligible for an award if they live in Cyprus, France, Greece, Malta, Portugal or Spain. This is because the average winter temperature is higher than the warmest region of the UK. Eligible countries Show this section Austria Belgium Bulgaria Croatia Czech Republic Denmark Estonia Finland Germany Hungary Iceland Ireland Italy Latvia Lichtenstein Lithuania Luxembourg The Netherlands Norway Poland Romania Slovakia Slovenia Sweden Switzerland They must have been getting one of the qualifying benefits on at least one day between 21 September and 29 September 2026. The child or young person must also have a genuine and sufficient link to Scotland. For example they may be eligible if they, or their parent or guardian, have spent a significant part of their life in Scotland. How to apply outside of Scotland Payments are not made automatically to children and young people living outside of Scotland. You can apply by filling in a paper form . You should send your completed application form to: Child Winter Heating Payment PO Box 10317 Dundee United Kingdom DD1 9GR To apply by phone, you can call Social Security Scotland from outside the UK on +44 (0)1382 931 000. You’ll be charged to call from abroad. You can ask Social Security Scotland to call you back. Find out more about benefits if you leave Scotland or travel abroad . Overview If you need to contact Social Security Scotland Related content Children and family Payments, grants and discounts to help with energy bills Thanks for your feedback
+
+--- SOURCE 2 (LINKED): https://www.mygov.scot/benefits-leave-scotland/currently-live-eea-switzerland-gibraltar ---
+Benefits if you leave Scotland or travel abroad Currently living in an EEA country or Switzerland or Gibraltar Last updated 10 Aug 2026 Contents Benefits if you leave Scotland Leaving Scotland temporarily Moving to England, Wales or Northern Ireland Moving to the Republic of Ireland Moving to Gibraltar Moving to a European Economic Area (EEA) country or Switzerland Currently living in an EEA country or Switzerland or Gibraltar HM Forces and Civil Servants Who to contact if you're moving or travelling outside of Scotland If you currently live in an EEA country or Switzerland or Gibraltar Check which countries are included in the European Economic Area (EEA) . Assistance from Social Security Scotland If you currently live in an EEA country or Switzerland or Gibraltar you may be able to apply for: Young Carer Grant Child Winter Heating Payment Carer Support Payment , including Scottish Carer Supplement and Carer Additional Person Payment Child Disability Payment (but only the care component of this) Adult Disability Payment (but only the daily living component of this) Pension Age Disability Payment You'll still need to meet the general eligibility rules to be able to get any of these. For example, you may need to be a carer or meet the age criteria. Some EEA countries do not have cold enough winters to qualify for Child Winter Heating Payment. Additional rules You do not need to have applied in the UK before you moved. You must be covered by the EU Withdrawal Agreement (unless you live in the Republic of Ireland or Gibraltar). You might be covered by the Withdrawal Agreement if you're: an EEA or Swiss national and you moved to the UK before 1 January 2021 a UK national and you moved to an EEA Country or Switzerland before 1 January 2021 you’re joining a family member who was in either the EEA country or the UK before 1 January 2021 If you need further information about your rights visit the GOV.UK page Withdrawal Agreement explainer for part 2: citizens’ rights . Ireland and Gibraltar have their own agreements with the UK Government. If you’re a British or Irish national and moved to Ireland from the UK you may be eligible regardless of when you moved. If you’re any nationality living in Gibraltar and moved there from the UK you may also be eligible regardless of when you moved. Assistance from the Department for Work and Pensions (DWP) If you get Attendance Allowance from DWP, you might be eligible to move to Pension Age Disability Payment . If you get Disability Living Allowance (DLA) from DWP, you might be eligible to move to Scottish Adult Disability Living Allowance. You can contact DWP and ask them to move your benefit if both of the following applies: you live in the EU, Iceland, Norway, Liechtenstein, SwizterlandSwitzerland or Gibraltar you have a ‘genuine and sufficient link’ to Scotland Residency If you live in an EEA country, Switzerland or Gibraltar, Social Security Scotland need to ask about residency details to make a decision on your application. Social Security Scotland may need to ask for some more details about: which country is responsible for paying you benefits (competent state) how long you’ve lived, and plan to live in the country (habitual residency) a ‘genuine and sufficient’ link to Scotland any pensions or benefits you may receive Entitlement to Carer Support Payment, Pension Age Disability Payment, the daily living component for Adult Disability Payment or the care component for Child Disability Payment Social Security Scotland need to check that the UK is your competent state. For example, you are employed in the UK. If you, or a relevant family member, get a pension or benefit from the UK or another state, this may impact whether you are entitled in the UK to: Carer Support Payment Pension Age Disability Payment the daily living component for Adult Disability Payment the care component of Child Disability Payment Habitual residency Social Security Scotland need to check that you have a settled purpose and have lived in your chosen European Economic Area country, Switzerland or Gibraltar for a reasonable time. Genuine and sufficient link to Scotland This is if you do not live in Scotland, but have a link to Scotland. For example, you spent a significant part of your life in Scotland. Moving to a European Economic Area (EEA) country or Switzerland HM Forces and Civil Servants Related content Help with benefits Financial help if you have a disabled child Scottish Welfare Fund - help with living costs Thanks for your feedback
+
+--- SOURCE 3 (LINKED): https://www.mygov.scot/help-energy-bills ---
+Payments, grants and discounts to help with energy bills Last updated 9 Oct 2026 Check what help you could get with your energy bill. Warm Home Discount You can get £150 off your electricity bill if you qualify for the Warm Home Discount scheme. To get it you need to either: get the Guarantee Credit element of Pension Credit be on a low income and meet your energy supplier's criteria Check if you can get the Warm Home Discount . Pension Age Winter Heating Payment You could get between £101.70 and £305.10 to help towards your heating bills. To get the payment for winter 2025, you need to be born on or before 21 September 1959. Find out more about Pension Age Winter Heating Payment . Winter Heating Payment Winter Heating Payment has replaced Cold Weather Payment in Scotland. It helps people on low income benefits who might have extra heating needs. It’s paid once a year. The payment is £62.00. Most people do not need to apply. You’ll get this payment automatically if you qualify. You could qualify if you get certain benefits, like: Pension Credit Income Support Income Based Jobseeker’s Allowance Income Related Employment and Support Allowance Universal Credit Support for Mortgage Interest Check if you can get the Winter Heating Payment . Child Winter Heating Payment Child Winter Heating Payment used to be called Child Winter Heating Assistance. It helps disabled children, young people and their families who might have extra heating needs. It’s paid once a year. The payment is £265.50. Most people do not need to apply. You’ll get this payment automatically if you qualify. Check if you can get the Child Winter Heating Payment . Scottish Emergency Heating Oil Scheme If you use heating oil or liquefied petroleum gas (LPG) to heat your home, you may be able to get help with your fuel costs. The scheme can pay £300 directly to your fuel supplier. Some people may be able to get a further £300 at least 3 months later. You may qualify if you get certain benefits. You may also qualify if you: are experiencing financial hardship and are at risk of cutting back on heating have certain additional needs or vulnerabilities Find out more and apply on Home Heating Advice . Scottish Welfare Fund The Scottish Welfare Fund is made up of 2 different grants to support people in crisis and to help people live independently within the community. One of these is a Crisis Grant. It can help to cover heating costs in a disaster or emergency. You can only apply through your local council. Find out more and learn how to apply to the Scottish Welfare Fund. Check you’re paying the right amount for your energy bills If you think you’re paying too much for energy, contact the Money Talk Team. They can make sure you're not paying too much for gas or electricity. The Money Talk Team service offers free money and debt advice. The service can help you understand what you’re entitled to and ways to save money. It can help you find out: what benefits and other financial support you may be entitled to how you can manage debt ways to save money on your bills You can get more information on the Money Talk Team website or by calling 0800 028 1456. Help to make your home warmer Get practical advice to help make your home warmer . Funding for energy saving home improvements Check if you get funding for energy saving improvements . More help with energy costs Help is available if you cannot afford to pay your energy bills . Other help available Contact Citizens Advice Scotland for independent support and advice. You can either: call them free on 0800 028 1456 go to cas.org.uk visit your local branch Other organisations and services in your area might also be able to help you. Contact your local council to find out more. Contact your local council Choose your council Aberdeen City Council Aberdeenshire Council Angus Council Argyll and Bute Council Clackmannanshire Council Comhairle nan Eilean Siar Dumfries and Galloway Council Dundee City Council East Ayrshire Council East Dunbartonshire Council East Lothian Council East Renfrewshire Council Edinburgh Council Falkirk Council Fife Council Glasgow City Council Highland Council Inverclyde Council Midlothian Council Moray Council North Ayrshire Council North Lanarkshire Council Orkney Islands Council Perth and Kinross Council Renfrewshire Council Scottish Borders Council Shetland Islands Council South Ayrshire Council South Lanarkshire Council Stirling Council West Dunbartonshire Council West Lothian Council Contact your local council Aberdeen City Council Aberdeenshire Council Angus Council Argyll and Bute Council Clackmannanshire Council Comhairle nan Eilean Siar Dumfries and Galloway Council Dundee City Council East Ayrshire Council East Dunbartonshire Council East Lothian Council East Renfrewshire Council Edinburgh Council Falkirk Council Fife Council Glasgow City Council Highland Council Inverclyde Council Midlothian Council Moray Council North Ayrshire Council North Lanarkshire Council Orkney Islands Council Perth and Kinross Council Renfrewshire Council Scottish Borders Council Shetland Islands Council South Ayrshire Council South Lanarkshire Council Stirling Council West Dunbartonshire Council West Lothian Council Related content Help with benefits If you cannot afford to pay your energy bills Ways to make your home warmer If you need urgent help with money, food or fuel Thanks for your feedback
+
+--- SOURCE 4 (LINKED): https://www.mygov.scot/benefits-leave-scotland ---
+Benefits if you leave Scotland or travel abroad Benefits if you leave Scotland Last updated 10 Aug 2026 Contents Benefits if you leave Scotland Leaving Scotland temporarily Moving to England, Wales or Northern Ireland Moving to the Republic of Ireland Moving to Gibraltar Moving to a European Economic Area (EEA) country or Switzerland Currently living in an EEA country or Switzerland or Gibraltar HM Forces and Civil Servants Who to contact if you're moving or travelling outside of Scotland You may be able to get some Social Security Scotland assistance if you travel or move abroad, or if you’re already living abroad. This page is about benefits paid by Social Security Scotland. For UK benefits and tax, check the rules about benefits if you live, move or travel abroad . Assistance you might get You’ll only be able to apply for or continue to get: Young Carer Grant Child Winter Heating Payment Carer Support Payment , including Scottish Carer Supplement and Carer Additional Person Payment Child Disability Payment Adult Disability Payment Pension Age Disability Payment Scottish Adult Disability Living Allowance (Scottish Adult DLA) What you’re entitled to depends on where you’re going and how long for. Leaving Scotland temporarily Related content Help with benefits Financial help if you have a disabled child Scottish Welfare Fund - help with living costs Thanks for your feedback

@@ -1,0 +1,134 @@
+A service graph describes the UK government service "Pension Age Winter Heating Payment" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/sss-pension-winter-heating.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+[evidence_0] (split into claims) Proof of age
+[evidence_1] (split into claims) Proof of Scottish residency
+
+--- SOURCE 0: https://www.mygov.scot/pension-age-winter-heating-payment ---
+Pension Age Winter Heating Payment How Pension Age Winter Heating Payment works Contents How Pension Age Winter Heating Payment works Check if you're eligible How much you might be paid When you’ll be paid Check if you need to apply Report a change Opt out of the payment Contact Social Security Scotland Pension Age Winter Heating Payment helps people of State Pension age pay their heating bills. It's paid once a year and replaced Winter Fuel Payment for people in Scotland. You can check your State Pension age on gov.uk If you're eligible You could get a payment of between £105.55 and £316.70. Most eligible people get the payment automatically and do not need to apply. You’ll get a letter to confirm your payment. Letters are being sent from November 2026. Social Security Scotland will send the payment to the same account as your State Pension, or any Social Security Scotland benefits you get. A small number of people will need to apply. Check whether you need to apply . If your income is over £35,000 If your total income is over £35,000, HMRC will take your Pension Age Winter Heating Payment back. This only applies to individual incomes, and not joint incomes over £35,000. Check if your income is over the threshold and how HMRC will take it back Find out more about how this may impact you on GOV.UK Why Pension Age Winter Heating Payment has replaced Winter Fuel Payment in Scotland The Scottish Government now has its own social security system, Social Security Scotland. This means certain Department for Work and Pensions benefits have been replaced with new benefits in Scotland. Other help with heating costs You could also get: Winter Heating Payment Warm Home Discount other help with heating bills Check if you're eligible Related content Payments, grants and discounts to help with energy bills If you cannot afford to pay your energy bills Help with benefits Winter Heating Payment Child Winter Heating Payment Thanks for your feedback
+
+--- SOURCE 1: https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid ---
+Pension Age Winter Heating Payment How much you might be paid Contents How Pension Age Winter Heating Payment works Check if you're eligible How much you might be paid When you’ll be paid Check if you need to apply Report a change Opt out of the payment Contact Social Security Scotland If you’re eligible, you’ll be paid once a year. The amount you’ll get depends on: your age the age of anyone you live with who is also eligible if you live in residential care if you get certain other benefits and whether you get them as a joint award with your partner The benefits that can affect your payment are: Pension Credit Universal Credit income-based Jobseeker’s Allowance (JSA) income-related Employment and Support Allowance (ESA) Income Support To find out how much you might get, read the scenarios below or use the eligibility checker . You should refer to your situation during the qualifying week: Monday 21 September to Sunday 27 September 2026. Open all sections You lived alone or no one you lived with is eligible Show this section The amount you’re paid depends on your age in the qualifying week. You were between 66 years and 3 months, to 79 years old. This means you were born between 28 September 1946 and 27 June 1960. You'll get £211.15 You were 80 years old or over This means you were born before 28 September 1946. You'll get £316.70 You lived with someone who is eligible but did not get of any of the benefits Show this section The amount you’re paid depends on: your age in the qualifying week the age of the person you lived with in the qualifying week You and the person you lived with were both between 66 years and 3 months, to 79 years old. This means you were both born between 28 September 1946 and 27 June 1960. You'll get £105.55 You were between 66 years and 3 months, to 79 years old. The person you lived with was 80 years old or over. This means you were born between 28 September 1946 and 27 June 1960 but the person you lived with was born before 28 September 1946. You'll get £105.55 You were 80 years old or over. The person you lived with was between 66 years and 3 months, to 79 years old. This means you were born before 28 September 1946 but the person you lived with was born between 28 September 1946 and 27 June 1960. You'll get £211.15 You and the person you lived with were both 80 years old or over This means you were both born before 28 September 1946. You'll get £158.35 You lived with someone who is eligible and got one of the benefits on your own Show this section The amount you’re paid depends on your age in the qualifying week. You were between 66 years and 3 months, to 79 years old. This means you were born between 28 September 1946 and 27 June 1960. You'll get £211.15 You were 80 years old or over. This means you were born before 28 September 1946. You'll get £316.70 You lived with a partner and got one of the benefits as a joint award Show this section Only one of you will get a Pension Age Winter Heating Payment. It’ll be paid to the main person getting the DWP benefit. The amount you’re paid depends on: your age in the qualifying week your partner’s age in the qualifying week You and your partner were both between 66 years and 3 months, to 79 years old. This means you were both born between 28 September 1946 and 27 June 1960. You'll get £211.15 It's a single shared payment for you and your partner. You’ll be paid into the bank account your benefits are usually paid into. Either you or your partner were 80 years old or over This means either one of you was born before 28 September 1946. You'll get £316.70 It's a single shared payment for you and your partner. You’ll be paid into the bank account your benefits are usually paid into. One of you was 66 years and 3 months, to 79 years old. The other was aged under 66 years and 3 months. This means only one of you was born between 28 September 1946 and 27 June 1960. The other was born on 28 June 1960 or later. You'll get £211.15 In this situation, the money will be paid to whoever has reached State Pension age. You’ll be paid into the bank account your benefits are usually paid into. One of you was 80 years old or over. The other was aged under 66 years and 3 months. This means only one of you was born before 28 September 1946. The other was born on 28 June 1960 or later. You'll get £316.70 In this situation, the money will be paid to whoever has reached State Pension age. You’ll be paid into the bank account your benefits are usually paid into. You lived in residential care Show this section Residential care means a care home or a hospital that is not part of the NHS. If you live in residential care and are eligible , the amount you’re paid depends on: your age during the qualifying week when you went into care You went into care before 29 June 2026. You were between 66 years and 3 months, to 79 years old during the qualifying week. This means you were born between 28 September 1946 and 27 June 1960. You'll get £105.55 You went into care before 29 June 2026. You were 80 years old or over during the qualifying week. This means you were born before 28 September 1946. You'll get £158.35 You went into care on, or after, 29 June 2026 The amount you’re paid is based on your situation before you went into care. Use the other scenarios on this page to work out how much you’ll get. If your income is over £35,000 If your total income is over £35,000, His Majesty’s Revenue and Customs (HMRC) will take your Pension Age Winter Heating Payment back. This only applies to individual incomes, and not joint incomes over £35,000. HMRC will take your Pension Age Winter Heating Payment back by either: changing your tax code for the 2027 to 2028 tax year adding the amount to your 2026 to 2027 Self Assessment tax return You can check if your income is over the threshold and how HMRC will take it back . Check if you're eligible When you’ll be paid Related content Payments, grants and discounts to help with energy bills If you cannot afford to pay your energy bills Help with benefits Winter Heating Payment Child Winter Heating Payment Thanks for your feedback
+
+--- SOURCE 2 (FOUND): https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply ---
+Pension Age Winter Heating Payment Check if you need to apply Contents How Pension Age Winter Heating Payment works Check if you're eligible How much you might be paid When you’ll be paid Check if you need to apply Report a change Opt out of the payment Contact Social Security Scotland You might need to apply for Pension Age Winter Heating Payment if: you've deferred your State Pension since you were last paid Pension Age Winter Heating Payment or the Winter Fuel Payment you're a couple with a joint award for Pension Credit, Income-based Jobseeker’s Allowance (JSA), Income-related Employment and Support Allowance (ESA), Income Support or Universal Credit and the main person getting that benefit is under State Pension age If you’re eligible and none of these apply to you, you’ll be paid automatically. Applications for winter 2025 to 2026 are now closed. We’ll update this page when applications are open for winter 2026 to 2027. We can consider late applications if you have a good reason for missing the deadline. If this is the case, contact Social Security Scotland. When you’ll be paid Report a change Related content Payments, grants and discounts to help with energy bills If you cannot afford to pay your energy bills Help with benefits Winter Heating Payment Child Winter Heating Payment Thanks for your feedback
+
+--- SOURCE 3 (FOUND): https://www.mygov.scot/pension-age-winter-heating-payment/contact ---
+Pension Age Winter Heating Payment Contact Social Security Scotland Contents How Pension Age Winter Heating Payment works Check if you're eligible How much you might be paid When you’ll be paid Check if you need to apply Report a change Opt out of the payment Contact Social Security Scotland You might want to contact Social Security Scotland to: ask questions about Pension Age Winter Heating Payment ask for information in another language or format report a change in your circumstances opt in again to get Pension Age Winter Heating Payment if you previously opted out Contact Social Security Scotland You can contact Social Security Scotland by: phone webchat post Contact by phone You can call Social Security Scotland free on 0800 182 2222. If you’re a British Sign Language user, you can use the Contact Scotland service to contact Social Security Scotland. If calling from outside the UK, call +44 (0)1382 931 000. This number is not free but you can ask us to call you back. You should check with your phone provider to find out about any charges. Contact by webchat You can contact Social Security Scotland by webchat . Contact by post You can contact Social Security Scotland by post. Write to this address: Pension Age Winter Heating Payment PO Box 10326 DUNDEE DD1 9HB About Social Security Scotland Social Security Scotland pays Pension Age Winter Heating Payment. It’s responsible for managing benefits devolved to Scotland. Find out more about Social Security Scotland . The Department for Work and Pensions shares information with Social Security Scotland to allow them to make this payment. Find out more about how Social Security Scotland will use your data . Opt out of the payment Related content Payments, grants and discounts to help with energy bills If you cannot afford to pay your energy bills Help with benefits Winter Heating Payment Child Winter Heating Payment Thanks for your feedback
+
+--- SOURCE 4 (FOUND): https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible ---
+Pension Age Winter Heating Payment Check if you're eligible Contents How Pension Age Winter Heating Payment works Check if you're eligible How much you might be paid When you’ll be paid Check if you need to apply Report a change Opt out of the payment Contact Social Security Scotland You can use the eligibility checker to find out: if you’re eligible how much you might be paid Using this eligibility checker is not part of the application process. You may still need to apply. Use the eligibility checker You can use it for yourself or someone else. Find out more about acting on someone else’s behalf . Who is eligible Social Security Scotland looks at your situation during a specific week to see if you’re eligible. This is called the qualifying week. The qualifying week for winter 2026 to 2027 is Monday 21 September to Sunday 27 September 2026. To be eligible, you must have: been born on, or before, 27 June 1960 lived in Scotland on at least the last day of the qualifying week Who is not eligible You will not be eligible if you: were in hospital getting free treatment for the whole qualifying week and the 52 weeks leading up to it were in custody, under a sentence imposed by a court, for the whole qualifying week need permission to enter the UK and your granted leave says you cannot claim public funds If you live in residential care Residential care means a care home or a hospital that is not part of the NHS. You will not be eligible for winter 2026 to 2027 if all these apply to you: you were in residential care for the whole qualifying week you went into care before 29 June 2026 you got any of these benefits during the qualifying week: Pension Credit Income-based Jobseeker’s Allowance (JSA) Income-related Employment and Support Allowance (ESA) Income Support Universal Credit To be eligible, you still need to: be born on, or before, 27 June 1960 live in Scotland How Pension Age Winter Heating Payment works How much you might be paid Related content Payments, grants and discounts to help with energy bills If you cannot afford to pay your energy bills Help with benefits Winter Heating Payment Child Winter Heating Payment Thanks for your feedback

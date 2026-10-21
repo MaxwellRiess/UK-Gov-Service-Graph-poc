@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "quote": "These claimants will need to provide evidence that: they are in receipt of Universal Credit, by providing their Universal Credit award letter",
+          "source": 1,
+          "note": "A Universal Credit award letter is required for the self-employed manual check, and paper evidence is accepted in other manual checks, but the source does not require proof from every applicant."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -36,6 +36,7 @@ export const METHOD_WORDS: Record<string, string> = {
   phone: 'You can apply or do this by phone',
   post: 'You can apply or do this by post',
   'in-person': 'You can apply or do this in person',
+  'via-adviser': 'You must contact an approved debt adviser, who submits the application for you',
 };
 /** The methods field as a sentence to judge. Empty means nobody applies: it happens automatically. */
 export function methodsText(methods: string[]): string {

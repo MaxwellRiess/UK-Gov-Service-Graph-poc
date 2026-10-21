@@ -1,0 +1,8 @@
+{
+  "fields":[{"key":"methods","claims":[
+    {"claim":"You must contact an approved debt adviser to apply for a Debt Relief Order.","verdict":"supported","quote":"Contact an approved debt adviser to apply for a DRO . You cannot apply for a DRO on your own.","source":0,"note":"The Debt Relief Order page explicitly directs applicants to an approved adviser."},
+    {"claim":"The approved debt adviser submits the Debt Relief Order application for you.","verdict":"partly_supported","quote":"Contact an approved debt adviser to apply for a DRO . You cannot apply for a DRO on your own.","source":0,"note":"The page requires an approved adviser and rules out applying alone, but it does not explicitly say the adviser submits the application."}
+  ]}],
+  "methods_on_page":[],
+  "sign_in_on_page":null
+}

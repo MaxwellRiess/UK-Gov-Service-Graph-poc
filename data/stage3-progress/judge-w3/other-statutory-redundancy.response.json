@@ -1,0 +1,70 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for statutory redundancy pay online.",
+          "verdict": "partly_supported",
+          "quote": "Make a claim online",
+          "source": 4,
+          "note": "The online claim applies where the employer cannot pay, such as insolvency, rather than every redundancy payment."
+        },
+        {
+          "claim": "You can apply for statutory redundancy pay by phone.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The phone number is for help using the online service, not for making a phone claim."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A redundancy notice or letter from the employer must be provided.",
+          "verdict": "partly_supported",
+          "quote": "the date you became redundant (if you lost your job) - this can be found on your official letter of redundancy",
+          "source": 4,
+          "note": "The online insolvency claim mentions the official redundancy letter as a way to find the date and asks for copies of employer letters, but does not clearly require this specific letter."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Payslips must be provided to verify weekly pay.",
+          "verdict": "partly_supported",
+          "quote": "include copies of any evidence – for example payslips, a letter with your start date or a breakdown of redundancy pay",
+          "source": 6,
+          "note": "Acas suggests payslips as optional evidence in a pay dispute, not a standard document required for every claim."
+        }
+      ]
+    },
+    {
+      "key": "exclusion_1",
+      "claims": [
+        {
+          "claim": "Voluntary redundancy can come with more generous financial terms.",
+          "verdict": "supported",
+          "quote": "Sometimes employers offer incentives for taking voluntary redundancy, like extra redundancy pay",
+          "source": 7,
+          "note": "Citizens Advice says voluntary packages may include extra pay."
+        },
+        {
+          "claim": "Voluntary redundancy can affect entitlement to a notice period.",
+          "verdict": "partly_supported",
+          "quote": "You’ll also still get any other redundancy rights you’re entitled to, like time off to look for a new job.",
+          "source": 7,
+          "note": "The page says a voluntary package may remove the need to work notice or allow negotiation, but does not say notice entitlement is lost."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

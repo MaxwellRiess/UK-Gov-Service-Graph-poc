@@ -1,0 +1,41 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Drivers of vehicles that do not meet emissions standards may have to pay to enter a Clean Air Zone.",
+          "verdict": "supported",
+          "quote": "You might need to pay to drive in a clean air zone if your vehicle does not meet emissions standards.",
+          "source": 0,
+          "note": "The source expressly ties possible charges to a vehicle not meeting emissions standards."
+        },
+        {
+          "claim": "The typical emissions thresholds are Euro 6 for diesel vehicles and Euro 4 for petrol vehicles.",
+          "verdict": "supported",
+          "quote": "Cars, taxis and private hire M1 Passenger vehicle with up to 8 seats in addition to the driver Euro 6 (diesel). Euro 4 (petrol)",
+          "source": 1,
+          "note": "The annex lists these standards for cars, taxis and private hire vehicles; coverage varies by zone class and vehicle type."
+        },
+        {
+          "claim": "Clean Air Zones include Bath, Birmingham, Bradford and Portsmouth.",
+          "verdict": "supported",
+          "quote": "Bath Birmingham Bradford Bristol Portsmouth Sheffield Tyneside - Newcastle and Gateshead",
+          "source": 0,
+          "note": "All four named places appear in the list of zones covered by the service."
+        },
+        {
+          "claim": "Charges vary by zone and vehicle type.",
+          "verdict": "partly_supported",
+          "quote": "Matters to be dealt with in charging schemes by charging authorities include: designating the roads and classes of vehicles subject to a charge the charges imposed",
+          "source": 2,
+          "note": "The framework makes vehicle classes and charges matters for each scheme, but the excerpt does not explicitly say charge amounts differ across zones or vehicle types."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

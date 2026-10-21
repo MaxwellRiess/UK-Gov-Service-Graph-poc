@@ -1,0 +1,135 @@
+A service graph describes the UK government service "Child Disability Payment" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/corrections-judge-3/sss-child-disability-payment.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[criterion_2] (split into claims) Usually lives in Scotland; a child in the EEA, Switzerland or Gibraltar may qualify with a genuine and sufficient link to Scotland if the UK is responsible for the benefit.
+[exclusion_1] (split into claims) Child outside Scotland without the qualifying EEA, Swiss or Gibraltar link
+
+--- SOURCE 0: https://www.mygov.scot/child-disability-payment ---
+Child Disability Payment What Child Disability Payment is Last updated 21 Aug 2025 Contents What Child Disability Payment is Who should apply for Child Disability Payment What you need to apply How to apply for Child Disability Payment After you apply for Child Disability Payment Decision about your application Payments Extra support with costs Child Disability Payment helps with the extra costs a disabled child might have. You can apply for children under 16 with a physical or mental disability. You can also apply if the child does not have a diagnosis. You can tell Social Security Scotland about: how they're affected any symptoms they have Child Disability Payment is tax-free and made up of a care component and a mobility component. A child's care and mobility needs can include physical or non-physical difficulties such as: emotional behavioural mental developmental learning Care component There are 3 payment rates for the care component. Children 3 months old or older can get the care component. Lowest The weekly rate is £30.30. It's for a child who, because of their physical or mental disability, either: needs help from another person, for much of the day, to manage their bodily functions is 16 or older and cannot prepare a cooked meal Middle The weekly rate is £76.70. It's for a child who, because of their physical or mental disability, either: needs help from somebody throughout the day to support with their bodily functions needs help from somebody throughout the night to support with their bodily functions needs supervised throughout the day to avoid danger to themselves or others needs supervised throughout the night to avoid danger to themselves or others gets renal dialysis treatment, during the day or at night, at least twice a week Highest The weekly rate is £114.60. It's for a child, who because of their physical or mental disability, either: needs help from somebody throughout the day and night to support with their bodily functions needs supervised throughout the day and night to avoid danger to themselves or others gets renal dialysis treatment, during the day and at night, at least twice a week has a terminal illness If a child has a terminal illness they will get the care component from birth. Children getting the highest care component rate also get Child Winter Heating Payment. Mobility component There are 2 payment rates for the mobility component. Children 3 or older can qualify for the mobility component Lower This is a weekly rate of £30.30. It's for a child who: is 5 or older can walk, but needs help from another person to move around outdoors Higher This is a weekly rate of £80. It's for a child who is 3 or older and either: unable to walk unable to walk outdoors whose health would get worse from walking has no legs or feet has a severe visual disability is blind and deaf has a severe mental disability with severe behavioural difficulties has a terminal illness You can apply to lease an accessible vehicle if the child gets the higher rate mobility payment. Warning You may have got an email from Social Security Scotland about the annual increase to your Child Disability Payment. If you need more information, contact Social Security Scotland . Who should apply for Child Disability Payment Related content Webchat, phone or post Contact from Social Security Scotland Disability and illness Financial help if you have a disabled child Help with benefits Who automatically qualifies for a Blue Badge Thanks for your feedback
+
+--- SOURCE 1 (LINKED): https://www.mygov.scot/child-winter-heating-payment ---
+Child Winter Heating Payment Overview Last updated 10 Aug 2026 Contents Overview Who can get Child Winter Heating Payment If you need to contact Social Security Scotland Child Winter Heating Payment used to be called Child Winter Heating Assistance. Child Winter Heating Payment is a benefit from the Scottish Government. It was first paid in 2020. It’s a payment to help disabled children and young people and their families with increased heating costs over winter. It’s paid once a year from October and through the winter. This does not depend on how cold it is. The current payment is £265.50. Who can get Child Winter Heating Payment Related content Children and family Payments, grants and discounts to help with energy bills Thanks for your feedback
+
+--- SOURCE 2 (LINKED): https://www.mygov.scot/lease-accessible-vehicles ---
+Apply to lease an accessible vehicle Last updated 24 Mar 2025 The Accessible Vehicles and Equipment Scheme helps disabled people to lease a range of vehicles including: cars scooters powered wheelchairs specially adapted vehicles How it works When you lease a vehicle through the scheme, it will be with our authorised provider, Motability Operations Ltd. Social Security Scotland will help you pay the lease using all or part of either: your higher rate mobility component of Child Disability Payment your enhanced rate mobility component of Adult Disability Payment your higher rate mobility component of Scottish Adult Disability Living Allowance (Scottish Adult DLA) You can find more information about the scheme on the Motability website . Who can apply Applying to lease a vehicle for yourself You can apply to lease a vehicle yourself if you meet all of the following: you get either the: higher rate mobility component of Child Disability Payment enhanced rate mobility component of Adult Disability Payment higher rate mobility component of Scottish Adult DLA you're 16 or over you're able to manage your own payments you have at least 12 months until your next scheduled review, or you have an indefinite award Applying to lease a vehicle on someone’s behalf You may be able to apply to lease a vehicle on behalf of someone else. This might be an option if you're either: a parent or guardian of a child receiving the higher rate mobility component of Child Disability Payment an appointee for someone who is receiving either the: higher rate mobility component of Child Disability Payment enhanced rate mobility component of Adult Disability Payment higher rate mobility component of Scottish Adult DLA How to apply To apply to lease a vehicle using the scheme, go to the Motability website where you can: choose a vehicle find a dealership When visiting a dealership, you need to present your certificate of entitlement. You'll find this included in your Child Disability Payment or Adult Disability Payment decision award letter. If your benefit is moving to Scottish Adult DLA, Social Security Scotland will send you your certificate of entitlement up to 5 days after your benefit has moved. Related content Child Disability Payment Adult Disability Payment Extra support if you get a disability payment How to find out what benefits you can claim Financial help if you have a disabled child Thanks for your feedback
+
+--- SOURCE 3 (LINKED): https://www.mygov.scot/contact-social-security-scotland ---
+Webchat, phone or post Last updated 27 Feb 2026 You can contact Social Security Scotland by post, webchat, or on our freephone number from any phone. By webchat You can contact Social Security Scotland on webchat between 8am to 5pm, Monday to Friday (except for bank holidays): for general enquiries to check the progress of your application to let us know something's changed with your application You can make a new application using the links below. Social Security Scotland can answer your questions quicker if they know your National Insurance number. They'll never ask for your bank details through webchat. By phone Freephone: 0800 182 2222 between 8am to 5pm, Monday to Friday (except for bank holidays). If you cannot call 0800 numbers from your mobile phone, you can call Social Security Scotland for free from any payphone or landline. If you're a British Sign Language user, use Contact Scotland BSL to contact Social Security Scotland by video call. If calling from outside the UK, call +44 (0)1382 931 000. This number is not free but you can ask Social Security Scotland to call you back. You should check with your phone provider to find out about any charges. Stay safe on the phone Social Security Scotland will never phone you to take a payment. If you're not sure it is them calling, end the call and contact them on 0800 182 2222. They'll tell you if the call was from them. By post Social Security Scotland General Enquiries PO Box 10301 Dundee DD1 9FY Tell us about a change Report a change in your life, such as a new address . If you want to apply for Adult Disability Payment Apply for Adult Disability Payment . If you want to apply for Best Start Grant or Best Start Foods Apply for Best Start Grant or Best Start Foods . If you want to apply for Carer Support Payment Apply for Carer Support Payment. If you want to apply for Child Disability Payment Apply for Child Disability Payment . If you want to apply for the Funeral Support Payment Apply for the Funeral Support Payment . If you want to apply for Job Start Payment Apply for Job Start Payment . If you want to apply for Pension Age Disability Payment Apply for Pension Age Disability Payment . If you want to find out more about Scottish Adult Disability Living Allowance You cannot apply for Scottish Adult DLA. Scottish Adult DLA is replacing DLA for adults in Scotland. Find out more about Scottish Adult DLA . If you want to apply for Young Carer Grant Apply for Young Carer Grant . If you want to give feedback You can give feedback to tell Social Security Scotland that they: do something well need to improve something If something goes wrong, or you're unhappy with their service, they'll work with you to fix it. Complaints Complain about Social Security Scotland . Related content Contact from Social Security Scotland Your change in circumstances Thanks for your feedback
+
+--- SOURCE 4 (FOUND): https://www.mygov.scot/child-disability-payment/applicants ---
+Child Disability Payment Who should apply for Child Disability Payment Last updated 21 Aug 2025 Contents What Child Disability Payment is Who should apply for Child Disability Payment What you need to apply How to apply for Child Disability Payment After you apply for Child Disability Payment Decision about your application Payments Extra support with costs Any adult with parental responsibilities and rights or a guardian can apply for Child Disability Payment on behalf of the child if the child: is under 16 lives in Scotland You cannot receive Disability Living Allowance for children and Child Disability Payment at the same time. If you’ve moved to Scotland from England, Wales or Northern Ireland Show this section Social Security Scotland can help you get everything you’re entitled to. Read this Moving to Scotland guide to find out what you need to do to reduce any risk of disruption to your benefits. If you are under 16 and applying for yourself We would need to look at your application and circumstances to understand whether you can manage your benefit yourself. We may need to ask you some more questions and might ask people who know you best what they think. If the child does not live in Scotland You can still apply if the child both: lives in the EEA, Switzerland or Gibraltar has a genuine and sufficient link to Scotland (for example, you or an immediate family member have spent a significant part of their life in Scotland) Social Security Scotland will also need to make sure that the UK is the competent state to pay the child’s benefits. Find out more about children currently living in an EEA country, Switzerland or Gibraltar . If the child does not have a genuine and sufficient link to Scotland If you live in the EEA or Switzerland you may be eligible for Disability Living Allowance (DLA) for children. Find out more about DLA . You may also be eligible for Northern Ireland’s DLA. Find out more about DLA in Northern Ireland . If you do not have parental responsibilities and rights for the child You can still apply, if the child is not living with a parent or guardian. The parent or guardian must also: not want to manage Child Disability Payment for the child not be able to do this You must agree for Social Security Scotland to name you as the child’s appointee to manage their Child Disability Payment. If the child is terminally ill Anyone can apply for the child as long as they: tell the person with parental rights and responsibilities, guardian, or appointee if there is one, that they’re applying for them get consent from the child’s parent, guardian or appointee to do so Find out more about applying when a child is terminally ill . What Child Disability Payment is What you need to apply Related content Webchat, phone or post Contact from Social Security Scotland Disability and illness Financial help if you have a disabled child Help with benefits Who automatically qualifies for a Blue Badge Thanks for your feedback

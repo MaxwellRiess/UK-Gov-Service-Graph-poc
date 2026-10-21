@@ -1,0 +1,14 @@
+{
+  "fields": [
+    {"key":"evidence_0","claims":[
+      {"claim":"Applicants must provide details of the chemicals.","verdict":"partly_supported","quote":"Domestic precursor licences and registrations specify the substances within the category which you are permitted to handle.","source":1,"note":"The licence specifies substances, but the text does not explicitly list chemical details among documents required from an applicant."},
+      {"claim":"Applicants must provide the chemicals' intended use.","verdict":"partly_supported","quote":"Regulations require that operators who supply category 1 substances are required to obtain a declaration from the end-user specifying the intended use of that substance.","source":1,"note":"An end-user declaration records intended use for Category 1 supply, but the text does not require it for every domestic licence application."}
+    ]},
+    {"key":"evidence_1","claims":[
+      {"claim":"Applicants must provide the responsible officer's identity credentials.","verdict":"supported","quote":"a valid Disclosure and Barring Service (completed via Security Watchdog) reference number and date of issue for the responsible officer and guarantor","source":1,"note":"The application checklist requires a DBS reference and issue date for the responsible officer."},
+      {"claim":"Applicants must provide the responsible officer's competence credentials.","verdict":"partly_supported","quote":"a certificate of good conduct for the responsible officer","source":1,"note":"A good-conduct certificate is required and competence is assessed, but the source does not specify a competence credential."}
+    ]}
+  ],
+  "methods_on_page":["online","phone"],
+  "sign_in_on_page":null
+}

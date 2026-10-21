@@ -1,0 +1,84 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply online",
+          "verdict": "supported",
+          "quote": "To apply online, start the application through myaccount.",
+          "source": 2,
+          "note": "The source gives an online application route."
+        },
+        {
+          "claim": "You can apply by phone",
+          "verdict": "supported",
+          "quote": "You can call Social Security Scotland by phone to start an application for a child.",
+          "source": 2,
+          "note": "A phone call starts the application."
+        },
+        {
+          "claim": "You can apply by post",
+          "verdict": "supported",
+          "quote": "They'll then send you a paper application to complete and return in a prepaid envelope.",
+          "source": 2,
+          "note": "The paper application is returned by post after a phone call."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The child must live in Scotland",
+          "verdict": "contradicted",
+          "quote": "If the child does not live in Scotland You can still apply if the child both: lives in the EEA, Switzerland or Gibraltar has a genuine and sufficient link to Scotland",
+          "source": 3,
+          "note": "Some children outside Scotland can apply."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Medical evidence of the child’s disability or condition is required",
+          "verdict": "partly_supported",
+          "quote": "You need to provide a document from a professional that confirms the child’s conditions, disability or needs. It does not need to include a diagnosis.",
+          "source": 4,
+          "note": "A professional document is required, but it need not be medical evidence or include a diagnosis."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "GP or consultant reports are required",
+          "verdict": "partly_supported",
+          "quote": "This can be either: a letter from a professional an official document, such as a prescription list, letter from the child’s school, or a letter about an assessment or appointment",
+          "source": 4,
+          "note": "The source allows different professional documents and does not require a GP or consultant report."
+        }
+      ]
+    },
+    {
+      "key": "exclusion_1",
+      "claims": [
+        {
+          "claim": "A child who does not live in Scotland is excluded",
+          "verdict": "contradicted",
+          "quote": "If the child does not live in Scotland You can still apply if the child both: lives in the EEA, Switzerland or Gibraltar has a genuine and sufficient link to Scotland",
+          "source": 3,
+          "note": "Some children outside Scotland can still apply."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": "myaccount"
+}

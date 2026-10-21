@@ -1,0 +1,268 @@
+{
+  "other-tv-licence-pension#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:tvlicensing.co.uk free TV Licence age 75 Pension Credit award letter date of birth evidence apply",
+      "site:tvlicensing.co.uk \"free TV Licence\" \"Pension Credit award letter\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "other-tv-licence-pension#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:tvlicensing.co.uk \"free TV Licence\" \"date of birth\" \"Pension Credit\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.tvlicensing.co.uk/privacy-security-policies?rendermode=preview%2F1000",
+        "why": "The licensing body lists “your date of birth” among information collected for a free licence, but does not require documentary confirmation."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "other-warm-home-discount#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk Warm Home Discount Scotland apply online broader group benefit confirmation letter",
+      "site:ofgem.gov.uk warm home discount broader group apply online supplier"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "other-warm-home-discount#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk Warm Home Discount Scotland apply online broader group benefit confirmation letter",
+      "site:ofgem.gov.uk \"Broader Group\" \"benefit confirmation letter\""
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "pins-planning-appeal#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk appeal planning decision Scotland Wales England planning inspectorate only England",
+      "site:gov.wales appeal planning decision Wales Planning Environmental Decisions Wales",
+      "site:gov.scot appeal planning decision Scotland Directorate Planning Environmental Appeals"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/planning-appeals-procedural-guide/procedural-guide-planning-appeals-england",
+        "why": "The Planning Inspectorate guide explicitly says “Applies to England” for the appeal a planning decision service."
+      },
+      {
+        "url": "https://www.gov.wales/appeal-planning-decision",
+        "why": "Welsh guidance says “Planning and Environment Decisions Wales will check your appeal”."
+      },
+      {
+        "url": "https://www.gov.scot/policies/planning-environmental-appeals/appealing-decisions-orders-notices/",
+        "why": "Scottish Government guidance directs planning appeals through its e-planning portal, email or post."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "slc-childcare-grant#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:gov.uk \"Childcare Grant\" \"proof\" \"full-time\"",
+      "site:gov.uk student finance proof enrolment university confirms attendance"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "slc-childcare-grant#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk \"Childcare Grant\" \"registration number\" provider",
+      "site:gov.uk \"Childcare Grant\" \"childcare provider\" \"details\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/guidance/getting-paid-as-a-childcare-provider",
+        "why": "The student must link the childcare provider’s details in CCGPS, and the provider must provide an Ofsted registration certificate."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "slc-childcare-grant#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:gov.uk \"Childcare Grant\" \"receipts\"",
+      "site:studentfinance.campaign.gov.uk childcare grant receipts evidence"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/guidance/getting-paid-as-a-childcare-provider",
+        "why": "The provider is paid when “the student accepts your invoice”, showing a cost record but not applicant receipts."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "slc-childcare-grant#eligibility.evidenceRequired.3": {
+    "queries": [
+      "site:gov.uk \"Childcare Grant\" \"household income\" \"proof\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/apply-for-student-finance/household-income",
+        "why": "The student finance application says Childcare Grant applicants must provide household income and household members might need to provide evidence."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "slc-student-finance#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:gov.uk student finance how apply proof identity passport national insurance number offer letter enrollment",
+      "Student Finance Wales proof of identity valid UK passport application site:studentfinancewales.co.uk",
+      "site:nidirect.gov.uk student finance proof identity passport national insurance number"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/apply-for-student-finance/proof-of-identity",
+        "why": "Student Finance England asks online applicants to give valid passport details as proof of identity."
+      },
+      {
+        "url": "https://www.studentfinancewales.co.uk/forms/undergraduate-full-time/",
+        "why": "Student Finance Wales accepts a passport number to confirm identity."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/completing-your-student-finance-application",
+        "why": "Student Finance NI accepts valid UK passport details to prove identity."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "slc-student-finance#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:gov.uk student finance \"offer letter\" \"proof\" course",
+      "site:studentfinance.campaign.gov.uk \"offer letter\" application"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "slc-student-finance#eligibility.evidenceRequired.3": {
+    "queries": [
+      "site:gov.uk student finance how apply proof identity passport national insurance number offer letter enrollment",
+      "site:nidirect.gov.uk student finance proof identity passport national insurance number"
+    ],
+    "urls": [
+      {
+        "url": "https://studentfinance.campaign.gov.uk/help-applying/",
+        "why": "Student Finance England says “You’ll need your National Insurance number when you apply.”"
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/national-insurance-numbers",
+        "why": "Northern Ireland guidance says a National Insurance number is not needed to apply for a student loan; this limits the UK-wide claim."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-adult-disability-payment#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.scot adult disability payment \"State Pension age\" \"16\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/5/",
+        "why": "Scottish Government says new Adult Disability Payment applicants are “aged between 16 and state pension age (subject to some exceptions)”."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-adult-disability-payment#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:mygov.scot/adult-disability-payment \"supporting information\" \"health\" \"daily\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/adult-disability-payment/what-you-need",
+        "why": "Applicants need a document from a professional confirming conditions, disability or needs, with a GP letter among examples."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-adult-disability-payment#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:mygov.scot/adult-disability-payment \"supporting information\" \"health\" \"daily\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/adult-disability-payment/what-you-need",
+        "why": "Part 2 asks about the condition and how it affects self-care, understanding and communication."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-adult-disability-payment#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:mygov.scot/adult-disability-payment \"GP\" \"contact\" \"apply\"",
+      "site:mygov.scot/adult-disability-payment \"consultant\" \"details\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/adult-disability-payment/what-you-need",
+        "why": "The page says a GP letter is one example of professional supporting information, but does not explicitly require GP or consultant contact details."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-best-start-foods#eligibility.criteria.1": {
+    "queries": [
+      "site:mygov.scot best start foods qualifying benefits housing benefit ESA JSA pension credit"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+        "why": "The Best Start Grant and Foods page lists Universal Credit, Housing Benefit, Income Support, Pension Credit, income-based JSA and income-related ESA, with under-20 exceptions."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-best-start-foods#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"benefit\"",
+      "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "sss-best-start-grant#eligibility.criteria.1": {
+    "queries": [
+      "site:mygov.scot best start grant qualifying benefits pregnancy proof residence Scotland supporting documents"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+        "why": "The Best Start Grant and Foods page lists the claimed qualifying benefits, but also gives exceptions for people under 20."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-best-start-grant#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"benefit\"",
+      "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "sss-best-start-grant#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"pregnancy\"",
+      "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+        "why": "Eligibility says applicants must be pregnant or have a child of the right age; it does not say a proof document is required."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-best-start-grant#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"address\"",
+      "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+        "why": "Eligibility says applicants must live in Scotland, but the page does not require proof of Scottish residence."
+      }
+    ],
+    "verdict_hint": "partly"
+  }
+}

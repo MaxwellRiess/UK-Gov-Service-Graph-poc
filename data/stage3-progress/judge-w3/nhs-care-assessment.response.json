@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "An adult who appears to need care and support is eligible for a needs assessment.",
+          "verdict": "supported",
+          "quote": "Where it appears to a local authority that an adult may have needs for care and support, the authority must assess",
+          "source": 4,
+          "note": "The Care Act states the assessment duty for an adult who may need care and support."
+        },
+        {
+          "claim": "The need for care and support must be due to a physical or mental condition, disability, or frailty due to age.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not prescribe these causes as a condition for assessment."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Any adult can request a care needs assessment from their local authority.",
+          "verdict": "supported",
+          "quote": "The needs assessment is free and anyone can ask for one. How to get a needs assessment Contact social services at your local council and ask for a needs assessment.",
+          "source": 5,
+          "note": "The NHS page says anyone can ask their local council for one."
+        },
+        {
+          "claim": "The care needs assessment itself is free.",
+          "verdict": "supported",
+          "quote": "The needs assessment is free and anyone can ask for one.",
+          "source": 5,
+          "note": "The NHS page explicitly says the assessment is free."
+        },
+        {
+          "claim": "The assessment is independent of the adult’s financial means.",
+          "verdict": "supported",
+          "quote": "The duty to carry out a needs assessment applies regardless of the authority's view of— &#xD; (a) the level of the adult's needs for care and support, or &#xD; (b) the level of the adult's financial resources.",
+          "source": 4,
+          "note": "The Care Act says the assessment duty applies regardless of financial resources."
+        },
+        {
+          "claim": "Resulting care may be means-tested.",
+          "verdict": "supported",
+          "quote": "If the assessment identifies you need help, you will have a financial assessment (means test) to see if the council will pay towards it.",
+          "source": 5,
+          "note": "The NHS page says there may be a financial assessment for resulting care."
+        },
+        {
+          "claim": "The assessment can lead to a care plan.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied page does not say the assessment leads to a care plan."
+        },
+        {
+          "claim": "The assessment can lead to funded support.",
+          "verdict": "supported",
+          "quote": "If the assessment identifies you need help, you will have a financial assessment (means test) to see if the council will pay towards it.",
+          "source": 5,
+          "note": "The NHS page says the council may pay toward identified support after a financial assessment."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

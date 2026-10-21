@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Social Tariff Broadband" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/other-social-tariff-broadband.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_0] (split into claims) Proof of qualifying benefit
+
+--- SOURCE 0: https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs ---
+Home Phones and broadband Cost of living and saving money Cheaper broadband and phone packages, saving money Social tariffs: Cheaper broadband and phone packages Phones and broadband Access to decent broadband Bills and charges Saving money Advice for consumers Published: 6 March 2024 Last updated: 2 October 2026 Social tariffs are cheaper broadband and phone packages for people claiming Universal Credit, Pension Credit and some other benefits. Some providers call them &lsquo;essential&rsquo; or &lsquo;basic&rsquo; broadband. They&rsquo;re delivered in the same way as normal packages, just at a lower price. Amid rising living costs, Ofcom is encouraging companies to offer social tariffs to help customers on low incomes. Take a look at our list of available tariffs: How a social tariff could help you It&#x27;s available to those on a variety of benefits. If you or someone in your household claims Universal Credit, you could switch to any of the tariffs available. It&#x27;s cheaper than a regular package. Current prices range from &pound;10 to &pound;24. Fast, unlimited broadband. Most tariffs offer superfast broadband at speeds over 30 Mbit/s &ndash; fast enough for you to keep in touch with friends and family, stream HD films or shop online. You&#x27;ll pay next-to-nothing to get set up. If you do have to pay any setup costs, these should only be small. Your provider should tell you before you sign up. It could cost nothing to switch. If your provider offers a social tariff, you can switch to it at any time, free of charge. The price won&#x27;t go up mid-contract. You won't pay any more than what you agree at the start of the contract. It costs nothing to leave. You won't pay a fee to leave the tariff before the end of your contract. Five benefits of a social broadband tariff Some providers offer cheaper broadband packages that are only available to customers on certain benefits. BT and KCOM also provide cheaper voice-only landline tariffs to eligible households. Details of these are in the BT and KCOM links below. Who could qualify If you or someone in your household claims Universal Credit, you could switch to any of the tariffs available. All major providers also include people on Pension Credit, Employment and Support Allowance, Jobseeker&rsquo;s Allowance and Income Support. Some providers might include additional benefits, like Personal Independence Payment and Attendance Allowance. The person receiving the benefit needs to be the main person on the contract. How to apply First, check if your current provider offers a social tariff. Our table below lists all of the tariffs available now. You can apply for most tariffs online, or call your provider and ask to switch. If your provider doesn&rsquo;t offer a social tariff, you can switch to one that does. Your provider might let you leave your current contract without paying a penalty fee. Read our guide to switching broadband to find out more. EnterPostcodeLabel Full list of broadband and phone social tariffs Start typing the name of a provider. The table will update as you type. A list of broadband and phone social tariffs Package Price Average speed Where it's available* 4th Utility Social Tariff &pound;13.99 a month 30 Mbit/s England BT Home Essentials No Income ** &pound;16.50 a month 36 Mbit/s UK BT Home Essentials Unlimited 36 Mbp/s &pound;22 a month 36 Mbit/s UK BT Home Essentials Unlimited 67 Mbp/s &pound;25 a month 67 Mbit/s UK Community Fibre Essential &pound;12.50 a month 35 Mbit/s England (London) Connect Fibre Essentials &pound;20 per month 150 Mbit/s England (Cambridgeshire, Essex, Nottinghamshire, Yorkshire and Derbyshire) Country Connect Social Tariff &pound;20 a month 50 Mbit/s Wales (Newport) County Broadband Essential Broadband Tariff &pound;15 per month 15 Mbit/s England (East of England) EE Basics &pound;12 a month Up to 25 Mbit/s UK FibreNest Social Tarrif &pound;14.50 a month 36 Mbit/s England, Wales and Scotland Fibrus Full Fibre Essential &pound;14.99 a month 50 Mbit/s Northern Ireland and Cumbria G.Network Essential Fibre Broadband &pound;15 a month 50 Mbit/s England (London) Gigabit IQ Connect &pound; 22.99 a month 100 Mbit/s England Hey!Broadband Everyday Fibre &pound;19 per month 100 Mbit/s England (South East England) Highland Broadband Social Tariff &pound;23.99 a month 100 Mbit/s Scotland Hyperoptic Fair Fibre Fast &pound;12 a month 50 Mbit/s England, Scotland, Wales Hyperoptic Fair Fibre Superfast &pound;13 a month 150 Mbit/s England, Scotland, Wales Hyperoptic Fair Fibre Ultrafast &pound;17 a month 500 Mbit/s England, Scotland, Wales Hyperoptic Fair Fibre Hyperfast &pound;20 a month 1Gb/s England, Scotland, Wales KCOM Full Fibre Flex &pound;14.99 a month 30 Mbit/s England (Hull) KCOM Full Fibre Flex + &pound;19.99 a month 50 Mbit/s England (Hull) Lightning Fibre Social Tariff &pound;15 a month 50 Mbit/s England (East Sussex and Kent) NOW Broadband Basics &pound;20 a month 36 Mbit/s UK O2 Essential Plan &pound;10 a month 5G where available UK Quickline Social Tariff &pound;16.50 a month 100 Mbit/s England (Yorkshire and Lincolnshire) Sky Full Fibre 75 &pound;24 a month 75 Mbps UK Sky Superfast 35 &pound;20 a month 35 Mbps UK SMARTY Social Tariff &pound;12 a month 5G where available UK toob essentials &pound;15 a month 50 Mbit/s Hampshire, Southampton, and Surrey&rsquo; Truespeed Basic &pound;20 a month 30 Mbit/s England (South West) Virgin Media Essential Broadband &pound;12.50 a month 15 Mbit/s UK Virgin Media Essential Broadband Plus &pound;20 a month 54 Mbit/s UK Vodafone Fibre 2 Essentials &pound;20 per month 80 Mbps UK VOXI For Now &pound;10 a month 5G where available UK Wildanet Helping Hand Social Tariff &pound;20 a month 50 Mbps England (Cornwall and Devon) WightFibre Essential Broadband &pound;19.95 a month 100 Mbit/s England (Isle of Wight) YouFibre Social Tariff &pound;16.99 a month 50 Mbit/s UK (various locations) * Providers might not cover all premises in the regions listed. Check the provider's website for more information about coverage, or use our broadband coverage checker . **(BT Home Essentials No Income is available to recipients of Universal Credit who have zero income). Other support might be available to customers who cannot get online. If you&rsquo;re struggling to pay your mobile phone or broadband bill, speak to your provider as soon as possible to see how they can help. Tips for cutting your costs Concerned about rising living costs, lots of people are looking at ways to save money on the services they use every day. This includes phone, broadband and pay-TV services. Take a look at our tips and saving money page to see if they could help you. You might also like to read this leaflet produced by the UK Regulators Network, a group of regulators from different sectors. The leaflet offers information about cost-of-living support and advice for people in debt. Related content Consumer Hub: On your side Advice to make the most of your communications services, and help you deal with problems. Unable to pay a bill? Don&#x2019;t agree with the charges on your bill? Find out what you need to do if you want to dispute a bill. Are you in or out of contract? Your provider must tell you when your contract is coming to an end and tell you about their best available deals. These are called end-of-contract notifications. If you&#x2019;re already out of contract, your provider must remind you every year and update you on their best deals. Rate this page Was this page helpful? Yes No What can we do to improve pages like this? Submit
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/government/news/easier-for-sky-customers-to-get-cheaper-internet-thanks-to-dwp-scheme ---
+Easier for Sky customers to get cheaper internet thanks to DWP scheme. Sky is the first national provider to help their customers access cheaper broadband by signing up to the Department for Work and Pensions scheme for benefit claimants. Sky is the first major connectivity provider to join DWP initiative making it easier for benefits claimants to get discounted broadband and mobile tariffs Automatic verification means claimants do not have to repeatedly prove their benefit claim status to access discounted social tariffs Switching to a social tariff could save claimants up to £180 a year This system makes it easier than ever for low-income families to sign up to discounted broadband which could save households as much as £180 a year compared to industry average tariffs. Introduced last summer, the government scheme lets internet service providers – with claimants’ permission – ask the DWP to automatically verify their customers’ benefit entitlement. This means people do not need to actively prove they claim benefits whilst on a tariff designed for those on low incomes, as they did previously, often as frequently as every month. Minister for Social Mobility, Youth and Progression Mims Davies said: It’s positive to see a major provider, such as Sky, sign up to our scheme, making it easier for families to access cheaper broadband and mobile tariffs in difficult times, and I call on other providers to follow suit in offering this type of tariff for those in need. Claimants who think they might be eligible for one of these tariffs, should contact their provider. This is just one of the ways we are working to help households during these tough times as part of the government’s £37 billion support package for those most in need. Do use the DWP benefits calculator, which is a helpful tool for those looking to see if they could access wider support. Stephen van Rooyen, Executive Vice President & Chief Executive Officer, Sky, UK & Europe, said: We know how important connectivity is to our customers, which is why we are focussed on ways we can support them to say online. As well as support with bills, we also provide existing, eligible customers with a broadband and mobile social tariff, helping them stay connected for a significantly reduced cost. The Department for Work and Pensions eligibility tool is a useful step forward, enabling us to more easily confirm eligibility. Sky and its subsidiary brand NOW join a growing list of providers signing up to the government initiative to help millions access cut price broadband, with WightFibre already signed up to the scheme. Before the new system was introduced, people were regularly required to verify their entitlement to providers with Jobcentre letters or screenshots of their Universal Credit account. The availability of social tariffs has been strengthened recently thanks to a drive by the Department for Digital, Culture, Media and Sport to encourage telecommunicators to expand their range of cheaper deals. Broadband social tariff take-up more than doubled in 2022 to 136,000 households and the cross-government Help for Households programme, which aims to help people with the increased cost of living, recently launched a UK-wide public awareness campaign to drive awareness and uptake further. Those in receipt of benefits interested in exploring broadband tariff options should visit Ofcom’s website to view the full list of options on offer from providers. Additional Information DWP launched its automatic entitlement checker back in August. The benefits that the DWP’s system will be able to verify entitlement for are: Universal Credit Pension Credit Income Support Income-Based Jobseeker’s Allowance Income-Related Employment Support Allowance The new system centres on customer consent, requiring internet providers to seek permission from customers before approaching DWP to verify eligibility. The Department is committed to protecting claimants’ data and the information DWP shares is strictly limited to confirming individual’s entitlement to a qualifying benefit at the time of contact. There are numerous social tariffs on offer for those receiving Universal Credit and other means tested benefits, and DWP is encouraging claimants to check their entitlement to the growing list of important services accessible at cut-price rates. Other examples include help with health costs , discounted railcards , and Healthy Start vouchers for pregnant women and young children. Anyone who thinks they could be eligible for a social tariff is urged to use an online benefit calculator , which can help people access support. For further information on help with the cost of living visit the Help for Households website . Contact Press Office Media enquiries for this press release Press Office Caxton House Tothill Street London SW1H 9NA Telephone: 0115 965 8781 Follow DWP on: Twitter Facebook LinkedIn YouTube

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:52:45.408177Z",
+  "generatedAt": "2026-10-21T21:16:38.748Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -410,21 +410,6 @@
     {
       "id": "ho-evisa-error",
       "name": "Report an error with your eVisa",
-      "field": "desc",
-      "graph": "Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Wrong conditions of stay or a wrong expiry date are examples of errors you can report.",
-          "verdict": "not_stated",
-          "note": "The text's examples are date of birth, immigration status, name and nationality. It does not mention conditions of stay or expiry dates.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "ho-evisa-error",
-      "name": "Report an error with your eVisa",
       "field": "eligibility.summary",
       "graph": "Available to any eVisa holder who has found an error in their digital immigration status. Errors should be reported promptly as they can affect right-to-work and right-to-rent checks.",
       "verdict": "partly_supported",
@@ -475,21 +460,6 @@
           "claim": "The waiver is available to people applying for British citizenship.",
           "verdict": "not_stated",
           "note": "The text never mentions British citizenship applications.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "ho-view-immigration-status",
-      "name": "View or prove your immigration status",
-      "field": "eligibility.summary",
-      "graph": "Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The service is available to non-British, non-Irish nationals.",
-          "verdict": "not_stated",
-          "note": "The text does not say anything about which nationalities are eligible.",
           "quote": null
         }
       ]
@@ -574,27 +544,6 @@
           "claim": "After bankruptcy, most remaining debts are written off.",
           "verdict": "not_stated",
           "note": "The text does not mention debts being written off.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "jaqu-clean-air-zone",
-      "name": "Check and pay Clean Air Zone charges",
-      "field": "eligibility.summary",
-      "graph": "Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Non-compliant vehicles are typically pre-Euro 6 diesel or pre-Euro 4 petrol.",
-          "verdict": "not_stated",
-          "note": "The text does not mention Euro standards or fuel types.",
-          "quote": null
-        },
-        {
-          "claim": "Charges vary by zone and vehicle type.",
-          "verdict": "not_stated",
-          "note": "The text gives no charge amounts and does not say how charges vary.",
           "quote": null
         }
       ]
@@ -885,63 +834,6 @@
       ]
     },
     {
-      "id": "lr-sign-mortgage-deed",
-      "name": "Sign your mortgage deed",
-      "field": "desc",
-      "graph": "Sign your mortgage deed electronically via HM Land Registry's digital mortgage service, replacing the need for a wet signature on a paper deed.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It replaces the need for a wet signature on a paper deed.",
-          "verdict": "not_stated",
-          "note": "The text never mentions wet signatures or paper deeds.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "lr-sign-mortgage-deed",
-      "name": "Sign your mortgage deed",
-      "field": "eligibility.summary",
-      "graph": "Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is available to borrowers buying a property.",
-          "verdict": "not_stated",
-          "note": "The text only mentions homeowners who are remortgaging and says nothing about purchases.",
-          "quote": null
-        },
-        {
-          "claim": "You need a GOV.UK One Login account to verify your identity before signing.",
-          "verdict": "not_stated",
-          "note": "The text names no account, sign-in or identity check.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "nhs-111-online",
-      "name": "NHS 111 online",
-      "field": "desc",
-      "graph": "Get urgent medical advice online or by phone when you need help fast but it is not a 999 emergency. 111 assesses your symptoms and directs you to the right service.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can get the advice by phone.",
-          "verdict": "not_stated",
-          "note": "The text mentions 'other ways to contact 111' but never names phone.",
-          "quote": null
-        },
-        {
-          "claim": "It is for when you need help fast but it is not a 999 emergency.",
-          "verdict": "not_stated",
-          "note": "The text does not mention 999 or emergencies.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "nhs-111-online",
       "name": "NHS 111 online",
       "field": "eligibility.summary",
@@ -971,21 +863,6 @@
           "verdict": "partly_supported",
           "note": "The text says it directs you to the best place, but it does not list A&E, an urgent GP visit, a pharmacy or self-care at home as outcomes.",
           "quote": "we will direct you to the best place to get help for your symptoms"
-        }
-      ]
-    },
-    {
-      "id": "nhs-111-online",
-      "name": "NHS 111 online",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "not_stated",
-          "note": "The text refers to 'other ways to contact 111' without naming phone.",
-          "quote": null
         }
       ]
     },
@@ -1286,21 +1163,6 @@
     {
       "id": "other-pupil-premium",
       "name": "Pupil Premium",
-      "field": "eligibility.summary",
-      "graph": "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Parents should still make sure the school records eligibility.",
-          "verdict": "not_stated",
-          "note": "The text gives no advice to parents about making sure eligibility is recorded.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "other-pupil-premium",
-      "name": "Pupil Premium",
       "field": "eligibility.autoQualifiers.0",
       "graph": "Free School Meals eligibility confirmed — school receives funding automatically",
       "verdict": "partly_supported",
@@ -1367,21 +1229,6 @@
           "verdict": "partly_supported",
           "note": "Many listed schemes target SMEs, start-ups, sectors or regions, but the page never says 'most' do, and many are aimed at particular regions instead.",
           "quote": "Loan fund for SMEs in the manufacturing supply chain who are looking for investment to grow and support job creation."
-        }
-      ]
-    },
-    {
-      "id": "voa-business-rates",
-      "name": "Check and challenge business rates",
-      "field": "desc",
-      "graph": "Check your business property's rateable value and challenge it if incorrect through the Check, Challenge and Appeal process.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The challenge is made through the Check, Challenge and Appeal process.",
-          "verdict": "not_stated",
-          "note": "The text never names a 'Check, Challenge and Appeal' process.",
-          "quote": null
         }
       ]
     },
@@ -5049,21 +4896,6 @@
       ]
     },
     {
-      "id": "hmrc-tax-credits",
-      "name": "Tax credits (ended April 2025)",
-      "field": "eligibility.exclusions.0",
-      "graph": "New claimants must use Universal Credit — Tax Credits is closed to new applications",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Tax credits are closed to new applications and new claimants must use Universal Credit.",
-          "verdict": "partly_supported",
-          "note": "The page supports that new claims are closed, but it says people may be able to get Universal Credit or Pension Credit, not that new claimants must use Universal Credit.",
-          "quote": "You cannot make a new claim for Child Tax Credit or Working Tax Credit. You may be able to get Universal Credit or Pension Credit instead."
-        }
-      ]
-    },
-    {
       "id": "hmrc-tax-on-pension",
       "name": "Income tax on pension",
       "field": "agentInteraction.methods",
@@ -7436,21 +7268,6 @@
     {
       "id": "sss-best-start-foods",
       "name": "Best Start Foods",
-      "field": "eligibility.summary",
-      "graph": "Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit. Some families with no access to public funds can also get it.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You must receive a qualifying benefit to get it.",
-          "verdict": "not_stated",
-          "note": "The source text does not include a requirement to receive a qualifying benefit; the 'Who should apply' section is not in it.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-foods",
-      "name": "Best Start Foods",
       "field": "agentInteraction.methods",
       "graph": "You can apply or do this online. You can apply or do this by phone.",
       "verdict": "partly_supported",
@@ -7459,42 +7276,6 @@
           "claim": "You can apply by phone.",
           "verdict": "not_stated",
           "note": "The phone number is given for enquiries and for bank details, not for applying.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "desc",
-      "graph": "Three one-off payments for families on qualifying benefits in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payments are for families on qualifying benefits.",
-          "verdict": "not_stated",
-          "note": "The text does not say which benefits, if any, you need to be getting.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "eligibility.summary",
-      "graph": "Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school. Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payments are for parents on qualifying benefits.",
-          "verdict": "not_stated",
-          "note": "The text does not mention any qualifying benefits.",
-          "quote": null
-        },
-        {
-          "claim": "Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.",
-          "verdict": "not_stated",
-          "note": "Neither the service page nor the linked Scottish Child Payment page says these payments are made automatically.",
           "quote": null
         }
       ]
@@ -7647,48 +7428,6 @@
       ]
     },
     {
-      "id": "sss-child-winter-heating",
-      "name": "Child Winter Heating Payment",
-      "field": "desc",
-      "graph": "£265.50 a year, paid from October, to help disabled children and young people in Scotland and their families with winter heating costs. Automatic — no application needed. Formerly Child Winter Heating Assistance.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It helps disabled children and young people in Scotland and their families with winter heating costs.",
-          "verdict": "partly_supported",
-          "note": "The purpose is stated, but the text never says the children must be in Scotland; it only says this is a Scottish Government benefit.",
-          "quote": "It’s a payment to help disabled children and young people and their families with increased heating costs over winter."
-        },
-        {
-          "claim": "It is paid automatically and no application is needed.",
-          "verdict": "partly_supported",
-          "note": "The text says most people do not need to apply, not that no one needs to.",
-          "quote": "Most people do not need to apply. You’ll get this payment automatically if you qualify."
-        }
-      ]
-    },
-    {
-      "id": "sss-child-winter-heating",
-      "name": "Child Winter Heating Payment",
-      "field": "eligibility.summary",
-      "graph": "Annual payment of £265.50 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is for children in Scotland who get the highest rate of the care component of Child Disability Payment (or DLA).",
-          "verdict": "not_stated",
-          "note": "The text never says what the eligibility criteria are.",
-          "quote": null
-        },
-        {
-          "claim": "It is paid automatically and no application is required.",
-          "verdict": "partly_supported",
-          "note": "The text says most people do not need to apply, not that no one does.",
-          "quote": "Most people do not need to apply. You’ll get this payment automatically if you qualify."
-        }
-      ]
-    },
-    {
       "id": "sss-funeral-support-payment",
       "name": "Funeral Support Payment",
       "field": "desc",
@@ -7699,27 +7438,6 @@
           "claim": "You can apply up to 6 months after the funeral.",
           "verdict": "partly_supported",
           "note": "The 6-month limit is only given in the part about stillborn babies or babies who died shortly after birth, not as a general rule for every applicant.",
-          "quote": "You must claim within 6 months of date of the funeral."
-        }
-      ]
-    },
-    {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "field": "eligibility.summary",
-      "graph": "Help with funeral costs in Scotland for people on qualifying benefits. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is for people on qualifying benefits.",
-          "verdict": "partly_supported",
-          "note": "The text mentions low income but never says you must be on qualifying benefits.",
-          "quote": "Funeral Support Payment – help towards the cost of a funeral if you're on low income and live in Scotland"
-        },
-        {
-          "claim": "You can apply from the death until 6 months after the funeral.",
-          "verdict": "partly_supported",
-          "note": "The 6-month limit appears only for the baby case, and the text never says applications can start from the date of death.",
           "quote": "You must claim within 6 months of date of the funeral."
         }
       ]
@@ -8801,21 +8519,6 @@
     {
       "id": "dwp-uc-health",
       "name": "UC limited capability element",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Fit note from GP (SC1 or equivalent)",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The fit note is form SC1 or an equivalent.",
-          "verdict": "not_stated",
-          "note": "The sources never mention form SC1.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dwp-uc-health",
-      "name": "UC limited capability element",
       "field": "eligibility.evidenceRequired.2",
       "graph": "Assessment appointment with health professional",
       "verdict": "partly_supported",
@@ -9098,6 +8801,1395 @@
           "verdict": "not_stated",
           "note": "The text says IHT400 is downloaded, can be filled in on screen and printed, and is sent to the address on the form; it never says the return can be submitted online.",
           "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-marriage-allowance",
+      "name": "Marriage Allowance",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Government Gateway account for the lower earner to apply",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A Government Gateway account is needed to apply for Marriage Allowance.",
+          "verdict": "partly_supported",
+          "note": "The text says you need to sign in to apply online but does not name Government Gateway as the sign-in.",
+          "quote": "You’ll need to sign in to use this service. If you do not already have sign in details, you’ll be able to create them."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-paye",
+      "name": "Register as employer (PAYE)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Date of first payday",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need the date of your first payday to register as an employer.",
+          "verdict": "partly_supported",
+          "note": "The text ties registration timing to the first payday but does not say the date of the first payday is information you must provide.",
+          "quote": "You must register before the first payday to get your employer PAYE reference number."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-sdlt",
+      "name": "Stamp Duty Land Tax return",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "partly_supported",
+          "note": "Online filing is described only for representatives (solicitors, agents, conveyancers); unrepresented buyers must use the paper SDLT1 return.",
+          "quote": "If you’re filing a return on behalf of your client, you should do this online."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-smp",
+      "name": "Statutory Maternity Pay",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for Statutory Maternity Pay by phone.",
+          "verdict": "not_stated",
+          "note": "The text says you claim SMP by telling your employer and giving notice and proof of pregnancy, but never says you can do this by phone; the phone numbers given are for disputes.",
+          "quote": null
+        },
+        {
+          "claim": "You can apply for Statutory Maternity Pay by post.",
+          "verdict": "partly_supported",
+          "note": "The text says notice may be given to your employer in writing, but does not say you can apply by post.",
+          "quote": "You must give them at least 28 days’ notice (in writing if they ask for it) and proof that you’re pregnant."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-spl",
+      "name": "Shared Parental Leave & Pay",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "SPLIT forms",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "SPLIT forms are needed to apply.",
+          "verdict": "partly_supported",
+          "note": "The source mentions optional Acas Shared Parental Leave forms; 'SPLIT' in the source refers to in-touch work days, not forms.",
+          "quote": "You can use Shared Parental Leave forms and templates created by Acas to: give your employer notice that you plan to take SPL and ShPP"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-starter-checklist",
+      "name": "PAYE Starter Checklist",
+      "field": "eligibility.exclusions.1",
+      "graph": "Self-employed (not subject to PAYE)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Self-employed people are not covered by the starter checklist.",
+          "verdict": "partly_supported",
+          "note": "The text says the checklist is for employees starting a new job, which implies self-employed work is not covered, but it never states that self-employed people are excluded.",
+          "quote": "Fill in this checklist if you’re an employee starting a new job without a P45"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-free-childcare",
+      "name": "Tax-Free Childcare account",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Government Gateway account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A Government Gateway account is needed to apply.",
+          "verdict": "partly_supported",
+          "note": "Only a single council page names a Government Gateway account; the GOV.UK list of what you need to apply does not include it and only mentions a user ID and password for signing in.",
+          "quote": "a Government Gateway account - if you do not already have one, you can set one up by using this service"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-free-childcare",
+      "name": "Tax-Free Childcare account",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Childcare provider details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Childcare provider details are needed.",
+          "verdict": "partly_supported",
+          "note": "The text says to check your provider is signed up before applying, but childcare provider details are not in the list of what you need to apply.",
+          "quote": "Before you apply, you’ll need to check with your provider that they’re already signed up."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-on-pension",
+      "name": "Income tax on pension",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "State Pension confirmation letter",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A State Pension confirmation letter is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text says your State Pension letter from DWP shows the amounts used to work out taxable State Pension, but does not say the letter must be provided as evidence.",
+          "quote": "These amounts are shown on your State Pension letter from the Department for Work and Pensions ( DWP )."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-update-records",
+      "name": "Update HMRC records",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Marriage certificate or deed poll if name change",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A marriage certificate is needed as evidence when you change your name.",
+          "verdict": "partly_supported",
+          "note": "A marriage certificate is listed as evidence HMRC may accept when it asks you to prove personal details showing your date of birth, but the text does not say it is needed to report a name change.",
+          "quote": "marriage certificate"
+        },
+        {
+          "claim": "A deed poll is needed as evidence when you change your name.",
+          "verdict": "not_stated",
+          "note": "The text does not mention a deed poll.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-update-records",
+      "name": "Update HMRC records",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Government Gateway account or Personal Tax Account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need a Government Gateway account to update your HMRC records.",
+          "verdict": "partly_supported",
+          "note": "The text says you need to sign in but does not name Government Gateway.",
+          "quote": "Tell HMRC your name has changed . You’ll need to sign in. If you do not already have sign in details you’ll be able to create them."
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-ceremony",
+      "name": "Citizenship ceremony",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Photographic identification",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Photographic identification is needed for the citizenship ceremony.",
+          "verdict": "partly_supported",
+          "note": "Only one council's page (Wandsworth) asks for photo ID; the GOV.UK page says only that you must take your invitation.",
+          "quote": "Photo ID (your passport or photo driving licence)"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-spouse",
+      "name": "British citizenship (spouse / civil partner)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of spouse's British citizenship",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of the spouse's British citizenship is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text requires the partner to be a British citizen but does not say you must provide proof of their citizenship.",
+          "quote": "are married to, or in a civil partnership with, someone who is a British citizen"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-spouse",
+      "name": "British citizenship (spouse / civil partner)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "ILR/settled status document or eVisa evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An ILR or settled status document, or eVisa evidence, is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text requires ILR or settled status but does not say you must provide a document or eVisa evidence of it.",
+          "quote": "You can apply as soon as you have one of the following: indefinite leave to remain ( ILR ) in the UK ‘settled status’"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-spouse",
+      "name": "British citizenship (spouse / civil partner)",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "Marriage or civil partnership certificate",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A marriage or civil partnership certificate is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text requires marriage or civil partnership but does not mention providing a certificate.",
+          "quote": "are married to, or in a civil partnership with, someone who is a British citizen"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship",
+      "name": "British citizenship (naturalisation)",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "ILR/settled status document or eVisa evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The evidence of status can be an eVisa.",
+          "verdict": "not_stated",
+          "note": "The citizenship sources do not mention eVisas as evidence; eVisas appear only on the linked Returning Resident page, a different service.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship",
+      "name": "British citizenship (naturalisation)",
+      "field": "eligibility.evidenceRequired.4",
+      "graph": "Form AN",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You apply using Form AN.",
+          "verdict": "partly_supported",
+          "note": "The guidance says Form AN is used for postal applications, while applications should normally be submitted online.",
+          "quote": "If you live in the Channel Islands, Isle of Man or a British Overseas Territory, or if you live elsewhere and want to apply by post you can use Form AN ."
+        }
+      ]
+    },
+    {
+      "id": "ho-euss-enquiry",
+      "name": "EUSS status enquiry",
+      "field": "eligibility.summary",
+      "graph": "Available to EU, EEA and Swiss nationals (and their family members) who have issues with their EUSS application or settled/pre-settled status, such as a certificate of application not arriving, needing to update personal details, or status not showing correctly.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is available to EU, EEA and Swiss nationals and their family members.",
+          "verdict": "not_stated",
+          "note": "The contact pages do not say who can use the enquiry service; the EUSS guidance describes who can apply to the scheme, not who can make enquiries.",
+          "quote": null
+        },
+        {
+          "claim": "It is for people who have issues with their EUSS application or settled/pre-settled status.",
+          "verdict": "partly_supported",
+          "note": "The text describes a general tool to get help from UKVI but does not mention EUSS applications or settled/pre-settled status.",
+          "quote": "contact details for the right UKVI team to support you"
+        },
+        {
+          "claim": "Issues include a certificate of application not arriving.",
+          "verdict": "not_stated",
+          "note": "The text says you receive a certificate of application by post or email but does not mention enquiring when it does not arrive.",
+          "quote": null
+        },
+        {
+          "claim": "Issues include needing to update personal details.",
+          "verdict": "not_stated",
+          "note": "The text does not mention updating personal details.",
+          "quote": null
+        },
+        {
+          "claim": "Issues include status not showing correctly.",
+          "verdict": "not_stated",
+          "note": "The text does not mention status not showing correctly.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-evisa-error",
+      "name": "Report an error with your eVisa",
+      "field": "desc",
+      "graph": "Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Wrong conditions of stay on the eVisa is an error you can report.",
+          "verdict": "partly_supported",
+          "note": "The text gives wrong immigration status as an example but does not name conditions of stay specifically.",
+          "quote": "your eVisa details are wrong - for example it’s showing the wrong date of birth or immigration status"
+        },
+        {
+          "claim": "A wrong expiry date on the eVisa is an error you can report.",
+          "verdict": "not_stated",
+          "note": "The text does not mention a wrong expiry date as an error to report.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-ilr",
+      "name": "Indefinite Leave to Remain",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Passport(s) covering entire qualifying period",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The passports must cover the entire qualifying period.",
+          "verdict": "partly_supported",
+          "note": "The text asks for all passports held during your time in the UK on the long residence and bereaved partner routes, but does not state this as a rule for every ILR route or tie it to the qualifying period.",
+          "quote": "all the passports you’ve held during your time in the UK"
+        }
+      ]
+    },
+    {
+      "id": "ho-ilr",
+      "name": "Indefinite Leave to Remain",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of continuous residence (payslips, bank statements, tenancy agreements)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need to provide proof of continuous residence.",
+          "verdict": "not_stated",
+          "note": "The text explains what continuous residence is but does not say you must provide documents proving it.",
+          "quote": null
+        },
+        {
+          "claim": "Payslips, bank statements and tenancy agreements are accepted as proof.",
+          "verdict": "partly_supported",
+          "note": "Bank statements and tenancy agreements are listed only as proof of living with a partner on the bereaved partner route, and payslips only as proof of financial requirements on the Scale-up route, not as proof of continuous residence.",
+          "quote": "bank statements and letters letters from a government department letters about your TV Licence tenancy agreements"
+        }
+      ]
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "field": "eligibility.exclusions.1",
+      "graph": "Significant property ownership — bankruptcy trustee may sell assets",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Owning significant property is a reason bankruptcy may not be suitable.",
+          "verdict": "partly_supported",
+          "note": "The text warns that property may be sold, but does not present owning significant property as something that excludes you or makes bankruptcy unsuitable.",
+          "quote": "The things you own may be sold to pay for your bankruptcy and make payments towards your debts. This can sometimes include selling your home ."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-vat",
+      "name": "VAT registration",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Turnover evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Turnover evidence is needed to register for VAT.",
+          "verdict": "partly_supported",
+          "note": "The page requires turnover details and an estimate, but does not say applicants must supply supporting evidence for them.",
+          "quote": "details of your annual turnover an estimate of your taxable turnover for the next 12 months"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-vat",
+      "name": "VAT registration",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Bank account for repayments",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A bank account for repayments is needed to register for VAT.",
+          "verdict": "partly_supported",
+          "note": "The page requires bank account details at registration but does not say the account is specifically for repayments.",
+          "quote": "your business’s bank account details"
+        }
+      ]
+    },
+    {
+      "id": "ho-drug-precursor-licence",
+      "name": "Licence to possess or sell drug precursor chemicals",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Details of chemicals and their intended use",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide details of the chemicals.",
+          "verdict": "partly_supported",
+          "note": "The licence specifies substances, but the text does not explicitly list chemical details among documents required from an applicant.",
+          "quote": "Domestic precursor licences and registrations specify the substances within the category which you are permitted to handle."
+        },
+        {
+          "claim": "Applicants must provide the chemicals' intended use.",
+          "verdict": "partly_supported",
+          "note": "An end-user declaration records intended use for Category 1 supply, but the text does not require it for every domestic licence application.",
+          "quote": "Regulations require that operators who supply category 1 substances are required to obtain a declaration from the end-user specifying the intended use of that substance."
+        }
+      ]
+    },
+    {
+      "id": "ho-drug-precursor-licence",
+      "name": "Licence to possess or sell drug precursor chemicals",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Identity and competence credentials of the responsible officer",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide the responsible officer's competence credentials.",
+          "verdict": "partly_supported",
+          "note": "A good-conduct certificate is required and competence is assessed, but the source does not specify a competence credential.",
+          "quote": "a certificate of good conduct for the responsible officer"
+        }
+      ]
+    },
+    {
+      "id": "ho-view-immigration-status",
+      "name": "View or prove your immigration status",
+      "field": "eligibility.summary",
+      "graph": "Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is available to non-British, non-Irish nationals.",
+          "verdict": "partly_supported",
+          "note": "The page describes eligible immigration statuses but does not state non-British and non-Irish nationality as the boundary.",
+          "quote": "Who can use this service You can use this service to access an eVisa if you have: any visa for the UK (England, Scotland, Wales or Northern Ireland) settlement in the UK"
+        }
+      ]
+    },
+    {
+      "id": "ho-visa",
+      "name": "Visa / leave to enter",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Valid passport",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A valid passport is needed for a visa application.",
+          "verdict": "partly_supported",
+          "note": "The guide says a valid passport or travel document is usually needed, so a passport is not an unconditional requirement.",
+          "quote": "usually have a valid passport or travel document"
+        }
+      ]
+    },
+    {
+      "id": "ho-visa",
+      "name": "Visa / leave to enter",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Financial evidence (sufficient funds)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Financial evidence showing sufficient funds is needed for a visa application.",
+          "verdict": "partly_supported",
+          "note": "The Student visa page supports this for some applicants, but it does not establish a requirement for every visa route.",
+          "quote": "proof you have enough money to support yourself and pay for your course - this will vary depending on your circumstances"
+        }
+      ]
+    },
+    {
+      "id": "jaqu-clean-air-zone",
+      "name": "Check and pay Clean Air Zone charges",
+      "field": "eligibility.summary",
+      "graph": "Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Charges vary by zone and vehicle type.",
+          "verdict": "partly_supported",
+          "note": "The framework makes vehicle classes and charges matters for each scheme, but the excerpt does not explicitly say charge amounts differ across zones or vehicle types.",
+          "quote": "Matters to be dealt with in charging schemes by charging authorities include: designating the roads and classes of vehicles subject to a charge the charges imposed"
+        }
+      ]
+    },
+    {
+      "id": "la-business-rates",
+      "name": "Business rates registration",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "partly_supported",
+          "note": "The page allows online valuation changes, but does not say general business rates registration can be done online.",
+          "quote": "You can report changes using your business rates valuation account ."
+        },
+        {
+          "claim": "You can apply or do this by phone.",
+          "verdict": "partly_supported",
+          "note": "The phone number is for help with business rates, not an explicit registration route.",
+          "quote": "Call the Valuation Office if you need help with: Council Tax business rates self-catering holiday lets"
+        }
+      ]
+    },
+    {
+      "id": "la-business-rates",
+      "name": "Business rates registration",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Nature of business",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The nature of the business is required.",
+          "verdict": "partly_supported",
+          "note": "The page says a change in the nature of business can affect rates, but does not say it must be supplied for registration.",
+          "quote": "the nature of your business changes"
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax-disability-reduction",
+      "name": "Council Tax Disability Reduction",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof the disabled person lives at the property",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must prove that the disabled person lives at the property.",
+          "verdict": "partly_supported",
+          "note": "The evidence requirement is stated on an England-only page, while the broader Council Tax source does not establish it across the service's full scope.",
+          "quote": "You must be able to show that a disabled person lives in the property to claim a reduction."
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this by phone.",
+          "verdict": "partly_supported",
+          "note": "Phone applications depend on the local council and are not a universal route.",
+          "quote": "Your local council might also let you apply by telephone."
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of income and savings",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of income and savings is required.",
+          "verdict": "partly_supported",
+          "note": "Evidence of income and savings may be requested, but it is not stated as a universal requirement.",
+          "quote": "For example, you might have to send evidence of your income and savings."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-credits",
+      "name": "Finalise a tax credits award",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A claimant can finalise the Annual Review by phone.",
+          "verdict": "partly_supported",
+          "note": "The manual allows an Annual Declaration by phone, but it does not identify that older declaration process as the final Annual Review after tax credits ended.",
+          "quote": "To make their Annual Declaration when they get the form they can either phone the Helpline and complete the Annual Declaration over the phone"
+        },
+        {
+          "claim": "A claimant can finalise the Annual Review by post.",
+          "verdict": "partly_supported",
+          "note": "The manual allows returning an Annual Declaration by post, but it does not identify that older declaration process as the final Annual Review after tax credits ended.",
+          "quote": "complete the Annual Declaration and return it in the envelope provided."
+        }
+      ]
+    },
+    {
+      "id": "la-short-term-let",
+      "name": "Short-term let licence (Scotland)",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this in person.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for a short-term let licence in person.",
+          "verdict": "partly_supported",
+          "note": "The guidance describes office support and paper forms, but does not explicitly say an application can be submitted in person.",
+          "quote": "Licensing authorities are expected to still have paper copies of relevant information, and the application form, available upon request for people who cannot access them online, and provide support to access online services at their offices."
+        }
+      ]
+    },
+    {
+      "id": "lr-registration",
+      "name": "Land Registry registration (AP1)",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply to register land or property online.",
+          "verdict": "partly_supported",
+          "note": "Digital submission is stated for business customers changing the register, while the general first-registration route says to send forms and documents.",
+          "quote": "You can submit applications digitally: using the Digital Registration Service in the HM Land Registry portal through legal software connected to HM Land Registry systems"
+        }
+      ]
+    },
+    {
+      "id": "lr-sign-mortgage-deed",
+      "name": "Sign your mortgage deed",
+      "field": "eligibility.summary",
+      "graph": "Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is available to borrowers purchasing a property.",
+          "verdict": "not_stated",
+          "note": "The supplied text mentions remortgaging but does not establish use for a property purchase.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "field": "eligibility.summary",
+      "graph": "Any adult can request a care needs assessment from their local authority. Free and means-independent — the assessment itself is free, though resulting care may be means-tested. Can lead to a care plan and funded support.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The assessment can lead to a care plan.",
+          "verdict": "not_stated",
+          "note": "The supplied page does not say the assessment leads to a care plan.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "nhs-continuing-healthcare",
+      "name": "NHS Continuing Healthcare (CHC)",
+      "field": "eligibility.autoQualifiers.1",
+      "graph": "Complex nursing needs",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The person has complex nursing needs.",
+          "verdict": "partly_supported",
+          "note": "The page says complex health needs, but does not require nursing needs specifically.",
+          "quote": "Some people with long-term complex health needs qualify for free health and social care arranged and funded solely by the NHS."
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-dental",
+      "name": "Free NHS Dental Treatment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Benefit award letter",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A benefit award letter is accepted as proof for free NHS dental treatment.",
+          "verdict": "partly_supported",
+          "note": "The page requires proof and lists examples, but does not name a benefit award letter.",
+          "quote": "Depending on the reason, you'll need to give your dentist proof that you can get free NHS dental treatment. Examples of proof include: a valid HC2 certificate"
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "field": "eligibility.autoQualifiers.1",
+      "graph": "Qualifying medical condition (apply for Medical Exemption Certificate via GP)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A qualifying medical condition can entitle a person to free prescriptions through a medical exemption certificate.",
+          "verdict": "partly_supported",
+          "note": "The checker considers health conditions, but the page does not name medical exemption certificates or qualifying conditions.",
+          "quote": "This service will ask about your age, where you live and any health conditions you have."
+        },
+        {
+          "claim": "Apply for a Medical Exemption Certificate through a GP.",
+          "verdict": "not_stated",
+          "note": "The supplied text does not describe a GP application for a medical exemption certificate.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "other-help-to-buy",
+      "name": "First Homes / Help to Buy scheme",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Mortgage agreement in principle",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A mortgage agreement in principle is required as evidence for First Homes scheme qualification.",
+          "verdict": "partly_supported",
+          "note": "Arun Council requires a lender decision in principle for its applications; the national page does not establish a scheme-wide document requirement.",
+          "quote": "You will also need to provide: proof of address last 3 month's payslips last P60 (or signed off self-employed accounts) last 3 months' bank statements a mortgage lender decision in principle (DiP)"
+        }
+      ]
+    },
+    {
+      "id": "other-help-to-buy",
+      "name": "First Homes / Help to Buy scheme",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Proof of income for scheme qualification",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of income is required as evidence for First Homes scheme qualification.",
+          "verdict": "partly_supported",
+          "note": "Arun Council lists income documents for its applications; the national page states income limits but not a universal proof requirement.",
+          "quote": "You will also need to provide: proof of address last 3 month's payslips last P60 (or signed off self-employed accounts) last 3 months' bank statements"
+        }
+      ]
+    },
+    {
+      "id": "other-motability",
+      "name": "Motability scheme",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "PIP award letter confirming Enhanced Rate mobility component",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A PIP award letter confirming enhanced-rate mobility must be supplied.",
+          "verdict": "partly_supported",
+          "note": "The award letter is mentioned for checking award length, while the required dealer evidence is a certificate of entitlement rather than specifically a PIP award letter.",
+          "quote": "You can check your award length on your allowance award letter"
+        }
+      ]
+    },
+    {
+      "id": "other-motability",
+      "name": "Motability scheme",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "At least 12 months remaining on award",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Evidence must show at least 12 months remain on the award.",
+          "verdict": "partly_supported",
+          "note": "The 12-month condition and award letter check are stated, but the text does not say this must be supplied as separate evidence.",
+          "quote": "You can check your award length on your allowance award letter"
+        }
+      ]
+    },
+    {
+      "id": "other-passport-name",
+      "name": "Passport name change",
+      "field": "desc",
+      "graph": "Not legally required after marriage but strongly recommended. Use marriage certificate.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Getting a new passport after marriage is not legally required.",
+          "verdict": "partly_supported",
+          "note": "The text says no new passport is needed when marrying without changing name, but does not state a general legal rule after marriage.",
+          "quote": "You do not need to get a new passport if you: change your address or contact details get a new job change your appearance slightly - for example, dye your hair or grow a beard change your marital status (divorce, marry or form a civil partnership) but keep your name"
+        },
+        {
+          "claim": "Getting a passport in a new name after marriage is strongly recommended.",
+          "verdict": "partly_supported",
+          "note": "The text says a new passport is needed for travel or identity proof after a name change, without calling it a strong recommendation.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        }
+      ]
+    },
+    {
+      "id": "other-passport-name",
+      "name": "Passport name change",
+      "field": "eligibility.summary",
+      "graph": "Not a legal requirement but strongly recommended after a name change. A passport in your new name is accepted as proof of identity for employment, travel, and financial services. Use the marriage certificate or deed poll as supporting evidence.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A new passport after a name change is not a legal requirement.",
+          "verdict": "partly_supported",
+          "note": "The page describes when a new passport is needed, but does not state whether a name change itself creates a legal obligation.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        },
+        {
+          "claim": "A new passport after a name change is strongly recommended.",
+          "verdict": "partly_supported",
+          "note": "The page gives a functional need for travel or identity proof but does not describe a recommendation.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        },
+        {
+          "claim": "A passport in the new name is accepted as proof of identity for employment, travel, and financial services.",
+          "verdict": "partly_supported",
+          "note": "Travel and identity proof are addressed, but employment and financial services are not named.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        }
+      ]
+    },
+    {
+      "id": "other-pupil-premium",
+      "name": "Pupil Premium",
+      "field": "eligibility.summary",
+      "graph": "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Parents should make sure the school records their child’s eligibility.",
+          "verdict": "partly_supported",
+          "note": "The page tells schools and local authorities to record the category accurately and families to apply, but does not directly instruct parents to check the school record.",
+          "quote": "Record each eligible pupil’s FSM category as targeted or expanded in the autumn school census by 2 November 2026."
+        }
+      ]
+    },
+    {
+      "id": "other-social-tariff-broadband",
+      "name": "Social Tariff Broadband",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Qualifying benefit entitlement is checked, but DWP automatic verification means customers of participating providers need not actively provide proof.",
+          "quote": "people do not need to actively prove they claim benefits whilst on a tariff designed for those on low incomes"
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for statutory redundancy pay online.",
+          "verdict": "partly_supported",
+          "note": "The online claim applies where the employer cannot pay, such as insolvency, rather than every redundancy payment.",
+          "quote": "Make a claim online"
+        },
+        {
+          "claim": "You can apply for statutory redundancy pay by phone.",
+          "verdict": "not_stated",
+          "note": "The phone number is for help using the online service, not for making a phone claim.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Redundancy notice or letter from employer",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A redundancy notice or letter from the employer must be provided.",
+          "verdict": "partly_supported",
+          "note": "The online insolvency claim mentions the official redundancy letter as a way to find the date and asks for copies of employer letters, but does not clearly require this specific letter.",
+          "quote": "the date you became redundant (if you lost your job) - this can be found on your official letter of redundancy"
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Payslips to verify weekly pay",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Payslips must be provided to verify weekly pay.",
+          "verdict": "partly_supported",
+          "note": "Acas suggests payslips as optional evidence in a pay dispute, not a standard document required for every claim.",
+          "quote": "include copies of any evidence – for example payslips, a letter with your start date or a breakdown of redundancy pay"
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "eligibility.exclusions.1",
+      "graph": "Voluntary redundancy may have different terms (could be more generous, or affect entitlement to notice periods).",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Voluntary redundancy can affect entitlement to a notice period.",
+          "verdict": "partly_supported",
+          "note": "The page says a voluntary package may remove the need to work notice or allow negotiation, but does not say notice entitlement is lost.",
+          "quote": "You’ll also still get any other redundancy rights you’re entitled to, like time off to look for a new job."
+        }
+      ]
+    },
+    {
+      "id": "slc-childcare-grant",
+      "name": "Childcare Grant (Students)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Childcare provider registration details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The Childcare Grant application requires childcare provider registration details.",
+          "verdict": "partly_supported",
+          "note": "Provider registration is an eligibility condition, but the supplied text does not say registration details are required as application evidence.",
+          "quote": "your childcare provider is on the Ofsted Early Years Register or General Childcare Register - check with your provider"
+        }
+      ]
+    },
+    {
+      "id": "slc-childcare-grant",
+      "name": "Childcare Grant (Students)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Childcare cost receipts",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The Childcare Grant application requires childcare cost receipts.",
+          "verdict": "partly_supported",
+          "note": "The provider invoices costs after award through the payment service; childcare receipts for the grant application are not stated.",
+          "quote": "Use your online account to invoice childcare costs throughout the academic year."
+        }
+      ]
+    },
+    {
+      "id": "slc-childcare-grant",
+      "name": "Childcare Grant (Students)",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "Household income evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The Childcare Grant application requires household income evidence.",
+          "verdict": "partly_supported",
+          "note": "Household income must be provided, but documentary evidence may be needed rather than always required.",
+          "quote": "Student Finance England will ask the people in your household to confirm their income . They might need to provide evidence."
+        }
+      ]
+    },
+    {
+      "id": "slc-student-finance",
+      "name": "Student Finance (tuition fee + maintenance loans)",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "National Insurance number",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "National Insurance number",
+          "verdict": "partly_supported",
+          "note": "Student Finance England says it is needed, but a general NI number page in the prompt says a student-loan applicant without one does not need one.",
+          "quote": "You’ll need your National Insurance number when you apply."
+        }
+      ]
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Medical evidence of condition",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide medical evidence of their condition.",
+          "verdict": "partly_supported",
+          "note": "A professional document confirming the condition or needs is required, but it need not be medical evidence specifically.",
+          "quote": "You need to provide a document from a professional that confirms your conditions, disability or needs."
+        }
+      ]
+    },
+    {
+      "id": "sss-carer-support-payment",
+      "name": "Carer Support Payment",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of care hours",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of care hours.",
+          "verdict": "partly_supported",
+          "note": "Applicants declare and sign for their care hours; the text does not require independent proof of those hours.",
+          "quote": "Carers will require to sign a declaration to confirm they are providing at least 35 hours of care per week for Carer Support Payment"
+        }
+      ]
+    },
+    {
+      "id": "sss-child-disability-payment",
+      "name": "Child Disability Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Medical evidence of disability or condition",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Medical evidence of the child’s disability or condition is required",
+          "verdict": "partly_supported",
+          "note": "A professional document is required, but it need not be medical evidence or include a diagnosis.",
+          "quote": "You need to provide a document from a professional that confirms the child’s conditions, disability or needs. It does not need to include a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "sss-child-disability-payment",
+      "name": "Child Disability Payment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "GP or consultant reports",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "GP or consultant reports are required",
+          "verdict": "partly_supported",
+          "note": "The source allows different professional documents and does not require a GP or consultant report.",
+          "quote": "This can be either: a letter from a professional an official document, such as a prescription list, letter from the child’s school, or a letter about an assessment or appointment"
+        }
+      ]
+    },
+    {
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Funeral director's invoice",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A funeral director’s invoice is required for a Funeral Support Payment application.",
+          "verdict": "partly_supported",
+          "note": "The application requests director details and any funeral bills already held, but does not require a director invoice in every case.",
+          "quote": "To complete this form, you'll need: your National Insurance number details of the funeral director any travel receipts or funeral bills you have so far"
+        }
+      ]
+    },
+    {
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Evidence is requested if Social Security Scotland cannot verify the benefit, not as a universal application requirement.",
+          "quote": "If you are still unable to verify the qualifying benefit, you must ask the client to provide two pieces of evidence confirming receipt of the benefit."
+        }
+      ]
+    },
+    {
+      "id": "la-free-school-meals",
+      "name": "Free School Meals",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "A Universal Credit award letter is required for the self-employed manual check, and paper evidence is accepted in other manual checks, but the source does not require proof from every applicant.",
+          "quote": "These claimants will need to provide evidence that: they are in receipt of Universal Credit, by providing their Universal Credit award letter"
+        }
+      ]
+    },
+    {
+      "id": "la-school-place",
+      "name": "School place application",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of address",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of address is needed for a school place application",
+          "verdict": "partly_supported",
+          "note": "Address proof may be requested when applying from another country, but the source does not make it universal.",
+          "quote": "You may need to: supply proof of your new address, for example a mortgage or rental agreement or deeds for the property"
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-sight-tests",
+      "name": "Free NHS Sight Tests",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "HC2 certificate (if applicable)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An HC2 certificate must be shown when claiming a free NHS sight test through that route.",
+          "verdict": "partly_supported",
+          "note": "The eye-test page names a valid HC2 as an entitlement route and the linked general NHS page asks for exemption proof, but it does not specifically say to show the HC2.",
+          "quote": "If this is the case for you, the NHS will ask to see proof of your entitlement. This could be a prescription prepayment certificate (PPC) , benefit award notice, or an exemption certificate."
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-sight-tests",
+      "name": "Free NHS Sight Tests",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Medical evidence if claiming on health grounds",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Medical evidence must be provided when claiming a free sight test on health grounds.",
+          "verdict": "partly_supported",
+          "note": "The linked page requires proof of entitlement generally, but the supplied text does not identify medical evidence for diabetes or glaucoma sight-test routes.",
+          "quote": "If this is the case for you, the NHS will ask to see proof of your entitlement."
+        }
+      ]
+    },
+    {
+      "id": "ni-discretionary-support",
+      "name": "Discretionary Support",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for Discretionary Support by phone.",
+          "verdict": "not_stated",
+          "note": "The page lists a telephone contact and says someone will contact online applicants, but never says a phone call starts an application.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "opg-deputy-report",
+      "name": "Complete the deputy report",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can submit a deputy report online.",
+          "verdict": "partly_supported",
+          "note": "The source describes digital deputy reporting but states the service was temporarily unavailable when fetched.",
+          "quote": "If your deputy report is due today, it can be submitted once the service is back online."
+        }
+      ]
+    },
+    {
+      "id": "sss-pension-winter-heating",
+      "name": "Pension Age Winter Heating Payment",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for Pension Age Winter Heating Payment online.",
+          "verdict": "not_stated",
+          "note": "The online eligibility checker is explicitly outside the application process, and no online application route is given.",
+          "quote": null
+        },
+        {
+          "claim": "You can apply for Pension Age Winter Heating Payment by phone.",
+          "verdict": "partly_supported",
+          "note": "The source gives a phone contact route for possible late applications but does not expressly say applications can be made by phone.",
+          "quote": "We can consider late applications if you have a good reason for missing the deadline. If this is the case, contact Social Security Scotland."
+        }
+      ]
+    },
+    {
+      "id": "sss-scottish-child-payment",
+      "name": "Scottish Child Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Benefit documents are required when a sanction or deduction must be shown, but the page does not require benefit proof in every application.",
+          "quote": "You need to send us some information with your application that shows us details of the sanction or deduction. This can be a copy of any of these: a Universal Credit statement a Department for Work and Pensions (DWP) benefit award letter"
+        }
+      ]
+    },
+    {
+      "id": "sss-young-carer-grant",
+      "name": "Young Carer Grant",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of caring role and hours",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must provide proof of your caring role and the hours you care.",
+          "verdict": "partly_supported",
+          "note": "Social Security Scotland may confirm the caring role with the person cared for, but the supplied text does not require applicants to submit proof of hours.",
+          "quote": "We might also need to ask them to confirm that you care for them."
+        }
+      ]
+    },
+    {
+      "id": "tpr-workplace-pension",
+      "name": "Workplace Pension auto-enrollment",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Chosen pension provider details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Chosen pension provider details",
+          "verdict": "partly_supported",
+          "note": "The checklist requests pension scheme references and details, but does not expressly request the provider’s details as such.",
+          "quote": "Employer pension scheme reference (EPSR) This is your unique pension scheme reference, which can be found on any correspondence from your pension provider."
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of identity",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of identity is required",
+          "verdict": "partly_supported",
+          "note": "Identity verification is stated, but no applicant-supplied proof document is specified.",
+          "quote": "Applicants Identity has been verified in line with DWP records."
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of Welsh residency",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of Welsh residency is required",
+          "verdict": "partly_supported",
+          "note": "Welsh residence is an eligibility condition, but the sources do not specify proof of residence.",
+          "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award."
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Details of the emergency or need",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Details of the emergency or need are required",
+          "verdict": "partly_supported",
+          "note": "The source says the application is assessed for need, but does not specify the emergency details applicants must submit.",
+          "quote": "to assess if there is a need for financial assistance to be granted to the client"
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.exclusions.0",
+      "graph": "Exceeded annual application limit (3 EAP / 1 IAP per year)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An EAP applicant is excluded after 3 EAP awards in a year",
+          "verdict": "partly_supported",
+          "note": "The limit is three grants overall in a rolling 12-month period, not expressly three EAP awards in a calendar year.",
+          "quote": "already received 3 grants within the the last 12 rolling month period i.e. not calendar or tax year"
+        },
+        {
+          "claim": "An IAP applicant is excluded after 1 IAP award in a year",
+          "verdict": "not_stated",
+          "note": "No supplied source gives a one-IAP-per-year limit; the page only gives an overall three-grant limit in a rolling 12 months.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "sss-best-start-foods",
+      "name": "Best Start Foods",
+      "field": "eligibility.summary",
+      "graph": "Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. Usually requires a qualifying benefit, but under-18s, some 18- or 19-year-olds and some families with no access to public funds can qualify without one.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The payment is £22.40 every four weeks for each child aged 1 to 3.",
+          "verdict": "partly_supported",
+          "note": "The rate is correct from age one until the third birthday, but “aged 1 to 3” can imply payment throughout age three when the source says the child must be under three.",
+          "quote": "£22.40 for each child aged between one and 3 years old"
+        }
+      ]
+    },
+    {
+      "id": "sss-best-start-grant",
+      "name": "Best Start Grant",
+      "field": "desc",
+      "graph": "Three one-off payments for eligible families in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Each grant payment is one-off for a child.",
+          "verdict": "partly_supported",
+          "note": "The source says payments are usually made once per child, but permits extra payments when responsibility for the child changes.",
+          "quote": "If responsibility for the child changes, they may make extra payments to the person who’s now responsible for the child."
+        },
+        {
+          "claim": "Pregnancy and Baby Payment is £398.35 for other children.",
+          "verdict": "partly_supported",
+          "note": "The usual subsequent-child rate is £398.35, but listed exceptions award £796.65 to some later children.",
+          "quote": "You may get the £796.65 payment if:"
+        }
+      ]
+    },
+    {
+      "id": "sss-best-start-grant",
+      "name": "Best Start Grant",
+      "field": "eligibility.summary",
+      "graph": "Three one-off payments in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an application can also be made while a benefit decision is pending. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) is available from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Each grant payment is one-off for a child.",
+          "verdict": "partly_supported",
+          "note": "The source says payments are usually made once per child, but permits extra payments when responsibility for the child changes.",
+          "quote": "If responsibility for the child changes, they may make extra payments to the person who’s now responsible for the child."
+        },
+        {
+          "claim": "Pregnancy and Baby Payment is £796.65 for a first child and £398.35 for subsequent children.",
+          "verdict": "partly_supported",
+          "note": "Those are the base rates, but some subsequent children can receive £796.65 under listed exceptions.",
+          "quote": "In some circumstances, you may be able to get extra support for a child that’s not your first."
+        },
+        {
+          "claim": "Pregnancy and Baby Payment is available from the end of week 24 of pregnancy until the baby is six months old.",
+          "verdict": "partly_supported",
+          "note": "This is the standard window, but the source gives different dates for premature birth, taking over care, and stillbirth or death.",
+          "quote": "You can get Pregnancy and Baby Payment any time after you have reached the end of the 24th week of pregnancy until the day your baby is 6 months old."
+        }
+      ]
+    },
+    {
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "field": "eligibility.summary",
+      "graph": "Help with funeral costs in Scotland for people receiving a qualifying benefit or awaiting a decision on one. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The payment usually covers the burial, cremation or hydrolysis cost in Scotland.",
+          "verdict": "partly_supported",
+          "note": "The figure is stated on the page for funerals of people aged 18 or over, not established for every baby or child funeral in the summary.",
+          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland."
+        },
+        {
+          "claim": "The payment includes £1,327.75 towards other funeral costs.",
+          "verdict": "partly_supported",
+          "note": "The amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group.",
+          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car."
+        },
+        {
+          "claim": "The amount for other funeral costs is reduced to £162.05 if the deceased had a funeral plan.",
+          "verdict": "partly_supported",
+          "note": "The reduced amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group.",
+          "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05."
+        },
+        {
+          "claim": "The payment can help with some travel, transport, document and medical costs.",
+          "verdict": "partly_supported",
+          "note": "These cost categories are listed for funerals of people aged 18 or over, not all child funerals.",
+          "quote": "It can help pay towards: burial, cremation or hydrolysis costs funeral costs your travel costs transport costs to move the person who died document costs medical costs"
         }
       ]
     }

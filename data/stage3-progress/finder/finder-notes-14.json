@@ -1,0 +1,330 @@
+{
+  "sss-pension-winter-heating#agentInteraction.methods": {
+    "queries": [
+      "Pension Age Winter Heating Payment how to apply online phone Scotland 2026",
+      "Pension Age Winter Heating Payment late application contact Social Security Scotland telephone online"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+        "why": "Official page says 2025–26 applications are closed and gives no online or phone application channel for 2026–27."
+      },
+      {
+        "url": "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+        "why": "Official phone/webchat/post contact page is for questions and late-case contact, not an explicit application route."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-pension-winter-heating#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Pension Age Winter Heating Payment proof of age application documents",
+      "Pension Age Winter Heating Payment age verification birth certificate evidence"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible",
+        "why": "Eligibility page names a date-of-birth cutoff but says nothing about submitting proof of age."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-pension-winter-heating#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Pension Age Winter Heating Payment proof of Scottish residency documents",
+      "Pension Age Winter Heating Payment proof of address application Scotland"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible",
+        "why": "Eligibility page requires living in Scotland during the qualifying week but does not require residency documents."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-scottish-child-payment#agentInteraction.methods": {
+    "queries": [
+      "Scottish Child Payment apply online telephone 0800 182 2222",
+      "mygov Scottish Child Payment how to apply by phone online"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/how-to-apply",
+        "why": "Official application page expressly offers online and phone applications, and also post."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-scottish-child-payment#eligibility.criteria.1": {
+    "queries": [
+      "Scottish Child Payment qualifying benefits UC JSA Pension Credit Income Support ESA waiting decision",
+      "Scottish Child Payment child benefit alone not accepted who should apply"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+        "why": "Official eligibility page specifies the claimant/partner benefit distinction, Child Benefit exclusion, and applying while a benefit decision is pending."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-scottish-child-payment#eligibility.criteria.2": {
+    "queries": [
+      "Scottish Child Payment must live in Scotland eligibility",
+      "mygov Scottish Child Payment who should apply residency"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+        "why": "Official eligibility page expressly requires living in Scotland."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-scottish-child-payment#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Scottish Child Payment proof of qualifying benefit award letter Universal Credit statement",
+      "Scottish Child Payment evidence benefit claim verification application"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+        "why": "The page asks for a UC statement or DWP award letter when a qualifying benefit has a sanction or deduction; it does not impose this document requirement on every applicant."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-scottish-child-payment#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Scottish Child Payment application child names dates of birth",
+      "Scottish Child Payment how to apply child details"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/how-to-apply",
+        "why": "Official application page requires names and dates of birth of children to add or include in a new application."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-scottish-child-payment#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Scottish Child Payment proof of Scottish residency documents application",
+      "Scottish Child Payment proof of address Scotland supporting evidence"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "sss-young-carer-grant#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Young Carer Grant application details person cared for National Insurance",
+      "mygov young carer grant how to apply cared for person details"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/young-carer-grant/how-to-apply",
+        "why": "Official page says applicants should have details of the person cared for, including their National Insurance number if known."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-young-carer-grant#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Young Carer Grant proof caring role hours evidence documents",
+      "Young Carer Grant person cared for confirms caring 16 hours"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/young-carer-grant/how-to-apply",
+        "why": "Official page says Social Security Scotland might ask the cared-for person to confirm the caring role, but specifies no proof of hours."
+      },
+      {
+        "url": "https://www.mygov.scot/young-carer-grant/length-of-time-caring",
+        "why": "Official page states usual 16 hours a week over 3 months, but describes eligibility rather than a document to prove the hours."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-young-carer-grant#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Young Carer Grant age verification document birth certificate application",
+      "Young Carer Grant prove age evidence National Insurance number"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "tpr-workplace-pension#agentInteraction.methods": {
+    "queries": [
+      "The Pensions Regulator declaration of compliance online employers",
+      "workplace pension employer declaration compliance online TPR"
+    ],
+    "urls": [
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance",
+        "why": "Official TPR page provides the start action for the declaration of compliance."
+      },
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
+        "why": "Official checklist says it is designed to help complete the declaration online."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "tpr-workplace-pension#eligibility.evidenceRequired.0": {
+    "queries": [
+      "TPR declaration compliance PAYE scheme reference needed",
+      "workplace pension declaration PAYE reference start"
+    ],
+    "urls": [
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
+        "why": "Official checklist lists PAYE scheme references for all schemes used."
+      },
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance",
+        "why": "Official declaration page says a PAYE reference is needed to get started."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "tpr-workplace-pension#eligibility.evidenceRequired.1": {
+    "queries": [
+      "TPR declaration compliance pension provider details scheme reference",
+      "TPR declaration checklist EPSR pension provider"
+    ],
+    "urls": [
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
+        "why": "Official checklist lists the employer pension scheme reference and scheme name/address; EPSR can be found on provider correspondence."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "voa-business-rates#desc": {
+    "queries": [
+      "VOA check challenge appeal rateable value England",
+      "business rates valuation account check challenge appeal process"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/collections/how-to-challenge-your-business-rates-valuation",
+        "why": "Official collection lays out check, challenge, appeal and applies to England and Wales."
+      },
+      {
+        "url": "https://www.gov.uk/business-rates-valuation-account",
+        "why": "Official account page supports challenging the property rateable value."
+      },
+      {
+        "url": "https://www.gov.uk/guidance/challenge-the-valuation",
+        "why": "Official challenge guidance explains challenging a wrong rateable value after a check."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "wg-discretionary-assistance#agentInteraction.methods": {
+    "queries": [
+      "Welsh DAF apply online phone discretionary assistance fund",
+      "gov.wales discretionary assistance fund how apply phone online"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-daf/how-apply",
+        "why": "Official page offers an online start and expressly says applications can also be made by phone or post."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "wg-discretionary-assistance#eligibility.criteria.0": {
+    "queries": [
+      "Welsh DAF age 16 or over eligibility",
+      "Discretionary Assistance Fund eligibility over 16 Wales"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-requesting-review-html",
+        "why": "Current review guidance instead says “16 or over”; the two Welsh Government pages conflict and need adjudication."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "wg-discretionary-assistance#eligibility.criteria.2": {
+    "queries": [
+      "Welsh discretionary assistance fund must live in Wales",
+      "DAF Wales eligibility residence EAP IAP"
+    ],
+    "urls": [],
+    "verdict_hint": "found"
+  },
+  "wg-discretionary-assistance#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Welsh DAF application proof of identity verified ID",
+      "discretionary assistance fund identity evidence DWP records"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf",
+        "why": "Current form asks approved partners to confirm they verified applicant ID; it does not list a universal document for self-applicants."
+      },
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-requesting-review-html",
+        "why": "Review guidance says applicant identity must be verified in line with DWP records."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "wg-discretionary-assistance#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Welsh DAF proof address residency application tenancy utility bill",
+      "Discretionary Assistance Fund proof of Welsh residency documents"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf",
+        "why": "Current form asks approved partners to identify address evidence such as tenancy agreement or utility bill, but this may not be universal."
+      },
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-privacy-notice-html",
+        "why": "Privacy notice lists applicant address as required information, without requiring a residence document."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "wg-discretionary-assistance#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Welsh DAF application details emergency circumstances need",
+      "Discretionary Assistance Fund form describe crisis emergency details"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf",
+        "why": "Current application form asks applicants to describe the emergency and what is needed."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "wg-discretionary-assistance#eligibility.exclusions.0": {
+    "queries": [
+      "Welsh DAF maximum three EAP one IAP 12 months current",
+      "Discretionary Assistance Fund 3 EAP 1 IAP annual application limit"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-daf/how-apply",
+        "why": "Current apply page says no grant if three grants have been received in a rolling 12 months; it does not identify a one-IAP yearly limit."
+      },
+      {
+        "url": "https://www.gov.wales/sites/default/files/publications/2026-01/discretionary-assistance-fund-application-form.pdf",
+        "why": "Current form confirms three EAP in 12 months but does not support one IAP per year; it mentions IAP repeat requests for same things within 28 days."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "wg-winter-fuel-support#agentInteraction.methods": {
+    "queries": [
+      "Wales 2026 oil LPG £200 heating payment apply online by phone council",
+      "site:gov.wales oil LPG £200 heating payment application telephone online"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:52:45.408177Z",
+  "generatedAt": "2026-10-21T21:16:38.748Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -1441,6 +1441,127 @@
       "verdict": "partly_supported",
       "note": "The page says a limited company may need its company registration number, but it does not say Companies House registration is a requirement for CIS.",
       "quote": "Depending on your circumstances, you may also need: the company registration number",
+      "url": null
+    },
+    {
+      "id": "hmrc-self-assessment",
+      "name": "Register for Self Assessment",
+      "criterion": 1,
+      "factor": "income",
+      "graph": "Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.",
+      "verdict": "partly_supported",
+      "note": "None of the sources mention company directors.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "ho-student-visa",
+      "name": "Student visa",
+      "criterion": 0,
+      "factor": "immigration",
+      "graph": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
+      "verdict": "partly_supported",
+      "note": "None of the sources say British nationals are excluded from or do not need a Student visa.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "criterion": 0,
+      "factor": "asset",
+      "graph": "Debts must exceed assets and the person must be unable to pay debts as they fall due.",
+      "verdict": "partly_supported",
+      "note": "The text says you lack enough money or assets to pay your debts, but does not set a test that debts must exceed assets.",
+      "quote": "You can apply for a Debt Relief Order or Bankruptcy Order if you cannot pay your debts because you do not have enough money or assets you can sell.",
+      "url": null
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Auto-qualify with Enhanced Rate PIP mobility component, DLA (highest mobility rate), or certain armed forces compensation.",
+      "verdict": "partly_supported",
+      "note": "The source gives specific PIP mobility activity-score routes but does not say the enhanced mobility rate alone automatically qualifies.",
+      "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)",
+      "url": null
+    },
+    {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "criterion": 1,
+      "factor": "property",
+      "graph": "Must be liable for Council Tax at that address.",
+      "verdict": "partly_supported",
+      "note": "The Scotland guidance states this requirement, but the supplied text does not establish it across every council scheme.",
+      "quote": "be the person named on the Council Tax bill – this means you’re liable to pay Council Tax",
+      "url": null
+    },
+    {
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Any adult who appears to need care and support due to a physical or mental condition, disability, or frailty due to age.",
+      "verdict": "partly_supported",
+      "note": "The supplied text does not prescribe these causes as a condition for assessment.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.",
+      "verdict": "partly_supported",
+      "note": "The supplied text does not mention PIP.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "criterion": 2,
+      "factor": "age",
+      "graph": "Under 16, aged 16–18 in full-time education, or 60 and over.",
+      "verdict": "partly_supported",
+      "note": "The checker considers age, but the page does not state the under-16 threshold.",
+      "quote": "This service will ask about your age, where you live and any health conditions you have.",
+      "url": null
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "criterion": 0,
+      "factor": "age",
+      "graph": "Must be aged 16 to State Pension age.",
+      "verdict": "partly_supported",
+      "note": "The usual age range is 16 to State Pension age, but the suitability checker names a possible exception after State Pension age.",
+      "quote": "You may still be able to apply if you got Personal Independence Payment (PIP) in the 12 months before you reached State Pension age.",
+      "url": null
+    },
+    {
+      "id": "ni-rate-rebate",
+      "name": "Rate Rebate",
+      "criterion": 2,
+      "factor": "geography",
+      "graph": "Must live in Northern Ireland.",
+      "verdict": "partly_supported",
+      "note": "The scheme is described for Northern Ireland homeowners and tenants, but the text does not explicitly impose a separate applicant-residence rule.",
+      "quote": "Rate Rebate replaces Housing Benefit for rates for homeowners and tenants who are entitled to Universal Credit in Northern Ireland.",
+      "url": null
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "criterion": 0,
+      "factor": "age",
+      "graph": "Must be aged 16 or over.",
+      "verdict": "partly_supported",
+      "note": "The review page states 16 or over, but the eligibility page says over 16 for both grant types, leaving age 16 inconsistent.",
+      "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award.",
       "url": null
     }
   ]

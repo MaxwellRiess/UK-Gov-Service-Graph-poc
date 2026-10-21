@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "This Planning Inspectorate planning appeal process applies to England only.",
+          "verdict": "supported",
+          "quote": "Procedural Guide: Planning appeals – England.",
+          "source": 2,
+          "note": "The procedural guide labels the Planning Inspectorate appeals process for England."
+        },
+        {
+          "claim": "Wales has a separate planning appeals process.",
+          "verdict": "supported",
+          "quote": "Organisation: Planning and Environment Decisions Wales",
+          "source": 3,
+          "note": "The Welsh planning appeal page identifies a separate Welsh decision body."
+        },
+        {
+          "claim": "Scotland has a separate planning appeals process.",
+          "verdict": "supported",
+          "quote": "Planning and environmental appeal forms and guidance are available to download and submit either by using the e-planning portal , email or post.",
+          "source": 4,
+          "note": "The Scottish Government describes its own planning appeal forms and submission routes."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

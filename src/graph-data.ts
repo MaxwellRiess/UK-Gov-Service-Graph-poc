@@ -85,7 +85,7 @@ export type ServiceType =
   | 'grant'         // one-off financial award
   | 'information';  // looking something up in a public register (no application)
 
-export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
+export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person' | 'via-adviser';
 // 'gov-uk-verify' is retired but kept for nodes not yet migrated; new services
 // authenticate with GOV.UK One Login. 'service-account' is an account that
 // belongs to the one service (a GRO account, a childcare account), where the
@@ -96,7 +96,7 @@ export type AuthMethod =
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
-  methods:          ApplicationMethod[];  // how to apply; empty when it happens automatically
+  methods:          ApplicationMethod[];  // how a person starts; via-adviser means the adviser submits the application
   apiAvailable:     boolean;              // does a GOV.UK developer API exist?
   apiUrl?:          string;               // developer documentation URL
   onlineFormUrl?:   string;               // direct link to start application
@@ -3855,7 +3855,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       keyQuestions: [
         'Does your health condition prevent you from working?',
-        'Do you have a fit note from your GP?',
+        'Do you have a fit note from a healthcare professional?',
         'Have you paid NI contributions in the last two tax years?',
       ],
       means_tested: false,
@@ -4585,10 +4585,11 @@ export const NODES: Record<string, ServiceNode> = {
         'What is your current capability rating from DWP?',
       ],
       means_tested: true,
-      evidenceRequired: ['Fit note from GP (SC1 or equivalent)', 'WCA50 capability for work questionnaire, if requested', 'Assessment appointment with health professional'],
+      evidenceRequired: ['Fit note if the condition affects capability for work for more than 7 days (some exceptions apply)', 'WCA50 capability for work questionnaire, if requested', 'Assessment appointment with health professional'],
       ruleIn: ['On Universal Credit', 'Health condition limits capacity for work'],
       ruleOut: [],      sources: [
         'https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire',
+        'https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability',
       ],      rules: [
         {
           "type": "dependency",
@@ -4631,7 +4632,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain fit note requirement and Work Capability Assessment process',
-        'Guide user to submit fit note via UC journal',
+        'Guide the person to report fit note details in their Universal Credit account',
         'Help prepare for the WCA50 questionnaire if DWP asks for it',
         'Advise on gathering supporting medical evidence',
       ],
@@ -6454,7 +6455,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Apply for school places through the local authority. Key deadlines: Primary Reception — 15 January; Secondary Year 7 — 31 October. Local catchment area affects admission chances.',
       universal: true,
       criteria: [
-        { factor: 'age', description: 'Child reaching compulsory school age: Reception at 4-5, Secondary at 11.' },
+        { factor: 'age', description: 'Most children start Reception in September after their fourth birthday. Full-time education becomes compulsory on 31 December, 31 March or 31 August on or after their fifth birthday, whichever comes first.' },
         { factor: 'geography', description: 'Local authority area determines which schools are offered. Catchment area, siblings, faith criteria vary by school.' },
       ],
       keyQuestions: [
@@ -9201,79 +9202,62 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-child-winter-heating': {
     id: 'sss-child-winter-heating', name: 'Child Winter Heating Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£265.50 a year, paid from October, to help disabled children and young people in Scotland and their families with winter heating costs. Automatic — no application needed. Formerly Child Winter Heating Assistance.',
+    desc: '£265.50 a year to help disabled children and young people with winter heating costs. Eligible children in Scotland are paid automatically; those who qualify from abroad must apply. Formerly Child Winter Heating Assistance.',
     govuk_url: 'https://www.mygov.scot/child-winter-heating-payment',
     serviceType: 'benefit',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Annual payment of £265.50 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.',
+      summary: 'Annual payment of £265.50 for eligible children and young people under 19 receiving the qualifying rate of Child Disability Payment, DLA for children, PIP or Adult Disability Payment. Payment is automatic for those living in Scotland; some people abroad can qualify but must apply.',
       universal: false,
       criteria: [
-        { factor: 'disability', description: 'Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).' },
-        { factor: 'age', description: 'Child must be under 16 (or under 19 if still in qualifying education).' },
-        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'disability', description: 'Must receive the highest care rate of Child Disability Payment or DLA for children, or the enhanced daily living rate of PIP or Adult Disability Payment, during the qualifying week.' },
+        { factor: 'age', description: 'Must be under 19.' },
+        { factor: 'geography', description: 'Usually lives in Scotland; a young person in an eligible EEA country or Switzerland may qualify with a genuine and sufficient link to Scotland.' },
       ],
       keyQuestions: [
-        'Does the child live in Scotland?',
-        'Does the child receive the highest rate care component of Child Disability Payment or DLA?',
+        'Does the young person live in Scotland or have an eligible link to Scotland from abroad?',
+        'Does the young person receive a qualifying disability benefit at the required rate?',
       ],
-      autoQualifiers: ['Child on highest-rate CDP/DLA care in Scotland — paid automatically'],
+      autoQualifiers: ['Eligible young person living in Scotland and receiving a qualifying disability award — paid automatically'],
       means_tested: false,
-      ruleIn: ['Child on highest-rate care component', 'Lives in Scotland'],
-      ruleOut: ['Child not on highest-rate care', 'Does not live in Scotland'],      sources: [
+      ruleIn: ['Under 19 with a qualifying disability award at the required rate', 'Lives in Scotland or meets the limited abroad exception'],
+      ruleOut: ['No qualifying disability award at the required rate', 'Does not live in Scotland or an eligible country abroad'],      sources: [
         'https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment',
       ],
       rules: [
         {
-          "type": "enum",
-          "field": "nation",
-          "oneOf": [
-            "scotland"
-          ],
-          "label": "Must live in Scotland"
-        },
-        {
-          "type": "boolean",
-          "field": "has_children",
-          "expected": true,
-          "label": "Must have a child"
-        },
-        {
-          "type": "comparison",
-          "field": "youngest_child_age",
-          "operator": "<",
-          "value": 19,
-          "label": "Child must be under 19"
+          "type": "any",
+          "label": "Lives in Scotland or meets the Child Winter Heating abroad exception",
+          "rules": [
+            { "type": "enum", "field": "nation", "oneOf": ["scotland"], "label": "Lives in Scotland" },
+            { "type": "boolean", "field": "custom_facts.child_winter_heating_abroad_exception", "expected": true, "label": "Eligible country abroad with a sufficient link to Scotland" }
+          ]
         },
         {
           "type": "any",
-          "label": "Child must receive highest-rate care component of Child Disability Payment or DLA",
+          "label": "Qualifying person is under 19",
           "rules": [
-            {
-              "type": "dependency",
-              "serviceId": "sss-child-disability-payment",
-              "condition": "receiving",
-              "label": "Receiving Child Disability Payment (highest care)"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-dla-child",
-              "condition": "receiving",
-              "label": "Receiving DLA Child (highest care rate)"
-            }
+            { "type": "comparison", "field": "age", "operator": "<", "value": 19, "label": "Young person applying is under 19" },
+            { "type": "comparison", "field": "youngest_child_age", "operator": "<", "value": 19, "label": "Child is under 19" }
           ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.child_winter_heating_qualifying_award",
+          "expected": true,
+          "label": "Young person has a qualifying disability award at the required rate during the qualifying week"
         }
       ],
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['phone', 'post'],
       apiAvailable: false,
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Confirm child lives in Scotland and receives highest-rate care component',
-        'Explain that payment is automatic — no application needed',
+        'Check age, qualifying award and whether the person lives in Scotland or meets the abroad exception',
+        'Explain that payment is automatic in Scotland, while eligible people abroad apply by phone or post',
         'Advise on payment timing (annual, during winter)',
         'Explain the payment amount (£265.50)',
       ],
@@ -9361,7 +9345,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Help with funeral costs in Scotland for people on qualifying benefits. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
+      summary: 'Help with funeral costs in Scotland for people receiving a qualifying benefit or awaiting a decision on one. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Must be responsible for arranging or paying for a funeral.' },
@@ -9371,14 +9355,13 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you responsible for paying for the funeral?',
-        'Do you receive a qualifying benefit?',
+        'Do you receive a qualifying benefit, or are you awaiting a decision on one?',
         'When did the death occur? (Must apply within 6 months.)',
       ],
-      exclusions: ['Not on a qualifying benefit', 'Another close relative could reasonably pay'],
       means_tested: true,
       evidenceRequired: ['Death certificate', 'Funeral director\'s invoice', 'Proof of qualifying benefit'],
-      ruleIn: ['Responsible for funeral costs', 'On qualifying benefit', 'Lives in Scotland'],
-      ruleOut: ['Not on qualifying benefit', 'Another close relative could pay', 'Does not live in Scotland'],      rules: [
+      ruleIn: ['Responsible for funeral costs', 'Qualifying benefit awarded or application pending', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -9395,7 +9378,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit",
+          "label": "Receives a qualifying benefit or awaits a decision on one",
           "rules": [
             {
               "type": "dependency",
@@ -9414,6 +9397,18 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-housing-benefit",
               "condition": "receiving",
               "label": "Receiving Housing Benefit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.funeral_qualifying_benefit_pending",
+              "expected": true,
+              "label": "Awaiting a decision on a qualifying benefit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_other_funeral_qualifying_benefit",
+              "expected": true,
+              "label": "Receiving another listed qualifying benefit"
             }
           ]
         }
@@ -9427,7 +9422,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Scotland and is responsible for funeral costs',
-        'Verify user receives a qualifying benefit',
+        'Check whether a qualifying benefit is awarded or an application is pending',
         'Guide user through the mygov.scot application',
         'Explain the 6-month application deadline',
         'Advise on maximum amounts (£1,327.75 towards funeral costs, £162.05 if there was a funeral plan)',
@@ -10838,29 +10833,29 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-grant': {
     id: 'sss-best-start-grant', name: 'Best Start Grant', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Three one-off payments for families on qualifying benefits in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).',
+    desc: 'Three one-off payments for eligible families in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school. Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.',
+      summary: 'Three one-off payments in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an application can also be made while a benefit decision is pending. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) is available from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be responsible for a child (or pregnant for the first payment).' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.' },
+        { factor: 'income', description: 'Normally you or your partner must get Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support or Housing Benefit. You can apply while awaiting a decision on one. Under-18s need no qualifying benefit; some 18- or 19-year-olds without one can qualify through a parent or carer.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you pregnant or do you have a young child?',
-        'Do you receive a qualifying benefit?',
+        'Do you or your partner receive or await a qualifying benefit, or are you under 20?',
         'Which payment are you applying for (pregnancy, early learning, or school age)?',
       ],
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age', 'Proof of Scottish residency'],
-      ruleIn: ['Pregnant or has young child', 'On qualifying benefit', 'Lives in Scotland'],
-      ruleOut: ['Does not live in Scotland', 'Not on qualifying benefit'],      rules: [
+      ruleIn: ['Pregnant or has young child', 'Qualifying benefit or age-related exception', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -10889,7 +10884,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit",
+          "label": "Qualifying benefit or an age or pending-claim exception",
           "rules": [
             {
               "type": "dependency",
@@ -10908,7 +10903,9 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-housing-benefit",
               "condition": "receiving",
               "label": "Receiving Housing Benefit"
-            }
+            },
+            { "type": "comparison", "field": "age", "operator": "<", "value": 18, "label": "Applicant is under 18" },
+            { "type": "boolean", "field": "custom_facts.best_start_eligible_exception", "expected": true, "label": "Qualifies through an under-20, pending-benefit or other published exception" }
           ]
         }
       ],
@@ -10921,7 +10918,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Determine which of the three payments the user can apply for',
-        'Confirm user lives in Scotland and is on a qualifying benefit',
+        'Check Scottish residence and whether a qualifying benefit or exception applies',
         'Guide user through the mygov.scot application',
         'Explain application deadlines for each payment',
         'Advise on the higher rate for first child (pregnancy payment)',
@@ -10944,22 +10941,22 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit. Some families with no access to public funds can also get it.',
+      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. Usually requires a qualifying benefit, but under-18s, some 18- or 19-year-olds and some families with no access to public funds can qualify without one.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be pregnant or responsible for a child under 3.' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.' },
+        { factor: 'income', description: 'Normally you or your partner must get Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support or Housing Benefit. You can apply while awaiting a decision on one. Under-18s need no qualifying benefit; some 18- or 19-year-olds without one can qualify through a parent or carer.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you pregnant or do you have a child under 3?',
-        'Do you receive a qualifying benefit?',
+        'Do you or your partner receive or await a qualifying benefit, or are you under 20?',
       ],
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age'],
-      ruleIn: ['Pregnant or child under 3', 'On qualifying benefit', 'Lives in Scotland'],
-      ruleOut: ['Does not live in Scotland', 'Not on qualifying benefit', 'Child over 3'],      rules: [
+      ruleIn: ['Pregnant or child under 3', 'Qualifying benefit or published exception', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland', 'Child over 3'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11001,7 +10998,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit",
+          "label": "Qualifying benefit or an age or pending-claim exception",
           "rules": [
             {
               "type": "dependency",
@@ -11014,7 +11011,9 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-pension-credit",
               "condition": "receiving",
               "label": "Receiving Pension Credit"
-            }
+            },
+            { "type": "comparison", "field": "age", "operator": "<", "value": 18, "label": "Applicant is under 18" },
+            { "type": "boolean", "field": "custom_facts.best_start_eligible_exception", "expected": true, "label": "Qualifies through an under-20, pending-benefit or other published exception" }
           ]
         }
       ],
@@ -11027,7 +11026,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is pregnant or has a child under 3 in Scotland',
-        'Verify user receives a qualifying benefit',
+        'Check whether a qualifying benefit or published exception applies',
         'Guide user through the mygov.scot application',
         'Explain the prepaid card system and eligible food items',
       ],
@@ -11152,7 +11151,7 @@ export const NODES: Record<string, ServiceNode> = {
       criteria: [
         { factor: 'age', description: 'Child must be under 16.' },
         { factor: 'disability', description: 'Child must have a physical or mental disability requiring substantially more care or supervision than a child of the same age, or have difficulty walking.' },
-        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'geography', description: 'Usually lives in Scotland; a child in the EEA, Switzerland or Gibraltar may qualify with a genuine and sufficient link to Scotland if the UK is responsible for the benefit.' },
       ],
       keyQuestions: [
         'Does the child live in Scotland?',
@@ -11161,18 +11160,18 @@ export const NODES: Record<string, ServiceNode> = {
         'Does the child need more care or supervision than other children the same age?',
         'Does the child have difficulty walking?',
       ],
-      exclusions: ['Child 16 or over (claim Adult Disability Payment)', 'Does not live in Scotland'],
+      exclusions: ['Child 16 or over (claim Adult Disability Payment)', 'Child outside Scotland without the qualifying EEA, Swiss or Gibraltar link'],
       means_tested: false,
       evidenceRequired: ['Medical evidence of disability or condition', 'Details of care and supervision needs', 'GP or consultant reports'],
-      ruleIn: ['Child under 16', 'Disability requiring extra care', 'Lives in Scotland'],
-      ruleOut: ['Child 16 or over', 'Does not live in Scotland', 'No extra care needs above same-age child'],      rules: [
+      ruleIn: ['Child under 16', 'Disability requiring extra care', 'Lives in Scotland or meets the limited abroad exception'],
+      ruleOut: ['Child 16 or over', 'No qualifying Scottish or abroad link', 'No extra care needs above same-age child'],      rules: [
         {
-          "type": "enum",
-          "field": "nation",
-          "oneOf": [
-            "scotland"
-          ],
-          "label": "Must live in Scotland"
+          "type": "any",
+          "label": "Child lives in Scotland or meets the Child Disability Payment abroad exception",
+          "rules": [
+            { "type": "enum", "field": "nation", "oneOf": ["scotland"], "label": "Lives in Scotland" },
+            { "type": "boolean", "field": "custom_facts.child_disability_payment_abroad_exception", "expected": true, "label": "EEA, Swiss or Gibraltar child with sufficient Scottish link and UK responsibility" }
+          ]
         },
         {
           "type": "boolean",
@@ -11202,7 +11201,7 @@ export const NODES: Record<string, ServiceNode> = {
       onlineFormUrl: 'https://www.mygov.scot/child-disability-payment',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Confirm child lives in Scotland and is under 16',
+        'Check the child is under 16 and lives in Scotland or meets the limited abroad exception',
         'Explain the care and mobility components and rates',
         'Help describe the child\'s care needs in the application',
         'Guide user through the mygov.scot application',
@@ -11716,36 +11715,35 @@ export const NODES: Record<string, ServiceNode> = {
   },
 
   'hmrc-tax-credits': {
-    id: 'hmrc-tax-credits', name: 'Tax credits (ended April 2025)', dept: 'HMRC', deptKey: 'hmrc',
+    id: 'hmrc-tax-credits', name: 'Finalise a tax credits award', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
     desc: 'Child Tax Credit and Working Tax Credit ended on 5 April 2025. No new claims are possible; former claimants may need to finalise their last award, and may be able to get Universal Credit or Pension Credit instead.',
     govuk_url: 'https://www.gov.uk/tax-credits-have-ended',
-    serviceType: 'benefit',
+    serviceType: 'information',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Tax credits ended on 5 April 2025 and no new claims can be made. Former claimants get an Annual Review letter showing what was paid up to 5 April 2025 and must check it is correct (finalising). Families and working people on low incomes should look at Universal Credit, or Pension Credit if over State Pension age.',
+      summary: 'Tax credits ended on 5 April 2025. Former claimants should check the Annual Review letter for their final award. If information in it is wrong, they must contact HMRC by the deadline in the letter. Universal Credit or Pension Credit may be available instead.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Income must be below the relevant threshold (varies by household type and hours worked).' },
-        { factor: 'employment', description: 'Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).' },
-        { factor: 'family', description: 'Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).' },
+        { factor: 'dependency', description: 'Had a tax credits award before tax credits ended and has an Annual Review letter to check.' },
       ],
       keyQuestions: [
-        'Is the user already claiming Tax Credits?',
-        'Have they been asked to migrate to Universal Credit?',
-        'Do they have children or are they working on a low income?',
+        'Did you receive tax credits before they ended?',
+        'Have you received your Annual Review letter?',
+        'Is any information in the letter incorrect?',
       ],
-      autoQualifiers: ['Already receiving Tax Credits and not yet migrated to UC'],
-      exclusions: ['New claimants must use Universal Credit — Tax Credits is closed to new applications'],
-      means_tested: true,
-      ruleIn: ['Existing Tax Credits claimant', 'Low income with children or working low-income adult'],
-      ruleOut: ['New claimant — must apply for Universal Credit instead', 'Income too high for eligibility'],
+      means_tested: false,
+      ruleIn: ['Former tax credits claimant with an Annual Review letter'],
+      ruleOut: [],
+      sources: [
+        'https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries',
+        'https://www.gov.uk/hmrc-internal-manuals/tax-credits-manual/tcm0042280',
+      ],
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
+      methods: ['phone', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/tax-credits-have-ended',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain that tax credits ended on 5 April 2025 and no new claims are possible',
@@ -12190,16 +12188,16 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       ruleIn: ['Debts under £50,000', 'Surplus income under £75/month', 'Assets under £2,000'],
       ruleOut: ['Debts of £50,000 or more', 'Assets over £2,000 (excluding car up to £4,000)', 'Homeowner'],
+      sources: ['https://www.gov.uk/guidance/how-to-get-a-debt-relief-order-dro'],
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['via-adviser'],
       apiAvailable: false,
-      onlineFormUrl: 'https://apply-for-debt-relief-order.service.gov.uk',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check the three qualifying thresholds (debt, income, assets)',
-        'Advise that an authorised intermediary must be used to apply',
-        'Direct to approved DRO intermediaries (StepChange, Citizens Advice)',
+        'Explain that only an approved intermediary can submit the application',
+        'Direct the person to an approved debt adviser to start the DRO process',
       ],
     },
     nations: ['england', 'wales'],
@@ -13302,6 +13300,7 @@ export const NODES: Record<string, ServiceNode> = {
       ruleOut: ['Sole trader or general partnership'],
       sources: [
         'https://www.gov.uk/guidance/filing-your-companys-confirmation-statement',
+        'https://www.gov.uk/government/publications/companies-house-fees/companies-house-fees',
         'https://www.gov.uk/government/publications/confirmation-statement-for-a-limited-liability-partnership-form-ll-cs01-new-version',
         'https://www.legislation.gov.uk/uksi/2009/1804/regulation/30',
       ],

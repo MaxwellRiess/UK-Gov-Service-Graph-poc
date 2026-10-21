@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The child usually lives in Scotland.",
+          "verdict": "supported",
+          "quote": "Any adult with parental responsibilities and rights or a guardian can apply for Child Disability Payment on behalf of the child if the child: is under 16 lives in Scotland",
+          "source": 4,
+          "note": "The main applicant rule names a child living in Scotland."
+        },
+        {
+          "claim": "A child living in the EEA, Switzerland or Gibraltar may still qualify with a genuine and sufficient link to Scotland.",
+          "verdict": "supported",
+          "quote": "You can still apply if the child both: lives in the EEA, Switzerland or Gibraltar has a genuine and sufficient link to Scotland",
+          "source": 4,
+          "note": "The page explicitly names the places and the required link."
+        },
+        {
+          "claim": "For a child abroad, the UK must be responsible for paying the benefit.",
+          "verdict": "supported",
+          "quote": "Social Security Scotland will also need to make sure that the UK is the competent state to pay the child’s benefits.",
+          "source": 4,
+          "note": "The page requires a UK competent-state check."
+        }
+      ]
+    },
+    {
+      "key": "exclusion_1",
+      "claims": [
+        {
+          "claim": "A child outside Scotland who is not in the qualifying EEA, Swiss or Gibraltar route cannot qualify through that route.",
+          "verdict": "supported",
+          "quote": "You can still apply if the child both: lives in the EEA, Switzerland or Gibraltar has a genuine and sufficient link to Scotland",
+          "source": 4,
+          "note": "The stated exception requires residence in one of the listed places and a genuine link."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,98 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for Scottish Child Payment online.",
+          "verdict": "supported",
+          "quote": "You can apply online here if you want to make a new application for Scottish Child Payment.",
+          "source": 3,
+          "note": "The page explicitly offers a new online application."
+        },
+        {
+          "claim": "You can apply for Scottish Child Payment by phone.",
+          "verdict": "supported",
+          "quote": "Call Social Security Scotland free on 0800 182 2222 to make your application over the phone.",
+          "source": 3,
+          "note": "The page explicitly offers a phone application."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "You or your partner can qualify by getting Universal Credit or income-based Jobseeker’s Allowance.",
+          "verdict": "supported",
+          "quote": "if you or your partner are getting one or more of the following benefits: Universal Credit income-based Jobseeker's Allowance (JSA)",
+          "source": 4,
+          "note": "The source names both benefits and either partner."
+        },
+        {
+          "claim": "For Pension Credit, Income Support or income-related ESA, the applicant alone must be named on the benefit.",
+          "verdict": "supported",
+          "quote": "Social Security Scotland also accept claims if you alone are named on one of these benefits: Pension Credit Income Support income-related Employment and Support Allowance (ESA)",
+          "source": 4,
+          "note": "The source names the three benefits and the applicant-only condition."
+        },
+        {
+          "claim": "Child Benefit alone does not qualify.",
+          "verdict": "supported",
+          "quote": "Child benefit on its own is not an accepted benefit for Scottish Child Payment.",
+          "source": 4,
+          "note": "The source explicitly excludes Child Benefit on its own."
+        },
+        {
+          "claim": "You may apply while waiting for a decision on a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "If you're not getting any of these benefits or payments, but have applied for one, you can still apply for Scottish Child Payment.",
+          "source": 4,
+          "note": "The source allows a claim after applying for a qualifying benefit."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "You must live in Scotland.",
+          "verdict": "supported",
+          "quote": "you live in Scotland",
+          "source": 4,
+          "note": "The source lists Scottish residence among the conditions."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "You must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "quote": "You need to send us some information with your application that shows us details of the sanction or deduction. This can be a copy of any of these: a Universal Credit statement a Department for Work and Pensions (DWP) benefit award letter",
+          "source": 4,
+          "note": "Benefit documents are required when a sanction or deduction must be shown, but the page does not require benefit proof in every application."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "You must provide the child’s details.",
+          "verdict": "supported",
+          "quote": "the names and dates of birth of the children you want to add",
+          "source": 3,
+          "note": "The application page lists names and dates of birth for children being added."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Quotes for proposed works are required",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied pages discuss the work, costs, invoices and tendering but do not require applicants to submit quotes."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

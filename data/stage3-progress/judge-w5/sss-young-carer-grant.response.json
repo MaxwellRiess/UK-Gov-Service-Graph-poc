@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "You must provide details of the person you care for.",
+          "verdict": "supported",
+          "quote": "details of the person you care for, including their National Insurance number, if you know it",
+          "source": 1,
+          "note": "The application page requests these details before applying."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "You must provide proof of your caring role and the hours you care.",
+          "verdict": "partly_supported",
+          "quote": "We might also need to ask them to confirm that you care for them.",
+          "source": 1,
+          "note": "Social Security Scotland may confirm the caring role with the person cared for, but the supplied text does not require applicants to submit proof of hours."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

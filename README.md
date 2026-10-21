@@ -273,7 +273,7 @@ The `agentInteraction` object describes what an AI agent can actually do with th
 
 | Field | Type | What it means |
 |---|---|---|
-| `methods` | `array` | Available application channels — any of `online`, `phone`, `post`, `in-person` |
+| `methods` | `array` | How a person starts — `online`, `phone`, `post`, `in-person`, or `via-adviser` when an approved adviser submits the application |
 | `apiAvailable` | `boolean` | Whether a machine-accessible API exists |
 | `onlineFormUrl` | `string` (optional) | Direct URL to the online application |
 | `authRequired` | `string` | Authentication required — `'government-gateway'`, `'gov-uk-one-login'`, `'gov-uk-verify'` (retired), `'nhs-login'`, `'companies-house'`, or `'none'` |

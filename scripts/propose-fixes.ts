@@ -43,7 +43,7 @@ const ONLY = arg('--only')?.split(',');
 const APPEND = process.argv.includes('--append');
 const MODEL = arg('--model') ?? 'claude-opus-5-5';
 const OUT = 'data/fix-proposals.json';
-const METHODS = ['online', 'phone', 'post', 'in-person'];
+const METHODS = ['online', 'phone', 'post', 'in-person', 'via-adviser'];
 
 if (!process.env.ANTHROPIC_API_KEY) {
   console.error('ANTHROPIC_API_KEY is not set. This pass needs it.');
@@ -86,7 +86,7 @@ const TOOL: Anthropic.Tool = {
             action: { type: 'string', enum: ['rewrite', 'remove', 'no_change'] },
             new_text: {
               type: ['string', 'null'],
-              description: 'For rewrite: the corrected field text. For the methods field, a comma-separated list from: online, phone, post, in-person. Null otherwise.',
+              description: 'For rewrite: the corrected field text. For the methods field, a comma-separated list from: online, phone, post, in-person, via-adviser. Null otherwise.',
             },
             claims: {
               type: 'array',

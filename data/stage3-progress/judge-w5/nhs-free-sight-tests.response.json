@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "An HC2 certificate must be shown when claiming a free NHS sight test through that route.",
+          "verdict": "partly_supported",
+          "quote": "If this is the case for you, the NHS will ask to see proof of your entitlement. This could be a prescription prepayment certificate (PPC) , benefit award notice, or an exemption certificate.",
+          "source": 1,
+          "note": "The eye-test page names a valid HC2 as an entitlement route and the linked general NHS page asks for exemption proof, but it does not specifically say to show the HC2."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "A benefit award letter may be required as proof of entitlement to a free NHS sight test.",
+          "verdict": "supported",
+          "quote": "This could be a prescription prepayment certificate (PPC) , benefit award notice, or an exemption certificate.",
+          "source": 1,
+          "note": "The linked NHS health-cost guidance explicitly names benefit award notices as proof and includes eye care among the charges."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Medical evidence must be provided when claiming a free sight test on health grounds.",
+          "verdict": "partly_supported",
+          "quote": "If this is the case for you, the NHS will ask to see proof of your entitlement.",
+          "source": 1,
+          "note": "The linked page requires proof of entitlement generally, but the supplied text does not identify medical evidence for diabetes or glaucoma sight-test routes."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

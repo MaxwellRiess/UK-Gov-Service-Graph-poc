@@ -1,0 +1,56 @@
+{
+  "fields": [
+    {
+      "key": "qualifier_1",
+      "claims": [
+        {
+          "claim": "The person has complex nursing needs.",
+          "verdict": "partly_supported",
+          "quote": "Some people with long-term complex health needs qualify for free health and social care arranged and funded solely by the NHS.",
+          "source": 2,
+          "note": "The page says complex health needs, but does not require nursing needs specifically."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Eligibility requires a care needs assessment.",
+          "verdict": "supported",
+          "quote": "To be eligible for NHS continuing healthcare, you must be assessed by a team of healthcare professionals (a multidisciplinary team).",
+          "source": 2,
+          "note": "A multidisciplinary assessment is required."
+        },
+        {
+          "claim": "A fast-track route is available for terminal illness.",
+          "verdict": "supported",
+          "quote": "However, if you need care urgently – for example, if you're terminally ill – your assessment may be fast-tracked.",
+          "source": 2,
+          "note": "The page explicitly describes fast tracking for terminal illness."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A completed NHS continuing healthcare checklist is used in the usual assessment route.",
+          "verdict": "supported",
+          "quote": "For most people, there's an initial checklist assessment, which is used to decide if you need a full assessment.",
+          "source": 2,
+          "note": "The initial checklist is used for most people."
+        },
+        {
+          "claim": "A clinician completes a fast-track pathway tool for an urgent route.",
+          "verdict": "supported",
+          "quote": "Instead, an appropriate clinician will complete the fast track pathway tool to establish your eligibility for NHS continuing healthcare.",
+          "source": 1,
+          "note": "The page explicitly assigns the fast-track tool to a clinician."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

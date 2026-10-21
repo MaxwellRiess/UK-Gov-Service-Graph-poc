@@ -1,0 +1,226 @@
+{
+  "nhs-free-sight-tests#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:nhsbsa.nhs.uk HC11 free NHS sight test proof HC2 certificate"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf",
+        "why": "England HC11 free sight test table names “An NHS certificate HC2 for full help with health costs” as proof."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-free-sight-tests#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:nhsbsa.nhs.uk HC11 free NHS sight test benefit award notice proof"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf",
+        "why": "England HC11 free sight test table says “Your award notice from Jobcentre Plus” for qualifying Universal Credit."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-free-sight-tests#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:nhsbsa.nhs.uk HC11 free NHS sight test proof diabetes glaucoma"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf",
+        "why": "England HC11 free sight test table lists a diabetes “Repeat prescriptions card, outpatients appointment card or record of blood-sugar readings.”"
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-healthy-start#agentInteraction.methods": {
+    "queries": [
+      "site:healthystart.nhs.uk/how-to-apply/ \"Applying by email or phone\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "why": "NHS Healthy Start page has “Applying online” and “Applying by email or phone” sections."
+      },
+      {
+        "url": "https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-30132/en-us",
+        "why": "NHSBSA says Universal Credit recipients “must apply online” and other qualifying applicants must contact it for a form."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-healthy-start#eligibility.criteria.1": {
+    "queries": [
+      "site:healthystart.nhs.uk/how-to-apply/ \"£408\" \"Pension Credit\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "why": "NHS page states “£408 or less” for Universal Credit earned income, Pension Credit with child addition, under-18 pregnancy, and a British child under four where parents cannot claim public funds."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/healthy-start-help-buy-healthy-food-and-milk",
+        "why": "nidirect states qualifying Universal Credit earned income is “£408 or less per month” and under-18 pregnant people can qualify without benefits."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/healthy-start-extension-application-guidance/healthy-start-extension-application-guidance",
+        "why": "GOV.UK extension guidance requires a “British child ... aged under 4 years old” and take-home pay of “£408 or less per month”."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-healthy-start#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:healthystart.nhs.uk/how-to-apply/ \"National Insurance number\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "why": "NHS online application list says “National Insurance number”."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-healthy-start#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:healthystart.nhs.uk/how-to-apply/ \"baby’s due date\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "why": "NHS online application list says “baby’s due date (if you’re pregnant)”."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-healthy-start#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:healthystart.nhs.uk/how-to-apply/ \"Universal Credit statement\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "why": "NHS online application list says “Universal Credit statement” and details “must match the details on your Universal Credit claim”."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-low-income-scheme#eligibility.criteria.2": {
+    "queries": [
+      "site:nhsbsa.nhs.uk NHS low income scheme ordinarily resident UK eligibility",
+      "site:nhsbsa.nhs.uk low income scheme HC1 ordinary residence England Scotland Wales Northern Ireland"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "nhs-low-income-scheme#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:nhsbsa.nhs.uk HC1 form National Insurance number low income scheme",
+      "site:nhsbsa.nhs.uk low income scheme HC1 National Insurance number application"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "nhs-ppc#eligibility.exclusions.0": {
+    "queries": [
+      "site:nhsbsa.nhs.uk prescription exemption under 16 over 60 Universal Credit diabetes epilepsy certificate"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf",
+        "why": "HC11 says age and certain medical conditions can give prescription exemptions, but Universal Credit is income-dependent and a valid medical exemption certificate is required for listed conditions."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "ni-discretionary-support#agentInteraction.methods": {
+    "queries": [
+      "site:nidirect.gov.uk discretionary support apply online telephone finance support service"
+    ],
+    "urls": [
+      {
+        "url": "https://www.communities-ni.gov.uk/contacts/finance-support-service",
+        "why": "NI Finance Support says applicants can apply “via the online application form” and lists a Freephone number, but does not explicitly say phone applications are accepted."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "ni-discretionary-support#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:nidirect.gov.uk discretionary support proof benefits pending application",
+      "site:communities-ni.gov.uk discretionary support evidence benefit receipt pending application"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "ni-discretionary-support#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:nidirect.gov.uk discretionary support details emergency need application",
+      "site:communities-ni.gov.uk discretionary support application describe financial crisis"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "ni-rate-rebate#eligibility.criteria.2": {
+    "queries": [
+      "site:nidirect.gov.uk rate rebate Northern Ireland only homeowners tenants Universal Credit"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/homeowners-and-tenants-applying-rate-rebate",
+        "why": "nidirect says Rate Rebate is for homeowners and tenants entitled to Universal Credit “in Northern Ireland”."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "ni-rate-rebate#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:nidirect.gov.uk \"Rate Rebate\" proof income rate bill benefit letter",
+      "\"Rate Rebate\" \"proof of income\" Northern Ireland apply"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "ni-rate-rebate#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:nidirect.gov.uk \"Rate Rebate\" \"rate bill\" \"application\"",
+      "\"Rate Rebate\" \"rate bill\" \"application\" Northern Ireland"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "ni-rate-rebate#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:nidirect.gov.uk \"Rate Rebate\" \"benefit confirmation\" application",
+      "\"Rate Rebate\" \"benefit confirmation letters\" Northern Ireland"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "opg-deputy-report#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk deputy report complete online post form Office of Public Guardian"
+    ],
+    "urls": [
+      {
+        "url": "https://www.complete-deputy-report.service.gov.uk/terms",
+        "why": "OPG online service says it lets a deputy “create your deputy report online and submit it” to OPG."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/deputy-annual-report-accounting-for-your-actions/filling-in-your-deputy-report-form-property-and-financial-decisions-opg103a",
+        "why": "England and Wales deputy report guidance says “Send your completed form to” the OPG PO Box in Birmingham."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "opg-lpa-activation#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:gov.uk notify Office Public Guardian death \"LP4\"",
+      "site:gov.uk \"LP4\" death power attorney"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  }
+}

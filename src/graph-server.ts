@@ -35,7 +35,7 @@
  * ─── AGENT INTERACTION LAYER ─────────────────────────────────────────────
  *
  * Every service now includes agentInteraction data:
- *   methods[]         — how to apply (online, phone, post, in-person)
+ *   methods[]         — how to start (online, phone, post, in-person, via-adviser)
  *   apiAvailable      — true if a transactional API exists
  *   apiUrl?           — link to API documentation
  *   onlineFormUrl?    — direct link to the online application form

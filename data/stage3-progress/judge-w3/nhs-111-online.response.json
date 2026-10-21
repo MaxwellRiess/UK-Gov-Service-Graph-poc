@@ -1,0 +1,54 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can use NHS 111 online.",
+          "verdict": "supported",
+          "quote": "You can get help from NHS 111: by using 111 online in the NHS App",
+          "source": 1,
+          "note": "The page explicitly offers the online route."
+        },
+        {
+          "claim": "You can use NHS 111 by phone.",
+          "verdict": "supported",
+          "quote": "You can get help from NHS 111: by using 111 online in the NHS App by calling 111",
+          "source": 1,
+          "note": "The page explicitly offers calling 111."
+        }
+      ]
+    },
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "NHS 111 gives urgent medical advice online or by phone when help is needed now.",
+          "verdict": "supported",
+          "quote": "NHS 111 can help if you think you need medical help right now. You can get help from NHS 111: by using 111 online in the NHS App by calling 111",
+          "source": 1,
+          "note": "The page states both urgent need and both routes."
+        },
+        {
+          "claim": "NHS 111 is for situations that are not 999 emergencies.",
+          "verdict": "supported",
+          "quote": "call 999 or go to A&E in an emergency",
+          "source": 1,
+          "note": "The page directs emergencies to 999 or A&E."
+        },
+        {
+          "claim": "NHS 111 assesses symptoms and directs people to an appropriate service.",
+          "verdict": "supported",
+          "quote": "Answer questions about your symptoms on the website or in the NHS App and you will be told what to do next.",
+          "source": 1,
+          "note": "The page describes symptom questions and next-step advice."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

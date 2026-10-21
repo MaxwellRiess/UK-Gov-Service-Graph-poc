@@ -1,0 +1,36 @@
+{
+  "la-council-tax#agentInteraction.methods": [],
+  "la-council-tax#eligibility.evidenceRequired.0": [],
+  "la-council-tax#eligibility.evidenceRequired.1": [],
+  "la-disabled-facilities-grant#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/government/publications/disabled-facilities-grant-dfg-delivery-guidance-for-local-authorities-in-england/disabled-facilities-grant-dfg-delivery-guidance-for-local-authorities-in-england"
+  ],
+  "la-disabled-facilities-grant#eligibility.evidenceRequired.3": [],
+  "la-food-hygiene#agentInteraction.methods": [
+    "https://register.food.gov.uk/new/"
+  ],
+  "la-food-hygiene#eligibility.evidenceRequired.0": [
+    "https://register.food.gov.uk/new/registration-summary?lang=en"
+  ],
+  "la-food-hygiene#eligibility.evidenceRequired.1": [
+    "https://register.food.gov.uk/new/business-other-details?lang=en"
+  ],
+  "la-food-premises-approval#eligibility.evidenceRequired.1": [],
+  "la-free-childcare-2yr#agentInteraction.methods": [],
+  "la-free-childcare-2yr#eligibility.evidenceRequired.0": [],
+  "la-free-childcare-2yr#eligibility.evidenceRequired.1": [],
+  "la-free-childcare-2yr#eligibility.evidenceRequired.2": [],
+  "la-free-school-meals#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/government/publications/free-school-meals-guidance-for-schools-and-local-authorities/evidence-of-eligibility-for-free-school-meals-annex-b"
+  ],
+  "la-house-to-house-collection-licence#eligibility.evidenceRequired.1": [],
+  "la-school-place#eligibility.criteria.0": [
+    "https://www.gov.uk/schools-admissions/school-starting-age"
+  ],
+  "la-school-place#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/schools-admissions/how-to-apply"
+  ],
+  "la-school-place#eligibility.evidenceRequired.2": [],
+  "la-send-ehc#agentInteraction.methods": [],
+  "la-send-ehc#eligibility.evidenceRequired.3": []
+}

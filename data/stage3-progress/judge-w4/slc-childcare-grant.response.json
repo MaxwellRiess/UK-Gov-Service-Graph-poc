@@ -1,0 +1,45 @@
+{
+  "fields": [
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "The Childcare Grant application requires childcare provider registration details.",
+          "verdict": "partly_supported",
+          "quote": "your childcare provider is on the Ofsted Early Years Register or General Childcare Register - check with your provider",
+          "source": 0,
+          "note": "Provider registration is an eligibility condition, but the supplied text does not say registration details are required as application evidence."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "The Childcare Grant application requires childcare cost receipts.",
+          "verdict": "partly_supported",
+          "quote": "Use your online account to invoice childcare costs throughout the academic year.",
+          "source": 4,
+          "note": "The provider invoices costs after award through the payment service; childcare receipts for the grant application are not stated."
+        }
+      ]
+    },
+    {
+      "key": "evidence_3",
+      "claims": [
+        {
+          "claim": "The Childcare Grant application requires household income evidence.",
+          "verdict": "partly_supported",
+          "quote": "Student Finance England will ask the people in your household to confirm their income . They might need to provide evidence.",
+          "source": 5,
+          "note": "Household income must be provided, but documentary evidence may be needed rather than always required."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": "student finance account"
+}

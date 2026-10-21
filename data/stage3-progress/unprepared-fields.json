@@ -1,0 +1,420 @@
+{
+  "selectedFields": 321,
+  "fieldsInJudgePrompts": 271,
+  "unpreparedFields": 50,
+  "items": [
+    {
+      "key": "la-council-tax#agentInteraction.methods",
+      "finderBatch": "08",
+      "claimAtSelection": "You can apply or do this online. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-council-tax#eligibility.evidenceRequired.0",
+      "finderBatch": "08",
+      "claimAtSelection": "Tenancy agreement or proof of ownership",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-council-tax#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Move-in date",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.3",
+      "finderBatch": "08",
+      "claimAtSelection": "Proof of disability",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-food-premises-approval#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Existing food business registration",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#agentInteraction.methods",
+      "finderBatch": "08",
+      "claimAtSelection": "You can apply or do this in person. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.0",
+      "finderBatch": "08",
+      "claimAtSelection": "Proof of qualifying benefit",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Child's date of birth",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.2",
+      "finderBatch": "08",
+      "claimAtSelection": "National Insurance number",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-house-to-house-collection-licence#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Details of the charitable purpose",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-school-place#eligibility.evidenceRequired.2",
+      "finderBatch": "08",
+      "claimAtSelection": "Baptism certificate (for faith schools)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-send-ehc#agentInteraction.methods",
+      "finderBatch": "08",
+      "claimAtSelection": "You can apply or do this by phone. You can apply or do this by post.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-send-ehc#eligibility.evidenceRequired.3",
+      "finderBatch": "08",
+      "claimAtSelection": "Child's views if appropriate",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-skip-permit#eligibility.evidenceRequired.1",
+      "finderBatch": "09",
+      "claimAtSelection": "Skip hire company details and contact information",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.evidenceRequired.0",
+      "finderBatch": "09",
+      "claimAtSelection": "Charity details and purpose of collection",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.evidenceRequired.1",
+      "finderBatch": "09",
+      "claimAtSelection": "Location and timing of collection",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-continuing-healthcare#agentInteraction.methods",
+      "finderBatch": "09",
+      "claimAtSelection": "You can apply or do this by phone. You can apply or do this in person.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-free-prescriptions#eligibility.autoQualifiers.0",
+      "finderBatch": "09",
+      "claimAtSelection": "PIP award confirmed",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-healthy-start#agentInteraction.methods",
+      "finderBatch": "10",
+      "claimAtSelection": "You can apply or do this online. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-30132/en-us"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.criteria.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Receiving Universal Credit with family take-home pay from employment of £408 a month or less; or Pension Credit including the child addition; or under 18 and pregnant (no benefit needed until the birth). Some families with no recourse to public funds and a British child under 4 can also qualify.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "https://www.nidirect.gov.uk/articles/healthy-start-help-buy-healthy-food-and-milk",
+        "https://www.gov.uk/government/publications/healthy-start-extension-application-guidance/healthy-start-extension-application-guidance"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.0",
+      "finderBatch": "10",
+      "claimAtSelection": "National Insurance number",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Baby's due date (if pregnant)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "Universal Credit statement (details must match the UC claim)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-low-income-scheme#eligibility.criteria.2",
+      "finderBatch": "10",
+      "claimAtSelection": "Must be ordinarily resident in the UK.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-low-income-scheme#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "National Insurance number",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-discretionary-support#eligibility.evidenceRequired.0",
+      "finderBatch": "10",
+      "claimAtSelection": "Proof of benefit receipt or pending application",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-discretionary-support#eligibility.evidenceRequired.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Details of the emergency need",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.0",
+      "finderBatch": "10",
+      "claimAtSelection": "Proof of income",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Rate bill",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "Benefit confirmation letters",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "opg-lpa-activation#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "LP4 notification form",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-carers-leave#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-employers-liability#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-employers-liability#eligibility.autoQualifiers.0",
+      "finderBatch": "11",
+      "claimAtSelection": "Registered as employer with HMRC PAYE",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-help-to-buy#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-pupil-premium#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-statutory-redundancy#eligibility.evidenceRequired.1",
+      "finderBatch": "11",
+      "claimAtSelection": "Employment contract",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-tv-licence-pension#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Pension Credit award letter",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-warm-home-discount#agentInteraction.methods",
+      "finderBatch": "12",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-warm-home-discount#eligibility.evidenceRequired.1",
+      "finderBatch": "12",
+      "claimAtSelection": "Benefit confirmation letter (for Broader Group)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "slc-childcare-grant#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of full-time student status",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "slc-student-finance#eligibility.evidenceRequired.1",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of course enrollment or offer letter",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-best-start-foods#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of qualifying benefit",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of qualifying benefit",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-child-winter-heating#agentInteraction.methods",
+      "finderBatch": "13",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-13.json",
+      "nominatedUrls": [],
+      "status": "superseded_by_correction"
+    },
+    {
+      "key": "sss-funeral-support-payment#eligibility.evidenceRequired.0",
+      "finderBatch": "13",
+      "claimAtSelection": "Death certificate",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-13.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-scottish-child-payment#eligibility.evidenceRequired.2",
+      "finderBatch": "14",
+      "claimAtSelection": "Proof of Scottish residency",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-young-carer-grant#eligibility.evidenceRequired.2",
+      "finderBatch": "14",
+      "claimAtSelection": "Age verification",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "wg-discretionary-assistance#eligibility.criteria.2",
+      "finderBatch": "14",
+      "claimAtSelection": "Must live in Wales.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "wg-winter-fuel-support#agentInteraction.methods",
+      "finderBatch": "14",
+      "claimAtSelection": "You can apply or do this online. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    }
+  ]
+}

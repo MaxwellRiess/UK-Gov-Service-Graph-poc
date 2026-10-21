@@ -1,0 +1,129 @@
+A service graph describes the UK government service "Check and challenge business rates" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/voa-business-rates.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[desc] (split into claims) Check your business property's rateable value and challenge it if incorrect through the Check, Challenge and Appeal process.
+
+--- SOURCE 0: https://www.gov.uk/correct-your-business-rates ---
+Find a business rates valuation Use this service to find the ‘rateable value’ of a property in England or Wales. This is set by the Valuation Office ( VO ) and used by the local council to work out the business rates bill for the property. You can also: check the rateable value of similar properties check how the rateable value was calculated If you want to report a change to your property or challenge its rateable value, use your business rates valuation account . This service is also available in Welsh (Cymraeg) . Start now Related content Business rates Business rates relief Explore the topic Keep your business running
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/government/collections/how-to-challenge-your-business-rates-valuation ---
+How to challenge your business rates valuation. Find out how to set up your business rates valuation account, raise a check case and challenge your valuation. This guidance applies to England and Wales. Challenges to valuations are handled differently for properties in Scotland and Northern Ireland . This collection is also available in Welsh (Cymraeg) . If you disagree with your business rates valuation, you can challenge it with the Valuation Office. Before you submit a challenge, you need to: set up a business rates valuation account add a property to your account confirm your property details, known as a ‘check’ case You may have to pay a penalty if you knowingly submit false information to the Valuation Office. If you disagree with the outcome of a challenge, you can appeal the decision with the Valuation Tribunal. The Valuation Office can give you extra support if you have a health condition or personal circumstance that makes using our online service difficult. You can manage your business rates yourself by following the guidance linked below or appoint an agent to manage them for you. Your agent can raise check, challenge and appeal cases for you.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/business-rates-valuation-account ---
+Business rates valuation account: sign in or set up Use your business rates valuation account to: report changes that might affect your property’s rateable value to the Valuation Office ( VO ) challenge your property’s rateable value appoint an agent to deal with the VO for you This account is for properties in England and Wales. There’s a different service to find the rateable value of any business property in England or Wales without signing in . You’ll need to sign in to use this service. If you do not already have sign in details, you’ll be able to create them. This service is also available in Welsh (Cymraeg) . Start now Related content Business rates Business rates relief Explore the topic Keep your business running
+
+--- SOURCE 3 (FOUND): https://www.gov.uk/guidance/challenge-the-valuation ---
+Challenging your business rates valuation. If you disagree with your property’s rateable value set by the Valuation Office, you can challenge it using your business rates valuation account. When you can submit a challenge for your current valuation You must raise a check case and receive a decision before you can start a challenge. You can challenge the valuation of your non-domestic property: within 4 months of receiving a check case decision within 16 months of your check case submission if the challenge is about a change in the surrounding area (such as roadworks) if the Valuation Office has not made a decision on your check case after 12 months You must have a valid reason, known as grounds, to send a challenge, such as: the valuation is wrong the property should not be valued at all the property needs to be split or merged the property details in the published list of business rates valuations are wrong the valuation is wrong due to a legal decision on another property When you can submit a challenge for your previous valuation The Valuation Office gives business properties new valuations every 3 years. The last revaluation happened on 1 April 2026. You can usually only challenge your current business rates valuation, but there are some situations where you can still submit a challenge for your previous valuation. Challenging based on a legal decision on another property You can challenge your previous valuation if a legal rating decision on another property could apply to your property. You must raise a check case by 30 September 2026 before you can submit a challenge. If you submit a challenge based on a legal decision, you must include the following details: the date of the legal decision the name of the court or tribunal which made the decision how the decision is relevant to your property how the decision shows that your property’s valuation is wrong Challenging after a change to the 2023 rating list The rating list is a record of the rateable values of business properties for a 3-year period. You can challenge your 2023 valuation if the Valuation Office has: changed your property’s rateable value in the 2023 rating list changed your 2023 valuation effective date added your property to the 2023 rating list You must raise a check case before you can submit a challenge. You must have raised a check case either: before 1 April 2026 within 6 months of the change to the list You can only challenge the rateable value and effective date. As part of your challenge, you can ask for: your property’s entry in the 2023 rating list to be changed back to how it was your property to be removed from the 2023 rating list a further change to your property’s entry in the 2023 rating list When you cannot submit a challenge You cannot submit a challenge for a property more than once: against the same valuation on the same grounds If you want to make another challenge based on grounds you have previously used, it must be a new circumstance with a different effective date. Example If you submit a challenge due to roadworks, you cannot submit a second challenge for those roadworks. You can raise a check case and challenge for new unrelated roadworks that started at a different date. If you submit a challenge twice for the same roadworks issue, your second challenge will not be valid. You also cannot submit a challenge against the outcome of a previous challenge. If you disagree with a challenge decision, you will need to appeal with the Valuation Tribunal . Before you submit a challenge Review your valuation and compare it to the valuations of similar properties to see if your property has been valued fairly. Compare their: location age size purpose differences You can find out more about how the Valuation Office values non-domestic properties . When submitting a challenge, you need to provide: the reason for your challenge evidence that the valuation is wrong a statement that supports your challenge a proposed new rateable value and the date it should start from rent details, including rent-free periods, for the property if it is a rental (even if you are the landlord) Your evidence must show why your current valuation is wrong. It can include: valuations of similar local properties legal decisions any other documents that support your challenge, such as photographs of the land or property and local environment In your supporting statement, clearly state why you are making a challenge and summarise your evidence. Explain how your evidence supports your challenge and why your proposed rateable value is correct in the statement. How to make a challenge Sign in to your business rates valuation account . Select the list of properties in the ‘Your properties’ section. Select the property whose valuation you want to challenge. Select its current valuation. Open the ‘Checks’ tab and select ‘Start a challenge’. Select the reason for your challenge and continue. Upload your supporting evidence. Enter your proposed rateable value. Upload a supporting statement summarising your evidence and argument. Review your challenge and submit. You must submit all your evidence together when sending your challenge. You can only submit further evidence later in exceptional circumstances, for example, if the evidence did not exist until part way through a challenge. You may have to pay a penalty if you knowingly submit false information to the Valuation Office. After you submit a challenge The Valuation Office will review your evidence and may contact you to discuss your challenge. If we agree with your case, we’ll change the valuation and send you written confirmation. If we partly agree with your case, we’ll send an agreement form that you need to fill in and return. If you and the Valuation Office do not agree on an outcome, we’ll issue a decision. We will explain our view and state any amendments to the valuation we intend to make. We will send this to the person making the challenge and the ratepayer, if they are not the same person. If the Valuation Office needs more information or evidence, we will contact you. You need to provide this within the time limit we give. If you do not: the Valuation Office may make a decision without the information your challenge may become invalid without the needed evidence and not result in a decision Your rateable value and business rates bills may go up, down or remain the same following a challenge. Sharing your challenge information The Valuation Office will share information about your challenge in line with the check and challenge privacy notice . If you have not submitted a challenge, but are the owner or occupier of a property, you can ask: for updates on the progress of the challenge to consent to any agreed alteration To request updates on the challenge: Register for a business rates valuation account . Add the property to your account . Email ccaservicevo@hmrc.gov.uk with the request. The Valuation Office will let you know the outcome of the challenge and what that means for your property. Extra support The Valuation Office can give you extra support if you have a health condition or personal circumstance that makes using our online service difficult. If you cannot challenge a valuation through your business rates valuation account, email ccaservicevo@hmrc.gov.uk or contact the Valuation Office to request it manually.

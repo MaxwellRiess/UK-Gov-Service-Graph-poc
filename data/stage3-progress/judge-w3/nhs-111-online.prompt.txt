@@ -1,0 +1,124 @@
+A service graph describes the UK government service "NHS 111 online" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/nhs-111-online.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+[desc] (split into claims) Get urgent medical advice online or by phone when you need help fast but it is not a 999 emergency. 111 assesses your symptoms and directs you to the right service.
+
+--- SOURCE 0: https://111.nhs.uk ---
+111 online Get help for your symptoms 111 online Get help for your symptoms If you think you need medical help right now, 111 online can tell you what to do next. I want to get: help for my symptoms or injury dental help mental health help sexual health help a prescription or medicines information Other ways to contact 111 if you have a hearing problem or need help in other languages Using the NHS App You can get help for your symptoms from 111 online in the NHS App. You can also: request GP appointments manage hospital referrals order repeat prescriptions Find out more about the NHS App See more NHS services Find out about GPs, pharmacies and hospitals, other services near you, and online services to manage your health. Find more services on the NHS website How 111 online works 111 online will not give you a diagnosis, but we will direct you to the best place to get help for your symptoms. We cannot: issue fit notes - you need to contact your GP surgery make or cancel appointments for you in other parts of the NHS Read about how 111 online works in detail NHS 111 online is available in England only. Get help in: Northern Ireland Scotland Wales I want to get: help for my symptoms or injury dental help mental health help sexual health help a prescription or medicines information Other ways to contact 111 if you have a hearing problem or need help in other languages Using the NHS App You can get help for your symptoms from 111 online in the NHS App. You can also: request GP appointments manage hospital referrals order repeat prescriptions Find out more about the NHS App See more NHS services Find out about GPs, pharmacies and hospitals, other services near you, and online services to manage your health. Find more services on the NHS website How 111 online works 111 online will not give you a diagnosis, but we will direct you to the best place to get help for your symptoms. We cannot: issue fit notes - you need to contact your GP surgery make or cancel appointments for you in other parts of the NHS Read about how 111 online works in detail NHS 111 online is available in England only. Get help in: Northern Ireland Scotland Wales
+
+--- SOURCE 1 (FOUND): https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/ ---
+When to use NHS 111 online or call 111 NHS 111 can help if you think you need medical help right now. You can get help from NHS 111: by using 111 online in the NHS App by calling 111 111 can direct you to the best place to get help if you cannot contact your GP during the day, or when your GP is closed (out-of-hours). Depending on what you need, you might be advised to: call 999 or go to A&E in an emergency go to an urgent treatment centre see an evening and weekend GP (out-of-hours GP) book a callback from a nurse get urgent specialist support, for dental or mental health problems contact your own GP surgery see a pharmacist for help with a minor illness look after yourself safely at home Get help online 111 online is for people aged 5 and over. Call 111 if you need help for a child under 5. Answer questions about your symptoms on the website or in the NHS App and you will be told what to do next. Find out how 111 online works in detail. Go to 111 online Emergency prescriptions You can get an emergency supply of regularly prescribed medicine from 111 online for someone of any age. 111 online does not issue a prescription, but sends a request to a local pharmacy for a limited supply of medicine, until you can organise your regular repeat prescription. Dental problems 111 online can help with dental problems . This might mean finding a dentist, or an emergency dentist if there is availability in your area. What 111 online cannot do 111 online cannot: issue fit notes – you need to contact your GP make or cancel appointments for you in other parts of the NHS 111 online asks for feedback, but this is only used to help improve the service. 111 online is unable to respond to requests for medical help left as feedback. Get help on the phone Call 111 instead if you: need help for a child under 5 have complex problems caused by an existing medical condition have a care plan from your doctor for your current health problem need to get end-of-life care Find out what happens when you call 111 . Waiting for a callback from a 111 nurse Depending on your symptoms, you may have been offered a callback from a nurse when you used 111. You cannot request one. The time you will wait is based on the symptoms you told 111 about. The callback service is usually busier at weekends and on bank holidays. Information: People with the most serious symptoms are called back first. If you booked a callback using 111 online The confirmation page describes what will happen next and what you should do if your symptoms get worse while you are waiting. If you are waiting for a callback from the 111 telephone service You are in a queue. You do not need to contact 111 again unless your symptoms have changed or got worse. If your symptoms get worse while you are waiting Call 111 for children under 5. Anyone over the age of 5 can check their symptoms online or call 111. If you have signs of a life-threatening illness or have tried to end your life, call 999 now. If you miss the call A nurse will try and call you up to 3 times. If they cannot contact you they will leave a message, but you will not be able to call them back. You will have to use 111 online or call 111 again and start from the beginning. You cannot cancel the call A nurse needs to check you're ok. If you feel better or have got help elsewhere, tell the nurse when they call. Other ways to contact 111 Text relay Call 18001 111 using text relay, 24 hours a day. British sign language (BSL) Use signvideo.co.uk/nhs111 Help in other languages Call 111 and ask for an interpreter. How to get urgent medical help elsewhere in the UK Scotland – NHS 24 111 Wales – NHS 111 Wales Northern Ireland – nidirect: advice about illnesses and conditions How to make a complaint NHS England: Feedback and complaints about NHS services More in Urgent and emergency care services When to go to an urgent treatment centre (UTC) Find urgent and emergency care services When to use NHS 111 online or call 111 When to go to A&E When to call 999 Page last reviewed: 14 November 2022 Next review due: 14 November 2025

@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {"claim":"Tax credits ended on 5 April 2025.","verdict":"supported","quote":"Tax credits ended on 5 April 2025.","source":0,"note":"The page states the end date."},
+        {"claim":"Former claimants should check the Annual Review letter for their final award.","verdict":"supported","quote":"You’ll need to check that the information in the letter is correct (known as ‘finalising’ your tax credits).","source":0,"note":"The page says to check the Annual Review information to finalise tax credits."},
+        {"claim":"If Annual Review information is wrong, claimants must contact HMRC by the deadline in the letter.","verdict":"supported","quote":"If you think there’s a mistake or your personal details are wrong, contact HM Revenue and Customs ( HMRC ) to report it. You need to do this by the deadline written in your Annual Review letter.","source":0,"note":"The page states both the correction step and its deadline."},
+        {"claim":"Universal Credit or Pension Credit may be available instead of tax credits.","verdict":"supported","quote":"You may be able to get Universal Credit or Pension Credit instead.","source":0,"note":"The page names both possible alternatives."}
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {"claim":"The person received tax credits before they ended.","verdict":"partly_supported","quote":"You’ll get a letter called your Annual Review when your tax credits award ends.","source":0,"note":"The page addresses people whose tax credits award ended, but it does not require that they actually received payments."},
+        {"claim":"The person has an Annual Review letter to check.","verdict":"supported","quote":"You’ll get a letter called your Annual Review when your tax credits award ends.","source":0,"note":"The page states that former award holders receive the letter."}
+      ]
+    },
+    {
+      "key": "methods",
+      "claims": [
+        {"claim":"A claimant can finalise a tax credits award by phone.","verdict":"partly_supported","quote":"Call HMRC: if you have a general enquiry about your tax credits","source":1,"note":"The contact page allows tax credits enquiries by phone but does not expressly say Annual Review corrections can be reported that way."},
+        {"claim":"A claimant can finalise a tax credits award by post.","verdict":"partly_supported","quote":"Send complaints or changes in your circumstances to this address.","source":1,"note":"The contact page accepts changes of circumstances by post but does not expressly cover Annual Review corrections."}
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

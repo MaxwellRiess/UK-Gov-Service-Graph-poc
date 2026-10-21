@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for a Debt Relief Order online.",
+          "verdict": "contradicted",
+          "quote": "Only an approved intermediary can submit an application.",
+          "source": 1,
+          "note": "The applicant must use an approved intermediary; the intermediary, rather than the applicant, completes the online form."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

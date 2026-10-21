@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Applicants must be receiving a qualifying benefit to get Best Start Foods.",
+          "verdict": "contradicted",
+          "quote": "If you're under 18, you do not need to be on any payments or benefits to get Best Start Grant or Best Start Foods.",
+          "source": 2,
+          "note": "The page explicitly exempts applicants under 18 and also permits some other applicants without current qualifying benefit receipt."
+        },
+        {
+          "claim": "Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support and Housing Benefit are qualifying benefits.",
+          "verdict": "supported",
+          "quote": "Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
+          "source": 2,
+          "note": "The page lists all the named benefits as normal qualifying payments."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}
