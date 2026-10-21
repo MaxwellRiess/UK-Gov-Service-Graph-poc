@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T21:16:38.759Z",
+  "lastRun": "2026-10-21T21:24:50.603Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -34306,24 +34306,23 @@
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-best-start-foods#desc": {
-      "valueHash": "beed6a35087cddb9",
-      "valueSeen": "Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, £22.40 per child aged 1 to 3. Scotland only.",
+      "valueHash": "9d1a13c6fb5058ca",
+      "valueSeen": "Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, then usually £22.40 per child aged 1 to under 3. If a baby is born early, the higher rate last",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T21:24:50.596Z",
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "You’ll get the payments on a prepaid card you can use in shops and online.",
-      "confidence": "confirmed",
       "additionalQuotes": [
         {
-          "quote": "Best Start Foods is paid every 4 weeks.",
+          "quote": "Your card is topped up every 4 weeks during pregnancy and whilst your children are under 3.",
+          "url": "https://www.mygov.scot/using-your-best-start-foods-card"
+        },
+        {
+          "quote": "Best Start Foods is a payment that can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
-          "quote": "Best Start Foods is a payment that can help you buy healthy foods like milk or fruit",
-          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
-        },
-        {
-          "quote": "£22.40 during pregnancy",
+          "quote": "£22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies)",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
@@ -34335,10 +34334,19 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
-          "quote": "If you live in England, Wales or Northern Ireland, you cannot get Best Start Grant or Best Start Foods.",
+          "quote": "If your baby’s born early, you’ll get the higher amount from birth until 1 year after the due date.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "live in Scotland",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
         }
-      ]
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 8,
+        "total": 8
+      }
     },
     "sss-best-start-foods#eligibility.criteria.0": {
       "valueHash": "2f8a1203e9929b89",
@@ -34419,15 +34427,19 @@
       "confidence": "confirmed"
     },
     "sss-best-start-foods#eligibility.summary": {
-      "valueHash": "26b542ca9f2c46a1",
-      "valueSeen": "Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. Usually requires a qualifying benefit, but un",
+      "valueHash": "bd5fa4e1f3777fde",
+      "valueSeen": "Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, then usually £22.40 for each child aged 1 to under 3. If a baby is born early, t",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:16:38.748Z",
+      "verifiedAt": "2026-10-21T21:24:50.596Z",
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
-      "sourceQuote": "Best Start Foods is paid every 4 weeks.",
+      "sourceQuote": "You’ll get the payments on a prepaid card you can use in shops and online.",
       "additionalQuotes": [
         {
-          "quote": "You’ll get the payments on a prepaid card you can use in shops and online.",
+          "quote": "Your card is topped up every 4 weeks during pregnancy and whilst your children are under 3.",
+          "url": "https://www.mygov.scot/using-your-best-start-foods-card"
+        },
+        {
+          "quote": "Best Start Foods is a payment that can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
@@ -34439,7 +34451,15 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
-          "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these: Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
+          "quote": "£22.40 for each child aged between one and 3 years old",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "If your baby’s born early, you’ll get the higher amount from birth until 1 year after the due date.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these:",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
         },
         {
@@ -34447,7 +34467,7 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
         },
         {
-          "quote": "If you're 18 or 19 and do not get any benefits or payments, you can still apply for Best Start Grant or Best Start Foods. Your parent or carer needs to get one of these for you: Child Benefit Universal Credit child payments the child addition part of Pension Credit",
+          "quote": "If you're 18 or 19 and do not get any benefits or payments, you can still apply for Best Start Grant or Best Start Foods.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
         },
         {
@@ -34455,12 +34475,11 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 8,
-        "total": 9
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The rate is correct from age one until the third birthday, but “aged 1 to 3” can imply payment throughout age three when the source says the child must be under three."
+        "supported": 11,
+        "total": 11
+      }
     },
     "sss-best-start-foods#financialData.rates.child_1_to_3": {
       "valueHash": "1ff1d3a076f9bd4f",
@@ -34524,10 +34543,10 @@
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-best-start-grant#desc": {
-      "valueHash": "840fd9646f151c92",
-      "valueSeen": "Three one-off payments for eligible families in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).",
+      "valueHash": "a4d7bb4527370aaf",
+      "valueSeen": "Three types of payment for eligible families in Scotland: Pregnancy and Baby Payment (usually £796.65 for a first child and £398.35 for a later child, with exceptions), Early Learning Payment (£331.95",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:16:38.748Z",
+      "verifiedAt": "2026-10-21T21:23:24.497Z",
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "The 3 Best Start Grant payments are:",
       "additionalQuotes": [
@@ -34536,11 +34555,19 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
-          "quote": "£796.65 for your first child.",
+          "quote": "You'll get a Pregnancy and Baby Payment of £796.65 for your first child.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
-          "quote": "£331.95 to help with the costs of early learning.",
+          "quote": "This will change to a payment of £398.35 for any child that comes after your first.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "In some circumstances, you may be able to get extra support for a child that’s not your first. You may get the £796.65 payment if:",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "If your application is successful you'll get £331.95 to help with the costs of early learning.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
         {
@@ -34548,12 +34575,11 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 5,
+        "supported": 7,
         "total": 7
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The source says payments are usually made once per child, but permits extra payments when responsibility for the child changes. partly supported: The usual subsequent-child rate is £398.35, but listed exceptions award £796.65 to some later children."
+      }
     },
     "sss-best-start-grant#eligibility.criteria.0": {
       "valueHash": "031cc1a529f563a5",
@@ -34639,13 +34665,17 @@
       "rationale": "not stated: The sources say applicants normally live in Scotland but do not say residency proof is needed."
     },
     "sss-best-start-grant#eligibility.summary": {
-      "valueHash": "d6083d6d0f3d9e5a",
-      "valueSeen": "Three one-off payments in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an app",
+      "valueHash": "fe712c904f4f2ddb",
+      "valueSeen": "Three types of payment in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an app",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:16:38.748Z",
+      "verifiedAt": "2026-10-21T21:24:50.596Z",
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "The 3 Best Start Grant payments are:",
       "additionalQuotes": [
+        {
+          "quote": "If you live in England, Wales or Northern Ireland, you cannot get Best Start Grant or Best Start Foods.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
         {
           "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these: Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
@@ -34663,6 +34693,34 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
         },
         {
+          "quote": "You'll get a Pregnancy and Baby Payment of £796.65 for your first child.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "This will change to a payment of £398.35 for any child that comes after your first.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "In some circumstances, you may be able to get extra support for a child that’s not your first. You may get the £796.65 payment if:",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "You can get Pregnancy and Baby Payment any time after you have reached the end of the 24th week of pregnancy until the day your baby is 6 months old.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "If your baby is born before 24 weeks, you can apply from this date up to the day your baby is 6 months old.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "If you've taken over looking after a child, for example, if you've adopted, you can apply up to the day before the child's first birthday.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
+          "quote": "If you apply after a stillbirth or death, you can apply up to 6 months after the baby's birth date.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
+        },
+        {
           "quote": "You can get the payment when your child is aged between 2 years old and 3 years and 6 months old.",
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         },
@@ -34671,12 +34729,11 @@
           "url": "https://www.mygov.scot/best-start-grant-best-start-foods"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 7,
-        "total": 10
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The source says payments are usually made once per child, but permits extra payments when responsibility for the child changes. partly supported: Those are the base rates, but some subsequent children can receive £796.65 under listed exceptions. partly supported: This is the standard window, but the source gives different dates for premature birth, taking over care, and stillbirth or death."
+        "supported": 15,
+        "total": 15
+      }
     },
     "sss-best-start-grant#financialData.rates.early_learning": {
       "valueHash": "4a099bf607a32c99",
@@ -35551,28 +35608,39 @@
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
     "sss-funeral-support-payment#desc": {
-      "valueHash": "61dcedfb1478c012",
-      "valueSeen": "Usually covers burial, cremation or hydrolysis costs in Scotland, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.",
+      "valueHash": "ab19111716f1e9b9",
+      "valueSeen": "Helps with funeral costs in Scotland, including funerals for babies and children. For a person aged 18 or over, it usually covers burial, cremation or hydrolysis costs, plus £1,327.75 towards other fu",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over",
-      "sourceQuote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland.",
+      "verifiedAt": "2026-10-21T21:23:24.497Z",
+      "sourceUrl": "https://www.mygov.scot/funeral-support-payment",
+      "sourceQuote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
       "additionalQuotes": [
         {
-          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for",
+          "quote": "You can use the payment towards funeral costs for a baby, child or adult.",
+          "url": "https://www.mygov.scot/funeral-support-payment"
+        },
+        {
+          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car.",
           "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
         },
         {
           "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05.",
           "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "you're applying after the person has died, until 6 months after the date of their funeral",
+          "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 3,
-        "total": 4
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The 6-month limit is only given in the part about stillborn babies or babies who died shortly after birth, not as a general rule for every applicant."
+        "supported": 6,
+        "total": 6
+      }
     },
     "sss-funeral-support-payment#eligibility.criteria.0": {
       "valueHash": "f2e07251266447a0",
@@ -35660,20 +35728,52 @@
       "rationale": "partly supported: Evidence is requested if Social Security Scotland cannot verify the benefit, not as a universal application requirement."
     },
     "sss-funeral-support-payment#eligibility.summary": {
-      "valueHash": "b0137e03c00b6371",
-      "valueSeen": "Help with funeral costs in Scotland for people receiving a qualifying benefit or awaiting a decision on one. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards",
+      "valueHash": "7ff8aeb1363efe6e",
+      "valueSeen": "Help with funeral costs in Scotland for people receiving a qualifying benefit. People awaiting a decision on a qualifying benefit may apply, but Social Security Scotland decides their Funeral Support ",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:16:38.748Z",
+      "verifiedAt": "2026-10-21T21:24:50.596Z",
       "sourceUrl": "https://www.mygov.scot/funeral-support-payment",
       "sourceQuote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
       "additionalQuotes": [
         {
-          "quote": "You or your partner must get one or more of the following: Universal Credit (UC) Income Support Pension Credit Housing Benefit income-based Jobseeker's Allowance (JSA), not contribution-based JSA income-related Employment and Support Allowance (ESA), not contribution-based ESA",
+          "quote": "You or your partner must get one or more of the following: Universal Credit (UC) Income Support Pension Credit Housing Benefit income-based Jobseeker's Allowance (JSA), not contribution-based JSA income-related Employment and Support Allowance (ESA)",
           "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
         },
         {
           "quote": "If you or your partner are waiting to hear about your application for one of these benefits, you can still apply for Funeral Support Payment.",
           "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+        },
+        {
+          "quote": "However, we'll only be able to let you know if you can get Funeral Support Payment once we know the outcome of your other benefit applications.",
+          "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+        },
+        {
+          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "It can help pay towards: burial, cremation or hydrolysis costs funeral costs your travel costs transport costs to move the person who died document costs medical costs",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "If you need to move the person who died more than 49.7 miles, you can get help towards the cost of this.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "Social Security Scotland can pay towards the cost of: death certificates to release money belonging to the person who died so that it can be used towards the cost of the funeral medical certificates needed to bury or cremate someone.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+        },
+        {
+          "quote": "You can get help with the cost of certain medical procedures needed before the funeral can go ahead.",
+          "url": "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
         },
         {
           "quote": "You can use the payment towards funeral costs for a baby, child or adult. This includes babies who were stillborn.",
@@ -35684,12 +35784,11 @@
           "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 5,
-        "total": 9
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The figure is stated on the page for funerals of people aged 18 or over, not established for every baby or child funeral in the summary. partly supported: The amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group. partly supported: The reduced amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group. partly supported: These cost categories are listed for funerals of people aged 18 or over, not all child funerals."
+        "supported": 13,
+        "total": 13
+      }
     },
     "sss-funeral-support-payment#financialData.rates.funeral_costs": {
       "valueHash": "598e3b6254533191",

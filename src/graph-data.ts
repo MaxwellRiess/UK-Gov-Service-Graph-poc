@@ -9339,13 +9339,13 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-funeral-support-payment': {
     id: 'sss-funeral-support-payment', name: 'Funeral Support Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Usually covers burial, cremation or hydrolysis costs in Scotland, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.',
+    desc: 'Helps with funeral costs in Scotland, including funerals for babies and children. For a person aged 18 or over, it usually covers burial, cremation or hydrolysis costs, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.',
     govuk_url: 'https://www.mygov.scot/funeral-support-payment',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Help with funeral costs in Scotland for people receiving a qualifying benefit or awaiting a decision on one. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
+      summary: 'Help with funeral costs in Scotland for people receiving a qualifying benefit. People awaiting a decision on a qualifying benefit may apply, but Social Security Scotland decides their Funeral Support Payment after the benefit decision. For a funeral of someone aged 18 or over, it usually covers burial, cremation or hydrolysis in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and can help with travel, transport, document and medical costs. It also helps with funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Must be responsible for arranging or paying for a funeral.' },
@@ -10833,13 +10833,13 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-grant': {
     id: 'sss-best-start-grant', name: 'Best Start Grant', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Three one-off payments for eligible families in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).',
+    desc: 'Three types of payment for eligible families in Scotland: Pregnancy and Baby Payment (usually £796.65 for a first child and £398.35 for a later child, with exceptions), Early Learning Payment (£331.95), and School Age Payment (£331.95).',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Three one-off payments in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an application can also be made while a benefit decision is pending. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) is available from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school.',
+      summary: 'Three types of payment in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an application can also be made while a benefit decision is pending. Pregnancy and Baby Payment is usually £796.65 for a first child and £398.35 for a later child, with a higher amount possible for some later children. The usual claim window runs from the end of the 24th week of pregnancy until the baby is 6 months old, with different dates for premature birth and taking over care. You can also apply after a stillbirth or death, up to 6 months after the birth. Early Learning Payment (£331.95) is available between ages 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be responsible for a child (or pregnant for the first payment).' },
@@ -10935,13 +10935,13 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-foods': {
     id: 'sss-best-start-foods', name: 'Best Start Foods', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, £22.40 per child aged 1 to 3. Scotland only.',
+    desc: 'Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, then usually £22.40 per child aged 1 to under 3. If a baby is born early, the higher rate lasts until one year after the due date. Scotland only.',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. Usually requires a qualifying benefit, but under-18s, some 18- or 19-year-olds and some families with no access to public funds can qualify without one.',
+      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, then usually £22.40 for each child aged 1 to under 3. If a baby is born early, the higher rate lasts until one year after the due date. Usually requires a qualifying benefit, but under-18s, some 18- or 19-year-olds and some families with no access to public funds can qualify without one.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be pregnant or responsible for a child under 3.' },

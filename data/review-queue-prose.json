@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T21:16:38.748Z",
+  "generatedAt": "2026-10-21T21:24:50.596Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -7428,21 +7428,6 @@
       ]
     },
     {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "field": "desc",
-      "graph": "Usually covers burial, cremation or hydrolysis costs in Scotland, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply up to 6 months after the funeral.",
-          "verdict": "partly_supported",
-          "note": "The 6-month limit is only given in the part about stillborn babies or babies who died shortly after birth, not as a general rule for every applicant.",
-          "quote": "You must claim within 6 months of date of the funeral."
-        }
-      ]
-    },
-    {
       "id": "sss-scottish-child-payment",
       "name": "Scottish Child Payment",
       "field": "desc",
@@ -10094,102 +10079,6 @@
           "verdict": "not_stated",
           "note": "No supplied source gives a one-IAP-per-year limit; the page only gives an overall three-grant limit in a rolling 12 months.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-foods",
-      "name": "Best Start Foods",
-      "field": "eligibility.summary",
-      "graph": "Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. Usually requires a qualifying benefit, but under-18s, some 18- or 19-year-olds and some families with no access to public funds can qualify without one.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payment is £22.40 every four weeks for each child aged 1 to 3.",
-          "verdict": "partly_supported",
-          "note": "The rate is correct from age one until the third birthday, but “aged 1 to 3” can imply payment throughout age three when the source says the child must be under three.",
-          "quote": "£22.40 for each child aged between one and 3 years old"
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "desc",
-      "graph": "Three one-off payments for eligible families in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Each grant payment is one-off for a child.",
-          "verdict": "partly_supported",
-          "note": "The source says payments are usually made once per child, but permits extra payments when responsibility for the child changes.",
-          "quote": "If responsibility for the child changes, they may make extra payments to the person who’s now responsible for the child."
-        },
-        {
-          "claim": "Pregnancy and Baby Payment is £398.35 for other children.",
-          "verdict": "partly_supported",
-          "note": "The usual subsequent-child rate is £398.35, but listed exceptions award £796.65 to some later children.",
-          "quote": "You may get the £796.65 payment if:"
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "eligibility.summary",
-      "graph": "Three one-off payments in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an application can also be made while a benefit decision is pending. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) is available from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Each grant payment is one-off for a child.",
-          "verdict": "partly_supported",
-          "note": "The source says payments are usually made once per child, but permits extra payments when responsibility for the child changes.",
-          "quote": "If responsibility for the child changes, they may make extra payments to the person who’s now responsible for the child."
-        },
-        {
-          "claim": "Pregnancy and Baby Payment is £796.65 for a first child and £398.35 for subsequent children.",
-          "verdict": "partly_supported",
-          "note": "Those are the base rates, but some subsequent children can receive £796.65 under listed exceptions.",
-          "quote": "In some circumstances, you may be able to get extra support for a child that’s not your first."
-        },
-        {
-          "claim": "Pregnancy and Baby Payment is available from the end of week 24 of pregnancy until the baby is six months old.",
-          "verdict": "partly_supported",
-          "note": "This is the standard window, but the source gives different dates for premature birth, taking over care, and stillbirth or death.",
-          "quote": "You can get Pregnancy and Baby Payment any time after you have reached the end of the 24th week of pregnancy until the day your baby is 6 months old."
-        }
-      ]
-    },
-    {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "field": "eligibility.summary",
-      "graph": "Help with funeral costs in Scotland for people receiving a qualifying benefit or awaiting a decision on one. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payment usually covers the burial, cremation or hydrolysis cost in Scotland.",
-          "verdict": "partly_supported",
-          "note": "The figure is stated on the page for funerals of people aged 18 or over, not established for every baby or child funeral in the summary.",
-          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland."
-        },
-        {
-          "claim": "The payment includes £1,327.75 towards other funeral costs.",
-          "verdict": "partly_supported",
-          "note": "The amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group.",
-          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car."
-        },
-        {
-          "claim": "The amount for other funeral costs is reduced to £162.05 if the deceased had a funeral plan.",
-          "verdict": "partly_supported",
-          "note": "The reduced amount is stated for funerals of people aged 18 or over; the summary does not limit it to that age group.",
-          "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05."
-        },
-        {
-          "claim": "The payment can help with some travel, transport, document and medical costs.",
-          "verdict": "partly_supported",
-          "note": "These cost categories are listed for funerals of people aged 18 or over, not all child funerals.",
-          "quote": "It can help pay towards: burial, cremation or hydrolysis costs funeral costs your travel costs transport costs to move the person who died document costs medical costs"
         }
       ]
     }

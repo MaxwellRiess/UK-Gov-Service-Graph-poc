@@ -1,0 +1,138 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Payments are loaded onto a prepaid card",
+          "verdict": "supported",
+          "quote": "You’ll get the payments on a prepaid card you can use in shops and online.",
+          "source": 0,
+          "note": "The source specifies a prepaid card."
+        },
+        {
+          "claim": "The card is topped up every four weeks",
+          "verdict": "supported",
+          "quote": "Your card is topped up every 4 weeks during pregnancy and whilst your children are under 3.",
+          "source": 1,
+          "note": "The card page states the topping-up interval."
+        },
+        {
+          "claim": "The card is for buying healthy food",
+          "verdict": "supported",
+          "quote": "Best Start Foods is a payment that can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3.",
+          "source": 0,
+          "note": "The stated purpose is healthy foods."
+        },
+        {
+          "claim": "The amount during pregnancy is £22.40",
+          "verdict": "supported",
+          "quote": "£22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies)",
+          "source": 0,
+          "note": "The pregnancy rate is explicit."
+        },
+        {
+          "claim": "The amount is £44.80 for each child under one",
+          "verdict": "supported",
+          "quote": "£44.80 for each child from birth until they’re one year old",
+          "source": 0,
+          "note": "The source states this rate for each child from birth to age one."
+        },
+        {
+          "claim": "The amount is £22.40 for each child aged one to under three",
+          "verdict": "partly_supported",
+          "quote": "If your baby’s born early, you’ll get the higher amount from birth until 1 year after the due date.",
+          "source": 0,
+          "note": "The usual rate is £22.40, but a premature baby can continue receiving the higher rate after their first birthday."
+        },
+        {
+          "claim": "Best Start Foods is available only to people living in Scotland",
+          "verdict": "supported",
+          "quote": "live in Scotland",
+          "source": 4,
+          "note": "The applicant or partner must meet the Scotland residence condition."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Payments are loaded onto a prepaid card",
+          "verdict": "supported",
+          "quote": "You’ll get the payments on a prepaid card you can use in shops and online.",
+          "source": 0,
+          "note": "The source specifies a prepaid card."
+        },
+        {
+          "claim": "The card is topped up every four weeks",
+          "verdict": "supported",
+          "quote": "Your card is topped up every 4 weeks during pregnancy and whilst your children are under 3.",
+          "source": 1,
+          "note": "The card page states the topping-up interval."
+        },
+        {
+          "claim": "The card is for buying healthy food",
+          "verdict": "supported",
+          "quote": "Best Start Foods is a payment that can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3.",
+          "source": 0,
+          "note": "The stated purpose is healthy foods."
+        },
+        {
+          "claim": "The amount during pregnancy is £22.40",
+          "verdict": "supported",
+          "quote": "£22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies)",
+          "source": 0,
+          "note": "The pregnancy rate is explicit."
+        },
+        {
+          "claim": "The amount is £44.80 for each child under one",
+          "verdict": "supported",
+          "quote": "£44.80 for each child from birth until they’re one year old",
+          "source": 0,
+          "note": "The source states this rate for each child from birth to age one."
+        },
+        {
+          "claim": "The amount is £22.40 for each child aged one to under three",
+          "verdict": "partly_supported",
+          "quote": "If your baby’s born early, you’ll get the higher amount from birth until 1 year after the due date.",
+          "source": 0,
+          "note": "The usual rate is £22.40, but a premature baby can continue receiving the higher rate after their first birthday."
+        },
+        {
+          "claim": "Applicants normally need a qualifying benefit or payment",
+          "verdict": "supported",
+          "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these:",
+          "source": 4,
+          "note": "The source states the normal qualifying-payment condition."
+        },
+        {
+          "claim": "Applicants under 18 can qualify without a benefit",
+          "verdict": "supported",
+          "quote": "If you're under 18, you do not need to be on any payments or benefits to get Best Start Grant or Best Start Foods.",
+          "source": 4,
+          "note": "The under-18 exception is explicit."
+        },
+        {
+          "claim": "Some applicants aged 18 or 19 can qualify without their own benefit",
+          "verdict": "supported",
+          "quote": "If you're 18 or 19 and do not get any benefits or payments, you can still apply for Best Start Grant or Best Start Foods.",
+          "source": 4,
+          "note": "The next sentence requires the parent or carer to receive a specified benefit."
+        },
+        {
+          "claim": "Some families with no access to public funds can qualify without a qualifying benefit",
+          "verdict": "supported",
+          "quote": "You may be able to get Best Start Foods for your child even if you cannot get certain benefits because of your immigration status or because you do not have a status.",
+          "source": 0,
+          "note": "The source states an immigration-status exception to receiving certain benefits."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

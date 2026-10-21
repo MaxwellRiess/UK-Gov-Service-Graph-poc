@@ -1872,5 +1872,95 @@
       "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
     ],
     "note": "Under-18s need no qualifying benefit; some 18- or 19-year-olds and people awaiting a benefit decision may also apply."
+  },
+  {
+    "key": "sss-best-start-foods#desc",
+    "value": "aged 1 to 3",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The payment ends at the third birthday, so this age range could include an extra year."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.summary",
+    "value": "aged 1 to 3",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The payment ends at the third birthday, so this age range could include an extra year."
+  },
+  {
+    "key": "sss-best-start-grant#desc",
+    "value": "Three one-off payments; £398.35 for other children",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "Extra payments and the higher Pregnancy and Baby Payment can apply in published exceptions."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.summary",
+    "value": "Three one-off payments; £398.35 for subsequent children; unqualified standard claim window",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The payment count, subsequent-child amount and claim dates have published exceptions."
+  },
+  {
+    "key": "sss-funeral-support-payment#desc",
+    "value": "Unqualified adult funeral cost amounts",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "note": "The amounts are stated for funerals of people aged 18 or over."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.summary",
+    "value": "Unqualified adult funeral cost amounts",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment"
+    ],
+    "note": "The amounts and cost categories are stated for funerals of people aged 18 or over."
+  },
+  {
+    "key": "sss-best-start-foods#desc",
+    "value": "Unqualified £22.40 rate from age 1",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "A baby born early gets the higher amount until one year after the due date."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.summary",
+    "value": "Unqualified £22.40 rate from age 1",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "A baby born early gets the higher amount until one year after the due date."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.summary",
+    "value": "Different claim dates for stillbirth or death",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The source allows applying after stillbirth or death up to six months after birth; that is not a different six-month endpoint."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.summary",
+    "value": "Help for someone awaiting a qualifying-benefit decision",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment"
+    ],
+    "note": "They may apply while awaiting a decision, but their Funeral Support Payment cannot be decided until the other benefit decision."
   }
 ]

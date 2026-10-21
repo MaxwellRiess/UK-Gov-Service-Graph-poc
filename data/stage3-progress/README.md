@@ -16,7 +16,7 @@ The import now also compares every saved prompt field with the current graph val
 | `wave2-completion/` | The 14 missing second-wave judge prompts and Codex responses. |
 | `judge-w3/`, `judge-w4/`, `judge-w5/` | Prepared source text, exact prompts and Codex responses for the later waves. |
 | `wave*-keys.json`, `wave*-candidates.json` | Field selections and nominated URLs used to prepare waves 3–5. |
-| `corrections-judge*/`, `school-age-recheck/` | Independent checks of corrected graph wording. The school-age response in `corrections-judge-3/` was superseded by the revised wording in `school-age-recheck/` and was not imported. |
+| `corrections-judge*/`, `school-age-recheck/` | Independent checks of corrected graph wording. The school-age response in `corrections-judge-3/` was superseded by the revised wording in `school-age-recheck/` and was not imported. Rounds 4 and 5 reuse captured official source text because a live refetch prepared no services; each records its source in `source-origin.json`. |
 | `corrections-3-keys.json`, `corrections-3-candidates.json` | Correction field selection and nominated URLs for the third recheck. |
 | `unprepared-fields.json` | The 50 selected fields that did not reach a judge prompt, with finder-batch references. |
 | `source-access-notes.md` | Checks of alternative pages where the source fetcher could not read an official page or PDF. These notes are not judge verdicts. |
@@ -34,14 +34,16 @@ The full Stage 3 selection contains 321 fields. Five judge waves prepared 271 di
 | Codex wave 4 | 11 | 33 | 8 | 13 | 8 | 4 |
 | Codex wave 5 | 15 | 34 | 13 | 16 | 1 | 4 |
 
-These are verdicts at the time of each import. Later graph corrections and independent rechecks changed the live provenance, so the rows must not be added to reconstruct current coverage. The current graph has **1,852 confirmed of 3,014 checkable fields (61.4%)**. The [verification procedure](../../docs/verification-procedure.md) tracks the baseline and earlier stages.
+These are verdicts at the time of each import. Later graph corrections and independent rechecks changed the live provenance, so the rows must not be added to reconstruct current coverage. The current graph has **1,857 confirmed of 3,014 checkable fields (61.6%)**. The [verification procedure](../../docs/verification-procedure.md) tracks the baseline and earlier stages.
 
 The five waves found 15 contradictions: three in Claude's first wave and 12 after the handoff. All were addressed in the graph. Corrections include tax credits after closure, Debt Relief Orders submitted by an approved adviser, Scottish benefit exceptions, and the difference between usual Reception entry and compulsory school age. Superseded values and removed fields are recorded in `data/removed-claims.json`. Corrections were rejudged from saved official page text. The remaining partly supported wording stays in the review queues; it has not been promoted to confirmed.
+
+After the first continuation commit, two more correction rounds refined six prose fields for Best Start Foods, Best Start Grant and Funeral Support Payment. Round 4 confirmed two and found four partly supported. Round 5 rechecked the four revised fields and confirmed all four. The refinements state the premature-birth rate exception, the stillbirth claim deadline, and the distinction between applying for funeral support while a benefit decision is pending and receiving a decision on that support.
 
 ## Next review
 
 1. Review the 49 still-unprepared current claims in `unprepared-fields.json`. Try a different official or service-owner page for the 44 with no nominated URL. Resolve source access for the five Healthy Start fields, or record a manual source review with the exact page body.
-2. Refine partly supported claims in `data/review-queue-prose.json` and `data/review-queue-criteria.json`, starting with eligibility and application methods. The latest recheck still flags Best Start Foods' upper age wording, Best Start Grant payment exceptions, and Funeral Support Payment amounts for child funerals.
+2. Refine partly supported claims in `data/review-queue-prose.json` and `data/review-queue-criteria.json`, starting with eligibility and application methods.
 3. For every new correction, prepare a fresh prompt against the current graph value, have an independent judge assess it, and import it. Retain the exact inputs and responses here in a new run directory.
 
 Check the record with `shasum -a 256 -c sha256sums.txt` from this directory. Do not edit these saved inputs and responses after committing the checkpoint.

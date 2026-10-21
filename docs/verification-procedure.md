@@ -286,5 +286,6 @@ The wider search runs in three separate steps, so the model that finds a page ne
 | 21 Oct 2026 | Stage 3 first full-run wave, with three contradicted claims corrected | 1,787 of 3,019 | 59.2% |
 | 21 Oct 2026 | Stage 3 second wave, 27 of 41 service responses imported; tax credits recast | 1,796 of 3,014 | 59.6% |
 | 21 Oct 2026 | Stage 3 selected-field run completed, contradictions corrected and rechecked | 1,852 of 3,014 | 61.4% |
+| 21 Oct 2026 | Refined and rechecked Best Start Foods, Best Start Grant and Funeral Support Payment prose | 1,857 of 3,014 | 61.6% |
 
 The interrupted full-run inputs and responses are preserved in [the stage 3 audit](../data/stage3-audit/README.md). The [continuation record](../data/stage3-progress/README.md) contains the later finder batches, judge waves, rechecks and 50 fields that did not reach an original judge prompt. The [first-wave checkpoint](stage3-wave1-checkpoint.md) and [second-wave checkpoint](stage3-wave2-checkpoint.md) describe the handoff state and early corrections.
