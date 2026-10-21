@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T20:15:45.441Z",
+  "lastRun": "2026-10-21T20:51:21.315Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -193,11 +193,14 @@
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/closing-a-limited-company",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say how to apply, online or any other way."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01",
+      "sourceQuote": "It costs £13 to apply online.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "ch-close-company#agentInteraction.onlineFormUrl": {
       "valueHash": "6ffeb70dadd8587c",
@@ -263,11 +266,15 @@
       "valueHash": "7b1478f56a18c62b",
       "valueSeen": "Has traded in last 3 months",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/closing-a-limited-company",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/strike-off-your-company-from-companies-register",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text states no such exclusion. Trading comes up only in the section on dormancy."
+      "rationale": "partly supported: The 3-month trading bar applies only to striking off; the text says such a company can close by voluntary liquidation instead, so it is not an exclusion from closing a company altogether."
     },
     "ch-close-company#eligibility.exclusions.1": {
       "valueHash": "2376002b6cbe76eb",
@@ -390,28 +397,52 @@
       }
     },
     "ch-confirmation-statement#eligibility.criteria.0": {
-      "valueHash": "6d5f8c54ccef2a3e",
-      "valueSeen": "Must be a registered company, LLP or eligible UK business entity.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/running-a-limited-company",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
+      "valueHash": "d6f69f3b2f65c3fc",
+      "valueSeen": "{\"factor\":\"dependency\",\"description\":\"Must be a company or LLP registered at Companies House.\"}",
+      "method": "manual",
+      "verifiedAt": "2026-10-21T20:51:21.311Z",
+      "sourceUrl": "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement",
+      "sourceQuote": "Every company, including dormant and non trading companies, must file a confirmation statement at least once every year.",
+      "additionalQuotes": [
+        {
+          "quote": "Use this form to confirm that your LLP's details are up to date.",
+          "url": "https://www.gov.uk/government/publications/confirmation-statement-for-a-limited-liability-partnership-form-ll-cs01-new-version"
+        },
+        {
+          "quote": "Every LLP must, before the end of the period of 14 days after the end of each review period, deliver to the registrar",
+          "url": "https://www.legislation.gov.uk/uksi/2009/1804/regulation/30"
+        }
+      ],
       "confidence": "unverified",
-      "rationale": "partly supported: The text says a company must file, but it never mentions LLPs or other eligible UK business entities, and it states no eligibility rule."
+      "rationale": "Corrected from official sources on 2026-10-21. Awaiting independent re-verification."
     },
     "ch-confirmation-statement#eligibility.summary": {
-      "valueHash": "d5283da18416b348",
-      "valueSeen": "All companies, LLPs and eligible partnerships registered at Companies House must file a confirmation statement at least once every 12 months. The £34 filing fee can be waived for dormant companies in ",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
-      "sourceQuote": "",
+      "valueHash": "cb8141230f0297e4",
+      "valueSeen": "Companies and LLPs registered at Companies House must file a confirmation statement at least once every 12 months. The annual fee is £50 online or £110 by post.",
+      "method": "manual",
+      "verifiedAt": "2026-10-21T20:51:21.311Z",
+      "sourceUrl": "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement",
+      "sourceQuote": "Every company, including dormant and non trading companies, must file a confirmation statement at least once every year.",
+      "additionalQuotes": [
+        {
+          "quote": "Use this form to confirm that your LLP's details are up to date.",
+          "url": "https://www.gov.uk/government/publications/confirmation-statement-for-a-limited-liability-partnership-form-ll-cs01-new-version"
+        },
+        {
+          "quote": "£50 to file your confirmation statement online",
+          "url": "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement"
+        },
+        {
+          "quote": "£110 to file a paper form CS01 by post",
+          "url": "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement"
+        },
+        {
+          "quote": "Every LLP must, before the end of the period of 14 days after the end of each review period, deliver to the registrar",
+          "url": "https://www.legislation.gov.uk/uksi/2009/1804/regulation/30"
+        }
+      ],
       "confidence": "unverified",
-      "rationale": "not stated: The text does not say who has to file. not stated: The text gives no filing frequency; it only mentions email alerts for when the statement is due. not stated: The text gives no online fee; the only fee it names is £110 for filing by post, which is a different route. not stated: The text does not mention dormant companies or fee waivers."
+      "rationale": "Corrected from official sources on 2026-10-21. Awaiting independent re-verification."
     },
     "ch-confirmation-statement#govuk_url": {
       "sourceUrl": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
@@ -1205,11 +1236,15 @@
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/care-to-learn",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text only says to apply through your education provider and does not mention an online application."
+      "rationale": "not stated: The text says to apply through your education provider but does not say you can apply online."
     },
     "dfe-care-to-learn#agentInteraction.onlineFormUrl": {
       "valueHash": "df01660e34ed0036",
@@ -1527,25 +1562,47 @@
       "valueHash": "90d610ba19a2ebf3",
       "valueSeen": "Free careers advice, skills assessment and job profile browsing through the government's National Careers Service.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://nationalcareers.service.gov.uk/",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never says the service or advice is free. not stated: The text names the National Careers Service but never says the government runs it."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://haringey.gov.uk/send-directory/national-careers-service",
+      "sourceQuote": "The National Careers Service provides high quality, free and impartial careers advice, information and guidance.",
+      "additionalQuotes": [
+        {
+          "quote": "Take a skills assessment Answer questions about your interests and see some careers that might suit you.",
+          "url": "https://nationalcareers.service.gov.uk/"
+        },
+        {
+          "quote": "Browse hundreds of job profiles to discover what different roles involve.",
+          "url": "https://nationalcareers.service.gov.uk/"
+        },
+        {
+          "quote": "Search for courses and training online and get advice on qualifications and funding from: the National Careers Service (England)",
+          "url": "https://www.gov.uk/career-skills-and-training"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 4,
+        "total": 4
+      }
     },
     "dfe-national-careers#eligibility.criteria.0": {
       "valueHash": "2557c95fe427268d",
       "valueSeen": "Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers services.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T14:42:47.287Z",
-      "sourceUrl": "https://nationalcareers.service.gov.uk/",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://nationalcareers.service.gov.uk/help-and-support",
+      "sourceQuote": "If you’re aged 18 or older and live in England, you can contact a careers adviser through the DWP Jobs and Careers Service .",
+      "additionalQuotes": [
+        {
+          "quote": "My World of Work (Scotland) Careers Wales Careers Service Northern Ireland",
+          "url": "https://www.gov.uk/career-skills-and-training"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 2,
         "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention DWP, the Jobs and Careers Service or careers advisers for adults. not stated: The text does not mention the other UK nations."
+      }
     },
     "dfe-national-careers#eligibility.summary": {
       "valueHash": "8aefcb588ed8b144",
@@ -2097,11 +2154,20 @@
       "valueHash": "7de699d8cf23a25f",
       "valueSeen": "Marriage or civil partnership certificate received and current licence name is now incorrect",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/change-name-driving-licence",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention marriage or civil partnership at all."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/id-for-driving-licence",
+      "sourceQuote": "your marriage or civil partnership certificate (if you’ve changed your surname)",
+      "additionalQuotes": [
+        {
+          "quote": "Change the name, title or gender on your driving licence by completing form D1 and sending it with your licence and supporting documents to DVLA.",
+          "url": "https://www.gov.uk/change-name-driving-licence"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dvla-name-change#eligibility.criteria.0": {
       "valueHash": "18fca2c582495fe5",
@@ -2171,11 +2237,25 @@
       "valueHash": "81d69ed33ef82368",
       "valueSeen": "A legal requirement for driving licence holders who have changed their name — after marriage, civil partnership, deed poll or statutory declaration. Must be updated to reflect current legal name.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/change-name-driving-licence",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/id-for-driving-licence",
+      "sourceQuote": "your marriage or civil partnership certificate (if you’ve changed your surname)",
+      "additionalQuotes": [
+        {
+          "quote": "If you’re using a deed poll or statutory declaration You must also send one document showing your new name.",
+          "url": "https://www.gov.uk/id-for-driving-licence"
+        },
+        {
+          "quote": "Send DVLA your old driving licence along with the right application form and any supporting documents to change your name or gender.",
+          "url": "https://www.gov.uk/change-name-driving-licence"
+        }
+      ],
+      "claims": {
+        "supported": 3,
+        "total": 4
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not describe this as a legal requirement. not stated: The text names none of these reasons or documents; it only mentions documents that confirm your new name. not stated: The text does not say the licence must be updated."
+      "rationale": "not stated: The text explains how to change the name on a licence but never says doing so is a legal requirement; the only 'must' about name changes concerns the V5C log book."
     },
     "dvla-name-change#govuk_url": {
       "sourceUrl": "https://www.gov.uk/change-name-driving-licence",
@@ -2449,11 +2529,15 @@
       "valueHash": "ab76aa6d20be42a2",
       "valueSeen": "Address details",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not list address details as something you need to apply."
+      "rationale": "not stated: The GOV.UK page does not mention address details as something you need to apply, and the only source that discusses addresses is the Northern Ireland DVA form guidance, which covers a different nation's version of the service."
     },
     "dvla-provisional-licence#eligibility.evidenceRequired.2": {
       "valueHash": "89a3b75138262406",
@@ -2809,11 +2893,15 @@
       "valueHash": "b8b7ed6a4bd4fefd",
       "valueSeen": "Vehicle registration number",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/make-a-sorn",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not list the vehicle registration number as something you need to apply."
+      "rationale": "not stated: The SORN page lists the 11-digit V5C number or 16-digit tax reminder reference, not the registration number; only the linked check-vehicle-tax page (a different service) mentions the registration number."
     },
     "dvla-sorn#eligibility.evidenceRequired.1": {
       "valueHash": "fc23edf2e9d932e4",
@@ -2955,21 +3043,28 @@
       "valueHash": "881bae73764e00a8",
       "valueSeen": "New address details",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/change-address-driving-licence",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text's list of what you need does not include new address details."
+      "sourceQuote": "Change the address on your full or provisional driving licence for free - do it online or by post.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dvla-update-address#eligibility.evidenceRequired.2": {
       "valueHash": "028067d2f2c1647d",
       "valueSeen": "Government Gateway or DVLA online service",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/change-address-driving-licence",
-      "sourceQuote": "",
+      "sourceQuote": "You’ll need to sign in to use this service. If you do not already have sign in details, you’ll be able to create them.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text says you need to sign in but does not name Government Gateway or any specific account."
+      "rationale": "not stated: The text says you need to sign in but never names Government Gateway."
     },
     "dvla-update-address#eligibility.summary": {
       "valueHash": "b327c5f30ddf4285",
@@ -3013,11 +3108,15 @@
       "valueHash": "1b787faaa26eb20b",
       "valueSeen": "You can apply or do this online.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions applying online; it only says first-time claims must be made at a Post Office."
+      "rationale": "not stated: The text never says the exemption can be claimed online; it says a first-time claim has to be made at a Post Office, and other changes of tax class are made at a Post Office or by post."
     },
     "dvla-ved-exemption#agentInteraction.onlineFormUrl": {
       "valueHash": "5ea7075aa1d99fe9",
@@ -3088,21 +3187,28 @@
       "valueHash": "bbfb9cb6dbed73e3",
       "valueSeen": "PIP or DLA award letter showing enhanced/higher mobility",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
-      "sourceQuote": "",
+      "sourceQuote": "higher rate mobility component of Disability Living Allowance ( DLA ) enhanced rate mobility component of Personal Independence Payment ( PIP )",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text lists no evidence for the exemption; the DWP letter it mentions is for the 50% reduction and shows the PIP rate, not an enhanced or higher mobility award for exemption."
+      "rationale": "partly supported: A DWP letter showing the PIP rate is listed only for the 50% reduction, not the exemption, and no DLA award letter is mentioned."
     },
     "dvla-ved-exemption#eligibility.evidenceRequired.1": {
       "valueHash": "8c6d117e03dde87c",
       "valueSeen": "Vehicle registration document (V5C)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The V5C log book is listed only for the 50% reduction application, not for the exemption."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt",
+      "sourceQuote": "the V5C registration certificate (log book) in your name, if you have one",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dvla-ved-exemption#eligibility.summary": {
       "valueHash": "0682407870693170",
@@ -3320,7 +3426,7 @@
       "valueHash": "f4b554d5facd5291",
       "valueSeen": "Vehicle registration number for online DVLA notification",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/sold-bought-vehicle",
       "sourceQuote": "",
       "claims": {
@@ -3328,7 +3434,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The registration number is listed only for the letter sellers send when they have no log book; the text does not say what details the online service asks for."
+      "rationale": "partly supported: The page asks for the registration number only when you write to DVLA about a vehicle sold without a log book, and does not say what you need for the online service."
     },
     "dvla-vehicle-sale#eligibility.summary": {
       "valueHash": "1ba4c536b8e4ea90",
@@ -4088,11 +4194,15 @@
       "valueHash": "6b569d40318de4ed",
       "valueSeen": "Quotes for support/equipment needed",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/access-to-work",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/atwlr02-provider-memo-access-to-work/access-to-work-holistic-assessments-live-running-memo-09",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention quotes. It only mentions invoices or receipts, and those are for claiming money after a grant is approved."
+      "rationale": "partly supported: A provider memo says quotes are needed for Access to Work Holistic Assessment equipment, but neither source says the applicant must supply quotes when applying, and the main page's list of what to give does not include quotes."
     },
     "dwp-access-to-work#eligibility.summary": {
       "valueHash": "581a2e1d433c3a60",
@@ -4261,21 +4371,29 @@
       "valueHash": "9145e0c19e69d560",
       "valueSeen": "Medical evidence from GP or specialist helpful",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/attendance-allowance",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text asks for details of your GP surgery, not medical evidence from a GP or specialist."
+      "rationale": "partly supported: The text recommends a statement from a doctor or consultant on the form and asks for GP details, but does not describe separate medical evidence from a GP or specialist as helpful for ordinary claims."
     },
     "dwp-attendance-allowance#eligibility.evidenceRequired.2": {
       "valueHash": "a89de76fa16d12e3",
       "valueSeen": "Carer details if applicable",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/attendance-allowance",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: Carer details are not in the list of things you need to apply."
+      "rationale": "not stated: The list of what you need to apply does not include carer details; the text only says you do not need a carer to claim."
     },
     "dwp-attendance-allowance#eligibility.exclusions.0": {
       "valueHash": "61e865b6fbf92e6f",
@@ -4590,21 +4708,29 @@
       "valueHash": "30537029ff9a1133",
       "valueSeen": "Death certificate",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The list of what you need does not include a death certificate, only the date your partner died."
+      "rationale": "not stated: The list of what you need to apply covers National Insurance numbers, bank details and the date of death, but no death certificate."
     },
     "dwp-bereavement-support#eligibility.evidenceRequired.1": {
       "valueHash": "856602531cc50c57",
       "valueSeen": "Marriage or civil partnership certificate",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a marriage or civil partnership certificate."
+      "rationale": "not stated: The text requires that you were married, in a civil partnership or living together, but never asks for a marriage or civil partnership certificate."
     },
     "dwp-bereavement-support#eligibility.evidenceRequired.2": {
       "valueHash": "06e752c831899078",
@@ -5000,21 +5126,29 @@
       "valueHash": "917f8cfe44b850b7",
       "valueSeen": "Evidence of caring role",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The list of what to have before you apply does not include evidence of the caring role."
+      "rationale": "not stated: The page says you must care for at least 35 hours a week, but its list of what to have before you apply does not ask for any evidence of the caring role."
     },
     "dwp-carers-allowance#eligibility.evidenceRequired.1": {
       "valueHash": "288e291fbce648f8",
       "valueSeen": "Benefit award letter for person cared for",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text asks only for the person's date of birth, address and National Insurance number or DLA reference, not an award letter."
+      "rationale": "partly supported: The page says the person must already get a qualifying benefit and asks for their details (and a DLA reference if they are under 16), but it does not mention an award letter."
     },
     "dwp-carers-allowance#eligibility.evidenceRequired.2": {
       "valueHash": "c326b943555c2f17",
@@ -5104,11 +5238,20 @@
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/child-maintenance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not describe how to apply; it only mentions signing in to an existing account. not stated: The text does not mention applying by phone."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance",
+      "sourceQuote": "You can ask the CMS to set up your child maintenance arrangement online or by phone.",
+      "additionalQuotes": [
+        {
+          "quote": "If you cannot use the ‘Get help arranging child maintenance’ tool, call the Child Maintenance Service .",
+          "url": "https://www.gov.uk/child-maintenance-service/how-to-apply"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dwp-child-maintenance#agentInteraction.onlineFormUrl": {
       "valueHash": "12c53852835578a7",
@@ -5184,31 +5327,47 @@
       "valueHash": "a304cd45bbc6c99b",
       "valueSeen": "Paying parent's income details (CMS contacts HMRC directly)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/child-maintenance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention income details or HMRC."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/child-maintenance-service/how-to-apply",
+      "sourceQuote": "If you do not have day-to-day care of the child, you’ll also be asked about: your employment details your income and any benefits you get",
+      "additionalQuotes": [
+        {
+          "quote": "The Child Maintenance Service will find out the paying parent’s yearly gross income from information supplied by HM Revenue and Customs ( HMRC ).",
+          "url": "https://www.gov.uk/how-child-maintenance-is-worked-out"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dwp-child-maintenance#eligibility.evidenceRequired.1": {
       "valueHash": "876a7c529315b7ac",
       "valueSeen": "Children's details",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/child-maintenance",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not list any information needed to apply."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance",
+      "sourceQuote": "your child’s name and date of birth",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-child-maintenance#eligibility.evidenceRequired.2": {
       "valueHash": "5dfdd0c35775c1a5",
       "valueSeen": "Your contact details",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/child-maintenance",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not list any information needed to apply."
+      "rationale": "partly supported: The text says you give information about yourself but does not list contact details specifically."
     },
     "dwp-child-maintenance#eligibility.summary": {
       "valueHash": "19458721f7c3d7c6",
@@ -5510,21 +5669,29 @@
       "valueHash": "d72a59757fa655e8",
       "valueSeen": "Details of care needs and supervision required",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text describes the care levels behind each rate but never says you must provide these details as evidence."
+      "rationale": "partly supported: The text says the award depends on the level of looking after the child needs but does not say the claim asks for details of care needs. partly supported: Supervision is named as a factor in the care rate, but the text does not say you must provide supervision details when claiming."
     },
     "dwp-dla-child#eligibility.evidenceRequired.2": {
       "valueHash": "b76c4323e91feaeb",
       "valueSeen": "GP or consultant reports",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention GP or consultant reports."
+      "rationale": "partly supported: The text only mentions an SR1 form from a medical professional for children nearing the end of life, not GP or consultant reports for claims generally."
     },
     "dwp-dla-child#eligibility.exclusions.0": {
       "valueHash": "8e38b5bb30d91aa5",
@@ -5810,11 +5977,15 @@
       "valueHash": "2db1426cbefa1237",
       "valueSeen": "Proof of qualifying benefit",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/funeral-payments",
-      "sourceQuote": "",
+      "sourceQuote": "You (or your partner) must get one or more of the following: Universal Credit income-related Employment and Support Allowance Pension Credit Housing Benefit",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not say what proof of benefit, if any, must be provided."
+      "rationale": "not stated: The text makes getting a benefit a condition but never says proof of it must be sent; you can even claim while still waiting for a benefit decision."
     },
     "dwp-funeral-payment#eligibility.evidenceRequired.1": {
       "valueHash": "656b147ff4bedcb0",
@@ -5834,11 +6005,15 @@
       "valueHash": "30537029ff9a1133",
       "valueSeen": "Death certificate",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/funeral-payments",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text mentions death certificates only as a cost the payment can help with, not as evidence you must provide."
+      "rationale": "not stated: Death certificates are mentioned only as a cost the payment can help with, not as evidence needed to claim."
     },
     "dwp-funeral-payment#eligibility.rules.2.maxDays": {
       "valueHash": "b8aed072d29403ec",
@@ -6015,11 +6190,14 @@
       "valueHash": "71e0bd66ec3e8907",
       "valueSeen": "National Insurance number",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/housing-benefit",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions a National Insurance number."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.legislation.gov.uk/uksi/2006/213/regulation/4",
+      "sourceQuote": "Section 1(1A) of the Administration Act (requirement to state national insurance number) shall not apply",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-housing-benefit#eligibility.evidenceRequired.3": {
       "valueHash": "fb3e68663a015e4c",
@@ -6148,11 +6326,15 @@
       "valueHash": "923c1f43b6c613b2",
       "valueSeen": "Widowed before reaching own State Pension age",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
-      "sourceQuote": "",
+      "sourceQuote": "You might be able to inherit an extra payment on top of your new State Pension if you’re widowed.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not make being widowed before your own State Pension age a condition. It only mentions remarrying before State Pension age."
+      "rationale": "not stated: The text does not make being widowed before your own State Pension age a condition; it only says remarrying before State Pension age stops you inheriting and that you inherit when widowed or when you claim, whichever is later."
     },
     "dwp-inherited-state-pension#eligibility.criteria.0": {
       "valueHash": "5c3ed24759e7fde9",
@@ -6185,11 +6367,15 @@
       "valueHash": "30537029ff9a1133",
       "valueSeen": "Death certificate",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a death certificate."
+      "rationale": "not stated: None of the readable sources mention a death certificate."
     },
     "dwp-inherited-state-pension#eligibility.evidenceRequired.1": {
       "valueHash": "856602531cc50c57",
@@ -6209,11 +6395,15 @@
       "valueHash": "06e752c831899078",
       "valueSeen": "NI numbers for both parties",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not say NI numbers for both parties are needed."
+      "rationale": "not stated: The sources do not list National Insurance numbers as something you must provide."
     },
     "dwp-inherited-state-pension#eligibility.exclusions.0": {
       "valueHash": "f2635b6abe2bb85b",
@@ -7077,11 +7267,15 @@
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/national-insurance-credits",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text only mentions going online to ask HMRC questions; it never says you can apply online, and the applications it does describe are made by writing to HMRC. not stated: The text only mentions a phone helpline for questions; it never says you can apply by phone."
+      "rationale": "not stated: The text only says you can ask HMRC questions online; it does not say you can apply for credits online. not stated: The text mentions phoning the National Insurance helpline only for questions, not for applying for credits."
     },
     "dwp-ni-credits#agentInteraction.onlineFormUrl": {
       "valueHash": "c1744cc2320b1f5f",
@@ -7330,7 +7524,7 @@
       "valueHash": "2eec7b860f030688",
       "valueSeen": "Proof of address",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/apply-national-insurance-number",
       "sourceQuote": "",
       "claims": {
@@ -7338,21 +7532,21 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions proof of address."
+      "rationale": "not stated: The documents listed are a passport or national identity card to prove identity; proof of address is never mentioned."
     },
     "dwp-ni-number#eligibility.evidenceRequired.2": {
       "valueHash": "fbdd625a4705b80b",
       "valueSeen": "Right to work documents",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/apply-national-insurance-number",
-      "sourceQuote": "",
+      "sourceQuote": "Apply for your first National Insurance number - you must have the right to live and work in the UK.",
       "claims": {
-        "supported": 0,
-        "total": 1
+        "supported": 1,
+        "total": 2
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not list right to work documents as something you need to apply."
+      "rationale": "not stated: The application asks for identity documents (a passport or national identity card), not documents proving the right to work."
     },
     "dwp-ni-number#eligibility.summary": {
       "valueHash": "adb0d4ea2d06b7dd",
@@ -7506,7 +7700,7 @@
       "valueHash": "fb3e68663a015e4c",
       "valueSeen": "Bank statements",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/pension-credit",
       "sourceQuote": "",
       "claims": {
@@ -7514,7 +7708,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The Pension Credit pages ask only for bank account details, not statements; the bank statements listed in the Housing Benefit page are for Housing Benefit, not this service."
+      "rationale": "not stated: The page asks for your bank account details and information about your income, savings and investments, but does not mention bank statements."
     },
     "dwp-pension-credit#eligibility.evidenceRequired.1": {
       "valueHash": "15134ccd60d7c177",
@@ -8119,7 +8313,7 @@
       "valueHash": "19ede956dd917558",
       "valueSeen": "Mortgage statement",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
       "sourceQuote": "",
       "claims": {
@@ -8127,27 +8321,34 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text says to find out how much is left to pay and how much interest you pay, and says the lender completes the form, but it never mentions a mortgage statement."
+      "rationale": "partly supported: The GOV.UK page says you need to know your outstanding mortgage and interest, and the lender completes the form, but it does not ask for a mortgage statement."
     },
     "dwp-smi#eligibility.evidenceRequired.1": {
       "valueHash": "2db1426cbefa1237",
       "valueSeen": "Proof of qualifying benefit",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: You must be getting a qualifying benefit, but the text never asks for proof of it."
+      "rationale": "partly supported: Getting a qualifying benefit is required, but the text does not say you must provide proof of it."
     },
     "dwp-smi#eligibility.evidenceRequired.2": {
       "valueHash": "e6292b03a4f45095",
       "valueSeen": "Consent to charge on property",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text only says to fill in and sign a form and get your partner to sign it; it never mentions a charge on the property."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://england.shelter.org.uk/legal/benefits/support_for_mortgage_interest",
+      "sourceQuote": "A claimant is required to sign a charge form to secure the SMI loan against their home.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-smi#eligibility.exclusions.0": {
       "valueHash": "6dd408406a56a8b8",
@@ -8159,16 +8360,6 @@
       "confidence": "confirmed"
     },
     "dwp-smi#eligibility.exclusions.1": {
-      "valueHash": "3bcaafcd618cb948",
-      "valueSeen": "UC with earnings above threshold",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text mentions no earnings threshold for Universal Credit claimants."
-    },
-    "dwp-smi#eligibility.exclusions.2": {
       "valueHash": "613cb7f827964bd0",
       "valueSeen": "Not on qualifying benefit for required duration",
       "method": "llm-extraction",
@@ -8233,11 +8424,15 @@
       "valueHash": "77b0f6bd12363f29",
       "valueSeen": "You can apply or do this by post. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form",
-      "sourceQuote": "",
+      "sourceQuote": "You can send an SR1 form online, by email or by post.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text names online, email and post, and does not mention phone."
+      "rationale": "not stated: The text lists online, email and post for sending an SR1 form; phone is only mentioned for clarification calls from assessment providers, not for sending the form."
     },
     "dwp-sr1-form#contactInfo.phone.number": {
       "valueHash": "d88827f3f90882f0",
@@ -8437,11 +8632,15 @@
       "valueHash": "6c5bfb673d5b4a03",
       "valueSeen": "NI number",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The NI number is not on the list of things you need to claim; the text mentions it only as what decides your payment day."
+      "rationale": "not stated: The list of what you need to claim (marriage dates, time abroad, bank details, foreign social security numbers, an invitation code online) does not include a National Insurance number."
     },
     "dwp-state-pension#eligibility.evidenceRequired.1": {
       "valueHash": "5062017363a6a05d",
@@ -9129,39 +9328,51 @@
       "valueHash": "935bc1379c4da6ed",
       "valueSeen": "Fit note from GP (SC1 or equivalent)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+      "sourceQuote": "You must get a fit note (also known as a ‘sick note’) if your health condition or disability affects your capability to work for longer than 7 days.",
+      "additionalQuotes": [
+        {
+          "quote": "GP or hospital doctor registered nurse",
+          "url": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+        }
+      ],
       "claims": {
-        "supported": 0,
-        "total": 1
+        "supported": 2,
+        "total": 3
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text mentions a fit note only for 16 or 17 year olds; it does not mention GPs or SC1, or say a fit note is needed for this element."
+      "rationale": "not stated: The sources never mention form SC1."
     },
     "dwp-uc-health#eligibility.evidenceRequired.1": {
-      "valueHash": "cf6450a1b969afcf",
-      "valueSeen": "Medical evidence for WCA (UC50 questionnaire)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
+      "valueHash": "b55fbefea97ec177",
+      "valueSeen": "WCA50 capability for work questionnaire, if requested",
+      "method": "manual",
+      "verifiedAt": "2026-10-21T20:51:21.311Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire",
+      "sourceQuote": "The WCA50 has replaced the forms ESA50 and UC50 capability for work questionnaires.",
+      "additionalQuotes": [
+        {
+          "quote": "Only fill in this capability for work questionnaire if you’re asked to do so, this is not a claim form.",
+          "url": "https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire"
+        }
+      ],
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention the UC50 questionnaire or medical evidence for a WCA."
+      "rationale": "Corrected from official sources on 2026-10-21. Awaiting independent re-verification."
     },
     "dwp-uc-health#eligibility.evidenceRequired.2": {
       "valueHash": "a8518c5d9f08ec89",
       "valueSeen": "Assessment appointment with health professional",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+      "sourceQuote": "The assessment can be in person, by video call or on the phone.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The only appointments the text mentions are with the Universal Credit team or a work coach, not with a health professional."
+      "rationale": "partly supported: The page mentions a health assessment provider but does not say the assessment is carried out by a health professional."
     },
     "dwp-uc-health#eligibility.summary": {
       "valueHash": "caa4c6d6b242d1a8",
@@ -9347,21 +9558,29 @@
       "valueHash": "685f44cf6dae7ae7",
       "valueSeen": "Bank statements (last 3 months)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/universal-credit",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text asks for bank account details, not bank statements, and names no 3-month period."
+      "rationale": "partly supported: A bank statement is listed only as one optional supplementary ID document for in-person identity checks, not as required evidence for the claim. not stated: No GOV.UK source mentions a 3-month period of bank statements; only the Northern Ireland page, which is another nation's version, mentions a three-month statement."
     },
     "dwp-universal-credit#eligibility.evidenceRequired.3": {
       "valueHash": "2eec7b860f030688",
       "valueSeen": "Proof of address",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/universal-credit",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions proof of address."
+      "rationale": "partly supported: Documents confirming your address appear only as optional supplementary ID documents for in-person identity checks; the GOV.UK sources do not require proof of address."
     },
     "dwp-universal-credit#eligibility.evidenceRequired.4": {
       "valueHash": "d383b3edb5d4ff56",
@@ -10469,11 +10688,15 @@
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/emergency-travel-document",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not include the How to apply content and names no way of applying."
+      "rationale": "not stated: The text describes applying online or through a contact form; in-person appointments and collection are part of how the document is delivered, not a way to apply."
     },
     "fco-emergency-travel-doc#agentInteraction.onlineFormUrl": {
       "valueHash": "efa72048647b41ee",
@@ -10621,11 +10844,37 @@
       "valueHash": "ce170fa65ea9a20d",
       "valueSeen": "Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index ref",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
+      "sourceQuote": "You need to register on the General Register Office ( GRO ) website to get a copy of a birth, adoption, death, marriage or civil partnership certificate in England and Wales.",
+      "additionalQuotes": [
+        {
+          "quote": "Certificates cost £12.50 and are sent 4 days after you apply.",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        },
+        {
+          "quote": "Certificates cost £12.50 and are sent 4 days after you apply.",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        },
+        {
+          "quote": "If you do not have a GRO index reference number , you’ll have to pay £3.50 extra for each search. Certificates are sent 15 working days after you apply.",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        },
+        {
+          "quote": "If you need the certificate sooner, you can use the priority service for £38.50.",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        },
+        {
+          "quote": "You can also order certificates from the local register office where the birth, death or marriage was registered.",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        }
+      ],
+      "claims": {
+        "supported": 6,
+        "total": 7
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never says who is allowed to order certificates."
+      "rationale": "partly supported: Only a single council page says this, and it adds the condition that you must be able to identify the entry; the GRO pages do not say who can order."
     },
     "gro-certificates#financialData.rates.priority_certificate": {
       "valueHash": "22605208e31e64f3",
@@ -11081,21 +11330,28 @@
       "valueHash": "e71ebf960a466e61",
       "valueSeen": "Gateway document for name changes, Marriage Allowance and benefit updates.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/change-name-deed-poll",
+      "sourceQuote": "You do not need a deed poll to take your spouse’s or civil partner’s surname. Send a copy of your marriage or civil partnership certificate to record-holders.",
+      "claims": {
+        "supported": 1,
+        "total": 3
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention name changes; the only uses it names are family tree research and passport applications. not stated: The text does not mention Marriage Allowance. not stated: The text does not mention benefits."
+      "rationale": "not stated: The sources never mention Marriage Allowance. not stated: The sources do not say the certificate is used to update benefits."
     },
     "gro-marriage-cert#eligibility.autoQualifiers.0": {
       "valueHash": "d966c092959e1c08",
       "valueSeen": "Marriage or civil partnership ceremony completed",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text sets no condition that a ceremony must have taken place."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony",
+      "sourceQuote": "Your signed schedule is sent to your local register office where it’s added to the register. After that, you can get your marriage or civil partnership certificate.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "gro-marriage-cert#eligibility.criteria.0": {
       "valueHash": "7e91f3c228bd7049",
@@ -11129,11 +11385,21 @@
       "valueHash": "a9a30c5f443ee78c",
       "valueSeen": "Issued after a marriage or civil partnership ceremony. Acts as the gateway document for name changes, Marriage Allowance, and updating government records.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony",
+      "sourceQuote": "Your signed schedule is sent to your local register office where it’s added to the register. After that, you can get your marriage or civil partnership certificate.",
+      "additionalQuotes": [
+        {
+          "quote": "You do not need a deed poll to take your spouse’s or civil partner’s surname. Send a copy of your marriage or civil partnership certificate to record-holders.",
+          "url": "https://www.gov.uk/change-name-deed-poll"
+        }
+      ],
+      "claims": {
+        "supported": 2,
+        "total": 4
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text covers ordering copies of certificates and does not say when a certificate is first issued. not stated: The text does not mention name changes. not stated: The text does not mention Marriage Allowance. not stated: The text does not mention updating government records; it only says a certificate can support a passport application."
+      "rationale": "not stated: The sources never mention Marriage Allowance. partly supported: The page says to send the certificate to record-holders to change your surname, but does not describe it as a document for updating government records generally."
     },
     "gro-marriage-cert#govuk_url": {
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
@@ -11312,7 +11578,7 @@
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/register-a-death",
       "sourceQuote": "",
       "claims": {
@@ -11320,7 +11586,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not say how a death is registered, in person or any other way."
+      "rationale": "not stated: The GOV.UK pages refer to the register office but do not say you register in person; only the Scotland and Northern Ireland pages, which are other nations' versions, describe attending a registration office."
     },
     "gro-register-death#contactInfo.officeLocatorUrl": {
       "valueHash": "c257cb6e181e2d60",
@@ -11359,15 +11625,15 @@
       "valueHash": "42f1e85ce0872531",
       "valueSeen": "Register at local register office. Required before probate, Tell Us Once and bereavement payments.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
       "sourceQuote": "",
       "claims": {
         "supported": 0,
         "total": 4
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text only has a related link called 'Find a register office'. It never says a death is registered there. not stated: 'Applying for probate' appears only as a related link. No requirement or order of steps is stated. not stated: The text does not mention Tell Us Once. not stated: The text does not mention bereavement payments."
+      "rationale": "partly supported: The text implies registration is handled by the register office but does not say it must be the local one. partly supported: The text says a death certificate can be used to apply for probate, but does not say registration must happen before probate. partly supported: Tell Us Once needs the death registered or reported to a coroner with a death certificate, so registration is not the only route. not stated: The text does not link registration to bereavement payments."
     },
     "gro-register-death#eligibility.criteria.0": {
       "valueHash": "3a4d4b5b67072c75",
@@ -11411,7 +11677,7 @@
       "valueHash": "5c34f640f90c30a1",
       "valueSeen": "Medical Certificate of Cause of Death (MCCD)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/register-a-death",
       "sourceQuote": "",
       "claims": {
@@ -11419,21 +11685,21 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a Medical Certificate of Cause of Death or any other document."
+      "rationale": "not stated: The GOV.UK pages say to wait for the medical examiner's confirmation and do not mention an MCCD; only the Scotland and Northern Ireland pages, which are other nations' versions, mention it."
     },
     "gro-register-death#eligibility.evidenceRequired.1": {
       "valueHash": "2455091e8800222b",
       "valueSeen": "Deceased's NHS number and personal details if available",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/register-a-death",
       "sourceQuote": "",
       "claims": {
         "supported": 0,
-        "total": 1
+        "total": 2
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention an NHS number or any personal details needed."
+      "rationale": "not stated: No GOV.UK source mentions the NHS number for registering a death; the Scotland page mentions an NHS medical card but that is another nation's version. not stated: The GOV.UK pages list the deceased's details only for Tell Us Once, a different service, not for registering the death."
     },
     "gro-register-death#eligibility.rules.1.maxDays": {
       "valueHash": "ef2d127de37b942b",
@@ -11873,31 +12139,43 @@
       "valueHash": "2e08afe334311988",
       "valueSeen": "Benefit award letter",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a benefit award letter or any documents you need to provide."
+      "rationale": "partly supported: The text says the court checks benefits with DWP and may ask for more evidence, but does not name a benefit award letter as required."
     },
     "hmcts-court-fee-remission#eligibility.evidenceRequired.1": {
       "valueHash": "e07297e83e9dbdd0",
       "valueSeen": "Bank statements showing savings",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text says your savings must be under a limit, but it does not mention bank statements or evidence of savings."
+      "rationale": "partly supported: Bank statements are mentioned only as possible evidence of income when the court asks, not as proof of savings."
     },
     "hmcts-court-fee-remission#eligibility.evidenceRequired.2": {
       "valueHash": "8769d588b1c29860",
       "valueSeen": "Proof of income if not on qualifying benefit",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text says you must report your income, but it does not say you have to provide proof of it."
+      "rationale": "partly supported: Income evidence is needed only if the court sends a letter asking for it; the text does not tie this to not being on a qualifying benefit."
     },
     "hmcts-court-fee-remission#eligibility.rules.0.rules.0.rules.1.value": {
       "valueHash": "3bc098c10285bf1e",
@@ -13598,11 +13876,15 @@
       "valueHash": "6298bb23583c911a",
       "valueSeen": "Some pension death benefits and life insurance written in trust pass outside probate.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/applying-for-probate",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/family/death-and-wills/dealing-with-the-financial-affairs-of-someone-who-has-died/",
+      "sourceQuote": "there are certain life insurance policies and pension benefits in the estate",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention pensions or life insurance."
+      "rationale": "partly supported: The text says certain life insurance policies may not need probate but does not say these are policies written in trust."
     },
     "hmcts-probate#eligibility.summary": {
       "valueHash": "af2da3ef88da526b",
@@ -13990,15 +14272,14 @@
       "valueHash": "a2f3a8b8a5d9342d",
       "valueSeen": "Current or most recent passport",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/apply-renew-passport",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/renew-adult-passport/renew",
+      "sourceQuote": "To renew your passport you’ll need: your old passport",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 1,
         "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say you must provide your current or previous passport."
+      }
     },
     "hmpo-passport#eligibility.evidenceRequired.1": {
       "valueHash": "e1e917346aff3764",
@@ -14017,15 +14298,14 @@
       "valueHash": "39e49e489f06c76e",
       "valueSeen": "Countersignatory details (first applications)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/apply-renew-passport",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/countersigning-passport-applications",
+      "sourceQuote": "You must get your paper form and one of your 2 print photos signed if you’re applying for a: first adult passport first child passport",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 1,
         "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text never mentions countersignatories."
+      }
     },
     "hmpo-passport#eligibility.summary": {
       "valueHash": "39129ee0b7430936",
@@ -14109,15 +14389,15 @@
       "valueHash": "f11e2524c9ef8fe0",
       "valueSeen": "Must be a British national with imminent international travel.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/get-a-passport-urgently",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/get-a-child-passport",
+      "sourceQuote": "Your child must have British nationality to be eligible for a British passport.",
       "claims": {
-        "supported": 0,
-        "total": 1
+        "supported": 1,
+        "total": 2
       },
       "confidence": "unverified",
-      "rationale": "not stated: The urgent passport page sets neither British nationality nor upcoming travel as a condition; the only related rules are that you must be in the UK and not applying for a first adult passport."
+      "rationale": "partly supported: The page says you can use the urgent service if the standard service would take too long, but it does not make imminent international travel a condition."
     },
     "hmpo-passport-urgent#eligibility.summary": {
       "valueHash": "79de6921c8614424",
@@ -14307,31 +14587,48 @@
       "valueHash": "0c6e1a77c42ac9be",
       "valueSeen": "Business details and registered address",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not say what evidence or information is needed."
+      "rationale": "partly supported: The text requires premises details, BOOMs and fees, but does not list general business details as needed. partly supported: The text requires the premises where supervised activity takes place, not specifically the registered address."
     },
     "hmrc-aml-registration#eligibility.evidenceRequired.1": {
       "valueHash": "b421452ff22314ba",
       "valueSeen": "Identity of beneficial owners and directors",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/anti-money-laundering-registration",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention beneficial owners, directors or identity evidence."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc",
+      "sourceQuote": "add all beneficial owners, officers or managers ( BOOMs ), referred to as a responsible person on the registration system, on to the application",
+      "additionalQuotes": [
+        {
+          "quote": "add all beneficial owners, officers or managers ( BOOMs ), referred to as a responsible person on the registration system, on to the application",
+          "url": "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "hmrc-aml-registration#eligibility.evidenceRequired.2": {
       "valueHash": "e56a0aebfe31b616",
       "valueSeen": "Evidence of business type and activities",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/anti-money-laundering-registration",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not say what evidence is required."
+      "rationale": "not stated: The text asks for a risk assessment, BOOMs, premises and fees, but does not mention evidence of business type or activities."
     },
     "hmrc-aml-registration#eligibility.summary": {
       "valueHash": "146d3bf43b0c1da7",
@@ -15005,29 +15302,29 @@
       "valueHash": "750f5f4acd4064ff",
       "valueSeen": "Government Gateway account of new claimant",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/child-benefit-child-lives-with-someone-else",
+      "sourceQuote": "Tell the other person to make a new claim .",
       "claims": {
-        "supported": 0,
-        "total": 1
+        "supported": 1,
+        "total": 2
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions a Government Gateway account."
+      "rationale": "not stated: No source names Government Gateway or any other account needed to make the new claim."
     },
     "hmrc-child-benefit-transfer#eligibility.evidenceRequired.1": {
       "valueHash": "15857b0c301b4012",
       "valueSeen": "Child's details and date of change",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
       "sourceQuote": "",
       "claims": {
         "supported": 0,
-        "total": 1
+        "total": 2
       },
       "confidence": "unverified",
-      "rationale": "not stated: The text never asks for the child's details or the date of the change when changing who gets Child Benefit."
+      "rationale": "partly supported: The claim checklist asks for the child's birth or adoption certificate if available, but does not list the child's details as such. not stated: No source says the date of the change in claimant must be given."
     },
     "hmrc-child-benefit-transfer#eligibility.summary": {
       "valueHash": "8f3ecc8de4969edf",
@@ -15072,11 +15369,15 @@
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+      "sourceQuote": "The quickest way to register is online.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text only mentions signing in to CIS online to file returns or verify subcontractors once already registered, not registering online. not stated: The text does not mention phone."
+      "rationale": "not stated: The pages give helplines for getting help and reporting changes, and offer registration online or by post, but never say you can register by phone."
     },
     "hmrc-cis#contactInfo.phone.number": {
       "valueHash": "2b7db1f42383347f",
@@ -15139,41 +15440,55 @@
       "valueHash": "ba438a37faab314f",
       "valueSeen": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
-      "sourceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+      "sourceQuote": "To use the online service, you need a UTR . If you do not have a UTR , register as a new business for Self Assessment",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention HMRC business registration, a UTR or Companies House registration as prerequisites."
+      "rationale": "partly supported: The page says a limited company may need its company registration number, but it does not say Companies House registration is a requirement for CIS."
     },
     "hmrc-cis#eligibility.evidenceRequired.0": {
       "valueHash": "75ad9d820aa827ad",
       "valueSeen": "Business UTR",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a UTR or any evidence needed to register."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+      "sourceQuote": "the Unique Taxpayer Reference ( UTR ) for your business",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "hmrc-cis#eligibility.evidenceRequired.1": {
       "valueHash": "377f32cd59007e87",
       "valueSeen": "Companies House registration number (if limited company)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a Companies House number."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status",
+      "sourceQuote": "Depending on your circumstances, you may also need: the company registration number",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "hmrc-cis#eligibility.evidenceRequired.2": {
       "valueHash": "bea3ae60eea6a8f5",
       "valueSeen": "Nature of construction work",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text describes what work is covered but does not say you must give the nature of your work when registering."
+      "rationale": "not stated: None of the registration lists of what you need asks for a description of the construction work."
     },
     "hmrc-cis#eligibility.summary": {
       "valueHash": "1e02095d7acc751f",
@@ -15503,11 +15818,15 @@
       "valueHash": "1cec8f53c2a85b72",
       "valueSeen": "You can apply or do this in person.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text gives no way of applying for the 15 hours, in person or otherwise."
+      "rationale": "not stated: The 15-hours page only says to contact your childcare provider or local council to find out more and does not say you can apply in person."
     },
     "hmrc-free-childcare-15#deptKey": {
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs",
@@ -15583,11 +15902,15 @@
       "valueHash": "e1ab100a3a97b05c",
       "valueSeen": "Child's date of birth, given to the childcare provider",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention any evidence to give the provider."
+      "rationale": "not stated: Only the linked Free Childcare for Working Parents page, a different scheme, says to give your child's date of birth to the provider; the sources on the 15 hours for 3 to 4-year-olds do not."
     },
     "hmrc-free-childcare-15#eligibility.rules.1.value": {
       "valueHash": "4e07408562bedb8b",
@@ -16011,11 +16334,15 @@
       "valueHash": "8db8a8b678e2ae69",
       "valueSeen": "Child Benefit claim reference",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
       "sourceUrl": "https://www.gov.uk/guardians-allowance",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text never mentions a Child Benefit claim reference as evidence."
+      "rationale": "not stated: The text says you must qualify for and should claim Child Benefit, and lists the birth and death certificates to send, but never mentions a Child Benefit claim reference."
     },
     "hmrc-guardians-allowance#eligibility.evidenceRequired.2": {
       "valueHash": "ea588f94c0426115",
@@ -16206,11 +16533,15 @@
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/inheritance-tax",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value",
+      "sourceQuote": "You need to download and complete form IHT400 . Send it to the address on the form.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not describe any way of applying or sending a return. not stated: The text does not mention sending anything by post."
+      "rationale": "not stated: The text says IHT400 is downloaded, can be filled in on screen and printed, and is sent to the address on the form; it never says the return can be submitted online."
     },
     "hmrc-iht400#agentInteraction.onlineFormUrl": {
       "valueHash": "2a0ae0bf8519ebe3",
@@ -16271,31 +16602,56 @@
       "valueHash": "7c1f50674d87ca8c",
       "valueSeen": "Applies to the estate of a deceased person in England, Wales or Northern Ireland.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-28T15:06:58.344Z",
-      "sourceUrl": "https://www.gov.uk/inheritance-tax",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text never limits the service to England, Wales or Northern Ireland; it only mentions the UK in general and people based abroad."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value",
+      "sourceQuote": "You must report the full details of the estate and its value to HM Revenue and Customs ( HMRC ) by completing form IHT400.",
+      "additionalQuotes": [
+        {
+          "quote": "You’ll need this code to apply for probate in England and Wales or confirmation in Scotland.",
+          "url": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+        },
+        {
+          "quote": "If you’re applying for probate in Northern Ireland Complete form IHT421 and send it to HMRC with form IHT400 .",
+          "url": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 3,
+        "total": 3
+      }
     },
     "hmrc-iht400#eligibility.evidenceRequired.0": {
       "valueHash": "b879810eb8594975",
       "valueSeen": "IHT400 form and supplementary schedules",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/inheritance-tax",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention the IHT400 form or any schedules."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value",
+      "sourceQuote": "Report the value of the estate by completing form IHT400 You need to download and complete form IHT400 .",
+      "additionalQuotes": [
+        {
+          "quote": "complete and send any relevant additional pages (known as ‘schedules’)",
+          "url": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "hmrc-iht400#eligibility.evidenceRequired.1": {
       "valueHash": "700027320241ee33",
       "valueSeen": "Valuations of all assets",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/inheritance-tax",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text says the estate's value is used to work out the tax, but it does not list asset valuations as evidence for a return."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value",
+      "sourceQuote": "You’ll need to give accurate valuations when you complete the form.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "hmrc-iht400#eligibility.evidenceRequired.2": {
       "valueHash": "a66d5f02187edc44",
@@ -16320,11 +16676,14 @@
       "valueHash": "3fbeddbf5174ba00",
       "valueSeen": "Copy of will",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/inheritance-tax",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say a copy of the will must be provided."
+      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "sourceUrl": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value",
+      "sourceQuote": "only send a copy of the will (if there is one) and include copies of any official alterations (known as ‘codicils’) - do not send any originals",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "hmrc-iht400#eligibility.rules.1.value": {
       "valueHash": "b9faf8d04d2701a4",

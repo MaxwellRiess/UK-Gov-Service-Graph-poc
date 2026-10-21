@@ -1,0 +1,114 @@
+A service graph describes the UK government service "Best Start Foods" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge/sss-best-start-foods.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_1] (split into claims) Proof of pregnancy or child's age
+
+--- SOURCE 0: https://www.mygov.scot/best-start-grant-best-start-foods ---
+Best Start Grant and Best Start Foods How it works Last updated 10 Aug 2026 Contents How it works Who should apply Other benefits you might be able to get How to apply After you apply If your circumstances change Best Start Foods if you have no access to public funds Best Start Grant and Best Start Foods are payments that help towards the costs of being pregnant or looking after a child. When to apply for different family payments When you can apply You may be able to get Apply as soon as you know you're pregnant, or up until your child turns 3 years old. Best Start Foods Apply after 24 weeks of pregnancy to help prepare for your baby’s arrival, or after your baby is born. Best Start Grant – Pregnancy and Baby Payment Apply when your child is aged between 2 and 3 years 6 months old. Best Start Grant – Early Learning Payment Apply when your child is first old enough to start primary school. When you should apply depends on when your child was born. You need to apply in the year that your child is first old enough to start school. Best Start Grant – School Age Payment These are the 5 family payments, along with Scottish Child Payment , you may be able to get from Social Security Scotland. You can apply for them all using the same form. You'll get separate letters to let you know whether you'll get each payment. If you live in England, Wales or Northern Ireland, you cannot get Best Start Grant or Best Start Foods. You can apply for Sure Start Maternity Grant and Healthy Start Payments . About Best Start Grant The 3 Best Start Grant payments are: Open all sections Pregnancy and Baby Payment Show this section Pregnancy and Baby Payment helps with the costs of having a baby. You can apply for this payment during pregnancy to help prepare for your baby's arrival, or after your baby is born. You can get Pregnancy and Baby Payment any time after you have reached the end of the 24th week of pregnancy until the day your baby is 6 months old. If your baby is born before 24 weeks, you can apply from this date up to the day your baby is 6 months old. If you've taken over looking after a child, for example, if you've adopted, you can apply up to the day before the child's first birthday. You can get Pregnancy and Baby Payment for multiple children, as long as each child is the right age when you apply. The amount paid for each child will be different if you have more than one child. You'll get a Pregnancy and Baby Payment of £796.65 for your first child. Your first child is your oldest child under 16. This includes a stepchild, if you have one. It also includes any child you've taken over looking after, for example, if you've adopted, or kinship care. This will change to a payment of £398.35 for any child that comes after your first. For example, your second or third child, or any child after these. You can use the payment for anything you need. This could include: pregnancy clothes a pram a cot baby clothes toys Extra support In some circumstances, you may be able to get extra support for a child that’s not your first. You may get the £796.65 payment if: you or your partner became responsible for your other child or children when they were over 12 months old, and did not give birth to them you had to leave your home with your other child or children because of domestic abuse by your partner or ex-partner you're a refugee or have humanitarian protection and your other child or children were born before you arrived in the UK you have leave to reside in the UK under a resettlement scheme , such as, but not limited to, the Afghanistan or Ukraine schemes and your other child or children were born before you arrived in the UK you have discretionary leave outside the immigration rules, for example you’re a medical evacuee from Gaza, and your other child or children were born before you arrived in the UK you’re a British or Irish national or have leave to remain and have returned to the UK due to ‘leave now’ guidance or the UK government has evacuated you back to the UK, and your other children were born before you returned Not all of these circumstances are listed on the online or paper form. If your circumstance is not listed, select the ‘Not sure’ option. You cannot get the Pregnancy and Baby Payment if you’ve already got the Sure Start Maternity Grant for the same baby Applying for a multiple birth If you apply for twins and have no other children under 16 Your payment for 1st twin Your payment for 2nd twin Extra payment for twins Total £796.65 £398.35 £398.35 £1,593.35 If you apply for twins and have other children under 16 Your payment for 1st twin Your payment for 2nd twin Extra payment for twins Total £398.35 £398.35 £398.35 £1,195.05 If you apply for triplets If you have triplets, you'll be paid an extra £398.35 on top of what you get for twins. This means you'd get either: £1,991.70 if you do not have any other children under 16 £1,593.40 if you do have other children under 16 You can still get the Pregnancy and Baby Payment part of Best Start Grant for a baby that was stillborn or died after they were born. If you're paid when you're pregnant, and your baby is stillborn or dies later, you will not need to pay any money back. If you apply after a stillbirth or death, you can apply up to 6 months after the baby's birth date. Early Learning Payment Show this section If your application is successful you'll get £331.95 to help with the costs of early learning. You can get the payment when your child is aged between 2 years old and 3 years and 6 months old. To get this payment your child does not need to go to nursery. You can get Early Learning Payment for multiple children, as long as each child is the right age when you apply. You can spend this money on anything you need for your child at this age. This could include: clothes toys trips to new places School Age Payment Show this section School Age Payment is a payment of £331.95 per child. It helps with the costs of preparing for school when your child is first old enough to start primary school. You can get the payment for multiple children, as long as each child is the right age when you apply. To get a payment, your child does not have to take up a place at school. You'll still need to apply in the year that your child is first old enough to start school, if: you're deferring when your child starts school your child is not going to school When you need to apply for the School Age Payment depends on when your child was born: When to apply for School Age Payment Your child's date of birth When you can apply Between 1 March 2021 and 28 February 2022 Between 1 June 2026 and 28 February 2027 Between 1 March 2022 and 28 February 2023 Between 1 June 2027 and 29 February 2028 The application dates for children born between 1 March 2020 and 28 February 2021 have now passed. You cannot apply for a child outside of these application dates. You can spend this money on anything you need for your child at this age. This could include: clothes school trips stationery for school The School Age Payment has not replaced the School Clothing Grant . The School Age Payment is a new payment and it does not affect payments of the School Clothing Grant in any way. If you want to apply for both, you can. Social Security Scotland usually only make each of the payments once for the same child. If responsibility for the child changes, they may make extra payments to the person who’s now responsible for the child. For example, if a child moves to live with a different kinship carer or adoptive parent within the same application window. About Best Start Foods Best Start Foods is a payment that can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3. Best Start Foods is paid every 4 weeks. The payments are: £22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies) £44.80 for each child from birth until they’re one year old £22.40 for each child aged between one and 3 years old If your baby’s born early, you’ll get the higher amount from birth until 1 year after the due date. Best Start Foods payment dates Show this section The following table shows Best Start Foods payment dates: Best Start Foods payment dates Application approval date First payment date 19 October 2025 03 November 2025 16 November 2025 01 December 2025 14 December 2025 29 December 2025 11 January 2026 26 January 2026 8 February 2026 23 February 2026 8 March 2026 23 March 2026 5 April 2026 20 April 2026 3 May 2026 18 May 2026 You’ll get the payments on a prepaid card you can use in shops and online. Find out how to use your Best Start Foods card , check your balance and what to do if you have a problem. Your unspent money if you're no longer eligible You may have got a letter in September 2026 from Social Security Scotland about your Best Start Foods card being closed if: you’re no longer eligible you have an unspent balance They'll pay the unspent money in to your bank account if they have your details. If you do not get any other benefits from Social Security Scotland, you’ll need to call with your bank details. Get in touch for free on 0800 182 2222 between 8am to 5pm, Monday to Friday (except for bank holidays). If you have no access to public funds You may be able to get Best Start Foods for your child even if you cannot get certain benefits because of your immigration status or because you do not have a status. Find out more about getting Best Start Foods if you have no access to public funds . If you apply late for Best Start Grant because of coronavirus (COVID-19), Social Security Scotland can accept your application. Tell them in the 'If you think there's anything else we need to know' box at the end of the application form. Who should apply Related content Use your Best Start Foods card Scottish Child Payment Children and family Webchat, phone or post Thanks for your feedback

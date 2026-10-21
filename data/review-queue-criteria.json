@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:15:45.432Z",
+  "generatedAt": "2026-10-21T20:52:45.408177Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -253,17 +253,6 @@
       "verdict": "partly_supported",
       "note": "The text supports the 3-month no-trading condition, but it says nothing about the company being 'otherwise used for a purpose' or about it having to be a UK company.",
       "quote": "has not traded or sold off any stock in the last 3 months",
-      "url": null
-    },
-    {
-      "id": "ch-confirmation-statement",
-      "name": "File a confirmation statement",
-      "criterion": 0,
-      "factor": "dependency",
-      "graph": "Must be a registered company, LLP or eligible UK business entity.",
-      "verdict": "partly_supported",
-      "note": "The text says a company must file, but it never mentions LLPs or other eligible UK business entities, and it states no eligibility rule.",
-      "quote": "You need to check that the information Companies House has about your company is correct every year. This is called a confirmation statement.",
       "url": null
     },
     {
@@ -1430,6 +1419,28 @@
       "verdict": "partly_supported",
       "note": "Living in Scotland is required only in most cases; the sources say some people living in the EU, Switzerland, Norway, Iceland, Liechtenstein, Gibraltar or Ireland with a link to Scotland can also apply.",
       "quote": "In most cases, you must also: be between 16 years old and State Pension age, and live in Scotland.",
+      "url": null
+    },
+    {
+      "id": "hmpo-passport-urgent",
+      "name": "Urgent passport application",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Must be a British national with imminent international travel.",
+      "verdict": "partly_supported",
+      "note": "The page says you can use the urgent service if the standard service would take too long, but it does not make imminent international travel a condition.",
+      "quote": "You can pay to get a passport urgently if you think the standard service will take too long.",
+      "url": null
+    },
+    {
+      "id": "hmrc-cis",
+      "name": "Construction Industry Scheme (CIS) registration",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
+      "verdict": "partly_supported",
+      "note": "The page says a limited company may need its company registration number, but it does not say Companies House registration is a requirement for CIS.",
+      "quote": "Depending on your circumstances, you may also need: the company registration number",
       "url": null
     }
   ]

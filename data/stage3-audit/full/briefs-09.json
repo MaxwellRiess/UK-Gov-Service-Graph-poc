@@ -1,0 +1,269 @@
+[
+  {
+    "key": "la-short-term-let#agentInteraction.methods",
+    "service": "Short-term let licence (Scotland)",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/short-term-let-licences",
+    "claim": "You can apply or do this online. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.mygov.scot/short-term-let-licences"
+    ],
+    "whyNotFound": "not stated: The text has a 'How to apply' heading but gives no application method. not stated: The text gives no in-person application method."
+  },
+  {
+    "key": "la-skip-permit#eligibility.evidenceRequired.1",
+    "service": "Skip permit (public road)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/apply-skip-permit",
+    "claim": "Skip hire company details and contact information",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/apply-skip-permit"
+    ],
+    "whyNotFound": "not stated: The company's name and phone number are mentioned only as something that may need to be shown on the skip, not as something to provide when applying."
+  },
+  {
+    "key": "la-street-collection-licence#eligibility.evidenceRequired.0",
+    "service": "Street collection licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
+    "claim": "Charity details and purpose of collection",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/street-collection-licence"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence or information needed to apply."
+  },
+  {
+    "key": "la-street-collection-licence#eligibility.evidenceRequired.1",
+    "service": "Street collection licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
+    "claim": "Location and timing of collection",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/street-collection-licence"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence or information needed to apply."
+  },
+  {
+    "key": "la-temporary-events-notice#eligibility.evidenceRequired.2",
+    "service": "Temporary Events Notice (TEN)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/temporary-events-notice",
+    "claim": "Event details: dates, times, activities, number of attendees",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/temporary-events-notice"
+    ],
+    "whyNotFound": "not stated: The text does not say which event details the notice must include."
+  },
+  {
+    "key": "lr-registration#agentInteraction.methods",
+    "service": "Land Registry registration (AP1)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/registering-land-or-property-with-land-registry",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/registering-land-or-property-with-land-registry"
+    ],
+    "whyNotFound": "not stated: The text tells you to send forms to a PO Box and does not offer online registration; the only electronic route it mentions is for exempt document applications, and only businesses can use it."
+  },
+  {
+    "key": "lr-sign-mortgage-deed#desc",
+    "service": "Sign your mortgage deed",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
+    "claim": "Sign your mortgage deed electronically via HM Land Registry's digital mortgage service, replacing the need for a wet signature on a paper deed.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
+    ],
+    "whyNotFound": "not stated: The text never mentions wet signatures or paper deeds."
+  },
+  {
+    "key": "lr-sign-mortgage-deed#eligibility.summary",
+    "service": "Sign your mortgage deed",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
+    "claim": "Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
+    ],
+    "whyNotFound": "not stated: The text only mentions homeowners who are remortgaging and says nothing about purchases. not stated: The text names no account, sign-in or identity check."
+  },
+  {
+    "key": "nhs-111-online#agentInteraction.methods",
+    "service": "NHS 111 online",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://111.nhs.uk",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://111.nhs.uk"
+    ],
+    "whyNotFound": "not stated: The text refers to 'other ways to contact 111' without naming phone."
+  },
+  {
+    "key": "nhs-111-online#desc",
+    "service": "NHS 111 online",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://111.nhs.uk",
+    "claim": "Get urgent medical advice online or by phone when you need help fast but it is not a 999 emergency. 111 assesses your symptoms and directs you to the right service.",
+    "alreadySearched": [
+      "https://111.nhs.uk"
+    ],
+    "whyNotFound": "not stated: The text mentions 'other ways to contact 111' but never names phone. not stated: The text does not mention 999 or emergencies."
+  },
+  {
+    "key": "nhs-care-assessment#eligibility.criteria.0",
+    "service": "Care needs assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
+    "claim": "Any adult who appears to need care and support due to a physical or mental condition, disability, or frailty due to age.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-needs-assessment-social-services"
+    ],
+    "whyNotFound": "not stated: The source gives no eligibility criteria and does not limit the service to adults; its listed services include day care for your child and help with parenting."
+  },
+  {
+    "key": "nhs-care-assessment#eligibility.summary",
+    "service": "Care needs assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
+    "claim": "Any adult can request a care needs assessment from their local authority. Free and means-independent — the assessment itself is free, though resulting care may be means-tested. Can lead to a care plan and funded support.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-needs-assessment-social-services"
+    ],
+    "whyNotFound": "not stated: The text says nothing about who is eligible. It only says the service is available in England and Wales. not stated: The text does not mention cost. not stated: The text does not mention means testing for the assessment. not stated: The text does not mention means testing for care. not stated: The text never mentions a care plan. not stated: The text does not mention funding."
+  },
+  {
+    "key": "nhs-continuing-healthcare#agentInteraction.methods",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "You can apply or do this by phone. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not describe any way to apply, including by phone. not stated: The text does not describe any way to apply, including in person."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.autoQualifiers.1",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Complex nursing needs",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not mention complex nursing needs as a qualifier."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.criteria.1",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Requires a care needs assessment (fast-track available for terminal illness).",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text mentions processes for deciding eligibility but does not say a care needs assessment is required, and it does not mention a fast-track for terminal illness."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.evidenceRequired.0",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Completed CHC checklist or fast-track tool from clinician",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not mention a checklist, a fast-track tool or any other evidence."
+  },
+  {
+    "key": "nhs-free-dental#eligibility.evidenceRequired.2",
+    "service": "Free NHS Dental Treatment",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
+    "claim": "Benefit award letter",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/"
+    ],
+    "whyNotFound": "not stated: A benefit award letter is not among the examples of proof the text lists."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.autoQualifiers.0",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "PIP award confirmed",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text does not mention PIP."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.autoQualifiers.1",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Qualifying medical condition (apply for Medical Exemption Certificate via GP)",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: Medical Exemption Certificates and applying through a GP are not mentioned."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.criteria.0",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text only says the checker will ask about 'any health conditions you have'. It never mentions PIP, DLA, qualifying medical conditions or medical exemption certificates as eligibility routes."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.criteria.1",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Receiving UC with a health element, or HC2 certificate for low income.",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text does not mention Universal Credit, a health element, HC2 certificates or low income as a qualifying route."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.criteria.2",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Under 16, aged 16–18 in full-time education, or 60 and over.",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text only says the checker will ask about your age. It gives no qualifying ages: nothing on under 16, 16–18 in full-time education, or 60 and over."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.evidenceRequired.0",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Benefit award letter or FP92A medical exemption form signed by GP",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text mentions no evidence documents."
+  }
+]

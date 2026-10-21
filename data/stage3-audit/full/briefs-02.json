@@ -1,0 +1,242 @@
+[
+  {
+    "key": "dwp-sr1-form#agentInteraction.methods",
+    "service": "SR1 form (Special Rules for terminal illness)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form",
+    "claim": "You can apply or do this by post. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form"
+    ],
+    "whyNotFound": "not stated: The text names online, email and post, and does not mention phone."
+  },
+  {
+    "key": "dwp-state-pension#eligibility.evidenceRequired.0",
+    "service": "State Pension claim",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/eligibility",
+    "claim": "NI number",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/eligibility",
+      "https://www.gov.uk/new-state-pension/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The NI number is not on the list of things you need to claim; the text mentions it only as what decides your payment day."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.0",
+    "service": "UC limited capability element",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+    "claim": "Fit note from GP (SC1 or equivalent)",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text mentions a fit note only for 16 or 17 year olds; it does not mention GPs or SC1, or say a fit note is needed for this element."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.1",
+    "service": "UC limited capability element",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+    "claim": "Medical evidence for WCA (UC50 questionnaire)",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not mention the UC50 questionnaire or medical evidence for a WCA."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.2",
+    "service": "UC limited capability element",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+    "claim": "Assessment appointment with health professional",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The only appointments the text mentions are with the Universal Credit team or a work coach, not with a health professional."
+  },
+  {
+    "key": "dwp-universal-credit#eligibility.evidenceRequired.2",
+    "service": "Universal Credit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit",
+    "claim": "Bank statements (last 3 months)",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit",
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text asks for bank account details, not bank statements, and names no 3-month period."
+  },
+  {
+    "key": "dwp-universal-credit#eligibility.evidenceRequired.3",
+    "service": "Universal Credit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit",
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text never mentions proof of address."
+  },
+  {
+    "key": "fco-emergency-travel-doc#agentInteraction.methods",
+    "service": "Emergency travel document",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/emergency-travel-document",
+    "claim": "You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/emergency-travel-document"
+    ],
+    "whyNotFound": "not stated: The text does not include the How to apply content and names no way of applying."
+  },
+  {
+    "key": "gro-certificates#eligibility.summary",
+    "service": "Order a birth, death or marriage certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index reference, or 15 working days without one, plus £3.50 per search). Priority service £38.50. Can also be ordered from the local register office.",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text never says who is allowed to order certificates."
+  },
+  {
+    "key": "gro-marriage-cert#desc",
+    "service": "Marriage / CP certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Gateway document for name changes, Marriage Allowance and benefit updates.",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text does not mention name changes; the only uses it names are family tree research and passport applications. not stated: The text does not mention Marriage Allowance. not stated: The text does not mention benefits."
+  },
+  {
+    "key": "gro-marriage-cert#eligibility.autoQualifiers.0",
+    "service": "Marriage / CP certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Marriage or civil partnership ceremony completed",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text sets no condition that a ceremony must have taken place."
+  },
+  {
+    "key": "gro-marriage-cert#eligibility.summary",
+    "service": "Marriage / CP certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Issued after a marriage or civil partnership ceremony. Acts as the gateway document for name changes, Marriage Allowance, and updating government records.",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text covers ordering copies of certificates and does not say when a certificate is first issued. not stated: The text does not mention name changes. not stated: The text does not mention Marriage Allowance. not stated: The text does not mention updating government records; it only says a certificate can support a passport application."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.methods",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text does not say how a death is registered, in person or any other way."
+  },
+  {
+    "key": "gro-register-death#desc",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Register at local register office. Required before probate, Tell Us Once and bereavement payments.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text only has a related link called 'Find a register office'. It never says a death is registered there. not stated: 'Applying for probate' appears only as a related link. No requirement or order of steps is stated. not stated: The text does not mention Tell Us Once. not stated: The text does not mention bereavement payments."
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.0",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Medical Certificate of Cause of Death (MCCD)",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text does not mention a Medical Certificate of Cause of Death or any other document."
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.1",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Deceased's NHS number and personal details if available",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text does not mention an NHS number or any personal details needed."
+  },
+  {
+    "key": "hmcts-court-fee-remission#eligibility.evidenceRequired.0",
+    "service": "Court Fee Remission",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-help-with-court-fees",
+    "claim": "Benefit award letter",
+    "alreadySearched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "whyNotFound": "not stated: The text does not mention a benefit award letter or any documents you need to provide."
+  },
+  {
+    "key": "hmcts-court-fee-remission#eligibility.evidenceRequired.1",
+    "service": "Court Fee Remission",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-help-with-court-fees",
+    "claim": "Bank statements showing savings",
+    "alreadySearched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "whyNotFound": "not stated: The text says your savings must be under a limit, but it does not mention bank statements or evidence of savings."
+  },
+  {
+    "key": "hmcts-court-fee-remission#eligibility.evidenceRequired.2",
+    "service": "Court Fee Remission",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-help-with-court-fees",
+    "claim": "Proof of income if not on qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "whyNotFound": "not stated: The text says you must report your income, but it does not say you have to provide proof of it."
+  },
+  {
+    "key": "hmcts-probate#eligibility.exclusions.1",
+    "service": "Apply for probate",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/applying-for-probate",
+    "claim": "Some pension death benefits and life insurance written in trust pass outside probate.",
+    "alreadySearched": [
+      "https://www.gov.uk/applying-for-probate",
+      "https://www.gov.uk/applying-for-probate/apply-for-probate"
+    ],
+    "whyNotFound": "not stated: The text does not mention pensions or life insurance."
+  }
+]

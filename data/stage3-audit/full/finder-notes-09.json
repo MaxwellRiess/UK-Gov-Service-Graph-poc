@@ -1,0 +1,337 @@
+{
+  "la-short-term-let#agentInteraction.methods": {
+    "queries": [
+      "mygov.scot apply short-term let licence council online",
+      "short-term lets licensing guidance hosts application paper form electronic council Scotland",
+      "short-term lets \"digital first\" paper copies application form available upon request"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/short-term-let-licences/apply",
+        "why": "States online route only: 'You can apply for a short-term let licence through your local council's website.'"
+      },
+      {
+        "url": "https://www.gov.scot/publications/short-term-lets-licensing-scheme-part-2-supplementary-guidance-licensing-authorities-letting-agencies-booking-platforms/pages/1/",
+        "why": "Para 1.12-1.13: councils work to a 'digital first approach' and keep 'paper copies ... available upon request' and 'provide support to access online services at their offices' (in-person support, not an in-person application as such)."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-skip-permit#eligibility.evidenceRequired.1": {
+    "queries": [
+      "skip permit application details of skip company name address telephone highway authority Highways Act 1980 section 139",
+      "builders skip permission highway authority application skip owner name telephone shown on skip (gov.uk/legislation/devolved only)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found",
+    "note": "Only individual council forms (e.g. Solihull, Gateshead) ask for skip company details; no national page."
+  },
+  "la-street-collection-licence#eligibility.evidenceRequired.0": {
+    "queries": [
+      "street collection licence application charity name purpose date location council Police Factories Act 1916 regulations",
+      "street collection permit apply local council what information charity collection date (gov.uk/devolved/Citizens Advice only)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found",
+    "note": "Only individual council forms ask for charity name/purpose; no national page."
+  },
+  "la-street-collection-licence#eligibility.evidenceRequired.1": {
+    "queries": [
+      "street collection licence application charity name purpose date location council Police Factories Act 1916 regulations",
+      "street collection permit apply local council what information charity collection date (gov.uk/devolved/Citizens Advice only)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found",
+    "note": "Only individual council forms ask for date/location; no national page."
+  },
+  "la-temporary-events-notice#eligibility.evidenceRequired.2": {
+    "queries": [
+      "gov.uk temporary event notice what the notice must include dates times licensable activities number of people",
+      "temporary event notice give notice licensing authority details event (gov.uk)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2003/17/section/100",
+        "why": "s100(5) says the notice must state 'the licensable activities', the event period (max 168 hours), 'the times during the event period' and 'the maximum number of persons (being a number less than 500)'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "lr-registration#agentInteraction.methods": {
+    "queries": [
+      "HM Land Registry apply online register land first registration portal business e-services citizens",
+      "HM Land Registry submit AP1 application online portal Digital Registration Service"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/guidance/hm-land-registry-digital-applications",
+        "why": "Online route exists but for business customers only: 'From 30 November 2022, digital applications are the default for business customers submitting applications to change the register.'"
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/hm-land-registry-where-to-submit-an-application-in-the-portal/where-to-submit-an-application-on-the-portal",
+        "why": "'Applications can be submitted using the Digital Registration Service' in the HM Land Registry portal (portal account holders, i.e. conveyancers)."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "lr-sign-mortgage-deed#desc": {
+    "queries": [
+      "HM Land Registry sign your mortgage deed GOV.UK One Login identity remortgage"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed/sign-your-mortgage-deed-guide-for-homeowners",
+        "why": "States electronic signing ('Your mortgage deed is signed when you enter the code') and contrasts with the paper route to 'sign it in front of a witness and send it back'; no 'wet signature' wording."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "lr-sign-mortgage-deed#eligibility.summary": {
+    "queries": [
+      "HM Land Registry sign your mortgage deed GOV.UK One Login identity remortgage"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed/sign-your-mortgage-deed-guide-for-homeowners",
+        "why": "'You can use the service to remortgage your property' and 'You will need to prove your identity using GOV.UK One Login'; lender/conveyancer must use the service; purchases not mentioned."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-111-online#agentInteraction.methods": {
+    "queries": [
+      "nhs.uk when to use 111 online or call 111"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+        "why": "Names both routes: help 'by calling 111' and a link to 'Go to 111 online'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-111-online#desc": {
+    "queries": [
+      "nhs.uk when to use 111 online or call 111",
+      "111.nhs.uk 999 emergency assess symptoms"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/",
+        "why": "'111 can direct you to the best place to get help'; 'call 999 or go to A&E in an emergency'; online or by calling 111."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-care-assessment#eligibility.criteria.0": {
+    "queries": [
+      "nhs.uk getting a needs assessment who can ask",
+      "Care Act 2014 section 9 assessment of an adult's needs for care and support"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/9",
+        "why": "Care Act 2014 s9 (England): 'Where it appears to a local authority that an adult may have needs for care and support, the authority must assess' them; no mention of frailty/disability wording."
+      },
+      {
+        "url": "https://www.nhs.uk/conditions/social-care-and-support-guide/help-from-social-services-and-charities/getting-a-needs-assessment/",
+        "why": "States 'anyone can ask for one' for people who need help to cope day to day."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-care-assessment#eligibility.summary": {
+    "queries": [
+      "nhs.uk getting a needs assessment free means test care plan",
+      "Care Act 2014 section 9 assessment of an adult's needs for care and support"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhs.uk/conditions/social-care-and-support-guide/help-from-social-services-and-charities/getting-a-needs-assessment/",
+        "why": "'The needs assessment is free' and 'anyone can ask for one'; a means test follows only if you need help, and 'You'll generally be expected to pay toward the cost of social care'; care plan only linked."
+      },
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2014/23/section/9",
+        "why": "Duty to assess any adult who appears to have needs for care and support (England)."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-continuing-healthcare#agentInteraction.methods": {
+    "queries": [
+      "NHS continuing healthcare how to apply ask GP social worker fast track tool checklist",
+      "NHS continuing healthcare ask for an assessment contact integrated care board GP social worker (nhs.uk/gov.uk)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found",
+    "note": "nhs.uk and gov.uk leaflet name no phone or in-person application route; local ICB pages say a professional completes the checklist or you approach the ICB."
+  },
+  "nhs-continuing-healthcare#eligibility.autoQualifiers.1": {
+    "queries": [
+      "NHS continuing healthcare how to apply ask GP social worker fast track tool checklist",
+      "gov.uk NHS continuing healthcare fast track pathway tool terminal illness checklist"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+        "why": "Eligibility factors include 'complexity: ... the level of skill required to monitor the symptoms, treat the conditions and/or manage the care'; not phrased as 'complex nursing needs'."
+      },
+      {
+        "url": "https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/",
+        "why": "Eligibility relates to 'how complex your needs are' and 'depends on your assessed needs, and not on any particular diagnosis'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-continuing-healthcare#eligibility.criteria.1": {
+    "queries": [
+      "NHS continuing healthcare how to apply ask GP social worker fast track tool checklist",
+      "gov.uk NHS continuing healthcare fast track pathway tool terminal illness checklist"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/",
+        "why": "ICBs 'must assess you for NHS continuing healthcare if it seems that you may need it'; fast track if 'you're nearing the end of your life'."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+        "why": "Eligibility 'is assessed in 2 stages' (checklist, then MDT assessment); fast track for a 'rapidly deteriorating condition ... entering a terminal phase'."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance",
+        "why": "Fast-track pathway tool guidance: completed by the referring clinician for people who may be entering a terminal phase; removes need for checklist and DST."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-continuing-healthcare#eligibility.evidenceRequired.0": {
+    "queries": [
+      "NHS continuing healthcare how to apply ask GP social worker fast track tool checklist",
+      "gov.uk NHS continuing healthcare fast track pathway tool terminal illness checklist"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+        "why": "'a screening process using the checklist'; on fast track 'an appropriate clinician will complete the fast track pathway tool'."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance",
+        "why": "Tool 'to be completed by the referring clinician'."
+      },
+      {
+        "url": "https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/",
+        "why": "'an initial checklist assessment' completed by 'a nurse, doctor, other healthcare professional or social worker'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-free-dental#eligibility.evidenceRequired.2": {
+    "queries": [
+      "free NHS dental treatment proof of entitlement benefit award letter dentist show",
+      "nhsbsa free nhs dental treatment proof (page returned 503)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+        "why": "HC11 'Quick check tables: proof of entitlement', NHS dental treatment: for Universal Credit within the qualifying level the proof is 'Your award notice from Jobcentre Plus'."
+      }
+    ],
+    "verdict_hint": "found",
+    "note": "nhsbsa.nhs.uk HTML pages returned 503 during search; PDF fetched fine."
+  },
+  "nhs-free-prescriptions#eligibility.autoQualifiers.0": {
+    "queries": [
+      "nhsbsa medical exemption certificate FP92A apply GP qualifying medical conditions",
+      "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found",
+    "note": "Contradicted: NHSBSA free prescriptions booklet (Apr 2026) lists PIP and DLA paid on their own as NOT giving free prescriptions."
+  },
+  "nhs-free-prescriptions#eligibility.autoQualifiers.1": {
+    "queries": [
+      "nhsbsa medical exemption certificate FP92A apply GP qualifying medical conditions",
+      "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+        "why": "Lists qualifying conditions; 'To apply for a medical exemption (Medex) certificate, ask at your GP practice for form FP92A.'"
+      },
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+        "why": "'If you're eligible for a medical exemption certificate, ask your doctor how to apply.'"
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-free-prescriptions#eligibility.criteria.0": {
+    "queries": [
+      "nhsbsa medical exemption certificate FP92A apply GP qualifying medical conditions",
+      "nhs.uk free prescriptions England aged 60 or over under 16 16 to 18 full-time education HC2 Universal Credit"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+        "why": "Medical exemption certificate route stated ('You can get all your NHS prescriptions free if you have a valid medical exemption certificate'); PIP/DLA not a route."
+      },
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+        "why": "MedEx route stated, but PIP and DLA listed as NOT entitling: 'any benefit paid on its own ... (such as State Pension, Disability Living Allowance, Personal Independence Payment ...)'."
+      }
+    ],
+    "verdict_hint": "partly",
+    "note": "PIP/DLA part contradicted by NHSBSA booklet."
+  },
+  "nhs-free-prescriptions#eligibility.criteria.1": {
+    "queries": [
+      "nhs.uk free prescriptions England aged 60 or over under 16 16 to 18 full-time education HC2 Universal Credit",
+      "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+        "why": "HC2: 'If you have applied and been issued with an HC2 certificate you are entitled'; UC 'only if your household's total take-home ... was \u00a3435 or less, or \u00a3935 or less if you get an element for a child or have limited capability for work' (no 'health element' wording)."
+      },
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+        "why": "UC 'and you had no earnings or net earnings of \u00a3435 or less' or 'are named on a valid HC2 certificate'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-free-prescriptions#eligibility.criteria.2": {
+    "queries": [
+      "nhs.uk free prescriptions England aged 60 or over under 16 16 to 18 full-time education HC2 Universal Credit",
+      "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+        "why": "'under 16', '16, 17, or 18 and in full-time education', '60 or over'."
+      },
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+        "why": "'are aged 60 or over; are under 16; are aged 16, 17 or 18 in qualifying full-time education'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "nhs-free-prescriptions#eligibility.evidenceRequired.0": {
+    "queries": [
+      "nhsbsa medical exemption certificate FP92A apply GP qualifying medical conditions",
+      "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+        "why": "'show your benefit entitlement or award letter, or your exemption certificate'."
+      },
+      {
+        "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+        "why": "'ask at your GP practice for form FP92A. Your GP ... will sign the form'."
+      }
+    ],
+    "verdict_hint": "found"
+  }
+}

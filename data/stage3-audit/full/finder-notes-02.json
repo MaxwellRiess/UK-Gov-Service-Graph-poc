@@ -1,0 +1,298 @@
+{
+  "dwp-sr1-form#agentInteraction.methods": {
+    "queries": [
+      "SR1 form send DWP phone post gov.uk terminally ill",
+      "\"SR1\" form special rules end of life call DWP phone gov.uk how to claim"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/dwp-factual-medical-reports-guidance-for-healthcare-professionals/the-special-rules-how-the-benefit-system-supports-people-nearing-the-end-of-life",
+        "why": "States post: \"You can return the SR1 form online, by email or by post.\" Phone is not a way to send it."
+      },
+      {
+        "url": "https://www.gov.uk/pip/claiming-end-of-life",
+        "why": "Phone is only for starting the PIP claim: \"Call the PIP claims line and ask to start a 'special rules for end of life' claim.\""
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-state-pension#eligibility.evidenceRequired.0": {
+    "queries": [
+      "nidirect State Pension claim what you need National Insurance number",
+      "nidirect \"State Pension\" claim online \"National Insurance number\" get your State Pension"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-uc-health#eligibility.evidenceRequired.0": {
+    "queries": [
+      "gov.uk health conditions disability universal credit fit note (direct fetch of GOV.UK guide)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+        "why": "Fit note required, GP can issue: \"You must get a fit note (also known as a 'sick note') if your health condition or disability affects your capability to work for longer than 7 days\"; lists \"GP or hospital doctor\". SC1 not mentioned."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-uc-health#eligibility.evidenceRequired.1": {
+    "queries": [
+      "gov.uk health conditions disability universal credit work capability assessment questionnaire"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+        "why": "Questionnaire and medical evidence for the WCA, but it is called WCA50 not UC50: \"you'll need to complete a 'Capability for Work' (WCA50) health questionnaire. You'll be able to send copies of other medical information\"."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-uc-health#eligibility.evidenceRequired.2": {
+    "queries": [
+      "gov.uk health conditions disability universal credit work capability assessment"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+        "why": "\"If you need a Work Capability Assessment... The assessment can be in person, by video call or on the phone.\""
+      },
+      {
+        "url": "https://www.gov.uk/health-conditions-disability-universal-credit/after-assessment",
+        "why": "Assessment run by a health assessment provider: \"contact your health assessment provider using the details in your invitation letter\"."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-universal-credit#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Universal Credit identity verification appointment documents bank statement proof of address jobcentre"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/evidence-support-your-universal-credit-claim",
+        "why": "NI Universal Credit: proof of address can be \"your bank, building society or credit union statement dated within the last three months\"."
+      },
+      {
+        "url": "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit",
+        "why": "GB in-person ID check accepts as supplementary ID a \"financial statement, for example bank, building society, credit card or credit union statement\" (no 3-month period)."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-universal-credit#eligibility.evidenceRequired.3": {
+    "queries": [
+      "Universal Credit identity verification appointment documents bank statement proof of address jobcentre"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/evidence-support-your-universal-credit-claim",
+        "why": "NI Universal Credit lists proof of address, e.g. \"a utility bill paid within the last three months\"."
+      },
+      {
+        "url": "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit",
+        "why": "GB in-person ID check supplementary documents include address documents, e.g. \"electoral register confirmation that you live at the address\" and utility bills; the phrase 'proof of address' is not used."
+      },
+      {
+        "url": "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit",
+        "why": "Says face-to-face appointments need documents to verify identity; links to the documents list."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "fco-emergency-travel-doc#agentInteraction.methods": {
+    "queries": [
+      "emergency travel document apply in person appointment embassy consulate gov.uk"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/emergency-travel-document/how-to-apply",
+        "why": "Apply online, then may need to attend in person: \"an appointment at your nearest British embassy, high commission or consulate\"; may need to collect it in person."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "gro-certificates#eligibility.summary": {
+    "queries": [
+      "\"anyone can\" apply certified copy birth death marriage certificate England Wales General Register Office"
+    ],
+    "urls": [
+      {
+        "url": "https://www.torfaen.gov.uk/lgsl/en/Registrars/Registration-copycertificates/Copy-Certificates.aspx",
+        "why": "Council page stating the national rule: \"Anyone who can identify the entry in the register is entitled to apply for a copy certificate.\" Also £12.50 and £38.50."
+      },
+      {
+        "url": "https://www.gov.uk/government/organisations/general-register-office",
+        "why": "GRO holds England and Wales records: \"You can order certificates online or write to the following address.\""
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "gro-marriage-cert#desc": {
+    "queries": [
+      "gov.uk change name deed poll marriage certificate (direct fetch)",
+      "gov.uk marriage allowance (direct fetch)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/change-name-deed-poll",
+        "why": "Name change use: \"You do not need a deed poll to take your spouse's or civil partner's surname. Send a copy of your marriage or civil partnership certificate to record-holders.\" Marriage Allowance and benefits not stated."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "gro-marriage-cert#eligibility.autoQualifiers.0": {
+    "queries": [
+      "gov.uk marriages civil partnerships plan your ceremony certificate (direct fetch)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony",
+        "why": "Certificate follows the ceremony: \"Your signed schedule is sent to your local register office where it's added to the register. After that, you can get your marriage or civil partnership certificate.\""
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "gro-marriage-cert#eligibility.summary": {
+    "queries": [
+      "gov.uk marriages civil partnerships plan your ceremony certificate",
+      "gov.uk change name deed poll marriage certificate"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony",
+        "why": "Issued after the ceremony: \"After that, you can get your marriage or civil partnership certificate.\""
+      },
+      {
+        "url": "https://www.gov.uk/change-name-deed-poll",
+        "why": "Name change and records: \"Send a copy of your marriage or civil partnership certificate to record-holders.\" Marriage Allowance not stated."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "gro-register-death#agentInteraction.methods": {
+    "queries": [
+      "register a death England documents you need medical certificate cause of death NHS number register office",
+      "mygov.scot registering a death what you need medical certificate NHS number"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/registering-death",
+        "why": "NI: \"This can be over the telephone or if you wish, by attending at the registration office.\""
+      },
+      {
+        "url": "https://www.mygov.scot/register-death",
+        "why": "Scotland: \"You can register a death at any registration office in Scotland.\""
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "gro-register-death#desc": {
+    "queries": [
+      "register a death England documents you need medical certificate cause of death NHS number register office",
+      "gov.uk when someone dies step by step (direct fetch)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/tell-us-once",
+        "why": "Tell Us Once follows registration: \"A registrar will explain the Tell Us Once service when you register the death.\""
+      },
+      {
+        "url": "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+        "why": "Death certificate is used to \"apply for probate\" and for Tell Us Once."
+      },
+      {
+        "url": "https://www.mygov.scot/register-death",
+        "why": "Registered at a registration office: \"You can register a death at any registration office in Scotland.\" Bereavement payments not stated."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "gro-register-death#eligibility.evidenceRequired.0": {
+    "queries": [
+      "register a death England documents you need medical certificate cause of death NHS number register office",
+      "mygov.scot registering a death what you need medical certificate NHS number"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/register-death",
+        "why": "\"You cannot register a death without a medical certificate of cause of death.\""
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/registering-death",
+        "why": "\"the doctor or hospital will forward a Medical Certificate of Cause of Death electronically\" to the registration office."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "gro-register-death#eligibility.evidenceRequired.1": {
+    "queries": [
+      "register a death England documents you need medical certificate cause of death NHS number register office",
+      "mygov.scot registering a death what you need medical certificate NHS number"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/register-death",
+        "why": "Asks you to bring the deceased's NHS medical card (not the NHS number as such)."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/registering-death",
+        "why": "Personal details needed: \"To complete the registration you will need to know:\" full name, usual address, date and place of death. No NHS number."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.0": {
+    "queries": [
+      "help with fees EX160A guidance evidence bank statements benefit letter proof of income"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a",
+        "why": "Benefits are checked with DWP, not by award letter: \"We will contact the Department for Work and Pensions to confirm... We may also contact you if we need to see additional evidence.\" DWP letter mentioned as where to find income."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.1": {
+    "queries": [
+      "help with fees EX160A guidance evidence bank statements benefit letter proof of income"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a",
+        "why": "Bank statements may be asked for, but as income evidence: \"This may include bank statements, payslips or letters from Jobcentre Plus.\" Savings evidence not stated."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.2": {
+    "queries": [
+      "help with fees EX160A guidance evidence bank statements benefit letter proof of income"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a",
+        "why": "\"You may get a letter from the court or tribunal asking for evidence of your income... This may include bank statements, payslips\"; only if asked."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "hmcts-probate#eligibility.exclusions.1": {
+    "queries": [
+      "life insurance written in trust pension death benefits not part of estate probate gov.uk",
+      "citizens advice when probate is not needed pension life insurance paid directly nominated beneficiary"
+    ],
+    "urls": [
+      {
+        "url": "https://www.citizensadvice.org.uk/family/death-and-wills/dealing-with-the-financial-affairs-of-someone-who-has-died/",
+        "why": "Lists among cases where you may not need probate: \"there are certain life insurance policies and pension benefits in the estate\"."
+      },
+      {
+        "url": "https://www.gov.uk/applying-for-probate/before-you-apply",
+        "why": "Probate value excludes trusts: subtract \"assets held in a trust\" from the gross value for probate. Does not name insurance or pensions."
+      }
+    ],
+    "verdict_hint": "partly"
+  }
+}

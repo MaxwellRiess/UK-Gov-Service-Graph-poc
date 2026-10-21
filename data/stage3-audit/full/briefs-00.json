@@ -1,0 +1,259 @@
+[
+  {
+    "key": "ch-close-company#agentInteraction.methods",
+    "service": "Close a limited company",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/closing-a-limited-company",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/closing-a-limited-company"
+    ],
+    "whyNotFound": "not stated: The text does not say how to apply, online or any other way."
+  },
+  {
+    "key": "ch-close-company#eligibility.exclusions.0",
+    "service": "Close a limited company",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/closing-a-limited-company",
+    "claim": "Has traded in last 3 months",
+    "alreadySearched": [
+      "https://www.gov.uk/closing-a-limited-company"
+    ],
+    "whyNotFound": "not stated: The text states no such exclusion. Trading comes up only in the section on dormancy."
+  },
+  {
+    "key": "ch-confirmation-statement#eligibility.summary",
+    "service": "File a confirmation statement",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
+    "claim": "All companies, LLPs and eligible partnerships registered at Companies House must file a confirmation statement at least once every 12 months. The £34 filing fee can be waived for dormant companies in some circumstances.",
+    "alreadySearched": [
+      "https://www.gov.uk/file-your-confirmation-statement-with-companies-house"
+    ],
+    "whyNotFound": "not stated: The text does not say who has to file. not stated: The text gives no filing frequency; it only mentions email alerts for when the statement is due. not stated: The text gives no online fee; the only fee it names is £110 for filing by post, which is a different route. not stated: The text does not mention dormant companies or fee waivers."
+  },
+  {
+    "key": "dfe-care-to-learn#agentInteraction.methods",
+    "service": "Care to Learn",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/care-to-learn",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/care-to-learn"
+    ],
+    "whyNotFound": "not stated: The text only says to apply through your education provider and does not mention an online application."
+  },
+  {
+    "key": "dfe-national-careers#desc",
+    "service": "National Careers Service",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://nationalcareers.service.gov.uk/",
+    "claim": "Free careers advice, skills assessment and job profile browsing through the government's National Careers Service.",
+    "alreadySearched": [
+      "https://nationalcareers.service.gov.uk/"
+    ],
+    "whyNotFound": "not stated: The text never says the service or advice is free. not stated: The text names the National Careers Service but never says the government runs it."
+  },
+  {
+    "key": "dfe-national-careers#eligibility.criteria.0",
+    "service": "National Careers Service",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://nationalcareers.service.gov.uk/",
+    "claim": "Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers services.",
+    "alreadySearched": [
+      "https://nationalcareers.service.gov.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention DWP, the Jobs and Careers Service or careers advisers for adults. not stated: The text does not mention the other UK nations."
+  },
+  {
+    "key": "dvla-name-change#eligibility.autoQualifiers.0",
+    "service": "Update driving licence (name change)",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-name-driving-licence",
+    "claim": "Marriage or civil partnership certificate received and current licence name is now incorrect",
+    "alreadySearched": [
+      "https://www.gov.uk/change-name-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text does not mention marriage or civil partnership at all."
+  },
+  {
+    "key": "dvla-name-change#eligibility.summary",
+    "service": "Update driving licence (name change)",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-name-driving-licence",
+    "claim": "A legal requirement for driving licence holders who have changed their name — after marriage, civil partnership, deed poll or statutory declaration. Must be updated to reflect current legal name.",
+    "alreadySearched": [
+      "https://www.gov.uk/change-name-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text does not describe this as a legal requirement. not stated: The text names none of these reasons or documents; it only mentions documents that confirm your new name. not stated: The text does not say the licence must be updated."
+  },
+  {
+    "key": "dvla-provisional-licence#eligibility.evidenceRequired.1",
+    "service": "Provisional Driving Licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
+    "claim": "Address details",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-first-provisional-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text does not list address details as something you need to apply."
+  },
+  {
+    "key": "dvla-sorn#eligibility.evidenceRequired.0",
+    "service": "Make a SORN",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/make-a-sorn",
+    "claim": "Vehicle registration number",
+    "alreadySearched": [
+      "https://www.gov.uk/make-a-sorn"
+    ],
+    "whyNotFound": "not stated: The text does not list the vehicle registration number as something you need to apply."
+  },
+  {
+    "key": "dvla-update-address#eligibility.evidenceRequired.1",
+    "service": "Update driving licence address",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-address-driving-licence",
+    "claim": "New address details",
+    "alreadySearched": [
+      "https://www.gov.uk/change-address-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text's list of what you need does not include new address details."
+  },
+  {
+    "key": "dvla-update-address#eligibility.evidenceRequired.2",
+    "service": "Update driving licence address",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-address-driving-licence",
+    "claim": "Government Gateway or DVLA online service",
+    "alreadySearched": [
+      "https://www.gov.uk/change-address-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text says you need to sign in but does not name Government Gateway or any specific account."
+  },
+  {
+    "key": "dvla-ved-exemption#agentInteraction.methods",
+    "service": "Vehicle Excise Duty Exemption",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "whyNotFound": "not stated: The text never mentions applying online; it only says first-time claims must be made at a Post Office."
+  },
+  {
+    "key": "dvla-ved-exemption#eligibility.evidenceRequired.0",
+    "service": "Vehicle Excise Duty Exemption",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+    "claim": "PIP or DLA award letter showing enhanced/higher mobility",
+    "alreadySearched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence for the exemption; the DWP letter it mentions is for the 50% reduction and shows the PIP rate, not an enhanced or higher mobility award for exemption."
+  },
+  {
+    "key": "dvla-ved-exemption#eligibility.evidenceRequired.1",
+    "service": "Vehicle Excise Duty Exemption",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+    "claim": "Vehicle registration document (V5C)",
+    "alreadySearched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "whyNotFound": "not stated: The V5C log book is listed only for the 50% reduction application, not for the exemption."
+  },
+  {
+    "key": "dvla-vehicle-sale#eligibility.evidenceRequired.1",
+    "service": "Notify DVLA of vehicle sale",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/sold-bought-vehicle",
+    "claim": "Vehicle registration number for online DVLA notification",
+    "alreadySearched": [
+      "https://www.gov.uk/sold-bought-vehicle"
+    ],
+    "whyNotFound": "not stated: The registration number is listed only for the letter sellers send when they have no log book; the text does not say what details the online service asks for."
+  },
+  {
+    "key": "dwp-access-to-work#eligibility.evidenceRequired.2",
+    "service": "Access to Work",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/access-to-work",
+    "claim": "Quotes for support/equipment needed",
+    "alreadySearched": [
+      "https://www.gov.uk/access-to-work"
+    ],
+    "whyNotFound": "not stated: The text does not mention quotes. It only mentions invoices or receipts, and those are for claiming money after a grant is approved."
+  },
+  {
+    "key": "dwp-attendance-allowance#eligibility.evidenceRequired.1",
+    "service": "Attendance Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/attendance-allowance",
+    "claim": "Medical evidence from GP or specialist helpful",
+    "alreadySearched": [
+      "https://www.gov.uk/attendance-allowance",
+      "https://www.gov.uk/attendance-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text asks for details of your GP surgery, not medical evidence from a GP or specialist."
+  },
+  {
+    "key": "dwp-attendance-allowance#eligibility.evidenceRequired.2",
+    "service": "Attendance Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/attendance-allowance",
+    "claim": "Carer details if applicable",
+    "alreadySearched": [
+      "https://www.gov.uk/attendance-allowance",
+      "https://www.gov.uk/attendance-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: Carer details are not in the list of things you need to apply."
+  },
+  {
+    "key": "dwp-bereavement-support#eligibility.evidenceRequired.0",
+    "service": "Bereavement Support Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/bereavement-support-payment",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/bereavement-support-payment",
+      "https://www.gov.uk/bereavement-support-payment/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The list of what you need does not include a death certificate, only the date your partner died."
+  },
+  {
+    "key": "dwp-bereavement-support#eligibility.evidenceRequired.1",
+    "service": "Bereavement Support Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/bereavement-support-payment",
+    "claim": "Marriage or civil partnership certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/bereavement-support-payment",
+      "https://www.gov.uk/bereavement-support-payment/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not mention a marriage or civil partnership certificate."
+  }
+]

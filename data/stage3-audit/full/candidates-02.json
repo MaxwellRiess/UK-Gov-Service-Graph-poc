@@ -1,0 +1,73 @@
+{
+  "dwp-sr1-form#agentInteraction.methods": [
+    "https://www.gov.uk/government/publications/dwp-factual-medical-reports-guidance-for-healthcare-professionals/the-special-rules-how-the-benefit-system-supports-people-nearing-the-end-of-life",
+    "https://www.gov.uk/pip/claiming-end-of-life"
+  ],
+  "dwp-state-pension#eligibility.evidenceRequired.0": [],
+  "dwp-uc-health#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+  ],
+  "dwp-uc-health#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+  ],
+  "dwp-uc-health#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+    "https://www.gov.uk/health-conditions-disability-universal-credit/after-assessment"
+  ],
+  "dwp-universal-credit#eligibility.evidenceRequired.2": [
+    "https://www.nidirect.gov.uk/articles/evidence-support-your-universal-credit-claim",
+    "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit"
+  ],
+  "dwp-universal-credit#eligibility.evidenceRequired.3": [
+    "https://www.nidirect.gov.uk/articles/evidence-support-your-universal-credit-claim",
+    "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit",
+    "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit"
+  ],
+  "fco-emergency-travel-doc#agentInteraction.methods": [
+    "https://www.gov.uk/emergency-travel-document/how-to-apply"
+  ],
+  "gro-certificates#eligibility.summary": [
+    "https://www.torfaen.gov.uk/lgsl/en/Registrars/Registration-copycertificates/Copy-Certificates.aspx",
+    "https://www.gov.uk/government/organisations/general-register-office"
+  ],
+  "gro-marriage-cert#desc": [
+    "https://www.gov.uk/change-name-deed-poll"
+  ],
+  "gro-marriage-cert#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony"
+  ],
+  "gro-marriage-cert#eligibility.summary": [
+    "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony",
+    "https://www.gov.uk/change-name-deed-poll"
+  ],
+  "gro-register-death#agentInteraction.methods": [
+    "https://www.nidirect.gov.uk/articles/registering-death",
+    "https://www.mygov.scot/register-death"
+  ],
+  "gro-register-death#desc": [
+    "https://www.gov.uk/tell-us-once",
+    "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+    "https://www.mygov.scot/register-death"
+  ],
+  "gro-register-death#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/register-death",
+    "https://www.nidirect.gov.uk/articles/registering-death"
+  ],
+  "gro-register-death#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/register-death",
+    "https://www.nidirect.gov.uk/articles/registering-death"
+  ],
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a"
+  ],
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a"
+  ],
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a"
+  ],
+  "hmcts-probate#eligibility.exclusions.1": [
+    "https://www.citizensadvice.org.uk/family/death-and-wills/dealing-with-the-financial-affairs-of-someone-who-has-died/",
+    "https://www.gov.uk/applying-for-probate/before-you-apply"
+  ]
+}

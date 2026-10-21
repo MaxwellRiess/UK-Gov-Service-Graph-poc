@@ -1,0 +1,248 @@
+{
+  "ch-close-company#agentInteraction.methods": [
+    "https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01"
+  ],
+  "ch-close-company#eligibility.exclusions.0": [
+    "https://www.gov.uk/strike-off-your-company-from-companies-register"
+  ],
+  "ch-confirmation-statement#eligibility.summary": [
+    "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement"
+  ],
+  "dfe-care-to-learn#agentInteraction.methods": [],
+  "dfe-national-careers#desc": [
+    "https://haringey.gov.uk/send-directory/national-careers-service",
+    "https://www.gov.uk/government/publications/get-britain-working-an-update-on-the-jobs-and-careers-service/get-britain-working-an-update-on-the-jobs-and-careers-service"
+  ],
+  "dfe-national-careers#eligibility.criteria.0": [
+    "https://nationalcareers.service.gov.uk/help-and-support",
+    "https://www.gov.uk/government/publications/get-britain-working-an-update-on-the-jobs-and-careers-service/get-britain-working-an-update-on-the-jobs-and-careers-service",
+    "https://www.gov.uk/career-skills-and-training"
+  ],
+  "dvla-name-change#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/id-for-driving-licence"
+  ],
+  "dvla-name-change#eligibility.summary": [
+    "https://www.legislation.gov.uk/ukpga/1988/52/section/99",
+    "https://www.gov.uk/id-for-driving-licence"
+  ],
+  "dvla-provisional-licence#eligibility.evidenceRequired.1": [
+    "https://www.nidirect.gov.uk/articles/driving-licence-application-dl1-guidance-notes"
+  ],
+  "dvla-sorn#eligibility.evidenceRequired.0": [],
+  "dvla-update-address#eligibility.evidenceRequired.1": [],
+  "dvla-update-address#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/driver-vehicles-account"
+  ],
+  "dvla-ved-exemption#agentInteraction.methods": [
+    "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf"
+  ],
+  "dvla-ved-exemption#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+    "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt"
+  ],
+  "dvla-ved-exemption#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+    "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt"
+  ],
+  "dvla-vehicle-sale#eligibility.evidenceRequired.1": [],
+  "dwp-access-to-work#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/government/publications/atwlr02-provider-memo-access-to-work/access-to-work-holistic-assessments-live-running-memo-09"
+  ],
+  "dwp-attendance-allowance#eligibility.evidenceRequired.1": [
+    "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/how-to-claim-attendance-allowance/",
+    "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/claiming-attendance-allowance-terminally-ill/"
+  ],
+  "dwp-attendance-allowance#eligibility.evidenceRequired.2": [
+    "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/"
+  ],
+  "dwp-bereavement-support#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf"
+  ],
+  "dwp-bereavement-support#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf"
+  ],
+  "dwp-carers-allowance#eligibility.evidenceRequired.0": [],
+  "dwp-carers-allowance#eligibility.evidenceRequired.1": [],
+  "dwp-child-maintenance#agentInteraction.methods": [
+    "https://www.gov.uk/child-maintenance-service/how-to-apply",
+    "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance"
+  ],
+  "dwp-child-maintenance#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/how-child-maintenance-is-worked-out",
+    "https://www.gov.uk/child-maintenance-service/how-to-apply"
+  ],
+  "dwp-child-maintenance#eligibility.evidenceRequired.1": [
+    "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance"
+  ],
+  "dwp-child-maintenance#eligibility.evidenceRequired.2": [],
+  "dwp-dla-child#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/media/69271ecfb3b9afff34e96074/dla-for-children-claim-form.pdf"
+  ],
+  "dwp-dla-child#eligibility.evidenceRequired.2": [
+    "https://assets.publishing.service.gov.uk/media/69271ecfb3b9afff34e96074/dla-for-children-claim-form.pdf"
+  ],
+  "dwp-funeral-payment#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/69733a0895ec95e3414fd4e4/sf200-adult.pdf"
+  ],
+  "dwp-funeral-payment#eligibility.evidenceRequired.2": [],
+  "dwp-housing-benefit#eligibility.evidenceRequired.2": [
+    "https://www.legislation.gov.uk/ukpga/1992/5/section/1",
+    "https://www.legislation.gov.uk/uksi/2006/213/regulation/4"
+  ],
+  "dwp-inherited-state-pension#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/state-pension-through-partner/y/widowed/your_pension_age_before_specific_date"
+  ],
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf"
+  ],
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.2": [
+    "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf"
+  ],
+  "dwp-ni-credits#agentInteraction.methods": [],
+  "dwp-ni-number#eligibility.evidenceRequired.1": [],
+  "dwp-ni-number#eligibility.evidenceRequired.2": [
+    "https://www.nidirect.gov.uk/articles/applying-national-insurance-number-if-you-live-northern-ireland"
+  ],
+  "dwp-pension-credit#eligibility.evidenceRequired.0": [],
+  "dwp-smi#eligibility.evidenceRequired.0": [
+    "https://www.nidirect.gov.uk/articles/help-mortgage-interest-payments"
+  ],
+  "dwp-smi#eligibility.evidenceRequired.1": [],
+  "dwp-smi#eligibility.evidenceRequired.2": [
+    "https://england.shelter.org.uk/legal/benefits/support_for_mortgage_interest",
+    "https://www.nidirect.gov.uk/articles/help-mortgage-interest-payments"
+  ],
+  "dwp-smi#eligibility.exclusions.1": [],
+  "dwp-sr1-form#agentInteraction.methods": [
+    "https://www.gov.uk/government/publications/dwp-factual-medical-reports-guidance-for-healthcare-professionals/the-special-rules-how-the-benefit-system-supports-people-nearing-the-end-of-life",
+    "https://www.gov.uk/pip/claiming-end-of-life"
+  ],
+  "dwp-state-pension#eligibility.evidenceRequired.0": [],
+  "dwp-uc-health#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+  ],
+  "dwp-uc-health#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+  ],
+  "dwp-uc-health#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+    "https://www.gov.uk/health-conditions-disability-universal-credit/after-assessment"
+  ],
+  "dwp-universal-credit#eligibility.evidenceRequired.2": [
+    "https://www.nidirect.gov.uk/articles/evidence-support-your-universal-credit-claim",
+    "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit"
+  ],
+  "dwp-universal-credit#eligibility.evidenceRequired.3": [
+    "https://www.nidirect.gov.uk/articles/evidence-support-your-universal-credit-claim",
+    "https://www.gov.uk/guidance/documents-to-verify-your-identity-for-universal-credit",
+    "https://www.gov.uk/guidance/how-to-verify-your-identity-for-universal-credit"
+  ],
+  "fco-emergency-travel-doc#agentInteraction.methods": [
+    "https://www.gov.uk/emergency-travel-document/how-to-apply"
+  ],
+  "gro-certificates#eligibility.summary": [
+    "https://www.torfaen.gov.uk/lgsl/en/Registrars/Registration-copycertificates/Copy-Certificates.aspx",
+    "https://www.gov.uk/government/organisations/general-register-office"
+  ],
+  "gro-marriage-cert#desc": [
+    "https://www.gov.uk/change-name-deed-poll"
+  ],
+  "gro-marriage-cert#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony"
+  ],
+  "gro-marriage-cert#eligibility.summary": [
+    "https://www.gov.uk/marriages-civil-partnerships/plan-your-ceremony",
+    "https://www.gov.uk/change-name-deed-poll"
+  ],
+  "gro-register-death#agentInteraction.methods": [
+    "https://www.nidirect.gov.uk/articles/registering-death",
+    "https://www.mygov.scot/register-death"
+  ],
+  "gro-register-death#desc": [
+    "https://www.gov.uk/tell-us-once",
+    "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+    "https://www.mygov.scot/register-death"
+  ],
+  "gro-register-death#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/register-death",
+    "https://www.nidirect.gov.uk/articles/registering-death"
+  ],
+  "gro-register-death#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/register-death",
+    "https://www.nidirect.gov.uk/articles/registering-death"
+  ],
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a"
+  ],
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a"
+  ],
+  "hmcts-court-fee-remission#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/government/publications/how-to-apply-for-help-with-a-court-or-tribunal-fee-ex160a/how-to-apply-for-help-with-fees-ex160a"
+  ],
+  "hmcts-probate#eligibility.exclusions.1": [
+    "https://www.citizensadvice.org.uk/family/death-and-wills/dealing-with-the-financial-affairs-of-someone-who-has-died/",
+    "https://www.gov.uk/applying-for-probate/before-you-apply"
+  ],
+  "hmpo-passport-urgent#eligibility.criteria.0": [],
+  "hmpo-passport#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/renew-adult-passport/renew"
+  ],
+  "hmpo-passport#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/apply-first-adult-passport/apply-by-post",
+    "https://www.gov.uk/countersigning-passport-applications"
+  ],
+  "hmrc-aml-registration#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc"
+  ],
+  "hmrc-aml-registration#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc"
+  ],
+  "hmrc-aml-registration#eligibility.evidenceRequired.2": [],
+  "hmrc-child-benefit-transfer#eligibility.evidenceRequired.0": [],
+  "hmrc-child-benefit-transfer#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/child-benefit-child-lives-with-someone-else",
+    "https://www.gov.uk/child-benefit/how-to-claim"
+  ],
+  "hmrc-cis#agentInteraction.methods": [
+    "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register"
+  ],
+  "hmrc-cis#eligibility.criteria.1": [
+    "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status"
+  ],
+  "hmrc-cis#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status"
+  ],
+  "hmrc-cis#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status"
+  ],
+  "hmrc-cis#eligibility.evidenceRequired.2": [],
+  "hmrc-free-childcare-15#agentInteraction.methods": [
+    "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+    "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx"
+  ],
+  "hmrc-free-childcare-15#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx",
+    "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance"
+  ],
+  "hmrc-guardians-allowance#eligibility.evidenceRequired.1": [],
+  "hmrc-iht400#agentInteraction.methods": [
+    "https://assets.publishing.service.gov.uk/media/6a996860f5b35599aec19183/iht400-fillable.pdf",
+    "https://assets.publishing.service.gov.uk/media/6a9969bdf5b35599aec19186/iht400_2022_notes.pdf"
+  ],
+  "hmrc-iht400#eligibility.criteria.1": [],
+  "hmrc-iht400#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/government/publications/inheritance-tax-inheritance-tax-account-iht400",
+    "https://www.gov.uk/valuing-estate-of-someone-who-died"
+  ],
+  "hmrc-iht400#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/valuing-estate-of-someone-who-died/estimate-estate-value",
+    "https://assets.publishing.service.gov.uk/media/6a9969bdf5b35599aec19186/iht400_2022_notes.pdf"
+  ],
+  "hmrc-iht400#eligibility.evidenceRequired.3": [
+    "https://assets.publishing.service.gov.uk/media/6a996860f5b35599aec19183/iht400-fillable.pdf"
+  ]
+}

@@ -1,0 +1,123 @@
+A service graph describes the UK government service "PAYE Starter Checklist" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-starter-checklist.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[exclusion_1] (split into claims) Self-employed (not subject to PAYE)
+
+--- SOURCE 0: https://www.gov.uk/guidance/starter-checklist-for-paye ---
+Starter checklist if you’re starting a new job. Fill in this checklist if you’re an employee starting a new job without a P45, so your employer can work out the tax code to use on your first pay. If you’re an employer, find out how to tell HMRC about a new employee . If you’ve already had your first pay, do not use the starter checklist (previously known as a P46). Use the check your Income Tax online service to check your tax code and update your details if they’re wrong. What the starter checklist is used for If you do not have a P45 or your new employer needs more information, fill in the starter checklist to give them the details they need. The P45 is a document you get from your last employer, if you had one. If you stopped getting Employment and Support Allowance, Jobseekers Allowance or Incapacity Benefit you’ll get a P45 from Jobcentre Plus. If you have a P45 give this to your new employer. Your employer may ask you to fill in a starter checklist even if you give them a P45. Your new employer will use the information you give in the checklist to: add you to their payroll system work out your tax code on your first pay work out how much tax to take from your pay work out your student or postgraduate loan deductions — if you have one let HMRC know that you’ve started working for them Ask your employer when they need the checklist by. Who should fill it in You may get asked to complete the starter checklist if: you’re starting your first job or first job in the UK you do not have a P45 from a previous job your personal details are different to those shown on your P45 you’re returning to work after a break in employment you’re starting a job after being self-employed you’re working for more than one employer your employer needs more information about your student or postgraduate loan What you’ll need You’ll need to know: if you’ve had another job or pension since 6 April your National Insurance number the start date of your new job if you have a student or postgraduate loan, which plan you’re on — check which repayment plan you’re on if you’ve had Employment and Support Allowance, Jobseekers Allowance, Incapacity Benefit or Universal Credit since 6 April your passport number — if you’ve been sent to work in the UK temporarily Fill in the starter checklist You should get all of your information together before you start as you cannot save as you go along. Make sure you complete the form correctly or you may pay too much or too little tax. Email, post or give the starter checklist to your new employer. Start now If you cannot use the online form You can print out and fill in, either the: starter checklist for employees ( PDF , 326 KB , 4 pages ) , if you normally live and work in the UK starter checklist for employees seconded to work in the UK by an overseas employer ( PDF , 273 KB , 3 pages ) These files may not be suitable if you use assistive technology — such as a screen reader. If you need a more accessible format email different.format@hmrc.gov.uk and tell us what format you need. It will help if you tell us what assistive technology you use. Read the accessibility statement for HMRC forms .
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/employment-status/selfemployed-contractor ---
+Employment status. Employment status (worker, employee, self-employed, director or contractor) affects employment rights and employer responsibilities in the workplace In employment law a person’s employment status helps determine: their rights their employer’s responsibilities A person may have a different employment status in tax law. The main types of employment status are: worker employee self-employed and contractor director office holder Contact Acas (or the Labour Relations Agency in Northern Ireland) for advice about employment status, employee rights or employer responsibilities. Acas helpline Telephone: 0300 123 1100 Textphone: 18001 0300 123 1100 Monday to Friday, 8am to 6pm Find out about call charges Courts and tribunals can make final decisions on employment status. A person is generally classed as a ‘worker’ if: they have a contract or other arrangement to do work or services personally for a reward (a contract can be written or unwritten) their reward is for money or a benefit in kind, for example the promise of a contract or future work they only have a limited right to send someone else to do the work (subcontract) their employer has to have work for them to do as long as the contract or arrangement lasts they are not doing the work as part of their own limited company in an arrangement where the ‘employer’ is actually a customer or client Employment rights Workers are entitled to certain employment rights, including: getting the National Minimum Wage protection against unlawful deductions from wages the statutory minimum level of paid holiday the statutory minimum length of rest breaks to work no more than 48 hours on average per week or to opt out of this right if they choose protection against unlawful discrimination protection for ‘whistleblowers’ who report wrongdoing in the workplace not to be treated less favourably if they work part-time They may also be entitled to: Statutory Sick Pay Statutory Maternity Pay Statutory Paternity Pay Statutory Adoption Pay Statutory Shared Parental Pay Statutory Parental Bereavement Pay Statutory Neonatal Care Pay Agency workers have specific rights from the first day at work. Workers usually are not entitled to: minimum notice periods if their employment will be ending, for example if an employer is dismissing them protection against unfair dismissal the right to request flexible working time off for emergencies statutory redundancy pay Casual or irregular work Someone is likely to be a worker if most of these apply: they occasionally do work for a specific business the business does not have to offer them work and they do not have to accept it - they only work when they want to their contract with the business uses terms like ‘casual’, ‘freelance’, ‘zero hours’, ‘as required’ or something similar they had to agree with the business’s terms and conditions to get work - either verbally or in writing they are under the supervision or control of a manager or director they cannot send someone else to do their work the business deducts tax and National Insurance contributions from their wages the business provides materials, tools or equipment they need to do the work An employee is someone who works under an employment contract . A person may be an employee in employment law but have a different status for tax purposes. Employers must work out each worker’s status in both employment law and tax law. If someone is classed as an employee for tax purposes, their employer must tell HM Revenue and Customs ( HMRC ) when the person starts being an employee or stops being an employee . Employment rights All employees are workers, but an employee has extra employment rights and responsibilities that do not apply to workers who are not employees. For example, workers are entitled to most types of statutory pay, but only employees get statutory pay and leave. Employment rights include all of the rights workers have and: Statutory Sick Pay statutory redundancy pay Statutory Maternity Pay and Leave Statutory Paternity Pay and Leave Statutory Bereaved Partner’s Paternity Leave Statutory Adoption Pay and Leave Statutory Shared Parental Pay and Leave Statutory Parental Bereavement Pay and Leave Statutory Neonatal Care Pay and Leave minimum notice periods if their employment will be ending, for example if an employer is dismissing them protection against unfair dismissal the right to request flexible working time off for emergencies Some of these rights require a minimum length of continuous employment before an employee qualifies for them. An employment contract may state how long this qualification period is. Working out employment status for an employee Someone who works for a business is probably an employee if most of the following are true: they’re required to work regularly unless they’re on leave, for example they’re on holiday or on sick leave or on maternity leave they’re required to do a minimum number of hours and expect to be paid for time worked a manager or supervisor is responsible for their workload, saying when a piece of work should be finished and how it should be done they cannot send someone else to do their work they get paid holiday they’re entitled to contractual or Statutory Sick Pay and to maternity pay or to paternity pay they can join the business’s pension scheme the business’s disciplinary and grievance procedures apply to them they work at the business’s premises or at an address specified by the business their contract sets out redundancy procedures the business provides the materials, tools and equipment for their work they only work for the business or if they do have another job, it’s completely different from their work for the business their contract, statement of terms and conditions or offer letter (which can be described as an ‘employment contract’ ) uses terms like ‘employer’ and ‘employee’ If most of these do not apply, you should work out if the person is self-employed . Individuals and their employers may have to pay unpaid tax and penalties, or lose entitlement to benefits, if their employment status is wrong. Check employment status for tax purposes For tax purposes, you can check someone’s employment status online to see if a worker should be classed as employed or self-employed. An employee shareholder is someone who works under an employment contract and owns at least £2,000 worth of shares in the employer’s company or parent company. Employment rights Employee shareholders have most of the same employment rights as people who are workers and as people who are employees . They also have the right to collective redundancy consultation and transfer of undertakings (TUPE) - this protects the employee’s terms and conditions when the business is transferred to a new owner. Employee shareholders do not have these rights: protection against unfair dismissal - apart from dismissal on grounds of discrimination and in relation to health and safety statutory redundancy pay the right to request flexible working - except in the 2 weeks after returning from parental leave certain statutory rights to request time off for training Employee shareholders must give 16 weeks’ notice if they want to come back early from: maternity leave additional paternity leave adoption leave Employers can choose more generous employment rights than the statutory ones. Tax relief and obligations Employee shareholders can get tax relief on the first £2,000 of shares they get before 1 December 2016. Employee shareholders must pay tax on buying and selling shares . HM Revenue and Customs (HMRC) has further guidance on tax relief for employee shareholders . Applying for employment shareholder jobs Anyone can apply for an employee shareholder job. People claiming Jobseeker’s Allowance do not have to apply for an employee shareholder job that Jobcentre Plus have told them about. Existing employees do not have to accept a change to an employment contract to become an employee shareholder if they do not want to. Offering employment shareholder status Employers must following certain rules when offering employment shareholder status to their employees. A person is self-employed if they run their business for themselves and take responsibility for its success or failure. Self-employed workers are not paid through PAYE, and they do not have the rights and responsibilities of an employee . If someone: becomes self-employed, they must check if they need to set up a business stops being self-employed, they should tell HM Revenue and Customs ( HMRC ) Someone can be both employed and self-employed at the same time, for example if they work for an employer during the day and run their own business in the evenings. Employment rights Employment law does not cover self-employed people in most cases because they are their own boss. If a person is self-employed, they have: protection of their health and safety protection of their rights against discrimination (in some cases) the rights and responsibilities set out by the terms of the contract they have with their client Working out if someone is self-employed HMRC may regard someone as self-employed for tax purposes even if they have a different status in employment law. Employers should check if a worker is self-employed in: tax law - in case the worker is exempt from the employer’s PAYE scheme employment law - in case the worker has employee or worker rights Individuals and their employers may have to pay unpaid tax and penalties, or lose entitlement to benefits, if their employment status is wrong. Checking if they’re self-employed for tax purposes For tax purposes, you can check someone’s employment status online to see if a worker should be classed as employed or self-employed. There are special rules for businesses supplying workers , for example an employment agency. Checking their employment rights If someone is self-employed, they do not have the rights and responsibilities of an employee or the rights and responsibilities of a worker . Someone is probably self-employed if they’re self-employed for tax purposes and most of the following are true: they put in bids or give quotes to get work they’re not under direct supervision when working they submit invoices for the work they’ve done they’re responsible for paying their own National Insurance and tax they do not get holiday or sick pay when they’re not working they operate under a contract (sometimes known as a ‘contract for services’ or ‘consultancy agreement’) that uses terms like ‘self-employed’, ‘consultant’ or an ‘independent contractor’ Contractors A contractor can: be self-employed have the employment status of a worker have the employment status of an employee if they work for a client and are employed by an agency There’s a special scheme for self-employed contractors and sub-contractors working in the construction industry called the Construction Industry Scheme ( CIS ). Contractor rules changed on 6 April 2021. Your employment status and the way you pay tax may have changed. Check the off-payroll working rules for IR35 . Company directors run limited companies on behalf of shareholders. Directors have different rights and responsibilities from employees, and are classed as office holders for tax and National Insurance contribution purposes. If a person does other work that’s not related to being a director, they may have an employment contract and get employment rights. A person who’s been appointed to a position by a company or organisation but does not have a contract or receive regular payment may be an office holder. This includes: statutory appointments, such as registered company directors or secretaries, board members of statutory bodies, or crown appointments appointments under the internal constitution of an organisation, such as club treasurers or trade union secretaries appointments under a trust deed, such as trustees ecclesiastical appointment, such as members of the clergy Office holders are neither employees nor workers. However, it’s possible for someone to be an office holder and an employee if they have an employment contract with the same company or organisation that meets the criteria for employees . Working out employment status for an office holder Someone is likely to be an office holder if most of these statements apply to them: there is no contract or service agreement relating to their appointment their duties are minimal, and are only those required under the relevant statute, constitution or trust deed they do not get a salary or any other form of regular payment for their services the only payment they get is a voluntary payment (honorarium), regardless of the work they do - tax and National Insurance are deducted by the appointing body they’re effectively working as an independent office, and are not under the close supervision or control of the appointing body A court or employment tribunal (known as an industrial tribunal in Northern Ireland) can make a final decision on employment status for employment rights purposes. They’ll look at how the employment relationship between the person and the business works in practice. HM Revenue and Customs ( HMRC ) may separately argue that someone is self-employed for tax purposes. This may be confirmed by the tax tribunal and the courts. An employment tribunal or court may still make a decision that someone is a worker or employee for employment rights purposes.

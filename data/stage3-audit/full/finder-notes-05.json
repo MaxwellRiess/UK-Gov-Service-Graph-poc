@@ -1,0 +1,300 @@
+{
+ "hmrc-spl#agentInteraction.methods": {
+  "queries": [
+   "Shared Parental Leave apply by phone or post",
+   "gov.uk shared-parental-leave-and-pay applying-for-leave-and-pay (read)"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-spl#eligibility.evidenceRequired.0": {
+  "queries": [
+   "SPLIT forms shared parental leave",
+   "gov.uk shared parental leave applying for leave and pay forms"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-spp#agentInteraction.methods": {
+  "queries": [
+   "Statutory Paternity Pay claim by phone or post HMRC employer form SC3 send by post",
+   "gov.uk paternity-pay-leave/how-to-claim (read)"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-ssp#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk taking sick leave self-certification 7 days",
+   "statutory sick pay self-certification fit note"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/taking-sick-leave",
+    "why": "Self-certification section: 'If employees are off work for 7 days or less, they do not need to give their employer a fit note' and employer can ask them to confirm, 'This is called self-certification'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-starter-checklist#eligibility.exclusions.1": {
+  "queries": [
+   "self-employed not paid through PAYE gov.uk",
+   "gov.uk new employee starter checklist PAYE"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/employment-status/selfemployed-contractor",
+    "why": "States 'Self-employed workers are not paid through PAYE' (general employment status page, not the checklist itself)."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-tax-credits#agentInteraction.methods": {
+  "queries": [
+   "HMRC tax credits contact phone online",
+   "gov.uk tax credits enquiries contact"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries",
+    "why": "Phone route: 'Telephone: 0300 322 9129' for general tax credits enquiries; online route limited ('The Digital Assistant online service for tax credits queries is no longer available')."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-tax-credits#eligibility.autoQualifiers.0": {
+  "queries": [
+   "tax credits migration notice move to Universal Credit gov.uk",
+   "gov.uk working-tax-credit eligibility (redirects to tax-credits-have-ended)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/move-to-universal-credit-if-you-get-a-migration-notice-letter",
+    "why": "Describes tax credit claimants invited to move to UC via Migration Notice ('If you were getting tax credits If you got a Migration Notice letter...'); says nothing about current recipients since tax credits ended 5 April 2025."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-tax-credits#eligibility.criteria.0": {
+  "queries": [
+   "gov.uk tax credits income threshold eligibility",
+   "legislation Tax Credits Act 2002 section 7 income test"
+  ],
+  "urls": [
+   {
+    "url": "https://www.legislation.gov.uk/ukpga/2002/21/section/7",
+    "why": "s7 Income test: entitlement 'is dependent on the relevant income\u2014 (a) not exceeding ... the income threshold'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-tax-credits#eligibility.criteria.1": {
+  "queries": [
+   "gov.uk working tax credit hours 16 30",
+   "legislation Working Tax Credit Entitlement Regulations 2002 regulation 4 qualifying remunerative work"
+  ],
+  "urls": [
+   {
+    "url": "https://www.legislation.gov.uk/uksi/2002/2005/regulation/4",
+    "why": "Reg 4 second condition: 'undertakes work for not less than 16 hours per week' / 'is aged at least 25 and undertakes not less than 30 hours work per week'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-tax-credits#eligibility.criteria.2": {
+  "queries": [
+   "gov.uk child tax credit child under 16 under 20 education",
+   "legislation Tax Credits Act 2002 section 8 / Child Tax Credit Regulations 2002 regulation 5"
+  ],
+  "urls": [
+   {
+    "url": "https://www.legislation.gov.uk/ukpga/2002/21/section/8",
+    "why": "s8: CTC entitlement 'is dependent on ... being responsible for one or more children or qualifying young persons'; a child is under sixteen."
+   },
+   {
+    "url": "https://www.legislation.gov.uk/uksi/2002/2007/regulation/5",
+    "why": "Reg 5: a qualifying young person is someone over 16 who 'has not attained the age of twenty' and meets education/training conditions."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-tax-free-childcare#eligibility.evidenceRequired.0": {
+  "queries": [
+   "Tax-Free Childcare apply Government Gateway user ID childcare service",
+   "\"Government Gateway\" \"Tax-Free Childcare\" sign in (gov.uk)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.birmingham.gov.uk/info/20130/childcare_and_early_years/629/free_childcare_and_education_for_children_aged_9_months_to_4_years/6",
+    "why": "Council page: 'To access this service for the first time, you will need: a Government Gateway account'. Single council, describing the national HMRC service; no GOV.UK page names Government Gateway."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-tax-free-childcare#eligibility.evidenceRequired.1": {
+  "queries": [
+   "\"Tax-Free Childcare\" pay childcare provider reference number add provider childcare account gov.uk",
+   "gov.uk tax-free-childcare/apply-for-tax-free-childcare (read)"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-tax-on-pension#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk how your State Pension is taxed State Pension letter",
+   "gov.uk tax-on-pension how your tax is paid"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/how-your-state-pension-is-taxed",
+    "why": "Says the amounts used to work out taxable State Pension 'are shown on your State Pension letter from the Department for Work and Pensions' (mentions the letter, not as required evidence)."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-update-records#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk tell HMRC name change evidence marriage certificate deed poll",
+   "gov.uk send HMRC evidence of your personal details"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/send-hmrc-evidence-of-your-personal-details",
+    "why": "Lists 'marriage certificate' and 'certificate of a civil partnership' among evidence HMRC accepts when it asks you to confirm personal details; no deed poll and not specific to name change."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-update-records#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk personal tax account tell HMRC change of name or address",
+   "gov.uk tell-hmrc-change-of-details name-change (read)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/personal-tax-account",
+    "why": "Personal tax account page says you can 'tell HMRC about a change of name or address'; does not name Government Gateway (says 'You'll need to sign in')."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-vat#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk register for VAT what you need",
+   "gov.uk how to register for VAT"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-for-vat/how-register-for-vat",
+    "why": "'What you need to register for VAT' lists for a limited company 'your company registration number', 'your Unique Taxpayer Reference (UTR)' and other business details."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-vat#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk register for VAT what you need",
+   "gov.uk how to register for VAT turnover"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-for-vat/how-register-for-vat",
+    "why": "Lists 'details of your annual turnover' and 'an estimate of your taxable turnover for the next 12 months' (details, not documentary evidence)."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-vat#eligibility.evidenceRequired.2": {
+  "queries": [
+   "gov.uk register for VAT what you need",
+   "gov.uk how to register for VAT bank account"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-for-vat/how-register-for-vat",
+    "why": "Lists 'your business\u2019s bank account details' (limited company) and 'your bank account details' (individual/partnership)."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship-ceremony#eligibility.evidenceRequired.1": {
+  "queries": [
+   "Home Office citizenship ceremonies guidance local authorities identity check photo ID ceremony",
+   "citizenship ceremony bring photo identification passport invitation letter council"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a327b2d25c5199bda1176a8/Nationality_policy_-_general_information_-_all_British_nationals.pdf",
+    "why": "Home Office guidance: advise the applicant 'that the local authority may require them to produce evidence of identity (including a photograph)'."
+   },
+   {
+    "url": "https://www.wandsworth.gov.uk/registration-services/citizenship-ceremonies/",
+    "why": "Council page asks for the Home Office invitation letter and photo ID such as a passport or photo driving licence (local practice): 'Photo ID (your passport or photo driving licence)'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-citizenship-spouse#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate",
+   "gov.uk apply-citizenship-spouse/how-to-apply (read)"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf",
+    "why": "Guide AN residence evidence: 'You should supply the following documents ... Your passports'; identity evidence lists 'Your passport'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship-spouse#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf",
+    "why": "Section 6(2): 'you will need to provide your spouse\u2019s or civil partner\u2019s current passport or naturalisation/registration certificate showing that they are a British citizen'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship-spouse#eligibility.evidenceRequired.2": {
+  "queries": [
+   "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate",
+   "Guide AN free from immigration time restrictions eVisa"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf",
+    "why": "'Showing you are free from immigration time restrictions' lists 'Your UAN or share code if you have an eVisa showing indefinite leave to remain' and BRP/passport/Home Office letter."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship-spouse#eligibility.evidenceRequired.3": {
+  "queries": [
+   "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf",
+    "why": "Section 6(2) applicants must provide spouse's proof of citizenship 'as well as the marriage certificate or civil partnership certificate'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship-spouse#eligibility.evidenceRequired.6": {
+  "queries": [
+   "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate",
+   "gov.uk apply-citizenship-spouse how to apply (read)"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf",
+    "why": "Guide AN: applications 'should be submitted online'; those applying by post 'can use Form AN' (Form AN is the paper route only)."
+   }
+  ],
+  "verdict_hint": "partly"
+ }
+}

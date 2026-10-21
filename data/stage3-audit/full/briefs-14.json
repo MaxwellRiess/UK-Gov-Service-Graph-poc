@@ -1,0 +1,318 @@
+[
+  {
+    "key": "sss-pension-winter-heating#agentInteraction.methods",
+    "service": "Pension Age Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid"
+    ],
+    "whyNotFound": "not stated: The text says a small number of people need to apply but does not say how. not stated: The text gives no phone route for applying."
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.0",
+    "service": "Pension Age Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+    "claim": "Proof of age",
+    "alreadySearched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or documents."
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.1",
+    "service": "Pension Age Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+    "claim": "Proof of Scottish residency",
+    "alreadySearched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or documents."
+  },
+  {
+    "key": "sss-scottish-child-payment#agentInteraction.methods",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: 'How to apply' appears only as a contents heading, and the text describes no online application. not stated: The only phone number is given for questions about double claims, not as a way to apply."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.criteria.1",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "You or your partner must get Universal Credit or income-based JSA; or you alone are named on Pension Credit, Income Support or income-related ESA. Child Benefit on its own does not count. You can apply while waiting for a decision on one of these.",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text doesn't name any qualifying benefits, doesn't mention Child Benefit and doesn't say you can apply while waiting for a decision; it only mentions benefits in the context of double claims."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.criteria.2",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text names Social Security Scotland as the payer but never says the applicant must live in Scotland."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.evidenceRequired.0",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.evidenceRequired.1",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Child's details",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.evidenceRequired.2",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Proof of Scottish residency",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "sss-young-carer-grant#eligibility.evidenceRequired.0",
+    "service": "Young Carer Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/young-carer-grant",
+    "claim": "Details of person cared for",
+    "alreadySearched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "whyNotFound": "not stated: The text only has a heading about sending documents and does not list what evidence is needed."
+  },
+  {
+    "key": "sss-young-carer-grant#eligibility.evidenceRequired.1",
+    "service": "Young Carer Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/young-carer-grant",
+    "claim": "Proof of caring role and hours",
+    "alreadySearched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "whyNotFound": "not stated: The text does not say what proof is needed."
+  },
+  {
+    "key": "sss-young-carer-grant#eligibility.evidenceRequired.2",
+    "service": "Young Carer Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/young-carer-grant",
+    "claim": "Age verification",
+    "alreadySearched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "whyNotFound": "not stated: The text does not mention checking age as evidence."
+  },
+  {
+    "key": "tpr-workplace-pension#agentInteraction.methods",
+    "service": "Workplace Pension auto-enrollment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/workplace-pensions-employers",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "whyNotFound": "not stated: The text points to The Pensions Regulator's tool, but never says how to apply or complete the process, online or any other way."
+  },
+  {
+    "key": "tpr-workplace-pension#eligibility.evidenceRequired.0",
+    "service": "Workplace Pension auto-enrollment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/workplace-pensions-employers",
+    "claim": "PAYE employer reference number",
+    "alreadySearched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "whyNotFound": "not stated: The text never mentions a PAYE employer reference number. The only reference number it names is the pension scheme reference or registry number (PSR)."
+  },
+  {
+    "key": "tpr-workplace-pension#eligibility.evidenceRequired.1",
+    "service": "Workplace Pension auto-enrollment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/workplace-pensions-employers",
+    "claim": "Chosen pension provider details",
+    "alreadySearched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "whyNotFound": "not stated: The text mentions pension providers, but never says their details are needed as evidence or information."
+  },
+  {
+    "key": "voa-business-rates#desc",
+    "service": "Check and challenge business rates",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/correct-your-business-rates",
+    "claim": "Check your business property's rateable value and challenge it if incorrect through the Check, Challenge and Appeal process.",
+    "alreadySearched": [
+      "https://www.gov.uk/correct-your-business-rates"
+    ],
+    "whyNotFound": "not stated: The text never names a 'Check, Challenge and Appeal' process."
+  },
+  {
+    "key": "wg-discretionary-assistance#agentInteraction.methods",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text (the summary page) does not describe how to apply online. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.criteria.0",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Must be aged 16 or over.",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The source says nothing about a minimum age."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.criteria.2",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Must live in Wales.",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The page is on gov.wales, but the text never says the applicant must live in Wales."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.evidenceRequired.0",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Proof of identity",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.evidenceRequired.1",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Proof of Welsh residency",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.evidenceRequired.2",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Details of the emergency or need",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text does not say what details you must give."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.exclusions.0",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Exceeded annual application limit (3 EAP / 1 IAP per year)",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text does not mention any limit on how many times you can apply."
+  },
+  {
+    "key": "wg-winter-fuel-support#agentInteraction.methods",
+    "service": "Oil and LPG heating payment (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs"
+    ],
+    "whyNotFound": "not stated: The text says councils invite households to apply but never says how, and online is not mentioned. not stated: The only phone numbers given are for Advicelink Cymru and Nest advice, not for applying for this payment."
+  }
+]

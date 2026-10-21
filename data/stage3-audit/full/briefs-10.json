@@ -1,0 +1,279 @@
+[
+  {
+    "key": "nhs-free-sight-tests#eligibility.evidenceRequired.0",
+    "service": "Free NHS Sight Tests",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+    "claim": "HC2 certificate (if applicable)",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "whyNotFound": "not stated: HC2 appears as an eligibility route, but the text never says you must show it as evidence."
+  },
+  {
+    "key": "nhs-free-sight-tests#eligibility.evidenceRequired.1",
+    "service": "Free NHS Sight Tests",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+    "claim": "Benefit award letter",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "whyNotFound": "not stated: The text never mentions a benefit award letter or any proof of benefits."
+  },
+  {
+    "key": "nhs-free-sight-tests#eligibility.evidenceRequired.2",
+    "service": "Free NHS Sight Tests",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+    "claim": "Medical evidence if claiming on health grounds",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "whyNotFound": "not stated: The text never mentions medical evidence being needed."
+  },
+  {
+    "key": "nhs-healthy-start#agentInteraction.methods",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text does not describe any way to apply. not stated: The text does not describe any way to apply."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.criteria.1",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "Receiving Universal Credit with family take-home pay from employment of £408 a month or less; or Pension Credit including the child addition; or under 18 and pregnant (no benefit needed until the birth). Some families with no recourse to public funds and a British child under 4 can also qualify.",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text only mentions 'benefits that make you eligible'. It does not name Universal Credit, the £408 earnings threshold, Pension Credit, the under-18 pregnancy route or the no-recourse-to-public-funds route."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.evidenceRequired.0",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text never mentions a National Insurance number."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.evidenceRequired.1",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "Baby's due date (if pregnant)",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text never mentions giving a due date."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.evidenceRequired.2",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "Universal Credit statement (details must match the UC claim)",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text never mentions Universal Credit or any statement."
+  },
+  {
+    "key": "nhs-low-income-scheme#eligibility.criteria.2",
+    "service": "NHS Low Income Scheme (HC2/HC3)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+    "claim": "Must be ordinarily resident in the UK.",
+    "alreadySearched": [
+      "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text does not mention ordinary residence in the UK. It only says people living in Northern Ireland cannot apply online."
+  },
+  {
+    "key": "nhs-low-income-scheme#eligibility.evidenceRequired.2",
+    "service": "NHS Low Income Scheme (HC2/HC3)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text never mentions a National Insurance number as something you need."
+  },
+  {
+    "key": "nhs-ppc#eligibility.exclusions.0",
+    "service": "Prescription Prepayment Certificate (PPC)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-a-ppc",
+    "claim": "Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)",
+    "alreadySearched": [
+      "https://www.gov.uk/get-a-ppc"
+    ],
+    "whyNotFound": "not stated: The text does not mention exemptions or any of these groups."
+  },
+  {
+    "key": "ni-discretionary-support#agentInteraction.methods",
+    "service": "Discretionary Support",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "whyNotFound": "not stated: The text says to apply to the Finance Support Service but does not say how, and online is not mentioned. not stated: The only phone mention is about being given a decision and asking for a further review, not about applying."
+  },
+  {
+    "key": "ni-discretionary-support#eligibility.evidenceRequired.0",
+    "service": "Discretionary Support",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+    "claim": "Proof of benefit receipt or pending application",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "whyNotFound": "not stated: The text lists the information needed (NI number, rent or mortgage, income, savings, account details) but does not mention proof of benefits."
+  },
+  {
+    "key": "ni-discretionary-support#eligibility.evidenceRequired.1",
+    "service": "Discretionary Support",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+    "claim": "Details of the emergency need",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "whyNotFound": "not stated: The information list does not include details of the emergency need."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.criteria.2",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Must live in Northern Ireland.",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The text never mentions Northern Ireland or any other place of residence as a condition."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.evidenceRequired.0",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Proof of income",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The information the text lists does not include proof of income."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.evidenceRequired.1",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Rate bill",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The text does not ask for a rate bill."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.evidenceRequired.2",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Benefit confirmation letters",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The text does not ask for benefit confirmation letters."
+  },
+  {
+    "key": "opg-deputy-report#agentInteraction.methods",
+    "service": "Complete the deputy report",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/complete-deputy-report",
+    "claim": "You can apply or do this online. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/complete-deputy-report"
+    ],
+    "whyNotFound": "not stated: The text does not say how the report can be submitted, and does not mention an online route. not stated: The text does not mention a postal route."
+  },
+  {
+    "key": "opg-lpa-activation#eligibility.evidenceRequired.2",
+    "service": "Notify OPG of death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/power-of-attorney/changes-you-need-to-report",
+    "claim": "LP4 notification form",
+    "alreadySearched": [
+      "https://www.gov.uk/power-of-attorney/changes-you-need-to-report"
+    ],
+    "whyNotFound": "not stated: The text never mentions an LP4 form."
+  }
+]

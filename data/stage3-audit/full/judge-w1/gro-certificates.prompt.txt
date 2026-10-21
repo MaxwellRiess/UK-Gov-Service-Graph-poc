@@ -1,0 +1,131 @@
+A service graph describes the UK government service "Order a birth, death or marriage certificate" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w1/gro-certificates.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[summary] (split into claims) Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index reference, or 15 working days without one, plus £3.50 per search). Priority service £38.50. Can also be ordered from the local register office.
+
+--- SOURCE 0: https://www.gov.uk/order-copy-birth-death-marriage-certificate ---
+Order a birth, death, marriage or civil partnership certificate. Order an official birth, adoption, death, marriage or civil partnership certificate from the General Register Office (GRO) if you need a copy or want to research your family tree. You need to register on the General Register Office ( GRO ) website to get a copy of a birth, adoption, death, marriage or civil partnership certificate in England and Wales. It takes around 10 minutes and you’ll need a debit or credit card. You can also use this service to: research your family tree (order with the GRO index reference number ) support a passport application If you’re ordering a certificate for a passport application, you can get it sent to HM Passport Office ( HMPO ). You’ll need your application reference number (usually starting ‘PEX’) and the address HMPO provided. There’s a different process for getting certificates in Scotland and getting certificates in Northern Ireland . Start now Certificate fees Certificates cost £12.50 and are sent 4 days after you apply. If you do not have a GRO index reference number , you’ll have to pay £3.50 extra for each search. Certificates are sent 15 working days after you apply. If you need the certificate sooner, you can use the priority service for £38.50. It’ll be sent the next working day if you order by 4pm. Extra copies are the same price. Get help ordering a certificate Contact the General Register Office for help ordering a certificate or questions about an order. You can use the online form to contact the GRO or contact them by telephone. General Register Office Telephone: 0300 123 1837 Textphone: 18001 0300 123 1837 Monday to Friday, 8am to 6pm Find out about call charges General Register Office PO Box 2 Southport PR8 2JD Other ways to apply Ordering by phone To order certificates by phone, call the General Register Office. General Register Office Telephone: 0300 123 1837 Text relay: 18001 0300 123 1837 Monday to Friday, 8am to 6pm Find out about call charges Ordering by post To order certificates by post, fill in the relevant GRO certificate application and send it to the address on the form. Ordering from a local register office You can also order certificates from the local register office where the birth, death or marriage was registered. Registration of births or deaths abroad If you’ve registered a birth or death with the Foreign, Commonwealth and Development Office ( FCDO ) Overseas Registration Unit, you cannot get a copy from the GRO until the November of the following year. If you need a copy sooner, email the name of the registered person, the registration date and reference number to the Overseas Registration Unit. Overseas Registration Unit Overseas.RegistrationUnit@fcdo.gov.uk You’ll get a reply telling you how to get your copy and the cost - usually £50 plus courier fees.
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/research-family-history ---
+Research your family history using the General Register Office. Order birth, adoption, marriage, civil partnership and death certificates from the General Register Office (GRO) - find GRO index numbers You can order birth, adoption, marriage, civil partnership and death certificates from the General Register Office ( GRO ) to help you research your family history and family tree. GRO has all the records registered in England and Wales from July 1837. You’ll need to look at parish records to trace back further. It also has some other records, starting at a later date, for example for civil partnerships and adopted children. You can check which records are held by GRO . There’s a different process for getting certificates in Scotland and Northern Ireland . How to order a certificate You can order a copy of a birth, adoption, marriage, civil partnership and death certificate from GRO . All births, adoptions, marriages, civil partnerships and deaths registered in England or Wales have a GRO index reference number. Find index reference numbers online You can: search the GRO online Index of historic births (1837 to 1934) and deaths (1837 to 1957) view index reference numbers for free on the FreeBMD website Commercial companies also have the index reference numbers online, but you’ll have to pay to search them and prices will vary. Find index reference numbers in person You can also search for free at: the Library of Birmingham Bridgend Local and Family History Centre the City of Westminster Archives Centre Manchester Central Library Newcastle City Library Plymouth Central Library The British Library (you’ll need to register first ) These are the only complete copies of the full sets of index reference numbers. They’re on microfiche. Some of the index reference numbers are available at local libraries, archives and other locations . Overseas records GRO has records of births, marriages and deaths of some British citizens that have taken place abroad since the late 18th century. These include births, marriages or deaths: registered by the armed forces recorded by British consulates or high commissions at sea, or on British oil or gas rigs or aircraft You can check which records are held by GRO by reading the events recorded abroad section of the guidance. Divorce or civil partnership dissolution records For copies of a decree absolute or final order of the dissolution of a civil partnership, you’ll need to contact either: the court where the divorce or dissolution was granted the Principal Registry of the Family Division Principal Registry of the Family Division 020 7421 8594 Find out about call charges Principal Registry of the Family Division First Avenue House 42-49 High Holborn London WC1V 6NP Further information You can also search local archives and the National Archives to help research your family history. GRO ’s guides to researching your family tree include details of the information you’ll find on certificates, and what to do if you cannot find a certificate.
+
+--- SOURCE 2 (LINKED): https://www.gov.uk/register-offices ---
+Find a register office You can use a register office to: register a birth, death, marriage or civil partnership find records of a birth, death, marriage or civil partnership (if it was registered at that register office) order copies of certificates After registering a death, you can tell government organisations about the death through the Tell Us Once service . Enter a postcode For example SW1A 2AA Find a register office Find a postcode on Royal Mail's postcode finder Further information This service works in England and Wales only. Find a register office in Scotland and Northern Ireland . Related content Marriages and civil partnerships in England and Wales Order a birth, death, marriage or civil partnership certificate Register a birth What to do after someone dies Explore the topic Certificates, register offices, changes of name or gender
+
+--- SOURCE 3 (FOUND): https://www.torfaen.gov.uk/lgsl/en/Registrars/Registration-copycertificates/Copy-Certificates.aspx ---
+Home Births, deaths and ceremonies Obtaining Certificates How do I get a copy certificate? Torfaen Registration Service holds records of all births, deaths, marriages and civil partnerships registered in the area from July 1837 to present day. For events not registered in the Torfaen area you will need to apply for a copy certificate from the Register Office in the district where the event occurred. For information about other Register Offices throughout England and Wales, visit www.gov.uk . Who can apply for a copy certificate? Anyone who can identify the entry in the register is entitled to apply for a copy certificate. Identifying an entry means knowing the relevant details that will appear on the certificate. In the case of birth entries, we ask the applicant to supply the: full name on the certificate date and place of birth mother’s full name and mother’s maiden name (where applicable) father&#x27;s/parent&#x27;s full name In the case of death entries, we ask the applicant to supply the: deceased’s full name date and place of death spouse’s/civil partner&#x27;s full name (if applicable) For marriage/civil partnership certificates, we ask the applicant to supply the: full names of both parties any other surnames used date and place of marriage/ceremony (i.e. venue, church name etc.) How much does a certificate cost? The cost of a birth, marriage, death certificate online is £12.50. Certificates can take up to 15 working days and will be posted out 2nd class post. Urgent requests will be processed within 24 hours of receipt at a total cost of £38.50 per certificate and will be posted first class. How can I apply for a certificate? Apply online You can apply for a copy of a birth, marriage or death certificate online: Request copy birth certificates (opens in new tab) Request copy death certificates (opens in new tab) Request copy marriage certificates (opens in new tab) Apply by phone You can apply over the phone with a credit or debit card. Contact 01495 742132. We will take the relevant information and details of where it is to be posted. Other Useful Websites General Register Office (opens in new tab) - For online ordering of Birth, Marriage and Death Certificates and to download application forms. www.findmypast.co.uk (opens in new tab) - On this site you will find an entire copy of the indexes of Births, Marriages and Deaths for England and Wales from 1837 to 2001. These images are available to search for a charge. This site will be most useful to customers who are already familiar with these indexes and wish to have the opportunity to search them in their own time, without having to physically visit a Library or a Register Office. This site is run by Family Research Link based in London. Rootsweb (opens in new tab) - FreeBMD is an ongoing project, the aim of which is to transcribe the Civil Registration index of Births, Marriages and Deaths for England and Wales. Family Search (opens in new tab) - This is the Church of Jesus Christ Latter-Day Saints web site, which has links to all their databases including the 1881 British Census and International Genealogical Index of Baptisms and Marriages. The National Archives (opens in new tab) - This is the National Archives (formerly the Public Record Office) web site and links into their holdings at both the FRC and at Kew (including a very detailed online catalogue). 1901 Census (opens in new tab) - This site has the 1901 Census online. Registrars 01495 742132 registrars@torfaen.gov.uk Related Content Registering a Birth and Naming Ceremonies Deaths, funerals and cremations Marriages and Civil Partnerships Citizenship Ceremonies Register Office location and contact details Registration Fees Registrars Customer Satisfaction Survey Researching Family History

@@ -1,0 +1,122 @@
+A service graph describes the UK government service "ACAS early conciliation" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge/acas-early-conciliation.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+
+--- SOURCE 0: https://www.acas.org.uk/early-conciliation ---
+Breadcrumbs Home Dispute resolution What early conciliation is – Early conciliation What early conciliation is Requesting it as an employer How the process works Conciliation up to and during tribunal Using a representative Representing someone If you're being taken to tribunal Getting paid as part of an Acas settlement Early conciliation is a legal process. You must notify Acas if you want to make a claim to an employment tribunal. We will then offer early conciliation. During early conciliation, an Acas conciliator tries to help you reach a legal agreement with your employer. This can help you avoid going to an employment tribunal. What Acas cannot do Early conciliation is only for people who are considering making a claim to an employment tribunal. During early conciliation, Acas cannot: represent you – we are not a trade union take your or your employer's side help you prepare your case for employment tribunal tell you if you have a valid case give you legal advice Find out how to get legal advice Before you notify Acas Early conciliation should not be your first step. It is usually easier and quicker to try to solve things informally. Before you notify Acas, you should try to: raise the problem informally raise a formal grievance – this is making a formal complaint to your employer appeal to your employer – if you feel your disciplinary or grievance outcome was wrong or unfair At an employment tribunal, the judge will usually expect you to show that you tried to resolve the dispute yourself. If you do not, it could affect how much compensation you get if your claim is successful. Important: If you raise the problem with your employer first, this does not change the time limits to make an employment tribunal claim . Notify Acas about making a claim You should only notify Acas if you are considering making a claim to an employment tribunal. When you notify us, we'll offer you early conciliation. Early conciliation is voluntary. You and your employer can choose whether to take part. Notify Acas about making a claim to an employment tribunal Last updated 01 October 2026 Next Requesting it as an employer Print this page Download this page - PDF document Download entire guide - PDF document Print close X Print this page Print entire guide Please tell us why the information did not help Select the statement you most agree with: I do not understand the information I cannot find the information I'm looking for I cannot work out what to do next Other Tell us more about your answer To help us improve our advice, we'd like your feedback in the box below. We cannot reply &ndash; so do not include any personal details, for example your email address or phone number. If you have questions about your individual circumstances, you can contact the Acas helpline . Send Leave this field blank Tell us more about your answer If you like, you can tell us more about what was useful on this page. We cannot reply &ndash; so do not include any personal details, for example your email address or phone number. If you have any questions about your individual circumstances, you can contact the Acas helpline . Submit Leave this field blank Share this page Share on LinkedIn Share on X (formerly Twitter) Share on Facebook
+
+--- SOURCE 1 (FOUND): https://www.acas.org.uk/notify-acas ---
+Breadcrumbs Home Notify Acas about making a claim to an employment tribunal If you've decided to make a claim to an employment tribunal you must first notify Acas. If you're considering making a claim to an employment tribunal, you can notify Acas. We'll then offer you our early conciliation service to try and resolve the problem without you having to go to an employment tribunal. Employment tribunal time limits There are time limits for employment tribunal claims. You must notify Acas within the time limit. You might only have 3 months minus 1 day from the date the problem at work happened. Find out more about employment tribunal time limits Before you notify Acas If you have time, you could try to resolve the problem with your employer first. You could do this by: raising the problem informally – for example with your line manager raising a formal grievance – this is where you make a formal complaint to your employer and they should follow a formal procedure raising an appeal – this is where you appeal to your employer if you feel your disciplinary or grievance outcome was wrong or unfair If you raise the problem with your employer first, the time limits for making an employment tribunal claim do not change. You should make sure you have enough time before deciding whether to raise the problem with your employer. Early conciliation When you notify Acas, we'll offer you early conciliation . This is a free service where Acas speaks with you and your employer separately to try and resolve the problem without you having to go to an employment tribunal. You can use a representative to act on your behalf during early conciliation. For example, a trade union representative or a family member. You can tell us you want to do this when you notify us. By law, early conciliation can only last for a limited time. This is called the early conciliation period. The early conciliation period can last up to 12 weeks. Important: Our early conciliation service is very busy. It can take around 9 weeks for it to start. We will email you as soon as we have assigned your case to a conciliator. Notify Acas online You can notify Acas using our online form. Once you have submitted your form, you can no longer access it or amend it. Check your answers carefully before submitting. Start now Return to your form If you started the form and created a memorable word, your information will be saved as you go through. You can return to your form at any time. Return to your form Other ways to notify Acas If you cannot use the online form, you can notify Acas by contacting the early conciliation team. Telephone: 0300 123 1122 Relay UK text relay: 18001 0300 123 1122 Monday to Friday, 9am to 5pm Use Relay UK text relay if you cannot hear or speak on the phone. If you cannot use any of these options to notify Acas, find out how to contact us in our accessibility statement . Other languages To speak to us in another language, call the early conciliation team and ask for an interpreter. We can provide one straight away. You can also request our services in Welsh (Cymraeg) . Accessibility during early conciliation If you have any accessibility needs that will affect how we contact you during early conciliation, you can: tell us when you notify Acas let your Acas conciliator know when they're allocated to your case For example, you can tell us if you need: Relay UK text relay an interpreter a British Sign Language interpreter email-only contact
+
+--- SOURCE 2 (FOUND): https://www.citizensadvice.org.uk/work/negotiating-with-your-employer/early-conciliation/ ---
+Using early conciliation This advice applies to England. See advice for See advice for Northern Ireland , See advice for Scotland , See advice for Wales Help us improve our website Take 5 minutes to tell us if you found what you needed on our website. Your feedback will help us give millions of people the information they need. If you can, you should try to solve a problem at work by talking to your manager or raising a grievance. If you can't, or you've tried and that hasn't worked, you need to think about whether the problem is something you can take to an employment tribunal. For example, a tribunal can help if you’ve been denied a right you’re entitled to, dismissed or treated unfairly. If you want to make a tribunal claim, you have to complete a form to tell Acas that you intend to make a claim. If you want them to, Acas will try to help you reach an agreement with your employer before you make a tribunal claim. This process is called early conciliation. Acas is a government-funded body whose job is to help with this process in workplace disputes. Each side can tell the other what they want through Acas. This could be a financial settlement in return for which you’ll agree not to go to a tribunal, or you might want your employer to agree to change the way they’re treating you. Early conciliation takes place before you’ve started your tribunal claim. If it doesn’t lead to an agreement, conciliation can start again after you’ve made your claim. It’s then just called conciliation, not early conciliation. Starting early conciliation doesn’t mean you have to make a tribunal claim if you can’t settle your dispute. After early conciliation, you’ll get either: an ‘early conciliation certificate’ if you couldn’t come to an agreement or didn’t want to try - you’ll then be able to go to a tribunal a COT3 agreement - a legal agreement that you and your employer have to stick to You don’t need to contact Acas to start early conciliation if: you’re part of a group of people making a claim together and one of the other people has already contacted Acas and included you in the group claim you’re asking for ‘interim relief’ - to be paid or kept on when you’ve been dismissed in some specific case you work for the security services If you’ve been unfairly dismissed in the last 7 days You might be able to get your employer to keep paying your wages if you've been unfairly dismissed for certain reasons, like: health and safety whistleblowing You should talk to an adviser for help. Deadlines for early conciliation You must start early conciliation within a strict time limit. Your time limit depends on when the incident you’re complaining about happened - or when it last happened, if it happened more than once. If the incident happened on or after 1 October 2026, you must start early conciliation within 6 months minus 1 day of the incident. If the incident happened on or before 30 September 2026, you must start early conciliation within 3 months minus 1 day of the incident. However, if you’re claiming statutory redundancy pay or equal pay, the deadline is 6 months less 1 day - even if the incident happened before 1 October 2026. If you miss this deadline any tribunal claim you then make will also be late and in many cases, you’ll lose your right to make a claim. If you start early conciliation before the deadline, you’ll have at least 1 month after it ends to make your claim to a tribunal. Sometimes, you’ll have more than 1 month because starting early conciliation extends the deadline for making a claim. Early conciliation lasts up to 12 weeks. If you missed the deadline for starting early conciliation Start early conciliation as soon as you can - it might still help you solve the problem with your employer. Starting early conciliation late means that if you don’t reach an agreement and have to make a tribunal claim, your claim will also be late. The tribunal will decide if they’ll accept your late claim. You’ll need to have a good reason for missing the deadline - for example, a serious illness. You should start your tribunal claim as soon as you get your early conciliation certificate. You won’t have the normal 1 month period to start a tribunal claim. Talk to an adviser if you’ve missed the early conciliation deadline. If your employer starts early conciliation It’s very unlikely that your employer will start early conciliation but if they do, the deadline for making a tribunal claim won’t be extended. If you think you might want to make a tribunal claim, you should contact Acas yourself to start early conciliation. That way you’ll get the deadline extended. Before you start early conciliation If you don’t know how much your case is worth or how strong it is, you should get advice - for example from your nearest Citizens Advice . Make sure you have any relevant documents and dates. This could include your contract of employment, the date of the thing you’re complaining about and any emails you’ve exchanged with your employer about it. If you can, make a note of what’s happened in date order. Starting early conciliation The easiest way to apply for early conciliation is to fill in the early conciliation notification form on the Acas website . The only details you have to give are your and your employer’s name and address. You don’t need to say what your dispute is about. Make sure you put your employer’s correct legal name. If they have ‘ltd’ or ‘Limited’ at the end of their name, they’ll be a company and you can check the Companies House information on GOV.UK. You can also check your payslips, any letters or emails you’ve had from them, their website or ask colleagues. If your claim is against more than one person or company, add their names too. If your employer has been taken over by another company, you might have a claim against either or both companies. If you’ve got a discrimination claim, it can be against your employer and whoever discriminated against you. It’s important to get the names right. If you go on to make a claim, the tribunal will reject it if the names on the tribunal claim form and the early conciliation certificate don’t match. Once you’ve submitted the early conciliation notification form, you’ll get an automated email acknowledgement. Make sure you keep it in case you need to prove when you contacted Acas. You can call Acas if you don’t want to fill in an online form. Acas early conciliation support Telephone: 0300 123 1122 Textphone: 18001 0300 123 1122 Monday to Friday, 9am to 5pm Calls cost 12p a minute from a landline, and from 3p to 45p a minute from a mobile. Make sure you keep a note of the date you called and the name of the person you spoke to. They’ll fill in the form for you over the phone. What happens during early conciliation You’ll be given a conciliation officer who will work with you to resolve your case. The conciliation officer will contact you to explain the early conciliation process. They’ll check the information you’ve given on your form, ask you more about your problem and if you want to try to settle your dispute. If you do, Acas will contact your employer to start the process of trying to reach a settlement. The conciliation officer is impartial. Their aim is to try to resolve the problem and avoid a tribunal claim. They might describe the strengths and weaknesses of each side’s case to the other and say if your expectations about compensation are realistic. They’ll pass on any offer your employer makes. They won't offer you advice on how to win your claim if you can’t reach a settlement or tell you if they think you have a claim that you haven't identified yourself or if there’s a better way to argue your case. If you don’t want to try to settle your dispute, the conciliation officer will send you the early conciliation certificate. You can then make an employment tribunal claim. They’ll also send you the certificate if they can’t get in touch with you or your employer after several attempts. Considering an offer to settle Your employer might offer you a ‘settlement’. This will usually include money to be paid to you by a certain date. If you decide to take it, you’ll end the conciliation process and won’t be able to go to an employment tribunal. When you’re considering your employer’s offer, you should think about things like: how strong your case is how far off their offer is from what you could get if you want to get your job back or keep your job with an agreement that your employer will make changes in your workplace what else you could do if you don’t accept the offer if the stress of making a tribunal claim is worth it because of what you could get if you win If the offer is reasonable, it’s probably worth accepting it. If you don’t think it’s reasonable, you could ask them to increase it, or decline the offer and go to a tribunal. Contact your nearest Citizens Advice if you need help deciding whether to accept your employer’s offer. If you can’t reach an agreement You’ll get your early conciliation certificate. It’s best to ask for it to be sent to you by email so there’s no doubt as to when you received it. You should check your certificate has: your and your employer’s correct names and addresses the date you first contacted Acas a unique reference number - you’ll put this on your tribunal claim form the date Acas sent the certificate a statement saying how the certificate was sent to you - like by post or email If any of these things are missing or incorrect, contact your Acas conciliation officer. If you reached an agreement The Acas conciliation officer will write up what you agree on a form called a COT3. If you’re not sure it’s right for you, get advice before you agree to a COT3 agreement. Once you and your employer say you agree to it, you’ll have to keep to it - even if you haven’t signed it yet. If you agree to the sum you’re being offered but haven’t had time to discuss all the other terms in the agreement, tell Acas that you’re not agreeing to a binding agreement until all the other terms have been agreed - for example, if you haven’t yet agreed on the wording of your reference. Contact your nearest Citizens Advice if you need advice on a COT3 agreement. If you want to go to a tribunal - working out the new deadline You’ll need to calculate the deadline for making the claim. Because you’ve been through early conciliation, you’ll have given yourself more time to make a tribunal claim. You’ll have at least 1 month after the end of early conciliation to make your claim, but you may have more. It’s important to make sure you work out what the new deadline is so that you don’t miss it. To work out the new deadline for making your claim, the first thing you should do is work out your original deadline. For most claims, your deadline depends on when the incident you’re complaining about happened - or when it last happened, if it happened more than once. If the incident happened on or after 1 October 2026, your deadline is 6 months minus 1 day of the incident. If the incident happened on or before 30 September 2026, your deadline is 3 months minus 1 day of the incident However, if your claim is for statutory redundancy pay or equal pay, it’s 6 months minus 1 day - even if the incident happened before 1 October 2026. Then you need: the date on which you contacted Acas to start early conciliation the date on which you received the early conciliation certificate If your original deadline for making a tribunal claim is more than 1 month away when you get the certificate, count the number of days from the day after you contacted Acas up to and including the day you received your certificate. Add that number to the original deadline, starting the day after the original deadline. For example, you get your early conciliation certificate on 1 February and your original deadline is 3 March - more than 1 month away. If early conciliation takes 11 days, you have to get your tribunal claim in by midnight on 14 March. If the original deadline has passed or is 1 month or less away when you get the certificate, add 1 month to the date when you receive your early conciliation certificate. That’s your new deadline. For example, your original deadline is 6 October. You receive your early conciliation certificate on 17 September. You must get your tribunal claim in by midnight on 17 October. Find out more about making a claim to an employment tribunal . Help us improve our website Take 5 minutes to tell us if you found what you needed on our website. Your feedback will help us give millions of people the information they need.

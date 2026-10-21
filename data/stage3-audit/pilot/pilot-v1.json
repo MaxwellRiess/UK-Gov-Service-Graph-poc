@@ -1,0 +1,193 @@
+{
+  "hmpo-passport#eligibility.criteria.0": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 1,
+      "total": 2
+    },
+    "rationale": "partly supported: The text implies citizens of a British overseas territory can apply, but it never lists which categories count as British national, so British citizens and the other unspecified categories are not set out."
+  },
+  "gro-register-death#eligibility.criteria.1": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 4,
+      "total": 4
+    }
+  },
+  "hmcts-divorce#eligibility.criteria.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 1,
+      "total": 2
+    },
+    "rationale": "partly supported: The six-month residence ground applies only to the applicant, who must also be domiciled there, and requires six months immediately before the application, not 6 of the last 12 months; otherwise habitual residence needs one year or applies to the respondent, both parties, or either party in a joint application."
+  },
+  "hmcts-gender-recognition#eligibility.criteria.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "not stated: The listed requirements (age 18+, UK diagnosis, 2 years living in affirmed gender, intention to continue) say nothing about nationality or permanent residence; only the separate no-diagnosis route requires that you currently live in the UK."
+  },
+  "hmcts-legal-aid#eligibility.criteria.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 2,
+      "total": 3
+    },
+    "rationale": "partly supported: A prospects of success criterion (reg. 43) applies to full representation, but the regulations do not apply it to other forms of legal aid such as legal help."
+  },
+  "la-blue-badge#eligibility.criteria.0": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 3,
+      "total": 4
+    },
+    "rationale": "partly supported: The text treats non-visible (hidden) conditions as a route to eligibility, with criteria such as struggling severely to plan or follow a journey, but it does not use a 'very considerable difficulty' threshold for hidden conditions."
+  },
+  "sss-adult-disability-payment#eligibility.criteria.2": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 1,
+      "total": 1
+    }
+  },
+  "ch-close-company#eligibility.exclusions.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "not stated: The text does not mention legal proceedings as a bar to closing a company."
+  },
+  "dwp-voluntary-ni-contributions#eligibility.exclusions.0": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 1,
+      "total": 2
+    },
+    "rationale": "partly supported: The text excludes people with no gaps in their record, not people already entitled to the full State Pension; it only says voluntary contributions do not always increase the State Pension."
+  },
+  "insolvency-bankruptcy#eligibility.exclusions.0": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "partly supported: The Act bars an order where a bankruptcy order already covers the debts in the application, but does not say that being already bankrupt excludes the person outright."
+  },
+  "la-blue-badge#eligibility.autoQualifiers.0": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "partly supported: The text grants automatic eligibility for PIP mobility based on a score of 8 or more points for moving around, or 10 points under descriptor E, and asks for proof of the PIP award, but it never mentions the enhanced rate."
+  },
+  "nhs-continuing-healthcare#eligibility.autoQualifiers.0": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 1,
+      "total": 1
+    }
+  },
+  "acas-early-conciliation#agentInteraction.methods": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 2,
+      "total": 2
+    }
+  },
+  "la-disabled-facilities-grant#agentInteraction.methods": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 1,
+      "total": 2
+    },
+    "rationale": "not stated: None of the sources mention applying in person; they describe applying through the council online, by phone or by letter, and an occupational therapist visit as part of assessment."
+  },
+  "nhs-care-assessment#agentInteraction.methods": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 2,
+      "total": 2
+    }
+  },
+  "other-dbs#agentInteraction.methods": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 1,
+      "total": 1
+    }
+  },
+  "dvla-cancel-licence#eligibility.evidenceRequired.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "not stated: The source never mentions a D27 form; it says to write a letter to DVLA and include the person's driving licence."
+  },
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "partly supported: The text asks for the date of the most recent marriage or civil partnership when claiming, but never mentions providing a marriage or civil partnership certificate."
+  },
+  "ho-visa#eligibility.evidenceRequired.3": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 1,
+      "total": 1
+    }
+  },
+  "la-school-place#eligibility.evidenceRequired.0": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 1
+    },
+    "rationale": "partly supported: Only Bromley council's admissions page requires the child's birth certificate (long form only); the GOV.UK page does not say it is needed by councils generally."
+  },
+  "other-help-to-buy#eligibility.evidenceRequired.0": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 1,
+      "total": 1
+    }
+  },
+  "sss-best-start-foods#eligibility.evidenceRequired.1": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 0,
+      "total": 2
+    },
+    "rationale": "not stated: The text says when you can apply during pregnancy but does not say any proof of pregnancy is required. not stated: The text sets age limits for the child but does not say any proof of the child's age is required."
+  },
+  "la-electoral-roll#desc": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 2,
+      "total": 3
+    },
+    "rationale": "partly supported: The text says you give both addresses on one register to vote form and are then removed from the old address automatically, not that you update at both addresses separately."
+  },
+  "nhs-continuing-healthcare#desc": {
+    "confidence": "unverified",
+    "claims": {
+      "supported": 6,
+      "total": 7
+    },
+    "rationale": "not stated: The sources describe health and social care but do not mention specialist support."
+  },
+  "gro-register-death#eligibility.summary": {
+    "confidence": "confirmed",
+    "claims": {
+      "supported": 3,
+      "total": 3
+    }
+  }
+}

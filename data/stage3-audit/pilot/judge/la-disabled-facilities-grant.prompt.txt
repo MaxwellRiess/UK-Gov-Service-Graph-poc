@@ -1,0 +1,122 @@
+A service graph describes the UK government service "Disabled Facilities Grant" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge/la-disabled-facilities-grant.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this by phone. You can apply or do this in person.
+
+--- SOURCE 0: https://www.gov.uk/disabled-facilities-grants ---
+Disabled Facilities Grants. Disabled Facilities Grants help towards the costs of making changes to your home so you can continue to live there You could get a grant from your council if you’re disabled and need to make changes to your home. For example if you: are physically disabled have a learning disability have age-related needs are autistic have a cognitive impairment, like dementia have a progressive condition, like motor neurone disease have a terminal illness have a mental health condition You might need to: widen doors and install ramps or grab rails improve access to rooms and facilities, for example with a stairlift, or level access shower improve access to your garden build an extension, for example a downstairs bedroom provide a heating system suitable for your needs adapt heating or lighting controls to make them easier to use A Disabled Facilities Grant will not affect any benefits you get. How much you get usually depends on your: household income household savings over £6,000 Disabled children under 18 can get a grant without their parents’ income being taken into account. Contact your local council for more information. Landlords can get a grant without their income and savings being taken into account. The council may ask for the property to be let to another disabled person if the current tenant moves within 5 years. How much you can apply for Country Grant England Up to £30,000 Wales Up to £36,000 Northern Ireland Up to £25,000 Scotland Disabled Facilities Grants are not available, find out about support for equipment and adaptations Some councils may give more. Depending on your income, you may need to pay towards the cost of the work to the property. You can apply for another grant for the same property if you need to. For example, if your condition changes. You might not get any grant if you start work on your property before the council approves your application. How you’ll be paid You’ll be paid either: in instalments, as the work progresses in full, when the work is finished The council may pay the contractor directly or give you money to pass on to them. They’ll agree this with you when they approve your application. When you’ll be paid You’ll be paid either: when you and the council are happy with the finished work when you give the council the invoice, demand or receipt for payment from the contractor Normally, if you (or a relative) do the work the council will only accept invoices for materials or services you’ve bought. To get a grant, you or someone else living in the house must: be disabled intend to live in the property during the grant period (usually 5 years but this can be shorter, for example, if the person is terminally ill) The person who submits the application must be either the: owner tenant landlord The council needs to be happy that the work is: necessary and appropriate to meet the disabled person’s needs reasonable and can be done, depending on the age and condition of the property The work should be completed within 12 months of the grant being approved. You might not get any grant if you start work on your property before the council approves your application. Planning and building regulations approval You need to apply separately for any planning permission or building regulations approval. The council may ask you to employ a qualified architect or surveyor to plan and oversee the work. If you get a grant, you can use it towards the cost of their fees. Apply through your local council . The council may send an occupational therapist or trained assessor to see you. They’ll assess what changes you need to your home. Your council must give you a decision within 6 months. Help applying The government funds an organisation called Foundations who can help you to apply. Appeals You can appeal to your council if you’re unhappy with their decision. If you appeal and you’re still not happy, you can complain to the Local Government Ombudsman.
+
+--- SOURCE 1 (FOUND): https://www.solihull.gov.uk/adult-social-care/disabled-facilities-grant/apply-disability-facilities-grant ---
+Apply for a Disabled Facilities Grant From the section: Disabled Facilities Grant Guide Navigation Skip Guide Navigation In this section: Disabled Facilities Grant Apply for a Disabled Facilities Grant Apply for a Disabled Facilities Grant If you would like to discuss whether a Disabled Facilities Grant (DFG) could help you, you can contact our Occupational Therapy Team for support and advice by: email: ccadults@solihull.gov.uk phone: 0121 704 8007 (weekdays from 9:00am to 5:00pm, except Wednesdays when we open at 10:00am) To see if you are eligible, you will need to complete an Occupational Therapy assessment . If you are assessed as eligible, someone from our Occupational Therapy Team will discuss how best to meet your needs and recommend suitable home adaptations. To find out what other support is available, please visit our get help from adult social care page. The application process We will support you through the application process. Step 1 Step 1 To see if you are eligible for a Disabled Facilities Grant (DFG), you will first need to complete an Occupational Therapy assessment . Step 2 Step 2 We may need to complete a financial assessment, taking into account your income and savings to determine whether a DFG can be paid and if you need to make a contribution to the cost of the works. You may be offered discretionary help you via the Council’s Housing Assistance Policy . We can tell you more about this if the Occupational Therapy assessment determines that you are eligible for support. You will not have to contribute to the cost of the work if the work is for a child or young person under the age of 19, or if you receive a qualifying means-tested benefit such as: Universal Credit Pension Credit Housing Benefit Step 3 Step 3 We may prepare drawings of the adaptations. If it is likely that your adaptations will need planning permission and/or building regulations approval, we will arrange this on your behalf. If you would prefer to make your own arrangements, including paying for the work, we can provide support and advice. Step 4 Step 4 Before the grant can be approved, all the relevant paperwork must be in place. Solihull Independent Living Service (SILS) can support you through this process, including: the application forms proof of ownership for your home plans (where completed) agreed by you and our Occupational Therapy Team estimate(s) of cost planning permission/building regulations approval (where needed) Step 5 Step 5 Before building work starts, Solihull Independent Living Service (SILS) will arrange a site visit with the building company. At this meeting, you should be given a start date and can ask any questions that you may have about the work. Local land charge Local land charge If your grant is for more than £5,000, it may be repayable in certain circumstances, such as if you move house. We place what is called a ‘local land charge’ on the property that would stay in place for 10 years from the date the works are completed. It will only need to be repaid if you decide to sell the property during this time. The table below gives you some examples of the amounts you might expect to repay: Cost of grant Amount to be repaid Up to £5,000 Nil £7,000 £2,000 £10,000 £5,000 £15,000 £10,000 Above £15,000 £10,000 Previous Disabled Facilities Grant
+
+--- SOURCE 2 (FOUND): https://www.bcpcouncil.gov.uk/adult-social-care-and-health/support-for-adults-with-a-disability/disabled-facilities-grants/apply-for-a-disabled-facilities-grant ---
+Disabled Facilities Grants Skip to contents of guide Contents Overview Who can apply for a Disabled Facilities Grant How much you could get from the Disabled Facilities Grant Apply for a Disabled Facilities Grant Apply for a Disabled Facilities Grant If you start works before applying You may not get any funding if you start work on your property before we approve your application. To apply for a Disabled Facilities Grant, contact us online and ask for an occupational therapist to visit and talk with you about what would help. If you were previously unsuccessful or have already had adaptations and things have become more difficult, you can request a new assessment. If your request is for a child under 18, call us on 01202 127 773 or email ot.bso@bcpcouncil.gov.uk . Start now Alternatively, you can call us on 01202 123 654 or send a letter to: Adult Social Care Hub St Stephens Road Bournemouth Dorset BH2 6EB Our Adult Social Care Hub is open: Monday to Thursday: 9am to 5pm Friday: 9am to 4:30pm You can also get help contacting us if you are deaf or hard of hearing . If you need help applying The Foundations website has an online self-assessment tool where you can check if you're eligible and get help with applying. Appeals If you are unhappy with our decision, you can contact us to request an explanation or for information on how the grant was calculated. Previous : How much you could get from the Disabled Facilities Grant Have you encountered a problem with this page? Yes No

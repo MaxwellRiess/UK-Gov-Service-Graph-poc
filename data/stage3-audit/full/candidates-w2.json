@@ -1,0 +1,251 @@
+{
+  "hmrc-lisa#agentInteraction.methods": [],
+  "hmrc-lisa#eligibility.evidenceRequired.0": [],
+  "hmrc-marriage-allowance#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/apply-marriage-allowance",
+    "https://www.gov.uk/marriage-allowance/how-to-apply"
+  ],
+  "hmrc-mtd#eligibility.criteria.1": [
+    "https://www.gov.uk/guidance/check-if-youre-eligible-for-making-tax-digital-for-income-tax"
+  ],
+  "hmrc-mtd#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/guidance/sign-up-for-making-tax-digital-for-vat"
+  ],
+  "hmrc-ni-check#eligibility.criteria.0": [
+    "https://www.gov.uk/voluntary-national-insurance-contributions",
+    "https://www.gov.uk/check-state-pension"
+  ],
+  "hmrc-p45#agentInteraction.methods": [],
+  "hmrc-paye#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+    "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes"
+  ],
+  "hmrc-paye#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+    "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes"
+  ],
+  "hmrc-paye#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+    "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes"
+  ],
+  "hmrc-register-sole-trader#agentInteraction.methods": [
+    "https://www.gov.uk/register-for-self-assessment/y/you-re-self-employed-for-example-a-sole-trader/no-i-m-registering-for-the-first-time",
+    "https://www.gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "hmrc-register-sole-trader#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "hmrc-register-sole-trader#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/register-for-self-assessment/y/you-re-self-employed-for-example-a-sole-trader/no-i-m-registering-for-the-first-time"
+  ],
+  "hmrc-sdlt#agentInteraction.methods": [
+    "https://www.gov.uk/guidance/stamp-duty-land-tax-online-and-paper-returns"
+  ],
+  "hmrc-sdlt#eligibility.evidenceRequired.0": [],
+  "hmrc-self-assessment#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+    "https://www.gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "hmrc-self-assessment#eligibility.criteria.0": [
+    "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return"
+  ],
+  "hmrc-self-assessment#eligibility.criteria.1": [
+    "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return"
+  ],
+  "hmrc-self-assessment#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "hmrc-smp#agentInteraction.methods": [
+    "https://www.citizensadvice.org.uk/work/maternity-and-parental-rights/check-your-maternity-and-parental-rights/maternity-leave-and-pay/how-to-get-your-maternity-pay/",
+    "https://www.gov.uk/maternity-pay-leave/how-to-claim"
+  ],
+  "hmrc-spl#agentInteraction.methods": [],
+  "hmrc-spl#eligibility.evidenceRequired.0": [],
+  "hmrc-spp#agentInteraction.methods": [],
+  "hmrc-ssp#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/taking-sick-leave"
+  ],
+  "hmrc-starter-checklist#eligibility.exclusions.1": [
+    "https://www.gov.uk/employment-status/selfemployed-contractor"
+  ],
+  "hmrc-tax-credits#agentInteraction.methods": [
+    "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+  ],
+  "hmrc-tax-credits#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/guidance/move-to-universal-credit-if-you-get-a-migration-notice-letter"
+  ],
+  "hmrc-tax-credits#eligibility.criteria.0": [
+    "https://www.legislation.gov.uk/ukpga/2002/21/section/7"
+  ],
+  "hmrc-tax-credits#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/uksi/2002/2005/regulation/4"
+  ],
+  "hmrc-tax-credits#eligibility.criteria.2": [
+    "https://www.legislation.gov.uk/ukpga/2002/21/section/8",
+    "https://www.legislation.gov.uk/uksi/2002/2007/regulation/5"
+  ],
+  "hmrc-tax-free-childcare#eligibility.evidenceRequired.0": [
+    "https://www.birmingham.gov.uk/info/20130/childcare_and_early_years/629/free_childcare_and_education_for_children_aged_9_months_to_4_years/6"
+  ],
+  "hmrc-tax-free-childcare#eligibility.evidenceRequired.1": [],
+  "hmrc-tax-on-pension#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/guidance/how-your-state-pension-is-taxed"
+  ],
+  "hmrc-update-records#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/guidance/send-hmrc-evidence-of-your-personal-details"
+  ],
+  "hmrc-update-records#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/personal-tax-account"
+  ],
+  "hmrc-vat#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/register-for-vat/how-register-for-vat"
+  ],
+  "hmrc-vat#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/register-for-vat/how-register-for-vat"
+  ],
+  "hmrc-vat#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/register-for-vat/how-register-for-vat"
+  ],
+  "ho-citizenship-ceremony#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/media/6a327b2d25c5199bda1176a8/Nationality_policy_-_general_information_-_all_British_nationals.pdf",
+    "https://www.wandsworth.gov.uk/registration-services/citizenship-ceremonies/"
+  ],
+  "ho-citizenship-spouse#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+  ],
+  "ho-citizenship-spouse#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+  ],
+  "ho-citizenship-spouse#eligibility.evidenceRequired.2": [
+    "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+  ],
+  "ho-citizenship-spouse#eligibility.evidenceRequired.3": [
+    "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+  ],
+  "ho-citizenship-spouse#eligibility.evidenceRequired.6": [
+    "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+  ],
+  "ho-citizenship#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible"
+  ],
+  "ho-citizenship#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible"
+  ],
+  "ho-citizenship#eligibility.evidenceRequired.4": [
+    "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible"
+  ],
+  "ho-drug-precursor-licence#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/guidance/precursor-chemical-licensing"
+  ],
+  "ho-drug-precursor-licence#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/guidance/precursor-chemical-licensing"
+  ],
+  "ho-euss-enquiry#eligibility.criteria.0": [
+    "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme"
+  ],
+  "ho-euss-enquiry#eligibility.summary": [
+    "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme",
+    "https://www.gov.uk/settled-status-eu-citizens-families/after-youve-applied"
+  ],
+  "ho-evisa-error#desc": [
+    "https://www.gov.uk/evisa/report-error-evisa"
+  ],
+  "ho-ilr#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/long-residence/documents-you-must-provide"
+  ],
+  "ho-ilr#eligibility.evidenceRequired.1": [],
+  "ho-ilr#eligibility.evidenceRequired.4": [
+    "https://www.gov.uk/government/publications/application-to-settle-in-the-uk-form-seto",
+    "https://www.gov.uk/government/publications/application-to-settle-in-the-uk-form-seto/apply-online-form-seto"
+  ],
+  "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0": [],
+  "ho-skilled-worker-visa#eligibility.criteria.1": [
+    "https://www.gov.uk/skilled-worker-visa/switch-to-this-visa"
+  ],
+  "ho-student-visa#eligibility.criteria.0": [
+    "https://www.gov.uk/apply-to-come-to-the-uk",
+    "https://www.gov.uk/check-uk-visa/y/ireland"
+  ],
+  "ho-view-immigration-status#eligibility.summary": [
+    "https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status",
+    "https://www.gov.uk/prove-right-to-work"
+  ],
+  "ho-visa#agentInteraction.methods": [
+    "https://www.gov.uk/apply-to-come-to-the-uk"
+  ],
+  "ho-visa#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/apply-to-come-to-the-uk"
+  ],
+  "ho-visa#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/student-visa/documents-you-must-provide",
+    "https://www.gov.uk/skilled-worker-visa/documents-you-must-provide"
+  ],
+  "ho-visa#eligibility.evidenceRequired.2": [
+    "https://www.gov.uk/student-visa/documents-you-must-provide",
+    "https://www.gov.uk/skilled-worker-visa/documents-you-must-provide",
+    "https://www.gov.uk/apply-to-come-to-the-uk"
+  ],
+  "insolvency-bankruptcy#eligibility.criteria.0": [
+    "https://www.legislation.gov.uk/ukpga/1986/45/section/263K",
+    "https://www.gov.uk/options-for-paying-off-your-debts/bankruptcy",
+    "https://www.gov.uk/becoming-bankrupt"
+  ],
+  "insolvency-bankruptcy#eligibility.exclusions.1": [
+    "https://www.gov.uk/becoming-bankrupt/your-home",
+    "https://www.gov.uk/becoming-bankrupt/your-possessions"
+  ],
+  "insolvency-dro#agentInteraction.methods": [
+    "https://www.gov.uk/guidance/technical-guidance-for-official-receivers/60-debt-relief-orders"
+  ],
+  "jaqu-clean-air-zone#eligibility.summary": [
+    "https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england/annex-a-clean-air-zone-minimum-classes-and-standards",
+    "https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england/clean-air-zone-framework"
+  ],
+  "la-blue-badge#eligibility.criteria.1": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "la-blue-badge#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "la-bus-pass#agentInteraction.methods": [
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass"
+  ],
+  "la-bus-pass#eligibility.evidenceRequired.0": [
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass"
+  ],
+  "la-bus-pass#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass"
+  ],
+  "la-bus-pass#eligibility.evidenceRequired.2": [
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass"
+  ],
+  "la-business-rates#agentInteraction.methods": [],
+  "la-business-rates#eligibility.evidenceRequired.0": [],
+  "la-business-rates#eligibility.evidenceRequired.1": [],
+  "la-business-rates#eligibility.evidenceRequired.2": [],
+  "la-child-performance-licence#eligibility.evidenceRequired.0": [
+    "https://www.legislation.gov.uk/uksi/2014/3309/schedule/2"
+  ],
+  "la-council-tax-disability-reduction#agentInteraction.methods": [],
+  "la-council-tax-disability-reduction#eligibility.evidenceRequired.1": [
+    "https://www.citizensadvice.org.uk/housing/council-tax/check-if-you-can-pay-less-council-tax/"
+  ],
+  "la-council-tax-reduction#agentInteraction.methods": [
+    "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+    "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s"
+  ],
+  "la-council-tax-reduction#eligibility.criteria.1": [
+    "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/applying-for-council-tax-reduction-s/check-if-you-can-get-council-tax-reduction-s/",
+    "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/"
+  ],
+  "la-council-tax-reduction#eligibility.evidenceRequired.0": [
+    "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+    "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s"
+  ],
+  "la-council-tax-reduction#eligibility.evidenceRequired.1": [],
+  "la-council-tax-single-discount#agentInteraction.methods": []
+}

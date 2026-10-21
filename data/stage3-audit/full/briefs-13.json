@@ -1,0 +1,280 @@
+[
+  {
+    "key": "sss-carer-support-payment#agentInteraction.methods",
+    "service": "Carer Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/carer-support-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/carer-support-payment",
+      "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "https://www.mygov.scot/carer-support-payment/if-you-work"
+    ],
+    "whyNotFound": "not stated: The text mentions an online eligibility checker but says it is not an application, and it describes no online application route. not stated: The only phone number in the text is for money advice. It describes no phone application route."
+  },
+  {
+    "key": "sss-carer-support-payment#eligibility.evidenceRequired.0",
+    "service": "Carer Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/carer-support-payment",
+    "claim": "Details of person cared for",
+    "alreadySearched": [
+      "https://www.mygov.scot/carer-support-payment",
+      "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "https://www.mygov.scot/carer-support-payment/if-you-work"
+    ],
+    "whyNotFound": "not stated: The text does not list details of the person cared for as evidence needed to apply."
+  },
+  {
+    "key": "sss-carer-support-payment#eligibility.evidenceRequired.1",
+    "service": "Carer Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/carer-support-payment",
+    "claim": "Proof of care hours",
+    "alreadySearched": [
+      "https://www.mygov.scot/carer-support-payment",
+      "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "https://www.mygov.scot/carer-support-payment/if-you-work"
+    ],
+    "whyNotFound": "not stated: The text does not ask for proof of care hours. The eligibility checker asks about hours, but it says it is not an application."
+  },
+  {
+    "key": "sss-child-disability-payment#agentInteraction.methods",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text does not describe applying online. not stated: Phone appears only in a related-content link about contacting Social Security Scotland, not as a way to apply. not stated: Post appears only in a related-content link about contacting Social Security Scotland, not as a way to apply."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.criteria.2",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The page is from mygov.scot and mentions Social Security Scotland, but it never states a requirement to live in Scotland."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.evidenceRequired.0",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "Medical evidence of disability or condition",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence needed, and it says you can apply without a diagnosis."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.evidenceRequired.2",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "GP or consultant reports",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text does not mention GP or consultant reports."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.exclusions.1",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "Does not live in Scotland",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text says nothing about where the child must live."
+  },
+  {
+    "key": "sss-child-winter-heating#agentInteraction.methods",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text does not mention any way to apply, online or otherwise."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.autoQualifiers.0",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Child on highest-rate CDP/DLA care in Scotland — paid automatically",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text gives no eligibility criteria and does not say whether payment is automatic."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.0",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text never mentions Child Disability Payment rates or DLA as a condition."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.1",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Child must be under 16 (or under 19 if still in qualifying education).",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text refers to 'children and young people' but gives no age limits and says nothing about qualifying education."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.2",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text calls it a Scottish Government benefit but never states a residency requirement."
+  },
+  {
+    "key": "sss-funeral-support-payment#agentInteraction.methods",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text does not describe how to apply; 'How to apply' appears only as a contents link. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.criteria.1",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "You or your partner must get Universal Credit, Income Support, Pension Credit, Housing Benefit, income-based JSA or income-related ESA (or be waiting for a decision on one).",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: Neither source mentions any qualifying benefit, such as Universal Credit, Pension Credit or Housing Benefit, or a pending benefit decision."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.evidenceRequired.0",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: Death certificates come up only as a cost the payment can help with, not as evidence you must provide."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.evidenceRequired.1",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Funeral director's invoice",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The final funeral bill is mentioned only as one way to work out transport costs, not as required evidence."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.evidenceRequired.2",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text never mentions qualifying benefits or proof of them."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.0",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Not on a qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text never mentions qualifying benefits."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.1",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Another close relative could reasonably pay",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text does not mention other relatives paying."
+  }
+]

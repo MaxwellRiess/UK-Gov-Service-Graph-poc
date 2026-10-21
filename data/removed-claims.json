@@ -1656,5 +1656,25 @@
       "https://www.gov.uk/apply-proxy-vote"
     ],
     "note": "The page gives no deadline for applying for a proxy vote. Its \"11 working days before the election\" applies to stopping a proxy or switching between postal and proxy voting, so it is not a replacement value."
+  },
+  {
+    "key": "dwp-smi#eligibility.exclusions.1",
+    "value": "UC with earnings above threshold",
+    "removedAt": "2026-10-21T20:51:26.800851Z",
+    "searched": [
+      "https://www.gov.uk/support-for-mortgage-interest/eligibility",
+      "https://www.gov.uk/government/publications/managed-payments-to-mortgage-lenders-information-for-lenders/managed-payments-to-mortgage-lenders-information-for-lenders"
+    ],
+    "note": "The former zero-earnings rule ended in April 2023. The DWP lender handbook states that SMI was extended to in-work Universal Credit claimants. The duplicate ruleOut item was removed too."
+  },
+  {
+    "key": "ch-confirmation-statement#eligibility.summary",
+    "value": "The £34 filing fee can be waived for dormant companies in some circumstances.",
+    "removedAt": "2026-10-21T20:51:26.800851Z",
+    "searched": [
+      "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement",
+      "https://www.gov.uk/dormant-company/dormant-for-companies-house"
+    ],
+    "note": "Companies House says dormant companies must still file. The current filing guidance states £50 online and £110 by post and gives no dormant-company waiver."
   }
 ]

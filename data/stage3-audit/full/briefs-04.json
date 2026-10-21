@@ -1,0 +1,229 @@
+[
+  {
+    "key": "hmrc-lisa#agentInteraction.methods",
+    "service": "Lifetime ISA withdrawal",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/lifetime-isa",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/lifetime-isa"
+    ],
+    "whyNotFound": "not stated: The text does not name any way of applying."
+  },
+  {
+    "key": "hmrc-lisa#eligibility.evidenceRequired.0",
+    "service": "Lifetime ISA withdrawal",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/lifetime-isa",
+    "claim": "LISA account details",
+    "alreadySearched": [
+      "https://www.gov.uk/lifetime-isa"
+    ],
+    "whyNotFound": "not stated: The text does not mention account details as evidence."
+  },
+  {
+    "key": "hmrc-marriage-allowance#eligibility.evidenceRequired.0",
+    "service": "Marriage Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/marriage-allowance",
+    "claim": "Government Gateway account for the lower earner to apply",
+    "alreadySearched": [
+      "https://www.gov.uk/marriage-allowance"
+    ],
+    "whyNotFound": "not stated: The text does not mention Government Gateway or any account needed to apply."
+  },
+  {
+    "key": "hmrc-mtd#eligibility.criteria.1",
+    "service": "Making Tax Digital enrolment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "claim": "MTD for Income Tax applies from April 2026 to sole traders and landlords with income over £50,000.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+      "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
+    ],
+    "whyNotFound": "not stated: The source covers only MTD for VAT and does not mention MTD for Income Tax, sole traders, landlords, April 2026 or a £50,000 threshold."
+  },
+  {
+    "key": "hmrc-mtd#eligibility.evidenceRequired.1",
+    "service": "Making Tax Digital enrolment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "claim": "VAT registration number",
+    "alreadySearched": [
+      "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+      "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
+    ],
+    "whyNotFound": "not stated: The text does not mention a VAT registration number."
+  },
+  {
+    "key": "hmrc-ni-check#eligibility.criteria.0",
+    "service": "Check & top up NI record",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/check-national-insurance-record",
+    "claim": "Particularly important for people approaching State Pension age, or those who have had periods out of work, self-employment, or living abroad.",
+    "alreadySearched": [
+      "https://www.gov.uk/check-national-insurance-record"
+    ],
+    "whyNotFound": "not stated: The text never says the service matters more for any group: nobody approaching State Pension age, out of work, self-employed or living abroad. It mentions the State Pension and living abroad, but only when describing what the record shows and how to request a statement."
+  },
+  {
+    "key": "hmrc-p45#agentInteraction.methods",
+    "service": "Obtain P45 from employer",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
+    ],
+    "whyNotFound": "not stated: The text never mentions phone as a way to get a P45."
+  },
+  {
+    "key": "hmrc-paye#eligibility.evidenceRequired.0",
+    "service": "Register as employer (PAYE)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-employer",
+    "claim": "Business name and address",
+    "alreadySearched": [
+      "https://www.gov.uk/register-employer",
+      "https://www.gov.uk/paye-for-employers"
+    ],
+    "whyNotFound": "not stated: The text does not list information needed to register."
+  },
+  {
+    "key": "hmrc-paye#eligibility.evidenceRequired.1",
+    "service": "Register as employer (PAYE)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-employer",
+    "claim": "Nature of business",
+    "alreadySearched": [
+      "https://www.gov.uk/register-employer",
+      "https://www.gov.uk/paye-for-employers"
+    ],
+    "whyNotFound": "not stated: The text does not list information needed to register."
+  },
+  {
+    "key": "hmrc-paye#eligibility.evidenceRequired.2",
+    "service": "Register as employer (PAYE)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-employer",
+    "claim": "Date of first payday",
+    "alreadySearched": [
+      "https://www.gov.uk/register-employer",
+      "https://www.gov.uk/paye-for-employers"
+    ],
+    "whyNotFound": "not stated: The text mentions the first payday but never says you must give its date when registering."
+  },
+  {
+    "key": "hmrc-register-sole-trader#agentInteraction.methods",
+    "service": "Register as sole trader",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/set-up-sole-trader",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "whyNotFound": "not stated: The text does not say how to register, whether online or any other way."
+  },
+  {
+    "key": "hmrc-register-sole-trader#eligibility.evidenceRequired.0",
+    "service": "Register as sole trader",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/set-up-sole-trader",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "whyNotFound": "not stated: The text mentions National Insurance contributions but never says a National Insurance number is needed."
+  },
+  {
+    "key": "hmrc-register-sole-trader#eligibility.evidenceRequired.1",
+    "service": "Register as sole trader",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/set-up-sole-trader",
+    "claim": "UTR issued after registration",
+    "alreadySearched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "whyNotFound": "not stated: The text does not mention a UTR."
+  },
+  {
+    "key": "hmrc-sdlt#agentInteraction.methods",
+    "service": "Stamp Duty Land Tax return",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/stamp-duty-land-tax",
+    "claim": "You can apply or do this online. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/stamp-duty-land-tax",
+      "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates"
+    ],
+    "whyNotFound": "not stated: The text does not say how the return can be filed, and online filing is not mentioned. not stated: The text only mentions post as a way HMRC may contact you about refunds, not as a way to file the return."
+  },
+  {
+    "key": "hmrc-sdlt#eligibility.evidenceRequired.0",
+    "service": "Stamp Duty Land Tax return",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/stamp-duty-land-tax",
+    "claim": "Completion statement",
+    "alreadySearched": [
+      "https://www.gov.uk/stamp-duty-land-tax",
+      "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates"
+    ],
+    "whyNotFound": "not stated: The text never mentions a completion statement."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.autoQualifiers.0",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "Started trading as a sole trader and earning more than £1,000",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text does not mention sole traders or a £1,000 threshold."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.criteria.0",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "Sole trader earning more than £1,000 before expenses, or a partner in a business partnership.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text never mentions sole traders, the £1,000 threshold or business partners. It only points readers elsewhere to check whether they need to send a return."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.criteria.1",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text never mentions Capital Gains Tax, the High Income Child Benefit Charge, untaxed income types or company directors."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.evidenceRequired.0",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text does not mention a National Insurance number."
+  },
+  {
+    "key": "hmrc-smp#agentInteraction.methods",
+    "service": "Statutory Maternity Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/maternity-pay-leave/pay"
+    ],
+    "whyNotFound": "not stated: The text says you claim by telling your employer. It does not mention a phone route. not stated: The text does not mention a postal route. You claim by giving notice to your employer."
+  }
+]

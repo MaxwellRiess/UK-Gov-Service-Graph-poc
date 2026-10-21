@@ -1,0 +1,116 @@
+A service graph describes the UK government service "Care to Learn" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w1/dfe-care-to-learn.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+
+--- SOURCE 0: https://www.gov.uk/care-to-learn ---
+Care to Learn. Care to Learn helps pay for childcare while you're studying - how to apply, money you get, courses that qualify, eligibility The Care to Learn scheme can help with childcare costs while you study. You must be aged under 20 at the start of your course. The scheme is available for publicly-funded courses in England. Claiming Care to Learn will not affect your family’s benefits or allowances. You can get up to: £180 per child per week if you live outside London £195 per child per week if you live in London What it covers Care to Learn can help with the cost of: your childcare, including deposit and registration fees a childcare taster session for up to 5 days keeping your childcare place over the summer holidays taking your child to your childcare provider Payments Your education provider will make payments directly to your childcare provider. Before they can be paid: your childcare provider needs to confirm your child’s attendance your education provider needs to confirm that you’re attending your course Your education provider will either pay your travel costs or arrange travel for you. When payments stop Payments end when: you stop attending your course you reach the end of your course your child stops attending childcare You can get Care to Learn if all of the following apply to you: you’re a parent under 20 at the start of your course you’re the main carer for your child you live in England you’re either a British citizen or have a legal right to live and study in England your course qualifies your childcare provider qualifies Your course Care to Learn is only available for publicly-funded courses in England. This includes courses that take place in: schools sixth-forms in schools sixth-form colleges other colleges and education providers, including Foundation Learning your community at Children’s Centres Your education provider can tell you if your course is eligible. Your childcare provider To qualify, your childcare provider must be one of the following: registered with Ofsted registered with a childminder agency a school They can be a: childminder pre-school playgroup day nursery out of school club Who cannot get Care to Learn You’re not eligible if: you’re an apprentice who gets a salary you’re doing a higher education course, for example at university or college Apply for the Care to Learn scheme through your education provider. They will tell you if you and your chosen childcare provider are eligible. When you apply, you must give your education provider either: a copy of the child’s birth certificate a letter confirming receipt of Child Benefit for that child

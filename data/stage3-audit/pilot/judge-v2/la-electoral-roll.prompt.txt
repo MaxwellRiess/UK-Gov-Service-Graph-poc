@@ -1,0 +1,134 @@
+A service graph describes the UK government service "Electoral roll update" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge-v2/la-electoral-roll.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[desc] (split into claims) Update at both old and new address. Affects jury duty and credit checks.
+
+--- SOURCE 0: https://www.gov.uk/register-to-vote ---
+Register to vote You can use this service to: get on the electoral register so you can vote in elections and referendums in the UK opt out of the ‘open’ register - the version of the electoral register that’s available for anyone to buy (if you live in the UK) update your name, address or nationality by registering again with your new details (if you live in the UK) There’s a different process to register anonymously , for example if you’re concerned about your safety or the safety of someone in your household. You can check if you’re already registered to vote by contacting your electoral registration office . This service is also available in Welsh (Cymraeg) . Register online You normally only need to register once - not for every election. You’ll need to register again if you’ve changed your name, address or nationality. It usually takes about 5 minutes. Start now Before you start You’ll be asked for your National Insurance number (but you can still register if you do not have one). Find your National Insurance number . Who can register to vote You can register to vote up to 2 years before you reach voting age - check the rules around voting in the UK . If you live in England or Northern Ireland You must be aged 16 or over to register. You can register to vote if you’re a British citizen or an Irish citizen. You can also register if you have permission (or do not need permission) to enter or stay in the UK, Channel Islands or Isle of Man and you’re: a Commonwealth citizen (including citizens of Cyprus and Malta) a citizen of Denmark, Luxembourg, Poland, Portugal or Spain a citizen of another EU country, who on or before 31 December 2020 had permission to enter or stay (or did not need permission) and this has continued without a break If you live in Scotland or Wales You must be aged 14 or over to register. You can register to vote if you’re a British citizen or an Irish citizen. You can also register if you have permission to enter or stay in the UK, Channel Islands or Isle of Man, or you do not need permission. If you live abroad You can register as an overseas voter if you’ve previously lived in the UK and are either: a British citizen an eligible Irish citizen registering to vote in Northern Ireland You’ll need to give the postcode of the last UK address you were registered to vote at. If you’ve never registered to vote, you’ll need to give the postcode of the last UK address you lived at. Contact your electoral registration office if you cannot remember which address you were last registered at. You may also be asked for your passport details. You’ll need to renew your registration to vote from abroad every 3 years. There’s a different way to register as an overseas voter if you’re: registering to vote in Northern Ireland registering as a Crown servant or British council employee registering as a member of the armed forces Find out more about voting if you move or live abroad . Register using a paper form You can register using a paper form in England, Wales and Scotland . You’ll need to print, fill in and send the form to your electoral registration office . There’s a different paper form if you’re registering in Northern Ireland . Return the form to the Electoral Office for Northern Ireland (EONI) . Get help registering You can get help registering from your electoral registration office . There’s an easy read guide about registering to vote . After you’ve registered Your name and address will appear on the electoral register. It will also appear on the ‘open’ register unless you asked to opt out when registering. You can then: vote in person apply for a postal vote apply for a proxy vote This page is Part of Vote in UK elections Step 1 : Check if you can vote Check which elections you can vote in Step 2 : Register to vote You’ll need to be registered to vote to take part in elections and referendums. You’ll need to register again if you change your name, address or nationality. You are currently viewing: Register to vote - apply online Register to vote - apply by post Step 3 : Decide if you want to vote in person, by post, or by proxy Find out the different ways you can vote Step 4 : Get ready to vote in person Check what ID you need to vote If you do not have photo ID that allows you to vote, you can apply for a Voter Authority Certificate (or an Electoral Identity Card in Northern Ireland) . Apply for a photo ID to vote Contact your electoral registration office to find your polling station or to find out what to do if you have accessibility needs. Contact your electoral registration office or Apply for a postal vote In England, Scotland or Wales: apply online for a postal vote apply by post for a postal vote Apply in Northern Ireland - by post only Find out more about voting by post or Apply for a proxy vote In England, Scotland or Wales: apply online for a proxy vote apply by post for a proxy vote Apply in Northern Ireland - by post only Find out more about voting by proxy - including when you must apply by or Get ready to vote as a proxy Check what ID you need to vote Contact the electoral registration office of the person you are a proxy for to find their polling station or to find out what to do if you have accessibility issues. Contact the electoral registration office Step 5 : Vote in person Vote in person or Vote by post Vote by post or Vote as a proxy for someone else Vote as a proxy for someone else
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/electoral-register ---
+The electoral register and the 'open register'. Find out how to get on the electoral register so you can vote, how to register to vote in more than one place, and how to opt out of the 'open register'. The electoral register (sometimes called the ‘electoral roll’) lists the names and addresses of everyone who’s registered to vote. Use the register to vote service to get on the electoral register. To update your details (for example change your name or address) you should either: use the register to vote service if you live in the UK contact the electoral registration office that confirmed you are registered as an overseas voter if you live abroad To check whether you’re already on the register: contact your electoral registration office if you live in England, Scotland or Wales use the Am I Registered service if you live in Northern Ireland This guide is also available in Welsh (Cymraeg) . The annual canvass From July each year, electoral registration offices ( EROs ) contact households to check if the details on the electoral register are correct. They may also tell you to register to vote if you’re not already registered. This is called the annual canvass. You will be contacted by post, email, phone or by someone knocking on your door. There is no annual canvass in Northern Ireland. What happens if you do not register You must register to vote if an electoral registration officer asks you to do so and you meet the conditions for registering. If you’re asked to register and do not, you could be fined up to £1,000. You will not be fined if you have a valid reason for not registering, for example a long stay in hospital, or you have severe learning difficulties. When you can register in more than one place It’s sometimes possible to register at 2 addresses (though you can only vote once in any election). For example, if you’re a student with different home and term-time addresses, you may be able to register at both. Register to vote twice if you live at 2 addresses. There are 2 versions of the electoral register - the full version and the ‘open register’ (known as the ‘edited register’ in Northern Ireland ). If you registered to vote anonymously , your details will not appear on either version of the electoral register. You will still be able to vote. How to opt out of the open register You can opt out of the open register. This is the version of the register that’s available to anyone who wants to buy a copy. To opt out, either: use the register to vote service (even if you’re already registered and live in the UK) contact your electoral registration office if you live in England, Scotland or Wales contact the Electoral Office for Northern Ireland ( EONI ) if you live in Northern Ireland contact the electoral registration office that confirmed you are registered as an overseas voter, if you live abroad Opting out does not affect your right to vote. When you opt out of the open register, your details will still appear on the full version of the electoral register, unless you’re registered to vote anonymously. The full version and what it can be used for Everyone’s name and UK address goes on the full version of the electoral register (unless you’re registered to vote anonymously), and you cannot opt out. This is the version of the register that’s used for elections and referendums. The full version of the register can only be used for: electoral administration purposes (such as sending out poll cards before elections) campaigning activities (for example, candidates and political parties sending election communications to voters, surveying opinions or fundraising) preventing and detecting crime checking applications for loans or credit jury summoning in England, Wales and Northern Ireland You can find out more about the difference between the open register and the electoral register on the Information Commissioner’s Office website . Contact: your electoral registration office if you live in England, Scotland or Wales the Electoral Office for Northern Ireland (EONI) if you live in Northern Ireland the electoral registration office that confirmed you are registered as an overseas voter They will tell you where you can view the current electoral register (it’s often available in libraries). The register will list everyone who’s registered to vote in the local area. Search historical versions of the electoral register You can find out about historical versions of the electoral register on the National Archives website - for example, if you want to research local or family history.
+
+--- SOURCE 2 (FOUND): https://www.bracknell-forest.gov.uk/elections-and-voting/electoral-register ---
+Online forms Our online forms will be unavailable today, Wednesday 21 October, from 5:15pm to 6pm. Close The electoral register The electoral register (or electoral roll) lists the names and addresses of everyone who’s registered to vote. To register to vote visit the national voter registration website on GOV.UK. You will need to enter your: name address previous address (if applicable) National Insurance number date of birth Register to vote Once registered, your details will be stored on the full register. It's up to you whether your details are also kept on the open register which can be accessed by businesses. If you do not want your details on the open register, you need to opt out. Moving house If you are already on the electoral register but want to tell us that you have moved, you should also use the register to vote form . Include both your new address and, where requested, your previous address. We will action your request to move on the next working day. Once your new registration has taken effect you will be removed from the register at your old address. The full electoral register Everyone’s name and address goes on the full version of the electoral register. The full version of the register is only used for: elections calling people for jury service preventing and detecting crime checking applications for loans or credit The open register The open register is available for general sale. It can be used for any purpose, including commercial activities such as marketing. The open (or edited) register only contains the names and addresses of those people who have registered to vote, but have not opted out from having their details on the open register. If you want to opt out from having your details on the open register, indicate this on your registration form. Your choice will continue until you change your preference. Find out more about the difference between the ‘open register’ and the full electoral register . Removing your details from the open register: opting out Once registered, your name and address will be included in the open register unless you ask for them to be removed. Removing your details from the register does not affect your right to vote. Including your details in the open register will not affect your visibility with the credit reference agencies. Find out more about credit reference agencies and the electoral register . If you want to remove your details from the open register or have your details added back in, fill in the open register preference form. You must already be on the electoral register to be able to opt in or out. Change your privacy on the open register Access the register You are able to view the full register (under supervision) for Bracknell Forest at Time Square. Contact Electoral Services to make an appointment. Be aware that: by law, we can only provide the current year's register for inspection - once a new register is published, the previous versions are no longer available for public inspection it is not possible to take a copy or a photograph of the full register, you are welcome to make notes by hand names on the electoral register are listed by polling district and by street name and are not in alphabetical order it is not possible to search the register electronically The full register is also available for inspection at: Royal Berkshire Archives 9 Coley Avenue Reading RG1 6AF and: The British Library 96 Euston Road London NW1 2DB Fees and charges The following fees are set by the council: street index - £23 The following items are statutory national charges determined through legislation: open register of electors (data format) - £20 + £1.50 for every 1,000 entries - or part thereof open register of electors (paper format) - £10 + £5 for every 1,000 entries - or part thereof open register of overseas electors (data format) - £20 + £1.50 for every 1,000 entries - or part thereof open register of overseas electors (paper format) - £10 + £5 for every 1,000 entries - or part thereof Contact information Electoral Services Make an enquiry Related links Changes to your electoral registration
+
+--- SOURCE 3 (FOUND): https://sheffield.gov.uk/your-city-council/electoral-register ---
+Breadcrumbs Home Your City Council Elections Electoral register Electoral register Information on the electoral register including the different types, how to register to vote and what happens if you don't register. The Electoral Register lists the names and addresses of everyone who’s registered to vote. There are 2 versions of the electoral register: Full Electoral Register Open Register The Full Electoral Register Everyone who registers to vote is included in the full version. It is not available to the public, and is only used for specific official purposes: elections: used by the Returning Officer to organise elections and send out poll cards and postal vote packs (Political parties and candidates also receive a copy) crime prevention: used by the police and security services to help prevent and detect crime credit checks: used by Credit Reference Agencies to verify applications for loans or credit Jury Service: used to select jurors in England, Wales, and Northern Ireland The Open Register This is a public version of the electoral register. It contains fewer details and can be bought by anyone. It’s used for things like: verifying name and address details direct marketing Opting out of the open register You can opt out of the open register. To opt out you should contact us. Opting out does not affect your right to vote Updating your details on the register The electoral register is updated monthly between January and September. We then publish a fully revised register on 1 December each year. Between July and December each year, the Electoral Registration Officer sends out forms to check the accuracy of the electoral register. Each form explains how you can update any incorrect/missing information. If you have moved house or have new residents to add to your address, you can update the details online at the Register to Vote website or ask us to send you a paper form by contacting us using the details opposite. Any residents whose name is added to an address will still need to register individually to be able to vote in elections and referendums. If you need to change your name, you might be asked to provide proof of the name change. You can re-register using your new name on the Register to Vote website, or by using a paper form from us. What happens if you do not register You must register to vote if you’re asked to do so and you meet the conditions for registering, for example, if you’re 16 or over and you’re British or an EU or Commonwealth national. You could be fined if you have been asked to register and don't. You will not be fined if you have a valid reason for not registering, for example, a long stay in hospital or you have severe learning difficulties. Register to vote How to view the electoral register To check whether you’re already on the register, please contact us. A printed version of the electoral register can be inspected at Customer Services, located at FirstPoint Howden House, Union Street, Sheffield, S1 2SH. Contact Electoral Services Ask us a question Town Hall Pinstone Street Sheffield S1 2HH 0114 273 4093 Our address Town Hall Pinstone Street Sheffield S1 2HH Open map in new window
+
+--- SOURCE 4 (FOUND): https://www.charnwood.gov.uk/pages/moved_house ---
+If you have moved house, you need to register to vote again Paying Council Tax will not automatically register you to vote. Electoral registration is separate from other parts of the council. Register to vote To register to vote online, you need just five minutes. If you require help registering, you can contact our Customer Service team by calling 01509 634666 or contact Electoral Services to request a paper registration form. Not being registered may negatively impact applications for mortgages, credit cards, store cards, overdrafts or mobile phone contracts as credit reference agencies use the electoral register to validate applications. If you are registered as one of the following voter types, then instead of registering to vote online, please contact Electoral Services who will be able to update your address: Anonymous Voter Crown Servant Voter Local Connection Voter Overseas Voter Service Voter Last updated: Wed 20th November, 2024 @ 15:03

@@ -64,7 +64,10 @@ export async function pageText(url: string): Promise<string | null> {
     for (let i = 0; i < 3 && text === null; i++) {
       try {
         const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });
-        if (res.ok) text = htmlToText(await res.text());
+        // A PDF or Word file read as text is bytes, not words: it can support
+        // nothing and only crowds the judge's prompt. Treat it as unreadable.
+        const type = res.headers.get('content-type') ?? '';
+        if (res.ok && /html|text\/plain/i.test(type)) text = htmlToText(await res.text());
         else break;
       } catch {
         await sleep(1000 * (i + 1));

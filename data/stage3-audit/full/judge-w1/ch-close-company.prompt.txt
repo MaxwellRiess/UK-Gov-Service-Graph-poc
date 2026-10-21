@@ -1,0 +1,129 @@
+A service graph describes the UK government service "Close a limited company" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w1/ch-close-company.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+[exclusion_0] (split into claims) Has traded in last 3 months
+
+--- SOURCE 0: https://www.gov.uk/closing-a-limited-company ---
+Closing a limited company. How to close a limited company - strike off, dissolution, voluntary liquidation - or allow to become dormant You usually need to have the agreement of your company’s directors and shareholders to close a limited company. The way you close the company depends on whether it can pay its bills or not. The company can pay its bills (‘solvent’) You can either: apply to get the company struck off the Companies Register start a members’ voluntary liquidation Striking off the company is usually the cheapest way to close it. The company cannot pay its bills (‘insolvent’) When your company is insolvent, the interests of the people your company owes money to (its ‘creditors’) legally come before those of the directors or shareholders. How you close your company depends on your circumstances. You can: put your company into administration apply to get your company struck off the Companies Register arrange creditors’ voluntary liquidation You can get professional advice from a solicitor or insolvency practitioner if you’re not sure which option is suitable for your company. Compulsory liquidation Your company might be forced into compulsory liquidation if you do not pay creditors. You may be able to avoid liquidation by applying for a Company Voluntary Arrangement . If the company does not have a director You must appoint a new director if your company does not have one, for example if a sole director has died. Companies House will eventually strike off a company that does not have a director but this can make it more difficult to manage any company assets. Shareholders must agree to appoint a new director and may need to vote on it . If a sole director has died and there are no shareholders, the executor of the estate can appoint a new director if the company’s articles allow it. The new director can close the company. Your company still needs to pay corporation tax and file a tax return even if there’s no director. Let the company become dormant You do not have to close your company if it’s no longer trading. You can let it become ‘dormant’ for tax as long as it’s not: carrying on business activity trading receiving income Your company will still be registered at Companies House. You must still send your annual accounts and confirmation statement to Companies House. You can keep a limited company dormant for as long as you want.
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/strike-off-your-company-from-companies-register ---
+Strike off your limited company from the Companies Register. How to close down your limited company by getting it struck off the Companies Register You can close down your limited company by getting it ‘struck off’ the Companies Register. This is also known as ‘dissolving’ your company. You can only strike off your company if it: has not traded or sold off any stock in the last 3 months has not changed names in the last 3 months is not threatened with liquidation has no agreements with creditors, for example a Company Voluntary Arrangement ( CVA ) If your company does not meet these conditions, you’ll have to voluntarily liquidate your company instead. When you apply to strike off your company, you have certain responsibilities to close down your business properly . After your company is struck off You’ll lose access to company bank accounts. You will not be able to send or receive money. You’ll have to restore the company to get your bank accounts back. Before applying to strike off your limited company, you must close it down legally. This involves: announcing your plans to interested parties and HM Revenue and Customs ( HMRC ) making sure your employees are treated according to the rules dealing with your business assets and accounts Who you must tell Fill in an application to strike off and send a copy within 7 days to anyone who could be affected. This includes: members (usually the shareholders) creditors employees managers or trustees of any employee pension fund any directors who did not sign the application form If you do not follow the rules on who you must tell, you can face a fine and possible prosecution. Employees If your company employs staff, you must: follow the rules if you make staff redundant pay their final wages or salary PAYE and National Insurance ( NI ) You’ll need to tell HMRC that your company has stopped employing people . Business assets You should make sure that any business assets are shared among the shareholders before the company is struck off. Anything that’s left will go to the Crown. This includes any payments your company may receive in future, for example refunds from HMRC . You’ll have to restore the company to get anything back. Final accounts You must send final statutory accounts and a Company Tax Return to HMRC . You do not have to file final accounts with Companies House. Prepare your final accounts and company tax return . File your accounts and company tax return , stating that these are the final trading accounts and that the company will soon be struck off. Pay all Corporation Tax and any other outstanding tax liabilities. If you’ve made a loss in your final year of trading, you might be able to offset the tax against profits from previous years - this is known as ‘terminal loss relief’. You can claim this on your final tax return. Capital Gains Tax on personal profits If you take assets out of the company before it’s struck off, you might have to pay Capital Gains Tax on the amount. You might be able to get tax relief on this through Entrepreneurs’ Relief . You will work this out on your personal Self Assessment tax return . If the amount is worth more than £25,000, it will be treated as income and you’ll have to pay Income Tax on it. Keeping records If the company employed people, you should keep copies of its employers’ liability insurance policy and schedule. You should keep other business documents for 7 years after the company is struck off, for example bank statements, invoices and receipts. To apply to strike off your limited company, you must send Companies House form DS01 . The form must be signed by a majority of the company’s directors. You should deal with any of the assets of the company before applying. For example, close any bank accounts and transfer any domain names. When your company is struck off, all the remaining assets will pass to the Crown. This includes bank balances and payments your company gets in future, for example refunds from HMRC. It costs £18 to strike off a company. You cannot pay using a cheque from an account that belongs to the company you’re striking off. It is an offence to make a dishonest application - you can face a fine and possible prosecution. What happens next You’ll get a letter from Companies House to let you know if you’ve filled in the form correctly. If you have, your request for the company to be struck off will be published as a notice in The Gazette . If nobody objects, the company will be struck off the register once the 2 months mentioned in the notice has passed. A second notice will be published in The Gazette. This will mean the company does not legally exist any more. More information Read more guidance on striking off your company . You must withdraw your application if your company is no longer eligible to be struck off, for example it is trading or has become insolvent. You can withdraw your application if you change your mind. You can only do this if your company is still on the Companies Register. Only one director needs to sign the withdrawal form. Apply online You can withdraw your application using the Companies House online service. Apply by post Fill in form DS02 and send it to the address on the form.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01 ---
+Strike off a company from the register (DS01). Use this service to apply to strike off a company from the Companies House register. Important: before you apply to strike off your company You have certain responsibilities to close down your business properly . The company’s bank account will be frozen from the date of dissolution. Any credit balance in the account and other assets will pass to the Crown - you’ll have to restore the company to get anything back. See our guidance on company strike off and dissolution . How to apply You should only send a paper form DS01 if you cannot apply to strike off a company online . It costs £13 to apply online. You can pay the fee using a debit or credit card. A paper application costs £18 and you can only pay by cheque or postal order. It usually takes much longer to process paper documents sent by post.

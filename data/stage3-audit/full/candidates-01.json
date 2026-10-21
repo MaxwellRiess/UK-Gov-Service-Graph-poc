@@ -1,0 +1,54 @@
+{
+  "dwp-carers-allowance#eligibility.evidenceRequired.0": [],
+  "dwp-carers-allowance#eligibility.evidenceRequired.1": [],
+  "dwp-child-maintenance#agentInteraction.methods": [
+    "https://www.gov.uk/child-maintenance-service/how-to-apply",
+    "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance"
+  ],
+  "dwp-child-maintenance#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/how-child-maintenance-is-worked-out",
+    "https://www.gov.uk/child-maintenance-service/how-to-apply"
+  ],
+  "dwp-child-maintenance#eligibility.evidenceRequired.1": [
+    "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance"
+  ],
+  "dwp-child-maintenance#eligibility.evidenceRequired.2": [],
+  "dwp-dla-child#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/media/69271ecfb3b9afff34e96074/dla-for-children-claim-form.pdf"
+  ],
+  "dwp-dla-child#eligibility.evidenceRequired.2": [
+    "https://assets.publishing.service.gov.uk/media/69271ecfb3b9afff34e96074/dla-for-children-claim-form.pdf"
+  ],
+  "dwp-funeral-payment#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/69733a0895ec95e3414fd4e4/sf200-adult.pdf"
+  ],
+  "dwp-funeral-payment#eligibility.evidenceRequired.2": [],
+  "dwp-housing-benefit#eligibility.evidenceRequired.2": [
+    "https://www.legislation.gov.uk/ukpga/1992/5/section/1",
+    "https://www.legislation.gov.uk/uksi/2006/213/regulation/4"
+  ],
+  "dwp-inherited-state-pension#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/state-pension-through-partner/y/widowed/your_pension_age_before_specific_date"
+  ],
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.0": [
+    "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf"
+  ],
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.2": [
+    "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf"
+  ],
+  "dwp-ni-credits#agentInteraction.methods": [],
+  "dwp-ni-number#eligibility.evidenceRequired.1": [],
+  "dwp-ni-number#eligibility.evidenceRequired.2": [
+    "https://www.nidirect.gov.uk/articles/applying-national-insurance-number-if-you-live-northern-ireland"
+  ],
+  "dwp-pension-credit#eligibility.evidenceRequired.0": [],
+  "dwp-smi#eligibility.evidenceRequired.0": [
+    "https://www.nidirect.gov.uk/articles/help-mortgage-interest-payments"
+  ],
+  "dwp-smi#eligibility.evidenceRequired.1": [],
+  "dwp-smi#eligibility.evidenceRequired.2": [
+    "https://england.shelter.org.uk/legal/benefits/support_for_mortgage_interest",
+    "https://www.nidirect.gov.uk/articles/help-mortgage-interest-payments"
+  ],
+  "dwp-smi#eligibility.exclusions.1": []
+}

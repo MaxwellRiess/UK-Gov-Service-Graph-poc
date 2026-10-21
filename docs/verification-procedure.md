@@ -283,3 +283,6 @@ The wider search runs in three separate steps, so the model that finds a page ne
 | 21 Oct 2026 | Retired `ho-brp` (5 confirmed and 8 unconfirmed fields went with it) | 1,743 of 3,028 | 57.6% |
 | 21 Oct 2026 | Rule and deadline fixes, State Pension age from date of birth | 1,762 of 3,020 | 58.3% |
 | 21 Oct 2026 | Stage 3 pilot (25 fields) | 1,771 of 3,020 | 58.6% |
+| 21 Oct 2026 | Stage 3 first full-run wave, with three contradicted claims corrected | 1,787 of 3,019 | 59.2% |
+
+The interrupted full-run inputs and responses are preserved in [the stage 3 audit](../data/stage3-audit/README.md). The first-wave corrections and remaining verification work are recorded in [the wave 1 checkpoint](stage3-wave1-checkpoint.md).

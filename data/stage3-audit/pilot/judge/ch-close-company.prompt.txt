@@ -1,0 +1,114 @@
+A service graph describes the UK government service "Close a limited company" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge/ch-close-company.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[exclusion_1] (split into claims) Subject to legal proceedings
+
+--- SOURCE 0: https://www.gov.uk/closing-a-limited-company ---
+Closing a limited company. How to close a limited company - strike off, dissolution, voluntary liquidation - or allow to become dormant You usually need to have the agreement of your company’s directors and shareholders to close a limited company. The way you close the company depends on whether it can pay its bills or not. The company can pay its bills (‘solvent’) You can either: apply to get the company struck off the Companies Register start a members’ voluntary liquidation Striking off the company is usually the cheapest way to close it. The company cannot pay its bills (‘insolvent’) When your company is insolvent, the interests of the people your company owes money to (its ‘creditors’) legally come before those of the directors or shareholders. How you close your company depends on your circumstances. You can: put your company into administration apply to get your company struck off the Companies Register arrange creditors’ voluntary liquidation You can get professional advice from a solicitor or insolvency practitioner if you’re not sure which option is suitable for your company. Compulsory liquidation Your company might be forced into compulsory liquidation if you do not pay creditors. You may be able to avoid liquidation by applying for a Company Voluntary Arrangement . If the company does not have a director You must appoint a new director if your company does not have one, for example if a sole director has died. Companies House will eventually strike off a company that does not have a director but this can make it more difficult to manage any company assets. Shareholders must agree to appoint a new director and may need to vote on it . If a sole director has died and there are no shareholders, the executor of the estate can appoint a new director if the company’s articles allow it. The new director can close the company. Your company still needs to pay corporation tax and file a tax return even if there’s no director. Let the company become dormant You do not have to close your company if it’s no longer trading. You can let it become ‘dormant’ for tax as long as it’s not: carrying on business activity trading receiving income Your company will still be registered at Companies House. You must still send your annual accounts and confirmation statement to Companies House. You can keep a limited company dormant for as long as you want.

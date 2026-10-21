@@ -1,0 +1,323 @@
+{
+ "opg-lpa-refund#agentInteraction.methods": {
+  "queries": [
+   "Office of the Public Guardian power of attorney refund claim online form (gov.uk)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/news/power-of-attorney-fee-refund-scheme-launched",
+    "why": "2018 launch press release says 'Making a claim is quick and simple using the online service'; current guidance page only lists email/post/phone, so this may be out of date."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-carers-leave#agentInteraction.methods": {
+  "queries": [
+   "acas carer's leave how to request (fetched acas.org.uk/carers-leave)",
+   "carer's leave request verbally phone employer notice Carer's Leave Regulations 2024"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "other-employers-liability#agentInteraction.methods": {
+  "queries": [
+   "employers' liability compulsory insurance who needs it HSE employer PAYE buy online authorised insurer",
+   "HSE get insurance for your business (fetched) and HSE40 grep for online/broker"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "other-employers-liability#eligibility.autoQualifiers.0": {
+  "queries": [
+   "employers' liability compulsory insurance who needs it HSE employer PAYE buy online authorised insurer",
+   "HSE40 / HSENI insurance pages grep for PAYE/HMRC"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "other-help-to-buy#agentInteraction.methods": {
+  "queries": [
+   "First Homes eligibility evidence proof of income mortgage agreement in principle council application",
+   "gov.uk/guidance/first-homes grep for online"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "other-help-to-buy#eligibility.evidenceRequired.1": {
+  "queries": [
+   "First Homes eligibility evidence proof of income mortgage agreement in principle council application",
+   "gov.uk/guidance/first-homes grep for evidence/principle"
+  ],
+  "urls": [
+   {
+    "url": "https://www.arun.gov.uk/first-homes/",
+    "why": "Arun council (local) lists required evidence incl. 'a mortgage lender decision in principle (DiP)' and 'last 3 month's payslips', 'last P60'; local practice, not a stated national rule."
+   },
+   {
+    "url": "https://www.newforest.gov.uk/article/3323/First-Homes-scheme",
+    "why": "New Forest council (local): 'get a decision in principle from your preferred mortgage lender' and developer needs evidence to 'check household income'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-help-to-buy#eligibility.evidenceRequired.2": {
+  "queries": [
+   "First Homes eligibility evidence proof of income mortgage agreement in principle council application",
+   "gov.uk/guidance/first-homes grep for evidence/proof"
+  ],
+  "urls": [
+   {
+    "url": "https://www.arun.gov.uk/first-homes/",
+    "why": "Arun council (local) lists required evidence incl. 'a mortgage lender decision in principle (DiP)' and 'last 3 month's payslips', 'last P60'; local practice, not a stated national rule."
+   },
+   {
+    "url": "https://www.newforest.gov.uk/article/3323/First-Homes-scheme",
+    "why": "New Forest council (local): 'get a decision in principle from your preferred mortgage lender' and developer needs evidence to 'check household income'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-motability#agentInteraction.methods": {
+  "queries": [
+   "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+   "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+  ],
+  "urls": [
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+    "why": "Gives Motability helpline 0300 456 4566 to find a dealer, but ordering is done at the dealership; does not say you can apply by phone."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-motability#eligibility.autoQualifiers.0": {
+  "queries": [
+   "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+   "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+  ],
+  "urls": [
+   {
+    "url": "https://www.motability.co.uk/get-support/faqs/am-i-eligible",
+    "why": "Lists 'Enhanced rate mobility part of Personal Independence Payment (PIP)' and 'You need to have at least 12 months left on your allowance if you're applying to join the Scheme.'"
+   },
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+    "why": "States enhanced rate of PIP mobility component qualifies and you need at least 12 months left on your benefit when you apply."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "other-motability#eligibility.criteria.1": {
+  "queries": [
+   "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+   "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+  ],
+  "urls": [
+   {
+    "url": "https://www.motability.co.uk/get-support/faqs/am-i-eligible",
+    "why": "Lists 'Enhanced rate mobility part of Personal Independence Payment (PIP)' and 'You need to have at least 12 months left on your allowance if you're applying to join the Scheme.'"
+   },
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+    "why": "States enhanced rate of PIP mobility component qualifies and you need at least 12 months left on your benefit when you apply."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "other-motability#eligibility.evidenceRequired.0": {
+  "queries": [
+   "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+   "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+  ],
+  "urls": [
+   {
+    "url": "https://www.motability.co.uk/get-support/faqs/am-i-eligible",
+    "why": "'You can check your award length on your allowance award letter' - mentions the award letter but not as required evidence."
+   },
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+    "why": "Proof of eligibility needed: 'certificate of entitlement from the Department of Work and Pensions' plus ID - not the award letter as such."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-motability#eligibility.evidenceRequired.1": {
+  "queries": [
+   "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+   "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+  ],
+  "urls": [
+   {
+    "url": "https://www.motability.co.uk/get-support/faqs/am-i-eligible",
+    "why": "Lists 'Enhanced rate mobility part of Personal Independence Payment (PIP)' and 'You need to have at least 12 months left on your allowance if you're applying to join the Scheme.'"
+   },
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+    "why": "States enhanced rate of PIP mobility component qualifies and you need at least 12 months left on your benefit when you apply."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "other-passport-name#desc": {
+  "queries": [
+   "GOV.UK content API changing-passport-information (all parts)",
+   "GOV.UK content API change-name-deed-poll grep passport"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/changing-passport-information/name-marriage-and-civil-partnership",
+    "why": "'Send your marriage or civil partnership certificate when you apply for a passport in your new name'."
+   },
+   {
+    "url": "https://www.gov.uk/changing-passport-information",
+    "why": "'You'll need to get a new passport to travel abroad or prove your identity if you change... your name' - does not say it is not legally required."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-passport-name#eligibility.evidenceRequired.0": {
+  "queries": [
+   "GOV.UK content API changing-passport-information (all parts)",
+   "GOV.UK content API change-name-deed-poll grep passport"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/changing-passport-information/name-marriage-and-civil-partnership",
+    "why": "'Send your marriage or civil partnership certificate when you apply'."
+   },
+   {
+    "url": "https://www.gov.uk/changing-passport-information/names-dont-match-official-documents",
+    "why": "'You can change your name on your passport with one of the following documents: a deed poll...'"
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "other-passport-name#eligibility.summary": {
+  "queries": [
+   "GOV.UK content API changing-passport-information (all parts)",
+   "GOV.UK content API change-name-deed-poll grep passport"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/changing-passport-information",
+    "why": "'You'll need to get a new passport to travel abroad or prove your identity if you change... your name' (partly matches identity point; no 'not legal requirement' wording)."
+   },
+   {
+    "url": "https://www.gov.uk/changing-passport-information/name-marriage-and-civil-partnership",
+    "why": "Marriage certificate as supporting evidence."
+   },
+   {
+    "url": "https://www.gov.uk/changing-passport-information/names-dont-match-official-documents",
+    "why": "Deed poll as supporting evidence."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-pupil-premium#agentInteraction.methods": {
+  "queries": [
+   "pupil premium how do parents apply phone local council (gov.uk)",
+   "gov.uk search pupil premium free school meals parents register"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "other-pupil-premium#eligibility.summary": {
+  "queries": [
+   "gov.uk free school meals universal credit September 2026 pupil premium parents still register eligibility",
+   "gov.uk search pupil premium free school meals parents register"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/free-school-meals-guidance-for-schools-and-local-authorities/implementing-changes-to-free-school-meals",
+    "why": "States UC households get FSM from 2026-27, 'Families must apply', and table shows pupil premium for Targeted FSM 'Yes', Expanded 'No'; advice is aimed at schools, not parents."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-social-tariff-broadband#eligibility.evidenceRequired.0": {
+  "queries": [
+   "social tariff broadband proof of benefits needed apply Universal Credit (ofcom/citizensadvice/gov.uk)",
+   "GOV.UK news pages grep proof/verify"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/news/easier-for-sky-customers-to-get-cheaper-internet-thanks-to-dwp-scheme",
+    "why": "Providers can 'ask the DWP to automatically verify their customers' benefit entitlement'; previously people had to verify 'with Jobcentre letters or screenshots' - benefit entitlement is checked, but proof may not be needed."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-statutory-redundancy#agentInteraction.methods": {
+  "queries": [
+   "GOV.UK content API claim-redundancy and your-rights-if-your-employer-is-insolvent",
+   "Acas redundancy pay (fetched)",
+   "Citizens Advice getting paid if your employer goes out of business (fetched)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/claim-redundancy",
+    "why": "'Make a claim online' via Insolvency Service when employer cannot pay; phone 0330 331 0020 is for help only."
+   },
+   {
+    "url": "https://www.gov.uk/your-rights-if-your-employer-is-insolvent/apply-money-owed",
+    "why": "'Apply for redundancy, unpaid wages and holiday online'; Redundancy Payments Service telephone for help."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-statutory-redundancy#eligibility.evidenceRequired.0": {
+  "queries": [
+   "GOV.UK content API claim-redundancy and your-rights-if-your-employer-is-insolvent",
+   "Acas redundancy pay (fetched)",
+   "Citizens Advice getting paid if your employer goes out of business (fetched)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/claim-redundancy",
+    "why": "You'll need 'the date you became redundant... this can be found on your official letter of redundancy' and 'copies of any letters sent to or received from your employer'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "other-statutory-redundancy#eligibility.evidenceRequired.1": {
+  "queries": [
+   "GOV.UK content API claim-redundancy and your-rights-if-your-employer-is-insolvent",
+   "Acas redundancy pay (fetched)",
+   "Citizens Advice getting paid if your employer goes out of business (fetched)",
+   "gov.uk search RP1 fact sheet redundancy payments"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "other-statutory-redundancy#eligibility.evidenceRequired.2": {
+  "queries": [
+   "GOV.UK content API claim-redundancy and your-rights-if-your-employer-is-insolvent",
+   "Acas redundancy pay (fetched)",
+   "Citizens Advice getting paid if your employer goes out of business (fetched)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.acas.org.uk/your-rights-during-redundancy/redundancy-pay",
+    "why": "If not paid, write to employer and 'include copies of any evidence' - 'for example payslips, a letter with your start date'."
+   },
+   {
+    "url": "https://www.gov.uk/claim-redundancy",
+    "why": "Online claim needs 'your employment details, including dates you were employed and how much you were paid'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "other-statutory-redundancy#eligibility.exclusions.1": {
+  "queries": [
+   "acas voluntary redundancy enhanced redundancy pay notice terms",
+   "citizens advice voluntary redundancy package more redundancy pay notice"
+  ],
+  "urls": [
+   {
+    "url": "https://www.citizensadvice.org.uk/work/redundancy/check-your-rights-if-youre-made-redundant/voluntary-redundancy/choosing-voluntary-redundancy/",
+    "why": "'Sometimes employers offer incentives for taking voluntary redundancy' like 'extra redundancy pay or not having to work your notice period'."
+   }
+  ],
+  "verdict_hint": "found"
+ }
+}

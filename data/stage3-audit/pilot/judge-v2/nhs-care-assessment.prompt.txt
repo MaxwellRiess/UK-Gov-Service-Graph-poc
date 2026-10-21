@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Care needs assessment" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge-v2/nhs-care-assessment.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this by phone. You can apply or do this in person.
+
+--- SOURCE 0: https://www.gov.uk/apply-needs-assessment-social-services ---
+Apply for a needs assessment by social services A health and social care assessment is carried out by social services to find out what help and support you need - like healthcare, equipment, help in your home or residential care. Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder What you need to know Available in England and Wales only Services can include: home care help with things like cleaning and shopping disability equipment and adaptations to your home day centres to give you or the person who cares for you a break day care for your child help with parenting, such as parenting classes care homes Your local NHS service, Citizens Advice Bureau or a charity might be able to help you apply for a needs assessment. Related content Help if you're a student with a learning difficulty, health problem or disability Financial help if you're disabled Severe Disablement Allowance What to do if you become disabled Explore the topic Caring for someone Disability equipment and transport Local councils and services
+
+--- SOURCE 1 (FOUND): https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/ ---
+Getting a care needs assessment If you think you, or someone you know, needs help to cope day-to-day, the first step is to get a needs assessment from your local council. You'll need to have this assessment before the council can recommend a service such as: equipment like a walking frame or personal alarm changes to your home, such as a walk-in shower practical help from a paid carer day care for your child if either you or they are disabled access to day centres and lunch clubs moving to a care home The needs assessment is free and anyone can ask for one. How to get a needs assessment Contact social services at your local council and ask for a needs assessment. You can call them or do it online. Apply for a needs assessment by social services on GOV.UK What happens in the assessment Someone from the council, such as a social worker or occupational therapist, will ask you how you're managing everyday tasks like washing, dressing and cooking. They might ask you to describe how well you do certain things like making a cup of tea and getting out of a chair. If it seems you may need some alterations in and around your home, such as grab rails in the bathroom, you might also be referred for a separate assessment of your home for home adaptations . The needs assessment can happen: face-to-face over the phone or online by self-assessment How to prepare for your assessment This is your chance to have your say. Give as much detail as you can about all the everyday tasks you struggle with, even the little ones like turning taps on and off. Leaving out things might reduce the care recommended for you. Age UK has information about applying and preparing for care needs assessments . It has a checklist of typical questions you might be asked in the assessment regardless of your age. Independent Age has a step-by-step guide to getting more help from your council, which may help you prepare for the assessment. Have someone with you Have a friend or relative with you, if possible. It will help if you're not confident explaining your situation. They can also take notes for you. If you can't have a friend or relative with you, you could use an advocate. An advocate is someone to speak up for you . They can help you fill in forms and sit with you in meetings and assessments. They're often free. Telephone help If you want to talk to someone over the phone about needs assessments, call: your local council's social services department – find your local council on GOV.UK Age UK's free helpline on 0800 678 1602 Independent Age's free helpline on 0800 319 6789 The Family Rights Group's free helpline on 0808 801 0366 Getting the results After the assessment, the local council will decide whether you need help, and you'll get the results of the assessment. It identifies what kind of care and support would help you, such as a paid carer or meals delivered to your home (meals on wheels). Paying for care You'll generally be expected to pay toward the cost of social care. If the assessment identifies you need help, you will have a financial assessment (means test) to see if the council will pay towards it. This will be arranged for you. If you're told you do not need care If the needs assessment finds that you do not qualify for care and support, the council should still give you free advice about where you can get help in your community. Ask if this does not happen. How to complain about a needs assessment If you disagree with the results of your needs assessment or how it was done, you have a right to complain. First complain to your local council. Your council should have a formal complaints procedure on its website. It should also tell you about it at your assessment. If you're not happy with the way the council handles your complaint, you can take it to the local government and social care ombudsman. An ombudsman is an independent person who's been appointed to look into complaints about organisations. Find out more on the Local Government and Social Care Ombudsman website More in Help from social services and charities Social care telephone helplines and forums Getting a care needs assessment Care and support plans Financial assessment (means test) for social care Someone to speak up for you (advocate) Abuse and neglect of adults at risk Page last reviewed: 22 August 2024 Next review due: 22 August 2027

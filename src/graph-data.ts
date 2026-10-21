@@ -4585,9 +4585,11 @@ export const NODES: Record<string, ServiceNode> = {
         'What is your current capability rating from DWP?',
       ],
       means_tested: true,
-      evidenceRequired: ['Fit note from GP (SC1 or equivalent)', 'Medical evidence for WCA (UC50 questionnaire)', 'Assessment appointment with health professional'],
+      evidenceRequired: ['Fit note from GP (SC1 or equivalent)', 'WCA50 capability for work questionnaire, if requested', 'Assessment appointment with health professional'],
       ruleIn: ['On Universal Credit', 'Health condition limits capacity for work'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire',
+      ],      rules: [
         {
           "type": "dependency",
           "serviceId": "dwp-universal-credit",
@@ -4630,7 +4632,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Explain fit note requirement and Work Capability Assessment process',
         'Guide user to submit fit note via UC journal',
-        'Help prepare for UC50 questionnaire about health condition',
+        'Help prepare for the WCA50 questionnaire if DWP asks for it',
         'Advise on gathering supporting medical evidence',
       ],
     },
@@ -10203,11 +10205,13 @@ export const NODES: Record<string, ServiceNode> = {
         'How long have you been receiving the qualifying benefit?',
         'Do you understand this is a loan secured against your property?',
       ],
-      exclusions: ['Renting (not a homeowner)', 'UC with earnings above threshold', 'Not on qualifying benefit for required duration'],
+      exclusions: ['Renting (not a homeowner)', 'Not on qualifying benefit for required duration'],
       means_tested: true,
       evidenceRequired: ['Mortgage statement', 'Proof of qualifying benefit', 'Consent to charge on property'],
       ruleIn: ['Homeowner with mortgage', 'On UC 3+ months, Pension Credit, or income-related ESA 39+ weeks'],
-      ruleOut: ['Renting', 'Not on qualifying benefit', 'UC with earnings above threshold'],      rules: [
+      ruleOut: ['Renting', 'Not on qualifying benefit'],      sources: [
+        'https://www.gov.uk/government/publications/managed-payments-to-mortgage-lenders-information-for-lenders/managed-payments-to-mortgage-lenders-information-for-lenders',
+      ],      rules: [
         {
           "type": "boolean",
           "field": "is_homeowner",
@@ -13284,10 +13288,10 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'All companies, LLPs and eligible partnerships registered at Companies House must file a confirmation statement at least once every 12 months. The £34 filing fee can be waived for dormant companies in some circumstances.',
+      summary: 'Companies and LLPs registered at Companies House must file a confirmation statement at least once every 12 months. The annual fee is £50 online or £110 by post.',
       universal: false,
       criteria: [
-        { factor: 'dependency', description: 'Must be a registered company, LLP or eligible UK business entity.' },
+        { factor: 'dependency', description: 'Must be a company or LLP registered at Companies House.' },
       ],
       keyQuestions: [
         'When is the confirmation statement due?',
@@ -13296,6 +13300,11 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       ruleIn: ['UK company or LLP registered at Companies House'],
       ruleOut: ['Sole trader or general partnership'],
+      sources: [
+        'https://www.gov.uk/guidance/filing-your-companys-confirmation-statement',
+        'https://www.gov.uk/government/publications/confirmation-statement-for-a-limited-liability-partnership-form-ll-cs01-new-version',
+        'https://www.legislation.gov.uk/uksi/2009/1804/regulation/30',
+      ],
     },
     agentInteraction: {
       methods: ['online'],
@@ -13306,7 +13315,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check the due date from the last confirmation statement',
         'Review company details for any changes needed',
-        'File via Companies House WebFiling (£34 fee)',
+        'File via Companies House WebFiling (£50 online fee)',
       ],
     },
   },

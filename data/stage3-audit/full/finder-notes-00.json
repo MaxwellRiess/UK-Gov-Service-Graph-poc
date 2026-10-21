@@ -1,0 +1,294 @@
+{
+ "ch-close-company#agentInteraction.methods": {
+  "queries": [
+   "Companies House strike off apply online",
+   "GOV.UK search: strike off company Companies House apply online"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01",
+    "why": "Companies House DS01 page states the application can be made online: 'It costs \u00a313 to apply online' and 'You should only send a paper form DS01 if you cannot apply to strike off a company online'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ch-close-company#eligibility.exclusions.0": {
+  "queries": [
+   "strike off limited company conditions traded last 3 months",
+   "GOV.UK search: strike off company Companies House"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/strike-off-your-company-from-companies-register",
+    "why": "States the trading exclusion for strike-off: 'You can only strike off your company if it: has not traded or sold off any stock in the last 3 months'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ch-confirmation-statement#eligibility.summary": {
+  "queries": [
+   "GOV.UK search: confirmation statement",
+   "GOV.UK search: file confirmation statement every 12 months",
+   "GOV.UK search: Companies House fees"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement",
+    "why": "States who must file and how often: 'Every company, including dormant and non trading companies, must file a confirmation statement at least once every year' and 'file at least one confirmation statement every 12 months'; but gives the online fee as '\u00a350 to file your confirmation statement online' (not \u00a334) and states no fee waiver for dormant companies or LLP/partnership coverage."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dfe-care-to-learn#agentInteraction.methods": {
+  "queries": [
+   "Care to Learn apply online Learner Support Service guide 2025 to 2026",
+   "GOV.UK search: Care to Learn",
+   "GOV.UK search: Care to Learn guide learner support service"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "dfe-national-careers#desc": {
+  "queries": [
+   "\"National Careers Service\" free careers advice government site:gov.uk",
+   "GOV.UK search: National Careers Service free advice",
+   "GOV.UK search: Jobs and Careers Service"
+  ],
+  "urls": [
+   {
+    "url": "https://haringey.gov.uk/send-directory/national-careers-service",
+    "why": "Council page describing the national service: 'The National Careers Service provides high quality, free and impartial careers advice, information and guidance' and mentions browsing job profiles."
+   },
+   {
+    "url": "https://www.gov.uk/government/publications/get-britain-working-an-update-on-the-jobs-and-careers-service/get-britain-working-an-update-on-the-jobs-and-careers-service",
+    "why": "DWP report shows it is a government service: 'ownership of the contracts for delivery of the National Careers Service ( NCS ) transferred from the Department for Education to DWP'; does not mention skills assessment or 'free'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dfe-national-careers#eligibility.criteria.0": {
+  "queries": [
+   "GOV.UK search: Jobs and Careers Service careers advice adults",
+   "National Careers Service help and support DWP careers adviser",
+   "GOV.UK search: National Careers Service"
+  ],
+  "urls": [
+   {
+    "url": "https://nationalcareers.service.gov.uk/help-and-support",
+    "why": "States adult route: 'If you're aged 18 or older and live in England, you can contact a careers adviser through the DWP Jobs and Careers Service'."
+   },
+   {
+    "url": "https://www.gov.uk/government/publications/get-britain-working-an-update-on-the-jobs-and-careers-service/get-britain-working-an-update-on-the-jobs-and-careers-service",
+    "why": "States the merger and devolved split: 'the merger between the NCS and Jobcentre Plus in England on 1 October 2026' and 'In Scotland and Wales, the Scottish and Welsh governments ... are responsible for the careers service'."
+   },
+   {
+    "url": "https://www.gov.uk/career-skills-and-training",
+    "why": "Lists separate careers services per nation: 'the National Careers Service (England) My World of Work (Scotland) Careers Wales Careers Service Northern Ireland'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "dvla-name-change#eligibility.autoQualifiers.0": {
+  "queries": [
+   "GOV.UK search: change name driving licence marriage",
+   "GOV.UK search: tell DVLA change of name"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/id-for-driving-licence",
+    "why": "DVLA ID guidance for licence applications lists, 'If you've changed your name', 'your marriage or civil partnership certificate (if you've changed your surname)' as evidence."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dvla-name-change#eligibility.summary": {
+  "queries": [
+   "GOV.UK search: driving licence legal requirement change name fine",
+   "Road Traffic Act 1988 section 99 name or address ceases to be correct",
+   "GOV.UK search: change your name after marriage"
+  ],
+  "urls": [
+   {
+    "url": "https://www.legislation.gov.uk/ukpga/1988/52/section/99",
+    "why": "States the legal duty: 'Where the name or address of the licence holder as specified in a licence ceases to be correct, its holder must forthwith surrender the licence', and s.99(5) makes failure an offence."
+   },
+   {
+    "url": "https://www.gov.uk/id-for-driving-licence",
+    "why": "Lists name-change evidence: marriage or civil partnership certificate, divorce documents, and 'an official statement confirming that you've changed name ... (called 'a statutory declaration')'; deed poll not named."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dvla-provisional-licence#eligibility.evidenceRequired.1": {
+  "queries": [
+   "apply first provisional driving licence online need addresses where you've lived last 3 years",
+   "nidirect apply first provisional driving licence online what you need address",
+   "INF1D guide to filling in driving licence application form address last 3 years gov.uk"
+  ],
+  "urls": [
+   {
+    "url": "https://www.nidirect.gov.uk/articles/driving-licence-application-dl1-guidance-notes",
+    "why": "NI DL1 guidance notes (used for provisional applications in NI) ask for address: 'Note three - section 1b Current address DVA can only give driving licences to you if you live at an address in Northern Ireland'. No GB page found listing address details."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dvla-sorn#eligibility.evidenceRequired.0": {
+  "queries": [
+   "make a SORN online you'll need vehicle registration number 11-digit reference V5C DVLA",
+   "GOV.UK search: SORN vehicle registration number reference",
+   "GOV.UK search: V890 SORN form"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "dvla-update-address#eligibility.evidenceRequired.1": {
+  "queries": [
+   "INF1D guide to filling in driving licence application form address last 3 years gov.uk",
+   "GOV.UK search: tell DVLA change of name",
+   "GOV.UK search: driving licence legal requirement change name fine"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "dvla-update-address#eligibility.evidenceRequired.2": {
+  "queries": [
+   "GOV.UK search: tell DVLA change of name",
+   "GOV.UK driver and vehicles account change address driving licence"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/driver-vehicles-account",
+    "why": "States the DVLA online account can be used to 'change the address on your driving licence' after you 'sign in or create an account'; does not mention Government Gateway."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dvla-ved-exemption#agentInteraction.methods": {
+  "queries": [
+   "gov.uk disability exemption from vehicle tax how to claim PIP enhanced rate mobility V5C",
+   "renew vehicle tax disability exemption online after first claim at Post Office gov.uk",
+   "GOV.UK search: vehicle tax disability exemption claim"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+    "why": "DVLA leaflet INS216: first claim for a used vehicle is at a Post Office, but renewal can be done 'online at www.gov.uk/vehicle-tax (not available for AFIP customers)' once 'the tax class of the vehicle is shown as disabled'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dvla-ved-exemption#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk disability exemption from vehicle tax how to claim PIP enhanced rate mobility V5C",
+   "renew vehicle tax disability exemption online after first claim at Post Office gov.uk"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+    "why": "DVLA leaflet INS216 says you need 'a certificate of entitlement to DLA, PIP, CDP, ADP, SADLA, AFIP or WPMS' and that eligibility is 'the higher or enhanced rate mobility component' (a certificate of entitlement, not an award letter)."
+   },
+   {
+    "url": "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt",
+    "why": "Lists documents to take to the Post Office when changing to an exempt class, including 'evidence of any eligibility for a disability exemption'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dvla-ved-exemption#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk disability exemption from vehicle tax how to claim PIP enhanced rate mobility V5C",
+   "GOV.UK search: vehicle tax disability exemption claim"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+    "why": "DVLA leaflet INS216 lists for a first claim 'a V5C registration certificate (logbook) or the green new keeper slip and a filled in ... (V62)'."
+   },
+   {
+    "url": "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt",
+    "why": "For changing tax class when a vehicle 'is being used by a disabled person', bring 'the V5C registration certificate (log book) in your name, if you have one'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "dvla-vehicle-sale#eligibility.evidenceRequired.1": {
+  "queries": [
+   "tell DVLA sold vehicle online \"registration number\" \"11 digit\" new keeper details gov.uk",
+   "GOV.UK search: tell DVLA sold vehicle online registration number"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "dwp-access-to-work#eligibility.evidenceRequired.2": {
+  "queries": [
+   "Access to Work application quotes for equipment needed assessment gov.uk",
+   "GOV.UK search: Access to Work factsheet",
+   "GOV.UK search: Access to Work guide for employers"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/atwlr02-provider-memo-access-to-work/access-to-work-holistic-assessments-live-running-memo-09",
+    "why": "DWP provider memo (not applicant-facing) sets quotes for Access to Work equipment: '\u00a3499.99 and under \u2013 1 quote needed \u00a3500 and above \u2013 3 quotes needed'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dwp-attendance-allowance#eligibility.evidenceRequired.1": {
+  "queries": [
+   "Citizens Advice Attendance Allowance claim form send medical evidence letters from GP specialist carer",
+   "GOV.UK search: Attendance Allowance claim form medical evidence"
+  ],
+  "urls": [
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/how-to-claim-attendance-allowance/",
+    "why": "Citizens Advice (England): 'If you're waiting for something like a letter from your doctor, you should still send the form ... Include a letter saying you'll send more evidence'."
+   },
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/claiming-attendance-allowance-terminally-ill/",
+    "why": "For terminal illness only: 'Ask your doctor, specialist or consultant for an 'SR1 medical condition report' ... you'll need to send it with your Attendance Allowance application'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dwp-attendance-allowance#eligibility.evidenceRequired.2": {
+  "queries": [
+   "Citizens Advice Attendance Allowance claim form send medical evidence letters from GP specialist carer",
+   "GOV.UK search: Attendance Allowance claim form"
+  ],
+  "urls": [
+   {
+    "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/",
+    "why": "Citizens Advice: the form has a 'statement from someone who knows you' section, ideally a healthcare professional; 'If you can't get a healthcare professional you can ask a friend, relative or carer'. Carer details are optional, not a stated requirement."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dwp-bereavement-support#eligibility.evidenceRequired.0": {
+  "queries": [
+   "Bereavement Support Payment claim need death certificate marriage certificate civil partnership certificate",
+   "GOV.UK search: bereavement support payment death certificate",
+   "GOV.UK search: Bereavement Support Payment claim form"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf",
+    "why": "DWP BSP1 claim form Q20: 'If you have an interim death certificate or a letter from the coroner confirming the death, please send it to us ... if you do not have any certificates yet, still send in your claim form now'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "dwp-bereavement-support#eligibility.evidenceRequired.1": {
+  "queries": [
+   "Bereavement Support Payment claim need death certificate marriage certificate civil partnership certificate",
+   "GOV.UK search: Bereavement Support Payment claim form"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf",
+    "why": "DWP BSP1 claim form 'Before you start' lists 'your marriage or civil partnership certificate, if you have one', and Q11 asks for the 'original marriage or civil partnership certificate'."
+   }
+  ],
+  "verdict_hint": "found"
+ }
+}

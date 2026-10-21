@@ -1,0 +1,291 @@
+[
+  {
+    "key": "other-tv-licence-pension#eligibility.evidenceRequired.0",
+    "service": "TV Licence concession",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/free-discount-tv-licence",
+    "claim": "Pension Credit award letter",
+    "alreadySearched": [
+      "https://www.gov.uk/free-discount-tv-licence",
+      "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence"
+    ],
+    "whyNotFound": "not stated: The text does not say any Pension Credit award letter or other evidence is needed."
+  },
+  {
+    "key": "other-tv-licence-pension#eligibility.evidenceRequired.1",
+    "service": "TV Licence concession",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/free-discount-tv-licence",
+    "claim": "Date of birth confirmation",
+    "alreadySearched": [
+      "https://www.gov.uk/free-discount-tv-licence",
+      "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence"
+    ],
+    "whyNotFound": "not stated: The text does not say any date of birth confirmation is needed."
+  },
+  {
+    "key": "other-warm-home-discount#agentInteraction.methods",
+    "service": "Warm Home Discount",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/the-warm-home-discount-scheme"
+    ],
+    "whyNotFound": "not stated: The text says to apply directly to your supplier but does not say how, and never mentions an online route."
+  },
+  {
+    "key": "other-warm-home-discount#eligibility.evidenceRequired.1",
+    "service": "Warm Home Discount",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
+    "claim": "Benefit confirmation letter (for Broader Group)",
+    "alreadySearched": [
+      "https://www.gov.uk/the-warm-home-discount-scheme"
+    ],
+    "whyNotFound": "not stated: The text never mentions a benefit confirmation letter for the broader group; the only confirmation letter it mentions comes from the Warm Home Discount Scheme."
+  },
+  {
+    "key": "pins-planning-appeal#eligibility.criteria.1",
+    "service": "Appeal a planning decision",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/appeal-planning-decision",
+    "claim": "England only — Scotland and Wales have separate processes.",
+    "alreadySearched": [
+      "https://www.gov.uk/appeal-planning-decision"
+    ],
+    "whyNotFound": "not stated: The text never says the service covers England only, and it does not mention Scotland or Wales or any separate processes there."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.0",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Proof of full-time student status",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text only says you will be told what evidence you need when you apply; it lists no specific documents."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.1",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Childcare provider registration details",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text says the provider must be Ofsted-registered, but it does not list registration details as evidence you must send."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.2",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Childcare cost receipts",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text does not name receipts as evidence; payment requests go from the provider to the CCGPS."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.3",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Household income evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text does not name specific evidence documents."
+  },
+  {
+    "key": "slc-student-finance#eligibility.evidenceRequired.0",
+    "service": "Student Finance (tuition fee + maintenance loans)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-finance",
+    "claim": "Proof of identity (passport)",
+    "alreadySearched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students"
+    ],
+    "whyNotFound": "not stated: The text does not mention identity documents or a passport."
+  },
+  {
+    "key": "slc-student-finance#eligibility.evidenceRequired.1",
+    "service": "Student Finance (tuition fee + maintenance loans)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-finance",
+    "claim": "Proof of course enrollment or offer letter",
+    "alreadySearched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students"
+    ],
+    "whyNotFound": "not stated: The text does not mention an offer letter or proof of enrolment."
+  },
+  {
+    "key": "slc-student-finance#eligibility.evidenceRequired.3",
+    "service": "Student Finance (tuition fee + maintenance loans)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-finance",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students"
+    ],
+    "whyNotFound": "not stated: The text does not mention a National Insurance number."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.criteria.0",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Must be aged 16 to State Pension age.",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text gives no age limits for applicants."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.0",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Medical evidence of condition",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text includes the 'What you need to apply' heading but gives none of that section's content."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.1",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Details of how condition affects daily life",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence you need to apply."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.2",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "GP or consultant details",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text does not mention a GP or consultant."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.criteria.1",
+    "service": "Best Start Foods",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text never lists any qualifying benefits (Universal Credit, Pension Credit, ESA/JSA, Income Support, Housing Benefit) for Best Start Foods."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.evidenceRequired.0",
+    "service": "Best Start Foods",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.criteria.1",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: This page does not list any qualifying benefits (Universal Credit, Pension Credit, ESA/JSA, Income Support or Housing Benefit) needed for Best Start Grant."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.0",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.1",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of pregnancy or child's age",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.2",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of Scottish residency",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  }
+]

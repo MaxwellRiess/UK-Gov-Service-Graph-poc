@@ -1,0 +1,75 @@
+{
+  "la-short-term-let#agentInteraction.methods": [
+    "https://www.mygov.scot/short-term-let-licences/apply",
+    "https://www.gov.scot/publications/short-term-lets-licensing-scheme-part-2-supplementary-guidance-licensing-authorities-letting-agencies-booking-platforms/pages/1/"
+  ],
+  "la-skip-permit#eligibility.evidenceRequired.1": [],
+  "la-street-collection-licence#eligibility.evidenceRequired.0": [],
+  "la-street-collection-licence#eligibility.evidenceRequired.1": [],
+  "la-temporary-events-notice#eligibility.evidenceRequired.2": [
+    "https://www.legislation.gov.uk/ukpga/2003/17/section/100"
+  ],
+  "lr-registration#agentInteraction.methods": [
+    "https://www.gov.uk/guidance/hm-land-registry-digital-applications",
+    "https://www.gov.uk/government/publications/hm-land-registry-where-to-submit-an-application-in-the-portal/where-to-submit-an-application-on-the-portal"
+  ],
+  "lr-sign-mortgage-deed#desc": [
+    "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed/sign-your-mortgage-deed-guide-for-homeowners"
+  ],
+  "lr-sign-mortgage-deed#eligibility.summary": [
+    "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed/sign-your-mortgage-deed-guide-for-homeowners"
+  ],
+  "nhs-111-online#agentInteraction.methods": [
+    "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/"
+  ],
+  "nhs-111-online#desc": [
+    "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/"
+  ],
+  "nhs-care-assessment#eligibility.criteria.0": [
+    "https://www.legislation.gov.uk/ukpga/2014/23/section/9",
+    "https://www.nhs.uk/conditions/social-care-and-support-guide/help-from-social-services-and-charities/getting-a-needs-assessment/"
+  ],
+  "nhs-care-assessment#eligibility.summary": [
+    "https://www.nhs.uk/conditions/social-care-and-support-guide/help-from-social-services-and-charities/getting-a-needs-assessment/",
+    "https://www.legislation.gov.uk/ukpga/2014/23/section/9"
+  ],
+  "nhs-continuing-healthcare#agentInteraction.methods": [],
+  "nhs-continuing-healthcare#eligibility.autoQualifiers.1": [
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+    "https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/"
+  ],
+  "nhs-continuing-healthcare#eligibility.criteria.1": [
+    "https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/",
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance"
+  ],
+  "nhs-continuing-healthcare#eligibility.evidenceRequired.0": [
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance",
+    "https://www.nhs.uk/conditions/social-care-and-support-guide/money-work-and-benefits/nhs-continuing-healthcare/"
+  ],
+  "nhs-free-dental#eligibility.evidenceRequired.2": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf"
+  ],
+  "nhs-free-prescriptions#eligibility.autoQualifiers.0": [],
+  "nhs-free-prescriptions#eligibility.autoQualifiers.1": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf"
+  ],
+  "nhs-free-prescriptions#eligibility.criteria.0": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf"
+  ],
+  "nhs-free-prescriptions#eligibility.criteria.1": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf"
+  ],
+  "nhs-free-prescriptions#eligibility.criteria.2": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf"
+  ],
+  "nhs-free-prescriptions#eligibility.evidenceRequired.0": [
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+    "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf"
+  ]
+}

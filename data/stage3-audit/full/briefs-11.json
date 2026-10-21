@@ -1,0 +1,261 @@
+[
+  {
+    "key": "opg-lpa-refund#agentInteraction.methods",
+    "service": "Claim a Power of Attorney registration refund",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/power-of-attorney-refund",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/power-of-attorney-refund"
+    ],
+    "whyNotFound": "not stated: The text only says to contact the OPG by email, post or phone. It describes no online application and does not rule one out."
+  },
+  {
+    "key": "other-carers-leave#agentInteraction.methods",
+    "service": "Carer's leave (employer)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/carers-leave",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/carers-leave"
+    ],
+    "whyNotFound": "not stated: The text only says the request does not have to be in writing; it does not mention phone."
+  },
+  {
+    "key": "other-employers-liability#agentInteraction.methods",
+    "service": "Employers' Liability Insurance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/employers-liability-insurance",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/employers-liability-insurance"
+    ],
+    "whyNotFound": "not stated: The text says to buy from an authorised insurer, perhaps through a broker, but does not describe any online application route."
+  },
+  {
+    "key": "other-employers-liability#eligibility.autoQualifiers.0",
+    "service": "Employers' Liability Insurance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/employers-liability-insurance",
+    "claim": "Registered as employer with HMRC PAYE",
+    "alreadySearched": [
+      "https://www.gov.uk/employers-liability-insurance"
+    ],
+    "whyNotFound": "not stated: The text does not mention HMRC or PAYE registration."
+  },
+  {
+    "key": "other-help-to-buy#agentInteraction.methods",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text says to contact the developer or estate agent, who submits the application, and never mentions an online route."
+  },
+  {
+    "key": "other-help-to-buy#eligibility.evidenceRequired.1",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "Mortgage agreement in principle",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text says you arrange a mortgage after the application succeeds and never mentions an agreement in principle."
+  },
+  {
+    "key": "other-help-to-buy#eligibility.evidenceRequired.2",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "Proof of income for scheme qualification",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text sets income limits but never says proof of income must be provided."
+  },
+  {
+    "key": "other-motability#agentInteraction.methods",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention a phone number or applying by phone."
+  },
+  {
+    "key": "other-motability#eligibility.autoQualifiers.0",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "Enhanced Rate PIP mobility with 12+ months remaining on award",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not name PIP, the Enhanced Rate or any required length of award."
+  },
+  {
+    "key": "other-motability#eligibility.criteria.1",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "Must have at least 12 months remaining on the PIP mobility award at the time of ordering.",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text says nothing about how long the award must have left to run at the time of ordering."
+  },
+  {
+    "key": "other-motability#eligibility.evidenceRequired.0",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "PIP award letter confirming Enhanced Rate mobility component",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or award letter."
+  },
+  {
+    "key": "other-motability#eligibility.evidenceRequired.1",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "At least 12 months remaining on award",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention how long must be left on the award."
+  },
+  {
+    "key": "other-passport-name#desc",
+    "service": "Passport name change",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/renew-adult-passport",
+    "claim": "Not legally required after marriage but strongly recommended. Use marriage certificate.",
+    "alreadySearched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "whyNotFound": "not stated: The text doesn't say whether a name change after marriage legally requires a new passport. not stated: The text makes no recommendation about updating a passport after marriage. not stated: The text never mentions a marriage certificate. It only says there are different rules for changing your name."
+  },
+  {
+    "key": "other-passport-name#eligibility.evidenceRequired.0",
+    "service": "Passport name change",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/renew-adult-passport",
+    "claim": "Marriage certificate or deed poll",
+    "alreadySearched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "whyNotFound": "not stated: Neither document is mentioned in the text."
+  },
+  {
+    "key": "other-passport-name#eligibility.summary",
+    "service": "Passport name change",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/renew-adult-passport",
+    "claim": "Not a legal requirement but strongly recommended after a name change. A passport in your new name is accepted as proof of identity for employment, travel, and financial services. Use the marriage certificate or deed poll as supporting evidence.",
+    "alreadySearched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "whyNotFound": "not stated: The text doesn't say whether it is legally required. not stated: The text makes no such recommendation. not stated: The text doesn't talk about using a passport as proof of identity for these purposes. not stated: The text never mentions a marriage certificate or a deed poll."
+  },
+  {
+    "key": "other-pupil-premium#agentInteraction.methods",
+    "service": "Pupil Premium",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/government/publications/pupil-premium",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/pupil-premium",
+      "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note"
+    ],
+    "whyNotFound": "not stated: The text describes no way to apply, by phone or otherwise."
+  },
+  {
+    "key": "other-pupil-premium#eligibility.summary",
+    "service": "Pupil Premium",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/government/publications/pupil-premium",
+    "claim": "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/pupil-premium",
+      "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note"
+    ],
+    "whyNotFound": "not stated: The text gives no advice to parents about making sure eligibility is recorded."
+  },
+  {
+    "key": "other-social-tariff-broadband#eligibility.evidenceRequired.0",
+    "service": "Social Tariff Broadband",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs"
+    ],
+    "whyNotFound": "not stated: The text never mentions any proof or evidence of benefit being needed."
+  },
+  {
+    "key": "other-statutory-redundancy#agentInteraction.methods",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text names no online way to apply. not stated: The text names no phone way to apply."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.evidenceRequired.0",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Redundancy notice or letter from employer",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence needed to apply."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.evidenceRequired.1",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Employment contract",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text tells you to check your contract for notice periods but does not ask for it as evidence."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.evidenceRequired.2",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Payslips to verify weekly pay",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text does not mention payslips or any evidence requirement."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.exclusions.1",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Voluntary redundancy may have different terms (could be more generous, or affect entitlement to notice periods).",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text covers voluntary redundancy selection and early retirement packages, but not different pay or notice terms."
+  }
+]

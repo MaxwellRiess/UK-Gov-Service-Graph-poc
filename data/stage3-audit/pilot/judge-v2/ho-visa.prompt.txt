@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Visa / leave to enter" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge-v2/ho-visa.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_3] (split into claims) Immigration Health Surcharge payment
+
+--- SOURCE 0: https://www.gov.uk/browse/visas-immigration ---
+Visas and immigration Apply to visit, work, study, settle or seek asylum in the UK Most viewed eVisas: access and use your online immigration status Get an electronic travel authorisation (ETA) to visit the UK Check your electronic travel authorisation (ETA) Topics What you need to do Check if you need a UK Visa, electronic travel authorisation (ETA) or get access to an eVisa to prove your immigration status if you’re not a British citizen or Irish national Visit the UK Visit for tourism, business or a short stay (up to 6 months), airport transit visas Work in the UK Skilled Worker visa, Graduate visa, other work visas, right to work Study in the UK Student visas for courses, degrees and independent schools Family in the UK Partner, spouse, dependant and family member visas and permits EU, EEA and Swiss citizens Settled and pre-settled status, EU Settlement Scheme family permit, Frontier Worker permit Ukrainians and their families Find the right visa, Homes for Ukraine Sponsorship scheme, Ukraine Permission Extension scheme, Ukraine Family Scheme visa Commonwealth citizens and British nationals (overseas) BNO visa, right of abode, UK Ancestry visa Live permanently in the UK Ways to settle in the UK, indefinite leave to remain (ILR) and routes to British citizenship Seek protection or asylum Claiming asylum as a refugee, the asylum process and support Immigration appeals and status problems Appeal against a visa, settlement or asylum decision, immigration status problems Travelling to the UK Moving your belongings, going through customs and tax
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/healthcare-immigration-application ---
+Pay for UK healthcare as part of your immigration application. Find out if you need to pay the immigration health surcharge as part of your visa or immigration application. Most people need to pay the immigration health surcharge ( IHS ) as part of their online immigration application. Whether you need to pay depends on the immigration status you’re applying for. When you can start to use the NHS free of charge You can start using the NHS free of charge from the date your visa starts. You must have already paid the IHS if you need to. Find out who needs to pay the IHS . You may need to pay for NHS treatment if the Home Office has not made a decision on your visa yet. You’ll still need to pay for certain types of services, such as prescriptions, dental treatment, eye tests and assisted conception. When you access healthcare in the UK, you may need to prove your status online using a share code, if you have a digital immigration status. You usually need to pay the healthcare surcharge if you’re applying for a visa or immigration application: for more than 6 months, if you’re applying outside the UK for any length of time, if you’re applying inside the UK You do not need to pay if you’re applying for a visitor visa or to remain in the UK permanently. You still need to pay even if you have private medical insurance. Who does not need to pay You’ll be able to use the NHS without paying the surcharge or getting a reference number if: you’re applying for indefinite leave to enter or remain you’re a health and care worker who is eligible for a Health and Care Worker visa (or you’re their dependant) you’re applying to the EU Settlement Scheme you’re a diplomat or a member of a visiting armed forces and not subject to immigration control you’re a dependant of a member of the UK’s armed forces you’re the dependant of a member of another country’s armed forces who is exempt from immigration control you’re a British Overseas Territory citizen resident in the Falkland Islands you’re an asylum seeker or applying for humanitarian protection (or you’re their dependant) you’re a domestic worker who has been identified as a victim of slavery or human trafficking you’re applying for discretionary leave to remain in the UK as someone who has been identified as a victim of slavery or human trafficking (or you’re their dependant) the Home Office’s domestic violence concession applies to you (or you’re their dependant) being made to leave the UK would be against your rights under Article 3 of the European Convention of Human Rights (or you’re their dependant) you’re an S2 Healthcare Visitor you’re eligible for a Frontier Worker permit and have an S1 certificate you’re a child under 18 who has been taken into care by a local authority you’re a relevant civilian employee at NATO or the Australian Department of Defence in the UK (or you’re their dependant) you’re applying to stay in the UK as a victim of human trafficking or slavery (or you’re the dependant of someone who is) you’re applying to stay in the UK as a stateless person you’re applying for the Ukraine Extension Scheme or for a visa under the Homes for Ukraine Sponsorship Scheme You need to pay the healthcare surcharge if you apply for indefinite leave to remain but are only given limited leave. You’ll need to pay before you’re given the leave. Visitor visas and short-term visas You do not need to pay the surcharge if you’re applying for a: visitor visa visa for 6 months or less from outside the UK You will need to pay for any NHS care you get at the point you use it - unless it’s a service that’s free . If you’re applying for a visa for the Isle of Man or Channel Islands You do not need to pay the IHS . You will need to pay for any NHS care you get at the point you use it. The exact amount you pay depends on the length of your visa. A visa may last longer than your course of study or period of employment. Cost for a year You’ll have to pay: £776 per year for students, their dependants, and those on a Youth Mobility Scheme visa, for example £1,552 for a 2-year visa £776 per year for visa and immigration applicants who are under the age of 18 at time of application £1,035 per year for all other visa and immigration applications, for example £3,105 for a 3-year visa Cost for part of a year The amount you have to pay depends on the length of the visa you’re given and where you apply from. 6 months or less You do not need to pay the surcharge if you’re applying from outside the UK for 6 months or less. If you’re applying from inside the UK, you’ll have to pay half the yearly cost. For example: £388 for students, their dependants or under-18 applications £517.50 for any other application More than 6 months but less than one year Wherever you apply from, you’ll have to pay the cost of a full year. Cost for more than one year If your visa is for more than a year, you’ll have to pay: the yearly cost plus half the yearly cost, if it’s for 18 months or less the cost of 2 full years, if it’s for more than 18 months but less than 2 years Paying for dependants Dependants aged 18 or over usually need to pay the same amount as you. If you do not pay You’ll get an email from UK Visas and Immigration if you do not pay the surcharge (or do not pay enough). The email will explain how to pay. It will go to the email address given in your visa application. Check your junk folder if you cannot see the email in your inbox. Once you get the email, you must pay the surcharge within: 10 working days if you’re inside the UK 7 working days if you’re outside the UK Your visa or immigration application will be turned down if you do not pay the full amount in this time. You’ll pay the immigration healthcare surcharge ( IHS ) when you apply for your visa. You must pay the healthcare surcharge by debit or credit card. You’ll be asked for: the start and end dates on your certificate of sponsorship, if you have one your course dates, if you’re applying as a student Family members When you apply, you’ll need to give your own details and those of your dependants, if they’re applying at the same time. You’ll also need the details of anyone you’re applying to join or remain with in the UK who is already here, unless: they’re a UK citizen they have EU settled status they have permission to stay in the UK permanently You’ll need their visa expiry date if you’re joining someone in the UK (or IHS reference number if they have one). Finish your visa or immigration application You’ll be sent an email with an IHS reference number. This will also be shown on screen when you’ve paid. You can only use this number once - you’ll need to get another one if you reapply. Finish your application form and pay your visa or immigration application fee. You’ll get a full immigration health surcharge ( IHS ) refund if: you paid the IHS twice for the same visa application your visa application is refused you withdraw your visa application before a decision is made You’ll get a partial IHS refund if your visa application’s successful but: you get less time on your visa than you asked for any dependants on your visa application are refused a visa - you’ll only get their IHS back you’re applying to extend or switch your visa in the UK and have paid the IHS twice for the same period If you’ve paid twice for the same period and that period is 6 months or more, you’ll get a partial refund rounded down to the nearest 6 months. For example, if you’ve paid twice for a 15 month period, you will get a refund for 12 months of IHS . If you have paid twice for the same period of less than 6 months, you will not get a refund. How you’ll be refunded If you are due a full or partial refund for these reasons, you do not have to do anything to get it. It will be paid to the account or card you paid with. If someone else paid the IHS on your behalf, they’ll receive your refund. When you will not get a refund You will not get a refund if: you withdraw your visa application after your visa is granted your visa application is successful but you do not come to the UK you leave the UK before your visa ends, for example to make a new application you’re told to leave the UK before your visa expires you’re applying for indefinite leave to remain you’re switching to another visa which is exempt from the IHS If a visa applicant dies in the UK or before arriving, the IHS will not be refunded. If your healthcare is paid for by an EU country, Switzerland, Norway, Iceland or Liechtenstein If you have an S1 certificate You may get a full or partial IHS refund if you have an S1 certificate registered with the NHS Business Services Authority. Read the healthcare costs section of the EU citizens healthcare guidance to find out more about applying for a refund . If you’re a student You can apply for a full or partial IHS refund if all of the following are true: you’re a full-time student in UK higher education your visa started on or after 1 January 2021 you have a European Healthcare Insurance Card ( EHIC ) issued in an EU country, Switzerland, Norway, Iceland or Liechtenstein you do not work and you do not plan to work while you study If you’re claiming as a full-time student with an EHIC , you can apply for a refund of the IHS you paid to cover any period starting on or after: 1 January 2021 - if your EHIC was issued in the EU or Norway 1 November 2021 - if your EHIC was issued in Switzerland 1 January 2024 - if your EHIC was issued in Iceland or Liechtenstein Applications open from 1 January 2022. The amount you’re refunded will depend on the date your EHIC runs out. Find out more about applying for a refund as an EU or Swiss student . Apply for a refund as an EU or Swiss student . If you work in health or care and you have a visa You and your dependants may be able to get a refund of the IHS . You’ll only get a refund for periods you worked in health or care for 6 months or more. If you worked in health or care for less than 6 months you will not get any money back. You will only get a refund for your dependants if their visa covers the same period as yours. Check if you’re eligible for a refund as a health or care worker . How long it takes You usually get your refund within 6 weeks of getting a decision on your visa application. It can take longer if you appeal or ask for an administrative review after your visa application is refused. If you appeal or ask for an administrative review If you applied from: inside the UK - you’ll get your refund up to 6 weeks after your appeal or administrative review is dismissed outside the UK - you’ll get your refund up to 6 weeks after your visa application is refused You’ll have to repay the IHS if your appeal or administrative review is successful and you’ve already got your IHS refund. You might have to repay a different amount if: the length of your stay changes you get less time on your visa than you asked for Contact UK Visas and Immigration ( UKVI ) if your refund is not paid within 6 weeks.
