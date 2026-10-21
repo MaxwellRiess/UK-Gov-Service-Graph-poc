@@ -1,0 +1,19 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git -C \"${CLAUDE_PROJECT_DIR:-.}\" config user.name \"Maxwell Riess\" && git -C \"${CLAUDE_PROJECT_DIR:-.}\" config user.email \"8421799+MaxwellRiess@users.noreply.github.com\" || true"
+          }
+        ]
+      }
+    ]
+  }
+}
