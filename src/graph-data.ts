@@ -87,12 +87,16 @@ export type ServiceType =
 
 export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
 // 'gov-uk-verify' is retired but kept for nodes not yet migrated; new services
-// authenticate with GOV.UK One Login.
-export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
+// authenticate with GOV.UK One Login. 'service-account' is an account that
+// belongs to the one service (a GRO account, a childcare account), where the
+// page says you create or sign in to one but it is not a shared sign-in.
+export type AuthMethod =
+  | 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house'
+  | 'universal-credit-account' | 'ukvi-account' | 'service-account' | 'none';
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
-  methods:          ApplicationMethod[];  // how to apply
+  methods:          ApplicationMethod[];  // how to apply; empty when it happens automatically
   apiAvailable:     boolean;              // does a GOV.UK developer API exist?
   apiUrl?:          string;               // developer documentation URL
   onlineFormUrl?:   string;               // direct link to start application
@@ -552,7 +556,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to GRO certificate ordering service',
@@ -689,7 +693,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post', 'in-person'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to GRO certificate ordering service',
@@ -1275,7 +1279,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/free-childcare-if-working/apply-for-free-childcare-if-youre-working',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to the Free Childcare for Working Parents application (it also checks Tax-Free Childcare eligibility)',
@@ -3620,7 +3624,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/pip/how-to-claim',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -3717,7 +3721,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -3974,7 +3978,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/mandatory-reconsideration',
-      authRequired: 'none',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the Mandatory Reconsideration process and timeline',
@@ -4453,7 +4457,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is on Universal Credit and eligible for Carer\'s Allowance',
@@ -4638,7 +4642,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain fit note requirement and Work Capability Assessment process',
@@ -4850,7 +4854,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.',
+      summary: 'Everyone in England can register with a GP surgery for free. A surgery may refuse your registration, for example if it is not accepting new patients. Your current surgery is told automatically once you\'re registered with a new one.',
       universal: true,
       criteria: [
         { factor: 'residency', description: 'Must live within the practice boundary (or a GP may agree to register out-of-area).' },
@@ -7386,13 +7390,13 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-brp': {
     id: 'ho-brp', name: 'Biometric Residence Permit', dept: 'Home Office', deptKey: 'ho',
     deadline: '10 days',
-    desc: 'Collect from post office within 10 days of arriving. Proves right to work and rent.',
+    desc: 'All BRPs have expired and been replaced by eVisas. An expired BRP may still be usable for up to 24 months after its expiry date, or until 31 December 2026 if sooner, to view your eVisa, create a UKVI account or apply to extend your stay.',
     govuk_url: 'https://www.gov.uk/biometric-residence-permits',
     serviceType: 'document',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.',
+      summary: 'You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024. All BRPs have now expired and been replaced by eVisas, which you use to prove your immigration status.',
       universal: false,
       criteria: [
         { factor: 'immigration', description: 'Granted a UK visa or leave to remain for more than 6 months.' },
@@ -7426,7 +7430,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the BRP collection process and 10-day deadline',
@@ -7482,7 +7486,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/life-in-the-uk-test',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility and exemptions (under 18, over 65, certain disabilities)',
@@ -7766,7 +7769,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.lastingpowerofattorney.service.gov.uk/start',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the two types of LPA (Property & Financial Affairs, Health & Welfare)',
@@ -9255,7 +9258,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: [],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
@@ -9654,7 +9657,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.nidirect.gov.uk/articles/applying-rate-rebate',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Northern Ireland and is liable for domestic rates',
@@ -10338,7 +10341,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone'],
       apiAvailable: false,
-      authRequired: 'none',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check user is a homeowner on a qualifying benefit for the required duration',
@@ -10435,7 +10438,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: [],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
@@ -11946,7 +11949,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/benefit-overpayments/how-to-make-a-repayment',
-      authRequired: 'none',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain automatic deduction if user is still on benefits',
@@ -12190,7 +12193,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://apply-for-bankruptcy.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain consequences of bankruptcy (credit record, property, employment)',
@@ -12419,7 +12422,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/immigration-asylum-tribunal',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the refusal letter grants a right of appeal',
@@ -12631,7 +12634,7 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://use-land-property-data.service.gov.uk/datasets',
       onlineFormUrl: 'https://search-property-information.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Search by address to find the title number',
@@ -12735,7 +12738,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://search-local-land-charges.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the property address',
@@ -12877,7 +12880,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the user has leave to remain in the UK',
@@ -12914,7 +12917,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://view-immigration-status.service.gov.uk/status',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user has a UKVI account',
@@ -12955,7 +12958,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/apply',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the employer holds a sponsor licence',
@@ -12998,7 +13001,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm which family members qualify as dependants',
@@ -13037,7 +13040,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/student-visa/apply',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the educational institution is a licensed sponsor',
@@ -13111,7 +13114,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/immigration-asylum-tribunal',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check the refusal letter for the right of appeal and deadline',
@@ -13313,7 +13316,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/view-driving-licence',
-      authRequired: 'government-gateway',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Direct user to the DVLA online service to generate a check code',
@@ -13794,7 +13796,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Identify the type of certificate and approximate registration details',
@@ -13923,7 +13925,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.apply-for-teacher-training.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Help user identify the right training route and subject',

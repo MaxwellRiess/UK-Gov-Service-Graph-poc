@@ -36,12 +36,22 @@ export const METHOD_WORDS: Record<string, string> = {
   post: 'You can apply or do this by post',
   'in-person': 'You can apply or do this in person',
 };
+/** The methods field as a sentence to judge. Empty means nobody applies: it happens automatically. */
+export function methodsText(methods: string[]): string {
+  return methods.length
+    ? methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.'
+    : 'You do not need to apply; it happens automatically.';
+}
+
 export const AUTH_WORDS: Record<string, string> = {
   'government-gateway': 'Applying online needs a Government Gateway user ID (sign-in)',
   'gov-uk-one-login': 'Applying online needs a GOV.UK One Login',
   'gov-uk-verify': 'Applying online needs GOV.UK Verify',
   'nhs-login': 'Applying online needs an NHS login',
   'companies-house': 'Applying online needs a Companies House account or sign-in',
+  'universal-credit-account': 'Applying online needs a Universal Credit account (sign-in)',
+  'ukvi-account': 'Applying online needs a UK Visas and Immigration (UKVI) account',
+  'service-account': 'Applying online needs an account for this service, which you create or sign in to',
   none: 'No account or sign-in is needed to apply',
 };
 

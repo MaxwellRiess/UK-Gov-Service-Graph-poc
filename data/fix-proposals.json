@@ -1515,6 +1515,672 @@
       "accepted": true,
       "review": "freshness and provenance checks of 19 October 2026: the reopening sentence was removed from the page",
       "applied": "2026-10-21T13:59:35.987Z"
+    },
+    {
+      "id": "dfe-apply-teacher-training",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll need to sign in to use this service.",
+          "url": "https://www.gov.uk/apply-for-teacher-training",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.012Z"
+    },
+    {
+      "id": "gro-certificates",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You need to register on the General Register Office ( GRO ) website to get a copy",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.014Z"
+    },
+    {
+      "id": "gro-death-certificate",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You need to register on the General Register Office ( GRO ) website",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.015Z"
+    },
+    {
+      "id": "gro-marriage-cert",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You need to register on the General Register Office ( GRO ) website",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.015Z"
+    },
+    {
+      "id": "hmcts-immigration-tribunal",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll need to create an account.",
+          "url": "https://www.gov.uk/immigration-asylum-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.015Z"
+    },
+    {
+      "id": "ho-immigration-appeal",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll need to create an account.",
+          "url": "https://www.gov.uk/immigration-asylum-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.015Z"
+    },
+    {
+      "id": "hmrc-free-childcare-30",
+      "path": "agentInteraction.authRequired",
+      "old": "government-gateway",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll set up a childcare account when you apply.",
+          "url": "https://www.gov.uk/free-childcare-if-working",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.015Z"
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll be asked to create an account.",
+          "url": "https://www.gov.uk/apply-for-bankruptcy",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.016Z"
+    },
+    {
+      "id": "llc-local-land-charges",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll need to create an account to use this service.",
+          "url": "https://www.gov.uk/search-local-land-charges",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.016Z"
+    },
+    {
+      "id": "lr-property-search",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "You’ll need to sign in to use this service.",
+          "url": "https://www.gov.uk/search-property-information-land-registry",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.016Z"
+    },
+    {
+      "id": "ni-rate-rebate",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "Before you can apply, you need to create a Rate Rebate account online.",
+          "url": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.017Z"
+    },
+    {
+      "id": "opg-lpa",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "Create or sign in to an existing account to: make an LPA",
+          "url": "https://www.gov.uk/power-of-attorney",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.017Z"
+    },
+    {
+      "id": "dwp-pip",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "service-account",
+      "explanation": "The page names the sign-in: replaced with 'service-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: service-account",
+          "quote": "If you’ve already registered, you can sign in to your PIP account .",
+          "url": "https://www.gov.uk/pip",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.017Z"
+    },
+    {
+      "id": "dwp-benefit-debt-repayment",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "universal-credit-account",
+      "explanation": "The page names the sign-in: replaced with 'universal-credit-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: universal-credit-account",
+          "quote": "You can report an overpayment by signing into your Universal Credit account",
+          "url": "https://www.gov.uk/benefit-overpayments",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.017Z"
+    },
+    {
+      "id": "dwp-mandatory-reconsideration",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "universal-credit-account",
+      "explanation": "The page names the sign-in: replaced with 'universal-credit-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: universal-credit-account",
+          "quote": "using your journal (if you have access to a Universal Credit account and the decision is about Universal Credit)",
+          "url": "https://www.gov.uk/mandatory-reconsideration",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.017Z"
+    },
+    {
+      "id": "dwp-smi",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "universal-credit-account",
+      "explanation": "The page names the sign-in: replaced with 'universal-credit-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: universal-credit-account",
+          "quote": "add a message to your journal on your Universal Credit account",
+          "url": "https://www.gov.uk/support-for-mortgage-interest",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.018Z"
+    },
+    {
+      "id": "dwp-uc-carer",
+      "path": "agentInteraction.authRequired",
+      "old": "government-gateway",
+      "action": "rewrite",
+      "new": "universal-credit-account",
+      "explanation": "The page names the sign-in: replaced with 'universal-credit-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: universal-credit-account",
+          "quote": "You need to create an account to make a claim.",
+          "url": "https://www.gov.uk/universal-credit/what-youll-get",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.018Z"
+    },
+    {
+      "id": "dwp-uc-health",
+      "path": "agentInteraction.authRequired",
+      "old": "government-gateway",
+      "action": "rewrite",
+      "new": "universal-credit-account",
+      "explanation": "The page names the sign-in: replaced with 'universal-credit-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: universal-credit-account",
+          "quote": "You can apply for Universal Credit online. You need to create an account to make a claim.",
+          "url": "https://www.gov.uk/universal-credit/what-youll-get",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.018Z"
+    },
+    {
+      "id": "dwp-universal-credit",
+      "path": "agentInteraction.authRequired",
+      "old": "government-gateway",
+      "action": "rewrite",
+      "new": "universal-credit-account",
+      "explanation": "The page names the sign-in: replaced with 'universal-credit-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: universal-credit-account",
+          "quote": "Sign in to your Universal Credit account if you already have one.",
+          "url": "https://www.gov.uk/universal-credit",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.018Z"
+    },
+    {
+      "id": "ho-brp",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "ukvi-account",
+      "explanation": "The page names the sign-in: replaced with 'ukvi-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: ukvi-account",
+          "quote": "you need to create a UK Visas and Immigration ( UKVI ) account to get access to your eVisa",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.018Z"
+    },
+    {
+      "id": "ho-evisa",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "ukvi-account",
+      "explanation": "The page names the sign-in: replaced with 'ukvi-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: ukvi-account",
+          "quote": "You need a UK Visas and Immigration ( UKVI ) account to access your eVisa.",
+          "url": "https://www.gov.uk/get-access-evisa",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.018Z"
+    },
+    {
+      "id": "ho-skilled-worker-dependent-visa",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "ukvi-account",
+      "explanation": "The page names the sign-in: replaced with 'ukvi-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: ukvi-account",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account",
+          "url": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.019Z"
+    },
+    {
+      "id": "ho-skilled-worker-visa",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "ukvi-account",
+      "explanation": "The page names the sign-in: replaced with 'ukvi-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: ukvi-account",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account",
+          "url": "https://www.gov.uk/skilled-worker-visa",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.019Z"
+    },
+    {
+      "id": "ho-student-visa",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "ukvi-account",
+      "explanation": "The page names the sign-in: replaced with 'ukvi-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: ukvi-account",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account",
+          "url": "https://www.gov.uk/student-visa",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.019Z"
+    },
+    {
+      "id": "ho-view-immigration-status",
+      "path": "agentInteraction.authRequired",
+      "old": "none",
+      "action": "rewrite",
+      "new": "ukvi-account",
+      "explanation": "The page names the sign-in: replaced with 'ukvi-account'.",
+      "claims": [
+        {
+          "claim": "Applying online needs: ukvi-account",
+          "quote": "You’ll need the details you use to sign in to your UKVI account.",
+          "url": "https://www.gov.uk/view-prove-immigration-status",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.020Z"
+    },
+    {
+      "id": "dwp-cold-weather-payment",
+      "path": "agentInteraction.methods",
+      "old": "online",
+      "action": "rewrite",
+      "new": "",
+      "explanation": "Paid automatically with no application, so no way to apply.",
+      "claims": [
+        {
+          "claim": "No application is needed; payment is automatic",
+          "quote": "You do not need to apply. If you’re eligible to get Cold Weather Payments , you’ll be paid automatically.",
+          "url": "https://www.gov.uk/cold-weather-payment",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.020Z"
+    },
+    {
+      "id": "sss-carers-allowance-supplement",
+      "path": "agentInteraction.methods",
+      "old": "online",
+      "action": "rewrite",
+      "new": "",
+      "explanation": "Paid automatically with no application, so no way to apply.",
+      "claims": [
+        {
+          "claim": "No application is needed; payment is automatic",
+          "quote": "You do not need to do anything.",
+          "url": "https://www.mygov.scot/carers-allowance-supplement",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.020Z"
+    },
+    {
+      "id": "ho-brp",
+      "path": "desc",
+      "old": "Collect from post office within 10 days of arriving. Proves right to work and rent.",
+      "action": "rewrite",
+      "new": "All BRPs have expired and been replaced by eVisas. An expired BRP may still be usable for up to 24 months after its expiry date, or until 31 December 2026 if sooner, to view your eVisa, create a UKVI account or apply to extend your stay.",
+      "explanation": "Rewritten to say only what the quoted page states.",
+      "claims": [
+        {
+          "claim": "BRPs have expired and been replaced by eVisas",
+          "quote": "All BRPs have now expired and have been replaced by eVisas.",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        },
+        {
+          "claim": "An expired BRP may be usable for 24 months after expiry or until 31 December 2026",
+          "quote": "You might be able to use your expired BRP for 24 months after the expiry date printed on the card, or until 31 December 2026 - whichever comes first.",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        },
+        {
+          "claim": "Only to view the eVisa, create a UKVI account or extend permission",
+          "quote": "You can only use it to: sign in to view your eVisa and get a share code create a UKVI account to get access to your eVisa apply to extend your permission to stay in the UK",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.020Z"
+    },
+    {
+      "id": "ho-brp",
+      "path": "eligibility.summary",
+      "old": "Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.",
+      "action": "rewrite",
+      "new": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024. All BRPs have now expired and been replaced by eVisas, which you use to prove your immigration status.",
+      "explanation": "Rewritten to say only what the quoted page states.",
+      "claims": [
+        {
+          "claim": "BRPs were issued to people granted permission on or before 31 October 2024",
+          "quote": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024.",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        },
+        {
+          "claim": "All BRPs have expired and been replaced by eVisas",
+          "quote": "All BRPs have now expired and have been replaced by eVisas.",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        },
+        {
+          "claim": "The eVisa proves immigration status",
+          "quote": "You can use your eVisa to prove your immigration status for any other reason.",
+          "url": "https://www.gov.uk/biometric-residence-permits",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.021Z"
+    },
+    {
+      "id": "nhs-gp-register",
+      "path": "eligibility.summary",
+      "old": "Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.",
+      "action": "rewrite",
+      "new": "Everyone in England can register with a GP surgery for free. A surgery may refuse your registration, for example if it is not accepting new patients. Your current surgery is told automatically once you're registered with a new one.",
+      "explanation": "Rewritten to say only what the quoted page states.",
+      "claims": [
+        {
+          "claim": "Everyone in England can register for free",
+          "quote": "Everyone in England can register with a GP surgery or change their GP surgery for free.",
+          "url": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
+          "found": true
+        },
+        {
+          "claim": "A surgery may refuse if not accepting new patients",
+          "quote": "A GP surgery may refuse your registration if: they're not accepting new patients",
+          "url": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
+          "found": true
+        },
+        {
+          "claim": "The current surgery is told automatically",
+          "quote": "They&#x27;ll be told automatically once you&#x27;re registered with your new surgery.",
+          "url": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage2-contradicted",
+      "applied": "2026-10-21T14:48:36.021Z"
     }
   ]
 }

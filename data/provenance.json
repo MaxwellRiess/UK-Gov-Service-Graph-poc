@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T14:43:21.732Z",
+  "lastRun": "2026-10-21T14:52:33.538Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -1082,14 +1082,23 @@
       "valueSeen": "https://www.gov.uk/request-copy-criminal-record"
     },
     "dfe-apply-teacher-training#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/apply-for-teacher-training",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must sign in to use the service."
+      "sourceQuote": "You’ll need to sign in to use this service.",
+      "additionalQuotes": [
+        {
+          "quote": "If you do not already have sign in details, you’ll be able to create them.",
+          "url": "https://www.gov.uk/apply-for-teacher-training"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dfe-apply-teacher-training#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -1911,16 +1920,6 @@
       "confidence": "confirmed",
       "valueHash": "8d02ba200376bb30",
       "valueSeen": "https://www.gov.uk/change-address-v5c"
-    },
-    "dvla-check-driving-licence#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
-      "sourceUrl": "https://www.gov.uk/view-driving-licence",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text asks for your licence number, National Insurance number and postcode, and the only account it names is the driver and vehicles account, not Government Gateway."
     },
     "dvla-check-driving-licence#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -4342,14 +4341,18 @@
       "valueSeen": "https://www.gov.uk/attendance-allowance"
     },
     "dwp-benefit-debt-repayment#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "3aeec9b2e6658b01",
+      "valueSeen": "Applying online needs a Universal Credit account (sign-in)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/benefit-overpayments",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "contradicted: The text says the online route means signing into your Universal Credit account."
+      "rationale": "partly supported: The text names signing into a Universal Credit account only for reporting a Universal Credit overpayment, not as a requirement for repaying online, and it is an option alongside the helpline."
     },
     "dwp-benefit-debt-repayment#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -5236,14 +5239,23 @@
       "confidence": "confirmed"
     },
     "dwp-cold-weather-payment#agentInteraction.methods": {
-      "valueHash": "1b787faaa26eb20b",
-      "valueSeen": "You can apply or do this online.",
+      "valueHash": "4f53cda18c2baa0c",
+      "valueSeen": "You do not need to apply; it happens automatically.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/cold-weather-payment",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says there is no application because payment is automatic; online accounts are mentioned only for Universal Credit change reports."
+      "sourceQuote": "You do not need to apply.",
+      "additionalQuotes": [
+        {
+          "quote": "If you’re eligible, you’ll get these payments automatically.",
+          "url": "https://www.gov.uk/cold-weather-payment"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dwp-cold-weather-payment#deptKey": {
       "sourceUrl": "https://www.gov.uk/cold-weather-payment",
@@ -6239,14 +6251,18 @@
       "rationale": "Links to the \"inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner\" part of the guide at https://www.gov.uk/new-state-pension."
     },
     "dwp-mandatory-reconsideration#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "3aeec9b2e6658b01",
+      "valueSeen": "Applying online needs a Universal Credit account (sign-in)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "contradicted: The only online route the text names needs a Universal Credit account."
+      "rationale": "partly supported: The text names the Universal Credit account journal as a way to ask, but only for Universal Credit decisions; it does not say a UC account is needed to ask online in general."
     },
     "dwp-mandatory-reconsideration#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -7686,14 +7702,18 @@
       "valueSeen": "https://www.gov.uk/find-pension-contact-details"
     },
     "dwp-pip#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/pip",
-      "sourceQuote": "",
+      "sourceQuote": "If you’ve already registered, you can sign in to your PIP account .",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
       "confidence": "unverified",
-      "rationale": "contradicted: The text links applying online with registering for and signing in to a PIP account, although claims by phone or post need no account."
+      "rationale": "partly supported: The page names a PIP account that registered users sign in to, but does not say an account is required to apply, and says full online applications are only available in some areas."
     },
     "dwp-pip#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -7982,14 +8002,18 @@
       "valueSeen": "https://www.gov.uk/pip"
     },
     "dwp-smi#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "3aeec9b2e6658b01",
+      "valueSeen": "Applying online needs a Universal Credit account (sign-in)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
       "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
       "confidence": "unverified",
-      "rationale": "contradicted: The online route for Universal Credit claimants uses their Universal Credit account, so the text does name an account."
+      "rationale": "partly supported: The text names the Universal Credit account only as one way for people on Universal Credit to contact the office (alongside the helpline); the SMI application itself is a signed form sent to the lender, and no online application with a required sign-in is described."
     },
     "dwp-smi#agentInteraction.methods": {
       "valueHash": "a4b7d53e7005c5ea",
@@ -8828,14 +8852,17 @@
       "rationale": "Links to the \"organisations-you-need-to-contact-and-tell-us-once\" part of the guide at https://www.gov.uk/after-a-death."
     },
     "dwp-uc-carer#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
+      "valueHash": "3aeec9b2e6658b01",
+      "valueSeen": "Applying online needs a Universal Credit account (sign-in)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text names a Universal Credit account for claiming online, not Government Gateway."
+      "sourceQuote": "You can apply for Universal Credit online. You need to create an account to make a claim.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-uc-carer#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -8998,14 +9025,17 @@
       "rationale": "Links to the \"what-youll-get\" part of the guide at https://www.gov.uk/universal-credit."
     },
     "dwp-uc-health#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
+      "valueHash": "3aeec9b2e6658b01",
+      "valueSeen": "Applying online needs a Universal Credit account (sign-in)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you need a Universal Credit account to claim online, not Government Gateway."
+      "sourceQuote": "You can apply for Universal Credit online. You need to create an account to make a claim.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-uc-health#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -9169,14 +9199,23 @@
       "rationale": "Links to the \"what-youll-get\" part of the guide at https://www.gov.uk/universal-credit."
     },
     "dwp-universal-credit#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
+      "valueHash": "3aeec9b2e6658b01",
+      "valueSeen": "Applying online needs a Universal Credit account (sign-in)",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/universal-credit",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you create and sign in to a Universal Credit account, and never mentions Government Gateway."
+      "sourceQuote": "You can apply for Universal Credit online. You need to create an account to make a claim.",
+      "additionalQuotes": [
+        {
+          "quote": "Sign in to your Universal Credit account if you already have one.",
+          "url": "https://www.gov.uk/universal-credit"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dwp-universal-credit#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -10508,14 +10547,23 @@
       "valueSeen": "https://www.gov.uk/emergency-travel-document"
     },
     "gro-certificates#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must register on the GRO website to order online."
+      "sourceQuote": "You need to register on the General Register Office ( GRO ) website to get a copy of a birth, adoption, death, marriage or civil partnership certificate in England and Wales.",
+      "additionalQuotes": [
+        {
+          "quote": "You need to register on the General Register Office ( GRO ) website",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "gro-certificates#agentInteraction.methods": {
       "valueHash": "0917692b4919f6c5",
@@ -10607,14 +10655,23 @@
       "valueSeen": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
     },
     "gro-death-certificate#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must register on the GRO website to order online."
+      "sourceQuote": "You need to register on the General Register Office ( GRO ) website to get a copy of a birth, adoption, death, marriage or civil partnership certificate in England and Wales.",
+      "additionalQuotes": [
+        {
+          "quote": "You need to register on the General Register Office ( GRO ) website",
+          "url": "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "gro-death-certificate#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -10964,14 +11021,17 @@
       "rationale": "Links to the \"give-notice\" part of the guide at https://www.gov.uk/marriages-civil-partnerships."
     },
     "gro-marriage-cert#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must register on the GRO website to order online."
+      "sourceQuote": "You need to register on the General Register Office ( GRO ) website to get a copy of a birth, adoption, death, marriage or civil partnership certificate in England and Wales.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "gro-marriage-cert#agentInteraction.methods": {
       "valueHash": "cbe27ac18f508fcd",
@@ -12774,14 +12834,23 @@
       "valueSeen": "https://www.gov.uk/apply-gender-recognition-certificate"
     },
     "hmcts-immigration-tribunal#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you need to create an account to appeal online, and professionals need a MyHMCTS account."
+      "sourceQuote": "You’ll need to create an account.",
+      "additionalQuotes": [
+        {
+          "quote": "Sign in to the service if you’ve already started your appeal .",
+          "url": "https://www.gov.uk/immigration-asylum-tribunal"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "hmcts-immigration-tribunal#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -15552,18 +15621,23 @@
       "rationale": "Links to the \"free-childcare-and-education-for-3-to-4-year-olds\" part of the guide at https://www.gov.uk/help-with-childcare-costs."
     },
     "hmrc-free-childcare-30#agentInteraction.authRequired": {
-      "valueHash": "0a4c61c6e6509de3",
-      "valueSeen": "Applying online needs a Government Gateway user ID (sign-in)",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
-      "sourceQuote": "",
+      "sourceQuote": "To apply, you’ll need to set up a childcare account",
+      "additionalQuotes": [
+        {
+          "quote": "You’ll set up a childcare account when you apply.",
+          "url": "https://www.gov.uk/free-childcare-if-working"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The text names a childcare account as the sign-in, not a Government Gateway user ID."
+        "supported": 2,
+        "total": 2
+      }
     },
     "hmrc-free-childcare-30#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -19720,14 +19794,17 @@
       "valueSeen": "https://www.gov.uk/vat-registration"
     },
     "ho-brp#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "fdc54a188db8f0e1",
+      "valueSeen": "Applying online needs a UK Visas and Immigration (UKVI) account",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you need a UKVI account to get access to your eVisa, which is what replaced the BRP."
+      "sourceQuote": "If you have an expired BRP and still have permission to stay in the UK, you need to create a UK Visas and Immigration ( UKVI ) account to get access to your eVisa .",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "ho-brp#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -19765,14 +19842,39 @@
       "valueSeen": "ho"
     },
     "ho-brp#desc": {
-      "valueHash": "52681ee9bf82e9c3",
-      "valueSeen": "Collect from post office within 10 days of arriving. Proves right to work and rent.",
+      "valueHash": "5c1f7e121d03e797",
+      "valueSeen": "All BRPs have expired and been replaced by eVisas. An expired BRP may still be usable for up to 24 months after its expiry date, or until 31 December 2026 if sooner, to view your eVisa, create a UKVI ",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says every BRP has expired and been replaced by eVisas, and it does not mention collecting one from a post office. contradicted: The text says an expired BRP can only be used for these three things, and that you use the eVisa to prove your status for anything else."
+      "sourceQuote": "All BRPs have now expired and have been replaced by eVisas.",
+      "additionalQuotes": [
+        {
+          "quote": "All BRPs have now expired and have been replaced by eVisas.",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        },
+        {
+          "quote": "You might be able to use your expired BRP for 24 months after the expiry date printed on the card, or until 31 December 2026 - whichever comes first.",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        },
+        {
+          "quote": "You can only use it to: sign in to view your eVisa and get a share code",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        },
+        {
+          "quote": "create a UKVI account to get access to your eVisa",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        },
+        {
+          "quote": "apply to extend your permission to stay in the UK",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 6,
+        "total": 6
+      }
     },
     "ho-brp#eligibility.autoQualifiers.0": {
       "valueHash": "0003d638436dc832",
@@ -19829,14 +19931,31 @@
       "rationale": "\"Must collect BRP within 10 days of arriving in the UK\": 10 not found in a matching form on https://www.gov.uk/biometric-residence-permits."
     },
     "ho-brp#eligibility.summary": {
-      "valueHash": "78c737d2d6b8a562",
-      "valueSeen": "Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.",
+      "valueHash": "4c37fb9024c15396",
+      "valueSeen": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024. All BRPs have now expired and been replaced by eVisas, which you use to prove your immigrati",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "partly supported: The text links BRPs to permission granted on or before 31 October 2024, but it does not mention a 6-month condition and it describes BRPs as no longer current. contradicted: The text says BRPs have all expired and been replaced by eVisas, and it does not mention collecting one from a post office. contradicted: The text says the eVisa, not the BRP, is what proves immigration status for purposes other than the few listed."
+      "sourceQuote": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024.",
+      "additionalQuotes": [
+        {
+          "quote": "All BRPs have now expired and have been replaced by eVisas.",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        },
+        {
+          "quote": "All BRPs have now expired and have been replaced by eVisas.",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        },
+        {
+          "quote": "You can use your eVisa to prove your immigration status for any other reason.",
+          "url": "https://www.gov.uk/biometric-residence-permits"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 4,
+        "total": 4
+      }
     },
     "ho-brp#govuk_url": {
       "sourceUrl": "https://www.gov.uk/biometric-residence-permits",
@@ -20750,14 +20869,17 @@
       "valueSeen": "https://www.gov.uk/contact-ukvi-inside-outside-uk"
     },
     "ho-evisa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "fdc54a188db8f0e1",
+      "valueSeen": "Applying online needs a UK Visas and Immigration (UKVI) account",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/get-access-evisa",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says a UKVI account is needed."
+      "sourceQuote": "You need a UK Visas and Immigration ( UKVI ) account to access your eVisa.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "ho-evisa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -21344,14 +21466,23 @@
       "valueSeen": "https://www.gov.uk/indefinite-leave-to-remain"
     },
     "ho-immigration-appeal#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/immigration-asylum-tribunal",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you need an account to appeal online, and legal professionals must use a MyHMCTS account."
+      "sourceQuote": "You’ll need to create an account.",
+      "additionalQuotes": [
+        {
+          "quote": "Sign in to the service if you’ve already started your appeal .",
+          "url": "https://www.gov.uk/immigration-asylum-tribunal"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "ho-immigration-appeal#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -21463,20 +21594,6 @@
       "confidence": "confirmed",
       "valueHash": "1466466da0a1440a",
       "valueSeen": "https://www.gov.uk/immigration-asylum-tribunal"
-    },
-    "ho-life-in-uk#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
-      "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The text refers to a Life in the UK account that you sign into to manage bookings, and says eVisa holders must sign in to their UKVI account to get a share code for booking."
     },
     "ho-life-in-uk#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -21672,10 +21789,10 @@
       "valueSeen": "https://www.gov.uk/life-in-the-uk-test"
     },
     "ho-skilled-worker-dependent-visa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "fdc54a188db8f0e1",
+      "valueSeen": "Applying online needs a UK Visas and Immigration (UKVI) account",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
       "sourceQuote": "",
       "claims": {
@@ -21683,7 +21800,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "contradicted: The text says applicants create or sign into a UKVI account."
+      "rationale": "partly supported: The text names a UKVI account only for applicants who prove their identity with the ID Check app; others give biometrics at a visa application centre, so it does not say every online application needs a UKVI account."
     },
     "ho-skilled-worker-dependent-visa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -21882,10 +21999,10 @@
       "rationale": "Links to the \"your-partner-and-children\" part of the guide at https://www.gov.uk/skilled-worker-visa."
     },
     "ho-skilled-worker-visa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "fdc54a188db8f0e1",
+      "valueSeen": "Applying online needs a UK Visas and Immigration (UKVI) account",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/skilled-worker-visa",
       "sourceQuote": "",
       "claims": {
@@ -21893,7 +22010,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "contradicted: The text says applicants create or sign into a UKVI account, and it offers a sign-in to continue an application."
+      "rationale": "partly supported: The text mentions creating or signing into a UKVI account only for applicants who prove identity with the ID Check app; it does not say every online applicant needs one, since others give biometrics at a visa application centre."
     },
     "ho-skilled-worker-visa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -22020,10 +22137,10 @@
       "valueSeen": "https://www.gov.uk/skilled-worker-visa"
     },
     "ho-student-visa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "fdc54a188db8f0e1",
+      "valueSeen": "Applying online needs a UK Visas and Immigration (UKVI) account",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/student-visa",
       "sourceQuote": "",
       "claims": {
@@ -22031,7 +22148,7 @@
         "total": 1
       },
       "confidence": "unverified",
-      "rationale": "contradicted: The text says applicants who prove their identity with the ID Check app create or sign into a UKVI account, and that successful applicants must create a UKVI account."
+      "rationale": "partly supported: The text names a UKVI account only for applicants who prove identity with the ID Check app; others give biometrics at a visa application centre, and it does not say a UKVI account is needed to apply in all cases (it is needed afterwards to access the eVisa)."
     },
     "ho-student-visa#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -22154,14 +22271,17 @@
       "valueSeen": "https://www.gov.uk/student-visa"
     },
     "ho-view-immigration-status#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "fdc54a188db8f0e1",
+      "valueSeen": "Applying online needs a UK Visas and Immigration (UKVI) account",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/view-prove-immigration-status",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must sign in to your UKVI account."
+      "sourceQuote": "You’ll need the details you use to sign in to your UKVI account.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "ho-view-immigration-status#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -22394,14 +22514,23 @@
       "valueSeen": "https://www.gov.uk/browse/visas-immigration"
     },
     "insolvency-bankruptcy#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/apply-for-bankruptcy",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must create an account and sign in to it."
+      "sourceQuote": "You’ll be asked to create an account.",
+      "additionalQuotes": [
+        {
+          "quote": "You can start your application and come back to it later by signing in to your account .",
+          "url": "https://www.gov.uk/apply-for-bankruptcy"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "insolvency-bankruptcy#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -26975,14 +27104,23 @@
       "valueSeen": "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate"
     },
     "llc-local-land-charges#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T09:09:23.645Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/search-local-land-charges",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you need to create an account."
+      "sourceQuote": "You’ll need to create an account to use this service.",
+      "additionalQuotes": [
+        {
+          "quote": "You’ll need to create an account to use this service.",
+          "url": "https://www.gov.uk/search-local-land-charges"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "llc-local-land-charges#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -27084,14 +27222,23 @@
       "rationale": "Checked in a browser: 21 Oct 2026: redirects to the 'Use land and property data' home page"
     },
     "lr-property-search#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/search-property-information-land-registry",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you have to sign in to use the service."
+      "sourceQuote": "You’ll need to sign in to use this service.",
+      "additionalQuotes": [
+        {
+          "quote": "If you do not already have sign in details, you’ll be able to create them.",
+          "url": "https://www.gov.uk/search-property-information-land-registry"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "lr-property-search#agentInteraction.methods": {
       "valueHash": "1b787faaa26eb20b",
@@ -28547,18 +28694,27 @@
       "rationale": "partly supported: The text asks for the name and address of your current GP, but it does not say this is used to transfer records."
     },
     "nhs-gp-register#eligibility.summary": {
-      "valueHash": "f8d97f5c9cc64466",
-      "valueSeen": "Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.",
+      "valueHash": "10c1e316562da6c7",
+      "valueSeen": "Everyone in England can register with a GP surgery for free. A surgery may refuse your registration, for example if it is not accepting new patients. Your current surgery is told automatically once yo",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T14:42:47.287Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/",
       "sourceQuote": "Everyone in England can register with a GP surgery or change their GP surgery for free.",
+      "additionalQuotes": [
+        {
+          "quote": "A GP surgery may refuse your registration if: they're not accepting new patients",
+          "url": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/"
+        },
+        {
+          "quote": "They&#x27;ll be told automatically once you&#x27;re registered with your new surgery.",
+          "url": "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
+        "supported": 3,
         "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says a surgery may refuse registration if it is not accepting new patients, so local patients are not guaranteed acceptance. partly supported: The text says the old surgery is told automatically, but it does not say medical records transfer automatically."
+      }
     },
     "nhs-gp-register#govuk_url": {
       "valueHash": "aef3564aa5447a11",
@@ -29385,14 +29541,23 @@
       "rationale": "HTTP 200. Host www.nidirect.gov.uk has no Content API, so only existence is established."
     },
     "ni-rate-rebate#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you must create a Rate Rebate account and log in to it before you can apply."
+      "sourceQuote": "Before you can apply, you need to create a Rate Rebate account online.",
+      "additionalQuotes": [
+        {
+          "quote": "create and activate your online Rate Rebate account log in to your Rate Rebate account and apply",
+          "url": "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "ni-rate-rebate#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -30017,14 +30182,23 @@
       "valueSeen": "https://www.gov.uk/complete-deputy-report"
     },
     "opg-lpa#agentInteraction.authRequired": {
-      "valueHash": "30a0924a3360be68",
-      "valueSeen": "No account or sign-in is needed to apply",
+      "valueHash": "955eb0444ed52cd1",
+      "valueSeen": "Applying online needs an account for this service, which you create or sign in to",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.gov.uk/power-of-attorney",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says you need to create or sign in to an account to make an LPA online."
+      "sourceQuote": "Create or sign in to an existing account to: make an LPA",
+      "additionalQuotes": [
+        {
+          "quote": "Create or sign in to an existing account to: make an LPA",
+          "url": "https://www.gov.uk/power-of-attorney"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "opg-lpa#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
@@ -33878,14 +34052,23 @@
       "confidence": "confirmed"
     },
     "sss-carers-allowance-supplement#agentInteraction.methods": {
-      "valueHash": "1b787faaa26eb20b",
-      "valueSeen": "You can apply or do this online.",
+      "valueHash": "4f53cda18c2baa0c",
+      "valueSeen": "You do not need to apply; it happens automatically.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
+      "verifiedAt": "2026-10-21T14:52:33.527Z",
       "sourceUrl": "https://www.mygov.scot/carers-allowance-supplement",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "contradicted: The text says payment is automatic and no action is needed, so it gives no online route for applying."
+      "sourceQuote": "You do not need to do anything.",
+      "additionalQuotes": [
+        {
+          "quote": "You'll get this amount if you were getting Carer Support Payment or Carer's Allowance on 13 April 2026 and you did not get Scottish Carer Supplement.",
+          "url": "https://www.mygov.scot/carers-allowance-supplement"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "sss-carers-allowance-supplement#desc": {
       "valueHash": "b8f12f9ec8d07959",

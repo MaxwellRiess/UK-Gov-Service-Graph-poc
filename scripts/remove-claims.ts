@@ -18,6 +18,10 @@
  * Usage:
  *   npx tsx scripts/remove-claims.ts --field agentInteraction.authRequired            # dry run
  *   npx tsx scripts/remove-claims.ts --field agentInteraction.authRequired --write
+ *
+ * --keys removes named fields whatever the verdict, for a contradicted value
+ * the page gives no replacement for. --reason is logged with each.
+ *   npx tsx scripts/remove-claims.ts --field agentInteraction.authRequired --keys ho-life-in-uk#agentInteraction.authRequired --reason "..." --write
  */
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -32,6 +36,14 @@ const LOG = join(ROOT, 'data', 'removed-claims.json');
 const WRITE = process.argv.includes('--write');
 const fieldArg = process.argv.indexOf('--field');
 const FIELD = fieldArg !== -1 ? process.argv[fieldArg + 1] : null;
+const keysArg = process.argv.indexOf('--keys');
+const KEYS = keysArg !== -1 ? process.argv[keysArg + 1].split(',') : null;
+const reasonArg = process.argv.indexOf('--reason');
+const REASON = reasonArg !== -1 ? process.argv[reasonArg + 1] : '';
+if (KEYS && !REASON) {
+  console.error('--keys needs --reason: say why each value goes.');
+  process.exit(1);
+}
 
 // Whole-line fields this script knows how to delete, by the key's last segment.
 const LINE_FIELDS = new Set(['agentInteraction.authRequired']);
@@ -57,7 +69,7 @@ const isNotStated = (r: { rationale?: string; claims?: { supported: number } }) 
   !(r.claims && r.claims.supported > 0);
 
 const targets = Object.entries(store.fields)
-  .filter(([k, r]) => k.endsWith(`#${FIELD}`) && r.confidence === 'unverified' && isNotStated(r));
+  .filter(([k, r]) => k.endsWith(`#${FIELD}`) && r.confidence === 'unverified' && (KEYS ? KEYS.includes(k) : isNotStated(r)));
 
 let src = readFileSync(GRAPH, 'utf-8');
 const lines = src.split('\n');
@@ -76,11 +88,11 @@ for (const [key, record] of targets) {
   const hits = lines.slice(start, end).map((l, i) => (re.test(l) ? start + i : -1)).filter(i => i !== -1);
   if (hits.length !== 1) { missed.push(`${key}: ${hits.length} matching lines`); continue; }
   lines[hits[0]] = '\0';
-  removed.push({ key, value: record.valueSeen, removedAt: today, searched: [record.sourceUrl], note: record.rationale ?? '' });
+  removed.push({ key, value: record.valueSeen, removedAt: today, searched: [record.sourceUrl], note: [REASON, record.rationale].filter(Boolean).join(' Judge: ') });
   if (WRITE) delete store.fields[key];
 }
 
-console.log(`${FIELD}: ${targets.length} not stated, ${removed.length} removable${missed.length ? `, ${missed.length} skipped` : ''}`);
+console.log(`${FIELD}: ${targets.length} ${KEYS ? "selected" : "not stated"}, ${removed.length} removable${missed.length ? `, ${missed.length} skipped` : ''}`);
 for (const m of missed) console.log(`  skipped ${m}`);
 
 if (WRITE) {

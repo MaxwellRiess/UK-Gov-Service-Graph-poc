@@ -1555,5 +1555,23 @@
       "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs"
     ],
     "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "dvla-check-driving-licence#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:48:47.156Z",
+    "searched": [
+      "https://www.gov.uk/view-driving-licence"
+    ],
+    "note": "Contradicted, and the page names an account without saying one is needed to apply, so there is no value to replace it with. Judge: contradicted: The text asks for your licence number, National Insurance number and postcode, and the only account it names is the driver and vehicles account, not Government Gateway."
+  },
+  {
+    "key": "ho-life-in-uk#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:48:47.156Z",
+    "searched": [
+      "https://www.gov.uk/life-in-the-uk-test"
+    ],
+    "note": "Contradicted, and the page names an account without saying one is needed to apply, so there is no value to replace it with. Judge: contradicted: The text refers to a Life in the UK account that you sign into to manage bookings, and says eVisa holders must sign in to their UKVI account to get a share code for booking."
   }
 ]

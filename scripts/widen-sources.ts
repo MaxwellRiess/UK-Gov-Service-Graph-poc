@@ -48,7 +48,7 @@ import { NODES, type ServiceNode } from '../src/graph-data.js';
 import { loadProvenance, saveProvenance } from '../src/provenance.js';
 import { gatherSources } from './lib/sources.js';
 import {
-  buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, METHOD_WORDS, TOOL,
+  buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, TOOL, methodsText,
   type FieldToJudge, type Source, type ReviewItem, type ProseResponse,
 } from './lib/judge-prose.js';
 
@@ -104,7 +104,7 @@ function proseField(n: ServiceNode, path: string): FieldToJudge | null {
   if (path === 'desc') return { key: 'desc', path, text: n.desc, split: true };
   if (path === 'eligibility.summary') return { key: 'summary', path, text: e.summary, split: true };
   if (path === 'agentInteraction.methods' && n.agentInteraction) {
-    return { key: 'methods', path, split: true, text: n.agentInteraction.methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.' };
+    return { key: 'methods', path, split: true, text: methodsText(n.agentInteraction.methods) };
   }
   if (path === 'agentInteraction.authRequired' && n.agentInteraction?.authRequired) {
     return { key: 'auth', path, split: false, text: AUTH_WORDS[n.agentInteraction.authRequired] ?? n.agentInteraction.authRequired };

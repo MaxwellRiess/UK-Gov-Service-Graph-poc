@@ -185,6 +185,36 @@ The subagents never drafted the fixes they judged, so this counts as the indepen
   - The railcard saving is stored as 33; the page says 1/3.
   - The NI Discretionary Support phone number isn't on its page.
 
+## Stage 2 results (21 October 2026)
+
+All 32 contradicted fields were corrected from the quotes the judge recorded. Four subagents then re-judged them: 23 are confirmed, 7 partly supported and 0 contradicted.
+
+**Sign-ins (27).** In most cases the page names an account the `AuthMethod` type had no value for, so the type gains three:
+
+| Value | Services | Example from the page |
+|---|---|---|
+| `universal-credit-account` | 6 | "Sign in to your Universal Credit account" |
+| `ukvi-account` | 6 | "You need a UK Visas and Immigration (UKVI) account" |
+| `service-account` | 13 | An account that belongs to one service: GRO, the childcare account, LPA, rate rebate, bankruptcy and others |
+
+Two values were deleted and logged instead: `dvla-check-driving-licence` and `ho-life-in-uk`. Their pages mention an account but don't say you need one to apply.
+
+The 7 partly supported are sign-ins that apply only on some routes:
+- the three visas and `dwp-pip` name an account only for the ID Check app or for applicants who have already registered
+- `dwp-mandatory-reconsideration`, `dwp-smi` and `dwp-benefit-debt-repayment` name the UC account only for UC claimants
+
+The field says "applying online needs X". These go to stage 5, which needs to decide how to express a conditional sign-in.
+
+**Ways to apply (2).** Cold Weather Payment and Carer's Allowance Supplement are paid automatically, so `methods` is now empty. The judge text for an empty list reads "You do not need to apply; it happens automatically."
+
+**Prose (3).**
+- `ho-brp` desc and summary now say BRPs have expired and been replaced by eVisas.
+- `nhs-gp-register` summary now says a surgery may refuse, rather than that it must accept.
+
+**A bug fixed along the way.** `apply-fixes.ts --record` rewrote the record of every fix ever applied, which reset 45 fields stage 1 had just confirmed. They were restored from the previous commit, and `--record` now writes each fix's record only once.
+
+**Still to do: the `ho-brp` node.** Its desc and summary are now right, but everything else still describes collecting a BRP within 10 days: the deadline, the deadline rule, the key questions, evidence, criteria and agent steps. It is `proactive`, so agents raise it unprompted. It needs reworking into a node about the BRP-to-eVisa switch, or retiring in favour of `ho-evisa`.
+
 ## Progress
 
 | Date | Change | Confirmed | Share |
@@ -192,3 +222,4 @@ The subagents never drafted the fixes they judged, so this counts as the indepen
 | 21 Oct 2026 | Baseline | 1,665 of 3,216 | 51.8% |
 | 21 Oct 2026 | Deleted 173 unstated `authRequired` values | 1,665 of 3,043 | 54.7% |
 | 21 Oct 2026 | Stage 1: re-judged applied fixes, browser-checked links, rule subpages | 1,725 of 3,043 | 56.7% |
+| 21 Oct 2026 | Stage 2: corrected all 32 contradicted fields | 1,748 of 3,041 | 57.5% |

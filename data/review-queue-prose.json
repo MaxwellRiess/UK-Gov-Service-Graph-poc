@@ -1,22 +1,7 @@
 {
-  "generatedAt": "2026-10-21T14:42:47.287Z",
+  "generatedAt": "2026-10-21T14:52:33.527Z",
   "model": "claude-opus-5-5",
   "review": [
-    {
-      "id": "dfe-apply-teacher-training",
-      "name": "Apply for teacher training",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must sign in to use the service.",
-          "quote": "You’ll need to sign in to use this service."
-        }
-      ]
-    },
     {
       "id": "dvla-check-driving-licence",
       "name": "View and share driving licence",
@@ -33,294 +18,6 @@
       ]
     },
     {
-      "id": "dwp-benefit-debt-repayment",
-      "name": "Repay a benefit overpayment",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says the online route means signing into your Universal Credit account.",
-          "quote": "You can report an overpayment by signing into your Universal Credit account"
-        }
-      ]
-    },
-    {
-      "id": "dwp-cold-weather-payment",
-      "name": "Cold Weather Payment",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "You can apply for or do this service online.",
-          "verdict": "contradicted",
-          "note": "The text says there is no application because payment is automatic; online accounts are mentioned only for Universal Credit change reports.",
-          "quote": "You do not need to apply. If you’re eligible to get Cold Weather Payments , you’ll be paid automatically."
-        }
-      ]
-    },
-    {
-      "id": "dwp-mandatory-reconsideration",
-      "name": "Mandatory Reconsideration",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The only online route the text names needs a Universal Credit account.",
-          "quote": "using your journal (if you have access to a Universal Credit account and the decision is about Universal Credit)"
-        }
-      ]
-    },
-    {
-      "id": "dwp-pip",
-      "name": "Personal Independence Payment (PIP)",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text links applying online with registering for and signing in to a PIP account, although claims by phone or post need no account.",
-          "quote": "If you’ve already registered, you can sign in to your PIP account ."
-        }
-      ]
-    },
-    {
-      "id": "dwp-smi",
-      "name": "Support for Mortgage Interest",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The online route for Universal Credit claimants uses their Universal Credit account, so the text does name an account.",
-          "quote": "add a message to your journal on your Universal Credit account"
-        }
-      ]
-    },
-    {
-      "id": "dwp-uc-carer",
-      "name": "UC Carer element",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID (sign-in)",
-          "verdict": "contradicted",
-          "note": "The text names a Universal Credit account for claiming online, not Government Gateway.",
-          "quote": "You need to create an account to make a claim."
-        }
-      ]
-    },
-    {
-      "id": "dwp-uc-health",
-      "name": "UC limited capability element",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID (sign-in)",
-          "verdict": "contradicted",
-          "note": "The text says you need a Universal Credit account to claim online, not Government Gateway.",
-          "quote": "You can apply for Universal Credit online. You need to create an account to make a claim."
-        }
-      ]
-    },
-    {
-      "id": "dwp-universal-credit",
-      "name": "Universal Credit",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID.",
-          "verdict": "contradicted",
-          "note": "The text says you create and sign in to a Universal Credit account, and never mentions Government Gateway.",
-          "quote": "Sign in to your Universal Credit account if you already have one."
-        }
-      ]
-    },
-    {
-      "id": "gro-certificates",
-      "name": "Order a birth, death or marriage certificate",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must register on the GRO website to order online.",
-          "quote": "You need to register on the General Register Office ( GRO ) website to get a copy"
-        }
-      ]
-    },
-    {
-      "id": "gro-death-certificate",
-      "name": "Obtain death certificates",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply",
-          "verdict": "contradicted",
-          "note": "The text says you must register on the GRO website to order online.",
-          "quote": "You need to register on the General Register Office ( GRO ) website"
-        }
-      ]
-    },
-    {
-      "id": "gro-marriage-cert",
-      "name": "Marriage / CP certificate",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply",
-          "verdict": "contradicted",
-          "note": "The text says you must register on the GRO website to order online.",
-          "quote": "You need to register on the General Register Office ( GRO ) website"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-immigration-tribunal",
-      "name": "Appeal to Immigration Tribunal",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need to create an account to appeal online, and professionals need a MyHMCTS account.",
-          "quote": "You’ll need to create an account."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-free-childcare-30",
-      "name": "Free childcare — 30 hours (working parents)",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID.",
-          "verdict": "contradicted",
-          "note": "The text names a childcare account as the sign-in, not a Government Gateway user ID.",
-          "quote": "You’ll set up a childcare account when you apply."
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "desc",
-      "graph": "Collect from post office within 10 days of arriving. Proves right to work and rent.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Collect the BRP from a post office within 10 days of arriving.",
-          "verdict": "contradicted",
-          "note": "The text says every BRP has expired and been replaced by eVisas, and it does not mention collecting one from a post office.",
-          "quote": "All BRPs have now expired and have been replaced by eVisas."
-        },
-        {
-          "claim": "The BRP proves right to work and rent.",
-          "verdict": "contradicted",
-          "note": "The text says an expired BRP can only be used for these three things, and that you use the eVisa to prove your status for anything else.",
-          "quote": "You can only use it to: sign in to view your eVisa and get a share code create a UKVI account to get access to your eVisa apply to extend your permission to stay in the UK"
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "eligibility.summary",
-      "graph": "Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "BRPs are issued to non-UK nationals granted leave to remain for more than 6 months.",
-          "verdict": "partly_supported",
-          "note": "The text links BRPs to permission granted on or before 31 October 2024, but it does not mention a 6-month condition and it describes BRPs as no longer current.",
-          "quote": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024."
-        },
-        {
-          "claim": "Collect from the named post office within 10 days of arrival in the UK.",
-          "verdict": "contradicted",
-          "note": "The text says BRPs have all expired and been replaced by eVisas, and it does not mention collecting one from a post office.",
-          "quote": "All BRPs have now expired and have been replaced by eVisas."
-        },
-        {
-          "claim": "A BRP is required to prove right to work and rent.",
-          "verdict": "contradicted",
-          "note": "The text says the eVisa, not the BRP, is what proves immigration status for purposes other than the few listed.",
-          "quote": "You can use your eVisa to prove your immigration status for any other reason."
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need a UKVI account to get access to your eVisa, which is what replaced the BRP.",
-          "quote": "you need to create a UK Visas and Immigration ( UKVI ) account to get access to your eVisa"
-        }
-      ]
-    },
-    {
-      "id": "ho-evisa",
-      "name": "Get access to your eVisa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says a UKVI account is needed.",
-          "quote": "You need a UK Visas and Immigration ( UKVI ) account to access your eVisa."
-        }
-      ]
-    },
-    {
-      "id": "ho-immigration-appeal",
-      "name": "Appeal a visa or immigration decision",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need an account to appeal online, and legal professionals must use a MyHMCTS account.",
-          "quote": "You’ll need to create an account."
-        }
-      ]
-    },
-    {
       "id": "ho-life-in-uk",
       "name": "Life in the UK test",
       "field": "agentInteraction.authRequired",
@@ -332,156 +29,6 @@
           "verdict": "contradicted",
           "note": "The text refers to a Life in the UK account that you sign into to manage bookings, and says eVisa holders must sign in to their UKVI account to get a share code for booking.",
           "quote": "Sign into your Life in the UK account ."
-        }
-      ]
-    },
-    {
-      "id": "ho-skilled-worker-dependent-visa",
-      "name": "Skilled Worker dependant visa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says applicants create or sign into a UKVI account.",
-          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
-        }
-      ]
-    },
-    {
-      "id": "ho-skilled-worker-visa",
-      "name": "Skilled Worker visa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says applicants create or sign into a UKVI account, and it offers a sign-in to continue an application.",
-          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
-        }
-      ]
-    },
-    {
-      "id": "ho-student-visa",
-      "name": "Student visa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "You don't need an account or sign-in to apply.",
-          "verdict": "contradicted",
-          "note": "The text says applicants who prove their identity with the ID Check app create or sign into a UKVI account, and that successful applicants must create a UKVI account.",
-          "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
-        }
-      ]
-    },
-    {
-      "id": "ho-view-immigration-status",
-      "name": "View or prove your immigration status",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must sign in to your UKVI account.",
-          "quote": "You’ll need the details you use to sign in to your UKVI account."
-        }
-      ]
-    },
-    {
-      "id": "insolvency-bankruptcy",
-      "name": "Apply for bankruptcy",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must create an account and sign in to it.",
-          "quote": "You’ll be asked to create an account."
-        }
-      ]
-    },
-    {
-      "id": "llc-local-land-charges",
-      "name": "Local land charges search",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need to create an account.",
-          "quote": "You’ll need to create an account to use this service."
-        }
-      ]
-    },
-    {
-      "id": "lr-property-search",
-      "name": "Search for property information",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you have to sign in to use the service.",
-          "quote": "You’ll need to sign in to use this service."
-        }
-      ]
-    },
-    {
-      "id": "ni-rate-rebate",
-      "name": "Rate Rebate",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must create a Rate Rebate account and log in to it before you can apply.",
-          "quote": "Before you can apply, you need to create a Rate Rebate account online."
-        }
-      ]
-    },
-    {
-      "id": "opg-lpa",
-      "name": "Lasting Power of Attorney",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need to create or sign in to an account to make an LPA online.",
-          "quote": "Create or sign in to an existing account to: make an LPA"
-        }
-      ]
-    },
-    {
-      "id": "sss-carers-allowance-supplement",
-      "name": "Carer's Allowance Supplement",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "contradicted",
-          "note": "The text says payment is automatic and no action is needed, so it gives no online route for applying.",
-          "quote": "You do not need to do anything."
         }
       ]
     },
@@ -8823,23 +8370,107 @@
       ]
     },
     {
-      "id": "nhs-gp-register",
-      "name": "Register with new GP",
-      "field": "eligibility.summary",
-      "graph": "Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.",
-      "verdict": "contradicted",
+      "id": "dwp-pip",
+      "name": "Personal Independence Payment (PIP)",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs an account for this service, which you create or sign in to",
+      "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Practices must accept patients living in their area.",
-          "verdict": "contradicted",
-          "note": "The text says a surgery may refuse registration if it is not accepting new patients, so local patients are not guaranteed acceptance.",
-          "quote": "A GP surgery may refuse your registration if: they're not accepting new patients"
-        },
-        {
-          "claim": "Medical records transfer automatically from the old practice.",
+          "claim": "Applying for PIP online needs an account for this service.",
           "verdict": "partly_supported",
-          "note": "The text says the old surgery is told automatically, but it does not say medical records transfer automatically.",
-          "quote": "They&#x27;ll be told automatically once you&#x27;re registered with your new surgery."
+          "note": "The page names a PIP account that registered users sign in to, but does not say an account is required to apply, and says full online applications are only available in some areas.",
+          "quote": "If you’ve already registered, you can sign in to your PIP account ."
+        }
+      ]
+    },
+    {
+      "id": "dwp-benefit-debt-repayment",
+      "name": "Repay a benefit overpayment",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a Universal Credit account (sign-in)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a Universal Credit account (sign-in)",
+          "verdict": "partly_supported",
+          "note": "The text names signing into a Universal Credit account only for reporting a Universal Credit overpayment, not as a requirement for repaying online, and it is an option alongside the helpline.",
+          "quote": "You can report an overpayment by signing into your Universal Credit account or calling the Universal Credit helpline."
+        }
+      ]
+    },
+    {
+      "id": "dwp-mandatory-reconsideration",
+      "name": "Mandatory Reconsideration",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a Universal Credit account (sign-in)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Asking online needs a Universal Credit account (sign-in).",
+          "verdict": "partly_supported",
+          "note": "The text names the Universal Credit account journal as a way to ask, but only for Universal Credit decisions; it does not say a UC account is needed to ask online in general.",
+          "quote": "using your journal (if you have access to a Universal Credit account and the decision is about Universal Credit)"
+        }
+      ]
+    },
+    {
+      "id": "dwp-smi",
+      "name": "Support for Mortgage Interest",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a Universal Credit account (sign-in)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a Universal Credit account (sign-in)",
+          "verdict": "partly_supported",
+          "note": "The text names the Universal Credit account only as one way for people on Universal Credit to contact the office (alongside the helpline); the SMI application itself is a signed form sent to the lender, and no online application with a required sign-in is described.",
+          "quote": "add a message to your journal on your Universal Credit account"
+        }
+      ]
+    },
+    {
+      "id": "ho-skilled-worker-dependent-visa",
+      "name": "Skilled Worker dependant visa",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a UK Visas and Immigration (UKVI) account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a UK Visas and Immigration (UKVI) account",
+          "verdict": "partly_supported",
+          "note": "The text names a UKVI account only for applicants who prove their identity with the ID Check app; others give biometrics at a visa application centre, so it does not say every online application needs a UKVI account.",
+          "quote": "use the ‘UK Immigration: ID Check’ app to scan your identity document - you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
+        }
+      ]
+    },
+    {
+      "id": "ho-skilled-worker-visa",
+      "name": "Skilled Worker visa",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a UK Visas and Immigration (UKVI) account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a UK Visas and Immigration (UKVI) account.",
+          "verdict": "partly_supported",
+          "note": "The text mentions creating or signing into a UKVI account only for applicants who prove identity with the ID Check app; it does not say every online applicant needs one, since others give biometrics at a visa application centre.",
+          "quote": "use the ‘UK Immigration: ID Check’ app to scan your identity document - you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
+        }
+      ]
+    },
+    {
+      "id": "ho-student-visa",
+      "name": "Student visa",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a UK Visas and Immigration (UKVI) account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a UK Visas and Immigration (UKVI) account.",
+          "verdict": "partly_supported",
+          "note": "The text names a UKVI account only for applicants who prove identity with the ID Check app; others give biometrics at a visa application centre, and it does not say a UKVI account is needed to apply in all cases (it is needed afterwards to access the eVisa).",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
         }
       ]
     }
