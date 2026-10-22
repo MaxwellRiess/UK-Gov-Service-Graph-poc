@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-22T14:57:35.787Z",
+  "lastRun": "2026-10-22T15:42:51.857Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -27971,11 +27971,45 @@
       "valueHash": "026a3adb34da8e1a",
       "valueSeen": "Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://111.nhs.uk",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-22T15:42:51.842Z",
+      "sourceUrl": "https://digital.nhs.uk/blog/transformation-blog/2017/how-were-supporting-urgent--emergency-care-services-this-winter",
+      "sourceQuote": "NHS 111 Online is free to use for the public",
+      "additionalQuotes": [
+        {
+          "quote": "operational and supported 24 hours a day, 365 days a year.",
+          "url": "https://digital.nhs.uk/services/nhs-111-online"
+        },
+        {
+          "quote": "NHS 111 online is for people in England aged 5 and over who need&#xa0;urgent health care advice&#xa0;but it’s not a life-threatening situation.",
+          "url": "https://digital.nhs.uk/services/nhs-111-online"
+        },
+        {
+          "quote": "It helps people with an urgent medical need to get assessed and directed to the right care",
+          "url": "https://digital.nhs.uk/services/nhs-111-online"
+        },
+        {
+          "quote": "call 999 or go to A&E in an emergency",
+          "url": "https://digital.nhs.uk/services/nhs-111-online"
+        },
+        {
+          "quote": "see an evening and weekend GP (out-of-hours GP)",
+          "url": "https://digital.nhs.uk/services/nhs-111-online"
+        },
+        {
+          "quote": "see a pharmacist for help with a minor illness",
+          "url": "https://digital.nhs.uk/services/nhs-111-online"
+        },
+        {
+          "quote": "If you're told it’s safe to look after yourself, we'll tell you how to do that at home.",
+          "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/how-nhs-111-online-works/"
+        }
+      ],
+      "claims": {
+        "supported": 8,
+        "total": 9
+      },
       "confidence": "unverified",
-      "rationale": "not stated: The text does not mention cost. not stated: The text does not give opening hours. partly supported: The text covers needing help right now, but says nothing about the situation not being life-threatening. partly supported: The text says it directs you to the best place, but it does not list A&E, an urgent GP visit, a pharmacy or self-care at home as outcomes."
+      "rationale": "partly supported: Symptom triage is for people aged five or over, although an emergency prescription can be requested for someone of any age."
     },
     "nhs-111-online#govuk_url": {
       "valueHash": "e36ca64d85adc69d",
@@ -33840,15 +33874,15 @@
       "valueHash": "f54cd1c5d2cf6441",
       "valueSeen": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
+      "verifiedAt": "2026-10-22T15:42:51.842Z",
+      "sourceUrl": "https://www.mygov.scot/adult-disability-payment/applicants",
       "sourceQuote": "",
       "claims": {
         "supported": 0,
-        "total": 1
+        "total": 4
       },
       "confidence": "unverified",
-      "rationale": "partly supported: The text supports the condition affecting everyday life, but it does not mention the 13-week or 9-month periods."
+      "rationale": "partly supported: The page also lists terminal illness as a route, so the stated condition list is incomplete. partly supported: The usual components depend on functional impact, but terminal illness brings an automatic enhanced daily living award. partly supported: The 13-week test concerns conditions of entitlement, and the page exempts applications under the special rules for terminal illness. partly supported: The page specifies 39 weeks of likely entitlement rather than nine calendar months, and terminal illness is exempt from the test."
     },
     "sss-adult-disability-payment#eligibility.criteria.2": {
       "valueHash": "06923e206a14ab32",
@@ -33913,13 +33947,13 @@
       "valueHash": "d05dd48cac62a712",
       "valueSeen": "Scotland's replacement for Personal Independence Payment (PIP). For adults aged 16+ (under State Pension age) with a long-term physical or mental health condition or disability. Same rates as PIP. Ass",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
-      "sourceQuote": "Adult Disability Payment is extra money to help you if you have a disability or long-term health condition that affects your everyday life.",
+      "verifiedAt": "2026-10-22T15:42:51.842Z",
+      "sourceUrl": "https://www.gov.scot/publications/adult-disability-payment-qa/pages/1/",
+      "sourceQuote": "Adult Disability Payment is Scotland’s replacement for Personal Independence Payment ( PIP ).",
       "additionalQuotes": [
         {
-          "quote": "The amount you get depends on how your condition affects your ability to do everyday activities and get around.",
-          "url": "https://www.mygov.scot/adult-disability-payment"
+          "quote": "Personal Independence Payment - Daily Living Component Enhanced Rate £110.40 £114.60 - Daily Living Component Standard Rate £73.90 £76.70 - Mobility Component Enhanced Rate £77.05 £80.00 - Mobility Component Standard Rate £29.20 £30.30",
+          "url": "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/9/"
         }
       ],
       "claims": {
@@ -33927,7 +33961,7 @@
         "total": 5
       },
       "confidence": "unverified",
-      "rationale": "partly supported: The text describes moving from PIP to Adult Disability Payment but does not call Adult Disability Payment PIP's replacement. not stated: The text gives no age limits for Adult Disability Payment; the only '16 or over' is for the vehicle leasing scheme. not stated: The text never compares the rates with PIP."
+      "rationale": "partly supported: The age rule is generally 16 to the relevant age, but the page gives exceptions for older applicants and recipients. partly supported: The page also names terminal illness, which this description leaves out. partly supported: The impact determines the amount, but the page also requires a qualifying disability, health condition or terminal illness."
     },
     "sss-adult-disability-payment#financialData.rates.daily_living_enhanced": {
       "valueHash": "521929eab2217618",
@@ -35813,11 +35847,20 @@
       "valueHash": "c4e75778afa2494c",
       "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.mygov.scot/young-carer-grant",
-      "sourceQuote": "",
-      "confidence": "unverified",
-      "rationale": "partly supported: The text mentions filling in a form but does not say the form is online."
+      "verifiedAt": "2026-10-22T15:42:51.842Z",
+      "sourceUrl": "https://www.mygov.scot/young-carer-grant/how-to-apply",
+      "sourceQuote": "Apply online Apply for Young Carer Grant. Start",
+      "additionalQuotes": [
+        {
+          "quote": "Call Social Security Scotland free on 0800 182 2222 to apply over the phone.",
+          "url": "https://www.mygov.scot/young-carer-grant/how-to-apply"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "sss-young-carer-grant#agentInteraction.onlineFormUrl": {
       "valueHash": "cda6c2fa9dac0bd8",

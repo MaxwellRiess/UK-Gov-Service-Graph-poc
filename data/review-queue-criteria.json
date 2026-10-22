@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T14:57:35.785Z",
+  "generatedAt": "2026-10-22T15:42:51.842Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -1202,17 +1202,6 @@
       "url": null
     },
     {
-      "id": "sss-adult-disability-payment",
-      "name": "Adult Disability Payment",
-      "criterion": 1,
-      "factor": "disability",
-      "graph": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
-      "verdict": "partly_supported",
-      "note": "The text supports the condition affecting everyday life, but it does not mention the 13-week or 9-month periods.",
-      "quote": "Adult Disability Payment is extra money to help you if you have a disability or long-term health condition that affects your everyday life.",
-      "url": null
-    },
-    {
       "id": "sss-carer-support-payment",
       "name": "Carer Support Payment",
       "criterion": 3,
@@ -1562,6 +1551,17 @@
       "verdict": "partly_supported",
       "note": "The review page states 16 or over, but the eligibility page says over 16 for both grant types, leaving age 16 inconsistent.",
       "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award.",
+      "url": null
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "criterion": 1,
+      "factor": "disability",
+      "graph": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
+      "verdict": "partly_supported",
+      "note": "The page also lists terminal illness as a route, so the stated condition list is incomplete.",
+      "quote": "Apply if you have a: disability long-term physical or mental health condition terminal illness",
       "url": null
     }
   ]

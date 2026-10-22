@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T14:57:35.785Z",
+  "generatedAt": "2026-10-22T15:42:51.842Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -834,39 +834,6 @@
       ]
     },
     {
-      "id": "nhs-111-online",
-      "name": "NHS 111 online",
-      "field": "eligibility.summary",
-      "graph": "Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The service is free.",
-          "verdict": "not_stated",
-          "note": "The text does not mention cost.",
-          "quote": null
-        },
-        {
-          "claim": "It is available 24 hours a day, 7 days a week.",
-          "verdict": "not_stated",
-          "note": "The text does not give opening hours.",
-          "quote": null
-        },
-        {
-          "claim": "Use NHS 111 when you need medical help fast but the situation is not life-threatening.",
-          "verdict": "partly_supported",
-          "note": "The text covers needing help right now, but says nothing about the situation not being life-threatening.",
-          "quote": "If you think you need medical help right now, 111 online can tell you what to do next."
-        },
-        {
-          "claim": "The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.",
-          "verdict": "partly_supported",
-          "note": "The text says it directs you to the best place, but it does not list A&E, an urgent GP visit, a pharmacy or self-care at home as outcomes.",
-          "quote": "we will direct you to the best place to get help for your symptoms"
-        }
-      ]
-    },
-    {
       "id": "nhs-continuing-healthcare",
       "name": "NHS Continuing Healthcare (CHC)",
       "field": "eligibility.summary",
@@ -1187,21 +1154,6 @@
           "verdict": "partly_supported",
           "note": "The text says free school meals eligibility is recorded in the school census, but it does not say the school notifies DfE automatically.",
           "quote": "pupils recorded in the October 2025 school census who have had a recorded period of FSM eligibility"
-        }
-      ]
-    },
-    {
-      "id": "sss-young-carer-grant",
-      "name": "Young Carer Grant",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply online",
-          "verdict": "partly_supported",
-          "note": "The text mentions filling in a form but does not say the form is online.",
-          "quote": "You'll need to fill in a new form or call us each year you want to apply."
         }
       ]
     },
@@ -7239,33 +7191,6 @@
       ]
     },
     {
-      "id": "sss-adult-disability-payment",
-      "name": "Adult Disability Payment",
-      "field": "eligibility.summary",
-      "graph": "Scotland's replacement for Personal Independence Payment (PIP). For adults aged 16+ (under State Pension age) with a long-term physical or mental health condition or disability. Same rates as PIP. Assessed on impact of condition, not the condition itself.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is Scotland's replacement for Personal Independence Payment (PIP).",
-          "verdict": "partly_supported",
-          "note": "The text describes moving from PIP to Adult Disability Payment but does not call Adult Disability Payment PIP's replacement.",
-          "quote": "you’ve moved from Department for Work and Pensions (DWP) Personal Independence Payment (PIP) to Adult Disability Payment"
-        },
-        {
-          "claim": "It is for adults aged 16 or over who are under State Pension age.",
-          "verdict": "not_stated",
-          "note": "The text gives no age limits for Adult Disability Payment; the only '16 or over' is for the vehicle leasing scheme.",
-          "quote": null
-        },
-        {
-          "claim": "It is paid at the same rates as PIP.",
-          "verdict": "not_stated",
-          "note": "The text never compares the rates with PIP.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "sss-best-start-foods",
       "name": "Best Start Foods",
       "field": "agentInteraction.methods",
@@ -10058,6 +9983,48 @@
           "verdict": "not_stated",
           "note": "No supplied source gives a one-IAP-per-year limit; the page only gives an overall three-grant limit in a rolling 12 months.",
           "quote": null
+        }
+      ]
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "field": "eligibility.summary",
+      "graph": "Scotland's replacement for Personal Independence Payment (PIP). For adults aged 16+ (under State Pension age) with a long-term physical or mental health condition or disability. Same rates as PIP. Assessed on impact of condition, not the condition itself.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Adult Disability Payment is for adults aged 16 or over and under State Pension age.",
+          "verdict": "partly_supported",
+          "note": "The age rule is generally 16 to the relevant age, but the page gives exceptions for older applicants and recipients.",
+          "quote": "Generally, individuals must: be 16 years old or over,to be entitled to either component of ADP (ADP regs, reg 22(1)(a)) be under pensionable age or, if higher, 65 years old to be entitled to either component"
+        },
+        {
+          "claim": "Adult Disability Payment is for people with a long-term physical or mental health condition or disability.",
+          "verdict": "partly_supported",
+          "note": "The page also names terminal illness, which this description leaves out.",
+          "quote": "Apply if you have a: disability long-term physical or mental health condition terminal illness"
+        },
+        {
+          "claim": "Adult Disability Payment is assessed on the impact of the condition, not the condition itself.",
+          "verdict": "partly_supported",
+          "note": "The impact determines the amount, but the page also requires a qualifying disability, health condition or terminal illness.",
+          "quote": "The amount you get depends on how your condition affects your ability to do everyday activities and get around."
+        }
+      ]
+    },
+    {
+      "id": "nhs-111-online",
+      "name": "NHS 111 online",
+      "field": "eligibility.summary",
+      "graph": "Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Anyone in England can use NHS 111 online for symptoms.",
+          "verdict": "partly_supported",
+          "note": "Symptom triage is for people aged five or over, although an emergency prescription can be requested for someone of any age.",
+          "quote": "NHS 111 online is for people in England aged 5 and over who need&#xa0;urgent health care advice&#xa0;but it’s not a life-threatening situation."
         }
       ]
     }
