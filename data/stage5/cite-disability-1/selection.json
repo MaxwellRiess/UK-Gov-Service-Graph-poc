@@ -1,0 +1,198 @@
+{
+  "wave": "cite-disability-1",
+  "kind": "Cite",
+  "event": "disability",
+  "baseline": {
+    "confirmed": 1861,
+    "checkable": 2987,
+    "share": 62.3
+  },
+  "items": [
+    {
+      "key": "sss-adult-disability-payment#eligibility.criteria.1",
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "event": "disability",
+      "lifeEvents": [
+        "disability"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "disability",
+        "description": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months."
+      },
+      "text": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
+      "problems": [
+        {
+          "claim": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
+          "verdict": "partly_supported",
+          "note": "The text supports the condition affecting everyday life, but it does not mention the 13-week or 9-month periods.",
+          "quote": "Adult Disability Payment is extra money to help you if you have a disability or long-term health condition that affects your everyday life.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Adult Disability Payment is extra money to help you if you have a disability or long-term health condition that affects your everyday life.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official eligibility guidance for the 13-week and 9-month condition duration rules.",
+      "reason": "The duration test is a core qualifying rule, so if it were wrong, people with recent or short-term conditions would be told wrongly whether they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-young-carer-grant#agentInteraction.methods",
+      "id": "sss-young-carer-grant",
+      "name": "Young Carer Grant",
+      "event": "disability",
+      "lifeEvents": [
+        "disability",
+        "carer"
+      ],
+      "path": "agentInteraction.methods",
+      "value": [
+        "online",
+        "phone"
+      ],
+      "text": "You can apply or do this online. You can apply or do this by phone.",
+      "problems": [
+        {
+          "claim": "You can apply online",
+          "verdict": "partly_supported",
+          "note": "The text mentions filling in a form but does not say the form is online.",
+          "quote": "You'll need to fill in a new form or call us each year you want to apply."
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You'll need to fill in a new form or call us each year you want to apply.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official page that confirms the Young Carer Grant can be applied for online.",
+      "reason": "Anyone told to apply online would be sent the wrong way if online isn't actually an option, and applying is the main thing people use this service for.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "nhs-111-online#eligibility.summary",
+      "id": "nhs-111-online",
+      "name": "NHS 111 online",
+      "event": "disability",
+      "lifeEvents": [
+        "disability"
+      ],
+      "path": "eligibility.summary",
+      "value": "Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.",
+      "text": "Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.",
+      "problems": [
+        {
+          "claim": "The service is free.",
+          "verdict": "not_stated",
+          "note": "The text does not mention cost.",
+          "quote": null
+        },
+        {
+          "claim": "It is available 24 hours a day, 7 days a week.",
+          "verdict": "not_stated",
+          "note": "The text does not give opening hours.",
+          "quote": null
+        },
+        {
+          "claim": "Use NHS 111 when you need medical help fast but the situation is not life-threatening.",
+          "verdict": "partly_supported",
+          "note": "The text covers needing help right now, but says nothing about the situation not being life-threatening.",
+          "quote": "If you think you need medical help right now, 111 online can tell you what to do next."
+        },
+        {
+          "claim": "The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.",
+          "verdict": "partly_supported",
+          "note": "The text says it directs you to the best place, but it does not list A&E, an urgent GP visit, a pharmacy or self-care at home as outcomes.",
+          "quote": "we will direct you to the best place to get help for your symptoms"
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "If you think you need medical help right now, 111 online can tell you what to do next.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        },
+        {
+          "quote": "we will direct you to the best place to get help for your symptoms",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite official sources that say the service is free, runs 24/7, covers England and is for non-life-threatening situations, and that list the possible outcomes.",
+      "reason": "Unsourced claims about cost, opening hours, who can use it and when it is appropriate could change whether a typical person decides to use 111 or call 999.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-adult-disability-payment#eligibility.summary",
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "event": "disability",
+      "lifeEvents": [
+        "disability"
+      ],
+      "path": "eligibility.summary",
+      "value": "Scotland's replacement for Personal Independence Payment (PIP). For adults aged 16+ (under State Pension age) with a long-term physical or mental health condition or disability. Same rates as PIP. Assessed on impact of condition, not the condition itself.",
+      "text": "Scotland's replacement for Personal Independence Payment (PIP). For adults aged 16+ (under State Pension age) with a long-term physical or mental health condition or disability. Same rates as PIP. Assessed on impact of condition, not the condition itself.",
+      "problems": [
+        {
+          "claim": "It is Scotland's replacement for Personal Independence Payment (PIP).",
+          "verdict": "partly_supported",
+          "note": "The text describes moving from PIP to Adult Disability Payment but does not call Adult Disability Payment PIP's replacement.",
+          "quote": "you’ve moved from Department for Work and Pensions (DWP) Personal Independence Payment (PIP) to Adult Disability Payment"
+        },
+        {
+          "claim": "It is for adults aged 16 or over who are under State Pension age.",
+          "verdict": "not_stated",
+          "note": "The text gives no age limits for Adult Disability Payment; the only '16 or over' is for the vehicle leasing scheme.",
+          "quote": null
+        },
+        {
+          "claim": "It is paid at the same rates as PIP.",
+          "verdict": "not_stated",
+          "note": "The text never compares the rates with PIP.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Adult Disability Payment is extra money to help you if you have a disability or long-term health condition that affects your everyday life.",
+          "url": "https://www.mygov.scot/adult-disability-payment",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "The amount you get depends on how your condition affects your ability to do everyday activities and get around.",
+          "url": "https://www.mygov.scot/adult-disability-payment",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "you’ve moved from Department for Work and Pensions (DWP) Personal Independence Payment (PIP) to Adult Disability Payment",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official page for the age limits (16 to State Pension age), noting the exception for existing claimants over State Pension age.",
+      "reason": "The age band decides who can apply, so if it were wrong, people would be told wrongly whether they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    }
+  ]
+}

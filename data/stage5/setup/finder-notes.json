@@ -1,0 +1,24 @@
+{
+  "queries": [
+    "site:mygov.scot/child-winter-heating-payment \"under 19\"",
+    "site:mygov.scot/best-start-grant-best-start-foods \"under 18\"",
+    "site:gov.uk/employment-tribunals \"6 months\" \"1 October 2026\"",
+    "site:gov.uk/the-warm-home-discount-scheme \"asks you to confirm\" \"26 February 2027\"",
+    "site:gov.uk/the-warm-home-discount-scheme \"confirm your details\" 2027"
+  ],
+  "reviewedPages": [
+    "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment",
+    "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+    "https://www.gov.uk/employment-tribunals",
+    "https://www.gov.uk/the-warm-home-discount-scheme/if-you-live-in-england-and-wales",
+    "https://www.gov.uk/the-warm-home-discount-scheme/get-help",
+    "https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire"
+  ],
+  "unavailable": [
+    {
+      "url": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions",
+      "result": "HTTP 503 Service Unavailable on 22 October 2026"
+    }
+  ],
+  "judgeSourceRecord": "judge/prepared.json"
+}

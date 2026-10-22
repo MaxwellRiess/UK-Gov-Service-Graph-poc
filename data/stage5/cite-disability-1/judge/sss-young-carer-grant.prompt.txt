@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Young Carer Grant" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/cite-disability-1/judge/sss-young-carer-grant.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+
+--- SOURCE 0: https://www.mygov.scot/young-carer-grant ---
+Young Carer Grant About the grant Last updated 10 Aug 2026 Contents About the grant What a young carer is How long you need to be caring for the person or people you're applying for Who should apply for Young Carer Grant How to apply for Young Carer Grant After you've applied for Young Carer Grant Sending documents for Young Carer Grant Applying outside of Scotland Young Carer Grant is a yearly payment of £405.10 for young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in a new form or call us each year you want to apply. You’ll have to wait one full year between applications. If you apply before this, your application will be rejected and you’ll need to re-apply. You must also have been caring for 1, 2 or 3 people for an average of 16 hours a week for at least the last 3 months. If you care for more than one person, you can combine the hours of the people you care for to average 16 hours a week. How you spend the Young Carer Grant is up to you. You could use it for things like new clothes, driving lessons or a holiday. You do not need to tell us what you spend the money on. If you care for someone for 35 hours or more a week You may be able to get Carer Support Payment. Carer Support Payment has replaced Carer's Allowance in Scotland. It became available across Scotland from November 2024. Find out who can apply for Carer Support Payment . You should apply for Carer Support Payment once you've been paid Young Carer Grant. You will not be able to get Young Carer Grant if you're already getting Carer Support Payment or Carer's Allowance. Find out about Carer Support Payment . If you live in England or Wales, you can find out more about Carer's Allowance by going to GOV.UK. If you live in Northern Ireland, you may be able to get Northern Ireland's Carer's Allowance by going to nidirect. Health, social care and wellbeing support for young carers What a young carer is Thanks for your feedback
+
+--- SOURCE 1 (FOUND): https://www.mygov.scot/young-carer-grant/how-to-apply ---
+Young Carer Grant How to apply for Young Carer Grant Last updated 10 Aug 2026 Contents About the grant What a young carer is How long you need to be caring for the person or people you're applying for Who should apply for Young Carer Grant How to apply for Young Carer Grant After you've applied for Young Carer Grant Sending documents for Young Carer Grant Applying outside of Scotland Before applying for Young Carer Grant, you should have: your National Insurance number, if you know it your bank details details of the person you care for, including their National Insurance number, if you know it Most people over 16 will have a National Insurance number. We ask for this as it helps us confirm who you are. We can still process your application without this, but it might take slightly longer. If you do not have a bank account but would like to set one up, visit Citizens Advice Scotland for more information. If you do not have a bank account, do not wish to set one up and cannot use someone else's, you should apply by phone so we can help you set up an alternative payment method. We'll send the person or people you care for a letter to let them know you've applied for Young Carer Grant. This is because we need to tell them that we'll check what benefits they get. We might also need to ask them to confirm that you care for them. We need to do this to confirm you're able to get Young Carer Grant. This will not affect any of the benefits the person or people you care for are getting. By filling in and sending your Young Carer Grant form to us, you're giving us consent to contact the person or people's details you put in this form. Sending us copies of certificates or documents You'll need to send us some copies of documents to confirm where you live. After you've applied, we'll send you a letter to let you know what you need to send us. If you'd prefer to just send these documents now rather than waiting for this letter, you can find out what documents we need and how to send them . Representatives If a representative has the power to make decisions for you, they should apply. Representatives can only apply by phone or post. There are different types of representatives who can make decisions for you:> Appointees Guardians people or organisations with a Power of Attorney people or organisations with an Intervention Order Apply online Apply for Young Carer Grant. Start Apply over the phone Call Social Security Scotland free on 0800 182 2222 to apply over the phone. The call centre opening times are 8am to 5pm, Monday to Friday. If you're a British Sign Language user, use Contact Scotland BSL to contact Social Security Scotland by video call. Apply by post You can apply by filling in a paper form. If you want to set up a bank account If you do not have a bank account and would like help to set one up, your local Citizens Advice Bureau can give you advice and support. You can also find out more about setting up a bank account on the Citizens Advice Scotland website. If you need any extra help If you need help to apply for Young Carer Grant, call us free on 0800 182 2222. Our call centre opening times are 8am to 5pm, Monday to Friday. Your local Citizens Advice Bureau can also help with questions about benefits. You and your data Social Security Scotland holds and processes personal data in compliance with UK General Data Protection Regulation (UK GDPR) and the Data Protection Act 2018. If you want to know more about how Social Security Scotland use your data, read the privacy notice . Who should apply for Young Carer Grant After you've applied for Young Carer Grant Thanks for your feedback
+
+--- SOURCE 2 (FOUND): https://www.socialsecurity.gov.scot/young-carer-grant ---
+Young Carer Grant Overview of Young Carer Grant Contents Overview of Young Carer Grant Eligibility for Young Carer Grant Residency for Young Carer Grant Evidence for Young Carer Grant Checking for a previous claim Cared for person checks Telephone application for Young Carer Grant Coronavirus guidance for Young Carer Grant Young Carer Grant is a yearly payment for young carers in Scotland. The payment is in acknowledgment of their role as a carer. The payment is a flat rate of £405.10 paid once a year. Applicants can apply each year they are eligible. The payment will increase with inflation each year. There are no restrictions on what the client can spend their money on. If a client got Young Carer Grant last year and now lives in the European Economic Area, Switzerland or Gibraltar, you need to read the ' Reapplying for Young Carer Grant outside Scotland ' guidance. Open all sections How to apply Show this section There are three different ways that an applicant can apply for Young Carer Grant. They can apply: online by filling in a paper form over the phone Online applications Applicants can apply online via the mygov.scot website. Applicants will need to complete the form in one sitting as there is no save and resume function on the form. The applicant will not be able to apply online if they: do not have a bank account and need to be paid another way if they’re an appointee Paper applications The paper application can be downloaded from the MyGov website or applicants can call free on 0800 182 2222 to request one. The applicant can also call us to request the form in different formats and languages. Phone applications The applicant can apply by calling the agency free on 0800 182 222. This application process will be completed on Intelligence Evidence Gathering (IEG). When dealing with a phone application, the adviser should inform the applicant: the details they will need to provide us with and give them the opportunity to call back when they are prepared to make the application the eligibility criteria for the benefit Checking if an application is complete Show this section When we receive an application from a client, it’s sent to a client adviser to be processed. They will check that all mandatory parts of the application have been completed. If it’s a paper application, they will ensure that the form has been signed. Once this has been done, the application eligibility will be checked. Processing a Young Carer Grant application Show this section To process a Young Carer Grant application, review the application to ensure details of the applicant and at least one cared for person have been given. If any of these details are missing we need to contact the client or return the form to them to fill in the missing details. Follow this process: Check the system to confirm the applicant’s details match those provided and to confirm if Carer's Allowance is in place or if there has been an application made. Also check if the applicant has an appointee. This must be someone who has officially been given the status of appointee to apply on behalf of someone for Young Carer Grant. If they do have one and they have not made the application, then follow the Appointee process. Check if Identity and Residence evidence has been received from the applicant. If it has, then review and check it is on the list of acceptable evidence before clearing the Identification evidence. If it has not, issue the evidence request letter to the applicant. Check the system to confirm cared for person details match those as provided on application. Check that one of the qualifying benefits is in place. If there are no qualifying benefits showing on the system, then a referral must be made to the Exceptions team. Check if there is a parent/guardian or appointee recorded. If there is then the relationship must be recorded to ensure that the letter to the cared for person is sent to them. Issue a letter to the cared for person(s). Once all eligibility evidences and verifications have been cleared, run eligibility check. See eligibility guidance . Eligibility check – If they pass, authorise the application case, or if they fail, deny it. If the client wants to submit a redetermination and appeal follow the usual process. Eligibility for Young Carer Grant Thanks for your feedback

@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {
+          "claim": "Pension Credit is a qualifying benefit for the Warm Home Discount Scheme.",
+          "verdict": "supported",
+          "quote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
+          "source": 0,
+          "note": "The source lists Pension Credit among the qualifying benefits."
+        },
+        {
+          "claim": "For eligible recipients of Pension Credit, the discount is usually applied automatically.",
+          "verdict": "supported",
+          "quote": "You’ll get the discount automatically if you or your partner: get Pension Credit",
+          "source": 0,
+          "note": "The source says recipients of Pension Credit get the discount automatically."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

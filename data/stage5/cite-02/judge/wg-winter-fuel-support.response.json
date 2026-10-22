@@ -1,0 +1,156 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "The scheme pays a one-off £200.",
+          "verdict": "supported",
+          "quote": "eligible for a one-off £200 payment",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Eligible households must have low incomes.",
+          "verdict": "supported",
+          "quote": "People on low incomes who use heating oil or liquid petroleum gas (LPG) will be eligible for a one-off £200 payment if they are on the Council Tax Reduction Scheme.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The scheme is for households in Wales.",
+          "verdict": "supported",
+          "quote": "Thousands of Welsh households to get help with oil and LPG heating costs",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Eligible households use heating oil or LPG.",
+          "verdict": "supported",
+          "quote": "use heating oil or liquid petroleum gas (LPG)",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Eligible households are on the Council Tax Reduction Scheme.",
+          "verdict": "supported",
+          "quote": "if they are on the Council Tax Reduction Scheme.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The scheme launched on 31 March 2026.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The source gives 31 March 2026 as the press release publication date, not the scheme launch date."
+        },
+        {
+          "claim": "Local authorities contact eligible households and invite them to apply.",
+          "verdict": "supported",
+          "quote": "Local authorities will contact eligible households directly and invite them to apply.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Claims close on 30 September 2026.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The source gives no closing date because it does not state the launch date."
+        },
+        {
+          "claim": "Households have six months after launch to claim.",
+          "verdict": "supported",
+          "quote": "There are 6 months from the scheme's launch to claim.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.",
+          "verdict": "supported",
+          "quote": "Those in severe financial hardship who do not qualify can apply to the Discretionary Assistance Fund .",
+          "source": 0,
+          "note": "Supported by the cited source."
+        }
+      ]
+    },
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "The scheme pays a one-off £200.",
+          "verdict": "supported",
+          "quote": "eligible for a one-off £200 payment",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Eligible households must have low incomes.",
+          "verdict": "supported",
+          "quote": "People on low incomes who use heating oil or liquid petroleum gas (LPG) will be eligible for a one-off £200 payment if they are on the Council Tax Reduction Scheme.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The scheme is for households in Wales.",
+          "verdict": "supported",
+          "quote": "Thousands of Welsh households to get help with oil and LPG heating costs",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Eligible households use heating oil or LPG.",
+          "verdict": "supported",
+          "quote": "use heating oil or liquid petroleum gas (LPG)",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Eligible households are on the Council Tax Reduction Scheme.",
+          "verdict": "supported",
+          "quote": "if they are on the Council Tax Reduction Scheme.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The scheme launched on 31 March 2026.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The source gives 31 March 2026 as the press release publication date, not the scheme launch date."
+        },
+        {
+          "claim": "Local authorities contact eligible households and invite them to apply.",
+          "verdict": "supported",
+          "quote": "Local authorities will contact eligible households directly and invite them to apply.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Claims close on 30 September 2026.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The source gives no closing date because it does not state the launch date."
+        },
+        {
+          "claim": "Households have six months after launch to claim.",
+          "verdict": "supported",
+          "quote": "There are 6 months from the scheme's launch to claim.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "This scheme replaces the closed Winter Fuel Support Scheme.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention the Winter Fuel Support Scheme or a replacement."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

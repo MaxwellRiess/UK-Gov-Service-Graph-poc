@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Eligibility requires an assessed primary health need.",
+          "verdict": "supported",
+          "quote": "People over 18 years of age who have been assessed as having a ’primary health need’ are entitled to NHS continuing healthcare.",
+          "source": 1,
+          "note": "The leaflet states the primary health need assessment criterion."
+        },
+        {
+          "claim": "The primary health need must be assessed as complex, intense, or unpredictable.",
+          "verdict": "partly_supported",
+          "quote": "The team will look at all your care needs and relate them to: what help you need how complex your needs are how intense your needs can be how unpredictable they are",
+          "source": 2,
+          "note": "These are assessment factors, but the text does not make any one of them a standalone mandatory condition."
+        },
+        {
+          "claim": "A progressive serious illness is usual for eligibility.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources do not say progressive serious illness is usual among eligible people."
+        },
+        {
+          "claim": "A terminal condition is usual for eligibility.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources discuss urgent fast-track assessment for some terminal conditions but do not say they are usual."
+        },
+        {
+          "claim": "A severe disability is usual for eligibility.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources do not say severe disability is usual among eligible people."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

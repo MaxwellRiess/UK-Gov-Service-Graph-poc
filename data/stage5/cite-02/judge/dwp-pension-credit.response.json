@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "A Pension Credit claimant must have reached State Pension age.",
+          "verdict": "partly_supported",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The general age rule has a mixed-age couple exception when one partner gets Housing Benefit for people over State Pension age."
+        },
+        {
+          "claim": "State Pension age is currently 66.",
+          "verdict": "contradicted",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "source": 6,
+          "note": "The age is rising in stages during 2026–2028, so it is not uniformly 66 now."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

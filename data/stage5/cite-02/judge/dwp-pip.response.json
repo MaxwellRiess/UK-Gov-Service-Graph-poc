@@ -1,0 +1,43 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "The applicant must have a long-term physical or mental health condition or disability.",
+          "verdict": "supported",
+          "quote": "you have a long-term physical or mental health condition or disability",
+          "source": 0,
+          "note": "The source states this eligibility condition."
+        },
+        {
+          "claim": "The condition or disability must affect daily living or mobility.",
+          "verdict": "supported",
+          "quote": "you have difficulty doing certain everyday tasks or getting around",
+          "source": 0,
+          "note": "The source states the daily task or mobility difficulty requirement."
+        },
+        {
+          "claim": "The applicant must already have had the difficulties for at least 3 months.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources give an expected total duration but do not state a 3-month period before claiming."
+        },
+        {
+          "claim": "The applicant must expect the difficulties to continue for at least 9 months.",
+          "verdict": "partly_supported",
+          "quote": "you expect the difficulties to last for at least 12 months from when they started",
+          "source": 0,
+          "note": "The source states 12 months from onset, not a separate 9-month future period."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": "PIP account"
+}

@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Making Tax Digital for VAT is mandatory for all VAT-registered businesses.",
+          "verdict": "contradicted",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "source": 5,
+          "note": "Exempt businesses and those applying for an exemption are exceptions to the universal claim."
+        },
+        {
+          "claim": "VAT businesses covered by Making Tax Digital must keep digital VAT records.",
+          "verdict": "supported",
+          "quote": "You should now keep VAT records and submit VAT Returns using compatible software.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "VAT businesses covered by Making Tax Digital must submit VAT returns through compatible software.",
+          "verdict": "supported",
+          "quote": "You should now keep VAT records and submit VAT Returns using compatible software.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Making Tax Digital for Income Tax begins in April 2026 for qualifying sole traders and landlords.",
+          "verdict": "supported",
+          "quote": "From 6 April 2026, sole traders and landlords must use it if their total annual income from self-employment and property is over £50,000.",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The Income Tax threshold is more than £50,000 of self-employment or property income.",
+          "verdict": "supported",
+          "quote": "have qualifying income of more than £50,000 — read more about what qualifying income is and what is included",
+          "source": 1,
+          "note": "Supported by the cited source."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

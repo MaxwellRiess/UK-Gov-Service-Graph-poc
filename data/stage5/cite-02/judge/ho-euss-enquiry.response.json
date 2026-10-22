@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can use the UKVI help service online.",
+          "verdict": "supported",
+          "quote": "Use this tool to get help from UK Visas and Immigration (UKVI). You will need to answer some questions.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "You can get UKVI help by phone.",
+          "verdict": "partly_supported",
+          "quote": "These will help you find: contact details for the right UKVI team to support you",
+          "source": 0,
+          "note": "The source says the tool finds contact details but does not explicitly say those details include a phone route."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

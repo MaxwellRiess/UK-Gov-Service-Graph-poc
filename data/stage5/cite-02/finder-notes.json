@@ -1,0 +1,633 @@
+{
+  "sss-funeral-support-payment#eligibility.criteria.0": {
+    "queries": [
+      "site:mygov.scot funeral support payment who can apply responsibility funeral costs",
+      "site:socialsecurity.gov.scot funeral support payment eligibility responsible cost funeral"
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+        "why": "States the applicant or partner must be responsible for funeral costs and it must be reasonable to accept them."
+      },
+      {
+        "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+        "why": "Public eligibility page with the same responsibility condition."
+      }
+    ],
+    "verdict_hint": "Support paying/cost responsibility; arranging a funeral alone is not the stated test."
+  },
+  "wg-discretionary-assistance#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.wales discretionary assistance fund IAP qualifying benefits leaving institution relationship breakdown",
+      "site:gov.wales discretionary assistance fund EAP extreme hardship crisis no other money eligibility"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility",
+        "why": "Explicit EAP no-other-money tests and IAP qualifying benefits and circumstances."
+      },
+      {
+        "url": "https://www.gov.wales/discretionary-assistance-fund-daf",
+        "why": "Current scheme overview."
+      }
+    ],
+    "verdict_hint": "Mostly supported by current eligibility page, but 'caring for a released prisoner' should say a prisoner or young offender released on temporary licence; IAP applications use approved partners."
+  },
+  "sss-scottish-child-payment#eligibility.autoQualifiers.0": {
+    "queries": [
+      "site:mygov.scot scottish child payment who should apply qualifying benefits live Scotland under 16",
+      "site:socialsecurity.gov.scot Scottish Child Payment qualifying benefits residency child age"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+        "why": "Lists residence, qualifying benefits, main carer and age conditions."
+      },
+      {
+        "url": "https://www.socialsecurity.gov.scot/scottish-child-payment/qualifying-benefits-for-scottish-child-payment",
+        "why": "Lists accepted qualifying benefits and pending-benefit handling."
+      }
+    ],
+    "verdict_hint": "Claim broadly supported; note that a pending qualifying-benefit application can be lodged, but award waits for that benefit."
+  },
+  "ho-euss-enquiry#agentInteraction.methods": {
+    "queries": [
+      "site:gov.uk EU Settlement Scheme resolution centre webchat phone get help",
+      "site:gov.uk ask a question about applying for settled status online form"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status",
+        "why": "Get help section offers UKVI webchat and telephone."
+      },
+      {
+        "url": "https://www.gov.uk/help-eu-settlement-scheme",
+        "why": "Help page points to UKVI contact routes."
+      }
+    ],
+    "verdict_hint": "Online webchat and phone enquiry are supported; distinguish enquiry from applying to the scheme."
+  },
+  "sss-best-start-grant#agentInteraction.methods": {
+    "queries": [
+      "site:mygov.scot Best Start Grant how to apply by phone online",
+      "site:socialsecurity.gov.scot Best Start Grant phone application 0800 182 2222"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/best-start-grant-best-start-foods/how-to-apply",
+        "why": "Explicit online, phone and postal application routes; phone number is for applications."
+      }
+    ],
+    "verdict_hint": "Supported by the current service owner's application page."
+  },
+  "tpr-workplace-pension#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:thepensionsregulator.gov.uk declare compliance five months duties start date",
+      "site:thepensionsregulator.gov.uk declaration compliance checklist first declaration employer"
+    ],
+    "urls": [
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance",
+        "why": "Direct instruction to declare within five months of duties start date."
+      },
+      {
+        "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
+        "why": "Says declaration is made to the regulator within five calendar months."
+      }
+    ],
+    "verdict_hint": "Deadline and declaration supported; 'letter of compliance' is inaccurate wording, as the employer completes a declaration online."
+  },
+  "wg-winter-fuel-support#eligibility.summary": {
+    "queries": [
+      "site:gov.wales winter fuel support heating oil LPG launched 31 March 2026 six months",
+      "site:gov.wales winter fuel support closing 30 September 2026 launch date"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+        "why": "Official scheme announcement says £200, qualifying fuel and reduction, council invitation and six months from launch."
+      }
+    ],
+    "verdict_hint": "31 March is the publication date, not an explicit launch date; 30 September closing date is inferred, not stated. Avoid those exact dates unless another official page states them."
+  },
+  "la-proxy-vote#eligibility.summary": {
+    "queries": [
+      "site:gov.uk apply vote by proxy work illness disability abroad six working days",
+      "site:electoralcommission.org.uk vote by proxy reasons work illness disability abroad emergency 5pm"
+    ],
+    "urls": [
+      {
+        "url": "https://www.electoralcommission.org.uk/voting-and-elections/ways-vote/how-vote-proxy",
+        "why": "Service-owner voting guidance explains proxy voting and reasons."
+      },
+      {
+        "url": "https://www.electoralcommission.org.uk/voting-and-elections/ways-vote/apply-vote-proxy",
+        "why": "Application page states ordinary six-working-day deadline."
+      },
+      {
+        "url": "https://www.gov.uk/how-to-vote/voting-from-abroad",
+        "why": "Explicit temporary-abroad route."
+      }
+    ],
+    "verdict_hint": "Reasons are supported, but some standing proxy routes require a reason and emergency proxy eligibility is narrower than simply being unable to attend."
+  },
+  "hmcts-tax-tribunal#eligibility.summary": {
+    "queries": [
+      "site:gov.uk tax appeals overview certain decisions HMRC tribunal",
+      "site:gov.uk appeal tax tribunal after HMRC review conclusion 30 days no fee"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/tax-appeals/overview",
+        "why": "Says only certain HMRC decisions and penalties can be challenged."
+      },
+      {
+        "url": "https://www.gov.uk/tax-appeals/review-of-a-tax-or-penalty-decision",
+        "why": "States usual 30 days after review result."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+        "why": "Says no fee for an appeal to the First-tier Tax Tribunal."
+      }
+    ],
+    "verdict_hint": "'Anyone who has received a decision' is too broad. Only certain appealable HMRC decisions qualify; no first-tier appeal fee, not merely 'most'."
+  },
+  "hmrc-mtd#eligibility.summary": {
+    "queries": [
+      "site:gov.uk Making Tax Digital VAT exemption all VAT registered businesses",
+      "site:gov.uk Making Tax Digital Income Tax April 2026 £50000 sole traders landlords"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+        "why": "Explicit exemptions to the general VAT MTD rule."
+      },
+      {
+        "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax",
+        "why": "Current 6 April 2026 Income Tax threshold and affected people."
+      }
+    ],
+    "verdict_hint": "'All VAT-registered' is false because exemptions exist; Income Tax threshold should use qualifying income, not generic income."
+  },
+  "mhclg-epc#eligibility.summary": {
+    "queries": [
+      "site:gov.uk find energy certificate search postcode buyers tenants free",
+      "site:gov.uk EPC seller landlord show buyer tenant minimum E private rented exemptions"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/find-energy-certificate",
+        "why": "Public register search by postcode, street/town or certificate number."
+      },
+      {
+        "url": "https://www.gov.uk/selling-a-home/energy-performance-certificates",
+        "why": "Says EPC is shown to buyer or tenant and can be downloaded for free."
+      },
+      {
+        "url": "https://www.gov.uk/guidance/domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance",
+        "why": "Minimum E standard with exemptions."
+      }
+    ],
+    "verdict_hint": "Public search is supported. Minimum E is not absolute: registered exemptions can permit letting below E."
+  },
+  "sss-scottish-child-payment#eligibility.summary": {
+    "queries": [
+      "site:mygov.scot Scottish Child Payment main person looking after child who should apply",
+      "site:socialsecurity.gov.scot Scottish Child Payment double claims main carer payment"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+        "why": "Explicitly says applicant or partner must be main person looking after child."
+      },
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment",
+        "why": "Amount, frequency and one-recipient/double-claim process."
+      }
+    ],
+    "verdict_hint": "Main-carer condition is supported, but double claims are decided by a separate process; do not imply main carer automatically gets the payment."
+  },
+  "co-contracts-finder#eligibility.summary": {
+    "queries": [
+      "site:gov.uk Contracts Finder free to use suppliers search",
+      "site:gov.uk Contracts Finder publication thresholds central government 12000 other public bodies 25000 2026"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+        "why": "Explicitly free to use and gives publication thresholds."
+      },
+      {
+        "url": "https://www.data.gov.uk/collections/government-and-parliament/contracts-finder",
+        "why": "Government collection says free to search without an account."
+      }
+    ],
+    "verdict_hint": "Free is supported. Current cited PPN says sub-central threshold £30,000 including VAT, so £25,000 appears outdated; publication rules also have scope/exceptions."
+  },
+  "la-street-collection-licence#eligibility.summary": {
+    "queries": [
+      "site:gov.uk/find-licences/street-collection-licence may need licence council £200",
+      "site:met.police.uk street collection permit Greater London charity public street"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/find-licences/street-collection-licence",
+        "why": "States licence may be needed depending on council, metropolitan route and £200 fine."
+      },
+      {
+        "url": "https://www.met.police.uk/advice/advice-and-information/cc/charity-collection-licensing/street-collection-permit/",
+        "why": "Metropolitan Police permit guidance and exceptions."
+      }
+    ],
+    "verdict_hint": "'Required for any' is overbroad; GOV.UK says local council determines need. No free-fee claim on this page, so keep that separate unless sourced."
+  },
+  "wg-winter-fuel-support#desc": {
+    "queries": [
+      "site:gov.wales winter fuel oil LPG 2026 30 September claims close",
+      "site:gov.wales winter fuel support launch six months 31 March 2026"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+        "why": "Official release states six months from launch and the £200 offer, but no exact deadline."
+      }
+    ],
+    "verdict_hint": "30 September 2026 and launch on 31 March are not explicit on this page; they are calculations from a publication date. Also verify 'replaces Winter Fuel Support Scheme' separately."
+  },
+  "la-council-tax#desc": {
+    "queries": [
+      "site:gov.uk start paying Council Tax moving new address register",
+      "site:gov.uk council tax moving home contact old new council account"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/guidance/start-paying-council-tax",
+        "why": "Says tell council after moving, which registers and bills the resident."
+      },
+      {
+        "url": "https://www.leeds.gov.uk/council-tax/report-a-change/register-for-council-tax-or-change-your-address",
+        "why": "Council owner page explicitly describes closing old account and opening new account."
+      }
+    ],
+    "verdict_hint": "Registering at new address is supported. Closing old account is council dependent and generally done by reporting the move."
+  },
+  "sss-scottish-child-payment#desc": {
+    "queries": [
+      "site:mygov.scot Scottish Child Payment £28.20 every four weeks eligibility Scotland benefits",
+      "site:mygov.scot Scottish Child Payment who should apply qualifying benefit live Scotland"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment",
+        "why": "Current amount and four-weekly payment."
+      },
+      {
+        "url": "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+        "why": "Scotland residence, main carer and qualifying benefits."
+      }
+    ],
+    "verdict_hint": "Supported, but 'parents' is narrower than eligible carers; use main person looking after child."
+  },
+  "dvla-renew-at-70#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk renew licence 70 confirm eyesight medical conditions legal declaration",
+      "site:gov.uk driving medical conditions renew 70 evidence eyesight DVLA"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/consultations/introducing-mandatory-eyesight-testing-for-older-drivers/introducing-mandatory-eyesight-testing-for-older-drivers",
+        "why": "Official current consultation explains legal eyesight declaration and listed-condition confirmation."
+      },
+      {
+        "url": "https://www.gov.uk/driving-medical-conditions",
+        "why": "Says notifiable conditions are declared in renewal application."
+      },
+      {
+        "url": "https://www.gov.uk/driving-eyesight-rules",
+        "why": "Explains minimum standard and possible DVLA test after vision report."
+      }
+    ],
+    "verdict_hint": "Self-declaration is supported; medical evidence may be sought after a notified condition, but not necessarily for every declared condition."
+  },
+  "dwp-attendance-allowance#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk attendance allowance state pension age eligibility",
+      "site:gov.uk state pension age timetable 66 67 2026"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/attendance-allowance/eligibility",
+        "why": "Attendance Allowance age condition."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+        "why": "Shows rise from 66 to 67 by birth date, starting 2026."
+      }
+    ],
+    "verdict_hint": "Fixed '66 or over' is misleading in October 2026; use State Pension age or date-of-birth checker."
+  },
+  "dwp-pip#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk PIP assessment guide previous three months further nine months",
+      "site:gov.uk PIP eligibility twelve months from when difficulties started"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process",
+        "why": "Current DWP guide states 3-month retrospective and 9-month prospective functional test."
+      },
+      {
+        "url": "https://www.gov.uk/pip/eligibility",
+        "why": "Public page states difficulties expected for 12 months from onset."
+      }
+    ],
+    "verdict_hint": "3+9 is supported in assessment guidance; phrase as functional difficulties at required level, with special end-of-life rules."
+  },
+  "hmrc-carers-credit#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk Carer's Credit eligibility Universal Credit earnings lower earnings limit",
+      "site:gov.uk National Insurance credits carers Universal Credit Class 3 Carer's Allowance Class 1"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/carers-credit/eligibility",
+        "why": "Actual Carer's Credit qualifying conditions."
+      },
+      {
+        "url": "https://www.gov.uk/national-insurance-credits/eligibility",
+        "why": "Explains automatic UC and Carer's Allowance credits, but does not make UC a Carer's Credit disqualifier."
+      },
+      {
+        "url": "https://www.gov.uk/carers-allowance/effect-on-other-benefits",
+        "why": "Distinguishes UC Class 3 and Carer's Allowance Class 1 credits."
+      }
+    ],
+    "verdict_hint": "Claim is overbroad: UC receipt is not stated as a Carer's Credit exclusion; earnings over the Lower Earnings Limit alone is not shown as a disqualifier. Remove unsourced exclusions."
+  },
+  "nhs-continuing-healthcare#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk NHS continuing healthcare public leaflet primary health need nature intensity complexity unpredictability",
+      "site:nhs.uk continuing healthcare progressive illness terminal disability eligibility primary health need"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+        "why": "HTML public leaflet lists four assessment characteristics."
+      },
+      {
+        "url": "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/",
+        "why": "NHS eligibility examples and fast-track pathway for rapidly deteriorating/end-of-life needs."
+      }
+    ],
+    "verdict_hint": "Complexity, intensity and unpredictability are assessment factors, not mandatory combined thresholds; 'usually progressive serious illness, terminal condition, or severe disability' is unsupported as a general rule."
+  },
+  "other-carers-leave#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk carer's leave first day employee eligibility",
+      "site:acas.org.uk carer's leave employee worker self employed day one"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/carers-leave",
+        "why": "Government employee eligibility and day-one entitlement."
+      },
+      {
+        "url": "https://www.acas.org.uk/carers-leave",
+        "why": "ACAS states right belongs to those legally classed as employees from first day of work."
+      }
+    ],
+    "verdict_hint": "Employee-only statutory right is supported by ACAS. Avoid inferring that workers have no other contractual leave rights."
+  },
+  "other-motability#eligibility.criteria.0": {
+    "queries": [
+      "site:motability.co.uk eligible enhanced PIP higher DLA AFIP WPMS",
+      "site:gov.uk Motability Scheme qualifying mobility allowances PIP DLA AFIP WPMS"
+    ],
+    "urls": [
+      {
+        "url": "https://www.motability.co.uk/get-support/faqs/am-i-eligible/",
+        "why": "Service owner's complete qualifying-allowance list plus 12 months remaining requirement."
+      },
+      {
+        "url": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+        "why": "Government list of qualifying mobility benefits."
+      }
+    ],
+    "verdict_hint": "Claim omits Scottish Adult and Child Disability Payments and 12 months of award remaining; DLA is 'higher', not 'highest', mobility rate."
+  },
+  "sss-child-disability-payment#eligibility.criteria.1": {
+    "queries": [
+      "site:socialsecurity.gov.scot child disability payment substantially more care same age criteria",
+      "site:mygov.scot child disability payment care mobility disability child same age"
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/publications/2017/01/child-disability-payment-decision-making-guide/pages/care-component-definitions/common-definitions",
+        "why": "States substantial comparison with a child of the same age for care criteria."
+      },
+      {
+        "url": "https://www.socialsecurity.gov.scot/publications/2017/01/child-disability-payment-decision-making-guide/pages/care-component---rates-and-criteria/criteria-of-the-care-component",
+        "why": "Decision examples and care-rate criteria."
+      },
+      {
+        "url": "https://www.mygov.scot/child-disability-payment",
+        "why": "Public care and mobility descriptions."
+      }
+    ],
+    "verdict_hint": "Age comparison is supported for care component, but mobility has distinct age and functional tests; current claim merges them loosely."
+  },
+  "opg-lpa-activation#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk OPG notification donor death registered lasting power attorney",
+      "site:gov.uk Public Guardian practice note registered LPA donor dies report"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/public-guardian-practice-note-notification-of-death/public-guardian-practice-note-notification-of-death",
+        "why": "Expressly covers donor death of a registered LPA or EPA."
+      },
+      {
+        "url": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report",
+        "why": "General donor-death notification instructions."
+      }
+    ],
+    "verdict_hint": "Registered condition is supported by OPG practice note for this notification route; general page does not itself say 'registered'."
+  },
+  "opg-lpa-activation#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk notification death registered LPA OPG practice note",
+      "site:gov.uk manage lasting power attorney registered donor death notify OPG"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/public-guardian-practice-note-notification-of-death/public-guardian-practice-note-notification-of-death",
+        "why": "Scope section says notify death of donor of a registered enduring or lasting power of attorney."
+      },
+      {
+        "url": "https://www.gov.uk/manage-lasting-power-attorney",
+        "why": "Registered LPA must exist before attorney acts."
+      }
+    ],
+    "verdict_hint": "Practice note supports registered LPA, though it also covers registered EPA; do not claim reporting is impossible for all unregistered documents."
+  },
+  "dwp-pension-credit#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk pension credit eligibility reached state pension age",
+      "site:gov.uk state pension age timetable 66 to 67 2026"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/pension-credit/eligibility",
+        "why": "Pension Credit requires reaching State Pension age."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+        "why": "Age varies by date of birth during 2026-28 transition."
+      },
+      {
+        "url": "https://www.gov.uk/state-pension-age",
+        "why": "Individual age checker."
+      }
+    ],
+    "verdict_hint": "'Currently 66' is false as a universal threshold during the transition; use State Pension age rather than a fixed number."
+  },
+  "la-bus-pass#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk older person's bus pass England State Pension age disabled sooner",
+      "site:gov.uk state pension age timetable 2026 66 67"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+        "why": "England age rule, Wales/London variants and check-sooner route."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+        "why": "Shows 66-to-67 transition by date of birth."
+      },
+      {
+        "url": "https://www.gov.uk/apply-for-disabled-bus-pass",
+        "why": "Separate disability bus-pass route."
+      }
+    ],
+    "verdict_hint": "Fixed 66 is misleading; England age depends on birth date. London and Wales have different older-pass ages, so retain geography qualifier."
+  },
+  "sss-funeral-support-payment#eligibility.criteria.2": {
+    "queries": [
+      "site:mygov.scot funeral support payment funeral UK or EEA Switzerland eligibility",
+      "site:socialsecurity.gov.scot funeral support payment exceptional outside UK funeral"
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+        "why": "UK funeral rule and EU/EEA/Swiss exceptions."
+      },
+      {
+        "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+        "why": "Public wording says UK or some circumstances another country."
+      }
+    ],
+    "verdict_hint": "'Must take place in UK' is false without exception; official guidance also allows exceptional non-UK funerals. Scotland residence is supported."
+  },
+  "dwp-bereavement-support#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk bereavement support payment eligibility under State Pension age partner died",
+      "site:gov.uk state pension age timetable 66 to 67 2026"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/bereavement-support-payment/eligibility",
+        "why": "Claimant must have been under State Pension age when partner died."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+        "why": "Age varies with birth date during 2026-28."
+      },
+      {
+        "url": "https://www.gov.uk/state-pension-age",
+        "why": "Individual checker."
+      }
+    ],
+    "verdict_hint": "Parenthetic 66 can misstate the historical age at the partner's death; use State Pension age at that date."
+  },
+  "dwp-bereavement-support#eligibility.criteria.2": {
+    "queries": [
+      "site:gov.uk bereavement support payment 25 weeks Class 1 Class 2 one tax year",
+      "site:legislation.gov.uk Pensions Act 2014 bereavement contribution 25 times lower earnings limit one tax year"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/bereavement-support-payment/eligibility",
+        "why": "Public page says a certain amount of Class 1/2 contributions in any one tax year or work-related death."
+      },
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/2014/19/part/5/made",
+        "why": "Statute frames amount as earnings factor at least 25 times that year's lower earnings limit in one tax year."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/dwp-statistical-summary-policies-and-statements/bereavement-support-payment-statistics-background-information-and-methodology",
+        "why": "DWP statistics explainer uses 25 weeks shorthand."
+      }
+    ],
+    "verdict_hint": "'25 weeks' is shorthand and may imply 25 separate contribution weeks; precise statutory test is actual Class 1/2 contributions and an earnings factor of at least 25 times LEL in one tax year."
+  },
+  "gro-register-death#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk register death England Wales Scotland Northern Ireland abroad routes",
+      "site:gov.uk after a death register death England Wales foreign deaths"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/after-a-death",
+        "why": "England/Wales registration flow and links to other routes."
+      },
+      {
+        "url": "https://www.gov.uk/after-a-death/death-abroad",
+        "why": "Different rules for deaths abroad and in Scotland/NI."
+      },
+      {
+        "url": "https://www.gov.uk/register-a-death",
+        "why": "Broad register-a-death landing page, including UK and abroad."
+      }
+    ],
+    "verdict_hint": "The selected England/Wales criterion is apt only for the England/Wales route; the broad register-a-death landing page covers deaths elsewhere. Avoid using it to prove a strict universal exclusion."
+  },
+  "hmcts-probate#eligibility.criteria.0": {
+    "queries": [
+      "site:gov.uk applying for probate sole name assets when needed",
+      "site:gov.uk probate joint tenants tenants in common estate assets solely owned"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/applying-for-probate",
+        "why": "Explains when probate may be needed; joint tenants' assets usually pass automatically and banks have own rules."
+      },
+      {
+        "url": "https://www.gov.uk/joint-property-ownership",
+        "why": "Distinguishes joint tenants from tenants in common and what happens on death."
+      }
+    ],
+    "verdict_hint": "'Sole name' is too strict as an eligibility criterion. Tenants-in-common interests can require probate and some solely held savings may not."
+  },
+  "ho-citizenship-ceremony#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.uk citizenship ceremony children under 18 parent ceremony certificate",
+      "site:gov.uk citizenship ceremonies attend in person 18 local authority abroad embassy"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh",
+        "why": "Says under-18 applicants with parents may attend family ceremony or family member may collect certificate."
+      },
+      {
+        "url": "https://www.gov.uk/citizenship-ceremonies",
+        "why": "Adults' attendance rule and local-authority or embassy/consulate booking."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/children-nationality-policy-guidance/registration-as-british-citizen-children-accessible",
+        "why": "Current Home Office policy says children have no legal attendance requirement."
+      }
+    ],
+    "verdict_hint": "Children can attend if part of successful family application, but are not required; 'included on a parent's ceremony' needs this qualifier. Main page requires adults to attend, but does not explicitly say 'in person'."
+  }
+}

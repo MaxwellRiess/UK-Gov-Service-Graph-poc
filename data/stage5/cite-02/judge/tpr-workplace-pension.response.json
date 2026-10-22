@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Employers must send a letter of compliance to The Pensions Regulator.",
+          "verdict": "contradicted",
+          "quote": "You must complete your declaration of compliance to tell us how you have met your legal duties.",
+          "source": 4,
+          "note": "The required submission is a declaration of compliance; the regulator sends the employer a letter with a code."
+        },
+        {
+          "claim": "The declaration of compliance must be completed within five months of the duties start date.",
+          "verdict": "supported",
+          "quote": "You must complete your declaration with The Pensions Regulator within five calendar months after your duties start date.",
+          "source": 4,
+          "note": "Supported by the cited source."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

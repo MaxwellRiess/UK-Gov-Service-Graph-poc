@@ -1,0 +1,55 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "The claimant must have been under State Pension age when their partner died.",
+          "verdict": "supported",
+          "quote": "When your partner died, you must have been: under State Pension age",
+          "source": 0,
+          "note": "The source states the timing and age requirement."
+        },
+        {
+          "claim": "State Pension age is currently 66.",
+          "verdict": "contradicted",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "source": 6,
+          "note": "The age varies by date of birth during the 2026–2028 transition and is not fixed at 66."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The deceased partner must have paid National Insurance contributions for at least 25 weeks unless the work-related death alternative applies.",
+          "verdict": "supported",
+          "quote": "A claimant is eligible if their partner either paid National Insurance contributions for at least 25 weeks or died due to an accident at work or disease caused by work.",
+          "source": 9,
+          "note": "The source states the 25-week route and the alternative."
+        },
+        {
+          "claim": "The qualifying contributions are Class 1 or Class 2 National Insurance contributions.",
+          "verdict": "supported",
+          "quote": "paid a certain amount of Class 1 or Class 2 National Insurance contributions in any one tax year since 6 April 1975",
+          "source": 0,
+          "note": "The source names both contribution classes."
+        },
+        {
+          "claim": "A deceased partner’s death from an accident at work or disease caused by work is an alternative qualifying route.",
+          "verdict": "supported",
+          "quote": "died because of an accident at work or a disease caused by work",
+          "source": 0,
+          "note": "The source states the work-related death alternative."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

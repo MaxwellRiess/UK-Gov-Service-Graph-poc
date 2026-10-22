@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "An older person must have reached State Pension age to get a bus pass.",
+          "verdict": "contradicted",
+          "quote": "In Wales you can get a bus pass when you reach 60.",
+          "source": 0,
+          "note": "The State Pension age rule applies in England, while Wales allows the pass at 60 and Scotland and Northern Ireland also use 60."
+        },
+        {
+          "claim": "State Pension age is currently 66.",
+          "verdict": "contradicted",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "source": 1,
+          "note": "The age is rising in stages during 2026–2028, so it is not uniformly 66 now."
+        },
+        {
+          "claim": "Some disabled people can qualify for a bus pass before reaching the older-person qualifying age.",
+          "verdict": "partly_supported",
+          "quote": "You’re eligible for a disabled person’s pass if you live in England and are ‘eligible disabled’.",
+          "source": 2,
+          "note": "The source confirms a disabled-person route but does not expressly state that it is available before the older-person qualifying age."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

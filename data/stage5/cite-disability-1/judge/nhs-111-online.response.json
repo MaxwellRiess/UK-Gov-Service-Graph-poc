@@ -1,0 +1,74 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "NHS 111 online is free to use.",
+          "verdict": "supported",
+          "quote": "NHS 111 Online is free to use for the public",
+          "source": 3,
+          "note": "The NHS Digital article explicitly describes the service as free to the public."
+        },
+        {
+          "claim": "Anyone in England can use NHS 111 online for symptoms.",
+          "verdict": "partly_supported",
+          "quote": "NHS 111 online is for people in England aged 5 and over who need&#xa0;urgent health care advice&#xa0;but it’s not a life-threatening situation.",
+          "source": 1,
+          "note": "Symptom triage is for people aged five or over, although an emergency prescription can be requested for someone of any age."
+        },
+        {
+          "claim": "NHS 111 online is available 24 hours a day, 7 days a week.",
+          "verdict": "supported",
+          "quote": "operational and supported 24 hours a day, 365 days a year.",
+          "source": 1,
+          "note": "The stated round-the-year operation includes every day of the week."
+        },
+        {
+          "claim": "Use NHS 111 online when you need medical help fast but the situation is not life-threatening.",
+          "verdict": "supported",
+          "quote": "NHS 111 online is for people in England aged 5 and over who need&#xa0;urgent health care advice&#xa0;but it’s not a life-threatening situation.",
+          "source": 1,
+          "note": "The page gives this urgent, non-life-threatening use case for people aged five or over."
+        },
+        {
+          "claim": "The service assesses your symptoms.",
+          "verdict": "supported",
+          "quote": "It helps people with an urgent medical need to get assessed and directed to the right care",
+          "source": 1,
+          "note": "The service assesses urgent medical needs and directs users to care."
+        },
+        {
+          "claim": "The service may advise you to go to A&E.",
+          "verdict": "supported",
+          "quote": "call 999 or go to A&E in an emergency",
+          "source": 1,
+          "note": "A&E is listed as a possible outcome."
+        },
+        {
+          "claim": "The service may advise you to see a GP urgently.",
+          "verdict": "supported",
+          "quote": "see an evening and weekend GP (out-of-hours GP)",
+          "source": 1,
+          "note": "The urgent care outcomes include an evening or weekend GP."
+        },
+        {
+          "claim": "The service may advise you to visit a pharmacy.",
+          "verdict": "supported",
+          "quote": "see a pharmacist for help with a minor illness",
+          "source": 1,
+          "note": "A pharmacist is listed as a possible outcome."
+        },
+        {
+          "claim": "The service may advise you to treat yourself at home.",
+          "verdict": "supported",
+          "quote": "If you're told it’s safe to look after yourself, we'll tell you how to do that at home.",
+          "source": 2,
+          "note": "The service may give self-care advice for home."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": ["online", "phone"],
+  "sign_in_on_page": null
+}

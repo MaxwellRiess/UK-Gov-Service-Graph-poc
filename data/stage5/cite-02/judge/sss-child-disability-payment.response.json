@@ -1,0 +1,32 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "A child can qualify for Child Disability Payment because of a physical or mental disability.",
+          "verdict": "supported",
+          "quote": "You can apply for children under 16 with a physical or mental disability.",
+          "source": 0,
+          "note": "The source expressly names physical and mental disabilities."
+        },
+        {
+          "claim": "For the care component, a child under 16 must need substantially more care or supervision than a child of the same age.",
+          "verdict": "supported",
+          "quote": "The individual’s need for attention or supervision either: must be substantially more than would be expected for a person of the same age",
+          "source": 1,
+          "note": "The source states the same-age comparison for under-16 care needs."
+        },
+        {
+          "claim": "A child may qualify for the mobility component because of difficulty walking.",
+          "verdict": "supported",
+          "quote": "Higher This is a weekly rate of £80. It's for a child who is 3 or older and either: unable to walk unable to walk outdoors whose health would get worse from walking",
+          "source": 0,
+          "note": "The source gives walking difficulty as a mobility route."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

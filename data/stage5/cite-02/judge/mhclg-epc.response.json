@@ -1,0 +1,48 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "An EPC is legally required when a property is sold or let.",
+          "verdict": "partly_supported",
+          "quote": "You must have an EPC when you’re: selling a property renting out a property building a new property",
+          "source": 1,
+          "note": "The source states the general requirement but also lists buildings and circumstances that do not need an EPC."
+        },
+        {
+          "claim": "Buyers can search for an EPC for free.",
+          "verdict": "supported",
+          "quote": "Use the find an energy certificate service to check if your property has a valid EPC and download it for free.",
+          "source": 1,
+          "note": "The service allows a free EPC check and download."
+        },
+        {
+          "claim": "Tenants can search for an EPC for free.",
+          "verdict": "supported",
+          "quote": "Use the find an energy certificate service to check if your property has a valid EPC and download it for free.",
+          "source": 1,
+          "note": "The service allows a free EPC check and download."
+        },
+        {
+          "claim": "Homeowners can search for an EPC for free.",
+          "verdict": "supported",
+          "quote": "Use the find an energy certificate service to check if your property has a valid EPC and download it for free.",
+          "source": 1,
+          "note": "The service allows a free EPC check and download."
+        },
+        {
+          "claim": "Landlords renting property in England and Wales must have an EPC rating of E or above.",
+          "verdict": "partly_supported",
+          "quote": "Since 1 April 2020, landlords can no longer let or continue to let properties covered by the MEES Regulations if they have an EPC rating below E, unless they have a valid exemption in place.",
+          "source": 4,
+          "note": "The E minimum applies to covered domestic private rented properties and allows valid exemptions, not every rental property."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

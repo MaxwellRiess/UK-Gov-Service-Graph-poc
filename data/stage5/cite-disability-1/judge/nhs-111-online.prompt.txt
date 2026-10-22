@@ -1,0 +1,129 @@
+A service graph describes the UK government service "NHS 111 online" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/cite-disability-1/judge/nhs-111-online.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[summary] (split into claims) Free for anyone in England, 24 hours a day, 7 days a week. Use NHS 111 when you need medical help fast but the situation is not life-threatening. The service assesses your symptoms and advises whether to go to A&E, see a GP urgently, visit a pharmacy, or treat yourself at home.
+
+--- SOURCE 0: https://111.nhs.uk ---
+111 online Get help for your symptoms 111 online Get help for your symptoms If you think you need medical help right now, 111 online can tell you what to do next. I want to get: help for my symptoms or injury dental help mental health help sexual health help a prescription or medicines information Other ways to contact 111 if you have a hearing problem or need help in other languages Using the NHS App You can get help for your symptoms from 111 online in the NHS App. You can also: request GP appointments manage hospital referrals order repeat prescriptions Find out more about the NHS App See more NHS services Find out about GPs, pharmacies and hospitals, other services near you, and online services to manage your health. Find more services on the NHS website How 111 online works 111 online will not give you a diagnosis, but we will direct you to the best place to get help for your symptoms. We cannot: issue fit notes - you need to contact your GP surgery make or cancel appointments for you in other parts of the NHS Read about how 111 online works in detail NHS 111 online is available in England only. Get help in: Northern Ireland Scotland Wales I want to get: help for my symptoms or injury dental help mental health help sexual health help a prescription or medicines information Other ways to contact 111 if you have a hearing problem or need help in other languages Using the NHS App You can get help for your symptoms from 111 online in the NHS App. You can also: request GP appointments manage hospital referrals order repeat prescriptions Find out more about the NHS App See more NHS services Find out about GPs, pharmacies and hospitals, other services near you, and online services to manage your health. Find more services on the NHS website How 111 online works 111 online will not give you a diagnosis, but we will direct you to the best place to get help for your symptoms. We cannot: issue fit notes - you need to contact your GP surgery make or cancel appointments for you in other parts of the NHS Read about how 111 online works in detail NHS 111 online is available in England only. Get help in: Northern Ireland Scotland Wales
+
+--- SOURCE 1 (FOUND): https://digital.nhs.uk/services/nhs-111-online ---
+NHS 111 online NHS 111 online helps people with an urgent medical need to get assessed and directed to the right care.&#xa0;This page provides information for NHS staff and internal users. Page contents Top of page About this service Who this service is for How this service works Benefits Status, service level and current usage How to access this service Contact us Related services Further information Get help for your symptoms About this service NHS 111 online is an alternative to the NHS 111 phone service. It helps people with an urgent medical need to get assessed and directed to the right care, especially if they can't contact their GP, or when their GP is closed.&#xa0; 111 online can be accessed using the website or via the NHS App&#xa0;on a&#xa0;smartphone or tablet.&#xa0;British Sign Language (BSL) speakers can use&#xa0; https://signvideo.co.uk/nhs111/ &#xa0;and text relay users can call 18001 111, 24 hours a day. This page provides information for NHS staff and internal users. If you need help with your symptoms, go to&#xa0; 111.nhs.uk &#xa0;or call 111. Who this service is for NHS 111 online is for people in England aged 5 and over who need&#xa0;urgent health care advice&#xa0;but it’s not a life-threatening situation.&#xa0; How this service works People can choose what help they need using the options on the NHS 111 online homepage .&#xa0; If someone is worried about a symptom, they will enter their age, sex, postcode and choose the symptom that's bothering them most today. They will be asked a series of questions about their health problem and then they will get advice on what to do next. You can read more&#xa0; detailed information on how the service works on the NHS website &#xa0;or&#xa0; see a high level process map&#xa0; of the user journey. Depending on what the person needs, they might be advised to: call 999 or go to A&E in an emergency go to an&#xa0; urgent treatment centre see an evening and weekend GP (out-of-hours GP) book a callback from a nurse get urgent specialist support, for dental or mental health problems contact their own GP surgery see a pharmacist for help with a minor illness look after themself&#xa0;safely at home The NHS 111 online triage service is for people aged 5 and over. People can get an emergency supply of regularly prescribed medicine for someone of any age on NHS 111 online.&#xa0; Benefits Benefits of NHS 111 online a fast and convenient alternative to the NHS 111 phone service, for people who want to access it digitally a way to signpost people to the right NHS service to use when they need urgent help, so people can be treated in the most appropriate care setting for their needs Status, service level and current usage The service is live . NHS 111 online was launched in 2017 and currently has around 550,000 completed triages per month.&#xa0; It's a&#xa0; platinum &#xa0;service.&#xa0;This means it is operational and supported 24 hours a day, 365 days a year. How to access this service NHS 111 online can be accessed in the following ways: go to&#xa0; 111.nhs.uk &#xa0; open or download the&#xa0;NHS App&#xa0;on your smartphone or tablet and log in or register to use NHS 111 online on the app British Sign Language (BSL) speakers can use&#xa0; https://signvideo.co.uk/nhs111/ text relay users can call 18001 111, 24 hours a day&#xa0; Contact us Enquiry Point of contact Internal NHS enquiries National Service Desk Online portal:&#xa0; NHS England Customer Portal Email:&#xa0; [email protected] Telephone:&#xa0; 0300 303 5035 Other general enquiries about the service Email:&#xa0; [email protected] Related services Service Relationship NHS Pathways NHS 111 online uses the same triage algorithm as the NHS 111 phone service, which is called NHS Pathways.&#xa0; Directory of Services Directory of Services (DoS) is used to signpost users to the most appropriate service for their healthcare need. NHS App&#xa0; The NHS App provides a simple and secure way for people to access NHS 111 online&#xa0;on their smartphone or tablet. Further information Find out more about&#xa0; when to use NHS 111 online or call 111 . NHS 111 online is a Class 1 medical device . &#xa0; Last edited: 24 August 2026 4:16 pm
+
+--- SOURCE 2 (FOUND): https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/how-nhs-111-online-works/ ---
+How NHS 111 online works NHS 111 online ( 111.nhs.uk ) is a digital triage service, available in England only. We use the same system ("algorithm") as the 111 phone service. It is for people aged 5 and over. What a triage service does You answer a series of questions about your main symptom. The more questions there are the less serious it's likely to be. You will not get a diagnosis, but you will find out what help you need. Knowing who and where you are You can answer the questions yourself or on behalf of someone else. You do not need to tell us who you are, but if we refer you to another service we will need some personal details. We ask for your location so we can find local services to help you. Choosing the right symptom 111 online has about 120 topics, covering most common symptoms. We can triage one symptom at a time. If you have multiple symptoms, pick the one that is bothering you most. We cannot give advice about conditions you already know you have. Finding out what to do next Based on your answers, we tell you what to do next. There are different types of outcomes. Getting a callback from a nurse If your symptoms mean you need a callback from a nurse, you will be offered one and given a timeframe. You cannot request a callback. 111 online users or people who have called 111 go into the same callback queue and the waiting times are the same. Referral to other urgent care services You might be referred to urgent care services you can contact yourself or visit. These include: urgent treatment centres evening and weekend GPs specialist support for sexual or mental health A&E departments Contacting your GP surgery During daytime weekday hours, you might be advised to contact your own GP. We cannot make an appointment with your GP for you. If other services are available instead of your GP, we will show them to you. Dentists and opticians If you need to go to a dentist, or an opticians, we'll tell you how to find one or you can contact your own. Some areas have emergency dentists we can show you. Pharmacists You might be referred to a pharmacist for help with a minor illness. Pharmacists can also give you an emergency supply of some prescribed medicines if you’ve run out. Self-care If you're told it’s safe to look after yourself, we'll tell you how to do that at home. Page last reviewed: 14 November 2022 Next review due: 14 November 2025
+
+--- SOURCE 3 (FOUND): https://digital.nhs.uk/blog/transformation-blog/2017/how-were-supporting-urgent--emergency-care-services-this-winter ---
+How we’re supporting Urgent & Emergency Care services this winter By Amanda Neylon. 8 September 2017.&#xa0; In the NHS, we faced a very challenging winter in 2016/17. Some patients waited unacceptably long times in A&E departments for admission to hospital, others spent long periods in hospital when they were clinically ready for discharge. So huge efforts are being made to improve services for this winter. At NHS Digital, we have a key role alongside our local and national colleagues to play in enabling the wider system changes that are aimed to reduce the pressure on A&E, through providing existing and new digital services. We have a Five Year Forward View strategy for the NHS in England which sets out our technology commitment for urgent and emergency care. Some of the things that we know are important include enabling every A&E, Urgent Treatment Centre and ePrescribing pharmacy access to extended patient data either through the Summary Care Record or local care record sharing services. Plus access to primary care records, mental health crisis and end of life plan information. Clinicians being able to access quality, relevant personal information, particularly mental health and end of life care, during the 111 triages, mean that they are able to triage more effectively and thus reduce the impact on Urgent & Emergency Care. 111 teams being able to book patients directly, which reduces the likelihood of patients ignoring the advice and going direct to A&E. For winter 2017, we are working to have in place systems for booking appointments from 111 services into Urgent Treatment Centres and GP out of hours practices, and from Urgent Treatment Centres into GP out of hours practices. We’ve also started working with suppliers to seamlessly route electronic prescriptions from NHS 111 and GP out of hours to pharmacies via the Electronic Prescription Service (EPS). Patients being able to pick up their prescriptions direct from their local pharmacy after speaking to a 111 clinician, will help to reduce pressures on the Urgent & Emergency Care system and the number of interactions for patients. NHS 111 Online provides a service for those patients accessing urgent care services, who prefer to engage digitally, and helps to manage increasing demand on 111 telephony services.&#xa0;Four different NHS 111 Online products are currently being piloted in Leeds (NHS Pathways), Suffolk (Expert 24), North London (Babylon) and the West Midlands (Sensely) – two apps and two responsive web based tools. NHS 111 Online is free to use for the public and it helps to direct the patient to the right point of care first time. Over the next few months, we will be rolling out these NHS 111 online digital services to our priority areas to connect patients to Integrated Urgent Care services via NHS 111 . We continue to provide NHS Pathways, a clinical tool used for assessing, triaging and directing telephone calls from the public to urgent and emergency care services such as 999, GP out-of-hours and NHS 111, based on the symptoms they report when they call. It has an integrated directory of services, which identifies appropriate services for the patient’s care if an ambulance is not required. NHS Pathways handles more than 14 million calls made to the NHS per year and is used to support local 111 and 999 services. In addition for this winter, we’ve got an Intelligent Data Tool in the form of performance management and commissioner dashboards to provide data on 111 and 999 services using NHS Pathways in a simple, easy to read and analyse format. We’re also trying to make changes to the Directory of Services (DoS), which provides information on services that a patient can be referred in to. These will improve usability and the accuracy of search returns, such as the way service results are ranked. We’re working closely with the Urgent & Emergency Care and regional NHS teams across the country and are here to help NHS staff as we approach the winter. If you’d like to get in touch regarding our work and programmes, please contact us on 0300-303-5678 or [email protected] Last edited: 11 September 2018 11:12 am

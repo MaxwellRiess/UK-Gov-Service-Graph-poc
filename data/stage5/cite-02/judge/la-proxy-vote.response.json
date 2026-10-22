@@ -1,0 +1,84 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "A voter must be registered to vote to apply for a proxy vote.",
+          "verdict": "supported",
+          "quote": "You and your proxy must both be registered to vote in the UK before you can apply.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Proxy voting is available when a voter cannot attend a polling station in person.",
+          "verdict": "supported",
+          "quote": "You can get someone else to vote on your behalf (a proxy) if you cannot go to the polling station in person.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Being away for work can be a reason for a proxy vote.",
+          "verdict": "supported",
+          "quote": "You are away for work (PDF)",
+          "source": 2,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Illness can be a reason for a proxy vote.",
+          "verdict": "supported",
+          "quote": "having a medical issue or disability",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Being abroad can be a reason for a proxy vote.",
+          "verdict": "supported",
+          "quote": "If you want to vote by proxy and you live abroad, apply for a proxy vote as soon as possible.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Disability can be a reason for a proxy vote.",
+          "verdict": "supported",
+          "quote": "You have a disability (PDF)",
+          "source": 2,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The proxy must be a registered UK voter.",
+          "verdict": "supported",
+          "quote": "You and your proxy must both be registered to vote in the UK before you can apply.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The standard proxy deadline is six working days before the election.",
+          "verdict": "partly_supported",
+          "quote": "You must apply by: 5pm, 6 working days before election day in England, Scotland or Wales 5pm, 14 working days before election day in Northern Ireland",
+          "source": 3,
+          "note": "The six-working-day deadline is for England, Scotland and Wales; Northern Ireland has a 14-working-day deadline."
+        },
+        {
+          "claim": "An emergency proxy can be requested after the standard deadline.",
+          "verdict": "supported",
+          "quote": "If the proxy vote deadline has passed you may be able to apply for an emergency proxy vote",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "An emergency proxy can be requested until 5pm on polling day.",
+          "verdict": "partly_supported",
+          "quote": "In England, Scotland and Wales, you have until 5pm on the day of the election to apply.",
+          "source": 3,
+          "note": "The 5pm election-day deadline applies in England, Scotland and Wales, while Northern Ireland does not offer an emergency proxy."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

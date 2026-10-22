@@ -1,0 +1,41 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Every charitable collection in a public street or place in England and Wales needs a street collection licence.",
+          "verdict": "contradicted",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "source": 0,
+          "note": "The page says a licence might be needed depending on the council, rather than for every collection."
+        },
+        {
+          "claim": "A street collection licence is free to obtain.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "Neither source states a fee or says the licence is free."
+        },
+        {
+          "claim": "Greater London collections outside the City of London go through the Metropolitan Police.",
+          "verdict": "supported",
+          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+          "source": 0,
+          "note": "The source identifies the Metropolitan Police route and the City of London exception."
+        },
+        {
+          "claim": "Collecting for charity without a licence can lead to a £200 fine.",
+          "verdict": "supported",
+          "quote": "You could be fined £200 if you collect money for charity without a licence.",
+          "source": 0,
+          "note": "The source states the possible £200 fine."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

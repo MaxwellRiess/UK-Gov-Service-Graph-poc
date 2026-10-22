@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Motability scheme" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/cite-02/judge/other-motability.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[criterion_0] (split into claims) Receiving the Enhanced Rate of the Mobility Component of PIP (or equivalent: DLA highest rate mobility, AFIP or WPMS).
+
+--- SOURCE 0: https://www.motability.co.uk/ ---
+Move your way Use your qualifying mobility allowance to lease a brand-new vehicle. We’ll cover your insurance, servicing and breakdown. You choose who drives, and we take care of the rest. We’re the service that keeps you moving. Search cars Get help and information
+
+--- SOURCE 1 (FOUND): https://www.motability.co.uk/get-support/faqs/am-i-eligible/ ---
+Home Get support FAQs Am I eligible to join the Scheme? Back to FAQs Am I eligible to join the Scheme? You can apply to join the Motability Scheme if you receive one of these disability allowances: Enhanced rate mobility part of Personal Independence Payment (PIP) Higher rate mobility part of Disability Living Allowance (DLA) Enhanced rate mobility part of Adult Disability Payment (Scotland) Higher rate mobility component of Child Disability Payment (Scotland) War Pensioners’ Mobility Supplement (WPMS) Armed Forces Independence Payment (AFIP) You need to have at least 12 months left on your allowance if you&#x27;re applying to join the Scheme. You can check your award length on your allowance award letter, or you can contact your allowance provider. If you have less than 12 months You&#x27;ll need to wait until your allowance provider renews your allowance. Allowances we cannot accept You cannot apply to join the Scheme if you receive a lower rate or component of mobility allowance or if you receive Attendance Allowance, Carer’s Allowance or Employment and Support Allowance (ESA). Speak to your allowance provider if you think you could be eligible for one of the qualifying mobility allowances. If you’re 65 or over You can apply as long as you already receive one of the qualifying allowances and it has at least 12 months left. Check if you&#x27;re eligible Learn more about allowances Find a vehicle Related FAQs Can two people in my home be on the Scheme? You can have as many people in your home on the Scheme as you want, as long as they’re all eligible to join. Read more Can I join the Scheme on Attendance Allowance? You cannot apply to join the Scheme if you receive Attendance Allowance. Read more Can young people join the Scheme? Young people can join the Scheme, but what they can do and how they join depends on their age and whether they’re the customer. Read more Can young drivers join the Scheme? You can only have one driver under 21 on your Certificate of Motor Insurance. This could be the disabled customer, or another driver living at the same address. Read more What are location trackers? Location trackers are one of the ways we make sure our vehicles are being used for the benefit of our customers. Read more See more FAQs
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/financial-help-disabled/vehicles-and-transport ---
+Financial help if you're disabled. Financial help if you're disabled - benefits, housing costs, council tax, vehicle tax exemption, TV Licence, motability schemes, VAT relief There is a wide range of disability-related financial support, including benefits, payments, grants and concessions. Some benefits you might get are: Universal Credit Personal Independence Payment ( PIP ) or Disability Living Allowance ( DLA ) Attendance Allowance New Style Employment and Support Allowance ( ESA ) Depending on your circumstances, you might also be able to get: Industrial Injuries Benefit if you’re disabled as a result of work Constant Attendance Allowance if you need daily care and attention because of a disability This guide is also available in Welsh (Cymraeg) . Vehicles and transport If you’re disabled you can apply for the following: exemption from paying vehicle tax parking benefits - Blue Badge disabled persons bus pass or Disabled Persons Railcard help to buy or lease a car from the Motability Scheme Home and housing If you’ve been assessed by your local council as needing care and support services, you can get: Direct payments - allowing you to buy in and arrange help yourself instead of getting it directly from social services Disabled Facilities Grants - which is money towards the costs of home adaptations to enable you to continue living there If you’re on a low income You may be eligible for Universal Credit and could get help with housing costs . If not, check if you’re eligible for Housing Benefit and Council Tax Reduction from your local council. Help if you’re employed You may be able to top up a low salary by claiming Universal Credit . You also might be able to get an Access to Work grant to pay for: special equipment, adaptations or support worker services to help you do things like answer the phone or go to meetings help getting to and from work mental health support communication support at a job interview (for example, a British Sign Language interpreter or a lipspeaker) VAT relief on certain goods and services You do not have to pay VAT on certain goods and services if they’re just for your own use and you’re disabled or have a long term illness. Armed forces compensation You may be able to get compensation if you’ve been injured or disabled while serving in the armed forces. If you’re living with a health condition or disability, or caring for someone who does, you may be eligible for certain benefits. If you previously received tax credits Tax credits ended on 5 April 2025. You might be able to claim an additional payment if you’ve recently been awarded any disability benefit backdated to include a period when you received tax credits. Phone HMRC to find out if you can claim an additional tax credits payment. You must do this within one month of being told about your disability benefit award. Disability Living Allowance for children Disability Living Allowance for children ( DLA ) is a tax-free benefit for children under 16 to help with the extra costs caused by long-term ill health or a disability. Disability Living Allowance for adults Personal Independence Payment is gradually replacing DLA for adults with long-term ill health or a disability. If you’ve reached State Pension age you can apply for Attendance Allowance instead. Personal Independence Payment Personal Independence Payment ( PIP ) is a tax-free benefit for people aged 16 or over who have not reached State Pension age . It can help with the extra costs caused by long term ill-health or a disability. Attendance Allowance Attendance Allowance is a tax-free benefit for people who are State Pension age or over, have a disability and need someone to help look after them. Employment and Support Allowance You may be able to get New Style Employment and Support Allowance ( ESA ) if you cannot work because of illness or disability. Carers Carer’s Allowance is extra money to help you look after someone with substantial caring needs. You could also get Carer’s Credit so there will not be any gaps in your National Insurance record if you have to take on caring responsibilities. You’ll need to meet the legal obligations for drivers before you can drive. Blue Badge parking scheme The Blue Badge scheme provides a range of parking benefits for disabled people with severe walking difficulties who travel either as drivers or as passengers. Vehicle tax exemption You can get a vehicle tax exemption for one vehicle, if you’re eligible. The vehicle must be registered in the disabled person’s name or their nominated driver’s name. The vehicle must be used for a disabled person’s personal needs. It cannot be used by the nominated driver for their own personal use. Eligibility You can apply for exemption from paying vehicle tax if you get the: higher rate mobility component of Disability Living Allowance ( DLA ) enhanced rate mobility component of Personal Independence Payment ( PIP ) enhanced rate mobility component of Adult Disability Payment ( ADP ) Scottish Adult Disability Living Allowance higher rate mobility component of Child Disability Payment War Pensioners’ Mobility Supplement Armed Forces Independence Payment How to claim You claim the exemption when you apply for vehicle tax . If you’re claiming for a vehicle for the first time, you have to claim at a Post Office . You must do this every time you change your vehicle. Vehicle tax reduction You can get a 50% reduction in vehicle tax on one vehicle, if you’re eligible. The vehicle must be registered in the disabled person’s name or their nominated driver’s name. Eligibility You can get the reduction if you get the: PIP standard rate mobility component ADP standard rate mobility component You cannot get a reduction for getting the DLA lower rate mobility component . How to claim You must include the following with your application: a letter or statement from the Department for Work and Pensions that shows your PIP rate and the dates you’re getting it - if you’re getting PIP an ADP decision letter from Social Security Scotland that shows your mobility component rate and the dates you’re getting it - if you’re getting ADP the vehicle log book (V5C) a V10 form evidence of a current MOT, if you need one - for example, a copy of your vehicle’s MOT history or your MOT certificate, if you have one an original goods vehicle testing (GVT) certificate, if you need one a cheque or payable order (made out to ‘ DVLA , Swansea’) for 50% of the full rate of car tax for the vehicle an insurance certificate or cover note (if you live in Northern Ireland) Do not send your PIP assessment or any other medical information with your application. If you’ve just bought the vehicle and it’s not registered in your name yet, you’ll need to complete a V62 form and include the green ‘new keeper’ slip from the log book with your application. Send the documents to: DVLA Swansea SA99 1BF If the vehicle is not registered to you or the nominated driver When you make your application you will need to include a signed letter from the vehicle’s registered keeper. This needs to say: how they know you how the vehicle will be used, for example picking up your prescription or shopping The Motability Scheme The Motability Scheme can help you with leasing a car, powered wheelchair or scooter. You’ll need to be getting one of the following: higher rate of the mobility component of DLA higher rate of the mobility component of Child Disability Payment War Pensioners’ Mobility Supplement Armed Forces Independence Payment enhanced rate of the mobility component of PIP enhanced rate mobility component of Adult Disability Payment VAT relief for vehicles You may not have to pay VAT on having a vehicle adapted to suit your condition, or on the lease of a Motability vehicle - this is known as VAT relief . Community and public transport Your local council may operate dial-a-ride or taxi schemes, for example, using vouchers or tokens. You may also be eligible for a bus pass, a Disabled Persons Railcard or both. Direct payments - arranging your own care and services If you’ve been assessed by your local council as needing care and support services, you may want to choose direct payments . They allow you to buy in and arrange help yourself instead of receiving it directly from your local council. Disabled Facilities Grants Disabled Facilities Grants are local council grants. It helps towards the cost of essential adaptations to your home to enable you to continue to live there. Council Tax Disabled Band Reduction Scheme You may be entitled to a reduction in your Council Tax bill if your home has certain features that are essential to you living there. Example You have an extension for a downstairs bedroom, increasing the size of your property, which means you have to pay more Council Tax. However, as the room has been built because of your disability, you can get your new higher rate of Council Tax reduced, so you pay the same as before. Contact your local council to apply for Council Tax Disabled Band Reduction . If you’re on a low income Universal Credit If you’re eligible for Universal Credit you could get help paying for your housing . Housing Benefit Housing Benefit is being replaced by Universal Credit. Most people will need to claim Universal Credit instead. Check if you’re eligible for Housing Benefit before you apply. You may also get a Council Tax Reduction from your local council . Universal Credit You may be able to get Universal Credit if you’re on a low income or out of work. Check if you’re eligible for Universal Credit . Jobseeker’s Allowance ( JSA ) You may be able to claim New Style JSA . You’ll need to have worked as an employee and paid Class 1 National Insurance contributions, usually in the last 2 to 3 years. National Insurance credits can also count. You will not be eligible if you were self-employed and only paid Class 2 National Insurance contributions, unless you were working as a share fisherman or a volunteer development worker. You’ll also need to take reasonable steps to look for work. Check if you’re eligible for New Style JSA . Blind Person’s Allowance The Blind Person’s Allowance allows you to receive an amount of income without having to pay tax. It’s added to your personal tax allowance. You can get 50% off the cost of your TV licence if either: you’re registered blind or severely sight impaired you live with someone who is registered blind or severely sight impaired If the person who is registered blind is not the current licence holder for your address, you’ll need to transfer the licence to their name. You can either: transfer the licence online - you’ll need your licence number contact TV Licensing to transfer the licence TV Licensing Telephone: 0300 790 6076 Relay UK (if you cannot hear or speak on the phone): 18001 then 0800 328 5644 Monday to Friday, 8:30am to 6:30pm Find out about call charges How to apply To claim the TV licence concession for blind people, you need a certificate from your local council or ophthalmologist. The certificate must state that you’re registered blind or severely sight impaired. In Northern Ireland, the certificate or document must be issued by or on behalf of a Health and Social Services Trust. On the Isle of Man, it must be issued by or on behalf of the Department for Health and Social Services. Post a copy of the certificate along with your licence renewal notice - if you have one - and a cheque or postal order for the licence to: TV Licensing Blind Concession Group Bristol BS98 1TL Remember to include your name, address, phone number and TV licence number, if you have one. If you’re disabled or have a long-term illness, you will not be charged VAT on products designed or adapted for your own personal or domestic use. Also, you will not be charged VAT on: the installation and any extra work needed as part of this repairs or maintenance spare parts or accessories The product and your disability have to qualify. Qualifying products or services Your supplier can tell you, but usually products designed or adapted for a disability qualify. For example, certain types of: adjustable beds stair lifts wheelchairs medical appliances to help with severe injuries alarms braille paper or low vision aids - but not spectacles or contact lenses motor vehicles - or the leasing of a motability vehicle building work like ramps, widening doors, installing a lift or toilet How to get the product VAT free To get the product VAT free your disability has to qualify. For VAT purposes, you’re disabled or have a long-term illness if: you have a physical or mental impairment that affects your ability to carry out everyday activities, for example blindness you have a condition that’s treated as chronic sickness, like diabetes you’re terminally ill You do not qualify if you’re elderly but not disabled, or if you’re temporarily disabled. You’ll need to confirm in writing that you meet these conditions. Your supplier may give you a form for this. Help from your council You can apply to your council for equipment or help to adapt your home if you have a disability. Importing goods You do not pay VAT if you import qualifying goods that are for your own personal or domestic use. This includes certain goods for blind and partially sighted people. If you use a freight service they can help you with the paperwork, otherwise make sure the following is written on parcel, ‘Goods for disabled people: relief claimed’. If you bring them in yourself, declare them in the red channel at Customs. For any other method of import, contact the National Import Reliefs Unit . Industrial Injuries Disablement Benefit You may be entitled to get Industrial Injuries Benefit if you’re disabled as a result of: an accident at work a disease deafness caused by work Constant Attendance Allowance You can claim Constant Attendance Allowance if you need daily care and attention because of a disability and you claim Industrial Injuries Disablement Benefit. You can claim for compensation if while serving in the armed forces: you got an injury or illness an existing condition you had was made worse Constant Attendance Allowance You can also apply for Constant Attendance Allowance if you need daily care for a disability.

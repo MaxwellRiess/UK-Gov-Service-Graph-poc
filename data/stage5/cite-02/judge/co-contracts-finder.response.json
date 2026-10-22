@@ -1,0 +1,41 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Contracts Finder is free to use.",
+          "verdict": "supported",
+          "quote": "Contracts Finder is free to use.",
+          "source": 2,
+          "note": "The guidance explicitly says it is free."
+        },
+        {
+          "claim": "Any business or organisation can use Contracts Finder to seek public sector supply opportunities.",
+          "verdict": "partly_supported",
+          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors",
+          "source": 0,
+          "note": "The text describes searching opportunities but does not explicitly establish access for every business or organisation."
+        },
+        {
+          "claim": "Central government contracts above £12,000 must be published on Contracts Finder.",
+          "verdict": "partly_supported",
+          "quote": "central government authorities [footnote 3] , where the contract value is at least £12,000 [footnote 4] inclusive of VAT;",
+          "source": 2,
+          "note": "The £12,000 threshold is stated, but publication duties are limited to in-scope procurements and may have exemptions."
+        },
+        {
+          "claim": "Contracts above £25,000 from other public bodies must be published on Contracts Finder.",
+          "verdict": "contradicted",
+          "quote": "sub-central contracting authorities, NHS Trusts and NHS Foundation Trusts where the contract value is at least £30,000 [footnote 5] inclusive of VAT.",
+          "source": 2,
+          "note": "The stated threshold for these other authorities is £30,000 including VAT, not £25,000."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

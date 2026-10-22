@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "You must register for Council Tax at a new address.",
+          "verdict": "supported",
+          "quote": "If you move to a new property or to a new area, tell your local council or tell the council for the new area you’ve moved to.",
+          "source": 2,
+          "note": "The national guidance directs movers to notify a council, which registers them and sends a bill."
+        },
+        {
+          "claim": "You must close your Council Tax account at your old address.",
+          "verdict": "partly_supported",
+          "quote": "We will close your Leeds council tax account and issue a final bill or refund.",
+          "source": 3,
+          "note": "Leeds describes closing its own account, but this local process does not establish a universal requirement for every council."
+        },
+        {
+          "claim": "Various Council Tax discounts may apply.",
+          "verdict": "supported",
+          "quote": "This means you might be able to apply for a discount on your Council Tax bill if you get one.",
+          "source": 0,
+          "note": "The page describes multiple discount categories and possible eligibility."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

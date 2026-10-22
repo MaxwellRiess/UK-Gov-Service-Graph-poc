@@ -1,0 +1,35 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "At renewal, the driver must confirm that their eyesight meets the minimum standard.",
+          "verdict": "supported",
+          "quote": "To renew their entitlement, they must make a legal declaration that they can meet the eyesight standards required to drive and confirm whether they have any listed medical conditions.",
+          "source": 4,
+          "note": "The consultation describes the current legal self-declaration at renewal."
+        },
+        {
+          "claim": "At renewal, the driver must confirm that no medical condition prevents driving.",
+          "verdict": "partly_supported",
+          "quote": "To renew their entitlement, they must make a legal declaration that they can meet the eyesight standards required to drive and confirm whether they have any listed medical conditions.",
+          "source": 4,
+          "note": "The applicant confirms whether listed medical conditions exist, not that no condition exists."
+        },
+        {
+          "claim": "DVLA may require medical evidence after a condition has been declared.",
+          "verdict": "supported",
+          "quote": "Your application may need further information from a healthcare professional, depending on your condition.",
+          "source": 5,
+          "note": "The source says further healthcare information may be needed depending on the condition."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}
