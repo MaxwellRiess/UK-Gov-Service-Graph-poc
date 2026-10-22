@@ -312,8 +312,8 @@ const html = `<!DOCTYPE html>
       <button class="lay-btn col-btn" data-colour="prov">Sourcing</button>
       <div class="pv-legend" id="pv-legend">
         Share of checkable facts confirmed against an official page:<br>
-        <span class="pv-sw" style="background:#15803d"></span>80% or more<br>
-        <span class="pv-sw" style="background:#b45309"></span>50 to 79%<br>
+        <span class="pv-sw" style="background:#15803d"></span>over 75%<br>
+        <span class="pv-sw" style="background:#eab308"></span>50 to 75%<br>
         <span class="pv-sw" style="background:#b91c1c"></span>under 50%<br>
         Agent steps are judgements rather than facts a page states, so they are left out of this score.
       </div>
@@ -358,11 +358,14 @@ const html = `<!DOCTYPE html>
     var EDGES_DATA   = ${edgesJson};
     var EVENTS_DATA  = ${lifeEventsJson};
 
-    function provColour(pct) { return pct >= 80 ? '#15803d' : pct >= 50 ? '#b45309' : '#b91c1c'; }
+    function provColour(pct) { return pct > 75 ? '#15803d' : pct >= 50 ? '#eab308' : '#b91c1c'; }
+    // White labels are unreadable on yellow, so yellow nodes get dark text.
+    function labelColour(fill) { return fill === '#eab308' ? '#1f2937' : '#fff'; }
     NODES_DATA.forEach(function(n) {
       n.data.deptColor = DEPT_COLORS[n.data.deptKey] || '#9ca3af';
       n.data.provColor = provColour(n.data.prov.checkablePct);
       n.data.color = n.data.deptColor;
+      n.data.labelColor = '#fff';
     });
 
     function esc(s) {
@@ -482,7 +485,7 @@ const html = `<!DOCTYPE html>
             'background-color': 'data(color)',
             'label': 'data(label)',
             'font-size': 9, 'font-family': 'Menlo,Monaco,monospace',
-            'color': '#fff', 'text-valign': 'center', 'text-halign': 'center',
+            'color': 'data(labelColor)', 'text-valign': 'center', 'text-halign': 'center',
             'width': 110, 'height': 38, 'shape': 'round-rectangle',
             'border-width': 1, 'border-color': 'rgba(255,255,255,0.12)',
             'text-wrap': 'wrap', 'text-max-width': 102,
@@ -606,7 +609,10 @@ const html = `<!DOCTYPE html>
         var byProv = btn.dataset.colour === 'prov';
         document.getElementById('pv-legend').classList.toggle('vis', byProv);
         cy.batch(function() {
-          cy.nodes().forEach(function(n) { n.data('color', byProv ? n.data('provColor') : n.data('deptColor')); });
+          cy.nodes().forEach(function(n) {
+            n.data('color', byProv ? n.data('provColor') : n.data('deptColor'));
+            n.data('labelColor', byProv ? labelColour(n.data('provColor')) : '#fff');
+          });
         });
       });
     });
