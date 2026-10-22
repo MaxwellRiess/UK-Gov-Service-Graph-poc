@@ -1,0 +1,151 @@
+{
+  "sss-funeral-support-payment#eligibility.criteria.0": [
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+  ],
+  "wg-discretionary-assistance#eligibility.criteria.1": [
+    "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility",
+    "https://www.gov.wales/discretionary-assistance-fund-daf"
+  ],
+  "sss-scottish-child-payment#eligibility.autoQualifiers.0": [
+    "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+    "https://www.socialsecurity.gov.scot/scottish-child-payment/qualifying-benefits-for-scottish-child-payment"
+  ],
+  "ho-euss-enquiry#agentInteraction.methods": [
+    "https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status",
+    "https://www.gov.uk/help-eu-settlement-scheme"
+  ],
+  "sss-best-start-grant#agentInteraction.methods": [
+    "https://www.mygov.scot/best-start-grant-best-start-foods/how-to-apply"
+  ],
+  "tpr-workplace-pension#eligibility.evidenceRequired.2": [
+    "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance",
+    "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist"
+  ],
+  "wg-winter-fuel-support#eligibility.summary": [
+    "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs"
+  ],
+  "la-proxy-vote#eligibility.summary": [
+    "https://www.electoralcommission.org.uk/voting-and-elections/ways-vote/how-vote-proxy",
+    "https://www.electoralcommission.org.uk/voting-and-elections/ways-vote/apply-vote-proxy",
+    "https://www.gov.uk/how-to-vote/voting-from-abroad"
+  ],
+  "hmcts-tax-tribunal#eligibility.summary": [
+    "https://www.gov.uk/tax-appeals/overview",
+    "https://www.gov.uk/tax-appeals/review-of-a-tax-or-penalty-decision",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmrc-mtd#eligibility.summary": [
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax"
+  ],
+  "mhclg-epc#eligibility.summary": [
+    "https://www.gov.uk/find-energy-certificate",
+    "https://www.gov.uk/selling-a-home/energy-performance-certificates",
+    "https://www.gov.uk/guidance/domestic-private-rented-property-minimum-energy-efficiency-standard-landlord-guidance"
+  ],
+  "sss-scottish-child-payment#eligibility.summary": [
+    "https://www.mygov.scot/scottish-child-payment/who-should-apply",
+    "https://www.mygov.scot/scottish-child-payment"
+  ],
+  "co-contracts-finder#eligibility.summary": [
+    "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+    "https://www.data.gov.uk/collections/government-and-parliament/contracts-finder"
+  ],
+  "la-street-collection-licence#eligibility.summary": [
+    "https://www.gov.uk/find-licences/street-collection-licence",
+    "https://www.met.police.uk/advice/advice-and-information/cc/charity-collection-licensing/street-collection-permit/"
+  ],
+  "wg-winter-fuel-support#desc": [
+    "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs"
+  ],
+  "la-council-tax#desc": [
+    "https://www.gov.uk/guidance/start-paying-council-tax",
+    "https://www.leeds.gov.uk/council-tax/report-a-change/register-for-council-tax-or-change-your-address"
+  ],
+  "sss-scottish-child-payment#desc": [
+    "https://www.mygov.scot/scottish-child-payment",
+    "https://www.mygov.scot/scottish-child-payment/who-should-apply"
+  ],
+  "dvla-renew-at-70#eligibility.criteria.1": [
+    "https://www.gov.uk/government/consultations/introducing-mandatory-eyesight-testing-for-older-drivers/introducing-mandatory-eyesight-testing-for-older-drivers",
+    "https://www.gov.uk/driving-medical-conditions",
+    "https://www.gov.uk/driving-eyesight-rules"
+  ],
+  "dwp-attendance-allowance#eligibility.criteria.0": [
+    "https://www.gov.uk/attendance-allowance/eligibility",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pip#eligibility.criteria.1": [
+    "https://www.gov.uk/government/publications/personal-independence-payment-assessment-guide-for-assessment-providers/pip-assessment-guide-part-1-the-assessment-process",
+    "https://www.gov.uk/pip/eligibility"
+  ],
+  "hmrc-carers-credit#eligibility.criteria.1": [
+    "https://www.gov.uk/carers-credit/eligibility",
+    "https://www.gov.uk/national-insurance-credits/eligibility",
+    "https://www.gov.uk/carers-allowance/effect-on-other-benefits"
+  ],
+  "nhs-continuing-healthcare#eligibility.criteria.0": [
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-and-nhs-funded-nursing-care-public-information-leaflet/public-information-leaflet-nhs-continuing-healthcare-and-nhs-funded-nursing-care--2",
+    "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/"
+  ],
+  "other-carers-leave#eligibility.criteria.0": [
+    "https://www.gov.uk/carers-leave",
+    "https://www.acas.org.uk/carers-leave"
+  ],
+  "other-motability#eligibility.criteria.0": [
+    "https://www.motability.co.uk/get-support/faqs/am-i-eligible/",
+    "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+  ],
+  "sss-child-disability-payment#eligibility.criteria.1": [
+    "https://www.socialsecurity.gov.scot/publications/2017/01/child-disability-payment-decision-making-guide/pages/care-component-definitions/common-definitions",
+    "https://www.socialsecurity.gov.scot/publications/2017/01/child-disability-payment-decision-making-guide/pages/care-component---rates-and-criteria/criteria-of-the-care-component",
+    "https://www.mygov.scot/child-disability-payment"
+  ],
+  "opg-lpa-activation#eligibility.criteria.0": [
+    "https://www.gov.uk/government/publications/public-guardian-practice-note-notification-of-death/public-guardian-practice-note-notification-of-death",
+    "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report"
+  ],
+  "opg-lpa-activation#eligibility.criteria.1": [
+    "https://www.gov.uk/government/publications/public-guardian-practice-note-notification-of-death/public-guardian-practice-note-notification-of-death",
+    "https://www.gov.uk/manage-lasting-power-attorney"
+  ],
+  "dwp-pension-credit#eligibility.criteria.0": [
+    "https://www.gov.uk/pension-credit/eligibility",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+    "https://www.gov.uk/state-pension-age"
+  ],
+  "la-bus-pass#eligibility.criteria.0": [
+    "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+    "https://www.gov.uk/apply-for-disabled-bus-pass"
+  ],
+  "sss-funeral-support-payment#eligibility.criteria.2": [
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+  ],
+  "dwp-bereavement-support#eligibility.criteria.1": [
+    "https://www.gov.uk/bereavement-support-payment/eligibility",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+    "https://www.gov.uk/state-pension-age"
+  ],
+  "dwp-bereavement-support#eligibility.criteria.2": [
+    "https://www.gov.uk/bereavement-support-payment/eligibility",
+    "https://www.legislation.gov.uk/ukpga/2014/19/part/5/made",
+    "https://www.gov.uk/government/publications/dwp-statistical-summary-policies-and-statements/bereavement-support-payment-statistics-background-information-and-methodology"
+  ],
+  "gro-register-death#eligibility.criteria.0": [
+    "https://www.gov.uk/after-a-death",
+    "https://www.gov.uk/after-a-death/death-abroad",
+    "https://www.gov.uk/register-a-death"
+  ],
+  "hmcts-probate#eligibility.criteria.0": [
+    "https://www.gov.uk/applying-for-probate",
+    "https://www.gov.uk/joint-property-ownership"
+  ],
+  "ho-citizenship-ceremony#eligibility.criteria.1": [
+    "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh",
+    "https://www.gov.uk/citizenship-ceremonies",
+    "https://www.gov.uk/government/publications/children-nationality-policy-guidance/registration-as-british-citizen-children-accessible"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "The applicant must not already receive National Insurance credits through Carer’s Allowance.",
+          "verdict": "partly_supported",
+          "quote": "get Carer’s Allowance or Carer Support Payment - you’ll automatically get credits",
+          "source": 0,
+          "note": "Carer’s Allowance brings automatic credits so a separate Carer’s Credit application is unnecessary, but the text does not state an eligibility bar."
+        },
+        {
+          "claim": "The applicant must not already receive National Insurance credits through Universal Credit.",
+          "verdict": "partly_supported",
+          "quote": "If you receive Universal Credit, you get Class 3 credits automatically.",
+          "source": 5,
+          "note": "Universal Credit provides automatic Class 3 credits, but the text does not say this disqualifies a Carer’s Credit applicant."
+        },
+        {
+          "claim": "The applicant must not already receive National Insurance credits through earnings above the Lower Earnings Limit.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied sources do not mention this earnings threshold or an exclusion based on it."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "post"
+  ],
+  "sign_in_on_page": null
+}

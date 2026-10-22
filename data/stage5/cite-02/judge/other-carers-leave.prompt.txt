@@ -1,0 +1,128 @@
+A service graph describes the UK government service "Carer's leave (employer)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/cite-02/judge/other-carers-leave.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[criterion_0] (split into claims) Must be an employee (not a worker or self-employed). Applies from the first day of employment.
+
+--- SOURCE 0: https://www.gov.uk/carers-leave ---
+Unpaid carer’s leave. Employer and employee guide to unpaid carer’s leave - who can take it, how long for, when can employers postpone or delay. Employees are entitled to unpaid leave to give or arrange care for a ‘dependant’ who has: a physical or mental illness or injury that means they’re expected to need care for more than 3 months a disability (as defined in the Equality Act 2010 ) care needs because of their old age The dependant does not have to be a family member. It can be anyone who relies on them for care. Employees are entitled to carer’s leave from their first day of work for their employer. Their employment rights (like holidays and returning to their job) are protected during carer’s leave. How long employees can take Employees can take up to one week of leave every 12 months. A ‘week’ means the length of time they usually work over 7 days. For example, if someone usually works 3 days a week, they can take 3 days of carer’s leave. They can either take a whole week off or take individual days or half days throughout the year. If an employee needs to care for more than one person, they cannot take a week of carer’s leave for each dependant. They can only take one week every 12 months. They can use the week of leave on more than one dependant. If an employee is a parent, they can take up to 18 weeks’ leave to look after their child . This is separate to carer’s leave. Employees with irregular working patterns Work out how much carer’s leave the employee can take if their working hours change each week. Add up the total number of hours worked in the previous 12 months. Divide that total by 52 (or however many weeks since they started the job, if they’ve been in the job less than a year). This is the amount of leave they can take as carer’s leave. If an employee wants to take carer’s leave in their first week, use the amount they’re expected to work in a week as the amount of leave they can take. How to take carer’s leave Employees need to give their employer notice before they want their leave to start. If the request is for half a day or a day, the notice period must be at least 3 days. If the request is for more than one day, the notice period must be at least twice as long as the requested leave. For example, if the request is for 2 days, the notice period must be at least 4 days. The notice period needs to be in full days, even if the request includes half day amounts. The request does not have to be in writing. Employees do not need to give evidence of their dependant’s care needs. If you need to look after someone in an emergency , you can take time off for this without giving a notice period. When employers can delay carer’s leave Employers cannot refuse a carer’s leave request but can ask the employee to take it at a different time. They can only do this if the employee’s absence would cause serious disruption to the organisation. If they delay it, the employer must: agree another date within one month of the requested date for the leave put the reason for the delay and new date in writing to the employee within 7 days of the original request, and before the requested start date of the leave Help and support You can find out more about carer’s leave on the Acas (Advisory, Conciliation and Arbitration Service) website.
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/parental-leave ---
+Unpaid parental leave. Employer and employee guide to unpaid parental leave - eligibility, how much leave can be taken and notice periods, postponing leave Eligible employees can take Unpaid Parental Leave to look after their child’s welfare, for example to: attend the birth of their child spend more time with their children look at new schools settle children into new childcare arrangements spend more time with family, such as visiting grandparents Their employment rights (like holidays and returning to a job) are protected during Unpaid Parental Leave. Parental leave is unpaid. You’re entitled to 18 weeks’ leave for each child and adopted child, up to their 18th birthday. The limit on how much parental leave each parent can take in a year is 4 weeks for each child (unless the employer agrees otherwise). You must take parental leave as whole weeks (for example 1 week or 2 weeks) rather than individual days, unless your employer agrees otherwise or if your child is disabled. You do not have to take all the leave at once. A ‘week’ equals the length of time an employee normally works over 7 days. Example If an employee works 3 days a week, one ‘week’ of parental leave equals 3 days. If an employee works irregular weeks the number of days in a ‘week’ is the total number of days they work a year divided by 52. Carrying leave over from a previous job Parental leave applies to each child, not to an individual’s job. Example An employee is entitled to 18 weeks. They’ve used 10 with a previous employer. They can use up to 8 weeks with their new employer if they’re eligible . Employees qualify if all of these apply: they’re named on the child’s birth or adoption certificate or they have or expect to have parental responsibility they’re not self-employed or a ‘worker’, for example, an agency worker or contractor they’re not a foster parent (unless they’ve secured parental responsibility through the courts) the child is under 18 Employers can ask for proof (like a birth certificate) as long as it’s reasonable to do so - for example they cannot ask for proof each time an employee requests leave. Employers can choose to offer parental leave to those groups who are not eligible. Employees can check this in their staff handbook. Employees must give 21 days’ notice before their intended start date. If they or their partner are having a baby or adopting, it’s 21 days before the week the baby or child is expected. Employees must confirm the start and end dates in their notice. Unless an employer requests it, this does not have to be in writing. Leave cannot be postponed (delayed) if: the employer does not have a ‘significant reason’, for example it would cause serious disruption to the business it’s being taken by the father or partner immediately after the birth or adoption of a child it means an employee would no longer qualify for parental leave, for example postponing it until after the child’s 18th birthday If it’s postponed, the employer: must write explaining why within 7 days of the original request must suggest a new start date - this must be within 6 months of the requested start date cannot change the amount of leave being requested
+
+--- SOURCE 2 (FOUND): https://www.acas.org.uk/carers-leave ---
+Breadcrumbs Home Advice Holiday and leave Time off for care and support Carer's leave Anyone who is legally classed as an employee can take time off to help a dependant who needs long-term care. The law is the Carer's Leave Act 2023. It came into effect on 6 April 2024. When someone can take carer's leave The right to take carer's leave applies from the first day of work. An employee can take carer's leave to give or arrange care for a dependant who needs long-term care. Who counts as a dependant An employee's dependants can include: their husband, wife, civil partner or partner their child their parent a person who lives in their household (not tenants, lodgers or employees) a person who relies on them for care, such as an elderly neighbour What counts as a long-term care need A dependant has a long-term care need if they have any of the following: a disability as defined under the Equality Act 2010 an illness or injury that is likely to need care for at least 3 months a care need related to old age What carer's leave can be used for Examples of when an employee could use carer's leave include: taking their disabled child to a hospital appointment moving their parent who has dementia into a care home accompanying a housebound dependant on a day trip providing meals and company for an elderly neighbour while their main carer is away with work for the day How much time someone can take Employees can take up to 1 week of carer's leave every 12 months. They can choose to take leave as: half days – this is the minimum they can take full days a whole week An employee is entitled to a period of leave that is equal to their usual working week. For example, if someone works 3 days a week, they can take 3 days of carer's leave. An employee might have been working for their employer for less than a week. If that's the case, a week is the number of days or hours they would normally work in that week. Employees working part of the year or variable hours An employee might work: a different number of hours each week part of the year, for example during term time To work out how much carer's leave they can take: add up the total hours they worked in the previous 12 months – including any holiday or family-related leave divide that total by 52 weeks – or by the number of weeks they've worked if they've worked there for less than a year Example of carer's leave if someone works variable hours over 12 months Sam works variable hours. In the previous 12 months, working back from the date the leave would start, they worked 780 hours in total. 780 divided by 52 is 15 hours. Sam can take up to 15 hours of carer's leave. Example of carer's leave if someone works variable hours for 6 weeks Charlie works variable hours. In the previous 6 weeks, working back from the date the leave would start, they worked 180 hours in total. 180 divided by 6 is 30 hours. Charlie can take up to 30 hours of carer's leave. If an employee cares for more than one dependant An employee might need to care for more than one dependant. In these circumstances, they can still only take one week of carer's leave. But they can use the week of leave for more than one dependant. If an employee is a parent If an employee is a parent, they can take up to 18 weeks' ordinary parental leave to look after their child. This is instead of or in addition to carer's leave. Pay An employer might choose to pay their employees for this type of leave but they do not have to. To find out what they're entitled to, employees should: check their organisation's policy, if there is one check their employment contract talk to their employer Giving notice to take carer's leave Employees must give their employer notice before the start of their leave. The minimum notice they must give will depend on how many days of leave they want to take. Minimum notice requirements Number of days requested Minimum notice required Half a day to 1 day 3 days' notice 1.5 to 2 days 4 days' notice 2.5 to 3 days 6 days' notice 3.5 to 4 days 8 days' notice 4.5 to 5 days 10 days' notice 6 days (if an employee works 6 days a week) 12 days' notice An employee does not have to: put their request for leave in writing give their employer evidence of their dependant's care needs An employee might need to take time off at short notice to care for a dependant. Employers should be flexible about time off where they can be. If an employee cannot give the minimum notice for carer's leave, they could take time off for dependants . When an employer can change carer's leave dates Employers cannot refuse someone's request for carer's leave. But they can ask them to take it at a different time. They can only do this if the employee's absence would cause serious disruption to the organisation. If the employer needs to delay the leave, they must: agree another date within 1 month of the date the employee originally requested leave for explain in writing why they need to delay the leave – they must do this within 7 days of the request or before the leave starts, whichever is the earlier If the employee needs to cancel their request for carer's leave, they should do this as soon as possible. It's good practice for the employer to consider this but they do not have to agree to it. Alternative types of leave There are other types of leave that employees could use instead of carer's leave. For example they might be able to take: time off for dependants ordinary parental leave holiday entitlement – but only if they want to special or compassionate leave To find out if they can take these types of leave, employees should check: with their employer what's written in their contract what their organisation's policy says, if there is one Employees' rights when taking carer's leave Employees taking carer's leave have the right to: return to the same job all the same terms and conditions – for example, they would still accrue holiday and get any benefits like staff discounts It's against the law for an employer to dismiss someone or cause them detriment because of something related to carer's leave. Detriment means someone experiences one or both of the following: being treated worse than before having their situation made worse Examples of detriment could be: they experience bullying they experience harassment their employer turns down their training requests without good reason they are overlooked for promotions or development opportunities their employer reduces their hours without good reason If an employer dismisses someone because of something related to carer's leave, it could be automatically unfair dismissal . Get more advice and support If you have any questions about carer's leave, contact the Acas helpline . Acas also offers free webinars including on carer's leave. If you need specialist help, you can: contact Carers UK find support and benefits for carers on the NHS get help for carers looking after a loved one from Age UK get advice about helping someone from Mind Last updated 05 April 2024 Print this page Download this page - PDF document Please tell us why the information did not help Select the statement you most agree with: I do not understand the information I cannot find the information I'm looking for I cannot work out what to do next Other Tell us more about your answer To help us improve our advice, we'd like your feedback in the box below. We cannot reply &ndash; so do not include any personal details, for example your email address or phone number. If you have questions about your individual circumstances, you can contact the Acas helpline . Send Leave this field blank Tell us more about your answer If you like, you can tell us more about what was useful on this page. We cannot reply &ndash; so do not include any personal details, for example your email address or phone number. If you have any questions about your individual circumstances, you can contact the Acas helpline . Submit Leave this field blank Share this page Share on LinkedIn Share on X (formerly Twitter) Share on Facebook

@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Every applicant aged 18 or over must attend a citizenship ceremony.",
+          "verdict": "contradicted",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "source": 0,
+          "note": "The source makes attendance optional for the Windrush scheme and also lists citizenship categories that do not require a ceremony."
+        },
+        {
+          "claim": "People who attend a citizenship ceremony attend it in person.",
+          "verdict": "supported",
+          "quote": "You must take your invitation when you go to your ceremony.",
+          "source": 0,
+          "note": "The source describes going to the ceremony with the invitation."
+        },
+        {
+          "claim": "A child under 18 who applied with their parents may attend a parent’s citizenship ceremony.",
+          "verdict": "supported",
+          "quote": "Children under 18 who have applied with their parents may attend a ceremony with other members of the family, to collect their certificate.",
+          "source": 5,
+          "note": "The source expressly allows children to attend with family."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "An applicant must have reached State Pension age.",
+          "verdict": "supported",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age and the following apply:",
+          "source": 0,
+          "note": "The source makes reaching State Pension age an eligibility condition."
+        },
+        {
+          "claim": "Being 66 or over meets the Attendance Allowance age condition.",
+          "verdict": "contradicted",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "source": 5,
+          "note": "State Pension age is rising above 66, so being 66 is not always enough."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

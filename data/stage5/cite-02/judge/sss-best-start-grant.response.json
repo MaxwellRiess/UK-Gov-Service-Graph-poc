@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply online.",
+          "verdict": "supported",
+          "quote": "Apply online Most people take around 10 to 20 minutes to complete the form",
+          "source": 2,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "You can apply by phone.",
+          "verdict": "supported",
+          "quote": "Call Social Security Scotland free on 0800 182 2222 to make your application over the phone.",
+          "source": 2,
+          "note": "Supported by the cited source."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

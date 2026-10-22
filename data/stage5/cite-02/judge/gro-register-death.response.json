@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "The death must have happened in England or Wales to use the death-registration guidance.",
+          "verdict": "contradicted",
+          "quote": "Find out how to register a death in the UK or abroad.",
+          "source": 0,
+          "note": "The source includes deaths elsewhere in the UK and abroad, so England or Wales is not a universal condition."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

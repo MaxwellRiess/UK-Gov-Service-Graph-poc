@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "The applicant or their partner must be responsible for the funeral costs.",
+          "verdict": "supported",
+          "quote": "you or your partner are responsible for the funeral costs",
+          "source": 6,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Responsibility for arranging the funeral by itself is sufficient.",
+          "verdict": "contradicted",
+          "quote": "the client or their partner is responsible for the cost of the funeral",
+          "source": 5,
+          "note": "The source requires responsibility for the costs, not merely arranging the funeral."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The funeral must take place in the UK.",
+          "verdict": "contradicted",
+          "quote": "the funeral is being held in the UK or in some circumstances , another country",
+          "source": 6,
+          "note": "The source allows a funeral in another country in some circumstances."
+        },
+        {
+          "claim": "The applicant must live in Scotland.",
+          "verdict": "supported",
+          "quote": "you live in Scotland",
+          "source": 6,
+          "note": "Supported by the cited source."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

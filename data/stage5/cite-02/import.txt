@@ -1,0 +1,47 @@
+Importing answers for 29 services from data/stage5/cite-02/judge
+
+29 of 228 services have a linked page worth sending (35 of 706 fields).
+Estimated input: ~356k tokens (12268 per call).
+Wrote provenance and both review queues
+─── WIDENED SOURCES (partly supported fields, linked pages) ────
+Services sent:      29   responses: 29   failed: 0
+confirmed           7
+partly_supported    14
+contradicted        14
+not_stated          0
+fabricated          0
+missing             0
+Quotes taken from linked pages: 5
+
+── NEWLY CONTRADICTED (14) ──
+  tpr-workplace-pension  eligibility.evidenceRequired.2
+      The required submission is a declaration of compliance; the regulator sends the employer a letter with a code.
+  hmcts-tax-tribunal  eligibility.summary
+      The tribunal accepts some HMRC decisions, not every HMRC decision; direct tax cases must first be appealed to HMRC.
+  hmrc-mtd  eligibility.summary
+      Exempt businesses and those applying for an exemption are exceptions to the universal claim.
+  co-contracts-finder  eligibility.summary
+      The stated threshold for these other authorities is £30,000 including VAT, not £25,000.
+  la-street-collection-licence  eligibility.summary
+      The page says a licence might be needed depending on the council, rather than for every collection.
+  sss-funeral-support-payment  eligibility.criteria.0
+      The source requires responsibility for the costs, not merely arranging the funeral.
+  sss-funeral-support-payment  eligibility.criteria.2
+      The source allows a funeral in another country in some circumstances.
+  dwp-attendance-allowance  eligibility.criteria.0
+      State Pension age is rising above 66, so being 66 is not always enough.
+  opg-lpa-activation  eligibility.criteria.0
+      The source says the LPA is cancelled on the donor’s death rather than activated or used then.
+  dwp-pension-credit  eligibility.criteria.0
+      The age is rising in stages during 2026–2028, so it is not uniformly 66 now.
+  la-bus-pass  eligibility.criteria.0
+      The State Pension age rule applies in England, while Wales allows the pass at 60 and Scotland and Northern Ireland also use 60.
+      The age is rising in stages during 2026–2028, so it is not uniformly 66 now.
+  dwp-bereavement-support  eligibility.criteria.1
+      The age varies by date of birth during the 2026–2028 transition and is not fixed at 66.
+  gro-register-death  eligibility.criteria.0
+      The source includes deaths elsewhere in the UK and abroad, so England or Wales is not a universal condition.
+  ho-citizenship-ceremony  eligibility.criteria.1
+      The source makes attendance optional for the Windrush scheme and also lists citizenship categories that do not require a ceremony.
+(node:46850) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)

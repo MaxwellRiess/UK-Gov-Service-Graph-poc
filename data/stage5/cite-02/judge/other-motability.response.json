@@ -1,0 +1,39 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Receiving the enhanced rate mobility part of PIP qualifies a person to apply to the Motability Scheme.",
+          "verdict": "supported",
+          "quote": "Enhanced rate mobility part of Personal Independence Payment (PIP)",
+          "source": 1,
+          "note": "The listed allowance qualifies."
+        },
+        {
+          "claim": "Receiving the highest mobility rate of DLA qualifies a person to apply to the Motability Scheme.",
+          "verdict": "supported",
+          "quote": "Higher rate mobility part of Disability Living Allowance (DLA)",
+          "source": 1,
+          "note": "The source calls the top DLA mobility rate the higher rate."
+        },
+        {
+          "claim": "Receiving AFIP qualifies a person to apply to the Motability Scheme.",
+          "verdict": "supported",
+          "quote": "Armed Forces Independence Payment (AFIP)",
+          "source": 1,
+          "note": "The listed allowance qualifies."
+        },
+        {
+          "claim": "Receiving WPMS qualifies a person to apply to the Motability Scheme.",
+          "verdict": "supported",
+          "quote": "War Pensioners’ Mobility Supplement (WPMS)",
+          "source": 1,
+          "note": "The listed allowance qualifies."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

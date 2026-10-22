@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T15:42:51.842Z",
+  "generatedAt": "2026-10-22T15:58:34.236Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -345,27 +345,6 @@
       ]
     },
     {
-      "id": "ho-euss-enquiry",
-      "name": "EUSS status enquiry",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "partly_supported",
-          "note": "The text points to an online tool, online guides and online services, but does not say you can raise this enquiry online.",
-          "quote": "contact details for the right UKVI team to support you online guides and services"
-        },
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "partly_supported",
-          "note": "The text mentions contact centre staff, which suggests a phone line, but it never says phone or gives a number.",
-          "quote": "Contact centre staff cannot give you advice about your personal circumstances."
-        }
-      ]
-    },
-    {
       "id": "ho-evisa",
       "name": "Get access to your eVisa",
       "field": "desc",
@@ -672,33 +651,6 @@
       ]
     },
     {
-      "id": "la-proxy-vote",
-      "name": "Apply for a proxy vote",
-      "field": "eligibility.summary",
-      "graph": "Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 working days before the election for standard proxy; emergency proxy available up to 5pm on polling day.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Reasons include work, illness, being abroad, disability, etc.",
-          "verdict": "partly_supported",
-          "note": "The text mentions living abroad, but not work, illness or disability as reasons.",
-          "quote": "If you want to vote by proxy and you live abroad, apply for a proxy vote as soon as possible."
-        },
-        {
-          "claim": "The deadline for a standard proxy is 6 working days before the election.",
-          "verdict": "not_stated",
-          "note": "The text gives no 6-working-day deadline. The only deadlines it gives are 11 working days, for changes and for switching from a postal vote.",
-          "quote": null
-        },
-        {
-          "claim": "An emergency proxy is available up to 5pm on polling day.",
-          "verdict": "partly_supported",
-          "note": "The text mentions an emergency proxy but gives no 5pm-on-polling-day deadline.",
-          "quote": "If you miss the deadline to apply for a proxy vote before an election, you may be able to apply for an emergency proxy vote ."
-        }
-      ]
-    },
-    {
       "id": "la-road-occupation-licence",
       "name": "Road occupation licence (building work)",
       "field": "desc",
@@ -767,27 +719,6 @@
           "verdict": "partly_supported",
           "note": "The text excludes the City of London from the Metropolitan Police route, and the claim leaves that condition out.",
           "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence."
-        }
-      ]
-    },
-    {
-      "id": "la-street-collection-licence",
-      "name": "Street collection licence",
-      "field": "eligibility.summary",
-      "graph": "Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A licence is required for any charitable collection in a public street or place in England and Wales.",
-          "verdict": "partly_supported",
-          "note": "The text covers England and Wales and public areas, but says a licence might be needed depending on the council, not that it is always required.",
-          "quote": "you might need a street collection licence, depending on your local council"
-        },
-        {
-          "claim": "The licence is free to obtain.",
-          "verdict": "not_stated",
-          "note": "The text does not mention any fee or say the licence is free.",
-          "quote": null
         }
       ]
     },
@@ -1364,33 +1295,6 @@
           "verdict": "partly_supported",
           "note": "The text covers the government, its agencies and non-devolved bodies, mainly in England, and says Scotland, Wales and Northern Ireland have their own sites. It never mentions local government, and it does not describe the service as covering the whole UK.",
           "quote": "public sector contracts worth over £12,000 (including VAT) in England and with non-devolved bodies"
-        }
-      ]
-    },
-    {
-      "id": "co-contracts-finder",
-      "name": "Contracts Finder",
-      "field": "eligibility.summary",
-      "graph": "Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Contracts Finder is free to use.",
-          "verdict": "not_stated",
-          "note": "None of the text about Contracts Finder says whether it costs anything; the 'free' support in Source 2 is general business advice, not this service.",
-          "quote": null
-        },
-        {
-          "claim": "Central government contracts above £12,000 must be published on Contracts Finder.",
-          "verdict": "partly_supported",
-          "note": "The £12,000 figure (including VAT) is in the text, but nothing says publishing these contracts is compulsory.",
-          "quote": "Contracts Finder lets you search for information about contracts worth over £12,000 (including VAT) with the government and its agencies."
-        },
-        {
-          "claim": "Contracts above £25,000 from other public bodies must be published on Contracts Finder.",
-          "verdict": "not_stated",
-          "note": "The text never mentions a £25,000 threshold or a publishing duty for other public bodies.",
-          "quote": null
         }
       ]
     },
@@ -3960,27 +3864,6 @@
       ]
     },
     {
-      "id": "hmcts-tax-tribunal",
-      "name": "Appeal to Tax Tribunal",
-      "field": "eligibility.summary",
-      "graph": "Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Anyone who has received an HMRC decision (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it can use the service.",
-          "verdict": "partly_supported",
-          "note": "The text names these taxes and penalty appeals, but it says only 'most' or 'some' decisions can be appealed, not every decision.",
-          "quote": "You can appeal against most decisions about ‘direct tax’ and ‘indirect tax’."
-        },
-        {
-          "claim": "There is no filing fee for most tax appeals.",
-          "verdict": "not_stated",
-          "note": "None of the sources mention fees for filing an appeal.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "hmcts-unclaimed-court-money",
       "name": "Find unclaimed court money",
       "field": "desc",
@@ -4486,33 +4369,6 @@
           "claim": "There is a phased rollout for income tax from 2026.",
           "verdict": "not_stated",
           "note": "The sources only cover MTD for VAT and never mention income tax or 2026.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "hmrc-mtd",
-      "name": "Making Tax Digital enrolment",
-      "field": "eligibility.summary",
-      "graph": "Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with income over £50k.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "MTD is mandatory for all VAT-registered businesses.",
-          "verdict": "partly_supported",
-          "note": "The text supports MTD being mandatory, but it allows exemptions, so 'all' is not fully backed.",
-          "quote": "HMRC will sign up all new VAT registered businesses to Making Tax Digital for VAT automatically unless they are already exempt or have applied for exemption."
-        },
-        {
-          "claim": "Income Tax MTD rolls out from April 2026.",
-          "verdict": "not_stated",
-          "note": "The text does not mention Income Tax MTD or April 2026.",
-          "quote": null
-        },
-        {
-          "claim": "Income Tax MTD applies to self-employed people and landlords with income over £50k.",
-          "verdict": "not_stated",
-          "note": "The text does not mention self-employed people, landlords or a £50k threshold.",
           "quote": null
         }
       ]
@@ -5492,27 +5348,6 @@
     {
       "id": "la-council-tax",
       "name": "Council Tax registration",
-      "field": "desc",
-      "graph": "Register at new address and close account at old. Various discounts may apply.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Register for Council Tax at your new address.",
-          "verdict": "not_stated",
-          "note": "None of the sources say anything about registering for Council Tax at a new address.",
-          "quote": null
-        },
-        {
-          "claim": "Close the Council Tax account at your old address.",
-          "verdict": "not_stated",
-          "note": "None of the sources mention closing an account at an old address.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "la-council-tax",
-      "name": "Council Tax registration",
       "field": "eligibility.summary",
       "graph": "Any adult who is the resident or owner of a domestic property is liable for Council Tax. Register at your new address and close the account at your old address. Various discounts and exemptions may apply.",
       "verdict": "partly_supported",
@@ -6275,27 +6110,6 @@
           "verdict": "partly_supported",
           "note": "The first-registration steps mention the deeds, but the text never says outright that title deeds must be sent.",
           "quote": "Prepare a scale plan showing where the land is outlined, if it’s not shown in the deeds."
-        }
-      ]
-    },
-    {
-      "id": "mhclg-epc",
-      "name": "Find an Energy Performance Certificate",
-      "field": "eligibility.summary",
-      "graph": "EPCs are required by law when a property is sold or let. Buyers, tenants and homeowners can search the register for free. Landlords renting property in England and Wales must have an EPC rating of E or above.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Buyers, tenants and homeowners can search the register for free.",
-          "verdict": "partly_supported",
-          "note": "The text says owners can check their own property and download the EPC for free, but it never says buyers or tenants can search the register.",
-          "quote": "Use the find an energy certificate service to check if your property has a valid EPC and download it for free."
-        },
-        {
-          "claim": "Landlords renting property in England and Wales must have an EPC rating of E or above.",
-          "verdict": "not_stated",
-          "note": "The text mentions 'minimum energy performance requirements' for renting but never names a minimum rating of E.",
-          "quote": null
         }
       ]
     },
@@ -7206,21 +7020,6 @@
       ]
     },
     {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply by phone.",
-          "verdict": "not_stated",
-          "note": "The phone number given is for giving bank details about unspent Best Start Foods money, and for double claims. It is not given as a way to apply.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "sss-carer-support-payment",
       "name": "Carer Support Payment",
       "field": "desc",
@@ -7353,84 +7152,6 @@
       ]
     },
     {
-      "id": "sss-scottish-child-payment",
-      "name": "Scottish Child Payment",
-      "field": "desc",
-      "graph": "£28.20/week per eligible child under 16 for parents on qualifying benefits in Scotland, paid every 4 weeks.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is for parents on qualifying benefits in Scotland.",
-          "verdict": "not_stated",
-          "note": "The text never says you need a qualifying benefit or must live in Scotland to be eligible.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-scottish-child-payment",
-      "name": "Scottish Child Payment",
-      "field": "eligibility.summary",
-      "graph": "£28.20/week per child under 16 for the main person looking after the child in Scotland, if they or their partner get a qualifying benefit (Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA). Child Benefit alone does not qualify.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It goes to the main person looking after the child.",
-          "verdict": "partly_supported",
-          "note": "The text says only one person can get it and that it is for children you look after, but it does not say the payment goes to the 'main' carer; instead it describes a separate process for deciding double claims.",
-          "quote": "Only one person can get Scottish Child Payment for a child."
-        },
-        {
-          "claim": "The person must be in Scotland.",
-          "verdict": "not_stated",
-          "note": "The text does not state any requirement to live in Scotland for Scottish Child Payment.",
-          "quote": null
-        },
-        {
-          "claim": "The person or their partner must get a qualifying benefit: Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA.",
-          "verdict": "not_stated",
-          "note": "The text does not list any qualifying benefits or name any of these benefits.",
-          "quote": null
-        },
-        {
-          "claim": "Getting Child Benefit alone does not qualify you.",
-          "verdict": "not_stated",
-          "note": "The text does not mention Child Benefit in relation to eligibility for Scottish Child Payment.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-scottish-child-payment",
-      "name": "Scottish Child Payment",
-      "field": "eligibility.autoQualifiers.0",
-      "graph": "On qualifying benefit with child under 16 in Scotland",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "To qualify you must be on a qualifying benefit, with a child under 16, in Scotland.",
-          "verdict": "partly_supported",
-          "note": "The under-16 child condition is stated, but the qualifying-benefit and Scotland residency conditions are not.",
-          "quote": "every child you look after who's under 16 years of age"
-        }
-      ]
-    },
-    {
-      "id": "tpr-workplace-pension",
-      "name": "Workplace Pension auto-enrollment",
-      "field": "eligibility.evidenceRequired.2",
-      "graph": "Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Employers must send a declaration of compliance to The Pensions Regulator within 5 months of their duties start date.",
-          "verdict": "partly_supported",
-          "note": "The text mentions only a re-declaration of compliance at re-enrolment; it does not mention a first declaration, a 5-month deadline after the duties start date, or sending it to The Pensions Regulator.",
-          "quote": "You must complete a re-declaration of compliance every time you carry out your re-enrolment duties, even if staff were not re-enrolled."
-        }
-      ]
-    },
-    {
       "id": "voa-council-tax-band",
       "name": "Check or challenge your council tax band",
       "field": "eligibility.summary",
@@ -7487,54 +7208,6 @@
           "verdict": "not_stated",
           "note": "The source does not state any residency requirement.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "wg-winter-fuel-support",
-      "name": "Oil and LPG heating payment (Wales)",
-      "field": "desc",
-      "graph": "One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 30 September 2026, 6 months after the scheme launched on 31 March 2026. Replaces the closed Winter Fuel Support Scheme.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Claims close on 30 September 2026.",
-          "verdict": "partly_supported",
-          "note": "The text gives a 6-month window from launch but never names 30 September 2026 as the closing date.",
-          "quote": "There are 6 months from the scheme's launch to claim."
-        },
-        {
-          "claim": "The scheme launched on 31 March 2026.",
-          "verdict": "partly_supported",
-          "note": "The press release is dated 31 March 2026, but the text does not explicitly say the scheme launched on that date.",
-          "quote": "First published: 31 March 2026"
-        },
-        {
-          "claim": "It replaces the closed Winter Fuel Support Scheme.",
-          "verdict": "not_stated",
-          "note": "The text never mentions a Winter Fuel Support Scheme or says this payment replaces anything.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "wg-winter-fuel-support",
-      "name": "Oil and LPG heating payment (Wales)",
-      "field": "eligibility.summary",
-      "graph": "One-off £200 payment (launched 31 March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; claims close 30 September 2026, 6 months after launch. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payment launched on 31 March 2026.",
-          "verdict": "partly_supported",
-          "note": "Only the press release's publication date is given; the text does not explicitly give a launch date.",
-          "quote": "First published: 31 March 2026"
-        },
-        {
-          "claim": "Claims close on 30 September 2026.",
-          "verdict": "partly_supported",
-          "note": "The text gives a 6-month window, not the specific date of 30 September 2026.",
-          "quote": "There are 6 months from the scheme's launch to claim."
         }
       ]
     },
@@ -10025,6 +9698,234 @@
           "verdict": "partly_supported",
           "note": "Symptom triage is for people aged five or over, although an emergency prescription can be requested for someone of any age.",
           "quote": "NHS 111 online is for people in England aged 5 and over who need&#xa0;urgent health care advice&#xa0;but it’s not a life-threatening situation."
+        }
+      ]
+    },
+    {
+      "id": "sss-scottish-child-payment",
+      "name": "Scottish Child Payment",
+      "field": "eligibility.summary",
+      "graph": "£28.20/week per child under 16 for the main person looking after the child in Scotland, if they or their partner get a qualifying benefit (Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA). Child Benefit alone does not qualify.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The applicant or their partner can be named on any of those qualifying benefits.",
+          "verdict": "partly_supported",
+          "note": "For Pension Credit, Income Support and income-related ESA, the named partner should apply instead.",
+          "quote": "If your partner is named on any of the above 3 benefits and you are not, your partner should apply."
+        }
+      ]
+    },
+    {
+      "id": "ho-euss-enquiry",
+      "name": "EUSS status enquiry",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can get UKVI help by phone.",
+          "verdict": "partly_supported",
+          "note": "The source says the tool finds contact details but does not explicitly say those details include a phone route.",
+          "quote": "These will help you find: contact details for the right UKVI team to support you"
+        }
+      ]
+    },
+    {
+      "id": "tpr-workplace-pension",
+      "name": "Workplace Pension auto-enrollment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Employers must send a letter of compliance to The Pensions Regulator.",
+          "verdict": "contradicted",
+          "note": "The required submission is a declaration of compliance; the regulator sends the employer a letter with a code.",
+          "quote": "You must complete your declaration of compliance to tell us how you have met your legal duties."
+        }
+      ]
+    },
+    {
+      "id": "wg-winter-fuel-support",
+      "name": "Oil and LPG heating payment (Wales)",
+      "field": "eligibility.summary",
+      "graph": "One-off £200 payment (launched 31 March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; claims close 30 September 2026, 6 months after launch. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The scheme launched on 31 March 2026.",
+          "verdict": "not_stated",
+          "note": "The source gives 31 March 2026 as the press release publication date, not the scheme launch date.",
+          "quote": null
+        },
+        {
+          "claim": "Claims close on 30 September 2026.",
+          "verdict": "not_stated",
+          "note": "The source gives no closing date because it does not state the launch date.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "wg-winter-fuel-support",
+      "name": "Oil and LPG heating payment (Wales)",
+      "field": "desc",
+      "graph": "One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 30 September 2026, 6 months after the scheme launched on 31 March 2026. Replaces the closed Winter Fuel Support Scheme.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The scheme launched on 31 March 2026.",
+          "verdict": "not_stated",
+          "note": "The source gives 31 March 2026 as the press release publication date, not the scheme launch date.",
+          "quote": null
+        },
+        {
+          "claim": "Claims close on 30 September 2026.",
+          "verdict": "not_stated",
+          "note": "The source gives no closing date because it does not state the launch date.",
+          "quote": null
+        },
+        {
+          "claim": "This scheme replaces the closed Winter Fuel Support Scheme.",
+          "verdict": "not_stated",
+          "note": "The supplied text does not mention the Winter Fuel Support Scheme or a replacement.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "la-proxy-vote",
+      "name": "Apply for a proxy vote",
+      "field": "eligibility.summary",
+      "graph": "Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 working days before the election for standard proxy; emergency proxy available up to 5pm on polling day.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The standard proxy deadline is six working days before the election.",
+          "verdict": "partly_supported",
+          "note": "The six-working-day deadline is for England, Scotland and Wales; Northern Ireland has a 14-working-day deadline.",
+          "quote": "You must apply by: 5pm, 6 working days before election day in England, Scotland or Wales 5pm, 14 working days before election day in Northern Ireland"
+        },
+        {
+          "claim": "An emergency proxy can be requested until 5pm on polling day.",
+          "verdict": "partly_supported",
+          "note": "The 5pm election-day deadline applies in England, Scotland and Wales, while Northern Ireland does not offer an emergency proxy.",
+          "quote": "In England, Scotland and Wales, you have until 5pm on the day of the election to apply."
+        }
+      ]
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "name": "Appeal to Tax Tribunal",
+      "field": "eligibility.summary",
+      "graph": "Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Anyone who disagrees with any HMRC decision can appeal to the tax tribunal.",
+          "verdict": "contradicted",
+          "note": "The tribunal accepts some HMRC decisions, not every HMRC decision; direct tax cases must first be appealed to HMRC.",
+          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-mtd",
+      "name": "Making Tax Digital enrolment",
+      "field": "eligibility.summary",
+      "graph": "Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with income over £50k.",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Making Tax Digital for VAT is mandatory for all VAT-registered businesses.",
+          "verdict": "contradicted",
+          "note": "Exempt businesses and those applying for an exemption are exceptions to the universal claim.",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption."
+        }
+      ]
+    },
+    {
+      "id": "mhclg-epc",
+      "name": "Find an Energy Performance Certificate",
+      "field": "eligibility.summary",
+      "graph": "EPCs are required by law when a property is sold or let. Buyers, tenants and homeowners can search the register for free. Landlords renting property in England and Wales must have an EPC rating of E or above.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An EPC is legally required when a property is sold or let.",
+          "verdict": "partly_supported",
+          "note": "The source states the general requirement but also lists buildings and circumstances that do not need an EPC.",
+          "quote": "You must have an EPC when you’re: selling a property renting out a property building a new property"
+        },
+        {
+          "claim": "Landlords renting property in England and Wales must have an EPC rating of E or above.",
+          "verdict": "partly_supported",
+          "note": "The E minimum applies to covered domestic private rented properties and allows valid exemptions, not every rental property.",
+          "quote": "Since 1 April 2020, landlords can no longer let or continue to let properties covered by the MEES Regulations if they have an EPC rating below E, unless they have a valid exemption in place."
+        }
+      ]
+    },
+    {
+      "id": "co-contracts-finder",
+      "name": "Contracts Finder",
+      "field": "eligibility.summary",
+      "graph": "Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Any business or organisation can use Contracts Finder to seek public sector supply opportunities.",
+          "verdict": "partly_supported",
+          "note": "The text describes searching opportunities but does not explicitly establish access for every business or organisation.",
+          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors"
+        },
+        {
+          "claim": "Central government contracts above £12,000 must be published on Contracts Finder.",
+          "verdict": "partly_supported",
+          "note": "The £12,000 threshold is stated, but publication duties are limited to in-scope procurements and may have exemptions.",
+          "quote": "central government authorities [footnote 3] , where the contract value is at least £12,000 [footnote 4] inclusive of VAT;"
+        },
+        {
+          "claim": "Contracts above £25,000 from other public bodies must be published on Contracts Finder.",
+          "verdict": "contradicted",
+          "note": "The stated threshold for these other authorities is £30,000 including VAT, not £25,000.",
+          "quote": "sub-central contracting authorities, NHS Trusts and NHS Foundation Trusts where the contract value is at least £30,000 [footnote 5] inclusive of VAT."
+        }
+      ]
+    },
+    {
+      "id": "la-street-collection-licence",
+      "name": "Street collection licence",
+      "field": "eligibility.summary",
+      "graph": "Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Every charitable collection in a public street or place in England and Wales needs a street collection licence.",
+          "verdict": "contradicted",
+          "note": "The page says a licence might be needed depending on the council, rather than for every collection.",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council."
+        },
+        {
+          "claim": "A street collection licence is free to obtain.",
+          "verdict": "not_stated",
+          "note": "Neither source states a fee or says the licence is free.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax",
+      "name": "Council Tax registration",
+      "field": "desc",
+      "graph": "Register at new address and close account at old. Various discounts may apply.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must close your Council Tax account at your old address.",
+          "verdict": "partly_supported",
+          "note": "Leeds describes closing its own account, but this local process does not establish a universal requirement for every council.",
+          "quote": "We will close your Leeds council tax account and issue a final bill or refund."
         }
       ]
     }

@@ -1,0 +1,1513 @@
+{
+  "wave": "cite-02",
+  "kind": "Cite",
+  "sourceWorklistGeneratedAt": "2026-10-22T15:02:01.549Z",
+  "ordinalStart": 1,
+  "ordinalEnd": 35,
+  "items": [
+    {
+      "key": "sss-funeral-support-payment#eligibility.criteria.0",
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "event": "retirement",
+      "lifeEvents": [
+        "baby",
+        "bereavement",
+        "retirement",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "bereavement",
+        "description": "Must be responsible for arranging or paying for a funeral."
+      },
+      "text": "Must be responsible for arranging or paying for a funeral.",
+      "problems": [
+        {
+          "claim": "Must be responsible for arranging or paying for a funeral.",
+          "verdict": "partly_supported",
+          "note": "The worked examples pay the person responsible for the funeral, but the text never sets out responsibility for arranging or paying as an eligibility rule.",
+          "quote": "The person who's responsible for the funeral would be able to get a total payment of £1,897.50.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "The person who's responsible for the funeral would be able to get a total payment of £1,897.50.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official eligibility page stating that the applicant must be responsible for the funeral costs.",
+      "reason": "This is a core eligibility rule, so if it were misstated, people could be told wrongly whether they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "wg-discretionary-assistance#eligibility.criteria.1",
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "event": "new-job",
+      "lifeEvents": [
+        "baby",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "income",
+        "description": "EAP: extreme financial hardship or an unexpected crisis with no other money. IAP: must get Income Support, income-based JSA, income-related ESA, Pension Credit Guarantee Credit or Universal Credit, and be leaving an institution, avoiding going into one, setting up home after an unsettled way of life, moving because of relationship breakdown or domestic abuse, or caring for a released prisoner."
+      },
+      "text": "EAP: extreme financial hardship or an unexpected crisis with no other money. IAP: must get Income Support, income-based JSA, income-related ESA, Pension Credit Guarantee Credit or Universal Credit, and be leaving an institution, avoiding going into one, setting up home after an unsettled way of life, moving because of relationship breakdown or domestic abuse, or caring for a released prisoner.",
+      "problems": [
+        {
+          "claim": "EAP: extreme financial hardship or an unexpected crisis with no other money. IAP: must get Income Support, income-based JSA, income-related ESA, Pension Credit Guarantee Credit or Universal Credit, and be leaving an institution, avoiding going into one, setting up home after an unsettled way of life, moving because of relationship breakdown or domestic abuse, or caring for a released prisoner.",
+          "verdict": "partly_supported",
+          "note": "The EAP hardship condition is stated, but the source gives no IAP benefit requirements or qualifying situations, and does not mention having no other money.",
+          "quote": "are experiencing extreme financial hardship have lost your job have applied for benefits and are waiting for your first payment",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "are experiencing extreme financial hardship have lost your job have applied for benefits and are waiting for your first payment",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official DAF eligibility guidance for the IAP qualifying benefits and situations and for the 'no other money' condition.",
+      "reason": "These conditions decide whether a person qualifies for the IAP, and if any benefit or situation is wrong, applicants would be told wrongly whether they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-scottish-child-payment#eligibility.autoQualifiers.0",
+      "id": "sss-scottish-child-payment",
+      "name": "Scottish Child Payment",
+      "event": "new-job",
+      "lifeEvents": [
+        "baby",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "eligibility.autoQualifiers.0",
+      "value": "On qualifying benefit with child under 16 in Scotland",
+      "text": "On qualifying benefit with child under 16 in Scotland",
+      "problems": [
+        {
+          "claim": "To qualify you must be on a qualifying benefit, with a child under 16, in Scotland.",
+          "verdict": "partly_supported",
+          "note": "The under-16 child condition is stated, but the qualifying-benefit and Scotland residency conditions are not.",
+          "quote": "every child you look after who's under 16 years of age"
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "every child you look after who's under 16 years of age",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official eligibility page for the qualifying-benefit and Scotland residency conditions.",
+      "reason": "This rule is used to decide automatically who qualifies, so an unsupported condition here would directly produce wrong eligibility answers.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "ho-euss-enquiry#agentInteraction.methods",
+      "id": "ho-euss-enquiry",
+      "name": "EUSS status enquiry",
+      "event": "immigration",
+      "lifeEvents": [
+        "immigration"
+      ],
+      "path": "agentInteraction.methods",
+      "value": [
+        "online",
+        "phone"
+      ],
+      "text": "You can apply or do this online. You can apply or do this by phone.",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "partly_supported",
+          "note": "The text points to an online tool, online guides and online services, but does not say you can raise this enquiry online.",
+          "quote": "contact details for the right UKVI team to support you online guides and services"
+        },
+        {
+          "claim": "You can apply or do this by phone.",
+          "verdict": "partly_supported",
+          "note": "The text mentions contact centre staff, which suggests a phone line, but it never says phone or gives a number.",
+          "quote": "Contact centre staff cannot give you advice about your personal circumstances."
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "contact details for the right UKVI team to support you online guides and services",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        },
+        {
+          "quote": "Contact centre staff cannot give you advice about your personal circumstances.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the EU Settlement Scheme Resolution Centre page for the online enquiry form and phone number.",
+      "reason": "People would be told to contact the service online or by phone without an official page confirming either option, so they could use a channel that doesn't exist or doesn't handle EUSS problems.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-best-start-grant#agentInteraction.methods",
+      "id": "sss-best-start-grant",
+      "name": "Best Start Grant",
+      "event": "new-job",
+      "lifeEvents": [
+        "baby",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "agentInteraction.methods",
+      "value": [
+        "online",
+        "phone"
+      ],
+      "text": "You can apply or do this online. You can apply or do this by phone.",
+      "problems": [
+        {
+          "claim": "You can apply by phone.",
+          "verdict": "not_stated",
+          "note": "The phone number given is for giving bank details about unspent Best Start Foods money, and for double claims. It is not given as a way to apply.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Not all of these circumstances are listed on the online or paper form.",
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods",
+          "origin": "current-provenance"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official source confirming you can apply by phone, or remove phone as an application route.",
+      "reason": "Applicants could be sent to a phone line that the page only gives for Best Start Foods bank details and double claims, which would send them the wrong way to apply.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "tpr-workplace-pension#eligibility.evidenceRequired.2",
+      "id": "tpr-workplace-pension",
+      "name": "Workplace Pension auto-enrollment",
+      "event": "business",
+      "lifeEvents": [
+        "business",
+        "university",
+        "new-job"
+      ],
+      "path": "eligibility.evidenceRequired.2",
+      "value": "Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)",
+      "text": "Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)",
+      "problems": [
+        {
+          "claim": "Employers must send a declaration of compliance to The Pensions Regulator within 5 months of their duties start date.",
+          "verdict": "partly_supported",
+          "note": "The text mentions only a re-declaration of compliance at re-enrolment; it does not mention a first declaration, a 5-month deadline after the duties start date, or sending it to The Pensions Regulator.",
+          "quote": "You must complete a re-declaration of compliance every time you carry out your re-enrolment duties, even if staff were not re-enrolled."
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You must complete a re-declaration of compliance every time you carry out your re-enrolment duties, even if staff were not re-enrolled.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite The Pensions Regulator's guidance for the first declaration of compliance and its 5-month deadline, and call it a declaration rather than a letter.",
+      "reason": "Employers rely on this for a legal filing deadline and where to send the filing. If the unsupported 5-month deadline or recipient were wrong, they could miss the deadline or file incorrectly.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "wg-winter-fuel-support#eligibility.summary",
+      "id": "wg-winter-fuel-support",
+      "name": "Oil and LPG heating payment (Wales)",
+      "event": "retirement",
+      "lifeEvents": [
+        "baby",
+        "bereavement",
+        "retirement",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "eligibility.summary",
+      "value": "One-off £200 payment (launched 31 March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; claims close 30 September 2026, 6 months after launch. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.",
+      "text": "One-off £200 payment (launched 31 March 2026) for low-income households in Wales who use heating oil or LPG and are on the Council Tax Reduction Scheme. Local authorities contact eligible households and invite them to apply; claims close 30 September 2026, 6 months after launch. People in severe hardship who do not qualify can apply to the Discretionary Assistance Fund.",
+      "problems": [
+        {
+          "claim": "The payment launched on 31 March 2026.",
+          "verdict": "partly_supported",
+          "note": "Only the press release's publication date is given; the text does not explicitly give a launch date.",
+          "quote": "First published: 31 March 2026"
+        },
+        {
+          "claim": "Claims close on 30 September 2026.",
+          "verdict": "partly_supported",
+          "note": "The text gives a 6-month window, not the specific date of 30 September 2026.",
+          "quote": "There are 6 months from the scheme's launch to claim."
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "People on low incomes who use heating oil or liquid petroleum gas (LPG) will be eligible for a one-off £200 payment if they are on the Council Tax Reduction Scheme.",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "Local authorities will contact eligible households directly and invite them to apply.",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "There are 6 months from the scheme's launch to claim.",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "Those in severe financial hardship who do not qualify can apply to the Discretionary Assistance Fund .",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "First published: 31 March 2026",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        },
+        {
+          "quote": "There are 6 months from the scheme's launch to claim.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official source for the 31 March 2026 launch date and the 30 September 2026 closing date.",
+      "reason": "The specific deadline is worked out from an assumed launch date, so if that date is wrong, eligible households could be given the wrong last day to claim.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "la-proxy-vote#eligibility.summary",
+      "id": "la-proxy-vote",
+      "name": "Apply for a proxy vote",
+      "event": "immigration",
+      "lifeEvents": [
+        "marriage",
+        "buying-home",
+        "moving",
+        "immigration",
+        "university"
+      ],
+      "path": "eligibility.summary",
+      "value": "Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 working days before the election for standard proxy; emergency proxy available up to 5pm on polling day.",
+      "text": "Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 working days before the election for standard proxy; emergency proxy available up to 5pm on polling day.",
+      "problems": [
+        {
+          "claim": "Reasons include work, illness, being abroad, disability, etc.",
+          "verdict": "partly_supported",
+          "note": "The text mentions living abroad, but not work, illness or disability as reasons.",
+          "quote": "If you want to vote by proxy and you live abroad, apply for a proxy vote as soon as possible."
+        },
+        {
+          "claim": "The deadline for a standard proxy is 6 working days before the election.",
+          "verdict": "not_stated",
+          "note": "The text gives no 6-working-day deadline. The only deadlines it gives are 11 working days, for changes and for switching from a postal vote.",
+          "quote": null
+        },
+        {
+          "claim": "An emergency proxy is available up to 5pm on polling day.",
+          "verdict": "partly_supported",
+          "note": "The text mentions an emergency proxy but gives no 5pm-on-polling-day deadline.",
+          "quote": "If you miss the deadline to apply for a proxy vote before an election, you may be able to apply for an emergency proxy vote ."
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You and your proxy must both be registered to vote in the UK before you can apply.",
+          "url": "https://www.gov.uk/apply-proxy-vote",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "if you cannot go to the polling station in person",
+          "url": "https://www.gov.uk/apply-proxy-vote",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "If you want to vote by proxy and you live abroad, apply for a proxy vote as soon as possible.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        },
+        {
+          "quote": "If you miss the deadline to apply for a proxy vote before an election, you may be able to apply for an emergency proxy vote .",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official source for the 5pm, 6-working-days-before deadline and the 5pm polling-day emergency proxy deadline.",
+      "reason": "Applicants rely on these deadlines to decide when to apply, so if they're wrong people could miss their chance to vote.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "hmcts-tax-tribunal#eligibility.summary",
+      "id": "hmcts-tax-tribunal",
+      "name": "Appeal to Tax Tribunal",
+      "event": "business",
+      "lifeEvents": [
+        "business"
+      ],
+      "path": "eligibility.summary",
+      "value": "Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.",
+      "text": "Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.",
+      "problems": [
+        {
+          "claim": "Anyone who has received an HMRC decision (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it can use the service.",
+          "verdict": "partly_supported",
+          "note": "The text names these taxes and penalty appeals, but it says only 'most' or 'some' decisions can be appealed, not every decision.",
+          "quote": "You can appeal against most decisions about ‘direct tax’ and ‘indirect tax’."
+        },
+        {
+          "claim": "There is no filing fee for most tax appeals.",
+          "verdict": "not_stated",
+          "note": "None of the sources mention fees for filing an appeal.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You must usually do this within 30 days of the date on the review result letter.",
+          "url": "https://www.gov.uk/tax-appeals/review-of-a-tax-or-penalty-decision",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "You can appeal against most decisions about ‘direct tax’ and ‘indirect tax’.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official source for the no-fee claim and say that only most HMRC decisions can be appealed, not all.",
+      "reason": "The fee claim affects what every appellant thinks they must pay, and 'anyone who disagrees' could wrongly tell people with non-appealable decisions that they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "hmrc-mtd#eligibility.summary",
+      "id": "hmrc-mtd",
+      "name": "Making Tax Digital enrolment",
+      "event": "business",
+      "lifeEvents": [
+        "business"
+      ],
+      "path": "eligibility.summary",
+      "value": "Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with income over £50k.",
+      "text": "Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with income over £50k.",
+      "problems": [
+        {
+          "claim": "MTD is mandatory for all VAT-registered businesses.",
+          "verdict": "partly_supported",
+          "note": "The text supports MTD being mandatory, but it allows exemptions, so 'all' is not fully backed.",
+          "quote": "HMRC will sign up all new VAT registered businesses to Making Tax Digital for VAT automatically unless they are already exempt or have applied for exemption."
+        },
+        {
+          "claim": "Income Tax MTD rolls out from April 2026.",
+          "verdict": "not_stated",
+          "note": "The text does not mention Income Tax MTD or April 2026.",
+          "quote": null
+        },
+        {
+          "claim": "Income Tax MTD applies to self-employed people and landlords with income over £50k.",
+          "verdict": "not_stated",
+          "note": "The text does not mention self-employed people, landlords or a £50k threshold.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You must now use compatible software to keep your VAT records and file your VAT Returns.",
+          "url": "https://www.gov.uk/guidance/find-software-thats-compatible-with-making-tax-digital-for-vat",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "HMRC will sign up all new VAT registered businesses to Making Tax Digital for VAT automatically unless they are already exempt or have applied for exemption.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the MTD for Income Tax guidance for the April 2026 date and £50,000 qualifying-income threshold, and mention the VAT exemptions.",
+      "reason": "This is the main eligibility statement, so an unsourced threshold that does not say it means qualifying self-employment and property income, plus 'all' with no exemptions, could lead people to decide wrongly whether they must comply.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "mhclg-epc#eligibility.summary",
+      "id": "mhclg-epc",
+      "name": "Find an Energy Performance Certificate",
+      "event": "buying-home",
+      "lifeEvents": [
+        "buying-home"
+      ],
+      "path": "eligibility.summary",
+      "value": "EPCs are required by law when a property is sold or let. Buyers, tenants and homeowners can search the register for free. Landlords renting property in England and Wales must have an EPC rating of E or above.",
+      "text": "EPCs are required by law when a property is sold or let. Buyers, tenants and homeowners can search the register for free. Landlords renting property in England and Wales must have an EPC rating of E or above.",
+      "problems": [
+        {
+          "claim": "Buyers, tenants and homeowners can search the register for free.",
+          "verdict": "partly_supported",
+          "note": "The text says owners can check their own property and download the EPC for free, but it never says buyers or tenants can search the register.",
+          "quote": "Use the find an energy certificate service to check if your property has a valid EPC and download it for free."
+        },
+        {
+          "claim": "Landlords renting property in England and Wales must have an EPC rating of E or above.",
+          "verdict": "not_stated",
+          "note": "The text mentions 'minimum energy performance requirements' for renting but never names a minimum rating of E.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You can be fined if you do not get an EPC when you need one.",
+          "url": "https://www.gov.uk/selling-a-home",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "Use the find an energy certificate service to check if your property has a valid EPC and download it for free.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the private rented sector minimum energy efficiency standard guidance for the E rating and its exemptions, and cite the register page saying anyone can search it.",
+      "reason": "Landlords in England and Wales use the E threshold to decide whether they can legally let a property, so an unsourced or wrong rating (or missing exemptions) could lead them to let unlawfully or make changes they don't need to.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-scottish-child-payment#eligibility.summary",
+      "id": "sss-scottish-child-payment",
+      "name": "Scottish Child Payment",
+      "event": "new-job",
+      "lifeEvents": [
+        "baby",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "eligibility.summary",
+      "value": "£28.20/week per child under 16 for the main person looking after the child in Scotland, if they or their partner get a qualifying benefit (Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA). Child Benefit alone does not qualify.",
+      "text": "£28.20/week per child under 16 for the main person looking after the child in Scotland, if they or their partner get a qualifying benefit (Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA). Child Benefit alone does not qualify.",
+      "problems": [
+        {
+          "claim": "It goes to the main person looking after the child.",
+          "verdict": "partly_supported",
+          "note": "The text says only one person can get it and that it is for children you look after, but it does not say the payment goes to the 'main' carer; instead it describes a separate process for deciding double claims.",
+          "quote": "Only one person can get Scottish Child Payment for a child."
+        },
+        {
+          "claim": "The person must be in Scotland.",
+          "verdict": "not_stated",
+          "note": "The text does not state any requirement to live in Scotland for Scottish Child Payment.",
+          "quote": null
+        },
+        {
+          "claim": "The person or their partner must get a qualifying benefit: Universal Credit, income-based JSA, Pension Credit, Income Support or income-related ESA.",
+          "verdict": "not_stated",
+          "note": "The text does not list any qualifying benefits or name any of these benefits.",
+          "quote": null
+        },
+        {
+          "claim": "Getting Child Benefit alone does not qualify you.",
+          "verdict": "not_stated",
+          "note": "The text does not mention Child Benefit in relation to eligibility for Scottish Child Payment.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age.",
+          "url": "https://www.mygov.scot/scottish-child-payment",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "Only one person can get Scottish Child Payment for a child.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official pages for the qualifying benefits list, the Scotland residency rule, the Child Benefit exclusion and how the carer is chosen.",
+      "reason": "The list of benefits and the residency rule decide who qualifies, so any mistake would give parents the wrong answer on eligibility.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "co-contracts-finder#eligibility.summary",
+      "id": "co-contracts-finder",
+      "name": "Contracts Finder",
+      "event": "none",
+      "lifeEvents": [],
+      "path": "eligibility.summary",
+      "value": "Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.",
+      "text": "Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.",
+      "problems": [
+        {
+          "claim": "Contracts Finder is free to use.",
+          "verdict": "not_stated",
+          "note": "None of the text about Contracts Finder says whether it costs anything; the 'free' support in Source 2 is general business advice, not this service.",
+          "quote": null
+        },
+        {
+          "claim": "Central government contracts above £12,000 must be published on Contracts Finder.",
+          "verdict": "partly_supported",
+          "note": "The £12,000 figure (including VAT) is in the text, but nothing says publishing these contracts is compulsory.",
+          "quote": "Contracts Finder lets you search for information about contracts worth over £12,000 (including VAT) with the government and its agencies."
+        },
+        {
+          "claim": "Contracts above £25,000 from other public bodies must be published on Contracts Finder.",
+          "verdict": "not_stated",
+          "note": "The text never mentions a £25,000 threshold or a publishing duty for other public bodies.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Search for opportunities to sell goods or services to the public sector through: the Digital Marketplace Contracts Finder",
+          "url": "https://www.gov.uk/tendering-for-public-sector-contracts",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "Contracts Finder lets you search for information about contracts worth over £12,000 (including VAT) with the government and its agencies.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official source that says Contracts Finder is free and gives the publishing thresholds and duty, or remove those claims.",
+      "reason": "Every supplier is told the service costs nothing and that contracts above set values must be published here, so if the cost or the thresholds are wrong they would get wrong information about fees and about which contracts to expect.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.summary",
+      "id": "la-street-collection-licence",
+      "name": "Street collection licence",
+      "event": "none",
+      "lifeEvents": [],
+      "path": "eligibility.summary",
+      "value": "Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.",
+      "text": "Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.",
+      "problems": [
+        {
+          "claim": "A licence is required for any charitable collection in a public street or place in England and Wales.",
+          "verdict": "partly_supported",
+          "note": "The text covers England and Wales and public areas, but says a licence might be needed depending on the council, not that it is always required.",
+          "quote": "you might need a street collection licence, depending on your local council"
+        },
+        {
+          "claim": "The licence is free to obtain.",
+          "verdict": "not_stated",
+          "note": "The text does not mention any fee or say the licence is free.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "You could be fined £200 if you collect money for charity without a licence.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "you might need a street collection licence, depending on your local council",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official source for the licence being free, or remove the fee claim, and say a licence may be needed depending on the council.",
+      "reason": "The field tells every applicant the licence is free, but the official pages say nothing about a fee. Anyone whose council charges would be given the wrong cost, and everyone is told a licence is always required.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "wg-winter-fuel-support#desc",
+      "id": "wg-winter-fuel-support",
+      "name": "Oil and LPG heating payment (Wales)",
+      "event": "retirement",
+      "lifeEvents": [
+        "baby",
+        "bereavement",
+        "retirement",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "desc",
+      "value": "One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 30 September 2026, 6 months after the scheme launched on 31 March 2026. Replaces the closed Winter Fuel Support Scheme.",
+      "text": "One-off £200 for households in Wales that heat with oil or LPG and get Council Tax Reduction. Councils contact eligible households; claims close 30 September 2026, 6 months after the scheme launched on 31 March 2026. Replaces the closed Winter Fuel Support Scheme.",
+      "problems": [
+        {
+          "claim": "Claims close on 30 September 2026.",
+          "verdict": "partly_supported",
+          "note": "The text gives a 6-month window from launch but never names 30 September 2026 as the closing date.",
+          "quote": "There are 6 months from the scheme's launch to claim."
+        },
+        {
+          "claim": "The scheme launched on 31 March 2026.",
+          "verdict": "partly_supported",
+          "note": "The press release is dated 31 March 2026, but the text does not explicitly say the scheme launched on that date.",
+          "quote": "First published: 31 March 2026"
+        },
+        {
+          "claim": "It replaces the closed Winter Fuel Support Scheme.",
+          "verdict": "not_stated",
+          "note": "The text never mentions a Winter Fuel Support Scheme or says this payment replaces anything.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "People on low incomes who use heating oil or liquid petroleum gas (LPG) will be eligible for a one-off £200 payment if they are on the Council Tax Reduction Scheme.",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "Local authorities will contact eligible households directly and invite them to apply.",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "There are 6 months from the scheme's launch to claim.",
+          "url": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "There are 6 months from the scheme's launch to claim.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        },
+        {
+          "quote": "First published: 31 March 2026",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official page that states the 30 September 2026 closing date and 31 March 2026 launch, and remove the unsourced Winter Fuel Support Scheme replacement claim.",
+      "reason": "Applicants rely on the exact closing date, so an unconfirmed deadline could make someone miss the window; the replacement claim is only background.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "la-council-tax#desc",
+      "id": "la-council-tax",
+      "name": "Council Tax registration",
+      "event": "buying-home",
+      "lifeEvents": [
+        "buying-home",
+        "moving"
+      ],
+      "path": "desc",
+      "value": "Register at new address and close account at old. Various discounts may apply.",
+      "text": "Register at new address and close account at old. Various discounts may apply.",
+      "problems": [
+        {
+          "claim": "Register for Council Tax at your new address.",
+          "verdict": "not_stated",
+          "note": "None of the sources say anything about registering for Council Tax at a new address.",
+          "quote": null
+        },
+        {
+          "claim": "Close the Council Tax account at your old address.",
+          "verdict": "not_stated",
+          "note": "None of the sources mention closing an account at an old address.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "whether you can get a discount or exemption from the full bill",
+          "url": "https://www.gov.uk/council-tax",
+          "origin": "current-provenance"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official page on telling your council when you move for the register-and-close-account steps.",
+      "reason": "Anyone who is moving is told to do these two steps, so if the unsourced steps were wrong they would take the wrong action on their Council Tax account.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-scottish-child-payment#desc",
+      "id": "sss-scottish-child-payment",
+      "name": "Scottish Child Payment",
+      "event": "new-job",
+      "lifeEvents": [
+        "baby",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "desc",
+      "value": "£28.20/week per eligible child under 16 for parents on qualifying benefits in Scotland, paid every 4 weeks.",
+      "text": "£28.20/week per eligible child under 16 for parents on qualifying benefits in Scotland, paid every 4 weeks.",
+      "problems": [
+        {
+          "claim": "It is for parents on qualifying benefits in Scotland.",
+          "verdict": "not_stated",
+          "note": "The text never says you need a qualifying benefit or must live in Scotland to be eligible.",
+          "quote": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age.",
+          "url": "https://www.mygov.scot/scottish-child-payment",
+          "origin": "current-provenance"
+        },
+        {
+          "quote": "You'll get the payment every 4 weeks if your application is successful.",
+          "url": "https://www.mygov.scot/scottish-child-payment",
+          "origin": "current-provenance"
+        }
+      ],
+      "severity": "high",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official eligibility page for the qualifying-benefit and Scotland residency conditions.",
+      "reason": "These two conditions decide whether anyone qualifies, so if they were wrong people would be told wrongly whether they can claim.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "dvla-renew-at-70#eligibility.criteria.1",
+      "id": "dvla-renew-at-70",
+      "name": "Renew driving licence at 70",
+      "event": "disability",
+      "lifeEvents": [
+        "retirement",
+        "disability"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "disability",
+        "description": "Must confirm at renewal that eyesight meets minimum standard and no medical condition prevents driving. DVLA may require medical evidence if a condition has been declared."
+      },
+      "text": "Must confirm at renewal that eyesight meets minimum standard and no medical condition prevents driving. DVLA may require medical evidence if a condition has been declared.",
+      "problems": [
+        {
+          "claim": "Must confirm at renewal that eyesight meets minimum standard and no medical condition prevents driving. DVLA may require medical evidence if a condition has been declared.",
+          "verdict": "partly_supported",
+          "note": "The text states the eyesight and fitness conditions and says DVLA may test your eyesight after a reported vision condition, but it does not say you must confirm these things, or that medical evidence may be required for any declared condition.",
+          "quote": "If you report a medical condition that affects your vision, DVLA may refer you for an eyesight test with their contracted optician.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "If you report a medical condition that affects your vision, DVLA may refer you for an eyesight test with their contracted optician.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the DVLA guidance saying applicants must declare eyesight and fitness to drive, and that DVLA may ask for medical evidence about declared conditions.",
+      "reason": "Applicants with medical conditions need to know they must declare them and may be asked for evidence; this is probably accurate but is only partly sourced now.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "dwp-attendance-allowance#eligibility.criteria.0",
+      "id": "dwp-attendance-allowance",
+      "name": "Attendance Allowance",
+      "event": "disability",
+      "lifeEvents": [
+        "terminal-illness",
+        "retirement",
+        "disability"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "age",
+        "description": "Must have reached State Pension age (66 or over)."
+      },
+      "text": "Must have reached State Pension age (66 or over).",
+      "problems": [
+        {
+          "claim": "Must have reached State Pension age (66 or over).",
+          "verdict": "partly_supported",
+          "note": "The text requires State Pension age but never gives the age 66.",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the State Pension age guidance for 66 and note that the age is rising to 67.",
+      "reason": "66 is right today, but as State Pension age rises, some people who have turned 66 would wrongly be told they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "dwp-pip#eligibility.criteria.1",
+      "id": "dwp-pip",
+      "name": "Personal Independence Payment (PIP)",
+      "event": "disability",
+      "lifeEvents": [
+        "terminal-illness",
+        "disability"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "disability",
+        "description": "Long-term physical or mental health condition or disability affecting daily living or mobility. Must have had difficulties for at least 3 months and expect them to continue for at least 9 months."
+      },
+      "text": "Long-term physical or mental health condition or disability affecting daily living or mobility. Must have had difficulties for at least 3 months and expect them to continue for at least 9 months.",
+      "problems": [
+        {
+          "claim": "Long-term physical or mental health condition or disability affecting daily living or mobility. Must have had difficulties for at least 3 months and expect them to continue for at least 9 months.",
+          "verdict": "partly_supported",
+          "note": "The condition requirement is stated, but the text gives a single 12-month expectation and never mentions a 3-month qualifying period or a 9-month future period.",
+          "quote": "you expect the difficulties to last for at least 12 months from when they started",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "you expect the difficulties to last for at least 12 months from when they started",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official source for the 3-month and 9-month periods, or reword to the 12-month expectation in the text.",
+      "reason": "A wrong duration rule could make some people with recent or shorter-term conditions think they do or do not qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "hmrc-carers-credit#eligibility.criteria.1",
+      "id": "hmrc-carers-credit",
+      "name": "Carer's Credit",
+      "event": "disability",
+      "lifeEvents": [
+        "terminal-illness",
+        "retirement",
+        "disability",
+        "carer"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "ni_record",
+        "description": "Not already receiving NI credits through Carer's Allowance, UC, or earnings above the Lower Earnings Limit."
+      },
+      "text": "Not already receiving NI credits through Carer's Allowance, UC, or earnings above the Lower Earnings Limit.",
+      "problems": [
+        {
+          "claim": "Not already receiving NI credits through Carer's Allowance, UC, or earnings above the Lower Earnings Limit.",
+          "verdict": "partly_supported",
+          "note": "The Carer's Credit page does not mention Universal Credit, and the linked Carer's Allowance page only says UC gives Class 3 credits, without linking that to Carer's Credit eligibility.",
+          "quote": null,
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "get Carer’s Allowance or Carer Support Payment - you’ll automatically get credits",
+          "url": "https://www.gov.uk/carers-credit",
+          "origin": "current-provenance"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official page confirming that Universal Credit claimants already get NI credits, or remove the Universal Credit reference.",
+      "reason": "Carers on Universal Credit could be wrongly told they cannot get Carer's Credit, because the pages don't link Universal Credit credits to Carer's Credit eligibility.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "nhs-continuing-healthcare#eligibility.criteria.0",
+      "id": "nhs-continuing-healthcare",
+      "name": "NHS Continuing Healthcare (CHC)",
+      "event": "disability",
+      "lifeEvents": [
+        "terminal-illness",
+        "retirement",
+        "disability"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "disability",
+        "description": "Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability."
+      },
+      "text": "Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.",
+      "problems": [
+        {
+          "claim": "Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.",
+          "verdict": "partly_supported",
+          "note": "The text requires a primary health need arising from disability, accident or illness, but it does not describe that need as complex, intense or unpredictable, and it does not mention progressive serious illness or terminal conditions.",
+          "quote": "arranged and funded solely by the NHS where an individual is found to have a primary health need",
+          "url": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "arranged and funded solely by the NHS where an individual is found to have a primary health need",
+          "url": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the National Framework for the need characteristics and soften or source the 'usually progressive or terminal illness' examples.",
+      "reason": "People with a primary health need that is not a progressive, terminal or severe-disability condition could wrongly think they are excluded and not ask for an assessment.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "other-carers-leave#eligibility.criteria.0",
+      "id": "other-carers-leave",
+      "name": "Carer's leave (employer)",
+      "event": "disability",
+      "lifeEvents": [
+        "terminal-illness",
+        "retirement",
+        "disability",
+        "carer"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "employment",
+        "description": "Must be an employee (not a worker or self-employed). Applies from the first day of employment."
+      },
+      "text": "Must be an employee (not a worker or self-employed). Applies from the first day of employment.",
+      "problems": [
+        {
+          "claim": "Must be an employee (not a worker or self-employed). Applies from the first day of employment.",
+          "verdict": "partly_supported",
+          "note": "The carer's leave page confirms employees qualify from day one but never says workers or self-employed people are excluded; that exclusion appears only on the linked parental leave page, which covers a different service.",
+          "quote": "Employees are entitled to carer’s leave from their first day of work for their employer.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Employees are entitled to carer’s leave from their first day of work for their employer.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite official carer's leave guidance that limits the right to employees, rather than relying on the parental leave page.",
+      "reason": "Workers and self-employed people are told they do not qualify, based on a source for a different service, which affects whether they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "other-motability#eligibility.criteria.0",
+      "id": "other-motability",
+      "name": "Motability scheme",
+      "event": "disability",
+      "lifeEvents": [
+        "terminal-illness",
+        "disability"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "disability",
+        "description": "Receiving the Enhanced Rate of the Mobility Component of PIP (or equivalent: DLA highest rate mobility, AFIP or WPMS)."
+      },
+      "text": "Receiving the Enhanced Rate of the Mobility Component of PIP (or equivalent: DLA highest rate mobility, AFIP or WPMS).",
+      "problems": [
+        {
+          "claim": "Receiving the Enhanced Rate of the Mobility Component of PIP (or equivalent: DLA highest rate mobility, AFIP or WPMS).",
+          "verdict": "partly_supported",
+          "note": "The text mentions only a 'qualifying mobility allowance'. It does not name the PIP enhanced mobility rate, DLA higher rate mobility, AFIP or WPMS.",
+          "quote": "Use your qualifying mobility allowance to lease a brand-new vehicle.",
+          "url": "https://www.motability.co.uk/"
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Use your qualifying mobility allowance to lease a brand-new vehicle.",
+          "url": "https://www.motability.co.uk/",
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the Motability eligibility page, change 'DLA highest rate' to 'higher rate', and add the Scottish Adult and Child Disability Payment equivalents.",
+      "reason": "The list of allowances is probably correct, but calling it the 'highest' DLA rate is inaccurate and leaving out the Scottish benefits could lead the agent to wrongly turn away people in Scotland.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-child-disability-payment#eligibility.criteria.1",
+      "id": "sss-child-disability-payment",
+      "name": "Child Disability Payment",
+      "event": "disability",
+      "lifeEvents": [
+        "disability"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "disability",
+        "description": "Child must have a physical or mental disability requiring substantially more care or supervision than a child of the same age, or have difficulty walking."
+      },
+      "text": "Child must have a physical or mental disability requiring substantially more care or supervision than a child of the same age, or have difficulty walking.",
+      "problems": [
+        {
+          "claim": "Child must have a physical or mental disability requiring substantially more care or supervision than a child of the same age, or have difficulty walking.",
+          "verdict": "partly_supported",
+          "note": "The text states physical or mental disability with care, supervision or walking needs, but never compares these with a child of the same age or says 'substantially more'.",
+          "quote": "It's for a child who, because of their physical or mental disability, either: needs help from another person, for much of the day, to manage their bodily functions",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "It's for a child who, because of their physical or mental disability, either: needs help from another person, for much of the day, to manage their bodily functions",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official test comparing the child with a child of the same age, or drop 'substantially' if no source supports it.",
+      "reason": "The agent uses this criterion to decide eligibility, so an unsourced 'substantially more' threshold could lead it to wrongly turn away borderline applicants.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "opg-lpa-activation#eligibility.criteria.0",
+      "id": "opg-lpa-activation",
+      "name": "Notify OPG of death",
+      "event": "carer",
+      "lifeEvents": [
+        "terminal-illness",
+        "bereavement",
+        "carer"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "bereavement",
+        "description": "A registered LPA exists and the donor has died."
+      },
+      "text": "A registered LPA exists and the donor has died.",
+      "problems": [
+        {
+          "claim": "A registered LPA exists and the donor has died.",
+          "verdict": "partly_supported",
+          "note": "The donor's death is stated as the trigger, but the text does not say the LPA has to be registered for this to apply.",
+          "quote": "OPG will cancel the LPA if the donor dies",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "OPG will cancel the LPA if the donor dies",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official page saying the LPA must be registered, or drop the registration condition.",
+      "reason": "People whose LPA was never registered could be told wrongly whether they need to contact OPG, though this is probably accurate.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "opg-lpa-activation#eligibility.criteria.1",
+      "id": "opg-lpa-activation",
+      "name": "Notify OPG of death",
+      "event": "carer",
+      "lifeEvents": [
+        "terminal-illness",
+        "bereavement",
+        "carer"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "dependency",
+        "description": "Requires a registered LPA to be in place."
+      },
+      "text": "Requires a registered LPA to be in place.",
+      "problems": [
+        {
+          "claim": "Requires a registered LPA to be in place.",
+          "verdict": "partly_supported",
+          "note": "The linked guide is about registered LPAs, but it never says reporting a death requires the LPA to be registered.",
+          "quote": "Using a registered lasting power of attorney (LPA) - attorney duties, starting to act, gifting, ending, revoking an attorney.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Using a registered lasting power of attorney (LPA) - attorney duties, starting to act, gifting, ending, revoking an attorney.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official page saying reporting a death applies only to registered LPAs.",
+      "reason": "This rules out anyone whose LPA isn't registered on a condition the pages don't state, which matters to that smaller group.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "dwp-pension-credit#eligibility.criteria.0",
+      "id": "dwp-pension-credit",
+      "name": "Pension Credit",
+      "event": "retirement",
+      "lifeEvents": [
+        "bereavement",
+        "retirement"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "age",
+        "description": "Must have reached State Pension age (currently 66)."
+      },
+      "text": "Must have reached State Pension age (currently 66).",
+      "problems": [
+        {
+          "claim": "Must have reached State Pension age (currently 66).",
+          "verdict": "partly_supported",
+          "note": "The source says you must have reached State Pension age but does not say it is currently 66.",
+          "quote": "have reached State Pension age to qualify for Pension Credit",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "have reached State Pension age to qualify for Pension Credit",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the State Pension age guidance and note that the age is rising from 66 to 67.",
+      "reason": "People born after April 1960 may be given the wrong qualifying age as State Pension age rises past 66.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "la-bus-pass#eligibility.criteria.0",
+      "id": "la-bus-pass",
+      "name": "Free bus pass",
+      "event": "retirement",
+      "lifeEvents": [
+        "retirement"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "age",
+        "description": "Must have reached State Pension age (currently 66). Some disabled people may also qualify before this age."
+      },
+      "text": "Must have reached State Pension age (currently 66). Some disabled people may also qualify before this age.",
+      "problems": [
+        {
+          "claim": "Must have reached State Pension age (currently 66). Some disabled people may also qualify before this age.",
+          "verdict": "partly_supported",
+          "note": "The text supports State Pension age, and it supports some people getting the pass sooner ('check if you can get one sooner', plus the disabled pass), but it never gives the figure 66.",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age .",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age .",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the State Pension age page for the figure 66, or link to the State Pension age checker, noting that it is rising to 67.",
+      "reason": "66 is correct at the moment, but State Pension age depends on date of birth and is rising, so people nearing it could get the wrong date they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "sss-funeral-support-payment#eligibility.criteria.2",
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "event": "retirement",
+      "lifeEvents": [
+        "baby",
+        "bereavement",
+        "retirement",
+        "job-loss",
+        "divorce",
+        "new-job"
+      ],
+      "path": "eligibility.criteria.2",
+      "value": {
+        "factor": "geography",
+        "description": "The funeral must take place in the UK, and applicant must live in Scotland."
+      },
+      "text": "The funeral must take place in the UK, and applicant must live in Scotland.",
+      "problems": [
+        {
+          "claim": "The funeral must take place in the UK, and applicant must live in Scotland.",
+          "verdict": "partly_supported",
+          "note": "Living in Scotland is stated, but the text never says the funeral must be in the UK; it only limits transport help to travel within the UK.",
+          "quote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official funeral location rule and add any exceptions, such as funerals in the EEA or Switzerland.",
+      "reason": "Most funerals are in the UK, but people holding a funeral abroad under an exception could be wrongly told they do not qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "dwp-bereavement-support#eligibility.criteria.1",
+      "id": "dwp-bereavement-support",
+      "name": "Bereavement Support Payment",
+      "event": "bereavement",
+      "lifeEvents": [
+        "bereavement"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "age",
+        "description": "Must have been under State Pension age (66) at the time of the partner's death."
+      },
+      "text": "Must have been under State Pension age (66) at the time of the partner's death.",
+      "problems": [
+        {
+          "claim": "Must have been under State Pension age (66) at the time of the partner's death.",
+          "verdict": "partly_supported",
+          "note": "The source says under State Pension age but does not give the age as 66.",
+          "quote": "When your partner died, you must have been: under State Pension age",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "When your partner died, you must have been: under State Pension age",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official State Pension age page for the age of 66 and say it is rising to 67.",
+      "reason": "66 is right for most deaths today, but State Pension age is rising, so a fixed figure could wrongly include or exclude people near the threshold whose partner dies later.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "dwp-bereavement-support#eligibility.criteria.2",
+      "id": "dwp-bereavement-support",
+      "name": "Bereavement Support Payment",
+      "event": "bereavement",
+      "lifeEvents": [
+        "bereavement"
+      ],
+      "path": "eligibility.criteria.2",
+      "value": {
+        "factor": "ni_record",
+        "description": "Deceased must have paid at least 25 weeks of Class 1 or 2 NI contributions, or died from a work-related accident or disease."
+      },
+      "text": "Deceased must have paid at least 25 weeks of Class 1 or 2 NI contributions, or died from a work-related accident or disease.",
+      "problems": [
+        {
+          "claim": "Deceased must have paid at least 25 weeks of Class 1 or 2 NI contributions, or died from a work-related accident or disease.",
+          "verdict": "partly_supported",
+          "note": "The source says 'a certain amount' of contributions and does not give a figure of 25 weeks; the work accident or disease alternative is stated.",
+          "quote": "paid a certain amount of Class 1 or Class 2 National Insurance contributions in any one tax year since 6 April 1975 died because of an accident at work or a disease caused by work",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "paid a certain amount of Class 1 or Class 2 National Insurance contributions in any one tax year since 6 April 1975 died because of an accident at work or a disease caused by work",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the official guidance for the 25-week figure and add that the contributions must be in a single tax year.",
+      "reason": "Without 'in one tax year', people whose partner paid 25 weeks spread over several years with no single qualifying year could be wrongly told they qualify.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "gro-register-death#eligibility.criteria.0",
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "event": "bereavement",
+      "lifeEvents": [
+        "bereavement"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "bereavement",
+        "description": "A person has died in England or Wales."
+      },
+      "text": "A person has died in England or Wales.",
+      "problems": [
+        {
+          "claim": "A person has died in England or Wales.",
+          "verdict": "partly_supported",
+          "note": "The page covers deaths in the UK or abroad but never limits the service to deaths in England or Wales, so that restriction is not in the text.",
+          "quote": "Find out how to register a death in the UK or abroad.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "Find out how to register a death in the UK or abroad.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the page that limits this route to England and Wales, and add the routes for deaths abroad, in Scotland and in Northern Ireland.",
+      "reason": "Most people registering a death in England or Wales are unaffected, but anyone dealing with a death abroad or in Scotland or Northern Ireland could be wrongly told the service doesn't apply to them or not sent to the right route.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "hmcts-probate#eligibility.criteria.0",
+      "id": "hmcts-probate",
+      "name": "Apply for probate",
+      "event": "bereavement",
+      "lifeEvents": [
+        "bereavement"
+      ],
+      "path": "eligibility.criteria.0",
+      "value": {
+        "factor": "bereavement",
+        "description": "Person has died leaving assets held in their sole name."
+      },
+      "text": "Person has died leaving assets held in their sole name.",
+      "problems": [
+        {
+          "claim": "Person has died leaving assets held in their sole name.",
+          "verdict": "partly_supported",
+          "note": "The text refers to a person who has died and suggests jointly owned assets may not need probate, but it never mentions 'sole name' or makes this a stated condition.",
+          "quote": "You may not need probate if the person who died: only had savings owned shares or money with others",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You may not need probate if the person who died: only had savings owned shares or money with others",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite an official page that links probate to assets in the person's sole name, or reword the condition to match the source.",
+      "reason": "Making 'sole name' a strict condition could wrongly screen out people who need probate for jointly held assets, such as property owned as tenants in common.",
+      "origin": "reused-unchanged-2026-09-triage"
+    },
+    {
+      "key": "ho-citizenship-ceremony#eligibility.criteria.1",
+      "id": "ho-citizenship-ceremony",
+      "name": "Citizenship ceremony",
+      "event": "immigration",
+      "lifeEvents": [
+        "immigration"
+      ],
+      "path": "eligibility.criteria.1",
+      "value": {
+        "factor": "age",
+        "description": "Adults aged 18 and over must attend in person. Children under 18 can be included on a parent's ceremony."
+      },
+      "text": "Adults aged 18 and over must attend in person. Children under 18 can be included on a parent's ceremony.",
+      "problems": [
+        {
+          "claim": "Adults aged 18 and over must attend in person. Children under 18 can be included on a parent's ceremony.",
+          "verdict": "partly_supported",
+          "note": "The text says people aged 18 or over must attend, but it never says 'in person' and says nothing about adding children under 18 to a parent's ceremony.",
+          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+          "url": null
+        }
+      ],
+      "quotes": [
+        {
+          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+          "url": null,
+          "verdict": "partly_supported",
+          "origin": "review-queue"
+        }
+      ],
+      "severity": "medium",
+      "likelyTrueElsewhere": true,
+      "action": "Cite the ceremony guidance for in-person attendance and for how children under 18 are treated, or remove the claim about children.",
+      "reason": "Parents could be misled about whether their children under 18 must attend or are covered by the parent's ceremony. Adults are correctly told they must attend.",
+      "origin": "reused-unchanged-2026-09-triage"
+    }
+  ]
+}

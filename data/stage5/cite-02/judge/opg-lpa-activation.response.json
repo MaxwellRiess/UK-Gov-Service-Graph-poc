@@ -1,0 +1,39 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "A registered LPA must exist to use the LPA service.",
+          "verdict": "supported",
+          "quote": "You must have registered the LPA before you can start acting as an attorney.",
+          "source": 1,
+          "note": "The source requires registration first."
+        },
+        {
+          "claim": "The donor has died when the LPA is activated or used.",
+          "verdict": "contradicted",
+          "quote": "OPG will cancel the LPA if the donor dies",
+          "source": 1,
+          "note": "The source says the LPA is cancelled on the donor’s death rather than activated or used then."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "A registered LPA is required to use the LPA service.",
+          "verdict": "supported",
+          "quote": "You must have registered the LPA before you can start acting as an attorney.",
+          "source": 1,
+          "note": "The source requires registration first."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": "online account"
+}

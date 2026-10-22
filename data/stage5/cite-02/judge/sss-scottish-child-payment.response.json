@@ -1,0 +1,112 @@
+{
+  "fields": [
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {
+          "claim": "The claimant must receive a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "you or your partner are getting certain benefits or payments",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The child must be under 16.",
+          "verdict": "supported",
+          "quote": "you or your partner are the main person looking after a child who's under 16 years old",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The claimant must live in Scotland.",
+          "verdict": "supported",
+          "quote": "you live in Scotland",
+          "source": 3,
+          "note": "Supported by the cited source."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Scottish Child Payment is £28.20 per week for each eligible child.",
+          "verdict": "supported",
+          "quote": "It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The child must be under 16.",
+          "verdict": "supported",
+          "quote": "every child you look after who's under 16 years of age",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The claimant or their partner must be the main person looking after the child.",
+          "verdict": "supported",
+          "quote": "you or your partner are the main person looking after a child who's under 16 years old",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The claimant must live in Scotland.",
+          "verdict": "supported",
+          "quote": "you live in Scotland",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Universal Credit, income-based JSA, Pension Credit, Income Support and income-related ESA are qualifying benefits.",
+          "verdict": "supported",
+          "quote": "Universal Credit income-based Jobseeker's Allowance (JSA) Social Security Scotland also accept claims if you alone are named on one of these benefits: Pension Credit Income Support income-related Employment and Support Allowance (ESA)",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The applicant or their partner can be named on any of those qualifying benefits.",
+          "verdict": "partly_supported",
+          "quote": "If your partner is named on any of the above 3 benefits and you are not, your partner should apply.",
+          "source": 3,
+          "note": "For Pension Credit, Income Support and income-related ESA, the named partner should apply instead."
+        },
+        {
+          "claim": "Child Benefit alone does not qualify.",
+          "verdict": "supported",
+          "quote": "Child benefit on its own is not an accepted benefit for Scottish Child Payment.",
+          "source": 3,
+          "note": "Supported by the cited source."
+        }
+      ]
+    },
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Scottish Child Payment is £28.20 per week per eligible child under 16.",
+          "verdict": "supported",
+          "quote": "It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Parents receiving qualifying benefits in Scotland can get the payment.",
+          "verdict": "supported",
+          "quote": "you live in Scotland you or your partner are getting certain benefits or payments",
+          "source": 3,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "The payment is made every four weeks.",
+          "verdict": "supported",
+          "quote": "You'll get the payment every 4 weeks if your application is successful.",
+          "source": 0,
+          "note": "Supported by the cited source."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,39 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "The person taking carer’s leave must be an employee.",
+          "verdict": "supported",
+          "quote": "Anyone who is legally classed as an employee can take time off to help a dependant who needs long-term care.",
+          "source": 2,
+          "note": "The source identifies employee status as the entitlement class."
+        },
+        {
+          "claim": "Workers who are not employees cannot take statutory carer’s leave.",
+          "verdict": "partly_supported",
+          "quote": "Anyone who is legally classed as an employee can take time off to help a dependant who needs long-term care.",
+          "source": 2,
+          "note": "The source limits entitlement to employees but does not expressly discuss this excluded category."
+        },
+        {
+          "claim": "Self-employed people cannot take statutory carer’s leave.",
+          "verdict": "partly_supported",
+          "quote": "Anyone who is legally classed as an employee can take time off to help a dependant who needs long-term care.",
+          "source": 2,
+          "note": "The source limits entitlement to employees but does not expressly discuss this excluded category."
+        },
+        {
+          "claim": "The entitlement applies from the first day of employment.",
+          "verdict": "supported",
+          "quote": "Employees are entitled to carer’s leave from their first day of work for their employer.",
+          "source": 0,
+          "note": "The source explicitly gives first-day entitlement."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Street collection licence" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/cite-02/judge/la-street-collection-licence.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[summary] (split into claims) Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.
+
+--- SOURCE 0: https://www.gov.uk/find-licences/street-collection-licence ---
+Street collection licence (England & Wales). If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council. Restrictions It’s not just ‘streets’ that are covered - you’ll need a licence if you collect money in public areas, eg a shop doorway or car park. Exceptions You don’t need a street collection licence if you’re selling articles as part of a business, and no representation is made that any part of the proceeds of sale will be devoted to any charitable purpose. This is in accordance with Section 5(1)(b) of the Police, Factories, & c. (Miscellaneous Provisions) Act 1916 . How to apply Contact your local council to find out if you need a licence. In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence. Fines and penalties You could be fined £200 if you collect money for charity without a licence.
+
+--- SOURCE 1 (FOUND): https://www.met.police.uk/advice/advice-and-information/cc/charity-collection-licensing/street-collection-permit/ ---
+Advice and information ... Charity collection licensing Street collection permit JavaScript is not enabled Without JavaScript enabled forms will not work. The Met issues street collection permits. These give you permission to collect money or sell goods for charity. The money raised must go to a charity, or be for charitable purposes. You need a permit for: all charitable street collections carol singing or busking for a charitable purpose collections that take place on private property, but where the public have right of way access. For example, a shopping centre. You will also need to get permission from the private property owner before applying to the Met for a permit. The permit allows you to collect at one location for a consecutive period of no longer than seven days. If you want to collect over multiple periods, even at the same location, you will need to email the charity collection team first before applying. If you aren't collecting money, contactless payments or selling items, you will also need to email the charity collection team first before applying. If you are collecting during a procession, you first need to register the procession with the police. You can find out more information on our events and procession service . You can then apply for your street collection permit. When you don't need a permit You don't need a permit if your collection is on private property, where the public have no right of way access. For example, a charity fundraising event that is invitation only. For Direct Debit street collections, you don't need to apply for a permit. However, you will need to follow the Fundraising Regulator codes of practice . This includes their guidance on handling cashless donations . You will also need to keep to any London Borough Site Management Agreement in place. If you are busking for non-charitable reasons, you don't need to apply for a street collection permit. You will need to contact the local authority where you are busking. If you are busking on transport premises, like a train or a train station, contact Transport for London . Before you apply For a street collection permit you will need the following: a letter on letterheaded paper from the charity giving you permission to collect on their behalf to be collecting for a charity that's registered with the Charity Commission or the Office of the Regulator for Community Interest Companies (CIC) an overview of the charity's background and objectives the contact details of the lead applicant. This includes their name, date of birth and address. You will also need the same details for a further two applicants. They must be employees or members of the charity photo ID of the three applicants. You must use an accepted form of photo ID from this list We also recommend that you register with the Fundraising Regulator and follow their code of practice . Letters and details to support your application can take some time to gather. We recommend preparing as soon as possible. Making an application Please only apply using our online charity collection permit service . We won't accept any written applications or documents sent by post. However you can email the charity collection team if you have any questions. You must submit your application by the first day of the month before your collection month. For example, if you want to collect on 20 September, we need your application by 1 August. This gives us enough time to review your application before we refer it to the Charities Advisory Committee. They will tell us if they think we should grant you a permit. We will take their recommendations into account when we make a decision. Each person named on the application will be subject to a check on the Police National Database. If any applicant has a conviction, we may refuse your application. We aim to process permits within four to six weeks of receiving them. Reasons we may refuse an application We need to consider the following before approving your application: the date, times and location of your street collection. We manage these for all street collections. This is so each charity has an opportunity to collect in London boroughs. It means you aren't competing with other charities for donations the impact on the local community the impact on local policing During collection You need to follow these rules when collecting: all collectors must be 16 years old and over. Children under 16 can take part in fundraising but they need to be supervised by a responsible adult collectors must be stationary. You cannot move to another location collectors must not be a danger, obstruction, inconvenience or annoyance to anyone all collection boxes or buckets should display the name of the charity or fund you are collecting for. You should make sure it is sealed collectors should carry a written authority to collect on behalf of the Chief Promoter all collectors should be volunteers who are not paid out of the proceeds of the collection After collection You need to submit the following information within three months of the collection ending: the total amount collected the names of all collectors and amounts collected by each any expenses of payments incurred certification by two of the people responsible for the collection certification by a qualified accountant You can submit your accounts using our Schedule 2 form . You can then scan your completed Schedule 2 and email the charity collection team . A printed or online newspaper must publish an article about your collection. It needs to describe where the collection took place, how much money was collected and any expenses. If you collect &pound;400 or less you may not need to both publish the required article or have a qualified accountant certify your collection. Instead, you may only need an independent responsible person to sign it off. You can email the team to request to waive these requirements. Share

@@ -1,0 +1,130 @@
+A service graph describes the UK government service "Discretionary Assistance Fund (Wales)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/cite-02/judge/wg-discretionary-assistance.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[criterion_1] (split into claims) EAP: extreme financial hardship or an unexpected crisis with no other money. IAP: must get Income Support, income-based JSA, income-related ESA, Pension Credit Guarantee Credit or Universal Credit, and be leaving an institution, avoiding going into one, setting up home after an unsettled way of life, moving because of relationship breakdown or domestic abuse, or caring for a released prisoner.
+
+--- SOURCE 0: https://www.gov.wales/discretionary-assistance-fund-daf ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund (DAF) Guidance Discretionary Assistance Fund (DAF) In this guide Summary Eligibility Apply What happens next Track your application Contact us 1. Summary The Discretionary Assistance Fund provides 2 types of grants that you do not need to pay back. Emergency Assistance Payment (EAP) A grant to help pay for essential costs, such as food, gas, electricity, heating oil or emergency travel if you: are experiencing extreme financial hardship have lost your job have applied for benefits and are waiting for your first payment You cannot use it to pay for ongoing bills that you cannot afford to pay. You can only apply for heating oil through an approved partner. Individual Assistance Payment (IAP) A grant to help you or someone you care for live independently in their home or a property that you or they are moving into. What you can use the grant for The grant can provide/supply: a fridge or washing machine and other ‘white goods’ home furniture such as beds, sofas and chairs Next Eligibility Related Money and financial inclusion (Sub-topic) Get financial or debt advice Apply to be a Discretionary Assistance Fund (DAF) network partner Welfare benefits (Sub-topic) Benefits calculator
+
+--- SOURCE 1: https://www.gov.wales/discretionary-assistance-fund-daf/eligibility ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund (DAF) Guidance Discretionary Assistance Fund (DAF) In this guide Summary Eligibility Apply What happens next Track your application Contact us 2. Eligibility Emergency Assistance Payment (EAP) To get a grant, you must: be in extreme financial hardship, for example you've lost your job, applied for benefits and waiting for your first payment and have no other means of financial support be experiencing an unexpected crisis has resulted in you not having money to buy food, gas and/or electricity or other essential items be in a crisis situation and in need of immediate financial support live in Wales be over 16 (there is no upper age limit for this grant) have no other money for example savings Individual Assistance Payment (IAP) You can only apply for a fridge or washing machine (white goods) and furniture through an approved partner. You must: live in Wales be over 16 (there is no upper age limit for this grant) have no access to other money and tried all other affordable sources of funding for example credit union not be living in a care home (unless being discharged in 6 weeks) not be in prison (unless being discharged in 6 weeks) not be a member of a fully maintained religious order You must be getting one of the following: Income Support income based Jobseekers Allowance income related Employment and Support Allowance Guaranteed Credit element of Pension Credit Universal Credit You must meet one of the following: you are leaving a care home or institution (hospital, prison or foster carer) after 3 months (minimum) to live independently you want to stay living in the community rather than having to go into an institution (hospital or care home) you are setting up home after an unsettled way of life you need to move home quickly due to a relationship breakdown or domestic violence you are going to care for a prisoner or young offender released on a temporary license Previous Summary Next Apply Related Money and financial inclusion (Sub-topic) Get financial or debt advice Apply to be a Discretionary Assistance Fund (DAF) network partner Welfare benefits (Sub-topic) Benefits calculator
+
+--- SOURCE 2 (LINKED): https://www.gov.wales/communities-regeneration ---
+You are here: Home Communities and regeneration (Topic) Topic Communities and regeneration Popular Discretionary Assistance Fund (DAF) Get help with the cost of living Get financial or debt advice Save, bank or borrow with a credit union Armed forces and veterans Support for the armed forces community Community cohesion How we can all live well together in safe, inclusive societies Fire and rescue Advice for fire and rescue authorities Gypsies, Roma and Travellers What we do to help Gypsies, Roma and Travellers Migration Includes migrant integration, asylum and refugee policy Money and financial inclusion Discretionary Assistance Fund, credit unions, financial or debt advice Regeneration Improving town centres and communities, Taskforce for the Valleys Third (voluntary) sector Our work to support volunteering and not-for-profit organisations Welfare benefits Includes welfare reform, basic income pilot, benefits check Category Announcements Consultations Publications Statistics and research Latest Community cohesion: policy statement 22 October 2026 Detailed guide Hate Hurts Wales survey: privacy notice 21 October 2026 Detailed guide Scotland and Wales: Scrap 'punitive' welfare policies and cut bills 20 October 2026 Press release Cabinet Minister visits Wrexham as £10 million Transforming Towns funding announced 8 October 2026 Press release View all latest
+
+--- SOURCE 3 (LINKED): https://www.gov.wales/money-and-financial-inclusion ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Sub-Topic Money and financial inclusion In this sub-topic Guidance and services Policy and background Organisations Guidance and services Get help with the cost of living Discretionary Assistance Fund (DAF) Discretionary Assistance Fund (DAF): application form Discretionary Assistance Fund: requesting a review Apply to be a Discretionary Assistance Fund (DAF) network partner Discretionary Assistance Fund: complaints Save, bank or borrow with a credit union Get financial or debt advice Get advice about managing credit Get cost of living support and advice from your local authority Get help with housing costs Find out about Discretionary Housing Payments Get help with your utility bills Get help with your wellbeing and the wellbeing of other people Become an information and advice quality framework accrediting body Information and advice quality framework (IAQF): standard owners guidance Get help paying your mortgage with a Help to Stay shared equity loan Help to Stay - Wales: application form and guidance Cost of Living Support Scheme: guide for local authorities Single Advice Fund: privacy notice Discretionary Assistance Fund: privacy notice Here to help with the cost of living user research privacy notice Find your Child Trust Fund Find your Child Trust Fund (BSL version) Policy and background Includes strategy, reports, projects and assessments. Financial inclusion strategy: impact assessments Collection Information and advice quality framework Policy and strategy Information and advice quality framework: guidance on quality standards Policy and strategy Poverty related statistics Collection Different structures for delivering public services using social housing as a case study area Report National Lottery Community Fund spending priorities for National Lottery funding Policy and strategy Response to the cost of living crisis: distributional analysis Report UK strategy for financial wellbeing: delivery plan for Wales Policy and strategy Social welfare information and advice: action plan and progress Collection National Survey for Wales: wellbeing and finances Collection Wales fuel support scheme: integrated impact assessment Impact assessment Cabinet Sub-Committee on Cost of Living Collection Report of the Wales Expert Group on the cost of living crisis Report Developing the co-operative and mutuals economy: reports Collection Organisations National Advice Network Advisory body
+
+--- SOURCE 4 (LINKED): https://www.gov.wales/apply-be-discretionary-assistance-fund-daf-network-partner ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Apply to be a Discretionary Assistance Fund (DAF) network partner Guidance Apply to be a Discretionary Assistance Fund (DAF) network partner Register as a DAF partner if you work for a local authority, charity, advice agency or housing association to apply on someone's behalf. Part of: Money and financial inclusion (Sub-topic) First published: 11 December 2018 Last updated: 6 January 2022 You need to register as a partner even if the organisation you work for is already registered. You can become a partner if you are: a support worker a housing officer a social worker other similar professional How to apply Please email DAF.Partners@necsws.com . You will get a registration pack. You will need to complete it and send back. What happens next Your details will be checked. If approved, you will become a partner. You will get training, to help you support people to complete their application. Once registered, you will get an ‘approved partner code’. You will need this when you apply for the fund on someone’s behalf. First published 11 December 2018 Last updated 6 January 2022 Part of Money and financial inclusion (Sub-topic)

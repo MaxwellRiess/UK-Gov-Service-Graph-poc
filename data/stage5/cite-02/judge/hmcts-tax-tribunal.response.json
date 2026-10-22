@@ -1,0 +1,49 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Anyone who disagrees with any HMRC decision can appeal to the tax tribunal.",
+          "verdict": "contradicted",
+          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )",
+          "source": 0,
+          "note": "The tribunal accepts some HMRC decisions, not every HMRC decision; direct tax cases must first be appealed to HMRC."
+        },
+        {
+          "claim": "Income Tax, VAT and PAYE decisions can be appealed.",
+          "verdict": "supported",
+          "quote": "Direct tax includes: Income Tax PAYE Tax Corporation Tax Capital Gains Tax National Insurance contributions Inheritance Tax Indirect tax includes: VAT",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "Some HMRC penalties can be appealed.",
+          "verdict": "supported",
+          "quote": "You may be able to appeal if HMRC : sends you an assessment for duty charges you a penalty",
+          "source": 0,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "An appeal following an HMRC review conclusion must be made within 30 days.",
+          "verdict": "supported",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "source": 5,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "There is no filing fee for most tax tribunal appeals.",
+          "verdict": "supported",
+          "quote": "There is no fee for appealing to the First-tier Tribunal.",
+          "source": 5,
+          "note": "Supported by the cited source."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

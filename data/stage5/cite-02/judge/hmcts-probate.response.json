@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "The person whose estate may require probate has died.",
+          "verdict": "supported",
+          "quote": "Find out if you need to apply for probate to deal with the estate of someone who’s died.",
+          "source": 0,
+          "note": "The source connects probate to a deceased person’s estate."
+        },
+        {
+          "claim": "The deceased person left assets held in their sole name.",
+          "verdict": "partly_supported",
+          "quote": "Probate is the legal right to deal with someone’s property, money and possessions (their ‘estate’) when they die.",
+          "source": 0,
+          "note": "The source discusses estate assets but does not state that they must be held in the deceased person’s sole name."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": "probate service"
+}

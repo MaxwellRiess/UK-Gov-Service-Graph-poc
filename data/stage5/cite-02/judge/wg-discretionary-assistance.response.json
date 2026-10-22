@@ -1,0 +1,74 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "EAP requires extreme financial hardship.",
+          "verdict": "supported",
+          "quote": "be in extreme financial hardship",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "EAP can be for an unexpected crisis leaving the applicant without money for essentials.",
+          "verdict": "supported",
+          "quote": "be experiencing an unexpected crisis has resulted in you not having money to buy food, gas and/or electricity or other essential items",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "EAP requires the applicant to have no other money.",
+          "verdict": "supported",
+          "quote": "have no other money for example savings",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "IAP requires one of Income Support, income-based JSA, income-related ESA, Pension Credit Guarantee Credit or Universal Credit.",
+          "verdict": "supported",
+          "quote": "You must be getting one of the following: Income Support income based Jobseekers Allowance income related Employment and Support Allowance Guaranteed Credit element of Pension Credit Universal Credit",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "IAP can be for someone leaving an institution.",
+          "verdict": "partly_supported",
+          "quote": "you are leaving a care home or institution (hospital, prison or foster carer) after 3 months (minimum) to live independently",
+          "source": 1,
+          "note": "The claim omits the minimum three-month stay and independent-living condition."
+        },
+        {
+          "claim": "IAP can be for someone avoiding admission to an institution.",
+          "verdict": "supported",
+          "quote": "you want to stay living in the community rather than having to go into an institution (hospital or care home)",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "IAP can be for setting up home after an unsettled way of life.",
+          "verdict": "supported",
+          "quote": "you are setting up home after an unsettled way of life",
+          "source": 1,
+          "note": "Supported by the cited source."
+        },
+        {
+          "claim": "IAP can be for moving because of a relationship breakdown or domestic abuse.",
+          "verdict": "partly_supported",
+          "quote": "you need to move home quickly due to a relationship breakdown or domestic violence",
+          "source": 1,
+          "note": "The source requires a quick move and says domestic violence, while the claim says domestic abuse."
+        },
+        {
+          "claim": "IAP can be for caring for a released prisoner.",
+          "verdict": "partly_supported",
+          "quote": "you are going to care for a prisoner or young offender released on a temporary license",
+          "source": 1,
+          "note": "The source limits this route to a prisoner or young offender released on a temporary licence."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}
