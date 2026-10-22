@@ -79,10 +79,12 @@ function fieldsFor(n: ServiceNode): FieldToJudge[] {
   (e.evidenceRequired ?? []).forEach((t, i) => out.push({ key: `evidence_${i}`, path: `eligibility.evidenceRequired.${i}`, text: t, split: false }));
   const ai = n.agentInteraction;
   if (ai) {
-    out.push({
-      key: 'methods', path: 'agentInteraction.methods', split: true,
-      text: methodsText(ai.methods),
-    });
+    if (ai.methods) {
+      out.push({
+        key: 'methods', path: 'agentInteraction.methods', split: true,
+        text: methodsText(ai.methods),
+      });
+    }
     if (ai.authRequired) {
       out.push({ key: 'auth', path: 'agentInteraction.authRequired', split: false, text: AUTH_WORDS[ai.authRequired] ?? ai.authRequired });
     }
@@ -142,7 +144,8 @@ async function processNode(n: ServiceNode) {
 
   // Methods the page offers that the graph leaves out, and sign-in mismatches.
   if (n.agentInteraction) {
-    const graph = n.agentInteraction.methods;
+    // Absent means the graph makes no claim; a page that names a way is still a gap to fill.
+    const graph = n.agentInteraction.methods ?? [];
     const page = out.methods_on_page ?? [];
     if (page.length && (page.some(m => !graph.includes(m as any)) || graph.some(m => !page.includes(m)))) {
       methodGaps.push({ id: n.id, graph, page });

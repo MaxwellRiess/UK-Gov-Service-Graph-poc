@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-21T21:24:50.603Z",
+  "lastRun": "2026-10-22T10:14:48.726Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -1237,20 +1237,6 @@
       "confidence": "confirmed",
       "valueHash": "46f2c1948e836bbf",
       "valueSeen": "https://www.gov.uk/apply-for-teacher-training"
-    },
-    "dfe-care-to-learn#agentInteraction.methods": {
-      "valueHash": "1b787faaa26eb20b",
-      "valueSeen": "You can apply or do this online.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/care-to-learn",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text says to apply through your education provider but does not say you can apply online."
     },
     "dfe-care-to-learn#agentInteraction.onlineFormUrl": {
       "valueHash": "df01660e34ed0036",
@@ -2532,20 +2518,6 @@
       "rationale": "partly supported: The text says proving your identity may be needed and usually uses photo ID like a passport, but it does not say this is always required and does not specify a UK passport."
     },
     "dvla-provisional-licence#eligibility.evidenceRequired.1": {
-      "valueHash": "ab76aa6d20be42a2",
-      "valueSeen": "Address details",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The GOV.UK page does not mention address details as something you need to apply, and the only source that discusses addresses is the Northern Ireland DVA form guidance, which covers a different nation's version of the service."
-    },
-    "dvla-provisional-licence#eligibility.evidenceRequired.2": {
       "valueHash": "89a3b75138262406",
       "valueSeen": "£34 fee (online) or £43 fee (postal D1 form)",
       "method": "llm-extraction",
@@ -2896,20 +2868,6 @@
       "rationale": "partly supported: The source ties online applications to vehicles registered in your name and covers off-road use, but it does not limit SORN to vehicles whose tax has lapsed or is about to. It allows applying in other months too, and the post route covers vehicles not registered in your name."
     },
     "dvla-sorn#eligibility.evidenceRequired.0": {
-      "valueHash": "b8b7ed6a4bd4fefd",
-      "valueSeen": "Vehicle registration number",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/make-a-sorn",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The SORN page lists the 11-digit V5C number or 16-digit tax reminder reference, not the registration number; only the linked check-vehicle-tax page (a different service) mentions the registration number."
-    },
-    "dvla-sorn#eligibility.evidenceRequired.1": {
       "valueHash": "fc23edf2e9d932e4",
       "valueSeen": "11-digit reference from the V5C, or 16-digit reference from a tax reminder letter",
       "method": "llm-extraction",
@@ -4387,20 +4345,6 @@
       "confidence": "unverified",
       "rationale": "partly supported: The text recommends a statement from a doctor or consultant on the form and asks for GP details, but does not describe separate medical evidence from a GP or specialist as helpful for ordinary claims."
     },
-    "dwp-attendance-allowance#eligibility.evidenceRequired.2": {
-      "valueHash": "a89de76fa16d12e3",
-      "valueSeen": "Carer details if applicable",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/attendance-allowance",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The list of what you need to apply does not include carer details; the text only says you do not need a carer to claim."
-    },
     "dwp-attendance-allowance#eligibility.exclusions.0": {
       "valueHash": "61e865b6fbf92e6f",
       "valueSeen": "Under State Pension age — claim PIP instead.",
@@ -5129,20 +5073,6 @@
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#eligibility.evidenceRequired.0": {
-      "valueHash": "917f8cfe44b850b7",
-      "valueSeen": "Evidence of caring role",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/carers-allowance",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page says you must care for at least 35 hours a week, but its list of what to have before you apply does not ask for any evidence of the caring role."
-    },
-    "dwp-carers-allowance#eligibility.evidenceRequired.1": {
       "valueHash": "288e291fbce648f8",
       "valueSeen": "Benefit award letter for person cared for",
       "method": "llm-extraction",
@@ -5156,7 +5086,7 @@
       "confidence": "unverified",
       "rationale": "partly supported: The page says the person must already get a qualifying benefit and asks for their details (and a DLA reference if they are under 16), but it does not mention an award letter."
     },
-    "dwp-carers-allowance#eligibility.evidenceRequired.2": {
+    "dwp-carers-allowance#eligibility.evidenceRequired.1": {
       "valueHash": "c326b943555c2f17",
       "valueSeen": "Income evidence if working",
       "method": "llm-extraction",
@@ -6006,20 +5936,6 @@
       },
       "confidence": "unverified",
       "rationale": "partly supported: The text mentions an invoice (or signed contract) from the funeral director only as a condition for claiming before the funeral, not as general required evidence."
-    },
-    "dwp-funeral-payment#eligibility.evidenceRequired.2": {
-      "valueHash": "30537029ff9a1133",
-      "valueSeen": "Death certificate",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/funeral-payments",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: Death certificates are mentioned only as a cost the payment can help with, not as evidence needed to claim."
     },
     "dwp-funeral-payment#eligibility.rules.2.maxDays": {
       "valueHash": "b8aed072d29403ec",
@@ -7270,18 +7186,17 @@
       "valueSeen": "https://www.gov.uk/jobseekers-allowance"
     },
     "dwp-ni-credits#agentInteraction.methods": {
-      "valueHash": "c4e75778afa2494c",
-      "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
+      "valueHash": "c1741718978c05a4",
+      "valueSeen": "You can apply or do this by post.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
+      "verifiedAt": "2026-10-22T10:14:48.723Z",
       "sourceUrl": "https://www.gov.uk/national-insurance-credits",
-      "sourceQuote": "",
+      "sourceQuote": "Apply for Class 1 credits. Write to: PT Operations North East England, HM Revenue and Customs, BX9 1AN, United Kingdom.",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text only says you can ask HMRC questions online; it does not say you can apply for credits online. not stated: The text mentions phoning the National Insurance helpline only for questions, not for applying for credits."
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-ni-credits#agentInteraction.onlineFormUrl": {
       "valueHash": "c1744cc2320b1f5f",
@@ -7703,20 +7618,6 @@
       "confidence": "confirmed"
     },
     "dwp-pension-credit#eligibility.evidenceRequired.0": {
-      "valueHash": "fb3e68663a015e4c",
-      "valueSeen": "Bank statements",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/pension-credit",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page asks for your bank account details and information about your income, savings and investments, but does not mention bank statements."
-    },
-    "dwp-pension-credit#eligibility.evidenceRequired.1": {
       "valueHash": "15134ccd60d7c177",
       "valueSeen": "Pension and income details",
       "method": "llm-extraction",
@@ -7725,7 +7626,7 @@
       "sourceQuote": "information about any income, savings and investments you have",
       "confidence": "confirmed"
     },
-    "dwp-pension-credit#eligibility.evidenceRequired.2": {
+    "dwp-pension-credit#eligibility.evidenceRequired.1": {
       "valueHash": "386e777a54d127a0",
       "valueSeen": "Proof of savings and capital",
       "method": "llm-extraction",
@@ -8635,20 +8536,6 @@
       "rationale": "partly supported: The 10-year minimum, counting contributions or credits, is stated. But 35 years for the full amount applies only to records that started after April 2016; contracted-out people usually need more than 35."
     },
     "dwp-state-pension#eligibility.evidenceRequired.0": {
-      "valueHash": "6c5bfb673d5b4a03",
-      "valueSeen": "NI number",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The list of what you need to claim (marriage dates, time abroad, bank details, foreign social security numbers, an invitation code online) does not include a National Insurance number."
-    },
-    "dwp-state-pension#eligibility.evidenceRequired.1": {
       "valueHash": "5062017363a6a05d",
       "valueSeen": "Bank account details for payment",
       "method": "llm-extraction",
@@ -11579,20 +11466,6 @@
       "valueHash": "c89acc71db5f4feb",
       "valueSeen": "https://www.gov.uk/register-birth"
     },
-    "gro-register-death#agentInteraction.methods": {
-      "valueHash": "1cec8f53c2a85b72",
-      "valueSeen": "You can apply or do this in person.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The GOV.UK pages refer to the register office but do not say you register in person; only the Scotland and Northern Ireland pages, which are other nations' versions, describe attending a registration office."
-    },
     "gro-register-death#contactInfo.officeLocatorUrl": {
       "valueHash": "c257cb6e181e2d60",
       "valueSeen": "https://www.gov.uk/register-offices",
@@ -11677,34 +11550,6 @@
       },
       "confidence": "unverified",
       "rationale": "partly supported: The Act names the occupier of the house (if they knew of the death), not an administrator of the premises; only a single council page equates occupier with an establishment's manager or senior administrator."
-    },
-    "gro-register-death#eligibility.evidenceRequired.0": {
-      "valueHash": "5c34f640f90c30a1",
-      "valueSeen": "Medical Certificate of Cause of Death (MCCD)",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The GOV.UK pages say to wait for the medical examiner's confirmation and do not mention an MCCD; only the Scotland and Northern Ireland pages, which are other nations' versions, mention it."
-    },
-    "gro-register-death#eligibility.evidenceRequired.1": {
-      "valueHash": "2455091e8800222b",
-      "valueSeen": "Deceased's NHS number and personal details if available",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: No GOV.UK source mentions the NHS number for registering a death; the Scotland page mentions an NHS medical card but that is another nation's version. not stated: The GOV.UK pages list the deceased's details only for Tell Us Once, a different service, not for registering the death."
     },
     "gro-register-death#eligibility.rules.1.maxDays": {
       "valueHash": "ef2d127de37b942b",
@@ -14621,20 +14466,6 @@
         "total": 2
       }
     },
-    "hmrc-aml-registration#eligibility.evidenceRequired.2": {
-      "valueHash": "e56a0aebfe31b616",
-      "valueSeen": "Evidence of business type and activities",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/anti-money-laundering-registration",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text asks for a risk assessment, BOOMs, premises and fees, but does not mention evidence of business type or activities."
-    },
     "hmrc-aml-registration#eligibility.summary": {
       "valueHash": "146d3bf43b0c1da7",
       "valueSeen": "Mandatory for businesses in nine regulated categories including financial services, legal, accountancy, estate agency, high-value dealers, art market, casinos, letting agencies, and trust/company serv",
@@ -15819,20 +15650,6 @@
       "valueHash": "d09b650550ddb4d2",
       "valueSeen": "https://www.gov.uk/eori"
     },
-    "hmrc-free-childcare-15#agentInteraction.methods": {
-      "valueHash": "1cec8f53c2a85b72",
-      "valueSeen": "You can apply or do this in person.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The 15-hours page only says to contact your childcare provider or local council to find out more and does not say you can apply in person."
-    },
     "hmrc-free-childcare-15#deptKey": {
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs",
       "sourceQuote": "",
@@ -15902,20 +15719,6 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "There are different schemes in Scotland , different schemes in Wales and different schemes in Northern Ireland .",
       "confidence": "confirmed"
-    },
-    "hmrc-free-childcare-15#eligibility.evidenceRequired.0": {
-      "valueHash": "e1ab100a3a97b05c",
-      "valueSeen": "Child's date of birth, given to the childcare provider",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:32:05.394Z",
-      "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: Only the linked Free Childcare for Working Parents page, a different scheme, says to give your child's date of birth to the provider; the sources on the 15 hours for 3 to 4-year-olds do not."
     },
     "hmrc-free-childcare-15#eligibility.rules.1.value": {
       "valueHash": "4e07408562bedb8b",
@@ -16743,20 +16546,6 @@
       "confidence": "confirmed",
       "rationale": "HTTP 200. Existence only; this host has no structured API."
     },
-    "hmrc-lisa#agentInteraction.methods": {
-      "valueHash": "1b787faaa26eb20b",
-      "valueSeen": "You can apply or do this online.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:54:28.208Z",
-      "sourceUrl": "https://www.gov.uk/lifetime-isa",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text explains withdrawal rules and charges but never says a Lifetime ISA withdrawal can be requested online."
-    },
     "hmrc-lisa#deptKey": {
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "",
@@ -16801,20 +16590,6 @@
       "confidence": "confirmed"
     },
     "hmrc-lisa#eligibility.evidenceRequired.0": {
-      "valueHash": "7d0f3ef8eb08da50",
-      "valueSeen": "LISA account details",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:54:28.208Z",
-      "sourceUrl": "https://www.gov.uk/lifetime-isa",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not say you need to provide your Lifetime ISA account details to make a withdrawal."
-    },
-    "hmrc-lisa#eligibility.evidenceRequired.1": {
       "valueHash": "e4f658c39774aa28",
       "valueSeen": "Conveyancer handles request process from ISA provider",
       "method": "llm-extraction",
@@ -18105,20 +17880,6 @@
       "rationale": "partly supported: The text confirms England and Northern Ireland and a different threshold for first-time buyers, but for additional properties it describes a 5% higher rate rather than a different threshold, and it lists exemptions (for example freeholds under £40,000) where neither tax nor a return is needed, so not every purchase is covered."
     },
     "hmrc-sdlt#eligibility.evidenceRequired.0": {
-      "valueHash": "afbdd33ac9ad8693",
-      "valueSeen": "Completion statement",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:54:28.208Z",
-      "sourceUrl": "https://www.gov.uk/stamp-duty-land-tax",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not mention a completion statement as evidence needed for the return."
-    },
-    "hmrc-sdlt#eligibility.evidenceRequired.1": {
       "valueHash": "a58b99af6228afed",
       "valueSeen": "SDLT1 form (usually filed by solicitor)",
       "method": "llm-extraction",
@@ -22246,20 +22007,6 @@
       "confidence": "confirmed"
     },
     "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0": {
-      "valueHash": "568a16e87b0ecee2",
-      "valueSeen": "Main applicant's visa or BRP",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:01:09.487Z",
-      "sourceUrl": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The source discusses the main applicant’s visa and dependants’ relationship evidence but does not require a copy of the main applicant’s visa or BRP."
-    },
-    "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.1": {
       "valueHash": "856602531cc50c57",
       "valueSeen": "Marriage or civil partnership certificate",
       "method": "llm-extraction",
@@ -22273,7 +22020,7 @@
       "confidence": "unverified",
       "rationale": "partly supported: The source requires proof of the marriage or civil partnership and evidence of the relationship, but it never names a certificate."
     },
-    "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.2": {
+    "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.1": {
       "valueHash": "481860b3b00fb2fc",
       "valueSeen": "Children's birth certificates",
       "method": "llm-extraction",
@@ -22287,7 +22034,7 @@
       "confidence": "unverified",
       "rationale": "partly supported: The source requires evidence of the relationship, but it never mentions birth certificates."
     },
-    "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.3": {
+    "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.2": {
       "valueHash": "db1f40f0fcdc3408",
       "valueSeen": "Proof of relationship for unmarried partners",
       "method": "llm-extraction",
@@ -23902,34 +23649,6 @@
       "confidence": "confirmed"
     },
     "la-business-rates#eligibility.evidenceRequired.0": {
-      "valueHash": "e77987c392d267d8",
-      "valueSeen": "Business address",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:01:09.487Z",
-      "sourceUrl": "https://www.gov.uk/introduction-to-business-rates",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not specify a business address as application evidence."
-    },
-    "la-business-rates#eligibility.evidenceRequired.1": {
-      "valueHash": "876e9a9fee1e6d4c",
-      "valueSeen": "Date of occupation",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:01:09.487Z",
-      "sourceUrl": "https://www.gov.uk/introduction-to-business-rates",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text does not specify a date of occupation as application evidence."
-    },
-    "la-business-rates#eligibility.evidenceRequired.2": {
       "valueHash": "580ebddae93c1821",
       "valueSeen": "Nature of business",
       "method": "llm-extraction",
@@ -24335,20 +24054,6 @@
       "valueHash": "a2c81fe13b6a8cec",
       "valueSeen": "https://www.gov.uk/council-tax"
     },
-    "la-council-tax-disability-reduction#agentInteraction.methods": {
-      "valueHash": "c4e75778afa2494c",
-      "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:01:09.487Z",
-      "sourceUrl": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The relevant Council Tax sources give no online application method for this reduction. not stated: The relevant Council Tax sources say to ask the council but give no phone application method."
-    },
     "la-council-tax-disability-reduction#deptKey": {
       "sourceUrl": "https://www.gov.uk/council-tax",
       "sourceQuote": "",
@@ -24551,20 +24256,6 @@
       "rationale": "partly supported: Evidence of income and savings may be requested, but it is not stated as a universal requirement."
     },
     "la-council-tax-reduction#eligibility.evidenceRequired.1": {
-      "valueHash": "1944aa0535f47950",
-      "valueSeen": "Council Tax bill",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:01:09.487Z",
-      "sourceUrl": "https://www.gov.uk/apply-council-tax-reduction",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The sources discuss a Council Tax bill but do not say an applicant must provide the bill as evidence."
-    },
-    "la-council-tax-reduction#eligibility.evidenceRequired.2": {
       "valueHash": "f858576b61c43ca5",
       "valueSeen": "Application to local authority",
       "method": "llm-extraction",
@@ -24603,20 +24294,6 @@
       "confidence": "confirmed",
       "valueHash": "2234cb5fdbd9d08c",
       "valueSeen": "https://www.gov.uk/apply-council-tax-reduction"
-    },
-    "la-council-tax-single-discount#agentInteraction.methods": {
-      "valueHash": "c4e75778afa2494c",
-      "valueSeen": "You can apply or do this online. You can apply or do this by phone.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:01:09.487Z",
-      "sourceUrl": "https://www.gov.uk/council-tax/who-has-to-pay",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The text mentions paying Council Tax online but gives no online application method for this discount. not stated: The text gives no phone application method for this discount."
     },
     "la-council-tax-single-discount#deptKey": {
       "sourceUrl": "https://www.gov.uk/council-tax",
@@ -32064,18 +31741,17 @@
       "valueSeen": "https://www.gov.uk/first-homes-scheme"
     },
     "other-motability#agentInteraction.methods": {
-      "valueHash": "a4b7d53e7005c5ea",
-      "valueSeen": "You can apply or do this by phone.",
+      "valueHash": "1cec8f53c2a85b72",
+      "valueSeen": "You can apply or do this in person.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:09:31.775Z",
-      "sourceUrl": "https://www.motability.co.uk/",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-22T10:14:48.723Z",
+      "sourceUrl": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+      "sourceQuote": "Once you’ve found the right vehicle, you can order it at the dealership.",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 1,
         "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The helpline is for finding a dealer; the text says the vehicle is ordered at a dealership, not by phone."
+      }
     },
     "other-motability#contactInfo.phone.number": {
       "valueHash": "b7be59abb58d74e8",
@@ -34183,20 +33859,6 @@
         "total": 1
       }
     },
-    "sss-adult-disability-payment#eligibility.evidenceRequired.2": {
-      "valueHash": "f5c4cd65e96c1ff4",
-      "valueSeen": "GP or consultant details",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:09:57.966Z",
-      "sourceUrl": "https://www.mygov.scot/adult-disability-payment",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The supplied text mentions a GP letter as an example of supporting information but does not require GP or consultant contact details."
-    },
     "sss-adult-disability-payment#eligibility.rules.1.value": {
       "valueHash": "b17ef6d19c7a5b1e",
       "valueSeen": "16",
@@ -34635,34 +34297,6 @@
       "sourceQuote": "",
       "confidence": "unverified",
       "rationale": "not stated: The text does not mention any evidence requirements."
-    },
-    "sss-best-start-grant#eligibility.evidenceRequired.1": {
-      "valueHash": "c0016001738e4b03",
-      "valueSeen": "Proof of pregnancy or child's age",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:09:57.966Z",
-      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The sources give pregnancy and child-age conditions but do not say proof of either is needed."
-    },
-    "sss-best-start-grant#eligibility.evidenceRequired.2": {
-      "valueHash": "0fc0a8eb6daea0dd",
-      "valueSeen": "Proof of Scottish residency",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:09:57.966Z",
-      "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The sources say applicants normally live in Scotland but do not say residency proof is needed."
     },
     "sss-best-start-grant#eligibility.summary": {
       "valueHash": "fe712c904f4f2ddb",
@@ -35887,34 +35521,6 @@
       "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
       "sourceQuote": "The benefits that can affect your payment are: Pension Credit Universal Credit income-based Jobseeker’s Allowance (JSA)",
       "confidence": "confirmed"
-    },
-    "sss-pension-winter-heating#eligibility.evidenceRequired.0": {
-      "valueHash": "cb995bf85742a1c9",
-      "valueSeen": "Proof of age",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:10:50.632Z",
-      "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page states an age-based eligibility condition but does not request documentary proof of age."
-    },
-    "sss-pension-winter-heating#eligibility.evidenceRequired.1": {
-      "valueHash": "0fc0a8eb6daea0dd",
-      "valueSeen": "Proof of Scottish residency",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T21:10:50.632Z",
-      "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The page states a Scottish-residence condition but does not request documentary proof of residence."
     },
     "sss-pension-winter-heating#eligibility.rules.1.reached": {
       "valueHash": "b5bea41b6c623f7c",

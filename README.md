@@ -273,10 +273,10 @@ The `agentInteraction` object describes what an AI agent can actually do with th
 
 | Field | Type | What it means |
 |---|---|---|
-| `methods` | `array` | How a person starts — `online`, `phone`, `post`, `in-person`, or `via-adviser` when an approved adviser submits the application |
+| `methods` | `array` (optional) | How a person starts — `online`, `phone`, `post`, `in-person`, or `via-adviser` when an approved adviser submits the application. Empty means it happens automatically; absent means no official page says how to start |
 | `apiAvailable` | `boolean` | Whether a machine-accessible API exists |
 | `onlineFormUrl` | `string` (optional) | Direct URL to the online application |
-| `authRequired` | `string` | Authentication required — `'government-gateway'`, `'gov-uk-one-login'`, `'gov-uk-verify'` (retired), `'nhs-login'`, `'companies-house'`, or `'none'` |
+| `authRequired` | `string` (optional) | Sign-in required — `'government-gateway'`, `'gov-uk-one-login'`, `'gov-uk-verify'` (retired), `'nhs-login'`, `'companies-house'`, `'universal-credit-account'`, `'ukvi-account'`, `'service-account'` (an account for that service alone), or `'none'`. Absent means no official page says |
 | `agentCanComplete` | `'full' \| 'partial' \| 'inform-only'` | How far an agent can take the user — full completion, part of the journey, or information only |
 | `agentSteps` | `array` | Step-by-step actions the agent should walk the user through |
 

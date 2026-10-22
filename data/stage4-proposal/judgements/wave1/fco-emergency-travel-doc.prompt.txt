@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Emergency travel document" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w1/fco-emergency-travel-doc.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this in person.
+
+--- SOURCE 0: https://www.gov.uk/emergency-travel-document ---
+Travel urgently from abroad without your UK passport Skip contents Contents Who can apply How to apply Who can apply An emergency travel document lets you travel from abroad if you need to travel urgently and cannot use your UK passport. It is usually only valid for one single or return journey. You can travel through a maximum of 5 countries. You can apply for an emergency travel document if all the following apply: you’re a British national you’re outside the UK you need to travel within 6 weeks your UK passport has been lost, stolen, damaged, is full, has recently expired or is with HM Passport Office or a foreign embassy you cannot renew or replace your UK passport from abroad before you travel you have had a valid UK passport that was issued on or after 1 January 2006 If you have not had a passport issued on or after 1 January 2006 If you have not had a UK passport that was issued on or after 1 January 2006, you’ll usually need to apply for a UK passport instead of an emergency travel document. You might be able to get an emergency travel document if all the following apply: you have, or are eligible for, British nationality you’re outside the UK you need to travel within 6 weeks you have an urgent and unplanned reason to travel due to exceptional circumstances Exceptional circumstances may include if: your child was born unexpectedly you need urgent medical treatment that you cannot access without travel to another country you wish to attend the funeral of a close relative If you have not had a UK passport that was issued on or after 1 January 2006, you cannot get emergency travel documents for activities such as holidays, weddings, family events and job interviews. You’ll have to explain and provide evidence to show why your journey is urgent and essential. Applications are assessed on a case by case basis. Next : How to apply View a printable version of the whole guide Related content Get a passport urgently Collection Support for British nationals abroad Explore the topic Passports
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/emergency-travel-document/how-to-apply ---
+Travel urgently from abroad without your UK passport Skip contents Contents Who can apply How to apply How to apply Before you apply, check if an emergency travel document will be accepted in the countries you plan to leave, enter and travel through. This includes whether you need a visa. Apply online You can only apply online if you have had a passport that was issued on or after 1 January 2006. The application costs £125. You cannot get a refund. To apply for your emergency travel document online, you will need: a valid digital passport photo that meets the guidelines and has not been used in a previous passport a contact telephone number an email address a debit or credit card for the fee A relative or friend can pay for you if you’re not able to make a payment using the online service (for example, because you’ve lost your wallet). Apply now Apply on behalf of someone else You can apply for an emergency travel document for someone else if they are a British national . They might have to attend an appointment and they may need to collect their emergency travel document in person. If you apply for a child under 16, they will need to go to an appointment with both parents or legal guardians. If a parent or legal guardian cannot attend, they’ll need to send a signed consent letter instead. After you apply Your old passport will usually be automatically cancelled once you have paid for your emergency travel document. You’ll be told if your passport will not be cancelled, for example because it’s with an embassy or you’ve already applied for a new passport. You’ll get an email update about your application. If the application is approved You’ll be told: how and when to collect your emergency travel document whether you need to do anything else, like attend an appointment at your nearest British embassy, high commission or consulate Your emergency travel document will usually be ready to collect 2 working days after you apply. It may take several weeks if: your original British passport has expired you’re applying for a child under 16 you’ve not yet paid the £125 fee you need to provide more documents or information you need to attend an online or in-person appointment Your travel plans (countries and dates) may be printed on your emergency travel document. Do not book your travel until you get an email telling you how and when you can get your emergency travel document. If your travel plans change, you’ll need to reapply and pay £125 again. If your destination is the UK, border control will keep your emergency travel document when you arrive. This could also happen in other countries. Apply if you have not had a UK passport issued on or after 1 January 2006 Check that you’re eligible for an emergency travel document before applying. Complete the contact form to apply . After you apply You’ll be asked to provide evidence of: your British nationality, or eligibility for British nationality your exceptional circumstances Previous : Who can apply View a printable version of the whole guide Related content Get a passport urgently Collection Support for British nationals abroad Explore the topic Passports

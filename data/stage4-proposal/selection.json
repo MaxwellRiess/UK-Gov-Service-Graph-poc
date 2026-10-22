@@ -1,0 +1,2619 @@
+{
+  "generatedAt": "2026-10-22T09:47:42.357Z",
+  "counts": {
+    "currentNotStated": 107,
+    "stage3Judged": 54,
+    "unprepared": 49,
+    "outsideStage3Selection": 4,
+    "proposedDeletions": 22,
+    "methodDecisions": 8,
+    "unreadableBinaryOnly": 9,
+    "insufficientSearch": 15,
+    "otherHolds": 0,
+    "noVerdict": 8,
+    "awaitingReverification": 2
+  },
+  "fields": [
+    {
+      "key": "gro-register-death#eligibility.evidenceRequired.0",
+      "claim": "Medical Certificate of Cause of Death (MCCD)",
+      "status": "proposed-deletion",
+      "proposalId": "P008"
+    },
+    {
+      "key": "gro-register-death#eligibility.evidenceRequired.1",
+      "claim": "Deceased's NHS number and personal details if available",
+      "status": "proposed-deletion",
+      "proposalId": "P009"
+    },
+    {
+      "key": "gro-register-death#agentInteraction.methods",
+      "claim": [
+        "in-person"
+      ],
+      "status": "method-decision",
+      "proposalId": "M003"
+    },
+    {
+      "key": "hmrc-guardians-allowance#eligibility.evidenceRequired.1",
+      "claim": "Child Benefit claim reference",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-spp#agentInteraction.methods",
+      "claim": [
+        "phone",
+        "post"
+      ],
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-spl#agentInteraction.methods",
+      "claim": [
+        "phone",
+        "post"
+      ],
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-free-childcare-15#eligibility.evidenceRequired.0",
+      "claim": "Child's date of birth, given to the childcare provider",
+      "status": "proposed-deletion",
+      "proposalId": "P011"
+    },
+    {
+      "key": "hmrc-free-childcare-15#agentInteraction.methods",
+      "claim": [
+        "in-person"
+      ],
+      "status": "method-decision",
+      "proposalId": "M004"
+    },
+    {
+      "key": "hmrc-sdlt#eligibility.evidenceRequired.0",
+      "claim": "Completion statement",
+      "status": "proposed-deletion",
+      "proposalId": "P013"
+    },
+    {
+      "key": "hmrc-lisa#eligibility.evidenceRequired.0",
+      "claim": "LISA account details",
+      "status": "proposed-deletion",
+      "proposalId": "P012"
+    },
+    {
+      "key": "hmrc-lisa#agentInteraction.methods",
+      "claim": [
+        "online"
+      ],
+      "status": "method-decision",
+      "proposalId": "M005"
+    },
+    {
+      "key": "hmrc-p45#agentInteraction.methods",
+      "claim": [
+        "phone"
+      ],
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-paye#eligibility.evidenceRequired.0",
+      "claim": "Business name and address",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-paye#eligibility.evidenceRequired.1",
+      "claim": "Nature of business",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-cis#eligibility.evidenceRequired.2",
+      "claim": "Nature of construction work",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-mtd#eligibility.evidenceRequired.1",
+      "claim": "VAT registration number",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "hmrc-aml-registration#eligibility.evidenceRequired.2",
+      "claim": "Evidence of business type and activities",
+      "status": "proposed-deletion",
+      "proposalId": "P010"
+    },
+    {
+      "key": "dwp-bereavement-support#eligibility.evidenceRequired.0",
+      "claim": "Death certificate",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "dwp-bereavement-support#eligibility.evidenceRequired.1",
+      "claim": "Marriage or civil partnership certificate",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "dwp-funeral-payment#eligibility.evidenceRequired.2",
+      "claim": "Death certificate",
+      "status": "proposed-deletion",
+      "proposalId": "P005"
+    },
+    {
+      "key": "dwp-state-pension#eligibility.evidenceRequired.0",
+      "claim": "NI number",
+      "status": "proposed-deletion",
+      "proposalId": "P007"
+    },
+    {
+      "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.0",
+      "claim": "Death certificate",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.1",
+      "claim": "Marriage or civil partnership certificate",
+      "status": "outside-stage3-selection"
+    },
+    {
+      "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.2",
+      "claim": "NI numbers for both parties",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "dwp-pension-credit#eligibility.evidenceRequired.0",
+      "claim": "Bank statements",
+      "status": "proposed-deletion",
+      "proposalId": "P006"
+    },
+    {
+      "key": "dwp-attendance-allowance#eligibility.evidenceRequired.2",
+      "claim": "Carer details if applicable",
+      "status": "proposed-deletion",
+      "proposalId": "P003"
+    },
+    {
+      "key": "nhs-continuing-healthcare#agentInteraction.methods",
+      "claim": [
+        "phone",
+        "in-person"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "dwp-ni-credits#agentInteraction.methods",
+      "claim": [
+        "online",
+        "phone"
+      ],
+      "status": "method-decision",
+      "proposalId": "M002"
+    },
+    {
+      "key": "dwp-carers-allowance#eligibility.evidenceRequired.0",
+      "claim": "Evidence of caring role",
+      "status": "proposed-deletion",
+      "proposalId": "P004"
+    },
+    {
+      "key": "dwp-ni-number#eligibility.evidenceRequired.1",
+      "claim": "Proof of address",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.criteria.1",
+      "claim": "Receiving Universal Credit with family take-home pay from employment of £408 a month or less; or Pension Credit including the child addition; or under 18 and pregnant (no benefit needed until the birth). Some families with no recourse to public funds and a British child under 4 can also qualify.",
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.0",
+      "claim": "National Insurance number",
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.1",
+      "claim": "Baby's due date (if pregnant)",
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.2",
+      "claim": "Universal Credit statement (details must match the UC claim)",
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-healthy-start#agentInteraction.methods",
+      "claim": [
+        "online",
+        "phone"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-free-prescriptions#eligibility.criteria.1",
+      "claim": "Receiving UC with a health element, or HC2 certificate for low income.",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "nhs-free-prescriptions#eligibility.autoQualifiers.0",
+      "claim": "PIP award confirmed",
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-free-prescriptions#eligibility.evidenceRequired.0",
+      "claim": "Benefit award letter or FP92A medical exemption form signed by GP",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "dvla-provisional-licence#eligibility.evidenceRequired.1",
+      "claim": "Address details",
+      "status": "proposed-deletion",
+      "proposalId": "P001"
+    },
+    {
+      "key": "dvla-cancel-licence#eligibility.evidenceRequired.1",
+      "claim": "D27 form",
+      "status": "outside-stage3-selection"
+    },
+    {
+      "key": "dvla-sorn#eligibility.evidenceRequired.0",
+      "claim": "Vehicle registration number",
+      "status": "proposed-deletion",
+      "proposalId": "P002"
+    },
+    {
+      "key": "la-council-tax#eligibility.evidenceRequired.0",
+      "claim": "Tenancy agreement or proof of ownership",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-council-tax#eligibility.evidenceRequired.1",
+      "claim": "Move-in date",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-council-tax#agentInteraction.methods",
+      "claim": [
+        "online",
+        "phone"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "la-council-tax-single-discount#agentInteraction.methods",
+      "claim": [
+        "online",
+        "phone"
+      ],
+      "status": "method-decision",
+      "proposalId": "M007"
+    },
+    {
+      "key": "la-council-tax-reduction#eligibility.evidenceRequired.1",
+      "claim": "Council Tax bill",
+      "status": "proposed-deletion",
+      "proposalId": "P017"
+    },
+    {
+      "key": "la-school-place#eligibility.evidenceRequired.2",
+      "claim": "Baptism certificate (for faith schools)",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-send-ehc#eligibility.evidenceRequired.3",
+      "claim": "Child's views if appropriate",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-send-ehc#agentInteraction.methods",
+      "claim": [
+        "phone",
+        "post"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.1",
+      "claim": "Quotes for proposed works",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.3",
+      "claim": "Proof of disability",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-business-rates#eligibility.evidenceRequired.0",
+      "claim": "Business address",
+      "status": "proposed-deletion",
+      "proposalId": "P015"
+    },
+    {
+      "key": "la-business-rates#eligibility.evidenceRequired.1",
+      "claim": "Date of occupation",
+      "status": "proposed-deletion",
+      "proposalId": "P016"
+    },
+    {
+      "key": "la-food-premises-approval#eligibility.evidenceRequired.1",
+      "claim": "Existing food business registration",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-house-to-house-collection-licence#eligibility.evidenceRequired.1",
+      "claim": "Details of the charitable purpose",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-skip-permit#eligibility.evidenceRequired.1",
+      "claim": "Skip hire company details and contact information",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.evidenceRequired.0",
+      "claim": "Charity details and purpose of collection",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.evidenceRequired.1",
+      "claim": "Location and timing of collection",
+      "status": "unprepared"
+    },
+    {
+      "key": "ho-citizenship#eligibility.evidenceRequired.1",
+      "claim": "Passport(s) covering the qualifying period",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "ho-citizenship-spouse#eligibility.evidenceRequired.0",
+      "claim": "Passport(s)",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "opg-lpa-activation#eligibility.evidenceRequired.2",
+      "claim": "LP4 notification form",
+      "status": "unprepared"
+    },
+    {
+      "key": "other-tv-licence-pension#eligibility.evidenceRequired.0",
+      "claim": "Pension Credit award letter",
+      "status": "unprepared"
+    },
+    {
+      "key": "other-tv-licence-pension#eligibility.evidenceRequired.1",
+      "claim": "Date of birth confirmation",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "other-motability#agentInteraction.methods",
+      "claim": [
+        "phone"
+      ],
+      "status": "method-decision",
+      "proposalId": "M008"
+    },
+    {
+      "key": "other-employers-liability#eligibility.autoQualifiers.0",
+      "claim": "Registered as employer with HMRC PAYE",
+      "status": "unprepared"
+    },
+    {
+      "key": "other-employers-liability#agentInteraction.methods",
+      "claim": [
+        "online"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "other-pupil-premium#agentInteraction.methods",
+      "claim": [
+        "phone"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "other-statutory-redundancy#eligibility.evidenceRequired.1",
+      "claim": "Employment contract",
+      "status": "unprepared"
+    },
+    {
+      "key": "other-carers-leave#agentInteraction.methods",
+      "claim": [
+        "phone"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "other-help-to-buy#agentInteraction.methods",
+      "claim": [
+        "online"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "slc-student-finance#eligibility.evidenceRequired.1",
+      "claim": "Proof of course enrollment or offer letter",
+      "status": "unprepared"
+    },
+    {
+      "key": "other-warm-home-discount#eligibility.evidenceRequired.1",
+      "claim": "Benefit confirmation letter (for Broader Group)",
+      "status": "unprepared"
+    },
+    {
+      "key": "other-warm-home-discount#agentInteraction.methods",
+      "claim": [
+        "online"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-low-income-scheme#eligibility.criteria.2",
+      "claim": "Must be ordinarily resident in the UK.",
+      "status": "unprepared"
+    },
+    {
+      "key": "nhs-low-income-scheme#eligibility.evidenceRequired.2",
+      "claim": "National Insurance number",
+      "status": "unprepared"
+    },
+    {
+      "key": "sss-scottish-child-payment#eligibility.evidenceRequired.2",
+      "claim": "Proof of Scottish residency",
+      "status": "unprepared"
+    },
+    {
+      "key": "sss-pension-winter-heating#eligibility.evidenceRequired.0",
+      "claim": "Proof of age",
+      "status": "proposed-deletion",
+      "proposalId": "P021"
+    },
+    {
+      "key": "sss-pension-winter-heating#eligibility.evidenceRequired.1",
+      "claim": "Proof of Scottish residency",
+      "status": "proposed-deletion",
+      "proposalId": "P022"
+    },
+    {
+      "key": "sss-funeral-support-payment#eligibility.evidenceRequired.0",
+      "claim": "Death certificate",
+      "status": "unprepared"
+    },
+    {
+      "key": "wg-winter-fuel-support#agentInteraction.methods",
+      "claim": [
+        "online",
+        "phone"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.0",
+      "claim": "Proof of income",
+      "status": "unprepared"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.1",
+      "claim": "Rate bill",
+      "status": "unprepared"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.2",
+      "claim": "Benefit confirmation letters",
+      "status": "unprepared"
+    },
+    {
+      "key": "ni-discretionary-support#eligibility.evidenceRequired.0",
+      "claim": "Proof of benefit receipt or pending application",
+      "status": "unprepared"
+    },
+    {
+      "key": "ni-discretionary-support#eligibility.evidenceRequired.1",
+      "claim": "Details of the emergency need",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-council-tax-disability-reduction#agentInteraction.methods",
+      "claim": [
+        "online",
+        "phone"
+      ],
+      "status": "method-decision",
+      "proposalId": "M006"
+    },
+    {
+      "key": "dvla-ved-exemption#agentInteraction.methods",
+      "claim": [
+        "online"
+      ],
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.0",
+      "claim": "Proof of qualifying benefit",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.1",
+      "claim": "Child's date of birth",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.2",
+      "claim": "National Insurance number",
+      "status": "unprepared"
+    },
+    {
+      "key": "la-free-childcare-2yr#agentInteraction.methods",
+      "claim": [
+        "in-person",
+        "phone"
+      ],
+      "status": "unprepared"
+    },
+    {
+      "key": "slc-childcare-grant#eligibility.evidenceRequired.0",
+      "claim": "Proof of full-time student status",
+      "status": "unprepared"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.0",
+      "claim": "Proof of qualifying benefit",
+      "status": "unprepared"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.1",
+      "claim": "Proof of pregnancy or child's age",
+      "status": "proposed-deletion",
+      "proposalId": "P019"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.2",
+      "claim": "Proof of Scottish residency",
+      "status": "proposed-deletion",
+      "proposalId": "P020"
+    },
+    {
+      "key": "sss-best-start-foods#eligibility.evidenceRequired.0",
+      "claim": "Proof of qualifying benefit",
+      "status": "unprepared"
+    },
+    {
+      "key": "sss-best-start-foods#eligibility.evidenceRequired.1",
+      "claim": "Proof of pregnancy or child's age",
+      "status": "outside-stage3-selection"
+    },
+    {
+      "key": "sss-adult-disability-payment#eligibility.evidenceRequired.2",
+      "claim": "GP or consultant details",
+      "status": "proposed-deletion",
+      "proposalId": "P018"
+    },
+    {
+      "key": "sss-young-carer-grant#eligibility.evidenceRequired.2",
+      "claim": "Age verification",
+      "status": "unprepared"
+    },
+    {
+      "key": "wg-discretionary-assistance#eligibility.criteria.2",
+      "claim": "Must live in Wales.",
+      "status": "unprepared"
+    },
+    {
+      "key": "fco-emergency-travel-doc#agentInteraction.methods",
+      "claim": [
+        "in-person"
+      ],
+      "status": "insufficient-search"
+    },
+    {
+      "key": "nhs-ppc#eligibility.exclusions.0",
+      "claim": "Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)",
+      "status": "unreadable-binary-only"
+    },
+    {
+      "key": "ho-skilled-worker-visa#eligibility.criteria.1",
+      "claim": "Must not have conditions that prevent applying for this visa.",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0",
+      "claim": "Main applicant's visa or BRP",
+      "status": "proposed-deletion",
+      "proposalId": "P014"
+    },
+    {
+      "key": "ho-euss-enquiry#eligibility.criteria.0",
+      "claim": "Must have applied to or been granted status under the EU Settlement Scheme.",
+      "status": "insufficient-search"
+    },
+    {
+      "key": "ch-close-company#eligibility.exclusions.1",
+      "claim": "Subject to legal proceedings",
+      "status": "outside-stage3-selection"
+    },
+    {
+      "key": "dfe-care-to-learn#agentInteraction.methods",
+      "claim": [
+        "online"
+      ],
+      "status": "method-decision",
+      "proposalId": "M001"
+    }
+  ],
+  "unprepared": [
+    {
+      "key": "la-council-tax#agentInteraction.methods",
+      "finderBatch": "08",
+      "claimAtSelection": "You can apply or do this online. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-council-tax#eligibility.evidenceRequired.0",
+      "finderBatch": "08",
+      "claimAtSelection": "Tenancy agreement or proof of ownership",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-council-tax#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Move-in date",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.3",
+      "finderBatch": "08",
+      "claimAtSelection": "Proof of disability",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-food-premises-approval#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Existing food business registration",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#agentInteraction.methods",
+      "finderBatch": "08",
+      "claimAtSelection": "You can apply or do this in person. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.0",
+      "finderBatch": "08",
+      "claimAtSelection": "Proof of qualifying benefit",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Child's date of birth",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-free-childcare-2yr#eligibility.evidenceRequired.2",
+      "finderBatch": "08",
+      "claimAtSelection": "National Insurance number",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-house-to-house-collection-licence#eligibility.evidenceRequired.1",
+      "finderBatch": "08",
+      "claimAtSelection": "Details of the charitable purpose",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-school-place#eligibility.evidenceRequired.2",
+      "finderBatch": "08",
+      "claimAtSelection": "Baptism certificate (for faith schools)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-send-ehc#agentInteraction.methods",
+      "finderBatch": "08",
+      "claimAtSelection": "You can apply or do this by phone. You can apply or do this by post.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-send-ehc#eligibility.evidenceRequired.3",
+      "finderBatch": "08",
+      "claimAtSelection": "Child's views if appropriate",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-08.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-skip-permit#eligibility.evidenceRequired.1",
+      "finderBatch": "09",
+      "claimAtSelection": "Skip hire company details and contact information",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.evidenceRequired.0",
+      "finderBatch": "09",
+      "claimAtSelection": "Charity details and purpose of collection",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "la-street-collection-licence#eligibility.evidenceRequired.1",
+      "finderBatch": "09",
+      "claimAtSelection": "Location and timing of collection",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-continuing-healthcare#agentInteraction.methods",
+      "finderBatch": "09",
+      "claimAtSelection": "You can apply or do this by phone. You can apply or do this in person.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-free-prescriptions#eligibility.autoQualifiers.0",
+      "finderBatch": "09",
+      "claimAtSelection": "PIP award confirmed",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-09.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-healthy-start#agentInteraction.methods",
+      "finderBatch": "10",
+      "claimAtSelection": "You can apply or do this online. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "https://faq.nhsbsa.nhs.uk/knowledgebase/article/KA-30132/en-us"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.criteria.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Receiving Universal Credit with family take-home pay from employment of £408 a month or less; or Pension Credit including the child addition; or under 18 and pregnant (no benefit needed until the birth). Some families with no recourse to public funds and a British child under 4 can also qualify.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619",
+        "https://www.nidirect.gov.uk/articles/healthy-start-help-buy-healthy-food-and-milk",
+        "https://www.gov.uk/government/publications/healthy-start-extension-application-guidance/healthy-start-extension-application-guidance"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.0",
+      "finderBatch": "10",
+      "claimAtSelection": "National Insurance number",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Baby's due date (if pregnant)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-healthy-start#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "Universal Credit statement (details must match the UC claim)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [
+        "https://www.healthystart.nhs.uk/how-to-apply/?a=27619"
+      ],
+      "status": "candidate_unreadable"
+    },
+    {
+      "key": "nhs-low-income-scheme#eligibility.criteria.2",
+      "finderBatch": "10",
+      "claimAtSelection": "Must be ordinarily resident in the UK.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "nhs-low-income-scheme#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "National Insurance number",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-discretionary-support#eligibility.evidenceRequired.0",
+      "finderBatch": "10",
+      "claimAtSelection": "Proof of benefit receipt or pending application",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-discretionary-support#eligibility.evidenceRequired.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Details of the emergency need",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.0",
+      "finderBatch": "10",
+      "claimAtSelection": "Proof of income",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.1",
+      "finderBatch": "10",
+      "claimAtSelection": "Rate bill",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "ni-rate-rebate#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "Benefit confirmation letters",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "opg-lpa-activation#eligibility.evidenceRequired.2",
+      "finderBatch": "10",
+      "claimAtSelection": "LP4 notification form",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-10.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-carers-leave#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-employers-liability#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-employers-liability#eligibility.autoQualifiers.0",
+      "finderBatch": "11",
+      "claimAtSelection": "Registered as employer with HMRC PAYE",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-help-to-buy#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-pupil-premium#agentInteraction.methods",
+      "finderBatch": "11",
+      "claimAtSelection": "You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-statutory-redundancy#eligibility.evidenceRequired.1",
+      "finderBatch": "11",
+      "claimAtSelection": "Employment contract",
+      "finderNoteFile": "data/stage3-audit/full/finder-notes-11.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-tv-licence-pension#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Pension Credit award letter",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-warm-home-discount#agentInteraction.methods",
+      "finderBatch": "12",
+      "claimAtSelection": "You can apply or do this online.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "other-warm-home-discount#eligibility.evidenceRequired.1",
+      "finderBatch": "12",
+      "claimAtSelection": "Benefit confirmation letter (for Broader Group)",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "slc-childcare-grant#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of full-time student status",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "slc-student-finance#eligibility.evidenceRequired.1",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of course enrollment or offer letter",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-best-start-foods#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of qualifying benefit",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.0",
+      "finderBatch": "12",
+      "claimAtSelection": "Proof of qualifying benefit",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-12.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-funeral-support-payment#eligibility.evidenceRequired.0",
+      "finderBatch": "13",
+      "claimAtSelection": "Death certificate",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-13.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-scottish-child-payment#eligibility.evidenceRequired.2",
+      "finderBatch": "14",
+      "claimAtSelection": "Proof of Scottish residency",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "sss-young-carer-grant#eligibility.evidenceRequired.2",
+      "finderBatch": "14",
+      "claimAtSelection": "Age verification",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "wg-discretionary-assistance#eligibility.criteria.2",
+      "finderBatch": "14",
+      "claimAtSelection": "Must live in Wales.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    },
+    {
+      "key": "wg-winter-fuel-support#agentInteraction.methods",
+      "finderBatch": "14",
+      "claimAtSelection": "You can apply or do this online. You can apply or do this by phone.",
+      "finderNoteFile": "data/stage3-progress/finder/finder-notes-14.json",
+      "nominatedUrls": [],
+      "status": "no_candidate_nominated"
+    }
+  ],
+  "unreadable": [
+    {
+      "key": "nhs-free-prescriptions#eligibility.criteria.1",
+      "service": "Free prescriptions (disability)",
+      "path": "eligibility.criteria.1",
+      "claim": "Receiving UC with a health element, or HC2 certificate for low income.",
+      "currentValue": "Receiving UC with a health element, or HC2 certificate for low income.",
+      "finderQueries": [
+        "nhs.uk free prescriptions England aged 60 or over under 16 16 to 18 full-time education HC2 Universal Credit",
+        "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+      ],
+      "substantiveFinderSearches": [
+        "nhs.uk free prescriptions England aged 60 or over under 16 16 to 18 full-time education HC2 Universal Credit",
+        "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions",
+          "roles": [
+            "cited"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "not present as readable judge-prompt text"
+        },
+        {
+          "url": "https://www.nhs.uk/nhs-services/prescriptions/save-money-with-a-prescription-prepayment-certificate-ppc",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+          "roles": [
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+          "roles": [
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The supplied text does not mention Universal Credit or its health element. The supplied text does not mention HC2 certificates.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave3/nhs-free-prescriptions.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave3/nhs-free-prescriptions.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "nhs-ppc#eligibility.exclusions.0",
+      "service": "Prescription Prepayment Certificate (PPC)",
+      "path": "eligibility.exclusions.0",
+      "claim": "Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)",
+      "currentValue": "Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)",
+      "finderQueries": [
+        "site:nhsbsa.nhs.uk prescription exemption under 16 over 60 Universal Credit diabetes epilepsy certificate"
+      ],
+      "substantiveFinderSearches": [
+        "site:nhsbsa.nhs.uk prescription exemption under 16 over 60 Universal Credit diabetes epilepsy certificate"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/get-a-ppc",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20%28V28%29%2004.2026.pdf",
+          "roles": [
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The PPC page does not discuss Universal Credit or prescription exemptions. The PPC page does not mention an age-based exemption. The PPC page does not mention an age-based exemption. The PPC page does not mention medical-condition exemptions.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave5/nhs-ppc.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave5/nhs-ppc.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "dvla-ved-exemption#agentInteraction.methods",
+      "service": "Vehicle Excise Duty Exemption",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this online.",
+      "currentValue": [
+        "online"
+      ],
+      "finderQueries": [
+        "gov.uk disability exemption from vehicle tax how to claim PIP enhanced rate mobility V5C",
+        "renew vehicle tax disability exemption online after first claim at Post Office gov.uk",
+        "GOV.UK search: vehicle tax disability exemption claim"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk disability exemption from vehicle tax how to claim PIP enhanced rate mobility V5C",
+        "renew vehicle tax disability exemption online after first claim at Post Office gov.uk",
+        "GOV.UK search: vehicle tax disability exemption claim"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/financial-help-disabled/disability-and-sickness-benefits",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/financial-help-disabled/vat-relief",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/financial-help-disabled/armed-forces-compensation",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        },
+        {
+          "url": "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text never says the exemption can be claimed online; it says a first-time claim has to be made at a Post Office, and other changes of tax class are made at a Post Office or by post.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "in-person",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dvla-ved-exemption.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dvla-ved-exemption.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "dwp-bereavement-support#eligibility.evidenceRequired.0",
+      "service": "Bereavement Support Payment",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Death certificate",
+      "currentValue": "Death certificate",
+      "finderQueries": [
+        "Bereavement Support Payment claim need death certificate marriage certificate civil partnership certificate",
+        "GOV.UK search: bereavement support payment death certificate",
+        "GOV.UK search: Bereavement Support Payment claim form"
+      ],
+      "substantiveFinderSearches": [
+        "Bereavement Support Payment claim need death certificate marriage certificate civil partnership certificate",
+        "GOV.UK search: bereavement support payment death certificate",
+        "GOV.UK search: Bereavement Support Payment claim form"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/bereavement-support-payment",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/bereavement-support-payment/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/widowed-parents-allowance",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The list of what you need to apply covers National Insurance numbers, bank details and the date of death, but no death certificate.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-bereavement-support.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-bereavement-support.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "dwp-bereavement-support#eligibility.evidenceRequired.1",
+      "service": "Bereavement Support Payment",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Marriage or civil partnership certificate",
+      "currentValue": "Marriage or civil partnership certificate",
+      "finderQueries": [
+        "Bereavement Support Payment claim need death certificate marriage certificate civil partnership certificate",
+        "GOV.UK search: Bereavement Support Payment claim form"
+      ],
+      "substantiveFinderSearches": [
+        "Bereavement Support Payment claim need death certificate marriage certificate civil partnership certificate",
+        "GOV.UK search: Bereavement Support Payment claim form"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/bereavement-support-payment",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/bereavement-support-payment/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/widowed-parents-allowance",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The text requires that you were married, in a civil partnership or living together, but never asks for a marriage or civil partnership certificate.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-bereavement-support.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-bereavement-support.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.0",
+      "service": "Inherited State Pension (Additional or extra)",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Death certificate",
+      "currentValue": "Death certificate",
+      "finderQueries": [
+        "Inherited State Pension ... death certificate gov.uk",
+        "claim State Pension as widow form late husband's National Insurance number marriage certificate death certificate"
+      ],
+      "substantiveFinderSearches": [
+        "Inherited State Pension ... death certificate gov.uk",
+        "claim State Pension as widow form late husband's National Insurance number marriage certificate death certificate"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/living-and-working-overseas",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/increase-retirement-income",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/how-to-claim",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/state-pension-through-partner/y/widowed/your_pension_age_before_specific_date",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "None of the readable sources mention a death certificate.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-inherited-state-pension.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-inherited-state-pension.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.2",
+      "service": "Inherited State Pension (Additional or extra)",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "NI numbers for both parties",
+      "currentValue": "NI numbers for both parties",
+      "finderQueries": [
+        "Inherited State Pension ... partner's National Insurance number gov.uk",
+        "claim State Pension as widow form late husband's National Insurance number"
+      ],
+      "substantiveFinderSearches": [
+        "Inherited State Pension ... partner's National Insurance number gov.uk",
+        "claim State Pension as widow form late husband's National Insurance number"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/living-and-working-overseas",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/increase-retirement-income",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/how-to-claim",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/state-pension-through-partner/y/widowed/your_pension_age_before_specific_date",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The sources do not list National Insurance numbers as something you must provide.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-inherited-state-pension.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-inherited-state-pension.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "ho-citizenship-spouse#eligibility.evidenceRequired.0",
+      "service": "British citizenship (spouse / civil partner)",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Passport(s)",
+      "currentValue": "Passport(s)",
+      "finderQueries": [
+        "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate",
+        "gov.uk apply-citizenship-spouse/how-to-apply (read)"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk Guide AN naturalisation documents spouse British citizen passport marriage certificate"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk apply-citizenship-spouse/how-to-apply (read)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/apply-citizenship-spouse",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/check-british-citizenship",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/apply-first-adult-passport",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/right-of-abode/apply-for-a-certificate-of-entitlement",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The readable sources do not list passports among the documents to provide; the document list is in the guidance, whose text (Source 4) is not readable.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post",
+        "in-person"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/ho-citizenship-spouse.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/ho-citizenship-spouse.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    },
+    {
+      "key": "nhs-free-prescriptions#eligibility.evidenceRequired.0",
+      "service": "Free prescriptions (disability)",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Benefit award letter or FP92A medical exemption form signed by GP",
+      "currentValue": "Benefit award letter or FP92A medical exemption form signed by GP",
+      "finderQueries": [
+        "nhsbsa medical exemption certificate FP92A apply GP qualifying medical conditions",
+        "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+      ],
+      "substantiveFinderSearches": [
+        "nhsbsa medical exemption certificate FP92A apply GP qualifying medical conditions",
+        "free prescriptions 60 or over medical exemption certificate (nhs/nhsbsa/gov.uk)"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions",
+          "roles": [
+            "cited"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "not present as readable judge-prompt text"
+        },
+        {
+          "url": "https://www.nhs.uk/nhs-services/prescriptions/save-money-with-a-prescription-prepayment-certificate-ppc",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/Free%20NHS%20prescriptions%20booklet%20-%20large%20print%20-%20(V4)%2004.2026.pdf",
+          "roles": [
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        },
+        {
+          "url": "https://www.nhsbsa.nhs.uk/sites/default/files/2026-04/HC11%20(V28)%2004.2026.pdf",
+          "roles": [
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The supplied text does not mention benefit award letters. The supplied text does not mention an FP92A form or GP signature.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave3/nhs-free-prescriptions.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave3/nhs-free-prescriptions.response.json",
+      "exactCopies": [],
+      "status": "unreadable-binary-only",
+      "reason": "Every nominated finder source was an unreadable PDF or Word file."
+    }
+  ],
+  "insufficient": [
+    {
+      "key": "ho-euss-enquiry#eligibility.criteria.0",
+      "service": "EUSS status enquiry",
+      "path": "eligibility.criteria.0",
+      "claim": "Must have applied to or been granted status under the EU Settlement Scheme.",
+      "currentValue": "Must have applied to or been granted status under the EU Settlement Scheme.",
+      "finderQueries": [
+        "GOV.UK search: EU Settlement Scheme contact",
+        "UKVI contact smart answer branch: settled or pre-settled status (EU Settlement Scheme)"
+      ],
+      "substantiveFinderSearches": [
+        "GOV.UK search: EU Settlement Scheme contact"
+      ],
+      "finderNotesNotCounted": [
+        "UKVI contact smart answer branch: settled or pre-settled status (EU Settlement Scheme)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/check-uk-visa",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/settled-status-eu-citizens-families/after-youve-applied",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The UKVI contact pages are generic and set no condition that you have applied to or been granted EUSS status.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/ho-euss-enquiry.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/ho-euss-enquiry.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "ho-skilled-worker-visa#eligibility.criteria.1",
+      "service": "Skilled Worker visa",
+      "path": "eligibility.criteria.1",
+      "claim": "Must not have conditions that prevent applying for this visa.",
+      "currentValue": "Must not have conditions that prevent applying for this visa.",
+      "finderQueries": [
+        "grep of Skilled Worker guide parts for exclusions",
+        "/skilled-worker-visa/switch-to-this-visa"
+      ],
+      "substantiveFinderSearches": [
+        "grep of Skilled Worker guide parts for exclusions"
+      ],
+      "finderNotesNotCounted": [
+        "/skilled-worker-visa/switch-to-this-visa"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/skilled-worker-visa",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/skilled-worker-visa/your-job",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/skilled-worker-visa/switch-to-this-visa",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text sets out job, sponsorship, salary and English requirements but does not describe any conditions that would prevent someone from applying.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/ho-skilled-worker-visa.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/ho-skilled-worker-visa.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "fco-emergency-travel-doc#agentInteraction.methods",
+      "service": "Emergency travel document",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this in person.",
+      "currentValue": [
+        "in-person"
+      ],
+      "finderQueries": [
+        "emergency travel document apply in person appointment embassy consulate gov.uk"
+      ],
+      "substantiveFinderSearches": [
+        "emergency travel document apply in person appointment embassy consulate gov.uk"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/emergency-travel-document",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/emergency-travel-document/how-to-apply",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text describes applying online or through a contact form; in-person appointments and collection are part of how the document is delivered, not a way to apply.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/fco-emergency-travel-doc.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/fco-emergency-travel-doc.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-p45#agentInteraction.methods",
+      "service": "Obtain P45 from employer",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this by phone.",
+      "currentValue": [
+        "phone"
+      ],
+      "finderQueries": [
+        "gov.uk P45 not received from employer contact HMRC phone",
+        "fetched acas.org.uk/p45s-and-p60s (search result only)"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk P45 not received from employer contact HMRC phone"
+      ],
+      "finderNotesNotCounted": [
+        "fetched acas.org.uk/p45s-and-p60s (search result only)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text says to ask your previous employer for a P45 and mentions online services, but never says you can get or request it by phone.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-p45.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-p45.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-spl#agentInteraction.methods",
+      "service": "Shared Parental Leave & Pay",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this by phone. You can apply or do this by post.",
+      "currentValue": [
+        "phone",
+        "post"
+      ],
+      "finderQueries": [
+        "Shared Parental Leave apply by phone or post",
+        "gov.uk shared-parental-leave-and-pay applying-for-leave-and-pay (read)"
+      ],
+      "substantiveFinderSearches": [
+        "Shared Parental Leave apply by phone or post"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk shared-parental-leave-and-pay applying-for-leave-and-pay (read)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/shared-parental-leave-and-pay",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The source says you apply by giving your employer written notice and does not mention phone. The source requires written notice to your employer but does not say you can apply by post.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-spl.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-spl.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-spp#agentInteraction.methods",
+      "service": "Statutory Paternity Pay",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this by phone. You can apply or do this by post.",
+      "currentValue": [
+        "phone",
+        "post"
+      ],
+      "finderQueries": [
+        "Statutory Paternity Pay claim by phone or post HMRC employer form SC3 send by post",
+        "gov.uk paternity-pay-leave/how-to-claim (read)"
+      ],
+      "substantiveFinderSearches": [
+        "Statutory Paternity Pay claim by phone or post HMRC employer form SC3 send by post"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk paternity-pay-leave/how-to-claim (read)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/paternity-pay-leave",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/paternity-pay-leave/pay",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text says you claim through your employer using the online form or the employer's own form, and never mentions claiming by phone. The text says to download or print the completed form and give it to your employer, but does not say you can claim by post.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-spp.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-spp.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "dwp-ni-number#eligibility.evidenceRequired.1",
+      "service": "National Insurance number",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Proof of address",
+      "currentValue": "Proof of address",
+      "finderQueries": [
+        "apply for National Insurance number proof of address right to work documents identity appointment",
+        "gov.uk/apply-national-insurance-number/how-to-apply (read)"
+      ],
+      "substantiveFinderSearches": [
+        "apply for National Insurance number proof of address right to work documents identity appointment"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk/apply-national-insurance-number/how-to-apply (read)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/apply-national-insurance-number",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/settled-status-eu-citizens-families",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/prove-right-to-work",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/child-benefit",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nidirect.gov.uk/articles/applying-national-insurance-number-if-you-live-northern-ireland",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The documents listed are a passport or national identity card to prove identity; proof of address is never mentioned.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-ni-number.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-ni-number.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-cis#eligibility.evidenceRequired.2",
+      "service": "Construction Industry Scheme (CIS) registration",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "Nature of construction work",
+      "currentValue": "Nature of construction work",
+      "finderQueries": [
+        "gov.uk search: register construction industry scheme subcontractor",
+        "gov.uk content: CIS registration guidance pages"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk search: register construction industry scheme subcontractor"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk content: CIS registration guidance pages"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/construction-industry-scheme-businesses-based-outside-uk",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/what-you-must-do-as-a-cis-contractor",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/what-you-must-do-as-a-cis-contractor/how-to-register",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "None of the registration lists of what you need asks for a description of the construction work.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/hmrc-cis.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/hmrc-cis.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-guardians-allowance#eligibility.evidenceRequired.1",
+      "service": "Guardian's Allowance",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Child Benefit claim reference",
+      "currentValue": "Child Benefit claim reference",
+      "finderQueries": [
+        "gov.uk search: guardians allowance claim form BG1",
+        "gov.uk content: guardians-allowance/how-to-claim and BG1 notes PDF"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk search: guardians allowance claim form BG1"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk content: guardians-allowance/how-to-claim and BG1 notes PDF"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/guardians-allowance",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guardians-allowance/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/child-benefit-tax-charge/overview",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/child-benefit-payment-dates",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text says you must qualify for and should claim Child Benefit, and lists the birth and death certificates to send, but never mentions a Child Benefit claim reference.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "post",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/hmrc-guardians-allowance.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/hmrc-guardians-allowance.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-mtd#eligibility.evidenceRequired.1",
+      "service": "Making Tax Digital enrolment",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "VAT registration number",
+      "currentValue": "VAT registration number",
+      "finderQueries": [
+        "gov.uk sign up for Making Tax Digital for VAT what you need VAT registration number",
+        "fetched gov.uk/guidance/sign-up-for-making-tax-digital-for-vat"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk sign up for Making Tax Digital for VAT what you need VAT registration number"
+      ],
+      "finderNotesNotCounted": [
+        "fetched gov.uk/guidance/sign-up-for-making-tax-digital-for-vat"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/find-software-thats-compatible-with-making-tax-digital-for-income-tax",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/work-out-your-qualifying-income-for-making-tax-digital-for-income-tax",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/check-if-youre-eligible-for-making-tax-digital-for-income-tax",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/sign-up-for-making-tax-digital-for-vat",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The sources do not list a VAT registration number as needed to sign up; the withdrawn agent guidance mentions only a VAT certificate.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-mtd.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-mtd.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-paye#eligibility.evidenceRequired.0",
+      "service": "Register as employer (PAYE)",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Business name and address",
+      "currentValue": "Business name and address",
+      "finderQueries": [
+        "gov.uk register as employer PAYE information you need first payday business name",
+        "walked gov.uk/register-employer smart answer outcomes"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk register as employer PAYE information you need first payday business name"
+      ],
+      "finderNotesNotCounted": [
+        "walked gov.uk/register-employer smart answer outcomes"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/register-employer",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/paye-for-employers",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/what-you-must-do-as-a-cis-contractor",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/limited-company-formation/appoint-directors-and-company-secretaries",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/running-payroll/fps-after-payday",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The employer registration pages do not list the business name as information needed to register. The employer registration pages do not list the business address as information needed; the registered office address rules in the linked page are about Companies House registration, a different service.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-paye.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-paye.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "hmrc-paye#eligibility.evidenceRequired.1",
+      "service": "Register as employer (PAYE)",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Nature of business",
+      "currentValue": "Nature of business",
+      "finderQueries": [
+        "gov.uk register as employer PAYE information you need first payday business name",
+        "walked gov.uk/register-employer smart answer outcomes"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk register as employer PAYE information you need first payday business name"
+      ],
+      "finderNotesNotCounted": [
+        "walked gov.uk/register-employer smart answer outcomes"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/register-employer",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/paye-for-employers",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/what-you-must-do-as-a-cis-contractor",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/limited-company-formation/appoint-directors-and-company-secretaries",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/running-payroll/fps-after-payday",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text does not say the nature of the business is needed to register as an employer.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-paye.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-paye.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "ho-citizenship#eligibility.evidenceRequired.1",
+      "service": "British citizenship (naturalisation)",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Passport(s) covering the qualifying period",
+      "currentValue": "Passport(s) covering the qualifying period",
+      "finderQueries": [
+        "Guide AN naturalisation documents passport evidence of settled status gov.uk",
+        "GOV.UK content API: /government/publications/form-an-guidance"
+      ],
+      "substantiveFinderSearches": [
+        "Guide AN naturalisation documents passport evidence of settled status gov.uk"
+      ],
+      "finderNotesNotCounted": [
+        "GOV.UK content API: /government/publications/form-an-guidance"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/returning-resident-visa",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/apply-citizenship-spouse",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/right-of-abode/apply-for-a-certificate-of-entitlement",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text refers to documents showing you were in the UK for the required period but does not say these are passports covering the qualifying period.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post",
+        "in-person"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/ho-citizenship.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/ho-citizenship.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.1",
+      "service": "Disabled Facilities Grant",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Quotes for proposed works",
+      "currentValue": "Quotes for proposed works",
+      "finderQueries": [
+        "disabled facilities grant estimates quotes proposed works site:gov.uk"
+      ],
+      "substantiveFinderSearches": [
+        "disabled facilities grant estimates quotes proposed works site:gov.uk"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/disabled-facilities-grants",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/government/publications/disabled-facilities-grant-dfg-delivery-guidance-for-local-authorities-in-england/disabled-facilities-grant-dfg-delivery-guidance-for-local-authorities-in-england",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The supplied pages discuss the work, costs, invoices and tendering but do not require applicants to submit quotes.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave5/la-disabled-facilities-grant.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave5/la-disabled-facilities-grant.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    },
+    {
+      "key": "other-tv-licence-pension#eligibility.evidenceRequired.1",
+      "service": "TV Licence concession",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Date of birth confirmation",
+      "currentValue": "Date of birth confirmation",
+      "finderQueries": [
+        "site:tvlicensing.co.uk \"free TV Licence\" \"date of birth\" \"Pension Credit\""
+      ],
+      "substantiveFinderSearches": [
+        "site:tvlicensing.co.uk \"free TV Licence\" \"date of birth\" \"Pension Credit\""
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/free-discount-tv-licence",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.tvlicensing.co.uk/privacy-security-policies?rendermode=preview%2F1000",
+          "roles": [
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "not present as readable judge-prompt text"
+        }
+      ],
+      "judgeNote": "The sources give an age threshold but do not state a date-of-birth confirmation requirement.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave4/other-tv-licence-pension.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave4/other-tv-licence-pension.response.json",
+      "exactCopies": [],
+      "status": "insufficient-search",
+      "reason": "1 distinct substantive finder search(es); at least two required. Page reads and navigation notes do not count."
+    }
+  ],
+  "outsideSelection": [
+    {
+      "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.1",
+      "claim": "Marriage or civil partnership certificate"
+    },
+    {
+      "key": "dvla-cancel-licence#eligibility.evidenceRequired.1",
+      "claim": "D27 form"
+    },
+    {
+      "key": "sss-best-start-foods#eligibility.evidenceRequired.1",
+      "claim": "Proof of pregnancy or child's age"
+    },
+    {
+      "key": "ch-close-company#eligibility.exclusions.1",
+      "claim": "Subject to legal proceedings"
+    }
+  ],
+  "noVerdict": [
+    "dwp-state-pension#financialData.rates.basic_full_weekly",
+    "dvla-provisional-licence#eligibility.rules.0.value",
+    "dvsa-theory-test#eligibility.rules.0.value",
+    "other-disabled-railcard#financialData.rates.saving_percent",
+    "ni-discretionary-support#contactInfo.phone.number",
+    "lr-property-search#agentInteraction.onlineFormUrl",
+    "dvsa-mot-history#agentInteraction.onlineFormUrl",
+    "hmcts-find-a-will#agentInteraction.onlineFormUrl"
+  ],
+  "awaiting": [
+    "dwp-uc-health#eligibility.evidenceRequired.1",
+    "hmcts-employment-tribunal#deadline"
+  ],
+  "otherHolds": []
+}

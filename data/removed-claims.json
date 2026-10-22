@@ -1962,5 +1962,388 @@
       "https://www.mygov.scot/funeral-support-payment"
     ],
     "note": "They may apply while awaiting a decision, but their Funeral Support Payment cannot be decided until the other benefit decision."
+  },
+  {
+    "key": "dvla-provisional-licence#eligibility.evidenceRequired.1",
+    "value": "Address details",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/apply-first-provisional-driving-licence",
+      "https://www.nidirect.gov.uk/articles/driving-licence-application-dl1-guidance-notes"
+    ],
+    "note": "Stage 4 removal P001, approved by the user. Judge: The GOV.UK page does not mention address details as something you need to apply, and the only source that discusses addresses is the Northern Ireland DVA form guidance, which covers a different nation's version of the service. Finder queries: apply first provisional driving licence online need addresses where you've lived last 3 years | nidirect apply first provisional driving licence online what you need address | INF1D guide to filling in driving licence application form address last 3 years gov.uk"
+  },
+  {
+    "key": "dvla-sorn#eligibility.evidenceRequired.0",
+    "value": "Vehicle registration number",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/make-a-sorn",
+      "https://www.gov.uk/check-vehicle-tax",
+      "https://www.gov.uk/government/news/vehicle-tax-changes"
+    ],
+    "note": "Stage 4 removal P002, approved by the user. Judge: The SORN page lists the 11-digit V5C number or 16-digit tax reminder reference, not the registration number; only the linked check-vehicle-tax page (a different service) mentions the registration number. Finder queries: make a SORN online you'll need vehicle registration number 11-digit reference V5C DVLA | GOV.UK search: SORN vehicle registration number reference | GOV.UK search: V890 SORN form"
+  },
+  {
+    "key": "dwp-attendance-allowance#eligibility.evidenceRequired.2",
+    "value": "Carer details if applicable",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/attendance-allowance",
+      "https://www.gov.uk/attendance-allowance/what-youll-get",
+      "https://www.gov.uk/mandatory-reconsideration",
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/constant-attendance-allowance",
+      "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/how-to-claim-attendance-allowance/",
+      "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/claiming-attendance-allowance-terminally-ill/",
+      "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/"
+    ],
+    "note": "Stage 4 removal P003, approved by the user. Judge: The list of what you need to apply does not include carer details; the text only says you do not need a carer to claim. Finder queries: Citizens Advice Attendance Allowance claim form send medical evidence letters from GP specialist carer | GOV.UK search: Attendance Allowance claim form"
+  },
+  {
+    "key": "dwp-carers-allowance#eligibility.evidenceRequired.0",
+    "value": "Evidence of caring role",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/carers-allowance/what-youll-get",
+      "https://www.gov.uk/universal-credit",
+      "https://www.gov.uk/universal-credit/what-youll-get",
+      "https://www.gov.uk/universal-credit/contact-universal-credit"
+    ],
+    "note": "Stage 4 removal P004, approved by the user. Judge: The page says you must care for at least 35 hours a week, but its list of what to have before you apply does not ask for any evidence of the caring role. Finder queries: Carer's Allowance evidence of caring proof | gov.uk/carers-allowance/how-to-claim (read) | Carer's Allowance claim form notes documents to send (DS700 notes read)"
+  },
+  {
+    "key": "dwp-funeral-payment#eligibility.evidenceRequired.2",
+    "value": "Death certificate",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/funeral-payments",
+      "https://www.gov.uk/funeral-payments/what-youll-get",
+      "https://www.gov.uk/after-a-death",
+      "https://assets.publishing.service.gov.uk/media/69733a0895ec95e3414fd4e4/sf200-adult.pdf"
+    ],
+    "note": "Stage 4 removal P005, approved by the user. Judge: Death certificates are mentioned only as a cost the payment can help with, not as evidence needed to claim. Finder queries: Funeral Expenses Payment claim what you need death certificate proof of benefits SF200 | nidirect funeral expenses payment how to claim death certificate"
+  },
+  {
+    "key": "dwp-pension-credit#eligibility.evidenceRequired.0",
+    "value": "Bank statements",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/pension-credit",
+      "https://www.gov.uk/pension-credit/what-youll-get"
+    ],
+    "note": "Stage 4 removal P006, approved by the user. Judge: The page asks for your bank account details and information about your income, savings and investments, but does not mention bank statements. Finder queries: Pension Credit claim bank statements evidence asked to provide | Pension Credit \"bank statements\" site:gov.uk OR site:citizensadvice.org.uk OR site:nidirect.gov.uk | gov.uk/pension-credit/how-to-claim (read)"
+  },
+  {
+    "key": "dwp-state-pension#eligibility.evidenceRequired.0",
+    "value": "NI number",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/new-state-pension/eligibility",
+      "https://www.gov.uk/new-state-pension/what-youll-get"
+    ],
+    "note": "Stage 4 removal P007, approved by the user. Judge: The list of what you need to claim (marriage dates, time abroad, bank details, foreign social security numbers, an invitation code online) does not include a National Insurance number. Finder queries: nidirect State Pension claim what you need National Insurance number | nidirect \"State Pension\" claim online \"National Insurance number\" get your State Pension"
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.1",
+    "value": "Deceased's NHS number and personal details if available",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death",
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+      "https://www.gov.uk/after-a-death/death-abroad",
+      "https://www.nidirect.gov.uk/articles/registering-death",
+      "https://www.mygov.scot/register-death",
+      "https://www.gov.uk/tell-us-once"
+    ],
+    "note": "Stage 4 removal P009, approved by the user. Judge: No GOV.UK source mentions the NHS number for registering a death; the Scotland page mentions an NHS medical card but that is another nation's version. The GOV.UK pages list the deceased's details only for Tell Us Once, a different service, not for registering the death. Finder queries: register a death England documents you need medical certificate cause of death NHS number register office | mygov.scot registering a death what you need medical certificate NHS number"
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.0",
+    "value": "Medical Certificate of Cause of Death (MCCD)",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death",
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+      "https://www.gov.uk/after-a-death/death-abroad",
+      "https://www.nidirect.gov.uk/articles/registering-death",
+      "https://www.mygov.scot/register-death",
+      "https://www.gov.uk/tell-us-once"
+    ],
+    "note": "Stage 4 removal P008, approved by the user. Judge: The GOV.UK pages say to wait for the medical examiner's confirmation and do not mention an MCCD; only the Scotland and Northern Ireland pages, which are other nations' versions, mention it. Finder queries: register a death England documents you need medical certificate cause of death NHS number register office | mygov.scot registering a death what you need medical certificate NHS number"
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.2",
+    "value": "Evidence of business type and activities",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/anti-money-laundering-registration",
+      "https://www.gov.uk/guidance/money-laundering-regulations-who-needs-to-register",
+      "https://www.gov.uk/guidance/registration-guide-for-estate-agency-businesses",
+      "https://www.gov.uk/guidance/money-laundering-regulations-high-value-dealer-registration",
+      "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc"
+    ],
+    "note": "Stage 4 removal P010, approved by the user. Judge: The text asks for a risk assessment, BOOMs, premises and fees, but does not mention evidence of business type or activities. Finder queries: gov.uk search: money laundering supervision registration | gov.uk search: anti-money laundering register hmrc"
+  },
+  {
+    "key": "hmrc-free-childcare-15#eligibility.evidenceRequired.0",
+    "value": "Child's date of birth, given to the childcare provider",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+      "https://www.gov.uk/tax-free-childcare",
+      "https://www.gov.uk/free-childcare-if-working/check-youre-eligible",
+      "https://www.gov.uk/free-childcare-if-working",
+      "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+      "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx"
+    ],
+    "note": "Stage 4 removal P011, approved by the user. Judge: Only the linked Free Childcare for Working Parents page, a different scheme, says to give your child's date of birth to the provider; the sources on the 15 hours for 3 to 4-year-olds do not. Finder queries: gov.uk search: free childcare 3 4 year olds apply provider | gov.uk search: free early years provision model agreement"
+  },
+  {
+    "key": "hmrc-lisa#eligibility.evidenceRequired.0",
+    "value": "LISA account details",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/lifetime-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-to-open-an-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-isas-work",
+      "https://www.gov.uk/individual-savings-accounts/transferring-your-isa"
+    ],
+    "note": "Stage 4 removal P012, approved by the user. Judge: The text does not say you need to provide your Lifetime ISA account details to make a withdrawal. Finder queries: gov.uk Lifetime ISA withdrawal ask your provider online account details first home | site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer"
+  },
+  {
+    "key": "hmrc-sdlt#eligibility.evidenceRequired.0",
+    "value": "Completion statement",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/stamp-duty-land-tax",
+      "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates",
+      "https://www.gov.uk/guidance/stamp-duty-land-tax-online-and-paper-returns"
+    ],
+    "note": "Stage 4 removal P013, approved by the user. Judge: The text does not mention a completion statement as evidence needed for the return. Finder queries: gov.uk SDLT return completion statement effective date information you need to fill in return | grep of gov.uk SDLT1 completion guide for 'completion statement'"
+  },
+  {
+    "key": "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0",
+    "value": "Main applicant's visa or BRP",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
+    ],
+    "note": "Stage 4 removal P014, approved by the user. Judge: The source discusses the main applicant’s visa and dependants’ relationship evidence but does not require a copy of the main applicant’s visa or BRP. Finder queries: grep of /skilled-worker-visa/your-partner-and-children and /documents-you-must-provide for BRP/eVisa | GOV.UK search: dependants of skilled workers caseworker guidance | GOV.UK search: partner child visa evidence of main applicant permission"
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.1",
+    "value": "Date of occupation",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/introduction-to-business-rates",
+      "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+      "https://www.gov.uk/guidance/voa-agent-standards"
+    ],
+    "note": "Stage 4 removal P016, approved by the user. Judge: The text does not specify a date of occupation as application evidence. Finder queries: register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect | nidirect rates for business premises tell Land and Property Services new occupier"
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.0",
+    "value": "Business address",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/introduction-to-business-rates",
+      "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+      "https://www.gov.uk/guidance/voa-agent-standards"
+    ],
+    "note": "Stage 4 removal P015, approved by the user. Judge: The text does not specify a business address as application evidence. Finder queries: register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect | nidirect rates for business premises tell Land and Property Services new occupier"
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.evidenceRequired.1",
+    "value": "Council Tax bill",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/apply-council-tax-reduction",
+      "https://www.gov.uk/council-tax",
+      "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+      "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s",
+      "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/applying-for-council-tax-reduction-s/check-if-you-can-get-council-tax-reduction-s/"
+    ],
+    "note": "Stage 4 removal P017, approved by the user. Judge: The sources discuss a Council Tax bill but do not say an applicant must provide the bill as evidence. Finder queries: Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot | citizensadvice.org.uk council tax reduction England how to apply online phone liable"
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.2",
+    "value": "GP or consultant details",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants",
+      "https://www.mygov.scot/adult-disability-payment-changes",
+      "https://www.mygov.scot/adult-disability-payment-suitability-checker",
+      "https://www.mygov.scot/moving-from-child-disability-payment-to-adult-disability-payment",
+      "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/5/",
+      "https://www.mygov.scot/adult-disability-payment/what-you-need"
+    ],
+    "note": "Stage 4 removal P018, approved by the user. Judge: The supplied text mentions a GP letter as an example of supporting information but does not require GP or consultant contact details. Finder queries: site:mygov.scot/adult-disability-payment \"GP\" \"contact\" \"apply\" | site:mygov.scot/adult-disability-payment \"consultant\" \"details\""
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.2",
+    "value": "Proof of Scottish residency",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "https://www.mygov.scot/browse/benefits/children-and-family",
+      "https://www.mygov.scot/scottish-child-payment",
+      "https://www.mygov.scot/using-your-best-start-foods-card",
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Stage 4 removal P020, approved by the user. Judge: The sources say applicants normally live in Scotland but do not say residency proof is needed. Finder queries: site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"address\" | site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.1",
+    "value": "Proof of pregnancy or child's age",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "https://www.mygov.scot/browse/benefits/children-and-family",
+      "https://www.mygov.scot/scottish-child-payment",
+      "https://www.mygov.scot/using-your-best-start-foods-card",
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Stage 4 removal P019, approved by the user. Judge: The sources give pregnancy and child-age conditions but do not say proof of either is needed. Finder queries: site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"pregnancy\" | site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.1",
+    "value": "Proof of Scottish residency",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible"
+    ],
+    "note": "Stage 4 removal P022, approved by the user. Judge: The page states a Scottish-residence condition but does not request documentary proof of residence. Finder queries: Pension Age Winter Heating Payment proof of Scottish residency documents | Pension Age Winter Heating Payment proof of address application Scotland"
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.0",
+    "value": "Proof of age",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible"
+    ],
+    "note": "Stage 4 removal P021, approved by the user. Judge: The page states an age-based eligibility condition but does not request documentary proof of age. Finder queries: Pension Age Winter Heating Payment proof of age application documents | Pension Age Winter Heating Payment age verification birth certificate evidence"
+  },
+  {
+    "key": "dfe-care-to-learn#agentInteraction.methods",
+    "value": "[\"online\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/care-to-learn"
+    ],
+    "note": "Stage 4 removal M001, approved by the user. Judge: The text says to apply through your education provider but does not say you can apply online. Finder queries: Care to Learn apply online Learner Support Service guide 2025 to 2026 | GOV.UK search: Care to Learn | GOV.UK search: Care to Learn guide learner support service"
+  },
+  {
+    "key": "gro-register-death#agentInteraction.methods",
+    "value": "[\"in-person\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death",
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+      "https://www.gov.uk/after-a-death/death-abroad",
+      "https://www.nidirect.gov.uk/articles/registering-death",
+      "https://www.mygov.scot/register-death",
+      "https://www.gov.uk/tell-us-once"
+    ],
+    "note": "Stage 4 removal M003, approved by the user. Judge: The GOV.UK pages refer to the register office but do not say you register in person; only the Scotland and Northern Ireland pages, which are other nations' versions, describe attending a registration office. Finder queries: register a death England documents you need medical certificate cause of death NHS number register office | mygov.scot registering a death what you need medical certificate NHS number"
+  },
+  {
+    "key": "hmrc-free-childcare-15#agentInteraction.methods",
+    "value": "[\"in-person\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+      "https://www.gov.uk/tax-free-childcare",
+      "https://www.gov.uk/free-childcare-if-working/check-youre-eligible",
+      "https://www.gov.uk/free-childcare-if-working",
+      "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+      "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx"
+    ],
+    "note": "Stage 4 removal M004, approved by the user. Judge: The 15-hours page only says to contact your childcare provider or local council to find out more and does not say you can apply in person. Finder queries: gov.uk search: free childcare 3 4 year olds apply provider | gov.uk search: early education and childcare statutory guidance | gov.uk search: free early years provision model agreement"
+  },
+  {
+    "key": "hmrc-lisa#agentInteraction.methods",
+    "value": "[\"online\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/lifetime-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-to-open-an-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-isas-work",
+      "https://www.gov.uk/individual-savings-accounts/transferring-your-isa"
+    ],
+    "note": "Stage 4 removal M005, approved by the user. Judge: The text explains withdrawal rules and charges but never says a Lifetime ISA withdrawal can be requested online. Finder queries: gov.uk Lifetime ISA withdrawal ask your provider online account details first home | site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer | fetched gov.uk/lifetime-isa/withdrawing-money-from-your-lifetime-isa"
+  },
+  {
+    "key": "la-council-tax-disability-reduction#agentInteraction.methods",
+    "value": "[\"online\",\"phone\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+      "https://www.gov.uk/council-tax/who-has-to-pay",
+      "https://www.gov.uk/introduction-to-business-rates/working-at-home",
+      "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+      "https://www.citizensadvice.org.uk/housing/council-tax/check-if-you-can-pay-less-council-tax/"
+    ],
+    "note": "Stage 4 removal M006, approved by the user. Judge: The relevant Council Tax sources give no online application method for this reduction. The relevant Council Tax sources say to ask the council but give no phone application method. Finder queries: Council Tax disabled band reduction apply online phone citizensadvice gov.wales mygov.scot | gov.wales council tax discounts disabled person how to apply"
+  },
+  {
+    "key": "la-council-tax-single-discount#agentInteraction.methods",
+    "value": "[\"online\",\"phone\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/council-tax/who-has-to-pay"
+    ],
+    "note": "Stage 4 removal M007, approved by the user. Judge: The text mentions paying Council Tax online but gives no online application method for this discount. The text gives no phone application method for this discount. Finder queries: citizensadvice check if you can pay less council tax single person discount | gov.wales council tax discounts living alone how to apply | mygov.scot council tax discounts exemptions single adult discount apply"
+  },
+  {
+    "key": "gro-register-death#eligibility.keyQuestions",
+    "value": "Do you have the medical certificate of cause of death from the doctor or coroner?",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removal P008 (MCCD as evidence). Removed with it on the user's approval."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.agentSteps",
+    "value": "Explain that death registration must be done in person at a local register office",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removal M003 (in-person method). Removed with it on the user's approval."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.agentSteps",
+    "value": "List required documents (MCCD, deceased's details)",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removals P008 and P009. Removed with it on the user's approval."
+  },
+  {
+    "key": "gro-register-death#contactInfo.notes",
+    "value": "Must be done in person at a register office.",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removal M003 (in-person method). Removed with it on the user's approval."
+  },
+  {
+    "key": "dvla-provisional-licence#agentInteraction.agentSteps",
+    "value": "Prepare document checklist (passport or birth certificate, address details)",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "\"address details\" is a copy of stage 4 removal P001; the step now reads \"Prepare document checklist (passport or birth certificate)\". Removed with it on the user's approval."
   }
 ]

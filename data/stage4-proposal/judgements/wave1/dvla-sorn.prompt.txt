@@ -1,0 +1,124 @@
+A service graph describes the UK government service "Make a SORN" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w1/dvla-sorn.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_0] (split into claims) Vehicle registration number
+
+--- SOURCE 0: https://www.gov.uk/make-a-sorn ---
+Register your vehicle as off the road (SORN) Tell DVLA you’re taking your vehicle off the road, for example if you’re keeping it in a garage. This is sometimes called a ‘Statutory Off Road Notification’ ( SORN ). This page is also available in Welsh (Cymraeg) . You’ll get a refund for any full months of remaining tax. You cannot use the vehicle on the road until you tax it again . You do not need to make a SORN for a vehicle you’ve already sold. Tell DVLA you’ve sold a vehicle instead. Apply to take your vehicle off the road Your SORN will start immediately if either: your vehicle tax has expired you’re not applying in the month your vehicle tax is due to expire Your SORN will start on the first day of the next month if you apply in the month your vehicle tax is due to expire. Apply online You can apply online if the vehicle is registered in your name. Start when you’re ready to take your vehicle off the road. You can apply using the: 11-digit number in your vehicle log book (V5C) 16-digit reference number on your vehicle tax reminder Your vehicle tax reminder can be a letter (V11), email or text message. Start now Before you start If your address is wrong on your log book (V5C) Change your address online , then register your vehicle as off the road. You can also update your address by post. Write your new address in: section 3 if you have a new style log book (with multi-coloured numbered blocks on the front cover) section 6 if you have the older style log book Send a filled in V890 form with your log book to DVLA . If the vehicle is not registered in your name Fill in the appropriate part of the log book and send it with a filled in V890 form . If you do not have a log book Fill in and send an application for a log book (V62) and V890 form to DVLA - a new log book costs £25. You can get a duplicate log book (V5C) if your original one is lost, stolen, damaged or destroyed. Other ways to apply By phone DVLA vehicle service Telephone: 0300 123 4321 24-hour service Find out about call charges By post Send an application form (V890) to DVLA . You can apply to take your vehicle off the road either: this month next month or the month after - include a letter saying why you cannot send the form nearer the time DVLA Swansea SA99 1AR Related content When you need to make a SORN Check if a vehicle is taxed Vehicle tax disc abolished: changes you need to know Get free debt advice Explore the topic Buy, sell or scrap a vehicle Build or adapt a vehicle Number plates, vehicle registration and log books Vehicle tax, MOT and insurance
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/check-vehicle-tax ---
+Check if a vehicle is taxed Find out if a vehicle has up-to-date vehicle tax or has been registered as off the road ( SORN ). If you’ve applied for vehicle tax or a SORN , it can take up to 2 working days for the records to update once your application has been approved. You’ll need the vehicle’s registration number (number plate). This service is also available in Welsh (Cymraeg) . Start now on the vehicle enquiry service Before you start You can also use this service to check the current tax rates for your vehicle. You’ll need the 11-digit reference number from your vehicle log book (V5C). Use ‘askMID’ to check if your vehicle is insured. Related content Tax your vehicle Report an untaxed vehicle Vehicles exempt from vehicle tax Register your vehicle as off the road (SORN) Driver and vehicles account: sign in or set up Explore the topic Vehicle tax, MOT and insurance
+
+--- SOURCE 2 (LINKED): https://www.gov.uk/government/news/vehicle-tax-changes ---
+Vehicle tax disc abolished: changes you need to know. When you tax your vehicle, you won't get a tax disc. You can tax or SORN your vehicle using your: vehicle tax reminder letter (V11 or V85/1) V5C registration certificate (log book) if the vehicle is registered in your name new keeper supplement (V5C/2) if you’ve just bought the vehicle or the vehicle isn’t registered in your name Tell DVLA you’ve sold a vehicle If you’ve sold a vehicle, you can tell DVLA online . The tax or SORN isn’t passed on when you sell a vehicle or transfer ownership to someone else. This includes giving it to a member of your family. Buying a vehicle When you buy a vehicle, the tax or SORN doesn’t come with it. You’ll need to get new vehicle tax before using the vehicle. You’ll need the reference number on your new keeper supplement (V5C/2). You can also tax at your local Post Office® or by calling: Telephone: 0300 123 4321 Cancel vehicle tax and get a refund Your vehicle tax is cancelled and you automatically get a refund when you tell DVLA that your vehicle has been: sold or transferred taken off the road and you’ve made a SORN (Statutory Off Road Notification) scrapped at an authorised treatment facility exported changed so it’s exempt from vehicle tax Change the address on your V5C vehicle registration certificate (log book) You should change the address on your V5C vehicle registration certificate (log book) when you move. Paying vehicle tax by Direct Debit You can pay for your vehicle tax by Direct Debit . Check a vehicle is taxed or has an MOT You can check if a vehicle is taxed or whether it has an MOT certificate .

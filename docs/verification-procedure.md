@@ -91,19 +91,27 @@ The output is each claim marked **found** (re-cite it) or **not found anywhere**
 
 ### 4. Remove what was not found
 
-Extend `propose-fixes.ts` with a removal mode that takes the not-found list and proposes:
+Done on 22 October 2026. The work was split in two:
+- **Proposal.** `scripts/prepare-stage4-proposal.ts` built a read-only package (`data/stage4-proposal/`) from the saved stage 3 run.
+- **Removal.** After approval, `scripts/apply-removals.ts` applied only the approved IDs.
 
-- deleting list items
-- cutting clauses from prose (with the cut shown as a diff)
+**What qualifies.** A field is removed only if it meets all of these:
+- Its current provenance is "not stated".
+- A stage 3 judge saw it.
+- The finder ran at least two real searches.
+- At least one page in the judge's prompt was readable.
 
-Someone reviews the proposals before they are applied, ordered by severity:
+These are held back, not removed:
+- fields never judged
+- fields whose only sources were PDF or Word files
+- fields where the check failed
+- fields awaiting re-check
 
-- criteria and exclusions first, because a wrong one decides who qualifies
-- then ways to apply
-- then evidence
-- then prose
-
-Accepted items go through `apply-fixes.ts` as now, and each removal is logged.
+**How removals are made:**
+- **List items** are deleted. Later items move up one place, and their provenance records, review-queue entries and worklist items move with them, verdicts unchanged. `apply-fixes.ts --record` would instead mark them unverified.
+- **Ways to apply** (`agentInteraction.methods`) are now optional, like `authRequired`. Absent means no official page says how to start. An empty list is a different claim: that it happens automatically. So a list is never emptied just because nothing was found.
+- **Copies.** After each removal, the same claim is looked for in key questions, agent steps, rules and contact notes. A check for exact copies misses reworded ones, so read the node.
+- **Logging.** Every removal goes in `data/removed-claims.json` with the pages searched, the finder's queries and the judge's note.
 
 ### 5. Refine partly supported fields (565)
 
@@ -287,5 +295,6 @@ The wider search runs in three separate steps, so the model that finds a page ne
 | 21 Oct 2026 | Stage 3 second wave, 27 of 41 service responses imported; tax credits recast | 1,796 of 3,014 | 59.6% |
 | 21 Oct 2026 | Stage 3 selected-field run completed, contradictions corrected and rechecked | 1,852 of 3,014 | 61.4% |
 | 21 Oct 2026 | Refined and rechecked Best Start Foods, Best Start Grant and Funeral Support Payment prose | 1,857 of 3,014 | 61.6% |
+| 22 Oct 2026 | Stage 4: removed 22 evidence items and 6 unstated ways to apply; corrected NI credits (post) and Motability (in person) | 1,859 of 2,986 | 62.3% |
 
 The interrupted full-run inputs and responses are preserved in [the stage 3 audit](../data/stage3-audit/README.md). The [continuation record](../data/stage3-progress/README.md) contains the later finder batches, judge waves, rechecks and 50 fields that did not reach an original judge prompt. The [first-wave checkpoint](stage3-wave1-checkpoint.md) and [second-wave checkpoint](stage3-wave2-checkpoint.md) describe the handoff state and early corrections.

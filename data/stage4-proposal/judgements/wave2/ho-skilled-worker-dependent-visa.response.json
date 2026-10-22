@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A dependant must provide the main applicant’s visa or BRP as evidence.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The source discusses the main applicant’s visa and dependants’ relationship evidence but does not require a copy of the main applicant’s visa or BRP."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

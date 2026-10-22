@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T21:24:50.596Z",
+  "generatedAt": "2026-10-22T10:14:48.723Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -2993,7 +2993,7 @@
     {
       "id": "dwp-pension-credit",
       "name": "Pension Credit",
-      "field": "eligibility.evidenceRequired.2",
+      "field": "eligibility.evidenceRequired.1",
       "graph": "Proof of savings and capital",
       "verdict": "partly_supported",
       "problems": [
@@ -4481,7 +4481,7 @@
     {
       "id": "hmrc-lisa",
       "name": "Lifetime ISA withdrawal",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "Conveyancer handles request process from ISA provider",
       "verdict": "partly_supported",
       "problems": [
@@ -4709,7 +4709,7 @@
     {
       "id": "hmrc-sdlt",
       "name": "Stamp Duty Land Tax return",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "SDLT1 form (usually filed by solicitor)",
       "verdict": "partly_supported",
       "problems": [
@@ -5273,7 +5273,7 @@
     {
       "id": "ho-skilled-worker-dependent-visa",
       "name": "Skilled Worker dependant visa",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "Marriage or civil partnership certificate",
       "verdict": "partly_supported",
       "problems": [
@@ -5288,7 +5288,7 @@
     {
       "id": "ho-skilled-worker-dependent-visa",
       "name": "Skilled Worker dependant visa",
-      "field": "eligibility.evidenceRequired.2",
+      "field": "eligibility.evidenceRequired.1",
       "graph": "Children's birth certificates",
       "verdict": "partly_supported",
       "problems": [
@@ -8348,7 +8348,7 @@
     {
       "id": "dwp-carers-allowance",
       "name": "Carer's Allowance",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "Benefit award letter for person cared for",
       "verdict": "partly_supported",
       "problems": [
@@ -9317,7 +9317,7 @@
     {
       "id": "la-business-rates",
       "name": "Business rates registration",
-      "field": "eligibility.evidenceRequired.2",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "Nature of business",
       "verdict": "partly_supported",
       "problems": [

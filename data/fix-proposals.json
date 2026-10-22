@@ -2181,6 +2181,50 @@
       "severity": "high",
       "event": "stage2-contradicted",
       "applied": "2026-10-21T14:48:36.021Z"
+    },
+    {
+      "id": "dwp-ni-credits",
+      "path": "agentInteraction.methods",
+      "new": "post",
+      "explanation": "Stage 4 decision M002: the page gives a postal route (\"Write to HMRC\") and no online or phone application.",
+      "claims": [
+        {
+          "claim": "You can apply for Class 1 credits by writing to HMRC",
+          "quote": "you can write to HMRC to apply for Class 1 credits",
+          "url": "https://www.gov.uk/national-insurance-credits",
+          "found": true
+        }
+      ],
+      "old": "online,phone",
+      "action": "rewrite",
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage4-methods",
+      "applied": "2026-10-22T10:13:57.221Z",
+      "recorded": "2026-10-22T10:13:57.818Z"
+    },
+    {
+      "id": "other-motability",
+      "path": "agentInteraction.methods",
+      "new": "in-person",
+      "explanation": "Stage 4 decision M008: you start by visiting a Motability dealer; the helpline only finds a dealer.",
+      "claims": [
+        {
+          "claim": "You start by visiting a dealer and asking for an appointment with their Motability specialist",
+          "quote": "Once you’ve found a dealer, ask for an appointment with their Motability specialist.",
+          "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+          "found": true
+        }
+      ],
+      "old": "phone",
+      "action": "rewrite",
+      "verified": true,
+      "accepted": true,
+      "severity": "high",
+      "event": "stage4-methods",
+      "applied": "2026-10-22T10:13:57.223Z",
+      "recorded": "2026-10-22T10:13:57.818Z"
     }
   ]
 }

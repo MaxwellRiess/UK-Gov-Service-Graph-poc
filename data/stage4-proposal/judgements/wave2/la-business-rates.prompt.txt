@@ -1,0 +1,127 @@
+A service graph describes the UK government service "Business rates registration" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/la-business-rates.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+[evidence_0] (split into claims) Business address
+[evidence_1] (split into claims) Date of occupation
+[evidence_2] (split into claims) Nature of business
+
+--- SOURCE 0: https://www.gov.uk/introduction-to-business-rates ---
+Business rates. Business rates are charged on most non-domestic properties - who has to pay, how your rates are calculated, getting a revaluation, what to do if your premises change. Business rates are charged on most non-domestic properties, like: shops offices pubs warehouses factories holiday rental homes or guest houses You’ll probably have to pay business rates if you use a building or part of a building for non-domestic purposes. This guide is also available in Welsh (Cymraeg) . Business rates are handled differently if: your property is in Scotland your property is in Northern Ireland What to pay and when Your local council will send you a business rates bill in February or March each year. This is for the following tax year. You can also estimate your business rates bill . You can get help with business rates from: your council if you have questions about your bill the Valuation Office ( VO ) if you think your ‘rateable value’ is wrong Relief schemes You may be able to get business rates relief from your local council to reduce your bill. This is sometimes automatic, but you may need to apply. The process depends on whether: your property is in England your property is in Wales Who does not need to pay Certain properties are exempt from business rates , for example farm buildings or places used for the welfare of disabled people. If you own a stable You usually need to pay business rates on your stables, unless you use your horses for farming. You may pay Council Tax instead if your stables are in your garden. Contact the VO to check if you’re not sure which you should pay. Business rates are based on your property’s ‘rateable value’. This is its open market rental value on 1 April 2024, based on an estimate by the Valuation Office ( VO ). You can find your rateable value and check how it was calculated . Business rates are handled differently if your property is in Scotland or your property is in Northern Ireland . Estimate your business rates Your local council calculates your business rates bill using a ‘multiplier’. Your rateable value is multiplied by this number to get your final bill. There’s guidance on how to estimate your business rates . Your bill may be reduced if your property’s eligible for business rates relief . If you think your rateable value is wrong You can use your business rates valuation account to: report changes to your property (such as floor area sizes and parking) challenge your rateable value You can report changes to your property at any time. You can read guidance on how to challenge your property’s rateable value . If you’re asked to provide rental information The VO may ask you to provide rental information about your property so they can work out its rateable value. Contact the VO if you need more time to send in your rental information. At revaluation, the Valuation Office ( VO ) updates the rateable value of business properties to reflect changes in the property market. The most recent revaluation came into effect in England and Wales on 1 April 2026. It’s based on open market rental values from 1 April 2024. You can use the VO ’s online service to find your current and past rateable values. Business rates are handled differently if your property is in Scotland or your property is in Northern Ireland . What happens at revaluation At revaluation: all properties are given a new rateable value multipliers (standard and small business) are revised This means that a change in your rateable value does not always mean a change in your bill. To make sure your valuations are accurate, the VO may ask you for rent and lease details for your property. If you think your new rateable value is wrong , you can challenge your rateable value or report changes to your property. Get business rates relief You may be able to get a discount from your local council if you’re eligible for business rates relief . For example you may be able to get: transitional relief small business relief pub or live music venue relief You may be able to get a discount from your local council on your business rates if you’re eligible for one or more business rates relief schemes. For help with your property’s rateable value, contact the Valuation Office ( VO ). For help with your business rates bill (for example to pay in instalments) or rate relief, contact your council . Get professional advice You can manage your business rates yourself. But if you want help you can use an agent or rating surveyor. Find out how to appoint an agent . All agents must follow the VO ’s agent standards . These explain what you should expect from an agent. An agent who is a member of a professional organisation will also be subject to its rules and regulations. You can find an agent through one of the following professional organisations: Royal Institution of Chartered Surveyors ( RICS ) Institute of Revenues, Rating and Valuation ( IRRV ) Rating Surveyors Association You may be charged for any advice you get right from the start. You can get advice from an organisation that’s part of the RICS Helpline Scheme . The first 30 minutes of the consultation call are free. Your business rates could change if: you move or make changes to your premises the nature of your business changes you sublet part of your property you merge 2 or more properties into 1 Report changes to the Valuation Office ( VO ) to make sure you’re paying the right amount and do not get a backdated increase in your bill. If the number of people living in your property changes you must tell your local council . Business rates are handled differently if your property is in Scotland or your property is in Northern Ireland . If your premises are affected by local disruption You may get a temporary reduction in your business rates if your premises are affected by severe local disruption (like flooding, building or roadworks). Report changes to the VO . How to report changes You can report changes using your business rates valuation account . You do not usually have to pay business rates for home-based businesses if you: use a small part of your home for your business, for example if you use a bedroom as an office sell goods by post You may need to pay business rates as well as Council Tax if: your property is part business and part domestic, for example if you live above your shop you sell goods or services to people who visit your property you employ other people to work at your property you’ve made changes to your home for your business, for example converted a garage to a hairdresser’s Contact the Valuation Office ( VO ) to find out if you should be paying business rates. In Scotland, contact your local assessor . In Northern Ireland, contact Land & Property Services . In England and Wales, the Valuation Office ( VO ) works out your rateable value using ‘fair maintainable turnover’. This is the annual level of trade (excluding VAT ) your pub is expected to achieve if operated in a reasonably efficient way. It’s based on: the type of pub or licensed premises the area it’s in your trading information and patterns the services it offers, for example food, gaming, or sports screenings how much rent you pay any income you make from accommodation rents and turnovers of other pubs The VO then applies a percentage to work out the rateable value. The percentages are agreed with industry groups, including the British Beer and Pub Association. You can find the percentages in the VO ’s valuation of public houses approved guide . You can find your business rates valuation online . If you want to check the figures the VO are using or do not agree with the valuation, you can sign in or set up a business rates valuation account or contact the VO . Business rates relief for pubs and licensed trade You may be eligible for business rates relief if your business is: a pub or live music venue the only pub in a rural area a small business Retail, hospitality and leisure rate relief has been replaced with two new rate multipliers. Find out more about the changes to retail, hospitality and leisure rate relief . If your licensed premises are in Scotland In Scotland, your local assessor works out your rateable value. Contact your local assessor if you want to check the figures they’re using or do not agree with the figures being used. If your licensed premises are in Northern Ireland In Northern Ireland, Land and Property Services ( LPS ) works out your business rates. Read more about how LPS values pubs and other licensed premises in Northern Ireland . Whether you pay business rates will depend on: how many nights your property is available to let each year how many nights it was actually let You must apply to the Valuation Office ( VO ) if your property meets the criteria for business rates. The VO will work out the rateable value of your property based on its type, size, location, quality and how much income you’re likely to make from letting it. There are different rules if your property is in Scotland or if your property is in Northern Ireland . If your property is in England Your property will be valued for business rates as self-catering accommodation if all the following apply: you’re letting it for short periods commercially for 28 nights or less it was available to let for short periods commercially for at least 140 nights in the last 12 months it was actually let for at least 70 nights in the last 12 months you plan to make it available to let for short periods commercially for at least 140 nights in the next 12 months If you only let one property in England and its rateable value is less than £15,000, you may be eligible for small business rate relief . If your property is in Wales Your property will be valued for business rates as self-catering accommodation if all the following apply: you’re letting it for short periods commercially for 28 nights or less it was available to let for at least 252 nights in the last 12 months it was actually let for at least 182 nights in the last 12 months you plan to make it available to let for at least 252 nights in the next 12 months If your property was not let for 182 nights in the last 12 months You might still be eligible for business rates if your property was not let for 182 nights in the last 12 months. If the 12-month letting period you’re reporting on ends on or after 1 April 2026, you can use the average number of nights your property was let over the previous 24 or 36 months. This may bring your property within the requirement to be let for 182 nights. You’ll need to work out the average number of nights your property was let and provide details of the nights let during that period when you apply for business rates. If you’ve donated lettable nights to a registered charity You can include up to 14 nights a year that you donate to a registered charity on or after 1 April 2026. You can count these nights towards the: 252 nights you made your property available to let 182 nights you actually let your property Check if you’re eligible for small business rates relief in Wales . Apply for business rates If your property meets the criteria, you’ll need to apply for business rates by filling in a form. There are different forms for: properties in England properties in Wales After you start paying business rates, you’ll be sent a form each year to confirm you still meet the criteria. If you do not, you’ll be moved from business rates to Council Tax.
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries ---
+Valuation Office: enquiries. Contact the Valuation Office for help with Council Tax, business rates, self-catering holiday lets, Local Housing Allowance or fair rents. Contact your local council if you have a question about your bill. The Valuation Office cannot answer questions about your Council Tax bill or business rates bill. Online If your property is in England or Wales contact the Valuation Office online . If your property is in Scotland, find contacts on the Scottish Assessors website . If your property is in Northern Ireland, find how to contact Land and Property Services on the Department of Finance (Northern Ireland) website . Council Tax enquiries Before you contact us, you can: check your Council Tax band find out how to challenge your Council Tax band check how long it will take to get a reply after you’ve submitted a Council Tax band challenge Business rates enquiries Before you contact us, you can: check your business rates valuation find out how to challenge your business rates valuation send your rent, lease or ownership details to the Valuation Office if we have asked you for information about your business property Phone Call the Valuation Office if you need help with: Council Tax business rates self-catering holiday lets Housing Benefit and Local Housing Allowances fair rents Telephone (England): 03000 501 501 Telephone (Wales): 03000 505 505 Opening times: Monday and Tuesday: 9am to 4:30pm Wednesday: 10am to 4:30pm Thursday and Friday: 9am to 4:30pm Closed bank holidays Find out about call charges Find out how to get help from the Valuation Office if you need extra support due to a health condition or personal circumstance. Related content HMRC contacts Y Swyddfa Brisio: ymholiadau (for Welsh speaking customers)
+
+--- SOURCE 2 (LINKED): https://www.gov.uk/guidance/voa-agent-standards ---
+VOA agent standards. The VOA has standards of behaviour we expect of agents. We have agent standards that set out: the VOA’s expectations of professional representatives (agents) interacting with the VOA and its services an overview of how the VOA will deal with the minority of agents who do not meet the standards. Who the standards are for The term ‘agent’ applies to those professionally representing ratepayers or taxpayers in interactions with the VOA. This includes about business rates (non-domestic rating) and Council Tax. Agents can be individuals, partnerships, incorporated companies or any form of legal entity providing rating or tax advice or services. The VOA does not apply these standards to trusted helpers. Using an agent Customers should always check a firm or individual’s background and professional status before signing a contract. Agents can be members of a professional body, though this is not a requirement. See ‘VOA and professional body standards’ . The VOA provides guidance on appointing an agent for business rates . The standards All agents should maintain high standards that promote compliance. The standards below set out clear expectations for agents regarding: their behaviour their professional practice the service they provide to their customers 1. Behaviour Agents must meet the following standards of behaviour: Integrity and honesty Be straightforward and honest. Openness Be open and co-operative when sharing information or in discussions, whilst being mindful of the public interest. Respect Treat others with courtesy and respect. Representation Ensure materials and communications do not misrepresent the relationship with the Valuation Office Agency or the VOA’s role or activities. 2. Professional practice Agents must meet the following standards of professional practice: Reliability Ensure commitments and responsibilities are delivered upon consistently. Accuracy Take all reasonable steps to ensure information is accurate and, where necessary, supported by evidence that is factual, complete and objective. Competence and due care Take all reasonable steps to prevent errors and inaccuracies – correcting them as soon as identified. Knowledge Maintain correct and up-to-date knowledge of the areas of rating and valuation practice dealt with. Compliant Comply fully with all relevant legislation and regulations relating to professional activity. 3. Service Agents should meet the following standards of service: Communication Provide clear communications. Timeliness Respond to contact in a timely manner. Approachable Be available and approachable. Advisory Use expertise and experience to provide appropriate and correct advice. How the VOA monitors the standards The VOA collects evidence of poor agent behaviour and practices in the course of its work. This evidence allows us to proactively address issues or concerns. The agent standards set out what we expect of agents. The standards set a benchmark below which the VOA will consider taking action against the agent. Reporting a suspected breach If you witness poor agent behaviour, report it to the VOA by emailing agentstandards@voa.gov.uk . Send us any evidence you have, such as: an email marketing materials a website link a screenshot of a website or text It will help us if you have the date and time you identified the poor behaviour. If the incident took place over the telephone, please tell us: the date and time of the call who contacted you the content of the conversation, including any potentially misleading statements We will investigate when we get evidence of a potential breach of our agent standards. Due to the legislation the VOA works under, we cannot disclose any information about investigations we may undertake. We also cannot say whether we have taken action under our agent standards. Telling us about potential breaches will help us to act on scams and protect customers. We will always act where we substantiate a breach of the standards. When the standards are not met Most agents interact with the VOA professionally and respectfully, and maintain high standards. For the minority that do not, the VOA can, and will, take action to address poor behaviours and practices. Agents who do not follow the standards are considered to be in breach of the standards. In most cases of poor agent behaviour or practice, the VOA will seek to work with the agent to resolve any difficulties or issues first. If the agent does not respond to the VOA’s engagement, or if the issue is serious, the VOA will seek to take stronger action. The options may include: temporarily blocking access to the VOA’s services referrals to appropriate partners (for example, HMRC’s Fraud Investigation Service or the Advertising Standards Authority ) refusal to deal with an agent altogether When appropriate, relevant professional bodies will be informed directly about misconduct by their members through a Public Interest Disclosure. VOA and professional body standards Many agents are members of a professional body, which may set out standards expected of their members. These professional bodies include: Royal Institution of Chartered Surveyors (RICS) Institute of Revenues, Rating and Valuation (IRRV) Rating Surveyors’ Association (RSA) RICS, IRRV and RSA have jointly published a set of standards that describes what their members can and cannot do. Members of the above organisations must follow these standards. They have also jointly published a statement on seeking business rates advice. The VOA’s agent standards do not override any professional duties or standards set by a relevant professional body. Professional body members are expected to follow any requirements set by their organisation. We expect all agents who interact with the VOA to keep to our standards, regardless of professional body membership. If agents meet their professional body’s standards, the VOA agent standards should not place any further requirements on them. What agents can expect from the VOA If a customer has authorised an agent to deal with us on their behalf, we will deal with that agent courteously and professionally. We want to provide agents with a service that is: fair accurate based on mutual trust and respect We also want to make it as easy as possible for agents to get things right. Our Customer Charter sets out the behaviours and values that agents and customers can expect when interacting with the VOA.

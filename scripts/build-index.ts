@@ -677,7 +677,7 @@ const html = `<!DOCTYPE html>
       var capCls = a.agentCanComplete === 'full' ? 'det-cap-full' : a.agentCanComplete === 'partial' ? 'det-cap-partial' : 'det-cap-inform';
       var h = '<div class="det-section"><p class="det-stitle">Agent Interaction</p>';
       h += '<div style="margin-bottom:6px">';
-      a.methods.forEach(function(m) { h += '<span class="det-method">' + m + '</span>'; });
+      (a.methods || []).forEach(function(m) { h += '<span class="det-method">' + m + '</span>'; });
       h += '<span class="det-cap ' + capCls + '">' + a.agentCanComplete + '</span>';
       h += '</div>';
       a.agentSteps.forEach(function(s) { h += '<p class="det-step">' + s + '</p>'; });

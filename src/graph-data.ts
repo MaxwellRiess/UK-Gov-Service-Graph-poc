@@ -96,7 +96,9 @@ export type AuthMethod =
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
-  methods:          ApplicationMethod[];  // how a person starts; via-adviser means the adviser submits the application
+  // Optional, like authRequired: absent means no official page says how to
+  // start. An empty array is a claim of its own (it happens automatically).
+  methods?:         ApplicationMethod[];  // how a person starts; via-adviser means the adviser submits the application
   apiAvailable:     boolean;              // does a GOV.UK developer API exist?
   apiUrl?:          string;               // developer documentation URL
   onlineFormUrl?:   string;               // direct link to start application
@@ -453,12 +455,11 @@ export const NODES: Record<string, ServiceNode> = {
         { factor: 'family', description: 'Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.' },
       ],
       keyQuestions: [
-        'Do you have the medical certificate of cause of death from the doctor or coroner?',
         'Are you a relative of the deceased?',
         'Did the death occur in England or Wales?',
       ],
       means_tested: false,
-      evidenceRequired: ['Medical Certificate of Cause of Death (MCCD)', 'Deceased\'s NHS number and personal details if available'],
+      evidenceRequired: [],
       ruleIn: [],
       ruleOut: [],      sources: [
         'https://www.gov.uk/after-a-death/register-the-death',
@@ -481,13 +482,10 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['in-person'],
       apiAvailable: false,
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain that death registration must be done in person at a local register office',
         'Help user find their nearest register office',
-        'List required documents (MCCD, deceased\'s details)',
         'Advise on the 5-day deadline',
         'Explain Tell Us Once service offered at the appointment',
       ],
@@ -512,7 +510,6 @@ export const NODES: Record<string, ServiceNode> = {
         },
       ],
       officeLocatorUrl: 'https://www.gov.uk/register-offices',
-      notes: 'Must be done in person at a register office.',
     },
   },
   'gro-death-certificate': {
@@ -1169,7 +1166,7 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: ['How old is the child?', 'Do you live in England?', 'Are you (and any partner) working? You may qualify for 30 hours instead.'],
       autoQualifiers: ['Child aged 3 or 4 in England'],
       means_tested: false,
-      evidenceRequired: ['Child\'s date of birth, given to the childcare provider'],
+      evidenceRequired: [],
       ruleIn: ['Child aged 3 or 4', 'Lives in England'],
       ruleOut: ['Lives outside England'],      rules: [
         {
@@ -1196,7 +1193,6 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['in-person'],
       apiAvailable: false,
       agentCanComplete: 'inform-only',
       agentSteps: [
@@ -1577,7 +1573,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Property purchase completed in England'],
       means_tested: false,
-      evidenceRequired: ['Completion statement', 'SDLT1 form (usually filed by solicitor)'],
+      evidenceRequired: ['SDLT1 form (usually filed by solicitor)'],
       ruleIn: ['Property purchase completed in England'],
       ruleOut: [],      sources: [
         'https://www.gov.uk/stamp-duty-land-tax/residential-property-rates',
@@ -1662,7 +1658,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['Not available for second homes or existing property owners.', '25% withdrawal penalty if used for non-qualifying purposes.'],
       means_tested: false,
-      evidenceRequired: ['LISA account details', 'Conveyancer handles request process from ISA provider'],
+      evidenceRequired: ['Conveyancer handles request process from ISA provider'],
       ruleIn: ['First-time buyer', 'LISA opened before age 40', 'Property costs £450k or less'],
       ruleOut: ['Existing homeowner', 'Property over £450,000'],      rules: [
         {
@@ -1689,7 +1685,6 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/lisa-api/2.0',
       agentCanComplete: 'partial',
@@ -2689,7 +2684,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you already have a professional body membership (e.g. ICAEW, Law Society) that acts as your supervisor?',
       ],
       means_tested: false,
-      evidenceRequired: ['Business details and registered address', 'Identity of beneficial owners and directors', 'Evidence of business type and activities'],
+      evidenceRequired: ['Business details and registered address', 'Identity of beneficial owners and directors'],
       ruleIn: ['Estate agency or letting agency', 'Accountancy or bookkeeping practice', 'Legal or trust/company service provider', 'High-value dealer (cash transactions over €10,000)', 'Art market participant', 'Casino or gambling business'],
       ruleOut: ['Business does not fall within any of the nine regulated sectors'],
     },
@@ -2969,7 +2964,7 @@ export const NODES: Record<string, ServiceNode> = {
         'When did the funeral take place? (Must claim within 6 months.)',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of qualifying benefit', 'Funeral bill or invoice from funeral director', 'Death certificate'],
+      evidenceRequired: ['Proof of qualifying benefit', 'Funeral bill or invoice from funeral director'],
       ruleIn: ['Receiving qualifying means-tested benefit', 'Responsible for funeral costs'],
       ruleOut: ['Close relative of deceased able to pay instead'],      rules: [
         {
@@ -3116,7 +3111,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Reached State Pension age with at least 10 qualifying NI years (35 for the full rate)'],
       means_tested: false,
-      evidenceRequired: ['NI number', 'Bank account details for payment'],
+      evidenceRequired: ['Bank account details for payment'],
       ruleIn: ['Reached State Pension age (66+)', '10+ qualifying NI years'],
       ruleOut: ['Under 66'],      rules: [
         {
@@ -3233,7 +3228,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['State Pension age reached and income clearly below threshold'],
       means_tested: true,
-      evidenceRequired: ['Bank statements', 'Pension and income details', 'Proof of savings and capital'],
+      evidenceRequired: ['Pension and income details', 'Proof of savings and capital'],
       ruleIn: ['Reached State Pension age (66+)', 'Weekly income below Pension Credit threshold'],
       ruleOut: ['Savings above £10,000 reducing entitlement to zero'],      rules: [
         {
@@ -3382,7 +3377,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Terminally ill — claim using Special Rules immediately (DS1500/SR1 form)'],
       exclusions: ['Under State Pension age — claim PIP instead.'],
       means_tested: false,
-      evidenceRequired: ['AA1 claim form', 'Medical evidence from GP or specialist helpful', 'Carer details if applicable'],
+      evidenceRequired: ['AA1 claim form', 'Medical evidence from GP or specialist helpful'],
       ruleIn: ['Aged 66 or over', 'Personal care needs due to physical or mental condition'],
       ruleOut: ['Under State Pension age'],      rules: [
         {
@@ -4265,7 +4260,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
+      methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/national-insurance-credits',
       agentCanComplete: 'partial',
@@ -4302,7 +4297,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Person cared for receives enhanced rate PIP daily living and carer works fewer than 16 hours'],
       exclusions: ['Cannot claim if in full-time education (21+ hours/week).', 'Overlapping benefits rule — may not be payable in full alongside State Pension or other benefits.'],
       means_tested: false,
-      evidenceRequired: ['Evidence of caring role', 'Benefit award letter for person cared for', 'Income evidence if working'],
+      evidenceRequired: ['Benefit award letter for person cared for', 'Income evidence if working'],
       ruleIn: ['Caring 35+ hours per week', 'Person cared for receives qualifying disability benefit', 'Net earnings below £204/week'],
       ruleOut: ['In full-time education (21+ hours per week)'],      rules: [
         {
@@ -5157,7 +5152,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have any medical conditions that must be declared to DVLA?',
       ],
       means_tested: false,
-      evidenceRequired: ['UK passport or other acceptable identity document', 'Address details', '£34 fee (online) or £43 fee (postal D1 form)'],
+      evidenceRequired: ['UK passport or other acceptable identity document', '£34 fee (online) or £43 fee (postal D1 form)'],
       ruleIn: ['Aged 15 years and 9 months or over', 'GB resident for 185+ days in last 12 months'],
       ruleOut: ['Cannot read number plate at 20 metres'],
       rules: [
@@ -5186,7 +5181,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check age eligibility (15 years 9 months to apply)',
         'Guide user through the online application on GOV.UK',
-        'Prepare document checklist (passport or birth certificate, address details)',
+        'Prepare document checklist (passport or birth certificate)',
         'Explain the £34 fee and expected processing time',
       ],
     },
@@ -5594,7 +5589,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['You do not need a SORN if you have already notified DVLA that you have sold the vehicle.'],
       means_tested: false,
-      evidenceRequired: ['Vehicle registration number', '11-digit reference from the V5C, or 16-digit reference from a tax reminder letter'],
+      evidenceRequired: ['11-digit reference from the V5C, or 16-digit reference from a tax reminder letter'],
       ruleIn: ['Registered keeper keeping vehicle off public roads'],
       ruleOut: ['Vehicle already sold (notify DVLA of sale instead)'],
     },
@@ -6312,7 +6307,6 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
       apiAvailable: false,
       agentCanComplete: 'inform-only',
       agentSteps: [
@@ -6350,7 +6344,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have savings above £6,000?',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of income and savings', 'Council Tax bill', 'Application to local authority'],
+      evidenceRequired: ['Proof of income and savings', 'Application to local authority'],
       ruleIn: ['Low income or receiving means-tested benefit', 'Liable for Council Tax at address'],
       ruleOut: [],      rules: [
         {
@@ -6829,7 +6823,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Is the property\'s rateable value under £12,000? (May qualify for 100% Small Business Relief.)',
       ],
       means_tested: false,
-      evidenceRequired: ['Business address', 'Date of occupation', 'Nature of business'],
+      evidenceRequired: ['Nature of business'],
       ruleIn: ['Occupying non-domestic premises for business purposes'],
       ruleOut: [],      rules: [
         {
@@ -7983,7 +7977,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['phone'],
+      methods: ['in-person'],
       apiAvailable: false,
       agentCanComplete: 'inform-only',
       agentSteps: [
@@ -9293,7 +9287,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you live alone or with another qualifying person?',
       ],
       means_tested: false,
-      evidenceRequired: ['Proof of age', 'Proof of Scottish residency'],
+      evidenceRequired: [],
       ruleIn: ['State Pension age', 'Lives in Scotland'],
       ruleOut: ['Under State Pension age', 'Does not live in Scotland'],      sources: [
         'https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid',
@@ -9825,7 +9819,6 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
       apiAvailable: false,
       agentCanComplete: 'inform-only',
       agentSteps: [
@@ -10853,7 +10846,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Which payment are you applying for (pregnancy, early learning, or school age)?',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age', 'Proof of Scottish residency'],
+      evidenceRequired: ['Proof of qualifying benefit'],
       ruleIn: ['Pregnant or has young child', 'Qualifying benefit or age-related exception', 'Lives in Scotland'],
       ruleOut: ['Does not live in Scotland'],      rules: [
         {
@@ -11063,7 +11056,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Is it expected to last at least 9 more months?',
       ],
       means_tested: false,
-      evidenceRequired: ['Medical evidence of condition', 'Details of how condition affects daily life', 'GP or consultant details'],
+      evidenceRequired: ['Medical evidence of condition', 'Details of how condition affects daily life'],
       ruleIn: ['Aged 16 to State Pension age', 'Long-term condition affecting daily living/mobility', 'Lives in Scotland'],
       ruleOut: ['Under 16 (claim CDP instead)', 'Over State Pension age (claim AA instead)', 'Does not live in Scotland'],      sources: [
         'https://www.mygov.scot/adult-disability-payment/applicants',
@@ -12902,7 +12895,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Has Skilled Worker visa'],
       exclusions: ['Children aged 18 or over must apply in their own right, unless they already have permission to be in the UK as your dependant'],
       means_tested: false,
-      evidenceRequired: ['Main applicant\'s visa or BRP', 'Marriage or civil partnership certificate', 'Children\'s birth certificates', 'Proof of relationship for unmarried partners'],
+      evidenceRequired: ['Marriage or civil partnership certificate', 'Children\'s birth certificates', 'Proof of relationship for unmarried partners'],
       ruleIn: ['Holds a valid Skilled Worker visa', 'Has a partner or children under 18 wanting to join them'],
       ruleOut: ['No eligible dependants', 'Child is 18 or over'],
     },
@@ -13756,7 +13749,6 @@ export const NODES: Record<string, ServiceNode> = {
     },
     nations: ['england'],
     agentInteraction: {
-      methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/care-to-learn/how-to-apply',
       agentCanComplete: 'partial',

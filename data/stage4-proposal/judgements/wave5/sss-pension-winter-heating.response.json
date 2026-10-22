@@ -1,0 +1,49 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for Pension Age Winter Heating Payment online.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The online eligibility checker is explicitly outside the application process, and no online application route is given."
+        },
+        {
+          "claim": "You can apply for Pension Age Winter Heating Payment by phone.",
+          "verdict": "partly_supported",
+          "quote": "We can consider late applications if you have a good reason for missing the deadline. If this is the case, contact Social Security Scotland.",
+          "source": 2,
+          "note": "The source gives a phone contact route for possible late applications but does not expressly say applications can be made by phone."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Applicants must provide proof of age.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The page states an age-based eligibility condition but does not request documentary proof of age."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Applicants must provide proof of Scottish residency.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The page states a Scottish-residence condition but does not request documentary proof of residence."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

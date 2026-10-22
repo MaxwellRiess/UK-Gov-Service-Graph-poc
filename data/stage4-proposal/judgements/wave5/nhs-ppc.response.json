@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "key": "exclusion_0",
+      "claims": [
+        {
+          "claim": "Universal Credit claimants are already exempt from prescription charges.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The PPC page does not discuss Universal Credit or prescription exemptions."
+        },
+        {
+          "claim": "People aged over 60 are already exempt from prescription charges.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The PPC page does not mention an age-based exemption."
+        },
+        {
+          "claim": "Children under 16 are already exempt from prescription charges.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The PPC page does not mention an age-based exemption."
+        },
+        {
+          "claim": "People with conditions such as diabetes or epilepsy are already exempt from prescription charges.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The PPC page does not mention medical-condition exemptions."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

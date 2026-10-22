@@ -111,7 +111,7 @@ function proseField(n: ServiceNode, path: string): FieldToJudge | null {
   const e = n.eligibility;
   if (path === 'desc') return { key: 'desc', path, text: n.desc, split: true };
   if (path === 'eligibility.summary') return { key: 'summary', path, text: e.summary, split: true };
-  if (path === 'agentInteraction.methods' && n.agentInteraction) {
+  if (path === 'agentInteraction.methods' && n.agentInteraction?.methods) {
     return { key: 'methods', path, split: true, text: methodsText(n.agentInteraction.methods) };
   }
   if (path === 'agentInteraction.authRequired' && n.agentInteraction?.authRequired) {

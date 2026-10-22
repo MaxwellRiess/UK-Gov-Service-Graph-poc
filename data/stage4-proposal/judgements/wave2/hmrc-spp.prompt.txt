@@ -1,0 +1,119 @@
+A service graph describes the UK government service "Statutory Paternity Pay" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-spp.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this by phone. You can apply or do this by post.
+
+--- SOURCE 0: https://www.gov.uk/paternity-pay-leave ---
+Paternity pay and leave. Your Statutory Paternity Pay and Leave - eligibility, what you get, how to claim. When you take time off because your partner’s having a baby, adopting a child or having a baby through a surrogacy arrangement, you might be eligible for: 2 weeks’ Paternity Leave Paternity Pay Shared Parental Leave and Pay Unpaid Parental Leave This guide is also available in Welsh (Cymraeg) . You may not get both leave and pay, and there are rules on how to claim and when your leave can start . Employment rights when on leave Your employment rights are protected while on paternity leave. This includes your right to: pay rises build up (accrue) holiday return to work You can get time off to accompany your partner (or the surrogate mother) to 2 antenatal appointments. If you’re adopting a child, you can get time off to attend 2 adoption appointments after you’ve been matched with a child. Paternity leave You can take up to 2 weeks’ leave. You can take both weeks together or take them separately in one-week blocks. You get the same amount of leave even if you have more than one child (for example, twins). A week of Paternity Leave is the same number of days that you normally work in a week. For example, if you only work on Mondays and Tuesdays, then a week of leave is 2 days. Your leave cannot start before the birth. It must end within 52 weeks of the baby’s birth (or the due date if the baby is early). The start and end date rules are different if you adopt . You must tell your employer the baby’s due date at least 15 weeks before the baby is due. And you must give your employer 28 days’ notice if you want to change the date your Paternity Leave starts. You do not have to give a precise date for your leave. Instead, you can give a general time, such as the day of the birth or one week after. There are different rules if you live in Northern Ireland . Shared Parental Leave You may also be eligible for Shared Parental Leave . You can take Paternity Leave and Shared Parental Leave in any order. Unpaid Parental Leave You may also be eligible for 18 weeks Unpaid Parental Leave per child, up to their 18th birthday. You can take Paternity Leave and Unpaid Parental Leave in any order. Leave for antenatal appointments You can take unpaid leave to accompany a pregnant woman to 2 antenatal appointments if you’re: the baby’s father the expectant mother’s spouse or civil partner in a long-term relationship with the expectant mother the intended parent (if you’re having a baby through a surrogacy arrangement) You can take up to 6 and a half hours per appointment. Your employer can choose to give you longer. You can apply for leave immediately if you’re a permanent employee. You’ll need to have been doing a job for 12 weeks before you qualify if you’re an agency worker. Leave for adoption appointments You can take unpaid leave to attend 2 adoption appointments after you’ve been matched with a child. You can take up to 6 and a half hours per appointment. Your employer can choose to give you longer. You can apply for leave immediately if you’re a permanent employee. You’ll need to have been doing a job for 12 weeks before you qualify if you’re an agency worker. The statutory weekly rate of Paternity Pay is £194.32, or 90% of your average weekly earnings (whichever is lower). Any money you get is paid in the same way as your wages, for example monthly or weekly. Tax and National Insurance will be deducted. Start and end dates The money is usually paid while you’re on leave. Your employer must confirm the start and end dates for your Paternity Pay when you claim it. To change the start date you must give your employer 28 days’ notice before the block of paid leave begins. You could get more pay if your employer has a company paternity scheme - they cannot offer you less than the statutory amounts. You must be taking time off to look after the child and be one of the following: the father the husband or partner of the mother (or adopter) - this includes same-sex partners the child’s adopter the intended parent (if you’re having a baby through a surrogacy arrangement) There are extra conditions you need to meet to qualify for leave and pay. You cannot get Paternity Pay and Leave if you’ve taken paid time off to attend adoption appointments. Paternity Leave You must: be an employee give the correct notice You’re eligible for Paternity Leave from the first day of employment. Paternity Pay You must: be employed by your employer up to the date of birth earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your employer for at least 26 weeks up to the end of any day in the ‘qualifying week’ The ‘qualifying week’ is the 15th week before the baby is due. This is different if you adopt . If you lose your baby You can still get Paternity Pay and Leave if your baby is: stillborn from 24 weeks of pregnancy born alive at any point during the pregnancy You can take any leave you booked before losing the baby. If after losing the baby you have leave left to book, you can still book and take this. You must do this within 8 weeks of the death. You may also be eligible for Statutory Parental Bereavement Pay and Leave . If you’re not eligible Your employer must tell you within 28 days if you do not qualify and why using form SPP1. The rules and forms are different if you adopt . You claim Paternity Pay and Leave through your employer. You do not need to give proof of the pregnancy or birth. Notice periods You must tell your employer the baby’s due date at least 15 weeks before the baby is expected. You can do this by filling in the online form (previously called form SC3). Once you have completed the form, you will need to download or print it and send it to your employer. Check if your employer has their own form. If they do, use that instead. At least 28 days before you want to take Paternity Leave you must tell your employer: when you want your leave to start, for example, the day of the birth or the week after the birth if you want 1 or 2 weeks’ leave Use the paternity planner to find out when you need to claim Paternity Leave by. If your baby is due before 25 July 2026 Paternity Leave rules have recently changed. This means that you do not need to give 15 weeks’ notice (including if you’re using a surrogate) if both of the following apply: your baby is due before 25 July 2026 you’ll have been employed for less than 26 weeks up to any day in the ‘qualifying week’ The ‘qualifying week’ is the 15th week before the baby is due. You’ll still need to give 28 days notice of when you want your leave to start and if you want to take 1 or 2 weeks leave. If your baby is due on or after 26 July 2026, both the usual notice periods will apply. Eligibility To get Paternity Pay, you must have been continuously employed by your employer for at least 26 weeks up to the end of any day in the ‘qualifying week’. For adoptions in the UK, this is the week you’re matched with the child. For overseas adoptions, this is either: the week the child enters the UK the week you want your pay or leave to start You’re eligible for Paternity Leave from the first day of employment. You must also meet the other eligibility conditions for Paternity Pay or Leave. Start and end dates - Paternity Leave Your period of Paternity Leave can start as early as: the date of placement the date the child arrives in the UK if you’re adopting from overseas the date the child’s born (or the day after if you’re working that day) if you’re a surrogate parent a date you choose which falls after the date of birth or placement You must give your employer 28 days’ notice if you want to change your start date. For adoptions within the UK and from overseas Your leave must end within 52 weeks of the date when the child is due: to be placed with you to arrive in England, Scotland or Wales There are different rules for adoptions if you live in Northern Ireland . For surrogate parents Your leave must end within 52 weeks of the child’s birth. How to claim - Paternity Leave or Pay You can use the online form (or your employer’s own version) to make a claim. After completing the form, download or print it and give your employer a copy. Adoption Claim within 7 days of your co-adopter or partner being matched with a child. Or, if you’re taking Paternity Leave in two separate one-week blocks, claim at least 28 days before the second week. For overseas adoptions, the notice period is different. The process is explained in the online form . Surrogacy Claim within 28 days, or as soon as you’re reasonably able, before you want your leave or pay to start. Surrogacy arrangements To be eligible for Paternity Leave and Pay if you use a surrogate to have a baby, you must: be in a couple be responsible for the child (with your partner) To be eligible for Paternity Pay you must also have worked for your employer continuously for at least 26 weeks by the end of the ‘qualifying week’ (the 15th week before the baby is due). You’re eligible for Paternity Leave from the first day of employment. ​​You claim Paternity Pay and Leave through your employer. If you plan to claim it, you must tell your employer at least 15 weeks before the baby is due. To get Statutory Paternity Pay, you must give this in writing. You must also provide a written statement to confirm that: you intend to apply for a parental order in the 6 months after the child’s birth you expect the court to give you that order There are different rules for surrogacy arrangements if you live in Northern Ireland .
+
+--- SOURCE 1: https://www.gov.uk/paternity-pay-leave/pay ---
+Paternity pay and leave. Your Statutory Paternity Pay and Leave - eligibility, what you get, how to claim. When you take time off because your partner’s having a baby, adopting a child or having a baby through a surrogacy arrangement, you might be eligible for: 2 weeks’ Paternity Leave Paternity Pay Shared Parental Leave and Pay Unpaid Parental Leave This guide is also available in Welsh (Cymraeg) . You may not get both leave and pay, and there are rules on how to claim and when your leave can start . Employment rights when on leave Your employment rights are protected while on paternity leave. This includes your right to: pay rises build up (accrue) holiday return to work You can get time off to accompany your partner (or the surrogate mother) to 2 antenatal appointments. If you’re adopting a child, you can get time off to attend 2 adoption appointments after you’ve been matched with a child. Paternity leave You can take up to 2 weeks’ leave. You can take both weeks together or take them separately in one-week blocks. You get the same amount of leave even if you have more than one child (for example, twins). A week of Paternity Leave is the same number of days that you normally work in a week. For example, if you only work on Mondays and Tuesdays, then a week of leave is 2 days. Your leave cannot start before the birth. It must end within 52 weeks of the baby’s birth (or the due date if the baby is early). The start and end date rules are different if you adopt . You must tell your employer the baby’s due date at least 15 weeks before the baby is due. And you must give your employer 28 days’ notice if you want to change the date your Paternity Leave starts. You do not have to give a precise date for your leave. Instead, you can give a general time, such as the day of the birth or one week after. There are different rules if you live in Northern Ireland . Shared Parental Leave You may also be eligible for Shared Parental Leave . You can take Paternity Leave and Shared Parental Leave in any order. Unpaid Parental Leave You may also be eligible for 18 weeks Unpaid Parental Leave per child, up to their 18th birthday. You can take Paternity Leave and Unpaid Parental Leave in any order. Leave for antenatal appointments You can take unpaid leave to accompany a pregnant woman to 2 antenatal appointments if you’re: the baby’s father the expectant mother’s spouse or civil partner in a long-term relationship with the expectant mother the intended parent (if you’re having a baby through a surrogacy arrangement) You can take up to 6 and a half hours per appointment. Your employer can choose to give you longer. You can apply for leave immediately if you’re a permanent employee. You’ll need to have been doing a job for 12 weeks before you qualify if you’re an agency worker. Leave for adoption appointments You can take unpaid leave to attend 2 adoption appointments after you’ve been matched with a child. You can take up to 6 and a half hours per appointment. Your employer can choose to give you longer. You can apply for leave immediately if you’re a permanent employee. You’ll need to have been doing a job for 12 weeks before you qualify if you’re an agency worker. The statutory weekly rate of Paternity Pay is £194.32, or 90% of your average weekly earnings (whichever is lower). Any money you get is paid in the same way as your wages, for example monthly or weekly. Tax and National Insurance will be deducted. Start and end dates The money is usually paid while you’re on leave. Your employer must confirm the start and end dates for your Paternity Pay when you claim it. To change the start date you must give your employer 28 days’ notice before the block of paid leave begins. You could get more pay if your employer has a company paternity scheme - they cannot offer you less than the statutory amounts. You must be taking time off to look after the child and be one of the following: the father the husband or partner of the mother (or adopter) - this includes same-sex partners the child’s adopter the intended parent (if you’re having a baby through a surrogacy arrangement) There are extra conditions you need to meet to qualify for leave and pay. You cannot get Paternity Pay and Leave if you’ve taken paid time off to attend adoption appointments. Paternity Leave You must: be an employee give the correct notice You’re eligible for Paternity Leave from the first day of employment. Paternity Pay You must: be employed by your employer up to the date of birth earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your employer for at least 26 weeks up to the end of any day in the ‘qualifying week’ The ‘qualifying week’ is the 15th week before the baby is due. This is different if you adopt . If you lose your baby You can still get Paternity Pay and Leave if your baby is: stillborn from 24 weeks of pregnancy born alive at any point during the pregnancy You can take any leave you booked before losing the baby. If after losing the baby you have leave left to book, you can still book and take this. You must do this within 8 weeks of the death. You may also be eligible for Statutory Parental Bereavement Pay and Leave . If you’re not eligible Your employer must tell you within 28 days if you do not qualify and why using form SPP1. The rules and forms are different if you adopt . You claim Paternity Pay and Leave through your employer. You do not need to give proof of the pregnancy or birth. Notice periods You must tell your employer the baby’s due date at least 15 weeks before the baby is expected. You can do this by filling in the online form (previously called form SC3). Once you have completed the form, you will need to download or print it and send it to your employer. Check if your employer has their own form. If they do, use that instead. At least 28 days before you want to take Paternity Leave you must tell your employer: when you want your leave to start, for example, the day of the birth or the week after the birth if you want 1 or 2 weeks’ leave Use the paternity planner to find out when you need to claim Paternity Leave by. If your baby is due before 25 July 2026 Paternity Leave rules have recently changed. This means that you do not need to give 15 weeks’ notice (including if you’re using a surrogate) if both of the following apply: your baby is due before 25 July 2026 you’ll have been employed for less than 26 weeks up to any day in the ‘qualifying week’ The ‘qualifying week’ is the 15th week before the baby is due. You’ll still need to give 28 days notice of when you want your leave to start and if you want to take 1 or 2 weeks leave. If your baby is due on or after 26 July 2026, both the usual notice periods will apply. Eligibility To get Paternity Pay, you must have been continuously employed by your employer for at least 26 weeks up to the end of any day in the ‘qualifying week’. For adoptions in the UK, this is the week you’re matched with the child. For overseas adoptions, this is either: the week the child enters the UK the week you want your pay or leave to start You’re eligible for Paternity Leave from the first day of employment. You must also meet the other eligibility conditions for Paternity Pay or Leave. Start and end dates - Paternity Leave Your period of Paternity Leave can start as early as: the date of placement the date the child arrives in the UK if you’re adopting from overseas the date the child’s born (or the day after if you’re working that day) if you’re a surrogate parent a date you choose which falls after the date of birth or placement You must give your employer 28 days’ notice if you want to change your start date. For adoptions within the UK and from overseas Your leave must end within 52 weeks of the date when the child is due: to be placed with you to arrive in England, Scotland or Wales There are different rules for adoptions if you live in Northern Ireland . For surrogate parents Your leave must end within 52 weeks of the child’s birth. How to claim - Paternity Leave or Pay You can use the online form (or your employer’s own version) to make a claim. After completing the form, download or print it and give your employer a copy. Adoption Claim within 7 days of your co-adopter or partner being matched with a child. Or, if you’re taking Paternity Leave in two separate one-week blocks, claim at least 28 days before the second week. For overseas adoptions, the notice period is different. The process is explained in the online form . Surrogacy Claim within 28 days, or as soon as you’re reasonably able, before you want your leave or pay to start. Surrogacy arrangements To be eligible for Paternity Leave and Pay if you use a surrogate to have a baby, you must: be in a couple be responsible for the child (with your partner) To be eligible for Paternity Pay you must also have worked for your employer continuously for at least 26 weeks by the end of the ‘qualifying week’ (the 15th week before the baby is due). You’re eligible for Paternity Leave from the first day of employment. ​​You claim Paternity Pay and Leave through your employer. If you plan to claim it, you must tell your employer at least 15 weeks before the baby is due. To get Statutory Paternity Pay, you must give this in writing. You must also provide a written statement to confirm that: you intend to apply for a parental order in the 6 months after the child’s birth you expect the court to give you that order There are different rules for surrogacy arrangements if you live in Northern Ireland .

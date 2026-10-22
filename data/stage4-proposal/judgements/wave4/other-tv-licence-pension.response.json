@@ -1,0 +1,21 @@
+{
+  "fields": [
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Date of birth confirmation",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources give an age threshold but do not state a date-of-birth confirmation requirement."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}
