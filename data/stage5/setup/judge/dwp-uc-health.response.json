@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "The capability for work health questionnaire is WCA50.",
+          "verdict": "supported",
+          "quote": "Before your assessment, you’ll need to complete a ‘Capability for Work’ (WCA50) health questionnaire.",
+          "source": 2,
+          "note": "The source identifies the questionnaire as WCA50."
+        },
+        {
+          "claim": "You complete the questionnaire only if asked to do so.",
+          "verdict": "supported",
+          "quote": "Only fill in this capability for work questionnaire if you're asked to do so, this is not a claim form.",
+          "source": 1,
+          "note": "The source says to fill it in only when asked."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": ["online", "phone"],
+  "sign_in_on_page": "Universal Credit account"
+}

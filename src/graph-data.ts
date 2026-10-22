@@ -10848,7 +10848,9 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit'],
       ruleIn: ['Pregnant or has young child', 'Qualifying benefit or age-related exception', 'Lives in Scotland'],
-      ruleOut: ['Does not live in Scotland'],      rules: [
+      ruleOut: ['Does not live in Scotland'],
+      sources: ['https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply'],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -10949,7 +10951,9 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age'],
       ruleIn: ['Pregnant or child under 3', 'Qualifying benefit or published exception', 'Lives in Scotland'],
-      ruleOut: ['Does not live in Scotland', 'Child over 3'],      rules: [
+      ruleOut: ['Does not live in Scotland', 'Child over 3'],
+      sources: ['https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply'],
+      rules: [
         {
           "type": "enum",
           "field": "nation",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T10:14:48.723Z",
+  "generatedAt": "2026-10-22T14:57:35.785Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -7844,27 +7844,6 @@
           "verdict": "partly_supported",
           "note": "The text's 20-week limit runs from the date the request is received and is for giving the final EHC plan, not for finishing the assessment, and the council only has to say within 16 weeks whether a plan will be made.",
           "quote": "Your local authority has 20 weeks from the date they receive the request for the assessment to give you the final EHC plan."
-        }
-      ]
-    },
-    {
-      "id": "other-warm-home-discount",
-      "name": "Warm Home Discount",
-      "field": "eligibility.autoQualifiers.0",
-      "graph": "Receiving Pension Credit Guarantee Credit — discount applied automatically",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "People receiving Pension Credit Guarantee Credit qualify for the Warm Home Discount.",
-          "verdict": "partly_supported",
-          "note": "The source says getting Pension Credit qualifies, but it never mentions the Guarantee Credit part specifically.",
-          "quote": "get Pension Credit"
-        },
-        {
-          "claim": "For these people, the discount is applied automatically.",
-          "verdict": "partly_supported",
-          "note": "The source says the discount is automatic for anyone getting Pension Credit, but it does not single out Guarantee Credit.",
-          "quote": "You’ll get the discount automatically if you or your partner: get Pension Credit"
         }
       ]
     },

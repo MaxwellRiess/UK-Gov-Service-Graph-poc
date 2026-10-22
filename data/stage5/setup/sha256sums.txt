@@ -1,0 +1,9 @@
+2d6f3b5d730d1c75467e419d410db472b4183b26f5de3dd1b835c7b911ccdf5e  ./README.md
+52a0eb938ff9962ec0250572a66ff30947d15735e4af0c1cec52e325402a41f7  ./finder-notes.json
+06389036987cbcf534d782ee27dd811b8eb34313437b1e0908b7fb16b9dfaa29  ./judge/dwp-uc-health.prompt.txt
+c1ef7e0bd6a7f84310c19156f46e549be6fe41ac0e8a5b9b2000a23f7c3d9018  ./judge/dwp-uc-health.response.json
+314a2ec707d202569fcff66c6631f3a3dd217d5bd1e03b001a9446f0fec1ff92  ./judge/other-warm-home-discount.prompt.txt
+518da720f6bc429b8f1cff27c208c9d4fda7668dbd3312e337191955d0526f47  ./judge/other-warm-home-discount.response.json
+610de41f394d45bee5fbd136db6587bcf1879a7b4e898ec3ff6b0f23a2e56418  ./judge/prepared.json
+aa4ec96e9bb4570267d9d2232ef865aaeae30b38b3a2941569e66a764fbf5299  ./review.md
+76490d4f6fe79e87380d55abaea8b919899d126bcbff3d51728f8a41b0819438  ./selection.json

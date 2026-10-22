@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-22T10:22:04.903Z",
+  "lastRun": "2026-10-22T14:57:35.787Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -9239,18 +9239,21 @@
     "dwp-uc-health#eligibility.evidenceRequired.1": {
       "valueHash": "b55fbefea97ec177",
       "valueSeen": "WCA50 capability for work questionnaire, if requested",
-      "method": "manual",
-      "verifiedAt": "2026-10-21T20:51:21.311Z",
-      "sourceUrl": "https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire",
-      "sourceQuote": "The WCA50 has replaced the forms ESA50 and UC50 capability for work questionnaires.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-22T14:57:35.785Z",
+      "sourceUrl": "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability",
+      "sourceQuote": "Before your assessment, you’ll need to complete a ‘Capability for Work’ (WCA50) health questionnaire.",
       "additionalQuotes": [
         {
-          "quote": "Only fill in this capability for work questionnaire if you’re asked to do so, this is not a claim form.",
+          "quote": "Only fill in this capability for work questionnaire if you're asked to do so, this is not a claim form.",
           "url": "https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire"
         }
       ],
-      "confidence": "unverified",
-      "rationale": "Corrected from official sources on 2026-10-21. Awaiting independent re-verification."
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "dwp-uc-health#eligibility.evidenceRequired.2": {
       "valueHash": "a8518c5d9f08ec89",
@@ -32939,26 +32942,21 @@
     "other-warm-home-discount#eligibility.autoQualifiers.0": {
       "valueHash": "cc86f758e01e5b7c",
       "valueSeen": "Receiving Pension Credit: the discount is usually applied automatically",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-22T14:57:35.785Z",
       "sourceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
-      "sourceQuote": "You’ll usually get the discount automatically if you’re eligible.",
+      "sourceQuote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
       "additionalQuotes": [
-        {
-          "quote": "The qualifying means-tested benefits are: Universal Credit Housing Benefit income-related Employment and Support Allowance (ESA) Pension Credit",
-          "url": "https://www.gov.uk/the-warm-home-discount-scheme"
-        },
         {
           "quote": "You’ll get the discount automatically if you or your partner: get Pension Credit",
           "url": "https://www.gov.uk/the-warm-home-discount-scheme"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 3,
-        "total": 3
-      },
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T14:14:27.256Z",
-      "confidence": "unverified",
-      "rationale": "Corrected on 2026-10-21 from quoted sources (the page names Pension Credit, not Guarantee Credit, and sets a 26 February 2027 contact deadline) Awaiting independent re-verification."
+        "supported": 2,
+        "total": 2
+      }
     },
     "other-warm-home-discount#eligibility.criteria.0": {
       "valueHash": "b01df15e53be106d",

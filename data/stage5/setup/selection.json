@@ -1,0 +1,40 @@
+{
+  "branchBase": "134d04d",
+  "coverageBefore": {
+    "confirmed": 1859,
+    "checkable": 2987,
+    "share": 62.2,
+    "partlySupported": 707
+  },
+  "sourceAdditionsProposed": [
+    {
+      "service": "sss-best-start-grant",
+      "source": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+      "rule": "eligibility.rules.2.rules.3.value",
+      "value": 18
+    },
+    {
+      "service": "sss-best-start-foods",
+      "source": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+      "rule": "eligibility.rules.2.rules.2.value",
+      "value": 18
+    }
+  ],
+  "alreadyCited": [
+    {
+      "service": "sss-child-winter-heating",
+      "source": "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment",
+      "rules": ["eligibility.rules.1.rules.0.value", "eligibility.rules.1.rules.1.value"],
+      "value": 19
+    }
+  ],
+  "preparedRechecks": [
+    "dwp-uc-health#eligibility.evidenceRequired.1",
+    "other-warm-home-discount#eligibility.autoQualifiers.0"
+  ],
+  "heldDeadlines": [
+    "hmcts-employment-tribunal#deadline",
+    "other-warm-home-discount#deadline"
+  ],
+  "ruleVerifierHeldBecause": "The NHSBSA free-prescriptions page returned HTTP 503 on 22 October 2026. Running verify-rules --write now could remove its confirmed prescription-age records."
+}
