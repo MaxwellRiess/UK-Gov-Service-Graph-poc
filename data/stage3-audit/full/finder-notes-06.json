@@ -1,0 +1,312 @@
+{
+ "ho-citizenship#eligibility.evidenceRequired.0": {
+  "queries": [
+   "Guide AN naturalisation documents passport evidence of settled status gov.uk",
+   "GOV.UK content API: /government/publications/form-an-guidance"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible",
+    "why": "Guide AN lists evidence of indefinite leave: 'Your UAN or share code if you have an eVisa showing indefinite leave to remain in the UK' and BRP or other documents confirming right to remain permanently."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship#eligibility.evidenceRequired.1": {
+  "queries": [
+   "Guide AN naturalisation documents passport evidence of settled status gov.uk",
+   "GOV.UK content API: /government/publications/form-an-guidance"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible",
+    "why": "Guide AN section on residence evidence: to show you were mainly in the UK during the 5 (or 3) years you must supply 'Your passports'; also passport as evidence of identity."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-citizenship#eligibility.evidenceRequired.4": {
+  "queries": [
+   "Guide AN naturalisation documents passport evidence of settled status gov.uk",
+   "GOV.UK content API: /government/publications/form-an-guidance"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible",
+    "why": "The guidance for Form AN, the naturalisation application form ('Form AN: guidance')."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-drug-precursor-licence#eligibility.evidenceRequired.0": {
+  "queries": [
+   "GOV.UK search: drug precursor licence application",
+   "grep of /guidance/precursor-chemical-licensing for substances and intended use"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/precursor-chemical-licensing",
+    "why": "Applicants need 'knowledge of the PC substances and categories' and licences 'specify the substances within the category which you are permitted to handle'; intended use is only mentioned for end-user declarations."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-drug-precursor-licence#eligibility.evidenceRequired.1": {
+  "queries": [
+   "GOV.UK search: drug precursor licence application"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/precursor-chemical-licensing",
+    "why": "Before applying you need 'a valid Disclosure and Barring Service ... reference number ... for the responsible officer' and 'a certificate of good conduct for the responsible officer' confirming they are fit and proper."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-euss-enquiry#eligibility.criteria.0": {
+  "queries": [
+   "GOV.UK search: EU Settlement Scheme contact",
+   "UKVI contact smart answer branch: settled or pre-settled status (EU Settlement Scheme)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme",
+    "why": "UKVI contact route for 'Settled or pre-settled status (EU Settlement Scheme)': help with questions about the EU Settlement Scheme, decisions on applications, pre-settled status; does not state an explicit eligibility rule."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-euss-enquiry#eligibility.summary": {
+  "queries": [
+   "GOV.UK search: EU Settlement Scheme contact",
+   "UKVI contact smart answer branch: settled or pre-settled status (EU Settlement Scheme)",
+   "/settled-status-eu-citizens-families/after-youve-applied"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme",
+    "why": "Contact UKVI Resolution Centre if you 'have a different question about the EU Settlement Scheme' or technical problems; covers updating UKVI account details and checking decisions."
+   },
+   {
+    "url": "https://www.gov.uk/settled-status-eu-citizens-families/after-youve-applied",
+    "why": "After applying 'you'll get a certificate of application'; 'If you cannot view your eVisa ... you can report an error'; keep UKVI account details up to date."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-evisa-error#desc": {
+  "queries": [
+   "GOV.UK search: eVisa report error",
+   "GOV.UK search: eVisa wrong expiry date conditions",
+   "/guidance/ask-the-home-office-to-check-your-immigration-status-is-correct"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/evisa/report-error-evisa",
+    "why": "Report an error if 'your eVisa details are wrong - for example it's showing the wrong date of birth or immigration status', including wrong name; conditions of stay and expiry date are not named."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-ilr#eligibility.evidenceRequired.0": {
+  "queries": [
+   "GOV.UK search: indefinite leave to remain documents passport continuous residence",
+   "GOV.UK search: indefinite leave to remain evidence continuous residence payslips bank statements",
+   "GOV.UK search: long residence caseworker guidance",
+   "grep of ILR route pages linked from /indefinite-leave-to-remain"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/long-residence/documents-you-must-provide",
+    "why": "Long-residence ILR documents: 'a current passport or other valid travel ID' and 'all the passports you've held during your time in the UK'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-ilr#eligibility.evidenceRequired.1": {
+  "queries": [
+   "GOV.UK search: indefinite leave to remain documents passport continuous residence",
+   "GOV.UK search: indefinite leave to remain evidence continuous residence payslips bank statements",
+   "GOV.UK search: long residence caseworker guidance",
+   "grep of ILR route pages linked from /indefinite-leave-to-remain"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "ho-ilr#eligibility.evidenceRequired.4": {
+  "queries": [
+   "GOV.UK search: SET(O)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/application-to-settle-in-the-uk-form-seto",
+    "why": "'Settle in the UK in various immigration categories: form SET(O)' - 'Form to apply for indefinite leave to remain in the UK in various immigration categories.'"
+   },
+   {
+    "url": "https://www.gov.uk/government/publications/application-to-settle-in-the-uk-form-seto/apply-online-form-seto",
+    "why": "'Use this online form to apply for indefinite leave to remain in the UK in various immigration categories.'"
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0": {
+  "queries": [
+   "grep of /skilled-worker-visa/your-partner-and-children and /documents-you-must-provide for BRP/eVisa",
+   "GOV.UK search: dependants of skilled workers caseworker guidance",
+   "GOV.UK search: partner child visa evidence of main applicant permission"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "ho-skilled-worker-visa#eligibility.criteria.1": {
+  "queries": [
+   "grep of Skilled Worker guide parts for exclusions",
+   "/skilled-worker-visa/switch-to-this-visa"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/skilled-worker-visa/switch-to-this-visa",
+    "why": "'You cannot apply to switch to this visa if you're currently in the UK: on a visit visa, on a short-term student visa...' - existing permission can stop you applying from inside the UK."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-student-visa#eligibility.criteria.0": {
+  "queries": [
+   "grep of Student visa guide parts for Irish/British",
+   "GOV.UK Appendix Student grep for Irish/British citizen",
+   "check-uk-visa result for Irish nationals"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/apply-to-come-to-the-uk",
+    "why": "'You do not need to apply for a visa if you're an Irish citizen.' Covers only the Irish exclusion, not British or existing leave."
+   },
+   {
+    "url": "https://www.gov.uk/check-uk-visa/y/ireland",
+    "why": "For Irish nationality: 'You do not need a visa or an electronic travel authorisation (ETA) to come to the UK'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-view-immigration-status#eligibility.summary": {
+  "queries": [
+   "grep of /evisa parts for share code and eligibility",
+   "/prove-right-to-work and /prove-right-to-rent nationality rules"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status",
+    "why": "'The person who uses your share code will see some of your personal details' and 'A share code lasts for 90 days', for employers or landlords."
+   },
+   {
+    "url": "https://www.gov.uk/prove-right-to-work",
+    "why": "'If you're not a British or Irish citizen, you can prove your right to work with: a share code'; British/Irish citizens use passports instead."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-visa#agentInteraction.methods": {
+  "queries": [
+   "GOV.UK search: how to apply for a visa to come to the UK",
+   "GOV.UK student and skilled worker documents parts"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/apply-to-come-to-the-uk",
+    "why": "What you need to do: 'Apply online. As part of the application process, you'll be asked to provide any evidence and documents required and pay the fee.'"
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-visa#eligibility.evidenceRequired.0": {
+  "queries": [
+   "GOV.UK search: how to apply for a visa to come to the UK",
+   "GOV.UK student and skilled worker documents parts"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/apply-to-come-to-the-uk",
+    "why": "Preparing evidence: you'll need to 'usually have a valid passport or travel document'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "ho-visa#eligibility.evidenceRequired.1": {
+  "queries": [
+   "GOV.UK search: how to apply for a visa to come to the UK",
+   "GOV.UK student and skilled worker documents parts"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/student-visa/documents-you-must-provide",
+    "why": "Student visa: 'proof you have enough money to support yourself and pay for your course'."
+   },
+   {
+    "url": "https://www.gov.uk/skilled-worker-visa/documents-you-must-provide",
+    "why": "Skilled Worker: 'evidence that you have enough personal savings to support yourself in the UK, for example bank statements'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "ho-visa#eligibility.evidenceRequired.2": {
+  "queries": [
+   "GOV.UK search: how to apply for a visa to come to the UK",
+   "GOV.UK student and skilled worker documents parts"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/student-visa/documents-you-must-provide",
+    "why": "Student visa requires 'a Confirmation of Acceptance for Studies (CAS) from your course provider'."
+   },
+   {
+    "url": "https://www.gov.uk/skilled-worker-visa/documents-you-must-provide",
+    "why": "Skilled Worker requires certificate of sponsorship details and 'proof of your relationship with your partner or children if they're applying with you'."
+   },
+   {
+    "url": "https://www.gov.uk/apply-to-come-to-the-uk",
+    "why": "Generic: 'provide supporting evidence as part of your application' and additional evidence depending on the visa."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "insolvency-bankruptcy#eligibility.criteria.0": {
+  "queries": [
+   "grep of /becoming-bankrupt guide for cannot pay",
+   "/options-for-paying-off-your-debts/bankruptcy",
+   "legislation.gov.uk Insolvency Act 1986 s263K"
+  ],
+  "urls": [
+   {
+    "url": "https://www.legislation.gov.uk/ukpga/1986/45/section/263K",
+    "why": "Adjudicator must determine that 'the debtor is unable to pay his or her debts at the date of the determination'."
+   },
+   {
+    "url": "https://www.gov.uk/options-for-paying-off-your-debts/bankruptcy",
+    "why": "You can apply for a Bankruptcy Order 'if you cannot pay your debts because you do not have enough money or assets you can sell'."
+   },
+   {
+    "url": "https://www.gov.uk/becoming-bankrupt",
+    "why": "'Becoming bankrupt is one way to deal with debts you cannot pay.'"
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "insolvency-bankruptcy#eligibility.exclusions.1": {
+  "queries": [
+   "grep of /becoming-bankrupt/your-home and /your-possessions",
+   "Citizens Advice bankruptcy property pages (404)"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/becoming-bankrupt/your-home",
+    "why": "'the trustee ... might sell your family home'; if equity is over £1,000 the trustee can 'sell the property'."
+   },
+   {
+    "url": "https://www.gov.uk/becoming-bankrupt/your-possessions",
+    "why": "The trustee 'will decide if the things you own could be sold to pay your bankruptcy debts'."
+   }
+  ],
+  "verdict_hint": "found"
+ }
+}

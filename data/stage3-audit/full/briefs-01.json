@@ -1,0 +1,259 @@
+[
+  {
+    "key": "dwp-carers-allowance#eligibility.evidenceRequired.0",
+    "service": "Carer's Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/carers-allowance",
+    "claim": "Evidence of caring role",
+    "alreadySearched": [
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/carers-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The list of what to have before you apply does not include evidence of the caring role."
+  },
+  {
+    "key": "dwp-carers-allowance#eligibility.evidenceRequired.1",
+    "service": "Carer's Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/carers-allowance",
+    "claim": "Benefit award letter for person cared for",
+    "alreadySearched": [
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/carers-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text asks only for the person's date of birth, address and National Insurance number or DLA reference, not an award letter."
+  },
+  {
+    "key": "dwp-child-maintenance#agentInteraction.methods",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not describe how to apply; it only mentions signing in to an existing account. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "dwp-child-maintenance#eligibility.evidenceRequired.0",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "Paying parent's income details (CMS contacts HMRC directly)",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not mention income details or HMRC."
+  },
+  {
+    "key": "dwp-child-maintenance#eligibility.evidenceRequired.1",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "Children's details",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not list any information needed to apply."
+  },
+  {
+    "key": "dwp-child-maintenance#eligibility.evidenceRequired.2",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "Your contact details",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not list any information needed to apply."
+  },
+  {
+    "key": "dwp-dla-child#eligibility.evidenceRequired.1",
+    "service": "Disability Living Allowance (Child)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.gov.uk/disability-living-allowance-children",
+    "claim": "Details of care needs and supervision required",
+    "alreadySearched": [
+      "https://www.gov.uk/disability-living-allowance-children",
+      "https://www.gov.uk/disability-living-allowance-children/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text describes the care levels behind each rate but never says you must provide these details as evidence."
+  },
+  {
+    "key": "dwp-dla-child#eligibility.evidenceRequired.2",
+    "service": "Disability Living Allowance (Child)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.gov.uk/disability-living-allowance-children",
+    "claim": "GP or consultant reports",
+    "alreadySearched": [
+      "https://www.gov.uk/disability-living-allowance-children",
+      "https://www.gov.uk/disability-living-allowance-children/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not mention GP or consultant reports."
+  },
+  {
+    "key": "dwp-funeral-payment#eligibility.evidenceRequired.0",
+    "service": "Funeral Expenses Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/funeral-payments",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/funeral-payments",
+      "https://www.gov.uk/funeral-payments/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not say what proof of benefit, if any, must be provided."
+  },
+  {
+    "key": "dwp-funeral-payment#eligibility.evidenceRequired.2",
+    "service": "Funeral Expenses Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/funeral-payments",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/funeral-payments",
+      "https://www.gov.uk/funeral-payments/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text mentions death certificates only as a cost the payment can help with, not as evidence you must provide."
+  },
+  {
+    "key": "dwp-housing-benefit#eligibility.evidenceRequired.2",
+    "service": "Housing Benefit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/housing-benefit",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/housing-benefit"
+    ],
+    "whyNotFound": "not stated: The text never mentions a National Insurance number."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.autoQualifiers.0",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "Widowed before reaching own State Pension age",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text does not make being widowed before your own State Pension age a condition. It only mentions remarrying before State Pension age."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.0",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text does not mention a death certificate."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.2",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "NI numbers for both parties",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text does not say NI numbers for both parties are needed."
+  },
+  {
+    "key": "dwp-ni-credits#agentInteraction.methods",
+    "service": "National Insurance credits",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/national-insurance-credits",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/national-insurance-credits"
+    ],
+    "whyNotFound": "not stated: The text only mentions going online to ask HMRC questions; it never says you can apply online, and the applications it does describe are made by writing to HMRC. not stated: The text only mentions a phone helpline for questions; it never says you can apply by phone."
+  },
+  {
+    "key": "dwp-ni-number#eligibility.evidenceRequired.1",
+    "service": "National Insurance number",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-national-insurance-number",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-national-insurance-number"
+    ],
+    "whyNotFound": "not stated: The text never mentions proof of address."
+  },
+  {
+    "key": "dwp-ni-number#eligibility.evidenceRequired.2",
+    "service": "National Insurance number",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-national-insurance-number",
+    "claim": "Right to work documents",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-national-insurance-number"
+    ],
+    "whyNotFound": "not stated: The text does not list right to work documents as something you need to apply."
+  },
+  {
+    "key": "dwp-pension-credit#eligibility.evidenceRequired.0",
+    "service": "Pension Credit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/pension-credit",
+    "claim": "Bank statements",
+    "alreadySearched": [
+      "https://www.gov.uk/pension-credit",
+      "https://www.gov.uk/pension-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The Pension Credit pages ask only for bank account details, not statements; the bank statements listed in the Housing Benefit page are for Housing Benefit, not this service."
+  },
+  {
+    "key": "dwp-smi#eligibility.evidenceRequired.0",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "Mortgage statement",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: The text says to find out how much is left to pay and how much interest you pay, and says the lender completes the form, but it never mentions a mortgage statement."
+  },
+  {
+    "key": "dwp-smi#eligibility.evidenceRequired.1",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: You must be getting a qualifying benefit, but the text never asks for proof of it."
+  },
+  {
+    "key": "dwp-smi#eligibility.evidenceRequired.2",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "Consent to charge on property",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: The text only says to fill in and sign a form and get your partner to sign it; it never mentions a charge on the property."
+  },
+  {
+    "key": "dwp-smi#eligibility.exclusions.1",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "UC with earnings above threshold",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: The text mentions no earnings threshold for Universal Credit claimants."
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "source": "data/stage3-progress/corrections-judge-3/prepared.json",
+  "reason": "Live fetch returned no prepared services; reuse the captured source text for an independent check of revised graph wording.",
+  "fields": 6
+}

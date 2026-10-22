@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Child performance licence" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/la-child-performance-licence.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_0] (split into claims) Event details and type
+
+--- SOURCE 0: https://www.gov.uk/apply-for-child-performance-licence ---
+Apply for a child performance licence A child under school leaving age may need a licence if they take part in certain events . The person in charge of the event must apply to the child’s local council for a child performance licence. Do this at least 21 days before the event. Use the child’s postcode to find the right council. Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder What you need to know Ask the council if you’re not sure you need a licence. If you do, the child must be supervised by an approved adult . The rules are different in Northern Ireland . Related content Become a licensed chaperone for child performers Child employment Explore the topic Recruiting and hiring
+
+--- SOURCE 1 (FOUND): https://www.legislation.gov.uk/uksi/2014/3309/schedule/2 ---
+The Children (Performances and Activities) (England) Regulations 2014 Skip to main content Skip to navigation legislation.gov.uk https://www.nationalarchives.gov.uk Cymraeg Home Explore our collections Research tools Help and guidance What's new About us Search Legislation Search Legislation Title: (or keywords in the title) Year: Number: Type: All UK Legislation (excluding originating from the EU) -------------------------------------------- All Legislation (including originating from EU) -------------------------------------------- All Legislation originating from the EU that is amended by the UK -------------------------------------------- All Primary Legislation UK Public General Acts UK Local Acts UK Private and Personal Acts Acts of the Scottish Parliament Acts of Senedd Cymru Acts of the National Assembly for Wales Measures of the National Assembly for Wales Church Measures Acts of the Northern Ireland Assembly Acts of the Old Scottish Parliament Acts of the English Parliament Acts of the Old Irish Parliament Acts of the Parliament of Great Britain Local Acts of the Parliament of Great Britain Private and Personal Acts of the Parliament of Great Britain Northern Ireland Orders in Council Measures of the Northern Ireland Assembly Acts of the Northern Ireland Parliament -------------------------------------------- All Secondary Legislation UK Statutory Instruments Welsh Statutory Instruments Scottish Statutory Instruments Northern Ireland Statutory Rules Church Instruments UK Ministerial Directions UK Ministerial Orders UK Statutory Rules and Orders Northern Ireland Statutory Rules and Orders -------------------------------------------- All Legislation originating from the EU Regulations originating from the EU Regulations originating from the EU that are amended by the UK Decisions originating from the EU Decisions originating from the EU that are amended by the UK Directives originating from the EU European Union Treaties -------------------------------------------- All Draft Legislation UK Draft Statutory Instruments Scottish Draft Statutory Instruments Northern Ireland Draft Statutory Rules -------------------------------------------- All Impact Assessments UK Impact Assessments Search Advanced Search The Children (Performances and Activities) (England) Regulations 2014 You are here: UK Statutory Instruments 2014 No. 3309 SCHEDULE 2 Table of Contents Content Explanatory Memorandum More Resources Previous: Schedule Next: Schedule Plain View Print Options What Version Latest available (Revised) Original (As made) Opening Options Open whole Instrument Open Instrument without Schedules Open Schedules only More Resources Original: King's Printer Version View more Status: This is the original version (as it was originally made). This item of legislation is currently only available in its original format. Regulation 4 SCHEDULE 2 Information Required For A Licence Application This schedule has no associated Explanatory Memorandum PART 1 Information to be provided by the applicant in relation to the child 1. Name, address and date of birth of the child for whom the licence is requested.&#xD; 2. Name and address of the school currently attended by the child or, if the child is not attending a school, the name and address of the child’s private teacher.&#xD; 3. Details of each licence in relation to the child granted during the twelve months preceding the date of the application by any local authority, or in Scotland, any education authority, other than the licensing authority to which the application is made, stating in each case—&#xD; (a) the name of the local authority or the education authority; &#xD; (b) the date on which the licence was granted; and &#xD; (c) the dates and nature of performances or activities. &#xD; 4. Details of each application in relation to the child for a licence refused by any local authority, or in Scotland, any education authority, other than the licensing authority to which the application is made, in the twelve months preceding the date of the application, stating in each case—&#xD; (a) the name of the local authority or the education authority; and &#xD; (b) the reasons (if known) for the refusal to grant a licence. &#xD; 5. Details of any performances for which a licence was not required, by virtue of section 37(3) of the 1963 Act, in which the child took part during the twelve months preceding the date of the application, stating in each case—&#xD; (a) the date of the performance; &#xD; (b) the number of days of performance; &#xD; (c) the title of the performance; and &#xD; (d) the name and address of the person responsible for the production of the performance in which the child took part. &#xD; 6. Dates (if any) on which the child has been absent from school during the twelve months preceding the date of the application by reason of taking part in a performance or activity.&#xD; 7. Amount of any monies earned by the child during the twelve months preceding the date of the application, stating whether the monies earned were in respect of performances or activities for which a licence was granted or a performance for which a licence was not required.&#xD; PART 2 Information to be provided by the applicant about the performances or activities 8. Name, title and address of the applicant.&#xD; 9. Name and nature of the performances or activities in respect of which the licence is requested (for example, theatrical, filming, sport, modelling), and a description of what the child will be required to do as a result of taking part in the performances or activities.&#xD; 10. Place of activities, performances and rehearsal for which the licence is requested, including any periods on location.&#xD; 11. The dates of activities, performances or rehearsals for which the licence is requested, or the number of days, and the period during which, it is requested that the child may take part in activities, performances or rehearsals.&#xD; 12. Expected total running time or duration of activities or performances (including any rehearsal) in respect of which a licence is requested and the approximate duration of the child’s appearance in such performances or activities.&#xD; 13. The amount of night-work (if any) for which approval is being sought from the licensing authority under regulation 28 stating—&#xD; (a) the approximate number of days; &#xD; (b) the approximate duration on each day; and &#xD; (c) the reason that the performance must take the form of night-work. &#xD; 14. The sums to be earned by the child in taking part in the performances or activities in respect of which the licence is requested, and the name, address and description of the person to whom or to which the sums are to be paid, if not to the child in question.&#xD; 15. Where a licence is requested in respect of a performance, the proposed arrangements for any rehearsals prior to the first performance for which the licence is requested, stating in respect of each rehearsal—&#xD; (a) the date; &#xD; (b) the place; and &#xD; (c) the approximate time and duration. &#xD; 16. The days or half days on which leave of absence from school is requested to enable the child to take part in performances (including rehearsals) or activities for which the licence is requested.&#xD; 17. Proposed arrangements (if any) under regulation 13 for the education of the child during the period for which the licence is requested stating—&#xD; (a) where the education is to be provided by a school, the name and address of the school to be attended; or &#xD; (b) where the education is to be provided otherwise than by a school– &#xD; (i) the name, address and qualification of the proposed private teacher; &#xD; (ii) the place where the child will be taught; &#xD; (iii) the proposed course of study; &#xD; (iv) the number of other children to be taught by the private teacher at the same time as the child in respect of whom the application is made, and the sex and age of each child; and &#xD; (v) whether the child is to receive the amount of education in accordance with regulation 13(3)(e). &#xD; 18. The name and address of the proposed chaperone, or where no such chaperone is required by virtue of regulation 15(2), the name and address of the parent or teacher who will have care of the child.&#xD; 19. The name of the local authority, or in Scotland, the education authority (if any), which has previously approved the appointment of the chaperone for the purposes of a licence.&#xD; 20. The number of children to be in the charge of the chaperone during the time when the chaperone will be in charge of the child in respect of whom the application is made, and the sex and age of each child.&#xD; 21. The address of any accommodation where the child will live if different from the place where the child would ordinarily live, the number of other children, and details of the chaperone (if any), who will live in the same accommodation.&#xD; 22. Approximate length of time which the child will spend travelling, and the arrangements (if any) for transport—&#xD; (a) to the place of performance, rehearsal or activity; and &#xD; (b) from the place of performance, rehearsal or activity. &#xD; 23. The name of any other local authority, or in Scotland, any education authority to which an application has been made for another child to take part in performances or activities to which the application relates (if not known at the time of application, to be provided when known).&#xD; PART 3 Required documentation 24. For the purposes of regulation 4(1)(d), the required documentation is—&#xD; (a) a copy of the birth certificate of the child; &#xD; (b) two identical photographs of the child taken during the six months preceding the date of the application; and &#xD; (c) a copy of the contract, draft contract or other documents containing particulars of the agreement regulating the child’s appearance in the performances or regulating the activity for which the licence is requested. &#xD; Previous: Schedule Next: Schedule Back to top Options/Help Print Options Official printed copies Order a copy of this legislation buy now Print The Whole Instrument PDF The Whole Instrument Web page The Whole Instrument Print This Schedule only PDF This Schedule only Web page This Schedule only Legislation is available in different versions: Latest Available (revised): The latest available updated version of the legislation incorporating changes made by subsequent legislation and applied by our editorial team. Changes we have not yet applied to the text, can be found in the ‘Changes to Legislation’ area. Original (As Enacted or Made): The original version of the legislation as it stood when it was enacted or made. No changes have been applied to the text. Opening Options Different options to open legislation in order to view more content on screen at once Explanatory Memorandum Explanatory Memorandum sets out a brief statement of the purpose of a Statutory Instrument and provides information about its policy objective and policy implications. They aim to make the Statutory Instrument accessible to readers who are not legally qualified and accompany any Statutory Instrument or Draft Statutory Instrument laid before Parliament from June 2004 onwards. More Resources Access essential accompanying documents and information for this legislation item from this tab. Dependent on the legislation item being viewed this may include: the original print PDF of the as enacted version that was used for the print copy lists of changes made by and/or affecting this legislation item confers power and blanket amendment details all formats of all associated documents correction slips links to related legislation and further information resources More Resources Use this menu to access essential accompanying documents and information for this legislation item. Dependent on the legislation item being viewed this may include: the original print PDF of the as made version that was used for the print copy correction slips Click 'View More' or select 'More Resources' tab for additional information including: lists of changes made by and/or affecting this legislation item confers power and blanket amendment details all formats of all associated documents links to related legislation and further information resources The data on this page is available in the alternative data formats listed: HTML5 alternative version HTML snippet alternative version PDF alternative version XML alternative version Akoma Ntoso alternative version HTML RDFa alternative version RDF/XML alternative version New site design Help About us Site map Accessibility Contact us Privacy notice Cookies Fair use policy All content is available under the Open Government Licence v3.0 except where otherwise stated . This site additionally contains content derived from EUR-Lex, reused under the terms of the Commission Decision 2011/833/EU on the reuse of documents from the EU institutions. For more information see the EUR-Lex public statement on re-use . © Crown and database right

@@ -24,7 +24,8 @@
  *   apiAvailable      — whether a GOV.UK API exists for this service
  *   apiUrl            — developer documentation for the API (if any)
  *   onlineFormUrl     — direct URL to start the application / form
- *   authRequired      — authentication mechanism needed
+ *   authRequired?     — authentication mechanism needed; absent where no
+ *                       official page says whether you sign in
  *   agentCanComplete  — full | partial | inform-only
  *   agentSteps[]      — what an agent can actually do for the user
  *   missingBenefitId  — ID in the MissingBenefit.com API (if covered)
@@ -84,18 +85,26 @@ export type ServiceType =
   | 'grant'         // one-off financial award
   | 'information';  // looking something up in a public register (no application)
 
-export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person';
+export type ApplicationMethod = 'online' | 'phone' | 'post' | 'in-person' | 'via-adviser';
 // 'gov-uk-verify' is retired but kept for nodes not yet migrated; new services
-// authenticate with GOV.UK One Login.
-export type AuthMethod = 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house' | 'none';
+// authenticate with GOV.UK One Login. 'service-account' is an account that
+// belongs to the one service (a GRO account, a childcare account), where the
+// page says you create or sign in to one but it is not a shared sign-in.
+export type AuthMethod =
+  | 'government-gateway' | 'gov-uk-one-login' | 'gov-uk-verify' | 'nhs-login' | 'companies-house'
+  | 'universal-credit-account' | 'ukvi-account' | 'service-account' | 'none';
 export type AgentCapability = 'full' | 'partial' | 'inform-only';
 
 export interface AgentInteraction {
-  methods:          ApplicationMethod[];  // how to apply
+  // Optional, like authRequired: absent means no official page says how to
+  // start. An empty array is a claim of its own (it happens automatically).
+  methods?:         ApplicationMethod[];  // how a person starts; via-adviser means the adviser submits the application
   apiAvailable:     boolean;              // does a GOV.UK developer API exist?
   apiUrl?:          string;               // developer documentation URL
   onlineFormUrl?:   string;               // direct link to start application
-  authRequired:     AuthMethod;           // authentication mechanism
+  // Optional: most pages never say whether a sign-in is needed, and 'none'
+  // drawn from that silence is a claim with no source. Absent = not stated.
+  authRequired?:    AuthMethod;           // authentication mechanism
   agentCanComplete: AgentCapability;      // what level of help an agent can give
   agentSteps:       string[];             // concrete steps an agent can take
   missingBenefitId?: string;              // ID in MissingBenefit.com API (if covered)
@@ -416,7 +425,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that birth registration is done in person at a local register office, or at the hospital if it offers this',
@@ -447,14 +455,16 @@ export const NODES: Record<string, ServiceNode> = {
         { factor: 'family', description: 'Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.' },
       ],
       keyQuestions: [
-        'Do you have the medical certificate of cause of death from the doctor or coroner?',
         'Are you a relative of the deceased?',
         'Did the death occur in England or Wales?',
       ],
       means_tested: false,
-      evidenceRequired: ['Medical Certificate of Cause of Death (MCCD)', 'Deceased\'s NHS number and personal details if available'],
+      evidenceRequired: [],
       ruleIn: [],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/after-a-death/register-the-death',
+      ],
+      rules: [
         {
           "type": "boolean",
           "field": "has_experienced_bereavement",
@@ -472,14 +482,10 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Explain that death registration must be done in person at a local register office',
         'Help user find their nearest register office',
-        'List required documents (MCCD, deceased\'s details)',
         'Advise on the 5-day deadline',
         'Explain Tell Us Once service offered at the appointment',
       ],
@@ -504,7 +510,6 @@ export const NODES: Record<string, ServiceNode> = {
         },
       ],
       officeLocatorUrl: 'https://www.gov.uk/register-offices',
-      notes: 'Must be done in person at a register office.',
     },
   },
   'gro-death-certificate': {
@@ -548,7 +553,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to GRO certificate ordering service',
@@ -625,7 +630,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that notice of marriage must be given in person at a local register office',
@@ -686,7 +690,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post', 'in-person'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to GRO certificate ordering service',
@@ -744,7 +748,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/child-benefit/how-to-claim',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to online Child Benefit claim form',
@@ -828,7 +831,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/guardians-allowance/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide link to the BG1 claim form, which is posted with original birth and death certificates (a claim pack can also be requested by phone)',
@@ -911,7 +913,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain entitlement to 2 weeks bereavement leave and pay',
@@ -979,7 +980,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain SMP eligibility criteria and rates',
@@ -1053,7 +1053,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain SPP eligibility criteria and rates',
@@ -1134,7 +1133,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain SPL eligibility and how weeks are shared between parents',
@@ -1168,7 +1166,7 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: ['How old is the child?', 'Do you live in England?', 'Are you (and any partner) working? You may qualify for 30 hours instead.'],
       autoQualifiers: ['Child aged 3 or 4 in England'],
       means_tested: false,
-      evidenceRequired: ['Child\'s date of birth, given to the childcare provider'],
+      evidenceRequired: [],
       ruleIn: ['Child aged 3 or 4', 'Lives in England'],
       ruleOut: ['Lives outside England'],      rules: [
         {
@@ -1195,9 +1193,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that every 3 and 4-year-old in England gets 15 hours a week, with no application or income test',
@@ -1279,7 +1275,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/free-childcare-if-working/apply-for-free-childcare-if-youre-working',
-      authRequired: 'government-gateway',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to the Free Childcare for Working Parents application (it also checks Tax-Free Childcare eligibility)',
@@ -1369,7 +1365,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/tax-free-childcare',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to Tax-Free Childcare application',
@@ -1450,7 +1445,6 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/marriage-allowance/2.0',
       onlineFormUrl: 'https://www.gov.uk/apply-marriage-allowance',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to Marriage Allowance application',
@@ -1512,7 +1506,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/marriage-allowance/if-your-circumstances-change',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to cancel Marriage Allowance online',
@@ -1550,7 +1543,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/tell-hmrc-change-of-details',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to HMRC change of details service',
@@ -1581,7 +1573,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Property purchase completed in England'],
       means_tested: false,
-      evidenceRequired: ['Completion statement', 'SDLT1 form (usually filed by solicitor)'],
+      evidenceRequired: ['SDLT1 form (usually filed by solicitor)'],
       ruleIn: ['Property purchase completed in England'],
       ruleOut: [],      sources: [
         'https://www.gov.uk/stamp-duty-land-tax/residential-property-rates',
@@ -1625,7 +1617,6 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/Stamp%20Taxes%20Online',
       onlineFormUrl: 'https://www.gov.uk/sdlt-online',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to SDLT online filing service',
@@ -1667,7 +1658,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['Not available for second homes or existing property owners.', '25% withdrawal penalty if used for non-qualifying purposes.'],
       means_tested: false,
-      evidenceRequired: ['LISA account details', 'Conveyancer handles request process from ISA provider'],
+      evidenceRequired: ['Conveyancer handles request process from ISA provider'],
       ruleIn: ['First-time buyer', 'LISA opened before age 40', 'Property costs £450k or less'],
       ruleOut: ['Existing homeowner', 'Property over £450,000'],      rules: [
         {
@@ -1694,10 +1685,8 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/lisa-api/2.0',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain LISA withdrawal process for property purchase',
@@ -1737,7 +1726,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['IHT400 form and supplementary schedules', 'Valuations of all assets', 'Details of gifts made in the last 7 years', 'Copy of will'],
       ruleIn: ['Estate value exceeds £325,000 nil-rate band'],
-      ruleOut: ['Estate below nil-rate band with no gifts'],      rules: [
+      ruleOut: ['Estate below nil-rate band with no gifts'],      sources: [
+        'https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value',
+      ],
+      rules: [
         {
           "type": "boolean",
           "field": "has_experienced_bereavement",
@@ -1755,8 +1747,8 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "deadline",
           "triggerEvent": "death_date",
           "triggerLabel": "Date of death",
-          "maxDays": 180,
-          "label": "IHT400 must be filed within 6 months of death"
+          "maxDays": 365,
+          "label": "Send full details of the estate (IHT400) within 12 months of the death"
         }
       ],
 
@@ -1765,7 +1757,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/government/publications/inheritance-tax-inheritance-tax-account-iht400',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to IHT400 form and guidance',
@@ -1811,7 +1802,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that the employer is legally required to issue a P45',
@@ -1930,7 +1920,6 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/',
       onlineFormUrl: 'https://www.gov.uk/self-assessment-tax-returns',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to Self Assessment registration',
@@ -2078,7 +2067,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/service/vat-api/1.0',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain mandatory vs voluntary VAT registration',
@@ -2159,7 +2147,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/api-documentation/docs/api/xml/PAYE%20Online',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain PAYE employer registration requirements',
@@ -2222,7 +2209,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the business is in the construction sector (building, renovation, civil engineering, demolition)',
@@ -2272,7 +2258,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['MTD-compatible software (e.g. Xero, QuickBooks, FreeAgent)', 'VAT registration number'],
       ruleIn: ['VAT-registered business', 'Self-employed or landlord with income over £50k (from 2026)'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step',
+      ],
+      rules: [
         {
           "type": "any",
           "label": "VAT-registered or self-employed/landlord with income over £50k",
@@ -2313,7 +2302,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: true,
       apiUrl: 'https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain MTD obligations for VAT-registered businesses',
@@ -2341,7 +2329,7 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'hmrc-register-sole-trader': {
     id: 'hmrc-register-sole-trader', name: 'Register as sole trader', dept: 'HMRC', deptKey: 'hmrc',
-    deadline: '5 Oct (yr 2)',
+    deadline: '5 October',
     desc: 'Tell HMRC you are self-employed. Done via Self Assessment registration.',
     govuk_url: 'https://www.gov.uk/set-up-sole-trader',
     serviceType: 'registration',
@@ -2377,7 +2365,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/set-up-sole-trader',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to sole trader registration',
@@ -2543,7 +2530,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/child-benefit/how-to-claim',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to Child Benefit change of circumstances',
@@ -2669,7 +2655,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/tax-on-pension',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Provide direct link to pension tax information',
@@ -2699,7 +2684,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you already have a professional body membership (e.g. ICAEW, Law Society) that acts as your supervisor?',
       ],
       means_tested: false,
-      evidenceRequired: ['Business details and registered address', 'Identity of beneficial owners and directors', 'Evidence of business type and activities'],
+      evidenceRequired: ['Business details and registered address', 'Identity of beneficial owners and directors'],
       ruleIn: ['Estate agency or letting agency', 'Accountancy or bookkeeping practice', 'Legal or trust/company service provider', 'High-value dealer (cash transactions over €10,000)', 'Art market participant', 'Casino or gambling business'],
       ruleOut: ['Business does not fall within any of the nine regulated sectors'],
     },
@@ -2732,7 +2717,7 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'hmrc-starter-checklist': {
     id: 'hmrc-starter-checklist', name: 'PAYE Starter Checklist', dept: 'HMRC', deptKey: 'hmrc',
-    deadline: 'Before first payday',
+    deadline: null,
     desc: 'Completed with a new employer when no P45 is available — first jobs, returns to work, and second jobs. Sets the correct tax code before the first payday to avoid emergency tax.',
     govuk_url: 'https://www.gov.uk/guidance/starter-checklist-for-paye',
     serviceType: 'obligation',
@@ -2838,7 +2823,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/after-a-death',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility for Tell Us Once',
@@ -2908,11 +2892,9 @@ export const NODES: Record<string, ServiceNode> = {
           ]
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66) at time of partner's death"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must have been under State Pension age when your partner died"
         },
         {
           "type": "deadline",
@@ -2928,7 +2910,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/bereavement-support-payment/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -2983,7 +2964,7 @@ export const NODES: Record<string, ServiceNode> = {
         'When did the funeral take place? (Must claim within 6 months.)',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of qualifying benefit', 'Funeral bill or invoice from funeral director', 'Death certificate'],
+      evidenceRequired: ['Proof of qualifying benefit', 'Funeral bill or invoice from funeral director'],
       ruleIn: ['Receiving qualifying means-tested benefit', 'Responsible for funeral costs'],
       ruleOut: ['Close relative of deceased able to pay instead'],      rules: [
         {
@@ -3030,7 +3011,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/funeral-payments/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check eligibility for Funeral Expenses Payment',
@@ -3093,7 +3073,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/pay-voluntary-class-3-national-insurance',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain how gaps in the NI record affect State Pension entitlement',
@@ -3132,15 +3111,13 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['Reached State Pension age with at least 10 qualifying NI years (35 for the full rate)'],
       means_tested: false,
-      evidenceRequired: ['NI number', 'Bank account details for payment'],
+      evidenceRequired: ['Bank account details for payment'],
       ruleIn: ['Reached State Pension age (66+)', '10+ qualifying NI years'],
       ruleOut: ['Under 66'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "comparison",
@@ -3156,7 +3133,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/new-state-pension/how-to-claim',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check State Pension age using GOV.UK calculator',
@@ -3221,7 +3197,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain which inheritance rules apply based on when each party reached State Pension age',
@@ -3253,15 +3228,13 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       autoQualifiers: ['State Pension age reached and income clearly below threshold'],
       means_tested: true,
-      evidenceRequired: ['Bank statements', 'Pension and income details', 'Proof of savings and capital'],
+      evidenceRequired: ['Pension and income details', 'Proof of savings and capital'],
       ruleIn: ['Reached State Pension age (66+)', 'Weekly income below Pension Credit threshold'],
       ruleOut: ['Savings above £10,000 reducing entitlement to zero'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "comparison",
@@ -3277,7 +3250,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/pension-credit/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -3339,11 +3311,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['Born on or before 27 June 1960', 'Lives in England, Wales or Northern Ireland'],
       ruleOut: ['Born after 27 June 1960', 'Lives in Scotland'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must be born on or before 27 June 1960 (approximately State Pension age)"
+          "type": "born",
+          "onOrBefore": "1960-06-27",
+          "label": "Must be born on or before 27 June 1960"
         },
       ],
 
@@ -3351,7 +3321,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check date of birth and nation of residence',
@@ -3408,15 +3377,13 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Terminally ill — claim using Special Rules immediately (DS1500/SR1 form)'],
       exclusions: ['Under State Pension age — claim PIP instead.'],
       means_tested: false,
-      evidenceRequired: ['AA1 claim form', 'Medical evidence from GP or specialist helpful', 'Carer details if applicable'],
+      evidenceRequired: ['AA1 claim form', 'Medical evidence from GP or specialist helpful'],
       ruleIn: ['Aged 66 or over', 'Personal care needs due to physical or mental condition'],
       ruleOut: ['Under State Pension age'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must be aged 66 or over (State Pension age)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "any",
@@ -3449,7 +3416,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/attendance-allowance/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -3510,7 +3476,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['post', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain that the SR1 form is completed by the clinician (GP, consultant, or specialist nurse), not the patient',
@@ -3561,7 +3526,6 @@ export const NODES: Record<string, ServiceNode> = {
       // application methods, and agentSteps below spell out the referral route.
       methods: ['phone', 'in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that CHC is fully NHS-funded — no means test and covers care home fees',
@@ -3608,11 +3572,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 16 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "any",
@@ -3651,7 +3613,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/pip/how-to-claim',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -3722,11 +3684,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 18 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "boolean",
@@ -3748,7 +3708,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -3818,11 +3778,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 18 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "boolean",
@@ -3845,7 +3803,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/jobseekers-allowance/apply-new-style-jsa',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check NI contribution record eligibility',
@@ -3893,7 +3850,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       keyQuestions: [
         'Does your health condition prevent you from working?',
-        'Do you have a fit note from your GP?',
+        'Do you have a fit note from a healthcare professional?',
         'Have you paid NI contributions in the last two tax years?',
       ],
       means_tested: false,
@@ -3937,7 +3894,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/employment-support-allowance/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check eligibility for New Style ESA',
@@ -4007,7 +3963,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/mandatory-reconsideration',
-      authRequired: 'none',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the Mandatory Reconsideration process and timeline',
@@ -4094,7 +4050,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/maternity-allowance/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility for Maternity Allowance vs SMP',
@@ -4171,13 +4126,6 @@ export const NODES: Record<string, ServiceNode> = {
                   "field": "has_children",
                   "expected": true,
                   "label": "Has children"
-                },
-                {
-                  "type": "comparison",
-                  "field": "youngest_child_age",
-                  "operator": "==",
-                  "value": 0,
-                  "label": "Baby under 1 year old"
                 }
               ]
             }
@@ -4312,10 +4260,9 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
+      methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/national-insurance-credits',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain how NI credits protect State Pension entitlement',
@@ -4350,7 +4297,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Person cared for receives enhanced rate PIP daily living and carer works fewer than 16 hours'],
       exclusions: ['Cannot claim if in full-time education (21+ hours/week).', 'Overlapping benefits rule — may not be payable in full alongside State Pension or other benefits.'],
       means_tested: false,
-      evidenceRequired: ['Evidence of caring role', 'Benefit award letter for person cared for', 'Income evidence if working'],
+      evidenceRequired: ['Benefit award letter for person cared for', 'Income evidence if working'],
       ruleIn: ['Caring 35+ hours per week', 'Person cared for receives qualifying disability benefit', 'Net earnings below £204/week'],
       ruleOut: ['In full-time education (21+ hours per week)'],      rules: [
         {
@@ -4398,7 +4345,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/carers-allowance/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using MissingBenefit API',
@@ -4489,7 +4435,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is on Universal Credit and eligible for Carer\'s Allowance',
@@ -4587,7 +4533,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/access-to-work/apply',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility for Access to Work grant',
@@ -4635,9 +4580,12 @@ export const NODES: Record<string, ServiceNode> = {
         'What is your current capability rating from DWP?',
       ],
       means_tested: true,
-      evidenceRequired: ['Fit note from GP (SC1 or equivalent)', 'Medical evidence for WCA (UC50 questionnaire)', 'Assessment appointment with health professional'],
+      evidenceRequired: ['Fit note if the condition affects capability for work for more than 7 days (some exceptions apply)', 'WCA50 capability for work questionnaire, if requested', 'Assessment appointment with health professional'],
       ruleIn: ['On Universal Credit', 'Health condition limits capacity for work'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.gov.uk/government/publications/wca50-form-capability-for-work-questionnaire',
+        'https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability',
+      ],      rules: [
         {
           "type": "dependency",
           "serviceId": "dwp-universal-credit",
@@ -4675,12 +4623,12 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/universal-credit/how-to-claim',
-      authRequired: 'government-gateway',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain fit note requirement and Work Capability Assessment process',
-        'Guide user to submit fit note via UC journal',
-        'Help prepare for UC50 questionnaire about health condition',
+        'Guide the person to report fit note details in their Universal Credit account',
+        'Help prepare for the WCA50 questionnaire if DWP asks for it',
         'Advise on gathering supporting medical evidence',
       ],
     },
@@ -4768,7 +4716,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/child-maintenance-service/apply',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain Child Maintenance Service options (Direct Pay vs Collect & Pay)',
@@ -4853,7 +4800,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-national-insurance-number',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check if user already has an NI number',
@@ -4889,7 +4835,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Anyone living in England can register with a GP practice. Practices must accept patients living in their area. Medical records transfer automatically from old practice.',
+      summary: 'Everyone in England can register with a GP surgery for free. A surgery may refuse your registration, for example if it is not accepting new patients. Your current surgery is told automatically once you\'re registered with a new one.',
       universal: true,
       criteria: [
         { factor: 'residency', description: 'Must live within the practice boundary (or a GP may agree to register out-of-area).' },
@@ -4909,7 +4855,6 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://digital.nhs.uk/developer/api-catalogue/register-with-a-gp-surgery',
       onlineFormUrl: 'https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/',
-      authRequired: 'nhs-login',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check which GP practices accept patients in the user\'s area',
@@ -5001,7 +4946,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.healthystart.nhs.uk/how-to-apply/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on benefits and pregnancy or child age',
@@ -5055,7 +4999,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Benefit award letter or FP92A medical exemption form signed by GP'],
       ruleIn: ['Receiving PIP, DLA, or qualifying medical condition', 'Under 16, or 60 and over'],
-      ruleOut: [],      rules: [
+      ruleOut: [],      sources: [
+        'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions',
+      ],
+      rules: [
         {
           "type": "any",
           "label": "Meets at least one free prescription criterion",
@@ -5118,7 +5065,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on benefits, age, or qualifying medical condition',
@@ -5170,7 +5116,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the care needs assessment process and what to expect',
@@ -5207,7 +5152,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have any medical conditions that must be declared to DVLA?',
       ],
       means_tested: false,
-      evidenceRequired: ['UK passport or other acceptable identity document', 'Address details', '£34 fee (online) or £43 fee (postal D1 form)'],
+      evidenceRequired: ['UK passport or other acceptable identity document', '£34 fee (online) or £43 fee (postal D1 form)'],
       ruleIn: ['Aged 15 years and 9 months or over', 'GB resident for 185+ days in last 12 months'],
       ruleOut: ['Cannot read number plate at 20 metres'],
       rules: [
@@ -5236,7 +5181,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check age eligibility (15 years 9 months to apply)',
         'Guide user through the online application on GOV.UK',
-        'Prepare document checklist (passport or birth certificate, address details)',
+        'Prepare document checklist (passport or birth certificate)',
         'Explain the £34 fee and expected processing time',
       ],
     },
@@ -5294,7 +5239,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/book-theory-test',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm provisional driving licence is held',
@@ -5354,7 +5298,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/book-driving-test',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm theory test pass certificate is valid (within 2 years)',
@@ -5447,7 +5390,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/change-name-driving-licence',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Guide user through the online name change application',
@@ -5500,7 +5442,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that Tell Us Once usually notifies DVLA automatically',
@@ -5563,7 +5504,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/report-driving-medical-condition',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Help user check if their condition is on the DVLA notifiable list',
@@ -5649,7 +5589,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['You do not need a SORN if you have already notified DVLA that you have sold the vehicle.'],
       means_tested: false,
-      evidenceRequired: ['Vehicle registration number', '11-digit reference from the V5C, or 16-digit reference from a tax reminder letter'],
+      evidenceRequired: ['11-digit reference from the V5C, or 16-digit reference from a tax reminder letter'],
       ruleIn: ['Registered keeper keeping vehicle off public roads'],
       ruleOut: ['Vehicle already sold (notify DVLA of sale instead)'],
     },
@@ -5791,7 +5731,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/applying-for-probate/apply-for-probate',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether probate is needed based on estate value and asset ownership',
@@ -5873,7 +5812,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/divorce/file-for-divorce',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility (married 1+ year, resident in England/Wales)',
@@ -5937,7 +5875,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the importance of a financial consent order before final divorce order',
@@ -6022,7 +5959,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/looking-after-children-divorce/apply-for-court-order',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether mediation (MIAM) has been attempted or an exemption applies',
@@ -6119,7 +6055,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/check-legal-aid',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility using the GOV.UK legal aid calculator',
@@ -6248,7 +6183,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/register-to-vote',
-      authRequired: 'none',
       agentCanComplete: 'full',
       agentSteps: [
         'Guide user through the Register to Vote online form',
@@ -6295,7 +6229,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-for-photo-id-voter-authority-certificate',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether user already has an accepted form of photo ID for voting',
@@ -6332,7 +6265,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the requirement to register for Council Tax at the new address',
@@ -6375,9 +6307,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check eligibility — only adult (18+) in the property',
@@ -6414,7 +6344,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you have savings above £6,000?',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of income and savings', 'Council Tax bill', 'Application to local authority'],
+      evidenceRequired: ['Proof of income and savings', 'Application to local authority'],
       ruleIn: ['Low income or receiving means-tested benefit', 'Liable for Council Tax at address'],
       ruleOut: [],      rules: [
         {
@@ -6432,13 +6362,6 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-pension-credit",
               "condition": "receiving",
               "label": "Receiving Pension Credit"
-            },
-            {
-              "type": "comparison",
-              "field": "weekly_income",
-              "operator": "<",
-              "value": 250,
-              "label": "Low weekly income"
             }
           ]
         }
@@ -6448,7 +6371,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       missingBenefitId: 'councilTaxReduction',
       agentSteps: [
@@ -6488,11 +6410,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Reached State Pension age or has a qualifying disability",
           "rules": [
             {
-              "type": "comparison",
-              "field": "age",
-              "operator": ">=",
-              "value": 66,
-              "label": "Reached State Pension age (66)"
+              "type": "state_pension_age",
+              "reached": true,
+              "label": "Must have reached State Pension age"
             },
             {
               "type": "boolean",
@@ -6508,7 +6428,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check eligibility based on State Pension age or qualifying disability',
@@ -6530,7 +6449,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Apply for school places through the local authority. Key deadlines: Primary Reception — 15 January; Secondary Year 7 — 31 October. Local catchment area affects admission chances.',
       universal: true,
       criteria: [
-        { factor: 'age', description: 'Child reaching compulsory school age: Reception at 4-5, Secondary at 11.' },
+        { factor: 'age', description: 'Most children start Reception in September after their fourth birthday. Full-time education becomes compulsory on 31 December, 31 March or 31 August on or after their fifth birthday, whichever comes first.' },
         { factor: 'geography', description: 'Local authority area determines which schools are offered. Catchment area, siblings, faith criteria vary by school.' },
       ],
       keyQuestions: [
@@ -6546,7 +6465,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the application deadlines (Primary: 15 Jan, Secondary: 31 Oct)',
@@ -6617,7 +6535,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on qualifying benefits (Universal Credit now qualifies regardless of income, from the 2026-27 academic year)',
@@ -6672,7 +6589,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the EHC plan assessment process and 20-week timeline',
@@ -6754,7 +6670,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-blue-badge',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check automatic eligibility (Enhanced Rate PIP mobility, DLA highest mobility)',
@@ -6820,7 +6735,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the Disabled Facilities Grant process and means test',
@@ -6871,7 +6785,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone', 'in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the carer\'s assessment process and what support may be available',
@@ -6910,7 +6823,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Is the property\'s rateable value under £12,000? (May qualify for 100% Small Business Relief.)',
       ],
       means_tested: false,
-      evidenceRequired: ['Business address', 'Date of occupation', 'Nature of business'],
+      evidenceRequired: ['Nature of business'],
       ruleIn: ['Occupying non-domestic premises for business purposes'],
       ruleOut: [],      rules: [
         {
@@ -6940,7 +6853,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain business rates liability and how rateable value is determined',
@@ -6993,7 +6905,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/guidance/food-business-registration',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Guide user through the food business registration process',
@@ -7369,7 +7280,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-to-come-to-the-uk',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Help user identify the correct visa category for their purpose',
@@ -7427,7 +7337,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/settled-status-eu-citizens-families/applying-for-settled-status',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on nationality and UK residence before 31 December 2020',
@@ -7449,59 +7358,6 @@ export const NODES: Record<string, ServiceNode> = {
           open: '09:30',
           close: '16:30',
         },
-      ],
-    },
-  },
-  'ho-brp': {
-    id: 'ho-brp', name: 'Biometric Residence Permit', dept: 'Home Office', deptKey: 'ho',
-    deadline: '10 days',
-    desc: 'Collect from post office within 10 days of arriving. Proves right to work and rent.',
-    govuk_url: 'https://www.gov.uk/biometric-residence-permits',
-    serviceType: 'document',
-    proactive: true,
-    gated: true,
-    eligibility: {
-      summary: 'Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.',
-      universal: false,
-      criteria: [
-        { factor: 'immigration', description: 'Granted a UK visa or leave to remain for more than 6 months.' },
-      ],
-      keyQuestions: [
-        'Has your visa been approved?',
-        'Which post office were you told to collect your BRP from?',
-        'Do you have your passport vignette sticker available?',
-      ],
-      autoQualifiers: ['Visa granted for over 6 months — BRP collection instructions given with visa'],
-      means_tested: false,
-      evidenceRequired: ['Passport containing visa vignette sticker', 'BRP collection letter or email from Home Office'],
-      ruleIn: ['Granted UK visa or leave to remain for 6+ months'],
-      ruleOut: [],      rules: [
-        {
-          "type": "dependency",
-          "serviceId": "ho-visa",
-          "condition": "completed",
-          "label": "Must have been granted a UK visa for 6+ months"
-        },
-        {
-          "type": "deadline",
-          "triggerEvent": "uk_arrival_date",
-          "triggerLabel": "Date of arrival in the UK",
-          "maxDays": 10,
-          "label": "Must collect BRP within 10 days of arriving in the UK"
-        }
-      ],
-
-    },
-    agentInteraction: {
-      methods: ['online', 'post'],
-      apiAvailable: false,
-      authRequired: 'none',
-      agentCanComplete: 'inform-only',
-      agentSteps: [
-        'Explain the BRP collection process and 10-day deadline',
-        'Help user identify their designated post office for collection',
-        'Advise on what to do if the BRP has not arrived or contains errors',
-        'Explain that BRP proves right to work and rent in the UK',
       ],
     },
   },
@@ -7551,7 +7407,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/life-in-the-uk-test',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility and exemptions (under 18, over 65, certain disabilities)',
@@ -7626,7 +7481,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/indefinite-leave-to-remain',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check qualifying period based on visa category',
@@ -7695,7 +7549,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility (12+ months ILR, 5 years UK residence, absences within limits)',
@@ -7837,7 +7690,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.lastingpowerofattorney.service.gov.uk/start',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the two types of LPA (Property & Financial Affairs, Health & Welfare)',
@@ -7895,7 +7748,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that attorneys must notify OPG when the LPA donor dies',
@@ -7943,7 +7795,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: true,
       apiUrl: 'https://landregistry.github.io/bg-dev-pack-redesign/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the Land Registry registration process and that it is typically handled by a solicitor',
@@ -7983,7 +7834,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/changing-passport-information',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Guide user through the online passport renewal with name change',
@@ -8058,7 +7908,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/free-discount-tv-licence',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       missingBenefitId: 'tvLicence',
       agentSteps: [
@@ -8128,9 +7977,8 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['phone'],
+      methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check eligibility (Enhanced Rate PIP mobility with 12+ months remaining)',
@@ -8227,7 +8075,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.railcard.co.uk/disabled-persons-railcard/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on disability benefits or qualifying conditions',
@@ -8294,7 +8141,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the legal requirement for employers\' liability insurance',
@@ -8349,7 +8195,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/request-copy-criminal-record',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the three levels of DBS check (Basic, Standard, Enhanced)',
@@ -8405,7 +8250,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/prove-right-to-work',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the right to work check process for employers and employees',
@@ -8470,7 +8314,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that Pupil Premium is funding paid directly to the school',
@@ -8539,7 +8382,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/claim-redundancy',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility (2+ years continuous employment, compulsory redundancy)',
@@ -8605,7 +8447,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the statutory right to 5 days unpaid carer\'s leave per year',
@@ -8673,7 +8514,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/affordable-home-ownership-schemes/help-to-buy-equity-loan',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility (first-time buyer, income caps, property price limits)',
@@ -8726,7 +8566,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain the auto-enrolment obligation for employers',
@@ -8768,13 +8607,6 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 18,
-          "label": "Must be at least 18 years old"
-        },
-        {
           "type": "boolean",
           "field": "is_uk_resident",
           "expected": true,
@@ -8795,7 +8627,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/student-finance/how-to-apply',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on residency and course requirements',
@@ -8837,11 +8668,9 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: ['State Pension age', 'Renting', 'Low income/savings'],
       ruleOut: ['Working age (claim UC instead)', 'Homeowner', 'Savings over £16,000'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         },
         {
           "type": "not",
@@ -8869,7 +8698,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/housing-benefit/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check whether user is pension age or working age (working age = UC instead)',
@@ -8956,7 +8784,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/the-warm-home-discount-scheme',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check if user gets Pension Credit (core group, usually automatic)',
@@ -9013,7 +8840,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of income', 'Bank statements showing savings', 'National Insurance number', 'Details of housing costs'],
       ruleIn: ['Low income', 'Not entitled via another exemption', 'Savings under £16,000'],
-      ruleOut: ['Capital over £16,000', 'Already has automatic NHS exemption'],      rules: [
+      ruleOut: ['Capital over £16,000', 'Already has automatic NHS exemption'],      sources: [
+        'https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions',
+      ],
+      rules: [
         {
           "type": "boolean",
           "field": "is_uk_resident",
@@ -9059,7 +8889,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.nhsbsa.nhs.uk/nhs-low-income-scheme',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether user already qualifies for free NHS services via another route',
@@ -9161,7 +8990,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/scottish-child-payment',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Scotland and has a child under 16',
@@ -9273,7 +9101,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/carer-support-payment',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Scotland and provides 35+ hours care/week',
@@ -9346,7 +9173,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: [],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
@@ -9369,77 +9196,62 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-child-winter-heating': {
     id: 'sss-child-winter-heating', name: 'Child Winter Heating Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: '£265.50 a year, paid from October, to help disabled children and young people in Scotland and their families with winter heating costs. Automatic — no application needed. Formerly Child Winter Heating Assistance.',
+    desc: '£265.50 a year to help disabled children and young people with winter heating costs. Eligible children in Scotland are paid automatically; those who qualify from abroad must apply. Formerly Child Winter Heating Assistance.',
     govuk_url: 'https://www.mygov.scot/child-winter-heating-payment',
     serviceType: 'benefit',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Annual payment of £265.50 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.',
+      summary: 'Annual payment of £265.50 for eligible children and young people under 19 receiving the qualifying rate of Child Disability Payment, DLA for children, PIP or Adult Disability Payment. Payment is automatic for those living in Scotland; some people abroad can qualify but must apply.',
       universal: false,
       criteria: [
-        { factor: 'disability', description: 'Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).' },
-        { factor: 'age', description: 'Child must be under 16 (or under 19 if still in qualifying education).' },
-        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'disability', description: 'Must receive the highest care rate of Child Disability Payment or DLA for children, or the enhanced daily living rate of PIP or Adult Disability Payment, during the qualifying week.' },
+        { factor: 'age', description: 'Must be under 19.' },
+        { factor: 'geography', description: 'Usually lives in Scotland; a young person in an eligible EEA country or Switzerland may qualify with a genuine and sufficient link to Scotland.' },
       ],
       keyQuestions: [
-        'Does the child live in Scotland?',
-        'Does the child receive the highest rate care component of Child Disability Payment or DLA?',
+        'Does the young person live in Scotland or have an eligible link to Scotland from abroad?',
+        'Does the young person receive a qualifying disability benefit at the required rate?',
       ],
-      autoQualifiers: ['Child on highest-rate CDP/DLA care in Scotland — paid automatically'],
+      autoQualifiers: ['Eligible young person living in Scotland and receiving a qualifying disability award — paid automatically'],
       means_tested: false,
-      ruleIn: ['Child on highest-rate care component', 'Lives in Scotland'],
-      ruleOut: ['Child not on highest-rate care', 'Does not live in Scotland'],      rules: [
+      ruleIn: ['Under 19 with a qualifying disability award at the required rate', 'Lives in Scotland or meets the limited abroad exception'],
+      ruleOut: ['No qualifying disability award at the required rate', 'Does not live in Scotland or an eligible country abroad'],      sources: [
+        'https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment',
+      ],
+      rules: [
         {
-          "type": "enum",
-          "field": "nation",
-          "oneOf": [
-            "scotland"
-          ],
-          "label": "Must live in Scotland"
-        },
-        {
-          "type": "boolean",
-          "field": "has_children",
-          "expected": true,
-          "label": "Must have a child"
-        },
-        {
-          "type": "comparison",
-          "field": "youngest_child_age",
-          "operator": "<",
-          "value": 16,
-          "label": "Child must be under 16 (or under 19 in qualifying education)"
+          "type": "any",
+          "label": "Lives in Scotland or meets the Child Winter Heating abroad exception",
+          "rules": [
+            { "type": "enum", "field": "nation", "oneOf": ["scotland"], "label": "Lives in Scotland" },
+            { "type": "boolean", "field": "custom_facts.child_winter_heating_abroad_exception", "expected": true, "label": "Eligible country abroad with a sufficient link to Scotland" }
+          ]
         },
         {
           "type": "any",
-          "label": "Child must receive highest-rate care component of Child Disability Payment or DLA",
+          "label": "Qualifying person is under 19",
           "rules": [
-            {
-              "type": "dependency",
-              "serviceId": "sss-child-disability-payment",
-              "condition": "receiving",
-              "label": "Receiving Child Disability Payment (highest care)"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-dla-child",
-              "condition": "receiving",
-              "label": "Receiving DLA Child (highest care rate)"
-            }
+            { "type": "comparison", "field": "age", "operator": "<", "value": 19, "label": "Young person applying is under 19" },
+            { "type": "comparison", "field": "youngest_child_age", "operator": "<", "value": 19, "label": "Child is under 19" }
           ]
+        },
+        {
+          "type": "boolean",
+          "field": "custom_facts.child_winter_heating_qualifying_award",
+          "expected": true,
+          "label": "Young person has a qualifying disability award at the required rate during the qualifying week"
         }
       ],
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['phone', 'post'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
-        'Confirm child lives in Scotland and receives highest-rate care component',
-        'Explain that payment is automatic — no application needed',
+        'Check age, qualifying award and whether the person lives in Scotland or meets the abroad exception',
+        'Explain that payment is automatic in Scotland, while eligible people abroad apply by phone or post',
         'Advise on payment timing (annual, during winter)',
         'Explain the payment amount (£265.50)',
       ],
@@ -9475,7 +9287,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you live alone or with another qualifying person?',
       ],
       means_tested: false,
-      evidenceRequired: ['Proof of age', 'Proof of Scottish residency'],
+      evidenceRequired: [],
       ruleIn: ['State Pension age', 'Lives in Scotland'],
       ruleOut: ['Under State Pension age', 'Does not live in Scotland'],      sources: [
         'https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid',
@@ -9490,11 +9302,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must live in Scotland"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 66,
-          "label": "Must have reached State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": true,
+          "label": "Must have reached State Pension age"
         }
       ],
 
@@ -9503,7 +9313,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/pension-age-winter-heating-payment',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is pension age and lives in Scotland',
@@ -9524,13 +9333,13 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-funeral-support-payment': {
     id: 'sss-funeral-support-payment', name: 'Funeral Support Payment', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Usually covers burial, cremation or hydrolysis costs in Scotland, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.',
+    desc: 'Helps with funeral costs in Scotland, including funerals for babies and children. For a person aged 18 or over, it usually covers burial, cremation or hydrolysis costs, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.',
     govuk_url: 'https://www.mygov.scot/funeral-support-payment',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Help with funeral costs in Scotland for people on qualifying benefits. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
+      summary: 'Help with funeral costs in Scotland for people receiving a qualifying benefit. People awaiting a decision on a qualifying benefit may apply, but Social Security Scotland decides their Funeral Support Payment after the benefit decision. For a funeral of someone aged 18 or over, it usually covers burial, cremation or hydrolysis in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and can help with travel, transport, document and medical costs. It also helps with funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Must be responsible for arranging or paying for a funeral.' },
@@ -9540,14 +9349,13 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you responsible for paying for the funeral?',
-        'Do you receive a qualifying benefit?',
+        'Do you receive a qualifying benefit, or are you awaiting a decision on one?',
         'When did the death occur? (Must apply within 6 months.)',
       ],
-      exclusions: ['Not on a qualifying benefit', 'Another close relative could reasonably pay'],
       means_tested: true,
       evidenceRequired: ['Death certificate', 'Funeral director\'s invoice', 'Proof of qualifying benefit'],
-      ruleIn: ['Responsible for funeral costs', 'On qualifying benefit', 'Lives in Scotland'],
-      ruleOut: ['Not on qualifying benefit', 'Another close relative could pay', 'Does not live in Scotland'],      rules: [
+      ruleIn: ['Responsible for funeral costs', 'Qualifying benefit awarded or application pending', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -9564,7 +9372,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit",
+          "label": "Receives a qualifying benefit or awaits a decision on one",
           "rules": [
             {
               "type": "dependency",
@@ -9583,6 +9391,18 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-housing-benefit",
               "condition": "receiving",
               "label": "Receiving Housing Benefit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.funeral_qualifying_benefit_pending",
+              "expected": true,
+              "label": "Awaiting a decision on a qualifying benefit"
+            },
+            {
+              "type": "boolean",
+              "field": "custom_facts.receives_other_funeral_qualifying_benefit",
+              "expected": true,
+              "label": "Receiving another listed qualifying benefit"
             }
           ]
         }
@@ -9593,11 +9413,10 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/funeral-support-payment',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Scotland and is responsible for funeral costs',
-        'Verify user receives a qualifying benefit',
+        'Check whether a qualifying benefit is awarded or an application is pending',
         'Guide user through the mygov.scot application',
         'Explain the 6-month application deadline',
         'Advise on maximum amounts (£1,327.75 towards funeral costs, £162.05 if there was a funeral plan)',
@@ -9660,7 +9479,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Wales, gets Council Tax Reduction and heats with oil or LPG',
@@ -9729,13 +9547,6 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-pension-credit",
               "condition": "receiving",
               "label": "Receiving Pension Credit"
-            },
-            {
-              "type": "comparison",
-              "field": "weekly_income",
-              "operator": "<",
-              "value": 250,
-              "label": "Low weekly income"
             }
           ]
         }
@@ -9746,7 +9557,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.nidirect.gov.uk/articles/applying-rate-rebate',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Northern Ireland and is liable for domestic rates',
@@ -9846,7 +9657,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.nidirect.gov.uk/articles/discretionary-support',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Northern Ireland and is in financial crisis',
@@ -9935,7 +9745,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/disability-living-allowance-children/how-to-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Request a DLA child claim form by phone or download it',
@@ -10010,9 +9819,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain qualifying property features (extra room, bathroom, wheelchair space)',
@@ -10089,7 +9896,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Identify user\'s current broadband provider',
@@ -10195,7 +10001,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Determine which exemption category the user falls into',
@@ -10338,7 +10143,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Determine which exemption category the user falls into',
@@ -10389,11 +10193,13 @@ export const NODES: Record<string, ServiceNode> = {
         'How long have you been receiving the qualifying benefit?',
         'Do you understand this is a loan secured against your property?',
       ],
-      exclusions: ['Renting (not a homeowner)', 'UC with earnings above threshold', 'Not on qualifying benefit for required duration'],
+      exclusions: ['Renting (not a homeowner)', 'Not on qualifying benefit for required duration'],
       means_tested: true,
       evidenceRequired: ['Mortgage statement', 'Proof of qualifying benefit', 'Consent to charge on property'],
       ruleIn: ['Homeowner with mortgage', 'On UC 3+ months, Pension Credit, or income-related ESA 39+ weeks'],
-      ruleOut: ['Renting', 'Not on qualifying benefit', 'UC with earnings above threshold'],      rules: [
+      ruleOut: ['Renting', 'Not on qualifying benefit'],      sources: [
+        'https://www.gov.uk/government/publications/managed-payments-to-mortgage-lenders-information-for-lenders/managed-payments-to-mortgage-lenders-information-for-lenders',
+      ],      rules: [
         {
           "type": "boolean",
           "field": "is_homeowner",
@@ -10436,7 +10242,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['phone'],
       apiAvailable: false,
-      authRequired: 'none',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check user is a homeowner on a qualifying benefit for the required duration',
@@ -10533,7 +10339,7 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: [],
       apiAvailable: false,
       authRequired: 'none',
       agentCanComplete: 'inform-only',
@@ -10618,7 +10424,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/financial-help-disabled/vehicles-and-transport',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Verify user receives PIP enhanced mobility or DLA higher-rate mobility',
@@ -10737,7 +10542,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/get-help-with-court-fees',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Determine whether user qualifies for full or partial remission',
@@ -10798,7 +10602,6 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['in-person'],
       apiAvailable: false,
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Advise user to ask midwife or GP for a maternity exemption form',
@@ -10941,7 +10744,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['in-person', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on benefit receipt or child\'s needs',
@@ -11002,7 +10804,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/childcare-grant/how-to-claim',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check student is full-time and has children in registered childcare',
@@ -11025,29 +10826,29 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-grant': {
     id: 'sss-best-start-grant', name: 'Best Start Grant', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Three one-off payments for families on qualifying benefits in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).',
+    desc: 'Three types of payment for eligible families in Scotland: Pregnancy and Baby Payment (usually £796.65 for a first child and £398.35 for a later child, with exceptions), Early Learning Payment (£331.95), and School Age Payment (£331.95).',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'grant',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school. Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.',
+      summary: 'Three types of payment in Scotland for eligible families. Normally the applicant or partner needs a qualifying benefit, but people under 18 and some 18- or 19-year-olds can qualify without one; an application can also be made while a benefit decision is pending. Pregnancy and Baby Payment is usually £796.65 for a first child and £398.35 for a later child, with a higher amount possible for some later children. The usual claim window runs from the end of the 24th week of pregnancy until the baby is 6 months old, with different dates for premature birth and taking over care. You can also apply after a stillbirth or death, up to 6 months after the birth. Early Learning Payment (£331.95) is available between ages 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be responsible for a child (or pregnant for the first payment).' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.' },
+        { factor: 'income', description: 'Normally you or your partner must get Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support or Housing Benefit. You can apply while awaiting a decision on one. Under-18s need no qualifying benefit; some 18- or 19-year-olds without one can qualify through a parent or carer.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you pregnant or do you have a young child?',
-        'Do you receive a qualifying benefit?',
+        'Do you or your partner receive or await a qualifying benefit, or are you under 20?',
         'Which payment are you applying for (pregnancy, early learning, or school age)?',
       ],
       means_tested: true,
-      evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age', 'Proof of Scottish residency'],
-      ruleIn: ['Pregnant or has young child', 'On qualifying benefit', 'Lives in Scotland'],
-      ruleOut: ['Does not live in Scotland', 'Not on qualifying benefit'],      rules: [
+      evidenceRequired: ['Proof of qualifying benefit'],
+      ruleIn: ['Pregnant or has young child', 'Qualifying benefit or age-related exception', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11076,7 +10877,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit",
+          "label": "Qualifying benefit or an age or pending-claim exception",
           "rules": [
             {
               "type": "dependency",
@@ -11095,7 +10896,9 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-housing-benefit",
               "condition": "receiving",
               "label": "Receiving Housing Benefit"
-            }
+            },
+            { "type": "comparison", "field": "age", "operator": "<", "value": 18, "label": "Applicant is under 18" },
+            { "type": "boolean", "field": "custom_facts.best_start_eligible_exception", "expected": true, "label": "Qualifies through an under-20, pending-benefit or other published exception" }
           ]
         }
       ],
@@ -11105,11 +10908,10 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/best-start-grant-best-start-foods',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Determine which of the three payments the user can apply for',
-        'Confirm user lives in Scotland and is on a qualifying benefit',
+        'Check Scottish residence and whether a qualifying benefit or exception applies',
         'Guide user through the mygov.scot application',
         'Explain application deadlines for each payment',
         'Advise on the higher rate for first child (pregnancy payment)',
@@ -11126,28 +10928,28 @@ export const NODES: Record<string, ServiceNode> = {
   'sss-best-start-foods': {
     id: 'sss-best-start-foods', name: 'Best Start Foods', dept: 'Social Security Scotland', deptKey: 'sss',
     deadline: null,
-    desc: 'Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, £22.40 per child aged 1 to 3. Scotland only.',
+    desc: 'Prepaid card topped up every 4 weeks for healthy food: £22.40 during pregnancy, £44.80 per child under 1, then usually £22.40 per child aged 1 to under 3. If a baby is born early, the higher rate lasts until one year after the due date. Scotland only.',
     govuk_url: 'https://www.mygov.scot/best-start-grant-best-start-foods',
     serviceType: 'benefit',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit. Some families with no access to public funds can also get it.',
+      summary: 'Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, then usually £22.40 for each child aged 1 to under 3. If a baby is born early, the higher rate lasts until one year after the due date. Usually requires a qualifying benefit, but under-18s, some 18- or 19-year-olds and some families with no access to public funds can qualify without one.',
       universal: false,
       criteria: [
         { factor: 'family', description: 'Must be pregnant or responsible for a child under 3.' },
-        { factor: 'income', description: 'Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.' },
+        { factor: 'income', description: 'Normally you or your partner must get Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support or Housing Benefit. You can apply while awaiting a decision on one. Under-18s need no qualifying benefit; some 18- or 19-year-olds without one can qualify through a parent or carer.' },
         { factor: 'geography', description: 'Must live in Scotland.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
         'Are you pregnant or do you have a child under 3?',
-        'Do you receive a qualifying benefit?',
+        'Do you or your partner receive or await a qualifying benefit, or are you under 20?',
       ],
       means_tested: true,
       evidenceRequired: ['Proof of qualifying benefit', 'Proof of pregnancy or child\'s age'],
-      ruleIn: ['Pregnant or child under 3', 'On qualifying benefit', 'Lives in Scotland'],
-      ruleOut: ['Does not live in Scotland', 'Not on qualifying benefit', 'Child over 3'],      rules: [
+      ruleIn: ['Pregnant or child under 3', 'Qualifying benefit or published exception', 'Lives in Scotland'],
+      ruleOut: ['Does not live in Scotland', 'Child over 3'],      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11189,7 +10991,7 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "any",
-          "label": "Must be receiving a qualifying benefit",
+          "label": "Qualifying benefit or an age or pending-claim exception",
           "rules": [
             {
               "type": "dependency",
@@ -11202,7 +11004,9 @@ export const NODES: Record<string, ServiceNode> = {
               "serviceId": "dwp-pension-credit",
               "condition": "receiving",
               "label": "Receiving Pension Credit"
-            }
+            },
+            { "type": "comparison", "field": "age", "operator": "<", "value": 18, "label": "Applicant is under 18" },
+            { "type": "boolean", "field": "custom_facts.best_start_eligible_exception", "expected": true, "label": "Qualifies through an under-20, pending-benefit or other published exception" }
           ]
         }
       ],
@@ -11212,11 +11016,10 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/best-start-grant-best-start-foods',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is pregnant or has a child under 3 in Scotland',
-        'Verify user receives a qualifying benefit',
+        'Check whether a qualifying benefit or published exception applies',
         'Guide user through the mygov.scot application',
         'Explain the prepaid card system and eligible food items',
       ],
@@ -11253,9 +11056,12 @@ export const NODES: Record<string, ServiceNode> = {
         'Is it expected to last at least 9 more months?',
       ],
       means_tested: false,
-      evidenceRequired: ['Medical evidence of condition', 'Details of how condition affects daily life', 'GP or consultant details'],
+      evidenceRequired: ['Medical evidence of condition', 'Details of how condition affects daily life'],
       ruleIn: ['Aged 16 to State Pension age', 'Long-term condition affecting daily living/mobility', 'Lives in Scotland'],
-      ruleOut: ['Under 16 (claim CDP instead)', 'Over State Pension age (claim AA instead)', 'Does not live in Scotland'],      rules: [
+      ruleOut: ['Under 16 (claim CDP instead)', 'Over State Pension age (claim AA instead)', 'Does not live in Scotland'],      sources: [
+        'https://www.mygov.scot/adult-disability-payment/applicants',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11272,11 +11078,9 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must be aged 16 or over"
         },
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": "<",
-          "value": 66,
-          "label": "Must be under State Pension age (66)"
+          "type": "state_pension_age",
+          "reached": false,
+          "label": "Must be under State Pension age"
         },
         {
           "type": "any",
@@ -11309,7 +11113,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/adult-disability-payment',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user lives in Scotland and is aged 16 to State Pension age',
@@ -11341,7 +11144,7 @@ export const NODES: Record<string, ServiceNode> = {
       criteria: [
         { factor: 'age', description: 'Child must be under 16.' },
         { factor: 'disability', description: 'Child must have a physical or mental disability requiring substantially more care or supervision than a child of the same age, or have difficulty walking.' },
-        { factor: 'geography', description: 'Must live in Scotland.' },
+        { factor: 'geography', description: 'Usually lives in Scotland; a child in the EEA, Switzerland or Gibraltar may qualify with a genuine and sufficient link to Scotland if the UK is responsible for the benefit.' },
       ],
       keyQuestions: [
         'Does the child live in Scotland?',
@@ -11350,18 +11153,18 @@ export const NODES: Record<string, ServiceNode> = {
         'Does the child need more care or supervision than other children the same age?',
         'Does the child have difficulty walking?',
       ],
-      exclusions: ['Child 16 or over (claim Adult Disability Payment)', 'Does not live in Scotland'],
+      exclusions: ['Child 16 or over (claim Adult Disability Payment)', 'Child outside Scotland without the qualifying EEA, Swiss or Gibraltar link'],
       means_tested: false,
       evidenceRequired: ['Medical evidence of disability or condition', 'Details of care and supervision needs', 'GP or consultant reports'],
-      ruleIn: ['Child under 16', 'Disability requiring extra care', 'Lives in Scotland'],
-      ruleOut: ['Child 16 or over', 'Does not live in Scotland', 'No extra care needs above same-age child'],      rules: [
+      ruleIn: ['Child under 16', 'Disability requiring extra care', 'Lives in Scotland or meets the limited abroad exception'],
+      ruleOut: ['Child 16 or over', 'No qualifying Scottish or abroad link', 'No extra care needs above same-age child'],      rules: [
         {
-          "type": "enum",
-          "field": "nation",
-          "oneOf": [
-            "scotland"
-          ],
-          "label": "Must live in Scotland"
+          "type": "any",
+          "label": "Child lives in Scotland or meets the Child Disability Payment abroad exception",
+          "rules": [
+            { "type": "enum", "field": "nation", "oneOf": ["scotland"], "label": "Lives in Scotland" },
+            { "type": "boolean", "field": "custom_facts.child_disability_payment_abroad_exception", "expected": true, "label": "EEA, Swiss or Gibraltar child with sufficient Scottish link and UK responsibility" }
+          ]
         },
         {
           "type": "boolean",
@@ -11389,10 +11192,9 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/child-disability-payment',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Confirm child lives in Scotland and is under 16',
+        'Check the child is under 16 and lives in Scotland or meets the limited abroad exception',
         'Explain the care and mobility components and rates',
         'Help describe the child\'s care needs in the application',
         'Guide user through the mygov.scot application',
@@ -11507,7 +11309,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/young-carer-grant',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm applicant is aged 16–18 and lives in Scotland',
@@ -11553,7 +11354,10 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       evidenceRequired: ['Proof of identity', 'Proof of Welsh residency', 'Details of the emergency or need'],
       ruleIn: ['Financial hardship', 'Lives in Wales', 'Aged 16+'],
-      ruleOut: ['Does not live in Wales', 'Under 16', 'Exceeded annual application limit'],      rules: [
+      ruleOut: ['Does not live in Wales', 'Under 16', 'Exceeded annual application limit'],      sources: [
+        'https://www.gov.wales/discretionary-assistance-fund-daf/eligibility',
+      ],
+      rules: [
         {
           "type": "enum",
           "field": "nation",
@@ -11576,7 +11380,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.wales/discretionary-assistance-fund-daf',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Determine whether user needs Emergency Assistance or Individual Assistance',
@@ -11657,7 +11460,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.passport.service.gov.uk/filter',
-      authRequired: 'gov-uk-verify',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether this is a first application, renewal or replacement',
@@ -11696,7 +11498,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['in-person'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/get-a-passport-urgently',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Confirm travel date to determine which urgent service is needed',
@@ -11730,7 +11531,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/report-a-lost-or-stolen-passport',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Direct user to cancel their passport online immediately',
@@ -11768,7 +11568,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['in-person'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/emergency-travel-document',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Confirm user is outside the UK',
@@ -11804,7 +11603,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/get-document-legalised',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether the destination country is in the Hague Apostille Convention',
@@ -11844,7 +11642,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.tax.service.gov.uk/help-to-save/access-account',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm eligibility via UC or WTC receipt',
@@ -11887,7 +11684,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.apply-budgeting-loan.service.gov.uk',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user is on a qualifying legacy benefit (not UC)',
@@ -11912,37 +11708,35 @@ export const NODES: Record<string, ServiceNode> = {
   },
 
   'hmrc-tax-credits': {
-    id: 'hmrc-tax-credits', name: 'Tax credits (ended April 2025)', dept: 'HMRC', deptKey: 'hmrc',
+    id: 'hmrc-tax-credits', name: 'Finalise a tax credits award', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
     desc: 'Child Tax Credit and Working Tax Credit ended on 5 April 2025. No new claims are possible; former claimants may need to finalise their last award, and may be able to get Universal Credit or Pension Credit instead.',
     govuk_url: 'https://www.gov.uk/tax-credits-have-ended',
-    serviceType: 'benefit',
+    serviceType: 'information',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Tax credits ended on 5 April 2025 and no new claims can be made. Former claimants get an Annual Review letter showing what was paid up to 5 April 2025 and must check it is correct (finalising). Families and working people on low incomes should look at Universal Credit, or Pension Credit if over State Pension age.',
+      summary: 'Tax credits ended on 5 April 2025. Former claimants should check the Annual Review letter for their final award. If information in it is wrong, they must contact HMRC by the deadline in the letter. Universal Credit or Pension Credit may be available instead.',
       universal: false,
       criteria: [
-        { factor: 'income', description: 'Income must be below the relevant threshold (varies by household type and hours worked).' },
-        { factor: 'employment', description: 'Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).' },
-        { factor: 'family', description: 'Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).' },
+        { factor: 'dependency', description: 'Had a tax credits award before tax credits ended and has an Annual Review letter to check.' },
       ],
       keyQuestions: [
-        'Is the user already claiming Tax Credits?',
-        'Have they been asked to migrate to Universal Credit?',
-        'Do they have children or are they working on a low income?',
+        'Did you receive tax credits before they ended?',
+        'Have you received your Annual Review letter?',
+        'Is any information in the letter incorrect?',
       ],
-      autoQualifiers: ['Already receiving Tax Credits and not yet migrated to UC'],
-      exclusions: ['New claimants must use Universal Credit — Tax Credits is closed to new applications'],
-      means_tested: true,
-      ruleIn: ['Existing Tax Credits claimant', 'Low income with children or working low-income adult'],
-      ruleOut: ['New claimant — must apply for Universal Credit instead', 'Income too high for eligibility'],
+      means_tested: false,
+      ruleIn: ['Former tax credits claimant with an Annual Review letter'],
+      ruleOut: [],
+      sources: [
+        'https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries',
+        'https://www.gov.uk/hmrc-internal-manuals/tax-credits-manual/tcm0042280',
+      ],
     },
     agentInteraction: {
-      methods: ['online', 'phone'],
+      methods: ['phone', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/tax-credits-have-ended',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain that tax credits ended on 5 April 2025 and no new claims are possible',
@@ -12022,7 +11816,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.findpensioncontacts.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Ask user for former employer names and approximate dates of employment',
@@ -12058,7 +11851,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/benefit-overpayments/how-to-make-a-repayment',
-      authRequired: 'none',
+      authRequired: 'universal-credit-account',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain automatic deduction if user is still on benefits',
@@ -12104,7 +11897,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://send-fit-note.service.gov.uk?lang=en',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user has a current fit note from a healthcare provider',
@@ -12143,7 +11935,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://buy-prescription-prepayment-certificate.nhsbsa.nhs.uk/start',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check user is not already exempt from prescription charges',
@@ -12190,7 +11981,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.acas.org.uk/early-conciliation',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the nature and date of the dispute',
@@ -12230,7 +12020,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://employmenttribunals.service.gov.uk',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm Acas early conciliation has been completed and EC certificate obtained',
@@ -12265,7 +12054,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.jobs.service.gov.uk/jobs',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Ask about job type, location and skills to narrow search',
@@ -12307,7 +12095,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://apply-for-bankruptcy.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain consequences of bankruptcy (credit record, property, employment)',
@@ -12357,7 +12145,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that a debt adviser (not the individual) must apply for breathing space',
@@ -12394,17 +12181,16 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: true,
       ruleIn: ['Debts under £50,000', 'Surplus income under £75/month', 'Assets under £2,000'],
       ruleOut: ['Debts of £50,000 or more', 'Assets over £2,000 (excluding car up to £4,000)', 'Homeowner'],
+      sources: ['https://www.gov.uk/guidance/how-to-get-a-debt-relief-order-dro'],
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['via-adviser'],
       apiAvailable: false,
-      onlineFormUrl: 'https://apply-for-debt-relief-order.service.gov.uk',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check the three qualifying thresholds (debt, income, assets)',
-        'Advise that an authorised intermediary must be used to apply',
-        'Direct to approved DRO intermediaries (StepChange, Citizens Advice)',
+        'Explain that only an approved intermediary can submit the application',
+        'Direct the person to an approved debt adviser to start the DRO process',
       ],
     },
     nations: ['england', 'wales'],
@@ -12412,7 +12198,7 @@ export const NODES: Record<string, ServiceNode> = {
 
   'hmcts-money-claims': {
     id: 'hmcts-money-claims', name: 'Money Claims Online', dept: 'HMCTS', deptKey: 'hmcts',
-    deadline: '6 years from debt arising',
+    deadline: null,
     desc: 'Make a court claim online to recover money owed (up to £100,000) through the small claims or fast-track court process.',
     govuk_url: 'https://www.gov.uk/make-court-claim-for-money',
     serviceType: 'legal_process',
@@ -12435,7 +12221,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/make-court-claim-for-money/make-claim',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Advise sending a formal letter before action first',
@@ -12467,7 +12252,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/pay-court-fine-online',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Ask for the fine reference number from the court notice',
@@ -12504,7 +12288,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/tax-tribunal',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the 30-day deadline has not passed',
@@ -12541,7 +12324,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/immigration-asylum-tribunal',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the refusal letter grants a right of appeal',
@@ -12581,7 +12364,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/appeal-planning-decision',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Identify the type of planning appeal and applicable time limit',
@@ -12615,7 +12397,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/find-unclaimed-court-money',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Search the register using the user\'s name and case details',
@@ -12648,7 +12429,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/reply-jury-summons',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm receipt of summons and response deadline',
@@ -12685,7 +12465,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/prison-visits',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the visitor is on the prisoner\'s approved list',
@@ -12721,7 +12500,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/power-of-attorney-refund',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether the LPA/EPA was registered in the qualifying period',
@@ -12758,7 +12536,7 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://use-land-property-data.service.gov.uk/datasets',
       onlineFormUrl: 'https://search-property-information.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Search by address to find the title number',
@@ -12793,7 +12571,6 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://epc.opendatacommunities.org/docs/api',
       onlineFormUrl: 'https://find-energy-certificate.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Search the EPC register by address',
@@ -12829,7 +12606,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed',
-      authRequired: 'gov-uk-one-login',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Confirm whether the lender participates in the digital mortgage service',
@@ -12864,7 +12640,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://search-local-land-charges.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the property address',
@@ -12899,7 +12675,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://check-long-term-flood-risk.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Search by postcode or address',
@@ -12933,7 +12708,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/council-tax-bands',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Look up the council tax band for the property',
@@ -12971,7 +12745,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/correct-your-business-rates',
-      authRequired: 'government-gateway',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Look up the property\'s current rateable value on the VOA website',
@@ -13009,7 +12782,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://apply-to-visit-or-stay-in-the-uk.homeoffice.gov.uk/sort/start/sar_in_uk',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the user has leave to remain in the UK',
@@ -13046,7 +12819,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://view-immigration-status.service.gov.uk/status',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user has a UKVI account',
@@ -13087,7 +12860,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/apply',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the employer holds a sponsor licence',
@@ -13101,7 +12874,7 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-skilled-worker-dependent-visa': {
     id: 'ho-skilled-worker-dependent-visa', name: 'Skilled Worker dependant visa',
     dept: 'Home Office', deptKey: 'ho',
-    deadline: 'Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)',
+    deadline: null,
     desc: 'Family members (partner and children under 18) of a Skilled Worker visa holder can apply to join them in the UK as dependants. They can work and study without restriction.',
     govuk_url: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
     serviceType: 'application',
@@ -13122,7 +12895,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Has Skilled Worker visa'],
       exclusions: ['Children aged 18 or over must apply in their own right, unless they already have permission to be in the UK as your dependant'],
       means_tested: false,
-      evidenceRequired: ['Main applicant\'s visa or BRP', 'Marriage or civil partnership certificate', 'Children\'s birth certificates', 'Proof of relationship for unmarried partners'],
+      evidenceRequired: ['Marriage or civil partnership certificate', 'Children\'s birth certificates', 'Proof of relationship for unmarried partners'],
       ruleIn: ['Holds a valid Skilled Worker visa', 'Has a partner or children under 18 wanting to join them'],
       ruleOut: ['No eligible dependants', 'Child is 18 or over'],
     },
@@ -13130,7 +12903,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/skilled-worker-visa/your-partner-and-children',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm which family members qualify as dependants',
@@ -13169,7 +12942,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/student-visa/apply',
-      authRequired: 'none',
+      authRequired: 'ukvi-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the educational institution is a licensed sponsor',
@@ -13207,7 +12980,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/visa-fee-waiver-in-uk',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check the visa type is eligible for a fee waiver',
@@ -13244,7 +13016,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/immigration-asylum-tribunal',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Check the refusal letter for the right of appeal and deadline',
@@ -13280,7 +13052,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/contact-ukvi-inside-outside-uk',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Identify the specific EUSS issue',
@@ -13314,7 +13085,6 @@ export const NODES: Record<string, ServiceNode> = {
       apiAvailable: true,
       apiUrl: 'https://developer-portal.driver-vehicle-licensing.api.gov.uk/apis/vehicle-enquiry-service/vehicle-enquiry-service-description.html',
       onlineFormUrl: 'https://vehicleenquiry.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Look up the vehicle registration number in the DVLA database',
@@ -13380,7 +13150,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/change-address-v5c',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user has V5C document reference number (11 digits from top of logbook)',
@@ -13449,7 +13218,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/view-driving-licence',
-      authRequired: 'government-gateway',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Direct user to the DVLA online service to generate a check code',
@@ -13511,10 +13279,10 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'All companies, LLPs and eligible partnerships registered at Companies House must file a confirmation statement at least once every 12 months. The £34 filing fee can be waived for dormant companies in some circumstances.',
+      summary: 'Companies and LLPs registered at Companies House must file a confirmation statement at least once every 12 months. The annual fee is £50 online or £110 by post.',
       universal: false,
       criteria: [
-        { factor: 'dependency', description: 'Must be a registered company, LLP or eligible UK business entity.' },
+        { factor: 'dependency', description: 'Must be a company or LLP registered at Companies House.' },
       ],
       keyQuestions: [
         'When is the confirmation statement due?',
@@ -13523,6 +13291,12 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       ruleIn: ['UK company or LLP registered at Companies House'],
       ruleOut: ['Sole trader or general partnership'],
+      sources: [
+        'https://www.gov.uk/guidance/filing-your-companys-confirmation-statement',
+        'https://www.gov.uk/government/publications/companies-house-fees/companies-house-fees',
+        'https://www.gov.uk/government/publications/confirmation-statement-for-a-limited-liability-partnership-form-ll-cs01-new-version',
+        'https://www.legislation.gov.uk/uksi/2009/1804/regulation/30',
+      ],
     },
     agentInteraction: {
       methods: ['online'],
@@ -13533,7 +13307,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check the due date from the last confirmation statement',
         'Review company details for any changes needed',
-        'File via Companies House WebFiling (£34 fee)',
+        'File via Companies House WebFiling (£50 online fee)',
       ],
     },
   },
@@ -13566,7 +13340,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/strike-off-your-company-from-companies-register',
-      authRequired: 'companies-house',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Confirm the company is dormant and has no outstanding liabilities',
@@ -13637,7 +13410,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/business-finance-support',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Ask about business sector, size and location',
@@ -13711,7 +13483,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-postal-vote',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the user is registered to vote',
@@ -13723,7 +13494,7 @@ export const NODES: Record<string, ServiceNode> = {
 
   'la-proxy-vote': {
     id: 'la-proxy-vote', name: 'Apply for a proxy vote', dept: 'Local Authority', deptKey: 'la',
-    deadline: '6 working days before election',
+    deadline: null,
     desc: 'Appoint someone you trust to vote on your behalf if you cannot get to the polling station.',
     govuk_url: 'https://www.gov.uk/apply-proxy-vote',
     serviceType: 'application',
@@ -13748,7 +13519,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/apply-proxy-vote',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm reason for needing a proxy',
@@ -13788,7 +13558,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://apply-gender-recognition-certificate.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Explain the evidence requirements (two medical reports and statutory declaration)',
@@ -13826,7 +13595,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.request-a-baby-loss-certificate.service.gov.uk/request-a-baby-loss-certificate',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Express condolences and explain the certificate sensitively',
@@ -13903,7 +13671,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/honours',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Help articulate the nominee\'s achievements clearly',
@@ -13937,7 +13704,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gro.gov.uk/gro/content/certificates/default.asp',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Identify the type of certificate and approximate registration details',
@@ -13982,10 +13749,8 @@ export const NODES: Record<string, ServiceNode> = {
     },
     nations: ['england'],
     agentInteraction: {
-      methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/care-to-learn/how-to-apply',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm parent is under 20 and in publicly funded education',
@@ -14029,7 +13794,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.findapprenticeship.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Ask about preferred sector and location',
@@ -14068,7 +13832,7 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.apply-for-teacher-training.service.gov.uk/',
-      authRequired: 'none',
+      authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
         'Help user identify the right training route and subject',
@@ -14105,7 +13869,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://reports.ofsted.gov.uk',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Ask which provider type the user is researching (school, childminder, nursery, etc.)',
@@ -14141,7 +13904,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://reports.ofsted.gov.uk/childcare',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Explain that in England free hours and Tax-Free Childcare can only be used with approved (registered) providers, and point users elsewhere in the UK to their own nation\'s register',
@@ -14187,7 +13949,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/become-childminder-nanny/register-childminder',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user intends to provide paid childcare in a domestic setting',
@@ -14226,7 +13987,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://contact.ofsted.gov.uk/online-complaints',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the user has raised the concern with the school first',
@@ -14267,7 +14027,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://probatesearch.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Search by full name and year of death',
@@ -14305,7 +14064,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/renew-driving-licence',
-      authRequired: 'government-gateway',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm the reason for renewal (photo expiry, name change, address change)',
@@ -14386,7 +14144,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'in-person'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.mygov.scot/short-term-let-licences',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Identify the nation to clarify which scheme applies',
@@ -14424,7 +14181,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://111.nhs.uk',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'First confirm this is not a 999 emergency',
@@ -14467,7 +14223,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/eta',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check on GOV.UK whether the user\'s nationality needs an ETA or a visa',
@@ -14506,7 +14261,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/complete-deputy-report',
-      authRequired: 'government-gateway',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Confirm the user holds a court-appointed deputyship order',
@@ -14546,7 +14300,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/fishing-licences/buy-a-fishing-licence',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check whether the angler is 13 to 16 (free junior licence), or aged 66 or over or disabled (discounted licence)',
@@ -14584,7 +14337,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/report-error-evisa',
-      authRequired: 'none',
       agentCanComplete: 'partial',
       agentSteps: [
         'Help the user identify and document the specific error',
@@ -14622,7 +14374,6 @@ export const NODES: Record<string, ServiceNode> = {
       methods: ['online', 'phone'],
       apiAvailable: false,
       onlineFormUrl: 'https://nationalcareers.service.gov.uk/',
-      authRequired: 'none',
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Identify whether user needs skills assessment, course finder or one-to-one advice',
@@ -14765,11 +14516,11 @@ export const EDGES: Edge[] = [
   { from: 'la-school-place',          to: 'la-send-ehc',                    type: 'RELATED' },
 
   // Immigration
-  { from: 'ho-visa',                  to: 'ho-brp',                         type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'other-right-to-work',            type: 'RELATED' },
-  { from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
+  { from: 'ho-visa',                  to: 'ho-evisa',                         type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'dwp-ni-number',                  type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'nhs-gp-register',                type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'other-right-to-work',            type: 'RELATED' },
+  { from: 'ho-evisa',                   to: 'ho-life-in-uk',                  type: 'RELATED' },
   { from: 'ho-life-in-uk',            to: 'ho-ilr',                         type: 'REQUIRES' },
   { from: 'ho-life-in-uk',            to: 'ho-citizenship-spouse',          type: 'REQUIRES' },
   { from: 'dwp-ni-number',            to: 'ho-ilr',                         type: 'RELATED' },   // useful, reviewed as part of the application, but not a strict precondition to submit
@@ -14970,7 +14721,6 @@ export const EDGES: Edge[] = [
   { from: 'ho-fee-waiver',              to: 'ho-student-visa',                type: 'RELATED' },
 
   // eVisa replaces BRP
-  { from: 'ho-brp',                     to: 'ho-evisa',                       type: 'RELATED' },
   { from: 'ho-eu-settled-status',       to: 'ho-evisa',                       type: 'RELATED' },
   { from: 'ho-evisa',                   to: 'ho-view-immigration-status',     type: 'RELATED' },
   { from: 'ho-view-immigration-status', to: 'other-right-to-work',            type: 'RELATED' },
@@ -15137,7 +14887,7 @@ export const EDGES: Edge[] = [
   { from: 'nhs-111-online',             to: 'nhs-care-assessment',            type: 'RELATED' },
 
   // Electronic Visa Waiver (immigration)
-  { from: 'ho-evw',                     to: 'ho-brp',                         type: 'RELATED' },
+  { from: 'ho-evw',                     to: 'ho-evisa',                         type: 'RELATED' },
 
   // OPG deputy report (bereavement / retirement without LPA)
   { from: 'gro-register-death',         to: 'opg-deputy-report',              type: 'RELATED' },

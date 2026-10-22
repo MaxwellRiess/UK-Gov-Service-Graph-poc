@@ -1,0 +1,260 @@
+{
+  "insolvency-dro#agentInteraction.methods": {
+    "queries": [
+      "debt relief order application online approved intermediary Insolvency Service",
+      "citizensadvice how to get a debt relief order"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/guidance/technical-guidance-for-official-receivers/60-debt-relief-orders",
+        "why": "Official receiver guidance says DRO applications are made online through an approved intermediary: 'The application must be made electronically'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "jaqu-clean-air-zone#eligibility.summary": {
+    "queries": [
+      "clean air zone non-compliant vehicles Euro 6 diesel Euro 4 petrol charge gov.uk",
+      "gov.uk clean air zone which vehicles charged Euro 6 diesel Euro 4 petrol",
+      "GOV.UK content API: clean air zone framework for England"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england/annex-a-clean-air-zone-minimum-classes-and-standards",
+        "why": "Annex A sets the minimum standards for cars, vans, taxis and minibuses: 'Euro 6 (diesel) Euro 4 (petrol)'."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england/clean-air-zone-framework",
+        "why": "The framework says councils set the charge for their own zone: 'Local authorities should set the level of charge for vehicles entering a zone'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-blue-badge#eligibility.criteria.1": {
+    "queries": [
+      "gov.uk can I get a blue badge automatic eligibility PIP DLA armed forces"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge",
+        "why": "Lists automatic eligibility: 'higher rate of the mobility component of the Disability Living Allowance', PIP because you 'can't walk more than 50 metres', and an armed forces 'lump sum benefit within tariff levels 1 to 8'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-blue-badge#eligibility.evidenceRequired.1": {
+    "queries": [
+      "gov.uk can I get a blue badge evidence walking difficulty not automatically eligible"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge",
+        "why": "If you are not automatically eligible, 'You will have to provide evidence to demonstrate your eligibility'. For walking difficulty it asks for medication, treatment and healthcare professional details."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-bus-pass#agentInteraction.methods": {
+    "queries": [
+      "older person's bus pass apply online proof of age proof of address photo mygov.scot OR nidirect OR gov.wales",
+      "nidirect 60+ SmartPass apply proof of age address photograph"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+        "why": "Scotland: 'apply online on getyournec.scot' or 'apply through your local Post Office' or local council."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+        "why": "Northern Ireland: you take the form 'in person, to your nearest Translink bus or rail station'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-bus-pass#eligibility.evidenceRequired.0": {
+    "queries": [
+      "older person's bus pass apply online proof of age proof of address photo mygov.scot OR nidirect OR gov.wales",
+      "nidirect 60+ SmartPass apply proof of age address photograph"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+        "why": "Proof of age list includes 'passport' and 'birth certificate'."
+      },
+      {
+        "url": "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+        "why": "Scotland: 'You'll need: a recent photo proof of your current address proof of your age'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-bus-pass#eligibility.evidenceRequired.1": {
+    "queries": [
+      "older person's bus pass apply online proof of age proof of address photo mygov.scot OR nidirect OR gov.wales",
+      "nidirect 60+ SmartPass apply proof of age address photograph"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+        "why": "'You'll need: a recent photo proof of your current address proof of your age'."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+        "why": "Proof of residency: a utility bill or bank statement no more than three months old, a driving licence or an Electoral ID Card."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-bus-pass#eligibility.evidenceRequired.2": {
+    "queries": [
+      "older person's bus pass apply online proof of age proof of address photo mygov.scot OR nidirect OR gov.wales",
+      "nidirect 60+ SmartPass apply proof of age address photograph"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+        "why": "Requires 'a countersigned passport-sized photograph'."
+      },
+      {
+        "url": "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+        "why": "Scotland requires 'a recent photo'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-business-rates#agentInteraction.methods": {
+    "queries": [
+      "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+      "nidirect rates for business premises tell Land and Property Services new occupier",
+      "mygov.scot non-domestic rates registering"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-business-rates#eligibility.evidenceRequired.0": {
+    "queries": [
+      "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+      "nidirect rates for business premises tell Land and Property Services new occupier"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-business-rates#eligibility.evidenceRequired.1": {
+    "queries": [
+      "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+      "nidirect rates for business premises tell Land and Property Services new occupier"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-business-rates#eligibility.evidenceRequired.2": {
+    "queries": [
+      "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+      "nidirect rates for business premises tell Land and Property Services new occupier"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-child-performance-licence#eligibility.evidenceRequired.0": {
+    "queries": [
+      "child performance licence application information required details of the performance gov.uk guidance local authority",
+      "legislation.gov.uk Children (Performances and Activities) (England) Regulations 2014 Schedule 2"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/uksi/2014/3309/schedule/2",
+        "why": "England regulations: an application must give the 'Name and nature of the performances or activities ... (for example, theatrical, filming, sport, modelling)' plus place and dates."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-council-tax-disability-reduction#agentInteraction.methods": {
+    "queries": [
+      "Council Tax disabled band reduction apply online phone citizensadvice gov.wales mygov.scot",
+      "gov.wales council tax discounts disabled person how to apply"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-council-tax-disability-reduction#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Council Tax disabled band reduction evidence citizensadvice",
+      "citizensadvice check if you can pay less council tax"
+    ],
+    "urls": [
+      {
+        "url": "https://www.citizensadvice.org.uk/housing/council-tax/check-if-you-can-pay-less-council-tax/",
+        "why": "'You must be able to show that a disabled person lives in the property to claim a reduction.'"
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-council-tax-reduction#agentInteraction.methods": {
+    "queries": [
+      "citizensadvice.org.uk council tax reduction England how to apply online phone liable",
+      "mygov.scot Council Tax Reduction who can get it how to apply"
+    ],
+    "urls": [
+      {
+        "url": "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+        "why": "England: 'You can fill in a form or apply online. Your local council might also let you apply by telephone.'"
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s",
+        "why": "Scotland: lists the ways to apply, including online and by phone, depending on the council."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-council-tax-reduction#eligibility.criteria.1": {
+    "queries": [
+      "Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot",
+      "mygov.scot Council Tax Reduction who can get it how to apply"
+    ],
+    "urls": [
+      {
+        "url": "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/applying-for-council-tax-reduction-s/check-if-you-can-get-council-tax-reduction-s/",
+        "why": "Scotland: 'be the person named on the Council Tax bill \u2013 this means you're liable to pay Council Tax'."
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+        "why": "England: you can apply 'up to 8 weeks before you're first responsible for paying council tax on your home'. This implies liability but does not state it as a condition."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-council-tax-reduction#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot",
+      "citizensadvice.org.uk council tax reduction England how to apply online phone liable"
+    ],
+    "urls": [
+      {
+        "url": "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+        "why": "England: 'you might have to send evidence of your income and savings'."
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s",
+        "why": "Scotland: you might be asked for evidence of 'earnings - for example, pay slips savings - for example, building society statements'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-council-tax-reduction#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot",
+      "citizensadvice.org.uk council tax reduction England how to apply online phone liable"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-council-tax-single-discount#agentInteraction.methods": {
+    "queries": [
+      "citizensadvice check if you can pay less council tax single person discount",
+      "gov.wales council tax discounts living alone how to apply",
+      "mygov.scot council tax discounts exemptions single adult discount apply"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  }
+}

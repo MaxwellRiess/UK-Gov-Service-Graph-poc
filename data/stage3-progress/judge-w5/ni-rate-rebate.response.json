@@ -1,0 +1,20 @@
+{
+  "fields": [
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The applicant must live in Northern Ireland",
+          "verdict": "partly_supported",
+          "quote": "Rate Rebate replaces Housing Benefit for rates for homeowners and tenants who are entitled to Universal Credit in Northern Ireland.",
+          "source": 1,
+          "note": "The scheme is described for Northern Ireland homeowners and tenants, but the text does not explicitly impose a separate applicant-residence rule."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": "Rate Rebate account"
+}

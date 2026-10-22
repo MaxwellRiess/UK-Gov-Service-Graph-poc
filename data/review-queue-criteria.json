@@ -1,18 +1,7 @@
 {
-  "generatedAt": "2026-09-29T15:11:59.706Z",
+  "generatedAt": "2026-10-22T10:14:48.723Z",
   "model": "claude-opus-5-5",
   "review": [
-    {
-      "id": "dfe-national-careers",
-      "name": "National Careers Service",
-      "criterion": 0,
-      "factor": "geography",
-      "graph": "Free adviser-led guidance is available to adults in England. Scotland, Wales and NI have their own careers services.",
-      "verdict": "partly_supported",
-      "note": "The text confirms you can get guidance from a careers adviser, but it does not say the service is free, for adults, or limited to England, and it does not mention separate services in Scotland, Wales or Northern Ireland.",
-      "quote": "Wherever you are with your decisions, you can contact us to get advice from a careers adviser.",
-      "url": "https://nationalcareers.service.gov.uk/"
-    },
     {
       "id": "fco-emergency-travel-doc",
       "name": "Emergency travel document",
@@ -264,17 +253,6 @@
       "verdict": "partly_supported",
       "note": "The text supports the 3-month no-trading condition, but it says nothing about the company being 'otherwise used for a purpose' or about it having to be a UK company.",
       "quote": "has not traded or sold off any stock in the last 3 months",
-      "url": null
-    },
-    {
-      "id": "ch-confirmation-statement",
-      "name": "File a confirmation statement",
-      "criterion": 0,
-      "factor": "dependency",
-      "graph": "Must be a registered company, LLP or eligible UK business entity.",
-      "verdict": "partly_supported",
-      "note": "The text says a company must file, but it never mentions LLPs or other eligible UK business entities, and it states no eligibility rule.",
-      "quote": "You need to check that the information Companies House has about your company is correct every year. This is called a confirmation statement.",
       "url": null
     },
     {
@@ -531,17 +509,6 @@
       "url": null
     },
     {
-      "id": "dwp-new-style-jsa",
-      "name": "New Style Jobseeker's Allowance",
-      "criterion": 0,
-      "factor": "ni_record",
-      "graph": "Must have paid Class 1 NI contributions in both of the last two complete tax years before the year of claim.",
-      "verdict": "partly_supported",
-      "note": "The text says Class 1 contributions for the previous 2 tax years are usually needed, but it also says credits can count for one of those years, so it does not say you must have paid in both years.",
-      "quote": "To be eligible you must usually have made Class 1 National Insurance contributions for the previous 2 tax years. National Insurance credits can count for one of these years if you did not pay National Insurance contributions.",
-      "url": null
-    },
-    {
       "id": "dwp-ni-number",
       "name": "National Insurance number",
       "criterion": 0,
@@ -740,17 +707,6 @@
       "url": null
     },
     {
-      "id": "gro-register-birth",
-      "name": "Register the birth",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "Deadline is 42 days in England, Wales and Northern Ireland, and 21 days in Scotland.",
-      "verdict": "partly_supported",
-      "note": "The source supports the 42-day deadline but gives no 21-day deadline for Scotland.",
-      "quote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born.",
-      "url": null
-    },
-    {
       "id": "hmcts-benefit-tribunal",
       "name": "Social Security & Child Support Tribunal",
       "criterion": 0,
@@ -759,50 +715,6 @@
       "verdict": "partly_supported",
       "note": "The linked page supports needing the notice, but the main page says some people can appeal straight away without reconsideration, and DWP is never named.",
       "quote": "You cannot appeal to the Social Security and Child Support Tribunal until you get your mandatory reconsideration notice.",
-      "url": null
-    },
-    {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "criterion": 0,
-      "factor": "relationship_status",
-      "graph": "Must have been married or in a civil partnership for at least 1 year.",
-      "verdict": "partly_supported",
-      "note": "The divorce page says you must have been married for over a year; the civil partnership condition comes from a linked page about a different service.",
-      "quote": "you’ve been married for over a year",
-      "url": null
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Must have an employment dispute — unfair dismissal requires at least 2 years' service; discrimination claims have no service requirement.",
-      "verdict": "partly_supported",
-      "note": "The linked dismissal page gives the normal 2-year period for unfair dismissal, but the text never says discrimination claims have no service requirement.",
-      "quote": "You must be classed as an employee and have worked for your employer for a minimum period - normally 2 years - before you qualify for the right to claim unfair dismissal at a tribunal.",
-      "url": null
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Must have an Acas EC certificate (early conciliation must be attempted first).",
-      "verdict": "partly_supported",
-      "note": "The text says a certificate is usually needed and lists exceptions; it also says you can choose not to take part in conciliation, so conciliation does not have to be attempted.",
-      "quote": "You’ll usually need an early conciliation certificate for each respondent before you make a claim .",
-      "url": null
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "criterion": 0,
-      "factor": "income",
-      "graph": "Disposable income must be below £2,657/month and disposable capital below £8,000 (thresholds vary by case type).",
-      "verdict": "partly_supported",
-      "note": "The figures match, but the text describes £2,657 as joint gross income (before deductions), not disposable income, and says nothing about thresholds varying by case type.",
-      "quote": "have a joint monthly income of £2,657 or less (before tax and other deductions)",
       "url": null
     },
     {
@@ -817,17 +729,6 @@
       "url": null
     },
     {
-      "id": "hmrc-cancel-marriage-allowance",
-      "name": "Cancel Marriage Allowance",
-      "criterion": 0,
-      "factor": "relationship_status",
-      "graph": "Previously claimed Marriage Allowance and relationship has now ended (separated, divorced, or partner died).",
-      "verdict": "partly_supported",
-      "note": "Divorce, dissolution and legal separation are stated reasons to cancel, but a partner's death is not. The text treats death separately, describing how the allowances change rather than calling for cancellation.",
-      "quote": "your relationship ends - because you’ve divorced, ended (‘dissolved’) your civil partnership or legally separated",
-      "url": null
-    },
-    {
       "id": "hmrc-carers-credit",
       "name": "Carer's Credit",
       "criterion": 1,
@@ -836,28 +737,6 @@
       "verdict": "partly_supported",
       "note": "The Carer's Credit page does not mention Universal Credit, and the linked Carer's Allowance page only says UC gives Class 3 credits, without linking that to Carer's Credit eligibility.",
       "quote": null,
-      "url": null
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "criterion": 0,
-      "factor": "family",
-      "graph": "Child has moved to live primarily with a different parent after separation.",
-      "verdict": "partly_supported",
-      "note": "The text links entitlement to living with the child, but it does not name a child moving to the other parent after separation as a condition for this service.",
-      "quote": "You'll usually be responsible for a child if either: you live with them",
-      "url": null
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "criterion": 1,
-      "factor": "relationship_status",
-      "graph": "Parents have separated and current Child Benefit claimant is no longer the main carer.",
-      "verdict": "partly_supported",
-      "note": "The text covers families splitting up, but it never says the current claimant no longer being the main carer is a condition for changing who gets Child Benefit.",
-      "quote": "If a family splits up, you get £27.05 a week for the eldest child.",
       "url": null
     },
     {
@@ -927,17 +806,6 @@
       "url": null
     },
     {
-      "id": "hmrc-spl",
-      "name": "Shared Parental Leave & Pay",
-      "criterion": 2,
-      "factor": "dependency",
-      "graph": "Mother must be eligible for SMP or Maternity Allowance for SPL to be available.",
-      "verdict": "partly_supported",
-      "note": "The text requires maternity leave and pay (or Maternity Allowance) to be cut short, but it never says the mother must be eligible for SMP or Maternity Allowance. Where the partner takes SPL, the mother's criteria are about work and earnings instead.",
-      "quote": "take less than the 39 weeks of maternity or adoption pay (or Maternity Allowance) and use the rest as ShPP",
-      "url": null
-    },
-    {
       "id": "hmrc-ssp",
       "name": "Statutory Sick Pay (SSP)",
       "criterion": 0,
@@ -957,17 +825,6 @@
       "verdict": "partly_supported",
       "note": "The text tells you to check the provider is registered but does not name any of these bodies.",
       "quote": "Check if your childcare provider is registered .",
-      "url": null
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "criterion": 0,
-      "factor": "immigration",
-      "graph": "Granted a UK visa or leave to remain for more than 6 months.",
-      "verdict": "partly_supported",
-      "note": "The text links holding a BRP to being granted permission to live or work in the UK, but it gives no 'more than 6 months' length and instead names a cut-off date of 31 October 2024.",
-      "quote": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024.",
       "url": null
     },
     {
@@ -1323,17 +1180,6 @@
       "url": null
     },
     {
-      "id": "other-statutory-redundancy",
-      "name": "Statutory Redundancy Pay",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Must have been continuously employed for at least 2 years and been made compulsorily redundant.",
-      "verdict": "partly_supported",
-      "note": "The 2 years' continuous service is supported, but the text does not require compulsory redundancy: people who are laid off or put on short-time working can also qualify.",
-      "quote": "have been dismissed, laid off or put on short-time working - those who opted for early retirement do not qualify",
-      "url": null
-    },
-    {
       "id": "slc-student-finance",
       "name": "Student Finance (tuition fee + maintenance loans)",
       "criterion": 0,
@@ -1433,17 +1279,6 @@
       "url": null
     },
     {
-      "id": "hmcts-child-arrangements",
-      "name": "Child Arrangements Order",
-      "criterion": 1,
-      "factor": "relationship_status",
-      "graph": "Separated parents with children under 16 (or up to 18 if the order already exists).",
-      "verdict": "partly_supported",
-      "note": "The text says parents who separate can apply for a court order, but it gives no age limit for the child (neither under 16 nor up to 18 if an order already exists), and it also lets other relatives apply.",
-      "quote": "You can apply for a court order if you have parental responsibility . For example, you’re the child’s mother or father.",
-      "url": null
-    },
-    {
       "id": "hmcts-immigration-tribunal",
       "name": "Appeal to Immigration Tribunal",
       "criterion": 0,
@@ -1452,17 +1287,6 @@
       "verdict": "partly_supported",
       "note": "The text does require a legal right to appeal, but says you will only 'usually' be told about it in the decision letter, so it does not require the letter to grant the right explicitly; it also covers decisions other than refusals, such as revocation and deportation.",
       "quote": "You can only appeal to the tribunal if you have the legal right to appeal - you’ll usually be told if you do in your decision letter.",
-      "url": null
-    },
-    {
-      "id": "hmrc-spp",
-      "name": "Statutory Paternity Pay",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Continuously employed with the same employer for at least 26 weeks and earning at or above the Lower Earnings Limit.",
-      "verdict": "partly_supported",
-      "note": "The text supports the 26 weeks of continuous employment and gives the earnings test as an average of at least £129 a week, but it never mentions the 'Lower Earnings Limit' or links £129 to it, and the field leaves out that the 26 weeks must be reached by the qualifying week.",
-      "quote": "earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your employer for at least 26 weeks",
       "url": null
     },
     {
@@ -1521,14 +1345,223 @@
       "url": null
     },
     {
-      "id": "hmrc-tax-refund",
-      "name": "Income tax refund (P50)",
+      "id": "hmpo-passport",
+      "name": "Apply for or renew a passport",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Must be a British national (citizen, overseas territory citizen, etc.).",
+      "verdict": "partly_supported",
+      "note": "The text gives documents for overseas territory citizens born before 1983 and for people with naturalisation or registration certificates, but never lists which nationality types count as British nationals.",
+      "quote": "Citizen of a British overseas territory and born before 1 January 1983 You’ll need all of the following",
+      "url": null
+    },
+    {
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "criterion": 1,
+      "factor": "family",
+      "graph": "Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.",
+      "verdict": "partly_supported",
+      "note": "The Act names the occupier of the house (if they knew of the death), not an administrator of the premises; only a single council page equates occupier with an establishment's manager or senior administrator.",
+      "quote": "(d) the occupier of the house if he knew of the happening of the death;",
+      "url": null
+    },
+    {
+      "id": "hmcts-divorce",
+      "name": "Divorce application (D8)",
+      "criterion": 1,
+      "factor": "residency",
+      "graph": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
+      "verdict": "partly_supported",
+      "note": "The six-month residence ground applies only to an applicant who is also domiciled in England and Wales and requires six months immediately before applying; residence alone needs at least one year, and the text has no '6 of the last 12 months' rule.",
+      "quote": "the applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately before the application was made",
+      "url": null
+    },
+    {
+      "id": "hmcts-gender-recognition",
+      "name": "Apply for a Gender Recognition Certificate",
+      "criterion": 1,
+      "factor": "residency",
+      "graph": "Must be a UK national or permanently resident in the UK.",
+      "verdict": "partly_supported",
+      "note": "The eligibility requirements listed (age 18+, UK diagnosis, 2 years living in affirmed gender, intention to continue) say nothing about nationality.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "name": "Legal Aid application",
       "criterion": 1,
       "factor": "income",
-      "graph": "Unemployed for 4 weeks or more, not claiming taxable state benefits, and not returning to work or starting a taxable pension in the same tax year — if you expect to start a new job within 4 weeks, your new employer will make any repayment through your salary instead.",
+      "graph": "Case must pass the merits test — chances of success and proportionality to cost.",
       "verdict": "partly_supported",
-      "note": "The page says to check for taxable income, including a works pension, before the end of the tax year, but it does not name 'starting a taxable pension' as an eligibility condition.",
-      "quote": "Check if you get other taxable income or benefits before the end of the tax year — this also includes a works pension from your old employer.",
+      "note": "The prospects of success criterion applies to full (and investigative) representation, not to every form of legal aid such as legal help or family help.",
+      "quote": "The prospects of success criterion is only met if the Director is satisfied that the prospects of success are—",
+      "url": null
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
+      "verdict": "partly_supported",
+      "note": "The text covers applicants with hidden conditions, but does not state a 'very considerable difficulty' test for them; it lists specific journey-related criteria instead.",
+      "quote": "If you have a non-visible (hidden) condition, you will also be asked questions around how journeys between your vehicle and destination are affected by your condition.",
+      "url": null
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "criterion": 2,
+      "factor": "geography",
+      "graph": "Must live in Scotland.",
+      "verdict": "partly_supported",
+      "note": "Living in Scotland is required only in most cases; the sources say some people living in the EU, Switzerland, Norway, Iceland, Liechtenstein, Gibraltar or Ireland with a link to Scotland can also apply.",
+      "quote": "In most cases, you must also: be between 16 years old and State Pension age, and live in Scotland.",
+      "url": null
+    },
+    {
+      "id": "hmpo-passport-urgent",
+      "name": "Urgent passport application",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Must be a British national with imminent international travel.",
+      "verdict": "partly_supported",
+      "note": "The page says you can use the urgent service if the standard service would take too long, but it does not make imminent international travel a condition.",
+      "quote": "You can pay to get a passport urgently if you think the standard service will take too long.",
+      "url": null
+    },
+    {
+      "id": "hmrc-cis",
+      "name": "Construction Industry Scheme (CIS) registration",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
+      "verdict": "partly_supported",
+      "note": "The page says a limited company may need its company registration number, but it does not say Companies House registration is a requirement for CIS.",
+      "quote": "Depending on your circumstances, you may also need: the company registration number",
+      "url": null
+    },
+    {
+      "id": "hmrc-self-assessment",
+      "name": "Register for Self Assessment",
+      "criterion": 1,
+      "factor": "income",
+      "graph": "Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.",
+      "verdict": "partly_supported",
+      "note": "None of the sources mention company directors.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "ho-student-visa",
+      "name": "Student visa",
+      "criterion": 0,
+      "factor": "immigration",
+      "graph": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
+      "verdict": "partly_supported",
+      "note": "None of the sources say British nationals are excluded from or do not need a Student visa.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "criterion": 0,
+      "factor": "asset",
+      "graph": "Debts must exceed assets and the person must be unable to pay debts as they fall due.",
+      "verdict": "partly_supported",
+      "note": "The text says you lack enough money or assets to pay your debts, but does not set a test that debts must exceed assets.",
+      "quote": "You can apply for a Debt Relief Order or Bankruptcy Order if you cannot pay your debts because you do not have enough money or assets you can sell.",
+      "url": null
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Auto-qualify with Enhanced Rate PIP mobility component, DLA (highest mobility rate), or certain armed forces compensation.",
+      "verdict": "partly_supported",
+      "note": "The source gives specific PIP mobility activity-score routes but does not say the enhanced mobility rate alone automatically qualifies.",
+      "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)",
+      "url": null
+    },
+    {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "criterion": 1,
+      "factor": "property",
+      "graph": "Must be liable for Council Tax at that address.",
+      "verdict": "partly_supported",
+      "note": "The Scotland guidance states this requirement, but the supplied text does not establish it across every council scheme.",
+      "quote": "be the person named on the Council Tax bill – this means you’re liable to pay Council Tax",
+      "url": null
+    },
+    {
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Any adult who appears to need care and support due to a physical or mental condition, disability, or frailty due to age.",
+      "verdict": "partly_supported",
+      "note": "The supplied text does not prescribe these causes as a condition for assessment.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.",
+      "verdict": "partly_supported",
+      "note": "The supplied text does not mention PIP.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "criterion": 2,
+      "factor": "age",
+      "graph": "Under 16, aged 16–18 in full-time education, or 60 and over.",
+      "verdict": "partly_supported",
+      "note": "The checker considers age, but the page does not state the under-16 threshold.",
+      "quote": "This service will ask about your age, where you live and any health conditions you have.",
+      "url": null
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "criterion": 0,
+      "factor": "age",
+      "graph": "Must be aged 16 to State Pension age.",
+      "verdict": "partly_supported",
+      "note": "The usual age range is 16 to State Pension age, but the suitability checker names a possible exception after State Pension age.",
+      "quote": "You may still be able to apply if you got Personal Independence Payment (PIP) in the 12 months before you reached State Pension age.",
+      "url": null
+    },
+    {
+      "id": "ni-rate-rebate",
+      "name": "Rate Rebate",
+      "criterion": 2,
+      "factor": "geography",
+      "graph": "Must live in Northern Ireland.",
+      "verdict": "partly_supported",
+      "note": "The scheme is described for Northern Ireland homeowners and tenants, but the text does not explicitly impose a separate applicant-residence rule.",
+      "quote": "Rate Rebate replaces Housing Benefit for rates for homeowners and tenants who are entitled to Universal Credit in Northern Ireland.",
+      "url": null
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "criterion": 0,
+      "factor": "age",
+      "graph": "Must be aged 16 or over.",
+      "verdict": "partly_supported",
+      "note": "The review page states 16 or over, but the eligibility page says over 16 for both grant types, leaving age 16 inconsistent.",
+      "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award.",
       "url": null
     }
   ]

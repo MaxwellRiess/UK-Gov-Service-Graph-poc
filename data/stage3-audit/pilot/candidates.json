@@ -1,0 +1,82 @@
+{
+  "hmpo-passport#eligibility.criteria.0": [
+    "https://www.gov.uk/apply-first-adult-passport"
+  ],
+  "gro-register-death#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/ukpga/Eliz2/1-2/20/section/16",
+    "https://www.northtyneside.gov.uk/births-deaths-and-marriages/death-and-bereavement/step-by-step/register-death/who-can-register",
+    "https://www.nidirect.gov.uk/articles/registering-death"
+  ],
+  "hmcts-divorce#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/ukpga/1973/45/section/5"
+  ],
+  "hmcts-gender-recognition#eligibility.criteria.1": [],
+  "hmcts-legal-aid#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/uksi/2013/104/part/4"
+  ],
+  "la-blue-badge#eligibility.criteria.0": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "sss-adult-disability-payment#eligibility.criteria.2": [
+    "https://www.socialsecurity.gov.scot/publications/2017/02/adult-disability-payment-decision-making-guide/pages/residence-and-presence-for-adult-disability-payment/eligibility",
+    "https://www.citizensadvice.org.uk/scotland/benefits/sick-or-disabled-people-and-carers/adult-disability-payment/adult-disability-s/"
+  ],
+  "ch-close-company#eligibility.exclusions.1": [],
+  "dwp-voluntary-ni-contributions#eligibility.exclusions.0": [
+    "https://www.gov.uk/new-state-pension/what-youll-get",
+    "https://www.gov.uk/government/publications/your-new-state-pension-explained/your-state-pension-explained"
+  ],
+  "insolvency-bankruptcy#eligibility.exclusions.0": [
+    "https://www.legislation.gov.uk/ukpga/1986/45/section/263K"
+  ],
+  "la-blue-badge#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "nhs-continuing-healthcare#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance",
+    "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/"
+  ],
+  "acas-early-conciliation#agentInteraction.methods": [
+    "https://www.acas.org.uk/notify-acas",
+    "https://www.citizensadvice.org.uk/work/negotiating-with-your-employer/early-conciliation/"
+  ],
+  "la-disabled-facilities-grant#agentInteraction.methods": [
+    "https://www.solihull.gov.uk/adult-social-care/disabled-facilities-grant/apply-disability-facilities-grant",
+    "https://www.bcpcouncil.gov.uk/adult-social-care-and-health/support-for-adults-with-a-disability/disabled-facilities-grants/apply-for-a-disabled-facilities-grant"
+  ],
+  "nhs-care-assessment#agentInteraction.methods": [
+    "https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/"
+  ],
+  "other-dbs#agentInteraction.methods": [
+    "https://www.gov.uk/government/organisations/disclosure-and-barring-service/about",
+    "https://www.gov.uk/request-copy-criminal-record"
+  ],
+  "dvla-cancel-licence#eligibility.evidenceRequired.1": [],
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.1": [
+    "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1132342/br1-notes.pdf"
+  ],
+  "ho-visa#eligibility.evidenceRequired.3": [
+    "https://www.gov.uk/healthcare-immigration-application"
+  ],
+  "la-school-place#eligibility.evidenceRequired.0": [
+    "https://bromley.gov.uk/schools-colleges/school-admissions-terms-conditions/2"
+  ],
+  "other-help-to-buy#eligibility.evidenceRequired.0": [
+    "https://www.whitehorsedc.gov.uk/first-homes-from-applying-to-moving-in/"
+  ],
+  "sss-best-start-foods#eligibility.evidenceRequired.1": [],
+  "la-electoral-roll#desc": [
+    "https://www.bracknell-forest.gov.uk/elections-and-voting/electoral-register",
+    "https://sheffield.gov.uk/your-city-council/electoral-register",
+    "https://www.charnwood.gov.uk/pages/moved_house"
+  ],
+  "nhs-continuing-healthcare#desc": [
+    "https://www.dorsetcouncil.gov.uk/w/what-is-nhs-continuing-healthcare-",
+    "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/"
+  ],
+  "gro-register-death#eligibility.summary": [
+    "https://www.wokingham.gov.uk/births-deaths-and-ceremonies/deaths/register-death",
+    "https://wandsworth.gov.uk/registration-services/deaths/register-a-death",
+    "https://www.citizensadvice.org.uk/family/death-and-wills/what-to-do-after-a-death/"
+  ]
+}

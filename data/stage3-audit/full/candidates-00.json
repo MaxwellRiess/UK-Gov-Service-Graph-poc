@@ -1,0 +1,64 @@
+{
+ "ch-close-company#agentInteraction.methods": [
+  "https://www.gov.uk/government/publications/strike-off-a-company-from-the-register-ds01"
+ ],
+ "ch-close-company#eligibility.exclusions.0": [
+  "https://www.gov.uk/strike-off-your-company-from-companies-register"
+ ],
+ "ch-confirmation-statement#eligibility.summary": [
+  "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement"
+ ],
+ "dfe-care-to-learn#agentInteraction.methods": [],
+ "dfe-national-careers#desc": [
+  "https://haringey.gov.uk/send-directory/national-careers-service",
+  "https://www.gov.uk/government/publications/get-britain-working-an-update-on-the-jobs-and-careers-service/get-britain-working-an-update-on-the-jobs-and-careers-service"
+ ],
+ "dfe-national-careers#eligibility.criteria.0": [
+  "https://nationalcareers.service.gov.uk/help-and-support",
+  "https://www.gov.uk/government/publications/get-britain-working-an-update-on-the-jobs-and-careers-service/get-britain-working-an-update-on-the-jobs-and-careers-service",
+  "https://www.gov.uk/career-skills-and-training"
+ ],
+ "dvla-name-change#eligibility.autoQualifiers.0": [
+  "https://www.gov.uk/id-for-driving-licence"
+ ],
+ "dvla-name-change#eligibility.summary": [
+  "https://www.legislation.gov.uk/ukpga/1988/52/section/99",
+  "https://www.gov.uk/id-for-driving-licence"
+ ],
+ "dvla-provisional-licence#eligibility.evidenceRequired.1": [
+  "https://www.nidirect.gov.uk/articles/driving-licence-application-dl1-guidance-notes"
+ ],
+ "dvla-sorn#eligibility.evidenceRequired.0": [],
+ "dvla-update-address#eligibility.evidenceRequired.1": [],
+ "dvla-update-address#eligibility.evidenceRequired.2": [
+  "https://www.gov.uk/driver-vehicles-account"
+ ],
+ "dvla-ved-exemption#agentInteraction.methods": [
+  "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf"
+ ],
+ "dvla-ved-exemption#eligibility.evidenceRequired.0": [
+  "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+  "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt"
+ ],
+ "dvla-ved-exemption#eligibility.evidenceRequired.1": [
+  "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/873357/ins216-how-to-apply-for-free-disabled-tax.pdf",
+  "https://www.gov.uk/change-vehicle-tax-class/tax-due-to-run-out-or-changing-if-vehicle-is-exempt"
+ ],
+ "dvla-vehicle-sale#eligibility.evidenceRequired.1": [],
+ "dwp-access-to-work#eligibility.evidenceRequired.2": [
+  "https://www.gov.uk/government/publications/atwlr02-provider-memo-access-to-work/access-to-work-holistic-assessments-live-running-memo-09"
+ ],
+ "dwp-attendance-allowance#eligibility.evidenceRequired.1": [
+  "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/how-to-claim-attendance-allowance/",
+  "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/claiming-attendance-allowance-terminally-ill/"
+ ],
+ "dwp-attendance-allowance#eligibility.evidenceRequired.2": [
+  "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/"
+ ],
+ "dwp-bereavement-support#eligibility.evidenceRequired.0": [
+  "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf"
+ ],
+ "dwp-bereavement-support#eligibility.evidenceRequired.1": [
+  "https://assets.publishing.service.gov.uk/media/698c58b7d7b51513fcd8a3b1/bereavement-support-payment-form.pdf"
+ ]
+}

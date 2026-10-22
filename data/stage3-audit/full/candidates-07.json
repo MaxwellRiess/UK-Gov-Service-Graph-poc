@@ -1,0 +1,56 @@
+{
+  "insolvency-dro#agentInteraction.methods": [
+    "https://www.gov.uk/guidance/technical-guidance-for-official-receivers/60-debt-relief-orders"
+  ],
+  "jaqu-clean-air-zone#eligibility.summary": [
+    "https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england/annex-a-clean-air-zone-minimum-classes-and-standards",
+    "https://www.gov.uk/government/publications/air-quality-clean-air-zone-framework-for-england/clean-air-zone-framework"
+  ],
+  "la-blue-badge#eligibility.criteria.1": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "la-blue-badge#eligibility.evidenceRequired.1": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "la-bus-pass#agentInteraction.methods": [
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass"
+  ],
+  "la-bus-pass#eligibility.evidenceRequired.0": [
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass"
+  ],
+  "la-bus-pass#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass",
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass"
+  ],
+  "la-bus-pass#eligibility.evidenceRequired.2": [
+    "https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass",
+    "https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass"
+  ],
+  "la-business-rates#agentInteraction.methods": [],
+  "la-business-rates#eligibility.evidenceRequired.0": [],
+  "la-business-rates#eligibility.evidenceRequired.1": [],
+  "la-business-rates#eligibility.evidenceRequired.2": [],
+  "la-child-performance-licence#eligibility.evidenceRequired.0": [
+    "https://www.legislation.gov.uk/uksi/2014/3309/schedule/2"
+  ],
+  "la-council-tax-disability-reduction#agentInteraction.methods": [],
+  "la-council-tax-disability-reduction#eligibility.evidenceRequired.1": [
+    "https://www.citizensadvice.org.uk/housing/council-tax/check-if-you-can-pay-less-council-tax/"
+  ],
+  "la-council-tax-reduction#agentInteraction.methods": [
+    "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+    "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s"
+  ],
+  "la-council-tax-reduction#eligibility.criteria.1": [
+    "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/applying-for-council-tax-reduction-s/check-if-you-can-get-council-tax-reduction-s/",
+    "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/"
+  ],
+  "la-council-tax-reduction#eligibility.evidenceRequired.0": [
+    "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+    "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s"
+  ],
+  "la-council-tax-reduction#eligibility.evidenceRequired.1": [],
+  "la-council-tax-single-discount#agentInteraction.methods": []
+}

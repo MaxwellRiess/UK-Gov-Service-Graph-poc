@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You must contact an approved debt adviser to apply for a DRO",
+          "verdict": "supported",
+          "quote": "You have to contact an approved debt adviser to apply for a DRO .",
+          "source": 1,
+          "note": "The guidance expressly requires contact with an approved adviser."
+        },
+        {
+          "claim": "The approved debt adviser submits the DRO application for you",
+          "verdict": "supported",
+          "quote": "If you are eligible, the debt adviser will complete an online application for you and submit it to the Insolvency Service.",
+          "source": 1,
+          "note": "The adviser completes and submits the online application; the applicant cannot apply alone."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

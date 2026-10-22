@@ -1,0 +1,5 @@
+{"fields":[{"key":"criterion_0","claims":[
+{"claim":"You must not be a British national to need a Student visa.","verdict":"not_stated","quote":null,"source":null,"note":"None of the sources say British nationals are excluded from or do not need a Student visa."},
+{"claim":"You must not be an Irish national to need a Student visa.","verdict":"supported","quote":"You do not need to apply for a visa if you’re an Irish citizen.","source":4,"note":"The text says Irish citizens do not need to apply for a visa."},
+{"claim":"You must not already have leave to remain that covers the course.","verdict":"partly_supported","quote":"If you have settled or pre-settled status under the EU Settlement Scheme, you do not need to apply for a visa.","source":0,"note":"The text only says people with settled or pre-settled status under the EU Settlement Scheme do not need a visa; it does not state a general rule about any leave to remain that covers the course."}]}],
+"methods_on_page":["online"],"sign_in_on_page":"UK Visas and Immigration (UKVI) account"}

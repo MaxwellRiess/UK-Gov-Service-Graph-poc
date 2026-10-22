@@ -1,0 +1,12 @@
+{
+  "fields": [{"key":"summary","claims":[
+    {"claim":"Companies registered at Companies House must file a confirmation statement.","verdict":"supported","quote":"Every company, including dormant and non trading companies, must file a confirmation statement at least once every year.","source":1,"note":"The Companies House guidance states that every company must file."},
+    {"claim":"Companies must file a confirmation statement at least once every 12 months.","verdict":"supported","quote":"You must review your records and file at least one confirmation statement every 12 months.","source":1,"note":"The company guidance states the 12-month frequency."},
+    {"claim":"LLPs registered at Companies House must file a confirmation statement.","verdict":"supported","quote":"Every LLP must, before the end of the period of 14 days after the end of each review period, deliver to the registrar","source":4,"note":"The LLP regulation imposes the filing duty on every LLP."},
+    {"claim":"LLPs must file a confirmation statement at least once every 12 months.","verdict":"supported","quote":"each period of 12 months beginning with the day after the end of the previous review period.","source":4,"note":"The LLP regulation defines recurring 12-month review periods for that duty."},
+    {"claim":"The annual confirmation statement fee is £50 online.","verdict":"supported","quote":"Limited liability partnership ( LLP ) Online Software Paper Incorporation of an LLP £100 £124 Same day incorporation of an LLP £156 LLP confirmation statement fee (with your first statement in the 12 month payment period) £50 £50 £110","source":2,"note":"The fees table gives £50 for LLP online filing, and the company guidance gives the same fee for companies."},
+    {"claim":"The annual confirmation statement fee is £110 by post.","verdict":"supported","quote":"£110 to file a paper form CS01 by post","source":1,"note":"The company guidance gives £110 by post, and the fees table gives £110 for LLP paper filing."}
+  ]}],
+  "methods_on_page":["online","post"],
+  "sign_in_on_page":"Companies House password and authentication code"
+}

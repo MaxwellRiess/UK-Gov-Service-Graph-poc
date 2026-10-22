@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can complete workplace pension automatic-enrolment compliance online",
+          "verdict": "supported",
+          "quote": "This checklist has been designed to help the employer complete their declaration of compliance online.",
+          "source": 4,
+          "note": "The online declaration is part of meeting automatic-enrolment duties."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "PAYE employer reference number",
+          "verdict": "supported",
+          "quote": "PAYE scheme reference(s) for all PAYE schemes the employer uses",
+          "source": 4,
+          "note": "The declaration checklist requests PAYE references for every scheme used."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Chosen pension provider details",
+          "verdict": "partly_supported",
+          "quote": "Employer pension scheme reference (EPSR) This is your unique pension scheme reference, which can be found on any correspondence from your pension provider.",
+          "source": 4,
+          "note": "The checklist requests pension scheme references and details, but does not expressly request the provider’s details as such."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

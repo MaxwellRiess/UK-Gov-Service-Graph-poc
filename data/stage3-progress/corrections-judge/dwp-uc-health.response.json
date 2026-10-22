@@ -1,0 +1,14 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {"claim":"A fit note is required as evidence for the UC limited capability element.","verdict":"partly_supported","quote":"you have a health condition or disability and have medical evidence for it, such as a fit note","source":0,"note":"The page gives a fit note as an example of medical evidence for a 16- or 17-year-old Universal Credit claim, not a universal requirement for the limited capability element."},
+        {"claim":"The fit note must come from a GP.","verdict":"not_stated","quote":null,"source":null,"note":"Neither source identifies a GP as the required issuer of a fit note."},
+        {"claim":"SC1 or an equivalent form can be used as the fit note.","verdict":"not_stated","quote":null,"source":null,"note":"Neither source mentions SC1 or specifies an equivalent fit note form."}
+      ]
+    }
+  ],
+  "methods_on_page": ["online", "phone"],
+  "sign_in_on_page": "Universal Credit account"
+}

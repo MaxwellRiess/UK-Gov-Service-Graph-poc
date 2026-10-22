@@ -243,26 +243,6 @@
       "rank": 2128
     },
     {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "event": "immigration",
-      "path": "eligibility.criteria.0",
-      "text": "Granted a UK visa or leave to remain for more than 6 months.",
-      "kind": "material",
-      "severity": "high",
-      "likelyTrueElsewhere": false,
-      "action": "Remove the 'more than 6 months' rule and state the 31 October 2024 cut-off, and say that BRPs have been replaced by eVisas.",
-      "reason": "Anyone granted leave for more than 6 months would be wrongly told they qualify for a BRP, when BRPs have expired and been replaced by eVisas.",
-      "problems": [
-        {
-          "claim": "Granted a UK visa or leave to remain for more than 6 months.",
-          "verdict": "partly_supported",
-          "note": "The text links holding a BRP to being granted permission to live or work in the UK, but it gives no 'more than 6 months' length and instead names a cut-off date of 31 October 2024."
-        }
-      ],
-      "rank": 2128
-    },
-    {
       "id": "ho-evisa-error",
       "name": "Report an error with your eVisa",
       "event": "immigration",
@@ -1514,33 +1494,6 @@
         }
       ],
       "rank": 2089
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "event": "immigration",
-      "path": "agentInteraction.methods",
-      "text": "You can apply or do this online. You can apply or do this by post.",
-      "kind": "material",
-      "severity": "high",
-      "likelyTrueElsewhere": false,
-      "action": "Replace the online and postal BRP application claims with the route of creating a UKVI account to get an eVisa, and mention the postal route only for returning a BRP you have found.",
-      "reason": "People would be sent to apply online or by post for a BRP that is no longer issued, instead of being told to get an eVisa through a UKVI account.",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "partly_supported",
-          "note": "The text describes online steps (signing in, creating a UKVI account to get an eVisa), but not an online application for a BRP, which the text says have all expired and been replaced.",
-          "quote": "You can only use it to: sign in to view your eVisa and get a share code create a UKVI account to get access to your eVisa apply to extend your permission to stay in the UK"
-        },
-        {
-          "claim": "You can apply or do this by post.",
-          "verdict": "partly_supported",
-          "note": "The only postal route in the text is for sending back someone else's lost or stolen BRP that you have found; it names no postal way to apply.",
-          "quote": "If you're in the UK, post the BRP to the Home Office using an envelope without a window."
-        }
-      ],
-      "rank": 2088
     },
     {
       "id": "ho-euss-enquiry",
@@ -6371,7 +6324,7 @@
       "id": "dwp-pension-credit",
       "name": "Pension Credit",
       "event": "retirement",
-      "path": "eligibility.evidenceRequired.2",
+      "path": "eligibility.evidenceRequired.1",
       "text": "Proof of savings and capital",
       "kind": "material",
       "severity": "medium",
@@ -6881,7 +6834,7 @@
       "id": "hmrc-lisa",
       "name": "Lifetime ISA withdrawal",
       "event": "buying-home",
-      "path": "eligibility.evidenceRequired.1",
+      "path": "eligibility.evidenceRequired.0",
       "text": "Conveyancer handles request process from ISA provider",
       "kind": "material",
       "severity": "medium",
@@ -12347,7 +12300,7 @@
       "id": "ho-skilled-worker-dependent-visa",
       "name": "Skilled Worker dependant visa",
       "event": "immigration",
-      "path": "eligibility.evidenceRequired.1",
+      "path": "eligibility.evidenceRequired.0",
       "text": "Marriage or civil partnership certificate",
       "kind": "elaboration",
       "severity": "low",
@@ -12368,7 +12321,7 @@
       "id": "ho-skilled-worker-dependent-visa",
       "name": "Skilled Worker dependant visa",
       "event": "immigration",
-      "path": "eligibility.evidenceRequired.2",
+      "path": "eligibility.evidenceRequired.1",
       "text": "Children's birth certificates",
       "kind": "elaboration",
       "severity": "low",
@@ -12557,7 +12510,7 @@
       "id": "hmrc-sdlt",
       "name": "Stamp Duty Land Tax return",
       "event": "buying-home",
-      "path": "eligibility.evidenceRequired.1",
+      "path": "eligibility.evidenceRequired.0",
       "text": "SDLT1 form (usually filed by solicitor)",
       "kind": "elaboration",
       "severity": "low",

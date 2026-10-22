@@ -1,0 +1,44 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can register the food business online",
+          "verdict": "supported",
+          "quote": "Begin registration",
+          "source": 2,
+          "note": "The food-business registration web form offers a start action."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Business address and contact details are needed",
+          "verdict": "supported",
+          "quote": "Establishment details Trading name Enter answer Establishment address Enter answer Address type Enter answer Phone number Enter answer Email address Enter answer",
+          "source": 3,
+          "note": "The registration form asks for establishment address, phone number and email address."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Nature of food business is needed",
+          "verdict": "supported",
+          "quote": "Describe your food business",
+          "source": 4,
+          "note": "The form asks applicants to describe the food business."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

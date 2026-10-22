@@ -1,0 +1,243 @@
+[
+  {
+    "key": "hmpo-passport-urgent#eligibility.criteria.0",
+    "service": "Urgent passport application",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/get-a-passport-urgently",
+    "claim": "Must be a British national with imminent international travel.",
+    "alreadySearched": [
+      "https://www.gov.uk/get-a-passport-urgently"
+    ],
+    "whyNotFound": "not stated: The urgent passport page sets neither British nationality nor upcoming travel as a condition; the only related rules are that you must be in the UK and not applying for a first adult passport."
+  },
+  {
+    "key": "hmpo-passport#eligibility.evidenceRequired.0",
+    "service": "Apply for or renew a passport",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-renew-passport",
+    "claim": "Current or most recent passport",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "whyNotFound": "not stated: The text does not say you must provide your current or previous passport."
+  },
+  {
+    "key": "hmpo-passport#eligibility.evidenceRequired.2",
+    "service": "Apply for or renew a passport",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-renew-passport",
+    "claim": "Countersignatory details (first applications)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "whyNotFound": "not stated: The text never mentions countersignatories."
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.0",
+    "service": "Anti-money laundering registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+    "claim": "Business details and registered address",
+    "alreadySearched": [
+      "https://www.gov.uk/anti-money-laundering-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say what evidence or information is needed."
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.1",
+    "service": "Anti-money laundering registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+    "claim": "Identity of beneficial owners and directors",
+    "alreadySearched": [
+      "https://www.gov.uk/anti-money-laundering-registration"
+    ],
+    "whyNotFound": "not stated: The text does not mention beneficial owners, directors or identity evidence."
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.2",
+    "service": "Anti-money laundering registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+    "claim": "Evidence of business type and activities",
+    "alreadySearched": [
+      "https://www.gov.uk/anti-money-laundering-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say what evidence is required."
+  },
+  {
+    "key": "hmrc-child-benefit-transfer#eligibility.evidenceRequired.0",
+    "service": "Child Benefit transfer",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+    "claim": "Government Gateway account of new claimant",
+    "alreadySearched": [
+      "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
+    ],
+    "whyNotFound": "not stated: The text never mentions a Government Gateway account."
+  },
+  {
+    "key": "hmrc-child-benefit-transfer#eligibility.evidenceRequired.1",
+    "service": "Child Benefit transfer",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+    "claim": "Child's details and date of change",
+    "alreadySearched": [
+      "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
+    ],
+    "whyNotFound": "not stated: The text never asks for the child's details or the date of the change when changing who gets Child Benefit."
+  },
+  {
+    "key": "hmrc-cis#agentInteraction.methods",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text only mentions signing in to CIS online to file returns or verify subcontractors once already registered, not registering online. not stated: The text does not mention phone."
+  },
+  {
+    "key": "hmrc-cis#eligibility.criteria.1",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text does not mention HMRC business registration, a UTR or Companies House registration as prerequisites."
+  },
+  {
+    "key": "hmrc-cis#eligibility.evidenceRequired.0",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Business UTR",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text does not mention a UTR or any evidence needed to register."
+  },
+  {
+    "key": "hmrc-cis#eligibility.evidenceRequired.1",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Companies House registration number (if limited company)",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text does not mention a Companies House number."
+  },
+  {
+    "key": "hmrc-cis#eligibility.evidenceRequired.2",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Nature of construction work",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text describes what work is covered but does not say you must give the nature of your work when registering."
+  },
+  {
+    "key": "hmrc-free-childcare-15#agentInteraction.methods",
+    "service": "Free childcare — 15 hours (3 and 4-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+    "claim": "You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
+    ],
+    "whyNotFound": "not stated: The text gives no way of applying for the 15 hours, in person or otherwise."
+  },
+  {
+    "key": "hmrc-free-childcare-15#eligibility.evidenceRequired.0",
+    "service": "Free childcare — 15 hours (3 and 4-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+    "claim": "Child's date of birth, given to the childcare provider",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence to give the provider."
+  },
+  {
+    "key": "hmrc-guardians-allowance#eligibility.evidenceRequired.1",
+    "service": "Guardian's Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guardians-allowance",
+    "claim": "Child Benefit claim reference",
+    "alreadySearched": [
+      "https://www.gov.uk/guardians-allowance",
+      "https://www.gov.uk/guardians-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text never mentions a Child Benefit claim reference as evidence."
+  },
+  {
+    "key": "hmrc-iht400#agentInteraction.methods",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "You can apply or do this online. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text does not describe any way of applying or sending a return. not stated: The text does not mention sending anything by post."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.criteria.1",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "Applies to the estate of a deceased person in England, Wales or Northern Ireland.",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text never limits the service to England, Wales or Northern Ireland; it only mentions the UK in general and people based abroad."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.evidenceRequired.0",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "IHT400 form and supplementary schedules",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text does not mention the IHT400 form or any schedules."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.evidenceRequired.1",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "Valuations of all assets",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text says the estate's value is used to work out the tax, but it does not list asset valuations as evidence for a return."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.evidenceRequired.3",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "Copy of will",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text does not say a copy of the will must be provided."
+  }
+]

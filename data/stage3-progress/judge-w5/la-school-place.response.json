@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Children reach compulsory school age when starting Reception at age 4 to 5",
+          "verdict": "contradicted",
+          "quote": "Your child must start full-time education once they reach compulsory school age. This is on 31 December, 31 March or 31 August following their fifth birthday",
+          "source": 1,
+          "note": "Compulsory school age follows the fifth birthday; starting Reception after the fourth birthday is customary but earlier."
+        },
+        {
+          "claim": "Most children start Reception at age 4 to 5",
+          "verdict": "supported",
+          "quote": "Most children start reception full-time in September after their fourth birthday.",
+          "source": 1,
+          "note": "The usual Reception starting age is supported."
+        },
+        {
+          "claim": "Children start secondary school at age 11",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources discuss secondary applications but do not state an age of 11 for starting secondary school."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Proof of address is needed for a school place application",
+          "verdict": "partly_supported",
+          "quote": "You may need to: supply proof of your new address, for example a mortgage or rental agreement or deeds for the property",
+          "source": 1,
+          "note": "Address proof may be requested when applying from another country, but the source does not make it universal."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

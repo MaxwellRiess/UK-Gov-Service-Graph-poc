@@ -93,6 +93,11 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
       out.push({ path: `${path}.value`, about: `Eligibility rule: ${rule.label}` });
     } else if (rule.type === 'deadline') {
       out.push({ path: `${path}.maxDays`, about: `Deadline rule: ${rule.label}` });
+    } else if (rule.type === 'state_pension_age') {
+      out.push({ path: `${path}.reached`, about: `Eligibility rule: ${rule.label}` });
+    } else if (rule.type === 'born') {
+      if (rule.onOrBefore) out.push({ path: `${path}.onOrBefore`, about: `Eligibility rule: ${rule.label}` });
+      if (rule.onOrAfter) out.push({ path: `${path}.onOrAfter`, about: `Eligibility rule: ${rule.label}` });
     }
   };
   (node.eligibility.rules ?? []).forEach((r, i) => walk(r, `eligibility.rules.${i}`));
@@ -108,8 +113,12 @@ function claimFields(node: ServiceNode): { path: string; about?: string }[] {
   for (const [path, url, about] of links) if (url) out.push({ path, about });
 
   if (node.agentInteraction) {
-    out.push({ path: 'agentInteraction.methods', about: `Ways to apply: ${node.agentInteraction.methods.join(', ')}` });
-    out.push({ path: 'agentInteraction.authRequired', about: `Sign-in needed: ${node.agentInteraction.authRequired}` });
+    if (node.agentInteraction.methods) {
+      out.push({ path: 'agentInteraction.methods', about: `Ways to apply: ${node.agentInteraction.methods.join(', ') || 'none, it happens automatically'}` });
+    }
+    if (node.agentInteraction.authRequired) {
+      out.push({ path: 'agentInteraction.authRequired', about: `Sign-in needed: ${node.agentInteraction.authRequired}` });
+    }
     out.push({ path: 'agentInteraction.agentSteps' });
   }
   return out;

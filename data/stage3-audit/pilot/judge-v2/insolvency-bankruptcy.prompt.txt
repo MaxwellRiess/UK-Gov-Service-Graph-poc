@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Apply for bankruptcy" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge-v2/insolvency-bankruptcy.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[exclusion_0] (split into claims) Already bankrupt
+
+--- SOURCE 0: https://www.gov.uk/apply-for-bankruptcy ---
+Apply for bankruptcy Use this service to apply for bankruptcy in England and Wales. The process is different if you’re applying for bankruptcy in Scotland or applying for bankruptcy in Northern Ireland . You can only apply for bankruptcy online. It costs £680. Before applying, check other options for dealing with debt and find out what happens when you become bankrupt . Start now Before you start You’ll need to provide information about your income, outgoings and debts, including: wage slips benefits or pension statements bills - for example, electricity, credit card and council tax letters from a bailiff or enforcement agent You’ll be asked to create an account. You can start your application and come back to it later by signing in to your account . You will not be able to submit it until you’ve paid the full fee. If you’ve applied for a person at risk of violence (PARV) order , do not submit your application until the court has made a decision about your PARV. It usually takes up to 28 days to get a decision on your application. It can take longer if the ‘adjudicator’ (the person who reviews your application) needs to ask you more questions. Paying the fee You cannot submit your application until you’ve paid the full fee. You can pay in instalments if you cannot afford to pay it all at once. If you are struggling to pay the fee, contact a debt adviser about charities that may be able to help. If you need help with your application Get help from a debt adviser . You can also contact the Insolvency Service helpline. Insolvency Enquiry Line iel.onlinedebtsolutions@insolvency.gov.uk Telephone: 0300 678 0015 Monday to Thursday, 9am to 5pm Friday, 9am to 3pm Find out about call charges Related content Check how you can deal with your debts Explore the topic Court claims, debt and bankruptcy
+
+--- SOURCE 1 (FOUND): https://www.legislation.gov.uk/ukpga/1986/45/section/263K ---
+Insolvency Act 1986 Skip to main content Skip to navigation legislation.gov.uk https://www.nationalarchives.gov.uk Cymraeg Home Explore our collections Research tools Help and guidance What's new About us Search Legislation Search Legislation Title: (or keywords in the title) Year: Number: Type: All UK Legislation (excluding originating from the EU) -------------------------------------------- All Legislation (including originating from EU) -------------------------------------------- All Legislation originating from the EU that is amended by the UK -------------------------------------------- All Primary Legislation UK Public General Acts UK Local Acts UK Private and Personal Acts Acts of the Scottish Parliament Acts of Senedd Cymru Acts of the National Assembly for Wales Measures of the National Assembly for Wales Church Measures Acts of the Northern Ireland Assembly Acts of the Old Scottish Parliament Acts of the English Parliament Acts of the Old Irish Parliament Acts of the Parliament of Great Britain Local Acts of the Parliament of Great Britain Private and Personal Acts of the Parliament of Great Britain Northern Ireland Orders in Council Measures of the Northern Ireland Assembly Acts of the Northern Ireland Parliament -------------------------------------------- All Secondary Legislation UK Statutory Instruments Welsh Statutory Instruments Scottish Statutory Instruments Northern Ireland Statutory Rules Church Instruments UK Ministerial Directions UK Ministerial Orders UK Statutory Rules and Orders Northern Ireland Statutory Rules and Orders -------------------------------------------- All Legislation originating from the EU Regulations originating from the EU Regulations originating from the EU that are amended by the UK Decisions originating from the EU Decisions originating from the EU that are amended by the UK Directives originating from the EU European Union Treaties -------------------------------------------- All Draft Legislation UK Draft Statutory Instruments Scottish Draft Statutory Instruments Northern Ireland Draft Statutory Rules -------------------------------------------- All Impact Assessments UK Impact Assessments Search Advanced Search Insolvency Act 1986 You are here: UK Public General Acts 1986 c. 45 Part IX CHAPTER A1 Section 263K Table of Contents Content More Resources Previous: Provision Next: Provision Plain View Print Options What Version Latest available (Revised) Original (As enacted) Advanced Features Show Geographical Extent (e.g. E ngland, W ales, S cotland and N orthern I reland) Show Timeline of Changes Opening Options Open whole Act Open Act without Schedules Open Schedules only More Resources Original: King's Printer Version View more Changes over time for: Section 263K Alternative versions: 25/04/2013 - Amendment Changes to legislation: Insolvency Act 1986, Section 263K is up to date with all changes known to be in force on or before 21 October 2026. There are changes that may be brought into force at a future date. Changes that have been made appear in the content and are referenced with annotations. Changes to Legislation Revised legislation carried on this site may not be fully up to date. Changes and effects are recorded by our editorial team in lists which can be found in the ‘Changes to Legislation’ area. Where those effects have yet to be applied to the text of the legislation by the editorial team they are also listed alongside the legislation in the affected provisions. Use the ‘more’ link to open the changes and effects relevant to the provision you are viewing. View outstanding changes Changes and effects yet to be applied to Section 263K: Act savings and transitional provisions for amendments by S.I. 2022/1166 by S.I. 2022/1172 Regulations Sch. 6 para. 13(2)(za) inserted by 2025 c. 36 Sch. 2 para. 1 Changes and effects yet to be applied to the whole Act associated Parts and Chapters: Act savings and transitional provisions for amendments by S.I. 2022/1166 by S.I. 2022/1172 Regulations Whole provisions yet to be inserted into this Act (including any effects on those provisions): Sch. 6 para. 13(2)(za) inserted by 2025 c. 36 Sch. 2 para. 1 [ F1 263K Determination of bankruptcy application E+W (1) After receiving a bankruptcy application, an adjudicator must determine whether the following requirements are met— &#xD; (a) the adjudicator had jurisdiction under section 263I to determine the application on the date the application was made, &#xD; (b) the debtor is unable to pay his or her debts at the date of the determination, &#xD; (c) no bankruptcy petition is pending in relation to the debtor at the date of the determination, and &#xD; (d) no bankruptcy order has been made in respect of any of the debts which are the subject of the application at the date of the determination. &#xD; (2) If the adjudicator is satisfied that each of the requirements in subsection (1) are met, the adjudicator must make a bankruptcy order against the debtor. &#xD; (3) If the adjudicator is not so satisfied, the adjudicator must refuse to make a bankruptcy order against the debtor. &#xD; (4) The adjudicator must make a bankruptcy order against the debtor or refuse to make such an order before the end of the prescribed period (“the determination period”). ] &#xD; Textual Amendments F1 Pt. 9 Ch. A1 inserted (25.4.2013 for specified purposes, 6.4.2016 in so far as not already in force) by Enterprise and Regulatory Reform Act 2013 (c. 24) , s. 103(1)(i) (3) , Sch. 18 ; S.I. 2016/191 , art. 2 Previous: Provision Next: Provision Back to top Options/Help Print Options Print The Whole Act PDF The Whole Act Web page The Whole Act Print The Whole Part PDF The Whole Part Web page The Whole Part Print The Whole Chapter PDF The Whole Chapter Web page The Whole Chapter Print This Section only PDF This Section only Web page This Section only You have chosen to open The Whole Act The Whole Act you have selected contains over 200 provisions and might take some time to download. You may also experience some issues with your browser, such as an alert box that a script is taking a long time to run. Would you like to continue? Continue to open You have chosen to open The Whole Act as a PDF The Whole Act you have selected contains over 200 provisions and might take some time to download. Would you like to continue? Continue to open You have chosen to open The Whole Act without Schedules The Whole Act without Schedules you have selected contains over 200 provisions and might take some time to download. You may also experience some issues with your browser, such as an alert box that a script is taking a long time to run. Would you like to continue? Continue to open You have chosen to open The Whole Act without Schedules as a PDF The Whole Act without Schedules you have selected contains over 200 provisions and might take some time to download. Would you like to continue? Continue to open You have chosen to open the Whole Act The Whole Act you have selected contains over 200 provisions and might take some time to download. You may also experience some issues with your browser, such as an alert box that a script is taking a long time to run. Would you like to continue? Continue to open You have chosen to open the Whole Act without Schedules The Whole Act without Schedules you have selected contains over 200 provisions and might take some time to download. You may also experience some issues with your browser, such as an alert box that a script is taking a long time to run. Would you like to continue? Continue to open You have chosen to open Schedules only The Schedules you have selected contains over 200 provisions and might take some time to download. You may also experience some issues with your browser, such as an alert box that a script is taking a long time to run. Would you like to continue? Continue to open Legislation is available in different versions: Latest Available (revised): The latest available updated version of the legislation incorporating changes made by subsequent legislation and applied by our editorial team. Changes we have not yet applied to the text, can be found in the ‘Changes to Legislation’ area. Original (As Enacted or Made): The original version of the legislation as it stood when it was enacted or made. No changes have been applied to the text. See additional information alongside the content Geographical Extent: Indicates the geographical area that this provision applies to. For further information see ‘Frequently Asked Questions’. Show Timeline of Changes: See how this legislation has or could change over time. Turning this feature on will show extra navigation options to go to these specific points in time. Return to the latest available version by using the controls above in the What Version box. Opening Options Different options to open legislation in order to view more content on screen at once More Resources Access essential accompanying documents and information for this legislation item from this tab. Dependent on the legislation item being viewed this may include: the original print PDF of the as enacted version that was used for the print copy lists of changes made by and/or affecting this legislation item confers power and blanket amendment details all formats of all associated documents correction slips links to related legislation and further information resources Timeline of Changes This timeline shows the different points in time where a change occurred. The dates will coincide with the earliest date on which the change (e.g an insertion, a repeal or a substitution) that was applied came into force. The first date in the timeline will usually be the earliest date when the provision came into force. In some cases the first date is 01/02/1991 (or for Northern Ireland legislation 01/01/2006). This date is our basedate. No versions before this date are available. For further information see the Editorial Practice Guide and Glossary under Help. More Resources Use this menu to access essential accompanying documents and information for this legislation item. Dependent on the legislation item being viewed this may include: the original print PDF of the as enacted version that was used for the print copy correction slips Click 'View More' or select 'More Resources' tab for additional information including: lists of changes made by and/or affecting this legislation item confers power and blanket amendment details all formats of all associated documents links to related legislation and further information resources The data on this page is available in the alternative data formats listed: HTML5 alternative version HTML snippet alternative version PDF alternative version XML alternative version Akoma Ntoso alternative version HTML RDFa alternative version RDF/XML alternative version New site design Help About us Site map Accessibility Contact us Privacy notice Cookies Fair use policy All content is available under the Open Government Licence v3.0 except where otherwise stated . This site additionally contains content derived from EUR-Lex, reused under the terms of the Commission Decision 2011/833/EU on the reuse of documents from the EU institutions. For more information see the EUR-Lex public statement on re-use . © Crown and database right

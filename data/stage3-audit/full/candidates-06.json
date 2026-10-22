@@ -1,0 +1,71 @@
+{
+ "ho-citizenship#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible"
+ ],
+ "ho-citizenship#eligibility.evidenceRequired.1": [
+  "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible"
+ ],
+ "ho-citizenship#eligibility.evidenceRequired.4": [
+  "https://www.gov.uk/government/publications/form-an-guidance/form-an-guidance-accessible"
+ ],
+ "ho-drug-precursor-licence#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/guidance/precursor-chemical-licensing"
+ ],
+ "ho-drug-precursor-licence#eligibility.evidenceRequired.1": [
+  "https://www.gov.uk/guidance/precursor-chemical-licensing"
+ ],
+ "ho-euss-enquiry#eligibility.criteria.0": [
+  "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme"
+ ],
+ "ho-euss-enquiry#eligibility.summary": [
+  "https://www.gov.uk/contact-ukvi-inside-outside-uk/y/inside-the-uk/settled-or-pre-settled-status-eu-settlement-scheme",
+  "https://www.gov.uk/settled-status-eu-citizens-families/after-youve-applied"
+ ],
+ "ho-evisa-error#desc": [
+  "https://www.gov.uk/evisa/report-error-evisa"
+ ],
+ "ho-ilr#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/long-residence/documents-you-must-provide"
+ ],
+ "ho-ilr#eligibility.evidenceRequired.1": [],
+ "ho-ilr#eligibility.evidenceRequired.4": [
+  "https://www.gov.uk/government/publications/application-to-settle-in-the-uk-form-seto",
+  "https://www.gov.uk/government/publications/application-to-settle-in-the-uk-form-seto/apply-online-form-seto"
+ ],
+ "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0": [],
+ "ho-skilled-worker-visa#eligibility.criteria.1": [
+  "https://www.gov.uk/skilled-worker-visa/switch-to-this-visa"
+ ],
+ "ho-student-visa#eligibility.criteria.0": [
+  "https://www.gov.uk/apply-to-come-to-the-uk",
+  "https://www.gov.uk/check-uk-visa/y/ireland"
+ ],
+ "ho-view-immigration-status#eligibility.summary": [
+  "https://www.gov.uk/evisa/view-evisa-get-share-code-prove-immigration-status",
+  "https://www.gov.uk/prove-right-to-work"
+ ],
+ "ho-visa#agentInteraction.methods": [
+  "https://www.gov.uk/apply-to-come-to-the-uk"
+ ],
+ "ho-visa#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/apply-to-come-to-the-uk"
+ ],
+ "ho-visa#eligibility.evidenceRequired.1": [
+  "https://www.gov.uk/student-visa/documents-you-must-provide",
+  "https://www.gov.uk/skilled-worker-visa/documents-you-must-provide"
+ ],
+ "ho-visa#eligibility.evidenceRequired.2": [
+  "https://www.gov.uk/student-visa/documents-you-must-provide",
+  "https://www.gov.uk/skilled-worker-visa/documents-you-must-provide",
+  "https://www.gov.uk/apply-to-come-to-the-uk"
+ ],
+ "insolvency-bankruptcy#eligibility.criteria.0": [
+  "https://www.legislation.gov.uk/ukpga/1986/45/section/263K",
+  "https://www.gov.uk/options-for-paying-off-your-debts/bankruptcy",
+  "https://www.gov.uk/becoming-bankrupt"
+ ],
+ "insolvency-bankruptcy#eligibility.exclusions.1": [
+  "https://www.gov.uk/becoming-bankrupt/your-home",
+  "https://www.gov.uk/becoming-bankrupt/your-possessions"
+ ]
+}

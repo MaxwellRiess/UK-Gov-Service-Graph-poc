@@ -1,0 +1,136 @@
+A service graph describes the UK government service "Food hygiene registration" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/la-food-hygiene.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+[evidence_0] (split into claims) Business address and contact details
+[evidence_1] (split into claims) Nature of food business
+
+--- SOURCE 0: https://www.gov.uk/guidance/food-business-registration ---
+Food business registration. You must register with your local authority to run a food business. Apply now: Register with your local authority . Overview If you sell, cook, store, handle, prepare or distribute food, you may be considered a food business and will need to register with your local authority . This includes food businesses trading: from physical customer-facing premises from home from a mobile unit or temporary premises online (for example via social media or a website) or through distance selling (distance selling means any selling that happens without face-to-face contact with the consumer). Who needs to register You will need to register with your local authority if you: sell food cook food store or handle food prepare food distribute food Registration will apply to all types of businesses who sell food and drink, regardless of where they operate from. It includes businesses trading from home, a mobile unit, or temporary premises such as a stall or van and also applies if you only sell food or drink online. Companies involved with food distribution, brokerage or food supply that operate from an office should also register as a food business. This applies even if no food is kept at the premises. If you operate in more than one location, you need to register each site with the local authority in which they are located. If you are unsure if you need to register or require further advice, please contact your local authority in England, Wales or Northern Ireland . Registering as a childminder If you provide food with your childminding business in England, the details you provide to Ofsted or your childminder agency will also be used to register you as a food business with your local authority. You will not have to register separately. You must comply with food safety and hygiene regulations if you provide food and drink for children or babies including: meals snacks drinks (apart from mains tap water) reheated food provided by a parent/carer food that you cut up and prepare Childminder registration requirements differ in Wales and Northern Ireland if you provide food with your childminding business. Contact your local authority for more information. If you are a childminder in Scotland you need to complete a childminders food business registration form and send it to your local authority. Registering as a food bank or charity You may need to register as a food business if you, or your operation, provide food to the community, even if it’s free, 28 days before you start providing food. Read food safety and hygiene guidance for food banks and charities . England, Wales and Northern Ireland You are required to register at least 28 days before trading. We recommend that you do not register too early, but that you wait until 28 days before you are ready to start your operations. Use the Getting ready to start your food business checklist to make sure that you have considered everything before you register, or contact your local authority if you require further advice. Scotland Information and advice to help you start up your food business is available on the Food Standards Scotland website . Alternatively, contact your local authority in Scotland if you require further advice.
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/guidance/childminders-and-childcare-providers-register-with-ofsted/childminders-and-childcare-on-domestic-premises-registration ---
+Childminders and childcare on domestic premises: registration. How to register if you want to look after children at home, including what you need to do before you apply, fees, and working elsewhere. From November 2024, you can register to be a childminder without domestic premises if you do not want to work from your or another home address. Read our guidance on how to register as a childminder without domestic premises . Childminders As a childminder, you can: work solely from your or somebody else’s home, or work from your or somebody else’s home and spend some of your time on non-domestic premises, such as a community or village hall Or work solely from somewhere other than a home, like a community or village hall. It does not count as childminding if it is the home of one of the children being cared for, unless the care is for more than 2 different families at the same time. You can either follow the guidance on this page to register as a childminder with Ofsted, or you can register with a childminder agency instead. See: childminder agencies’ contact information and Ofsted reports background information about childminder agencies on the Foundation Years site There are some situations when you cannot or may not need to register with Ofsted or a childminder agency . You can work alone or with up to 3 childminders at any one time. Each childminder (often known as co-childminders) must apply to register separately. If you work with 4 or more other people providing or assisting with care, you are providing childcare on domestic premises . You must register with Ofsted or with a childminder agency. You may also want to work in different settings as well as being a childminder. You only need to apply as a childminder once, even if you work from a number of different homes or premises. However, you must tell us about all of the premises where you will work. You can operate either as an individual or as an organisation (for example Jenny Smith or Jenny Smith trading as SuperStars (Ltd)) but for Ofsted registration purposes you will be treated as an individual registered person. If you become a company after you register, you will not need to apply again. Childminder assistants You can have assistants but can only leave them alone with children for up to 2 hours a day (with parental permission). If you want to leave children alone with assistants for longer periods of time, the assistants must register as childminders in their own right. Your assistants need to get an enhanced check with barred lists from DBS . You will need to use the Childminder: report new adults in the home service. They cannot work unsupervised until they have received their suitability letter from Ofsted. Childcare on domestic premises If there are 5 or more people working together to provide or assist with childcare on a domestic premise, this is a childcare on domestic premises provider and a type of group provision. You can either apply to register with Ofsted as a provider of childcare on domestic premises, or you can register with a childminder agency instead. See: childminder agencies’ contact information and Ofsted reports background information about childminder agencies on the Foundation Years site You cannot work as a childminder and offer childcare on domestic premises under the same registration. If you want to work part of your time as a childminder, and part as childcare on domestic premises, you need to register separately for each. You will need to pay 2 fees and have separate inspections. You can apply either as an individual or as an organisation (for example Jenny Smith or Jenny Smith trading as SuperStars (Ltd)). If you become a company after you register, you will need to apply again. Before you apply You will need to have an enhanced check with barred lists from DBS for yourself. You can get this using the Ofsted DBS service . We cannot accept DBS checks done via other organisations, or Ofsted DBS checks older than 3 months, unless you’re on the DBS Update service . Anyone aged 16 or over in the home also needs an enhanced check with barred lists from DBS . This includes: anyone who lives in that home anyone who works there during childcare hours any assistants who will be working with you Find out more about household members or visitors that we need to know about . We may need extra documentation if you have lived abroad in the last 5 years . You’ll also need to: know which registers you need to join do a training course (check with your local authority for details) get a first aid qualification suitable for the ages of the children you look after ask your doctor to fill in the healthcare declaration booklet do a risk assessment in your home to spot any potential risks to children’s health or safety – including from any equipment or activities you will provide When you start looking after children you’ll need to have public liability insurance. How to apply Childminders You need to use the Apply to register as a childminder service. You need to tell us about all adults and childminding assistants and anyone aged 16 or over who lives on the domestic premises or works there during childcare hours when you make your application. We will contact them to complete a health declaration form and confirm their details. When you apply, we will carry out an application review . We aim to complete your application within the following timescales, but it may take longer in some situations: 12 weeks for early years applications 10 weeks for childcare register applications Childcare on domestic You will need to have a Government Gateway account. You will be prompted to sign in or create an account when you start to apply. Use the ‘Apply to register your nursery or other daycare organisation (EYO)’ or ‘Apply to join the Childcare Register (CR1)’ . Make sure that everyone who needs to has filled in an EY2 form and got an enhanced check with barred lists from DBS . When you apply, we will carry out an application review . We aim to complete your application within the following timescales, but it may take longer in some situations: 12 weeks for early years applications 10 weeks for childcare register applications If we refuse your application If you cannot show us that you are suitable to be registered, we may refuse your application. If so, we will send you a ‘notice of intention’ to refuse. If you do not respond to this within 14 working days of the notice date, we will send a ‘notice of decision’ to refuse registration and information on how to appeal . Requirements You will need to follow all requirements for childminders or childcare on domestic premises. We will inspect you if you have joined the Early Years Register, and may inspect you if you have joined the Childcare Register only – find out more about inspections . Fees Childminders You will need to contact us to let us know you are moving or have moved and we will issue a certificate with your new address. If there are any new people aged 16 or over living or working on the premises, you must also submit an application to report new adults in the home . If you’re only joining the Childcare Register, it costs £103. There are also costs for training, checks and insurance. View a full list of estimated costs . Childcare on domestic premises It costs £220 to join the Early Years Register. It’s free to join the Childcare Register at the same time. If you’re only joining the Childcare Register, it costs £114. You pay a reduced fee of £35 to join the Early Years Register if you work for less than any of the following: 3 hours a day 5 days a week 45 weeks a year About Ofsted’s fees Once you’re registered, you must pay the same fee annually. This is due on the anniversary of your registration and covers the previous year. See more information about Ofsted registration fees . Moving premises Childminders You will need to contact us to let us know you have moved and we will issue a certificate with your new address. If there are any new people over the age of 16 living or working on the premises, you must also submit an application to report new adults in the home . Childcare on domestic premises If you are a childcare on domestic premises provider and you intend to move your setting or operate from additional premises, you must apply to register your new premises . This is because each daycare setting must be approved by Ofsted. Approval to move or operate from additional settings does not require a full registration. Therefore, seeking approval is not expected to take as long to complete as a full registration. If your application is approved, you will get a new registration certificate. Your new setting must be approved by Ofsted before it can legally begin operating. To do so without approval will result in you providing unregistered childcare, which is an offence. You will need to pay an approval and annual fee for each setting where childcare is provided. If there are any new people living or working on the premises over the age of 16, they must submit an application to join a nursery or other daycare organisation . Working in different settings If you want to start working as a childminder in another home as well as your own, you need to let us know. However, you can work outside your registration as an employee for a registered childcare provider, like a nursery or other daycare, for any amount of time. You do not have to let us know. Working as an Ofsted-registered nanny You can do this under your childminder or childcare on domestic registration but you need to let us know. You can tell us about this when you first apply to register or contact us after you are registered. Setting up childcare on non-domestic premises Under your childminder with domestic premises or childcare on domestic premises registration, you can apply to spend some of your time running childcare from non-domestic premises. Non-domestic premises include places like nurseries, church halls, parts of a school or classrooms. You need to follow the same requirements as your original registration. You do not have to pay an extra fee but you must apply for approval to work on non-domestic premises using the EYA form . You can do this when you submit your main application or once you are registered. However, we will not review this until we have confirmed your initial registration. You can decide how you will divide your work between the different settings, as long as you spend some of your time working on the domestic premises. For example, you can work from different settings on a daily basis, or on a weekly, monthly or yearly basis. However, you must describe how you will divide the work between each setting in your childminding application. We will need to approve your non-domestic premises before you can work there. However, you can still offer childminding/childcare on domestic premises under your registration. If you want to spend 100% of the time providing care on non-domestic premises, you need to register separately with us as a childminder without domestic premises , or as a childcare on non-domestic premises provider if the number of people providing or assisting with care exceeds 4. It is an offence to provide care on non-domestic premises without our approval. Telling Ofsted about changes You must keep your details up to date and report any changes within 14 days of them happening. You also need to tell us about any serious incidents . Contact us to report changes to: where you are working your contact details your childcare hours Changes to the legal structure of your business once registered (childcare on domestic premises only) If you register your childcare on domestic premises as a new business with Companies House or The Charities Commission , your legal structure changes and you will receive a new company or charity registration number. You will need to make a new application and pay an application fee for each setting affected by the change. This is because your business becomes a new legal entity and your existing registrations are attached to the previous individual or organisation. Your new business must be approved by Ofsted before it begins operating. To do so without approval will result in you providing unregistered childcare, which is an offence. Changing the name or registered office address of your business When you change your business name or your registered head office address (not the childcare premises), the registered provider remains the same and we do not need a new application. The nominated individual should notify us of the change. Fast track applications to operate in a different way or set up additional premises To support local authorities and registered early years and childcare settings, we have put in place temporary arrangements. These allow us to fast-track applications and requests from existing providers only to operate provision in a different way or to set up additional premises. Contact your local authority for further information. Resigning your registration If you want to resign your registration, contact us or tell the inspector during a visit. We will keep the published history of a childcare setting on our reports website for 5 years after the setting is listed as closed. This includes: your previous inspection reports (if you are only registered on the Childcare Register, previous inspection outcome letters remain online for 12 months after publication) details of any previous conditions of registration any information we have previously published about complaints or compliance action taken against you (this will remain online for 5 years after publication) We do this so that people can view this information in case: you decide to register to provide childcare again after a short period you decide to start providing childcare at a different address someone else decides to register to provide childcare from the same address Household members, assistants and visitors We must check people who live or work with you in the home. This includes: anyone aged 16 or over who lives in the home (household members) anyone who works there regularly during childcare hours, such as a cleaner If you provide a ‘childcare on domestic’ service, these people will need to complete an EY2 form online . If you are a childminder with domestic premises, you will need to use the Childminders: report new adults in the home service. Each of these people will need an enhanced check with barred lists from DBS . For more information, see People connected with Ofsted-registered childcare . Visitors Visitors include people who are doing building work or repairs in your home. We do not carry out checks on visitors, but you are responsible for these people and should not leave them alone with children. You should also have a procedure for checking the IDs of visitors like tradesmen and builders who are working in your home. Previous chapter: The Ofsted registers | Next chapter: Nannies: registration .
+
+--- SOURCE 2 (FOUND): https://register.food.gov.uk/new/ ---
+Register a Food Business When you start a new food business or take over an existing business, you must register with your local authority. You should do this at least 28 days before trading or before food operations start. Do not register too early. If your food business is not ready to start trading, wait until nearer the time that operations are due to begin. During this registration, you may come across a few specialist terms, which we have described below: Food business operator The operator is the person, charity or company who makes the decisions about the food business. They decide what it serves and how it operates. Establishment The establishment is the location or site of your food business. If it is a mobile food business, please use the location where it is normally stored overnight. If the business is operating from a home address, enter that postcode. Begin registration
+
+--- SOURCE 3 (FOUND): https://register.food.gov.uk/new/registration-summary?lang=en ---
+Check your answers You must check your answers before you continue Operator details Operator type Enter answer Operator address Enter answer Establishment details Trading name Enter answer Establishment address Enter answer Address type Enter answer Phone number Enter answer Email address Enter answer Trading date Enter answer Opening days Enter answer Opening hours Enter answer Water supply Enter answer Activities Business type Enter answer Business scale Enter answer Food type Enter answer Processing activities Enter answer Continue
+
+--- SOURCE 4 (FOUND): https://register.food.gov.uk/new/business-other-details?lang=en ---
+Other details Tell us more about your food business, for example: Describe your food business Is this a new food business or one you are taking over? How many people are employed? Do you use a vehicle for your food business for deliveries or events - does it have a registration mark? Are you a member of a trade body or a Primary Authority? Continue

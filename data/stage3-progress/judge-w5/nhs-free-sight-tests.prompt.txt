@@ -1,0 +1,129 @@
+A service graph describes the UK government service "Free NHS Sight Tests" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/nhs-free-sight-tests.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_0] (split into claims) HC2 certificate (if applicable)
+[evidence_1] (split into claims) Benefit award letter
+[evidence_2] (split into claims) Medical evidence if claiming on health grounds
+
+--- SOURCE 0: https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/ ---
+Free NHS eye tests and optical vouchers Find out if you're entitled to a free NHS sight test or an optical voucher to reduce the cost of glasses or contact lenses. If you're not eligible for NHS-funded sight tests or optical vouchers, you'll have to cover the costs yourself. Free NHS eye tests You're entitled to a free NHS sight test if you: are under 16 are 16, 17 or 18 and in full-time education (this includes being taught full-time at a school, college, university or at home) are 60 or over are registered as partially sighted or blind have been diagnosed with diabetes or glaucoma are 40 or over and your mother, father, sibling or child has been diagnosed with glaucoma have been advised by an eye doctor (ophthalmologist) that you're at risk of glaucoma are a prisoner on leave from prison are eligible for an NHS complex lens voucher – your optician can advise you about your entitlement are entitled to or named on a valid NHS certificate for full help with health costs (HC2) You're also entitled if you or your partner – including civil partner – receive, or you're under the age of 20 and the dependant of someone receiving: Income-based Jobseeker's Allowance Pension Credit Guarantee Credit Universal Credit and meet the criteria People named on an NHS certificate for partial help with health costs (HC3) may also get help with the cost of a private sight test. Find out more about the NHS Low Income Scheme (LIS) NHS optical vouchers You're entitled to an optical voucher for help towards the cost of your glasses or contact lenses if you: are under 16 are 16, 17 or 18 and in full-time education (this includes being taught full-time at a school, college, university or at home) are a prisoner on leave from prison are eligible for an NHS complex lens voucher – an optician can advise you about your entitlement are entitled to or named on a valid NHS certificate for full help with health costs (HC2) You're also entitled if you or your partner – including civil partner – receive, or you're under the age of 20 and the dependant of someone receiving: Income-based Jobseeker's Allowance Pension Credit Guarantee Credit Universal Credit and meet the criteria People named on an NHS certificate for partial help with health costs (HC3) may also get help with the cost of glasses or contact lenses. Find out more about the NHS Low Income Scheme (LIS) NHS complex lens vouchers To be eligible for a complex lens voucher, your lenses need to be either -10/+10 dioptres or more, or prism-controlled bifocal lenses. Complex lens vouchers are a contribution towards the cost of these lenses – currently £15.81 for single vision lenses and £40.57 for bifocal lenses. The vouchers are only available to those who meet the clinical criteria and are not eligible for one of the main optical vouchers . Mobile sight test If you're eligible for a free NHS sight test, you may also be entitled to a mobile sight test. This is when an optometrist comes to visit you: at home – if you're unable to leave home unaccompanied because of physical or mental illness or disability at a residential or care home – if you're a resident and unable to leave the home unaccompanied because of physical or mental illness or disability at a day centre – if you cannot get a sight test at an optician's practice because of physical or mental illness or disability, or have difficulties communicating your health needs unaided How can I claim a refund? Sight test fees If you paid for a sight test but think you may qualify for an NHS-funded sight test, or you're about to have a test and you're not sure if you qualify, ask the optometrist for a receipt that shows you paid for the test and the date of payment. You'll need to download, print and return an HC5(O) refund form along with your original receipt. The form tells you where to send it. Download an HC5(O) refund claim form for optical costs from the NHS Business Services Authority Glasses or contact lenses If you have already used a voucher towards the cost of your glasses or lenses, you cannot get a refund for any difference between the voucher value and the actual cost of your glasses or lenses, unless it was a complex lens voucher. If you paid for glasses or contact lenses and think you may have qualified for a voucher, you can claim a refund. You'll need to download, print and return an HC5(O) refund form along with your original receipt (including the amount you paid and the date of payment) and your optical prescription. The form tells you where to send it. Download an HC5(O) refund claim form for optical costs from the NHS Business Services Authority The maximum refund you can get will be the voucher value that matches your prescription. Lost or damaged glasses or contact lenses If your glasses or contact lenses have been lost or damaged and you pay for replacement or repairs, you'll only be considered for a refund if you're entitled to a voucher. If you have a question about health costs If you have questions about help with health costs, join the Help with Health Costs team on Facebook , where the NHS Business Services Authority (NHSBSA) will respond to your queries Monday to Friday, 8am to 6pm. Or you can call the Help with Health Costs helpline on 0300 330 1343. You must check that you're entitled to help with health costs before signing any declaration stating that you are. You may have to pay a fine if you make a false claim. You would have to pay the cost of the sight test and the value of the voucher charge, plus a penalty charge of up to £100. Find out more about when you need to pay towards NHS care Useful numbers Help with Health Costs helpline – 0300 330 1343 Queries about medical exemption certificates – 0300 330 1341 To order a paper copy of an NHS claims form – 0300 123 0849 More in Opticians and sight tests How often can I have a free NHS sight test? NHS voucher values for glasses and lenses Free NHS eye tests and optical vouchers Can I get my glasses repaired or replaced on the NHS? Visiting an opticians Page last reviewed: 19 July 2023 Next review due: 19 July 2026
+
+--- SOURCE 1 (LINKED): https://www.nhs.uk/nhs-services/help-with-health-costs/when-you-need-to-pay-towards-nhs-care ---
+When you need to pay towards NHS care Patients often need to pay towards the cost of: prescriptions dental care eye care wigs and fabric supports The money raised helps fund the NHS. Exemptions Some patients do not have to pay these costs. If this is the case for you, the NHS will ask to see proof of your entitlement. This could be a prescription prepayment certificate (PPC) , benefit award notice, or an exemption certificate. It's your responsibility to check whether you're entitled to claim for free treatment or prescriptions. Find out if you're entitled to help with health costs . Dishonestly claiming that you do not need to pay NHS charges is unlawful and denies the NHS vital revenue. Regular checks are carried out on treatment and prescriptions that are not paid for, so you could be asked to provide proof of your exemption at a later date. Patients found to have wrongly claimed exemption from charges will have to pay the charge due, and may have to pay a penalty charge of up to £100. They may also be prosecuted for an offence that can lead to a criminal record. What you should do before making a claim You must check you're entitled to claim an exemption from an NHS charge. For more information, see help with health costs . If you're entitled to an exemption, make sure any declarations you make are correct before signing any of the NHS forms. If you're not sure about your entitlement to an exemption from an NHS charge, you should pay the charge first. Once you're sure about your entitlement, you can claim a refund, which is quick and easy. If you pay a prescription charge and think you might want to claim a refund, you must ask for the FP57 receipt and refund form at the time you pay the charge, as the form is not available at a later date. To claim a refund of other charges, including dental treatment, wigs and fabric supports, sight tests, glasses or contact lenses, and healthcare travel costs, you'll need the relevant HC5 form. You can download the HC5 refund forms from the NHS Business Services Authority (NHSBSA) website: NHSBSA: HC5(D) dental charges refund form NHSBSA: HC5(O) optical costs refund form NHSBSA: HC5(T) travel refund form NHSBSA: HC5(W) wigs and fabric supports refund form If you're on a low income and find it difficult to pay the charge, you can apply for the NHS Low Income Scheme . Important numbers Call 0300 330 1348 for the dental services helpline. Call 0300 330 1343 for the Low Income Scheme helpline. Call 0300 330 1341 for queries about medical exemption certificates. Call 0300 330 1341 for queries about prescription prepayment certificates (PPCs). Call 0300 330 1349 for the prescription services helpline. For all other queries, call 0300 330 1343. More in Help with health costs When you need to pay towards NHS care NHS Low Income Scheme (LIS) Help with health costs for people getting Universal Credit Wigs and fabric supports on the NHS Healthcare Travel Costs Scheme (HTCS) What is a personal health budget? Page last reviewed: 22 May 2023 Next review due: 22 May 2026
+
+--- SOURCE 2 (LINKED): https://www.nhs.uk/nhs-services/help-with-health-costs/help-with-health-costs-for-people-getting-universal-credit ---
+Help with health costs for people getting Universal Credit If you receive Universal Credit, you may also qualify for help with health costs . Find out about Universal Credit from GOV.UK . Eligibility criteria You qualify for help with health costs if, on the date you claim, you either: receive Universal Credit and either had no earnings or had total take-home pay of £435 or less in your last Universal Credit assessment period receive Universal Credit, which includes an element for a child, or you (or your partner) had limited capability for work (LCW) or limited capability for work and work-related activity (LCWRA), and you either had no earnings or total take-home pay of £935 or less in your last Universal Credit assessment period If you're part of a couple, the total take-home pay threshold applies to your household's total take-home pay. You should present a copy of your Universal Credit award notice to prove your entitlement. You'll need to have met the eligibility criteria in the last completed Universal Credit assessment period before your health costs arose. The NHS Business Services Authority provides an online eligibility checker . Visit the GOV.UK website for more information about the Universal Credit assessment period . Not all help with health costs claim forms have a tick box for Universal Credit. If that's the case, you should tick the box for income-based Jobseeker's Allowance instead. Find out more about what you should do before making a health claim Unsure if you meet the eligibility criteria? You should pay for any health costs if you're unsure whether you meet the eligibility criteria. You can claim a refund once you're able to confirm your entitlement. This might be the case because: your Universal Credit claim is still being assessed you're waiting for a decision about your Universal Credit claim that might change the threshold that applies to you you're uncertain whether your earnings are within the threshold You need to have met the eligibility criteria either in the Universal Credit period before you paid, or in the same assessment period in which you paid, to qualify for a refund. Make sure you ask for and keep receipts. If you pay for a prescription, you must get a receipt and refund form (FP57) at the time you pay, as you will not be able to get one later. Follow the NHS Business Services Authority (BSA) on Facebook or Twitter for the latest NHS BSA updates and answers to your questions about help with health costs. Important numbers Dental services helpline – 0300 330 1348 NHS Low Income Scheme helpline – 0300 330 1343 Prescription services helpline – 0300 330 1349 Queries about medical exemption certificates – 0300 330 1341 Queries about prescription prepayment certificates (PPCs) – 0300 330 1341 Call 0300 330 1343 for all other queries More in Help with health costs When you need to pay towards NHS care NHS Low Income Scheme (LIS) Help with health costs for people getting Universal Credit Wigs and fabric supports on the NHS Healthcare Travel Costs Scheme (HTCS) What is a personal health budget? Page last reviewed: 6 June 2023 Next review due: 6 June 2026
+
+--- SOURCE 3 (LINKED): https://www.nhs.uk/nhs-services/help-with-health-costs/nhs-low-income-scheme-lis ---
+NHS Low Income Scheme (LIS) If you have a low income, you may be able to get help with NHS costs through the NHS Low Income Scheme (LIS). The scheme covers: prescription costs dental costs eyecare costs healthcare travel costs wigs and fabric supports You can apply for the scheme as long as your savings, investments or property (not including where you live) do not exceed the capital limit. In England, the limit is: £23,250 for people who live permanently in a care home £16,000 for everyone else Any help you're entitled to is also available to your partner and any dependant young people. Depending on your circumstances, you can receive full help (HC2 certificate) or partial help (HC3 certificate). You qualify for full help if your weekly income is less than or equal to your weekly requirements (a personal allowance to cover your day-to-day living expenses and housing costs), or is greater than your weekly requirements by no more than half the current NHS prescription charges. If your income exceeds your requirements, you may be entitled to partial help. Your certificate will show how much you have to pay towards your health costs. The rules governing who's eligible are broadly the same as those for a means-tested benefit. But the assessment also takes into account council tax and housing costs, so you can get help with health costs even if your income is too high for a means-tested benefit. Find out more about means-tested benefits on GOV.UK . How to apply There are 2 ways to apply for the NHS Low Income Scheme (LIS). You can apply online or by post. To find out who can apply online, or to make an online application, go to the NHS Business Services Authority website . To apply by post you'll need to complete an HC1 form and send it to the address on the form. You can order an HC1 form online , or download an HC1 form from the NHS Business Services Authority website and print it yourself. The form may also be available from your local Jobcentre Plus office or NHS hospital. A doctor, dentist or optician may also be able to give you one. If you need help making your claim or have questions about the LIS, call 0300 330 1343. Telephone lines are open Monday to Friday 8am to 6pm, and Saturday 9am to 3pm. Certificates are usually valid for between 6 months and 5 years, depending on your circumstances. You do not need to apply if you or your partner: get income-related Employment and Support Allowance get Pension Credit Guarantee Credit get Universal Credit and meet the criteria These benefits or tax credits already entitle you to full help with health costs. Formal reviews If you're unhappy with the outcome of your claim, you can ask for a review by a service improvement adviser. The service improvement team checks whether a claim has been correctly assessed in accordance with the regulations governing the scheme. If the decision was wrong, a new certificate will be sent to you. You can request a review online via the NHS Business Services Authority website or post your request to: NHSBSA LIS Review Team Help with Health Costs Bridge House 152 Pilgrim Street Newcastle upon Tyne NE1 6SN How to claim back money that you've already paid You can submit a claim for a refund at the same time as you apply for the Low Income Scheme. Refund claims must be received within 3 months of the date on which you paid, or within 3 months of the date of your sight test. To claim a refund of prescription charges, you'll need an NHS receipt and refund form FP57. Ask for the form when you pay for your prescription. To claim a refund of other charges, including dental treatment, wigs and fabric supports, sight tests, glasses or contact lenses, and healthcare travel costs, you'll need the relevant HC5 form. You can download the HC5 refund forms from the NHS Business Services Authority (NHSBSA) website: NHSBSA: HC5(D) dental charges refund form NHSBSA: HC5(O) optical costs refund form NHSBSA: HC5(T) travel refund form NHSBSA: HC5(W) wigs and fabric supports refund form Important numbers NHS Low Income Scheme helpline – 0300 330 1343. Prescription services helpline – 0300 330 1349. Queries about medical exemption certificates – 0300 330 1341. Queries about prescription prepayment certificates (PPCs) – 0300 330 1341. Call 0300 330 1343 for all other queries. More in Help with health costs When you need to pay towards NHS care NHS Low Income Scheme (LIS) Help with health costs for people getting Universal Credit Wigs and fabric supports on the NHS Healthcare Travel Costs Scheme (HTCS) What is a personal health budget? Page last reviewed: 1 June 2023 Next review due: 1 June 2026

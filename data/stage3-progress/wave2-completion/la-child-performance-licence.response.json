@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "The application requires details of the event and its type.",
+          "verdict": "supported",
+          "quote": "Name and nature of the performances or activities in respect of which the licence is requested (for example, theatrical, filming, sport, modelling), and a description of what the child will be required to do as a result of taking part in the performances or activities.",
+          "source": 1,
+          "note": "The regulations require the name and nature of the performances or activities and a description of the child’s part."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Pupil Premium" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/other-pupil-premium.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[summary] (split into claims) Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.
+
+--- SOURCE 0: https://www.gov.uk/government/publications/pupil-premium ---
+Pupil premium. Information on pupil premium funding, how school leaders can use it effectively and pupil premium strategy statements. Pupil premium is funding to improve education outcomes for disadvantaged pupils in schools in England. Evidence shows that disadvantaged children generally face additional challenges in reaching their potential at school and often do not perform as well as other pupils. The pupil premium overview explains how the government: allocates pupil premium funding expects schools and local authorities to use pupil premium holds schools to account for their spending decisions The guidance for school leaders explains: how school leaders can use their funding effectively the reporting requirements how to check the school’s allocation and find out more about payments All schools that receive pupil premium must publish a strategy statement by 31 December each academic year, using the template provided. The example statements are provided as a guide to help schools complete their own statements.
+
+--- SOURCE 1: https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note ---
+Pupil premium 2026 to 2027: technical note 1. Introduction This technical note sets out details of how allocations of pupil premium ( PP ) grant have been calculated for the 2026 to 2027 financial year. It applies to all eligible settings, as outlined in section 2 of the conditions of grant . Where this note refers to ‘mainstream and special schools’ it refers to local authority maintained schools, academies, free schools and non-maintained special schools. Details concerning how allocations have been calculated for general hospital schools and independent settings are set out in sections 7 and 8 of this technical note, respectively. 2. Funding criteria and allocation calculation 2.1 ‘Ever 6’ free school meals ( FSM ) children For mainstream and special schools, the PP grant for the 2026 to 2027 financial year will include pupils recorded in the October 2025 school census who have had a recorded period of FSM eligibility since (and including) January 2020, as well as those first recorded as eligible in October 2025. For PRUs and AP academies, the PP grant for the 2026 to 2027 financial year will include pupils recorded in the January 2026 school census who have had a recorded period of FSM eligibility since (and including) May 2020, as well as those first recorded as eligible in January 2026. For the purposes of this note, these pupils are collectively referred to as ‘ FSM Ever 6’ 2.2 Previously looked-after children ( PLAC ) For mainstream and special schools, the PP grant for financial year 2026 to 2027 will include children recorded in the October 2025 school census who were looked after by a local authority or other state care immediately before being adopted, or who left local authority or other state care on a special guardianship order or child arrangements order (previously known as a residence order). This includes children adopted from state care or the equivalent from outside England and Wales. For PRUs and AP academies, PP grant for the 2026 to 2027 financial year will include PLAC recorded in the January 2026 school census. 2.3 Looked-after children ( LAC ) The PP grant is allocated to local authorities based on the number of LAC supported by the authority. LAC are defined in the Children Act 1989 as those who are in the care of, or provided with accommodation by, an English local authority. It is for the local authority to decide how much of this funding to pass on to the child’s school. If LAC PP funding is retained by the local authority, it must still be spent to improve the attainment of eligible pupils and in accordance with the menu of approaches see section 4.1 of the pupil premium conditions of grant for further details. In June 2026, an initial allocation will be calculated using the number of children looked after for at least one day, as recorded in the March 2025 children looked-after data return (SSDA903) and aged 4 to 15 on 31 August 2023. The first 2 payments will use this data. From December 2026, we will use the number of children looked after for at least one day during the year ending March 2026, as recorded in the March 2026 children looked-after data return (SSDA903) and aged 4 to 15 on 31 August 2024 to produce an updated allocation. The third and fourth payments will use this data. 2.4 Service children Pupils in state-funded schools in England attract the service pupil premium ( SPP ) if they meet any of the following criteria: one of their parents is serving in the regular armed forces (including pupils with a parent who is on full commitment as part of the full-time reserve service) or is in the armed forces of another nation and is stationed in England – and they have been registered as a ‘service child’ in the most recent autumn Department for Education ( DfE ) school census they do not currently have ‘service child’ status, but they have been registered as a ‘service child’ on any DfE school census in the past 6 years one of their parents died while serving in the armed forces and the pupil receives a pension under the Armed Forces Compensation Scheme or the War Pensions Scheme For mainstream and special schools, the SPP for the 2026 to 2027 financial year will include pupils recorded in the October 2025 school census who have been recorded as a service child at any point since the January 2020 census, as well as those recorded as a service child for the first time in the October 2025 school census. For PRUs and AP academies, the SPP for the 2026 to 2027 financial year will include pupils recorded in the January 2026 school census who have been recorded as a service child at any point since the May 2020 census, as well as those recorded as a service child for the first time in the January 2026 school census. 3. Rates for eligible pupils The PP grant per pupil rates for the 2026 to 2027 financial year are set out below. Pupils who are recorded as LAC or PLAC and FSM Ever 6 will attract the LAC or PLAC per pupil amount only. Eligible service children will attract the SPP rate in addition to any other pupil premium grant eligibility rate. Disadvantaged pupils Per pupil rate Pupils in year groups reception to year 6 recorded as FSM Ever 6 £1,550 Pupils in years 7 to 11 recorded as FSM Ever 6 £1,100 Looked-after children ( LAC ) £2,690 Previously looked-after children ( PLAC ) £2,690 Service children per pupil rate Eligible service children in year groups reception to year 11 £360 Where national curriculum year groups do not apply to a pupil, the pupil will attract pupil premium grant if aged 4 to 15 as recorded in the October 2025 school census for mainstream and special schools, and in the January 2026 school census for PRUs and AP academies. These pupils will attract the same amount of funding as if they were in the year group that corresponds to their age. 4. Allocations Updated allocations will be published shortly before each instalment is paid - see section 3.2 of the conditions of grant for the payment timetable. DfE will allocate PP grant to academies directly. This allocation will be based on FSM Ever 6 pupils, PLAC and eligible service children. DfE will allocate PP grant to local authorities for each school they maintain. Local authorities must allocate these amounts (minus the portion of the funding based on LAC eligibility) without delay for each full time equivalent (FTE) pupil on the October 2025 school census for mainstream and special schools, and on the January 2026 school census for PRUs . Where a pupil is recorded as both LAC and FSM Ever 6, the pupil is included only in the LAC count for the local authority allocation. This means the school’s PP grant allocation will not include a payment for that pupil. As a result, the update in December 2026 may have an impact on some schools’ PP grant allocations as those recorded as both LAC and FSM Ever 6 will be excluded from the school’s PP grant allocation. PP grant will be allocated on the basis of sole and dual main registrations only. Any transfer of funds between a dual main school and a dual subsidiary school is a matter for the 2 schools. Schools federated, or to be federated, under the provisions of section 24 of the Education Act 2002 during the financial year beginning 1 April 2026 shall have grant allocated to them as if they were not federated. Initial allocations will be published in March 2026 for all schools that complete the October 2025 census. We will confirm allocations in June 2026, before the first payment. The June allocations will include PRUs and AP academies that complete the January 2026 census. 5. Payment timetable See the PP conditions of grant section 3.2 for more information. For local-authority-maintained schools: See section 6 of this technical note for funding arrangements for maintained schools that are converting to academies during the financial year beginning 1 April 2026. For academies and free schools: Academies and free schools that open during the 2026 to 2027 financial year and do not have a predecessor school will be paid their allocation in full in April 2027, once their census data is available. 6. School closures, openings and academy conversions 6.1 Closures and openings For new mainstream and special settings that opened after October 2025, DfE will use the October 2026 school census to calculate grant allocations. For new PRUs and AP academies that opened after January 2026, DfE will use the October 2026 school census data to calculate grant allocations. For new mainstream schools, special settings, PRUs and AP academies that open between the October 2026 and January 2027 school census, DfE will use the January 2027 school census. In each case, the allocation will be prorated to the proportion of the 2026 to 2027 financial year that the setting is open. A revised allocation will be made to mainstream and special settings that are not fully open and are still growing their year groups since opening. This means that at the start of the 2025 autumn term, if the setting has been open for fewer years than the number of year groups in the setting, the setting’s allocation will be revised in February 2027. It will be based on the increase in eligible pupils between the October 2025 and the October 2026 school census. The increase will be prorated by seven-twelfths to reflect that the additional year groups have been in place for 7 months of the financial year. From the start of the 2026 to 2027 academic year, DfE is delivering an expansion to FSM eligibility to include all pupils from households in receipt of Universal Credit (UC). There will then be 2 categories of free school meals: ‘Targeted FSM ’, which continues to be based on the existing £7,400 income threshold; and ‘Expanded FSM ’, which will apply to meals only, covering pupils who do not qualify for Targeted FSM , but who are in households in receipt of Universal Credit. Benefits linked to free school meal eligibility, including pupil premium, will only be available to the Targeted FSM cohort. As a result, where allocations are calculated using October 2026 and January 2027 census data, only the ‘targeted’ FSM cohort will be included in the calculations. If a setting closes during the financial year, the local authority (for maintained schools) or DfE (for academies) should allocate the grant for the proportion of the financial year the setting is open. Where a school receives pupils from schools that close or as a result of school merger, the local authority (for maintained schools) or DfE (for academies) should allocate the same grant that it would have allocated to the schools that closed or merged for the remainder of the financial year. Local authorities should agree the amount a school receives from schools that close. 6.2 Academy conversions This grant is allocated on a school level basis. DfE will not seek to clawback any grant funding from a local authority if a school converts to academy status after the payment is made. The grant allocation is intended for the school and it will be assumed the local authority passed on the entire grant funding to the school immediately upon receipt from the DfE . In addition, any unspent grant funding should remain with the school after it converts. In respect to calculating a school’s final accounts, any prorated amount up to the point of conversion is included in the balance calculation for the school. The remaining amount which relates to the period after the school has converted should be accounted for by the academy. Where a school has converted to an academy by 1 April 2026, the academy will receive its pupil premium grant directly from DfE . Local authorities should pay the PP grant to schools due to convert to academy status as follows: Date of conversion to academy Proportion of pupil premium grant passed on by local authority On or by 1 September 2026 5/12s of its annual allocation After 1 September 2026 and on or by 1 January 2027 9/12s of its allocation After 1 January 2027 All of the allocation A local authority’s PP grant allocation will be adjusted to reflect these conversions and the remaining allocation will be paid directly to the academy. 7. General hospital schools PP grant for general hospital schools will be based on the number of FTE pupils recorded as FSM eligible in the January 2026 school-level annual school census (SLASC). Allocations for each pupil in these settings will be calculated using the per secondary pupil rate of £1,100. This funding will be paid in a single payment in June 2026. 8. Independent settings For PP grant based on FSM Ever 6, eligible service children and PLAC , DfE will allocate funding to each local authority for eligible pupils in any independent setting where the authority pays full tuition fees. This does not include non-maintained special schools, who will receive PP grant direct from DfE . The PP grant for the 2026 to 2027 financial year will include pupils recorded in the January 2026 AP census. For FSM Ever 6 pupils, this includes those who have had a recorded period of FSM eligibility since May 2020, as well as those first recorded as eligible in January 2026.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/government/publications/free-school-meals-guidance-for-schools-and-local-authorities/implementing-changes-to-free-school-meals ---
+Implementing changes to free school meals This document provides a summary of the changes to benefits-based free school meals ( FSM ) introduced at the start of the 2026 to 2027 academic year. For full details, read the free school meals: guidance for local authorities, local-authority-maintained schools, academies and free schools . What has changed From the start of the 2026 to 2027 academic year, all children from households receiving Universal Credit are entitled to a free school meal. Families must apply to receive this support. Universal infant free school meals ( UIFSM ) continue to be available to all children in reception, year 1 and year 2, including those who are not eligible for benefits-based FSM . Transitional protections ended at the end of the 2025 to 2026 academic year. Schools and local authorities must now assess eligibility using a household’s current circumstances. Targeted and expanded free school meals There are 2 categories of benefits-based free school meals. Targeted free school meals apply to children who meet the criteria used before the expansion. These pupils receive a free meal and may qualify for other education entitlements and funding. Expanded free school meals apply to children from households receiving Universal Credit who do not meet the targeted criteria. These pupils are entitled to a free meal only. Entitlements and funding linked to each category Entitlement or funding Targeted FSM Expanded FSM Free meal Yes Yes Pupil premium Yes No Holiday activities and food programme Yes No Extended rights home-to-school travel Yes No Free school milk Yes No Ever 6 Yes No Ever 6 refers to pupils who have been eligible for FSM at any point in the previous 6 years. It is used for funding purposes. Actions for schools and local authorities Schools and local authorities should take the following actions to implement the changes. Raise awareness and support applications Make sure families understand the changes to FSM and support them to apply. Use the template letter about changes to free school meals eligibility to communicate the changes and collect the information needed to make eligibility checks. Check eligibility Recheck eligibility for pupils who received FSM before the 2026 to 2027 academic year to confirm whether they qualify for targeted or expanded FSM . Support newly eligible families to apply for FSM and verify their entitlement. Encourage families whose children receive UIFSM to apply for benefits-based FSM . This may give them access to other support and attract additional funding for the school. Follow the separate arrangements for families with no recourse to public funds. Read the guidance on providing free school meals to families with no recourse to public funds , which has been updated with information on new income thresholds. Record eligibility accurately Record each eligible pupil’s FSM category as targeted or expanded in the autumn school census by 2 November 2026. Make sure records are accurate so that the Department for Education ( DfE ) can calculate the correct funding for the school. Further information Schools that are unsure how to check eligibility should contact their local authority or ece.service@service.education.gov.uk for support.

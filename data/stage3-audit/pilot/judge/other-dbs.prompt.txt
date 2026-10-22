@@ -1,0 +1,122 @@
+A service graph describes the UK government service "DBS check" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3/judge/other-dbs.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+
+--- SOURCE 0: https://www.gov.uk/dbs-check-applicant-criminal-record ---
+Check someone's criminal record. How to request a Disclosure and Barring Service (DBS) check for a potential employee or volunteer: types of DBS check, how to request a check, how much it costs, how long it takes. You can check the criminal record of someone applying for a role by getting a Disclosure and Barring Service ( DBS ) check. You can do this if you are: an employer a voluntary organisation a third-party organisation acting on behalf of an employer or voluntary organisation to manage DBS applications and checks You can request a more detailed check for certain roles, for example in healthcare or childcare. There are different rules for getting criminal record checks in Scotland and getting criminal record checks in Northern Ireland . Types of check You can request: a basic check, which shows unspent convictions and conditional cautions a standard check, which shows spent and unspent convictions and cautions an enhanced check, which shows the same as a standard check plus any information held by local police that’s considered relevant to the role an enhanced check with barred lists, which shows the same as an enhanced check plus whether the applicant is on the list of people barred from doing the role If you carry out criminal records checks, you must have a policy on employing ex-offenders and show it to any applicant who asks for it. When employees or volunteers can check their own criminal record People applying for a role can sometimes request an enhanced check or enhanced check with barred list for themselves . If you are hiring a self-employed person or ‘personal employee’ to deliver services to you or a member of your family, you cannot request a DBS check for them. They will need to request one for themselves and you’ll need to check their DBS certificate . Childminders can get a check through Ofsted . When to repeat a check A DBS check has no official expiry date. Any information included will be accurate at the time the check was carried out. It’s up to you to decide when a new check is needed. If the applicant has signed up for the DBS update service you can check whether their certificate is up to date online . Certificates for previous roles You can accept a certificate that was requested for a previous role but you must: check the applicant’s identity matches the details on the certificate check the certificate is the right level and type for the role applied for check to see if anything has changed if the applicant is signed up for the update service Checks on someone who lived abroad DBS checks will not cover the time someone lived outside the UK. Check the rules in the country they lived in. Contact DBS Contact DBS if you’re not sure whether you can request a check. DBS customer services customerservices@dbs.gov.uk Telephone: 03000 200 190 Welsh: 03000 200 191 International: +44 (0)151 676 9390 Relay UK (if you cannot hear or speak on the phone): 18001 then 03000 200 192 British Sign Language (BSL): download or log in to Convo Monday to Friday, 9am to 5pm (except public holidays) Find out about call charges Get help through DBS webchat DBS customer services PO Box 3961 Royal Wootton Bassett SN4 4HF You can request a Disclosure and Barring Service ( DBS ) check on behalf of an employee or volunteer. There’s a different process to request your own basic DBS check . How to do a check You’ll need to choose a company from the list of ‘responsible organisations’ registered with DBS to process checks. They will carry out the check and tell you the outcome once it’s complete. The applicant will receive their certificate by post. They can also set up a DBS online account to view the certificate online. How much it costs A basic check costs £20. The responsible organisation may also charge an administration fee. If you do more than 1,000 basic checks each year, you can become a responsible organisation. Contact DBS to find out what’s involved. DBS customer services customerservices@dbs.gov.uk Telephone: 03000 200 190 Welsh: 03000 200 191 International: +44 (0)151 676 9390 Relay UK (if you cannot hear or speak on the phone): 18001 then 03000 200 192 British Sign Language (BSL): download or log in to Convo Monday to Friday, 9am to 5pm (except public holidays) Find out about call charges Get help through DBS webchat DBS customer services PO Box 3961 Royal Wootton Bassett SN4 4HF How long it takes A basic check takes up to 14 days. If you’re registered with DBS you can use the tracking service to track multiple applications . How you request a standard or enhanced check depends on how many checks you do a year. If you do: fewer than 100 checks a year you must use a company known as an ‘umbrella body’ 100 or more checks a year find out about registering as an organisation with DBS or use an umbrella body How to do a check Ask DBS or your umbrella body for an application form. Give the form to the applicant to fill in. The applicant will return the completed form to you along with documents proving their identity . Send the completed application form to DBS or your umbrella body. DBS will send a certificate to the applicant. You must ask the applicant to show it to you so you can check it’s a genuine certificate - the security features section of the employer DBS check guidance explains how to do this . How much it costs How much it costs depends on the type of check. Type of check Cost Standard £20 Enhanced £41 Enhanced with barred lists £41 Checks are free for volunteers. How long it takes Enhanced and standard checks usually take around 8 weeks. It may take shorter or longer, depending on: the type of check if the details given for the check are correct what police forces need to be involved in the check You can track your DBS check application online. Checks on carers If you provide care services for adults (for example in a care home), you can use a service called DBS Adult First . This will confirm, usually within 2 days, if the applicant: can start work, as long as they’re supervised should wait for the results of an enhanced check The service costs an extra £6.
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/government/organisations/disclosure-and-barring-service/about ---
+About us - Disclosure and Barring Service. The Disclosure and Barring Service helps employers make safer recruitment decisions. Introduction to DBS The Disclosure and Barring Service ( DBS ) helps employers make safer recruitment decisions each year by processing and issuing DBS checks for England, Wales, the Channel Islands and the Isle of Man. DBS also maintains the Adults’ and Children’s Barred Lists, and makes considered decisions as to whether an individual should be included on one or both of these lists and barred from engaging in regulated activity. DBS checks There are 4 types of DBS check, and the results of each check are issued directly to the individual applicant. Employers can then ask to see the check to ensure that they are recruiting suitable people into their organisation. The four levels of DBS check are: Basic DBS check Standard DBS check Enhanced DBS check Enhanced with Barred List(s) DBS check The information contained on each type of check is different. Basic DBS check A Basic DBS check is for any purpose, including employment. The check will contain details of convictions and conditional cautions that are considered to be unspent under the terms of the Rehabilitation of Offenders Act (ROA) 1974. An individual can apply for a Basic check directly to DBS through our online application route , or an employer can apply for a basic check on an individual’s behalf, through a Responsible Organisation , if they have consent. Standard DBS check A Standard DBS check is suitable for certain roles, such as applying for a security guard licence. The check will contain details of both spent and unspent convictions and cautions that are held on the Police National Computer, which are not subject to filtering. An individual cannot apply for a Standard DBS check by themselves. There must be a recruiting organisation who needs the applicant to get the check. This is then sent to DBS through a Registered Body . The service is free for volunteers . Enhanced DBS check and Enhanced with Barred List(s) DBS check An Enhanced DBS check is suitable for people working with children or adults and other specified roles or license purposes as explained in our eligibility guidance . The check will contain the same details as a Standard DBS check and may also contain non-conviction information supplied by police forces if it is deemed relevant and ought to be contained in the certificate. If the role is eligible, an employer can also request that one or both of the DBS Barred Lists are checked. This will largely be for roles that are in regulated activity with children or adults, but also includes a small number of roles that aren’t carrying out regulated activity. An individual cannot apply for an Enhanced DBS check for themselves, unless they are a paid self-employed or a personal employee and the work they are undertaking is eligible. Otherwise, there must be a recruiting organisation who needs the applicant to get the check, which is then sent to DBS through a Registered Body . The service is free for volunteers . Eligibility Eligibility for Standard, Enhanced, and Enhanced with Barred Lists DBS checks is prescribed in legislation. Recruiters should only request a DBS check on an individual when they are legally allowed to do so – they must be entitled by law to ask an individual to reveal their full criminal history. This is known as asking ‘an exempted question.’ An exempted question applies when the individual will be working in specific occupations, for certain licences and specified positions. These are covered by the Rehabilitation of Offenders Act 1974 (Exceptions) Order 1975. The minimum age at which someone can be asked to apply for a criminal record check is 16 years old. The DBS eligibility tool can be used to determine what type of check a role could be eligible for, as can our eligibility guidance . Barring An Enhanced with Barred Lists DBS check will include a check of one or both of the Barred Lists that DBS manages and maintains. If an individual is listed, this will appear on their Enhanced with Barred List DBS check. It is our responsibility at DBS to maintain these lists. This area of our work involves making fair, consistent, and thorough decisions that are appropriate to the behaviour that has occurred, and consider the risk of future harm. People are brought to the attention of our barring team in one of three ways: Automatic barring offence, also known as ‘Autobar’ Disclosure Referral Automatic, also known as Autobar This is when someone has been newly-convicted or cautioned for a serious offence and they are considered for immediate barring, either with or without the opportunity to make representations. This information comes from the Police National Computer. Disclosure This is when someone applies for an Enhanced DBS check to work with children or adults in certain circumstances, such as those in receipt of healthcare or personal care, and the check reveals relevant information that results in the individual being considered for inclusion on one or both of the Barred Lists. Referral This is when an employer, volunteer manager, or other organisation has concerns that someone has either caused harm or has the potential to cause harm to vulnerable groups and submits a barring referral to DBS . Regulated activity providers (employers or volunteer managers of people working in regulated activity in England, Wales, and Northern Ireland) and personnel suppliers have a legal duty to refer to DBS where certain conditions are met . Referrals can be made online using the Barring Referral Service If you cannot use this service online, you can email: customerservices@dbs.gov.uk to request a paper referral form. You can find other ways to contact us on this page. It is important that anyone referring someone to us provides as much information as possible. More information regarding barring referrals can be found in our barring referrals guidance . Cross-border referrals and referrals from non-UK countries For information about cross-border referrals, please refer to the cross-border referrals and referrals from non-UK countries guidance. Barring representations Where an individual is the subject of any of the above three barring referral types (excluding ‘Autobar without representation’), the individual will be given the opportunity to provide ‘representations’ as to why they feel it would be inappropriate or disproportionate for DBS to include them on one or both of the Barred Lists. DBS will consider the individual’s representations before making a final barring decision. Further information about barring representations can be found in our barring referrals: making representations guidance . Test for regulated activity DBS can only bar a person from working within regulated activity with children or adults if we believe the person is, has been, or might in the future be, engaged in regulated activity. The only exception to this is where a person is cautioned or convicted for a relevant (automatic barring) offence and is not eligible to submit representations against their inclusion on a Barred List. Where a person is cautioned or convicted of a relevant (automatic barring) offence with the right to make representations, DBS will ask the person to submit their representations and consider these before making a final barring decision. Update Service The Update Service is an online subscription, for Standard, Enhanced and Enhanced with Barred Lists DBS checks, that allows applicants to keep their DBS certificates up-to-date and allows employers to view an applicant’s certificate. The Update Service cannot currently be used for Basic DBS checks. Who we work with DBS works with a number of different organisations and departments, including but not limited to: Police forces in England, Wales, Scotland, Northern Ireland, the Channel Islands and the Isle of Man – the police provide information that is held locally, or on the Police National Computer ACRO Criminal Records Office (ACRO) – manages criminal record information and improves the exchange of criminal records and biometric information Responsible Organisations – a Responsible Organisation is an organisation that is registered with DBS to submit Basic DBS checks Registered Bodies - a Registered Body is an organisation that is registered with DBS to submit Standard, Enhanced, and Enhanced with Barred Lists DBS checks Registered Bodies A Registered Body is an organisation that is registered with DBS to submit applications Standard, Enhanced and Enhanced with Barred List(s) DBS checks, and is entitled by law to ask an individual to reveal their spent and unspent criminal history – also known as asking ‘an exempted question’. Some Registered Bodies carry out DBS checks on behalf of other non-registered organisations and self-employed people/personal employees. These are known as Umbrella Bodies. A list of Umbrella Bodies can be found on the[find an umbrella body GOV.UK page].(https://www.gov.uk/find-dbs-umbrella-body). Subscribe to DBS updates If you want to be notified when an update is made to the DBS GOV.UK website, or new content is added, you can subscribe with your email address, here . Bills and legislation The Rehabilitation of Offenders Act (ROA) 1974 sets out in legislation rehabilitation periods, and that individuals do not have to disclose spent convictions unless they are covered in the Rehabilitation of Offenders Act 1975 (Exceptions) Order 1975 The Rehabilitation of Offenders Act 1975 (Exceptions) Order 1975 sets out the exceptions for when an individual can be asked about spent convictions – known as asking ‘an exempted question’ Part V of the Police Act 1997 sets out the different types of criminal record checks that are available and enables DBS to issue these as DBS checks. The Safeguarding Vulnerable Groups Act 2006 sets out the scope of regulated activity and operation of the barring element of DBS , which was previously undertaken by the Independent Safeguarding Authority (ISA) Part 5 of the Protection of Freedoms Act 2012 established DBS by amalgamating the services previously provided by the Criminal Records Bureau (CRB) and the Independent Safeguarding Authority (ISA). Contact us A list of DBS contact information can be found on the DBS GOV.UK homepage .
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/request-copy-criminal-record ---
+Request a basic DBS check Apply for a basic Disclosure and Barring Service ( DBS ) check to get a copy of your criminal record. This is called ‘basic disclosure’. It’s available for people working in England and Wales. It costs £20. This guide is also available in Welsh (Cymraeg) . You can also get a basic DBS check if you live in Northern Ireland or Scotland but the job you’re applying for is in England or Wales. There’s a different way to apply if you’re applying for a job in Northern Ireland or applying for a job in Scotland . The check will only show convictions that are not ‘spent’, for example some types of caution will disappear after 3 months. It usually takes up to 3 days for your application to be processed. A paper certificate will then be posted to you. You must be 16 or over to apply. What you’ll need To use this service, you’ll need to prove your identity using GOV.UK One Login. You’ll be able to create a GOV.UK One Login if you do not already have one. You’ll need to provide addresses for the last 5 years (including the dates you lived at each address), and if you have them your: passport driving licence (full or provisional) National Insurance number Apply The service is available from 8am to 11:30pm. Start now Before you start Find out if you need a basic DBS check or ask your employer if you’re not sure. Transgender applicants You can request to not reveal your previous name or gender if you’re a transgender applicant. If you need to contact DBS DBS helpline: 03000 200 190 Welsh: 03000 200 191 International: +44 (0)151 676 9390 Relay UK (if you cannot hear or speak on the phone): 18001 then 03000 200 192 British Sign Language (BSL): download or log in to Convo Monday to Friday, 9am to 5pm (except public holidays) Find out about call charges Get help through DBS webchat Related content Criminal record checks when you apply for a role Find out what type of DBS check you can get Get a copy of your police records DBS checks guidance for employers, voluntary organisations and third parties Explore the topic Finding a job

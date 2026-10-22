@@ -1,0 +1,241 @@
+[
+  {
+    "key": "insolvency-dro#agentInteraction.methods",
+    "service": "Debt Relief Order (DRO)",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders"
+    ],
+    "whyNotFound": "not stated: The text only says to contact an approved debt adviser and that you cannot apply on your own. It names no online route for a DRO; the online advice it mentions is for Breathing Space."
+  },
+  {
+    "key": "jaqu-clean-air-zone#eligibility.summary",
+    "service": "Check and pay Clean Air Zone charges",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/clean-air-zones",
+    "claim": "Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.",
+    "alreadySearched": [
+      "https://www.gov.uk/clean-air-zones"
+    ],
+    "whyNotFound": "not stated: The text does not mention Euro standards or fuel types. not stated: The text gives no charge amounts and does not say how charges vary."
+  },
+  {
+    "key": "la-blue-badge#eligibility.criteria.1",
+    "service": "Blue Badge",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-blue-badge",
+    "claim": "Auto-qualify with Enhanced Rate PIP mobility component, DLA (highest mobility rate), or certain armed forces compensation.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "whyNotFound": "not stated: The page asks for 'proof of benefits (if you get any)' but does not name PIP, DLA or armed forces compensation, and says nothing about qualifying automatically."
+  },
+  {
+    "key": "la-blue-badge#eligibility.evidenceRequired.1",
+    "service": "Blue Badge",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-blue-badge",
+    "claim": "Evidence of difficulty walking if applying on non-automatic criteria",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "whyNotFound": "not stated: The text does not mention evidence of walking difficulty or non-automatic criteria."
+  },
+  {
+    "key": "la-bus-pass#agentInteraction.methods",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "You can apply or do this online. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text only gives a postcode lookup that sends you to your local council; it does not say how the council takes applications. not stated: The text does not mention applying in person."
+  },
+  {
+    "key": "la-bus-pass#eligibility.evidenceRequired.0",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "Proof of age (passport or birth certificate)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "la-bus-pass#eligibility.evidenceRequired.1",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "la-bus-pass#eligibility.evidenceRequired.2",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "Passport photo",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text does not mention a photo."
+  },
+  {
+    "key": "la-business-rates#agentInteraction.methods",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text says you apply by filling in a form but does not say you can apply online; the online valuation account is for reporting changes and challenging values. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.0",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "Business address",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text does not list business address as information or evidence needed."
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.1",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "Date of occupation",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text does not list date of occupation as information or evidence needed."
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.2",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "Nature of business",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text mentions the nature of the business only as a change that could affect rates, not as evidence needed to register."
+  },
+  {
+    "key": "la-child-performance-licence#eligibility.evidenceRequired.0",
+    "service": "Child performance licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-child-performance-licence",
+    "claim": "Event details and type",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-child-performance-licence"
+    ],
+    "whyNotFound": "not stated: The text does not say what information or evidence the application needs."
+  },
+  {
+    "key": "la-council-tax-disability-reduction#agentInteraction.methods",
+    "service": "Council Tax Disability Reduction",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people"
+    ],
+    "whyNotFound": "not stated: The text only says to check if you qualify and does not say you can apply online. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "la-council-tax-disability-reduction#eligibility.evidenceRequired.1",
+    "service": "Council Tax Disability Reduction",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+    "claim": "Proof the disabled person lives at the property",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people"
+    ],
+    "whyNotFound": "not stated: The text requires the property to be the disabled person's main home, but it names no proof of this; the only thing it asks you to show is the property's features."
+  },
+  {
+    "key": "la-council-tax-reduction#agentInteraction.methods",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The page only has a postcode tool for finding your council; it does not say you can apply online. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.criteria.1",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "Must be liable for Council Tax at that address.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The text never says you have to be liable for Council Tax at the address to qualify."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.evidenceRequired.0",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "Proof of income and savings",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The text says income and savings affect what you get, but it never says you must provide proof of them."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.evidenceRequired.1",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "Council Tax bill",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The text does not say you need to provide your Council Tax bill."
+  },
+  {
+    "key": "la-council-tax-single-discount#agentInteraction.methods",
+    "service": "Council Tax single person discount",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax/who-has-to-pay",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax/who-has-to-pay"
+    ],
+    "whyNotFound": "not stated: The text mentions paying Council Tax online, but it says nothing about applying for the discount online. not stated: The text never mentions phone."
+  }
+]

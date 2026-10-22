@@ -1,0 +1,129 @@
+A service graph describes the UK government service "Free bus pass" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/la-bus-pass.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this in person.
+[evidence_0] (split into claims) Proof of age (passport or birth certificate)
+[evidence_1] (split into claims) Proof of address
+[evidence_2] (split into claims) Passport photo
+
+--- SOURCE 0: https://www.gov.uk/apply-for-elderly-person-bus-pass ---
+Apply for an older person's bus pass If you live in England or Wales In England you can get a bus pass for free travel when you reach the State Pension age . If you live in London, you can travel free on buses, tubes and other transport when you’re 60, but only within London. In Wales you can get a bus pass when you reach 60. Enter your postcode to: apply for a bus pass from your local council check if you can get one sooner Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder If you live in Scotland or Northern Ireland You get an older person’s bus pass when you’re 60. Apply if you’re in: Scotland Northern Ireland Related content Find out about community transport services and Shopmobility Apply for a disabled person's bus pass Explore the topic Driving with medical conditions, Blue Badges and transport for disabled people Parking and public transport State Pension
+
+--- SOURCE 1 (FOUND): https://www.mygov.scot/older-persons-bus-pass/apply-for-your-bus-pass ---
+Apply for or replace an older person's bus pass Apply for an older person's bus pass Last updated 10 Mar 2026 Contents Who can get an older person's bus pass Apply for an older person's bus pass Replace or update your older person's bus pass Using your older person's bus pass Further information on the older person's bus pass How to apply Your National Entitlement Card (NEC) will be your bus pass. You can: apply online on getyournec.scot – in all areas of Scotland apply through your local Post Office – if you live in an area where it offers this service apply through Strathclyde Partnership for Transport (SPT) – if you live in one of the 12 local councils in the Glasgow and Strathclyde area apply through your local council – if you live in an area where you cannot apply through the Post Office or SPT Apply through your local council or SPT Choose your council Aberdeen City Council Aberdeenshire Council Angus Council Argyll and Bute Council Clackmannanshire Council Comhairle nan Eilean Siar Dumfries and Galloway Council Dundee City Council East Ayrshire Council East Dunbartonshire Council East Lothian Council East Renfrewshire Council Edinburgh Council Falkirk Council Fife Council Glasgow City Council Highland Council Inverclyde Council Midlothian Council Moray Council North Ayrshire Council North Lanarkshire Council Orkney Islands Council Perth and Kinross Council Renfrewshire Council Scottish Borders Council Shetland Islands Council South Ayrshire Council South Lanarkshire Council Stirling Council West Dunbartonshire Council West Lothian Council Apply through your local council or SPT Aberdeen City Council Aberdeenshire Council Angus Council Argyll and Bute Council You will apply through SPT instead of your local council. Clackmannanshire Council Comhairle nan Eilean Siar Dumfries and Galloway Council Dundee City Council East Ayrshire Council You will apply through SPT instead of your local council. East Dunbartonshire Council You will apply through SPT instead of your local council. East Lothian Council East Renfrewshire Council You will apply through SPT instead of your local council. Edinburgh Council Falkirk Council Fife Council Glasgow City Council You will apply through SPT instead of your local council. Highland Council Inverclyde Council You will apply through SPT instead of your local council. Midlothian Council Moray Council North Ayrshire Council You will apply through SPT instead of your local council. North Lanarkshire Council You will apply through SPT instead of your local council. Orkney Islands Council Perth and Kinross Council Renfrewshire Council You will apply through SPT instead of your local council. Scottish Borders Council Shetland Islands Council South Ayrshire Council You will apply through SPT instead of your local council. South Lanarkshire Council You will apply through SPT instead of your local council. Stirling Council West Dunbartonshire Council You will apply through SPT instead of your local council. West Lothian Council If you're unsure how to apply You can also find out your application options by answering some questions about your circumstances. Start What you need to apply You'll need: a recent photo proof of your current address proof of your age If you’re applying online, you’ll also need: a laptop, tablet, phone or other device with a camera a myaccount – you can register if you do not already have one proof of identity Find out what you can use as proof of identity, age and address on nec.scot . Help with your application If you’re applying online Once you’ve applied, you can sign into your account on getyournec.scot to check the status of your application. If you need more help, visit the getyournec.scot Help Centre . If you’re applying through SPT Contact SPT by email or phone if you need help with your application. Email freebus@spt.co.uk Phone 0141 333 3211 If you’re applying through the Post Office or your local council Contact your local council if you need help with your application. Who can get an older person's bus pass Replace or update your older person's bus pass Related content Transport help for older or disabled people Apply for or renew a disabled person's bus pass Apply or reapply for Blue Badge Apply for or replace an under 22s bus pass Thanks for your feedback
+
+--- SOURCE 2 (FOUND): https://www.nidirect.gov.uk/articles/60-smartpass-and-senior-65-smartpass ---
+60+ SmartPass and Senior (65+) SmartPass To apply for a 60+ SmartPass you must be aged between 60 and 64 and permanently resident in Northern Ireland for a minimum of three months. To apply for a Senior (65+) SmartPass you must be aged 65+ and permanently resident in Northern Ireland for a minimum of three months. How to apply You can get an application form: by calling in person at any manned Translink bus or rail station by phoning 028 9066 6630 (applicants who are deaf, have hearing loss or tinnitus can use the textphone number 18001 028 9066 6630) and asking for a form to be posted to you by emailing smartpass@translink.co.uk and asking for the type of application form you require (for example, 60+, Senior 65+, or War Disablement and so on) to be posted to you (provide your name and full address with postcode) You can find the locations and opening times of stations on the Translink website at the following link: Concession passes You will never be contacted asking for any bank account details when you're applying for or renewing a SmartPass. If you’re applying for the first time, Translink is currently receiving a high volume of requests for application forms. It may take up to four weeks to process applications, which are being done as quickly as possible and in order from the date received. 60+ SmartPass applications Applications may be made no earlier than six weeks before your 60th birthday. Applications can take four to six weeks to process. Senior (65+) SmartPass applications Applications may be made up to four weeks before your 65th birthday, but the SmartPass will only start working on your birthday. Applications are processed as soon as possible but can take four to six weeks, and your new pass will be posted to you directly. Proof of age and residency After filling out your form you must take it, in person, to your nearest Translink bus or rail station along with a countersigned passport-sized photograph and a choice of the following documents to prove your age and residency. Proof of age: driving licence (non-UK driving licences must contain your date of birth) passport (non-UK passports must contain your date of birth) birth certificate (if name on birth certificate differs from name on application form, then you must provide official documents to support any name change) Northern Ireland Electoral ID Card Proof of residency: driving licence (non-UK driving licences must contain your address) recent (no more than three months old) utility bill (an electricity, gas or landline telephone bill, but not a mobile phone bill) recent (no more than three months old) bank or building society statement Northern Ireland Electoral ID Card 60+ SmartPass holders who will turn 65 shortly Your 60+ SmartPass runs out at the end of the calendar month in which you become 65. If you have renewed the 60+ Smartpass, you will receive the Senior Smartpass at the end of the calendar month in which you become 65. As free all Ireland and cross-border travel is only available to holders of a Senior (65+) SmartPass, you will have to wait until the end of your 65th birthday calendar month before you can use it. Renewing your Senior (65+) SmartPass SmartPasses are only valid for five years. Check the expiry date on the front of your SmartPass to see when it will run out, as it cannot be used to get free travel after this date. Around three months before each SmartPass expires, pass holders will get a letter explaining how to get a new pass. If you want further information about renewing your SmartPass, phone Translink on: 028 9066 6630 (applicants who are deaf, have hearing loss or tinnitus can use the textphone number 18001 028 9066 6630) Lost or stolen SmartPass If your SmartPass is lost or stolen, you should report it to Translink as soon as possible to make sure the card is cancelled and avoid the likelihood of fraudulent use. If anyone else tries to use a stolen pass, Translink staff will be alerted. Unauthorised use of a SmartPass may result in prosecution. To get your replacement SmartPass, you should either go to your local Translink bus or rail station, or: phone: 028 9066 6630 email: smartpass@translink.co.uk Faulty or damaged SmartPass If your SmartPass is faulty or damaged, you can get a free replacement. Go to a Translink bus or rail station and exchange your SmartPass at the ticket office for a ‘Faulty SmartPass Receipt’ ticket. This will provide you with free travel on buses and trains for a seven-day period, during which time a new free replacement pass will be issued. Or you can also get a free replacement pass by contacting Translink: phone: 028 9066 6630 email: smartpass@translink.co.uk The ‘Faulty SmartPass Receipt’ ticket is only available at a Translink train or bus station when exchanged for the faulty or damaged pass. Using a SmartPass You can use your 60+ SmartPass and Senior (65+) SmartPass on all Translink scheduled services within Northern Ireland. Senior (65+) SmartPasses are valid on cross border bus and rail services. They can also be used for free public transport journeys taken entirely within the Republic of Ireland on services run by participating operators. You can find details on the participating operators on Free travel in Ireland . In cases of doubt, SmartPass holders are advised to contact operators in Republic of Ireland ahead of travel: to establish whether they offer free travel as part of the All Ireland Free Travel Scheme and to find out how passes are verified for travel Your SmartPass is also valid on eligible scheduled services operated by other participating operators within the concessionary fares scheme. Details on these operators are available by contacting the Department for Infrastructure (DfI) Concessionary Fares team . Free travel is also available on the: Rathlin Island ferry service under the Rathlin Island Ferry Discounted Fares Scheme and Strangford Lough ferry service on showing your SmartPass Members of the Rural Community Transport Partnerships can travel free of charge on Dial-a-Lift Scheme services through the Assisted Rural Travel Scheme (ARTS) on showing a valid 60+ or Senior SmartPass. Further information can be found on the Community transport and shopmobility page . You can also view a leaflet at these links showing you how to use your 60+ SmartPass or Senior (65+) Citizen SmartPass: Senior Citizen SmartPass card user guide 60+ SmartPass card user guide The Concessionary Fares Scheme privacy notice is available on the DfI website . Glider services You can use your 60+ SmartPass or Senior (65+) SmartPass on all Glider services. SmartPass users do not need to use Glider ticket vending machines but must tap their card on a validator at the Glider halts before boarding the Glider. Contact information If you have any queries, contact Department for Infrastructure (DfI) Concessionary Fares . Share this page Share on Facebook (external link opens in a new window / tab) Share on X (external link opens in a new window / tab) Share by email (external link opens in a new window / tab) Free bus travel and concessions 60+ SmartPass and Senior (65+) SmartPass Free and concessionary bus and rail travel Half Fare SmartPass - Driving Licence Refused Half Fare SmartPass - Learning Disability Half Fare SmartPass - Partially-Sighted Half Fare SmartPass - Personal Independence Payment (PIP) Registered Blind SmartPass War Disablement SmartPass

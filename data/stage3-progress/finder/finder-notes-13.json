@@ -1,0 +1,243 @@
+{
+  "sss-carer-support-payment#agentInteraction.methods": {
+    "queries": [
+      "site:mygov.scot/carer-support-payment/how-to-apply online phone person cared for hours supporting information"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/carer-support-payment/how-to-apply",
+        "why": "The service says “using the online form” and “on the phone” for Carer Support Payment applications."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-carer-support-payment#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:mygov.scot/carer-support-payment/how-to-apply online phone person cared for hours supporting information"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/carer-support-payment/how-to-apply",
+        "why": "The application page requires the cared-for person’s date of birth and address, plus identifiers where available."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-carer-support-payment#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:mygov.scot/carer-support-payment \"hours\" \"proof\"",
+      "site:socialsecurity.gov.scot carer support payment evidence hours cared"
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/publications/2017/07/carer-support-payment-decision-making-guide/pages/cared-for-person-dispute/regular-and-substantial-care",
+        "why": "The decision guide says carers declare at least 35 hours of care a week, but does not require independent proof for every applicant."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-disability-payment#agentInteraction.methods": {
+    "queries": [
+      "site:mygov.scot/child-disability-payment/how-to-apply online phone post"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/child-disability-payment/how-to-apply",
+        "why": "The application page says applications are online or by phone and paper, with a prepaid envelope to return the paper form."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-child-disability-payment#eligibility.criteria.2": {
+    "queries": [
+      "site:mygov.scot/child-disability-payment/applicants live in Scotland"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/child-disability-payment/applicants",
+        "why": "The usual applicant rule says the child lives in Scotland, but the same page allows a qualifying child in the EEA, Switzerland or Gibraltar."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-disability-payment#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:mygov.scot/child-disability-payment/what-you-need medical evidence GP consultant Scotland"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/child-disability-payment/what-you-need-to-apply",
+        "why": "The application guidance requires a professional document confirming the child’s condition, disability or needs, while allowing applications before it is gathered."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-disability-payment#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:mygov.scot/child-disability-payment/what-you-need medical evidence GP consultant Scotland"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/child-disability-payment/what-you-need-to-apply",
+        "why": "The page permits a letter from a professional as supporting information but does not specifically require GP or consultant reports."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-disability-payment#eligibility.exclusions.1": {
+    "queries": [
+      "site:mygov.scot/child-disability-payment/applicants live in Scotland"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/child-disability-payment/applicants",
+        "why": "The page says children generally live in Scotland, but expressly allows some who live in the EEA, Switzerland or Gibraltar."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-winter-heating#agentInteraction.methods": {
+    "queries": [
+      "\"Child Winter Heating Payment\" \"apply online\" site:mygov.scot",
+      "\"Child Winter Heating Payment\" \"online application\" site:gov.scot"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "sss-child-winter-heating#eligibility.autoQualifiers.0": {
+    "queries": [
+      "site:mygov.scot/child-winter-heating-payment automatically highest rate Child Disability Payment under 16 19 Scotland apply",
+      "site:gov.scot \"Child Winter Heating Payment\" \"automatic\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.scot/news/winter-heating-help-for-over-1-million-people/",
+        "why": "Scottish Government says payment is automatic for under-19s receiving highest disability support, including Child Disability Payment; it omits DLA."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-winter-heating#eligibility.criteria.0": {
+    "queries": [
+      "site:mygov.scot/child-winter-heating-payment automatically highest rate Child Disability Payment under 16 19 Scotland apply",
+      "site:gov.scot \"Child Winter Heating Payment\" \"under 19\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.scot/publications/examining-outcomes-associated-social-security-scotland-spending-evidence-synthesis/pages/7/",
+        "why": "The Scottish Government review lists highest-rate Child Disability Payment and DLA care components, but also lists enhanced-rate PIP and ADP daily-living components."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-winter-heating#eligibility.criteria.1": {
+    "queries": [
+      "site:gov.scot \"Child Winter Heating Payment\" \"under 19\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.scot/news/winter-heating-help-for-over-1-million-people/",
+        "why": "The Scottish Government says payments are automatic for children and young people under 19, with no qualifying-education condition."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-child-winter-heating#eligibility.criteria.2": {
+    "queries": [
+      "site:gov.scot \"Child Winter Heating Payment\" \"under 19\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.scot/publications/examining-outcomes-associated-social-security-scotland-spending-evidence-synthesis/pages/7/",
+        "why": "The review says children and young people in Scotland who are under 19 and receive a qualifying benefit are eligible; it does not establish an absolute residence bar."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-funeral-support-payment#agentInteraction.methods": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment/how-to-apply online phone"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/funeral-support-payment/how-to-apply",
+        "why": "The page has “Apply online” and “Apply by phone”, expressly allowing a phone application."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-funeral-support-payment#eligibility.criteria.1": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment who can apply benefits relatives funeral director invoice"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+        "why": "The eligibility page lists the six claimed qualifying benefits and allows applicants awaiting a decision."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-funeral-support-payment#eligibility.evidenceRequired.0": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment \"death certificate\" \"apply\"",
+      "site:socialsecurity.gov.scot funeral support payment death certificate evidence"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "sss-funeral-support-payment#eligibility.evidenceRequired.1": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment \"funeral director\" \"invoice\"",
+      "site:socialsecurity.gov.scot funeral support payment funeral bill evidence"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/funeral-support-payment/how-to-apply",
+        "why": "The application asks for details of the funeral director and “any travel receipts or funeral bills you have so far”."
+      },
+      {
+        "url": "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+        "why": "The decision guide says a funeral bill naming the claimant can prove responsibility, but other evidence can be accepted."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-funeral-support-payment#eligibility.evidenceRequired.2": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment \"benefit\" \"proof\"",
+      "site:socialsecurity.gov.scot funeral support payment eligibility benefit award letter evidence"
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+        "why": "The decision guide asks for a recent Housing Benefit award letter if that is the only qualifying benefit, and other benefit evidence if verification fails."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-funeral-support-payment#eligibility.exclusions.0": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment who can apply benefits relatives funeral director invoice"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+        "why": "The eligibility page says the applicant or partner must get a listed benefit, but also permits applying while its decision is pending."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-funeral-support-payment#eligibility.exclusions.1": {
+    "queries": [
+      "site:mygov.scot/funeral-support-payment \"nearest relative\" \"responsibility\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+        "why": "The decision guide considers nearer relatives but says their presence does not necessarily determine entitlement."
+      }
+    ],
+    "verdict_hint": "partly"
+  }
+}

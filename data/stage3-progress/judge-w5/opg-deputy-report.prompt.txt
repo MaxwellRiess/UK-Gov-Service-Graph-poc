@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Complete the deputy report" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/opg-deputy-report.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by post.
+
+--- SOURCE 0: https://www.gov.uk/complete-deputy-report ---
+Deputies: make decisions for someone who lacks capacity Skip contents Contents Overview Who can apply to be a deputy Responsibilities Apply to be a personal welfare deputy Apply to be a property and financial affairs deputy Fees When you're appointed Supervision, support and visits Accounts, gifts and expenses Complete your deputy report Change your deputyship or make a one-off decision End your deputyship Overview You can apply to become someone’s deputy if they ‘lack mental capacity’. This means they cannot make a decision for themselves at the time it needs to be made. They may still be able to make decisions for themselves at certain times. People may lack mental capacity because, for example: they have had a serious brain injury or illness they have dementia they have severe learning disabilities As a deputy, you’ll be authorised by the Court of Protection to make decisions on their behalf. This guide is also available in Welsh (Cymraeg) . If you live in Scotland You cannot apply to be someone’s deputy. You can set up a guardianship instead. If you live in Northern Ireland You cannot apply to be someone’s deputy. You can apply to become a controller for someone instead. Types of deputy There are 2 types of deputy. Property and financial affairs deputy You’ll do things like pay the person’s bills or organise their pension. Personal welfare deputy You’ll make decisions about medical treatment and how someone is looked after. You cannot become someone’s personal welfare deputy if they’re under 16. Get legal advice if you think the court needs to make a decision about their care. The court will usually only appoint a personal welfare deputy if: there’s doubt whether decisions will be made in someone’s best interests , for example because the family disagree about care someone needs to be appointed to make decisions about a specific issue over time, for example where someone will live Read the full guidance about when you need to make a personal welfare application . Becoming a deputy You can apply to be just one type of deputy or both. If you’re appointed, you’ll get a court order saying what you can and cannot do . When you become a deputy, you must send an annual deputy report to the Office of the Public Guardian (OPG) each year explaining the decisions you’ve made. Apply to the Court of Protection if you need to change or renew your court order . You’ll continue to be a deputy until your court order is cancelled or expires . How to apply Check you meet the requirements to be a deputy . The application process is different depending on whether you’re: applying to be a personal welfare deputy applying to be a property and financial affairs deputy You’ll also need to pay an application fee . You do not need to be a deputy if you’re just looking after someone’s benefits. Apply to become an appointee instead. Checks on your application The Court of Protection will check: whether the person needs a deputy or some other kind of help there are no objections to your appointment If you’re appointed, the Office of the Public Guardian will help you carry out your responsibilities . Other ways to make decisions for someone If you want to make a single important decision, you can apply to the Court of Protection for a one-off order . If the person already has a lasting power of attorney ( LPA ) or enduring power of attorney ( EPA ), they do not usually need a deputy. Check if they have an LPA or EPA before you apply. Next : Who can apply to be a deputy View a printable version of the whole guide Related content Find out if someone has an attorney, deputy or guardian acting for them Deputies: manage a Court Funds Office account Report a concern about an attorney, deputy or guardian Make, register or end a lasting power of attorney Explore the topic Lasting power of attorney, being in care and managing finances
+
+--- SOURCE 1 (FOUND): https://www.complete-deputy-report.service.gov.uk/terms ---
+Sorry, the service is currently unavailable We are aware of a technical issue affecting our Make an LPA, Use an LPA, View an LPA and digital deputy reporting services. We are working to restore these services as quickly as possible. If your deputy report is due today, it can be submitted once the service is back online. If you need to talk to someone about your Complete the deputy report account, contact us by: Telephone: 0300 456 0300 Calling from outside the UK: +44 (0)203 518 9639 Relay UK (if you cannot hear or speak on the phone): 18001 0300 123 1300 Email: customerservices@publicguardian.gov.uk Monday to Friday, 9:00am to 5pm, except Wednesday, 10am to 5pm. Find out about call charges Back to GOV.UK: www.gov.uk/become-deputy/complete-your-deputy-report
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/government/publications/deputy-annual-report-accounting-for-your-actions/filling-in-your-deputy-report-form-property-and-financial-decisions-opg103a ---
+OPG103A: Filling in your deputy report form: property and financial decisions (web version) About the deputy report form Why do you need to fill in the deputy report form? The deputy report form: gives the Office of the Public Guardian (OPG) financial accounts tells us about decisions you’ve made for the person you’re acting for (called ‘the client’ in this guide) gives us information so that we can help you to act in the client’s best interests Sometimes OPG needs extra information. We might ask you to tell us more or we might ask a Court of Protection visitor to visit you or the client to find out more. What happens if you don’t send us your form or there are concerns? By law, you must complete a deputy report form if OPG asks you to. If you don’t fill in and send OPG your deputy report when we’ve asked for it, or if there are concerns because of it, we may review your deputyship. Ultimately this could lead to us applying to the Court of Protection to remove you as a deputy and appoint another deputy instead. Worries and problems If there is anything about being a deputy that is worrying you, tell us about it in your report form on page 12. We will contact you and try to help. For a quicker response, call or email your OPG case manager. Call the OPG contact centre team: 0300 456 0300 Calling from outside the UK: +44 (0)203 518 9639 Relay UK (if you cannot hear or speak on the phone): 18001 0300 123 1300 Monday to Friday 9:30am to 5pm; Wednesday 10am to 5pm Email: customerservices@publicguardian.gov.uk Is this your first year as a deputy? We know that the first year of being a deputy can be difficult. Get in touch with your OPG case manager for help with: keeping financial records advice about dealing with banks and companies understanding your duties involving the client in decisions that affect them Send your completed form to: Office of the Public Guardian PO Box 16185 Birmingham B2 2WH Section 1: Deputy and client information Reporting period (page 1) Your reporting period is on the letter we sent you with your report form. It is usually 12 months from the date when your court order is issued (not the date you receive it). You’ll find that date on the first page of your court order. For example, if your court order is dated 10 June, the reporting period is 10 June to 9 June of the following year. It is not the tax year. You’ll usually have to send us a report each year from the anniversary of the date of your court order but sometimes we might ask you to send reports more often. Section 2: Decisions made over the reporting period You need to tell us whether the client’s mental capacity to make financial decisions has changed or stayed the same during the reporting period. (You do not have to ask a doctor or other professional to assess the client’s mental capacity just for this report.) ‘Mental capacity’ means being able to make a specific decision at the time that it needs to be made. Significant decisions: deputy decisions (page 2) Tell us about any important decisions you made for the client – not just financial decisions. We also need to know about decisions that have a big effect on the client’s welfare or circumstances. Significant decisions might be about: buying, selling or renting property buying or selling investments or shares holidays or frequent day trips making gifts paying for another nursing or care home You do not need to include here small, day-to-day decisions such as buying food or toiletries. Significant decisions: client’s involvement (page 2) Tell us whether or not the client was involved in making the decision. Don’t leave this blank. If the client has no mental capacity and can’t make any decisions, note that here. Mental capacity can change. The client may be able to make some types of decisions but not others – or only make decisions at some times. You must help the client make all or part of a decision, if they can. You should only make a decision if the client can’t make it when they need to. For advice on involving the client in making decisions, see chapter 5 of the Mental Capacity Act Code of Practice, available at www.gov.uk/opg/mca-code Section 3: People you consulted We need to know about the client’s general situation. You don’t need to list every person you’ve contacted. However, we do need an idea of the people you consult when acting for the client, especially when making significant decisions. We may need to contact them if something happens and we have to carry out an investigation. If possible, you should talk to people who know the client well about the client’s wishes, feelings, beliefs and values, as well as to people who work closely with the client. If you didn’t consult anyone, you need to tell us why you didn’t. You’ve been sent an extra sheet in case you need more space. Photocopy it as many times as you need. Section 4: Safeguarding Contact with the client (page 4) As well as decisions about finances and assets, we also need to know about how the client is looked after, and what contact they have with you and others. We ask questions about who visits the client and how often. This is because we want to understand if there is anyone who could tell you if they were worried about the client. This might be about a problem with the client’s living arrangements, or their needs not being met. Not all deputies are able to visit their client regularly, and this is not always a problem. If there is an independent person who would alert you if they had a concern, you can tell us about it here. Section 5: Care arrangements and benefits Care arrangements (page 5) In this section we ask you about: how the client’s care is paid for, and who provides the care when the client’s care plan was last reviewed We ask you about how the client’s care is funded. This helps us understand how paying for care affects the client’s finances. We may be able to tell you if the client could be entitled to more funding to help with their care. Benefits (page 5) We also ask about what State Pension and benefits the client receives. As a deputy, you should check that the client gets all the benefits they are entitled to. Section 6: Client’s accounts Tell us how much was in the client’s main bank or building society accounts at the start and the end of the reporting period. These are the accounts that you use regularly; for making payments or where money is paid into. Don’t list savings accounts, ISAs or bonds unless they’re used regularly for paying for everyday items – add them all up and enter the total amount held in these types of accounts under Assets (section 8). Section 7: Money paid in and out of the client’s accounts Summary of money paid in and paid out (page 6) Select all the relevant categories of income (money paid in) and spending (money paid out) by putting an X in the box. You can select as many as you need. One-off payments over £1000 (page 7) If you’ve made any major purchases or received any large payments on behalf of the client, list them here. We need to make sure any purchases are in the client’s best interests. We also need to get a general picture of the client’s finances: if their wealth increases significantly (for example, becuase of a damages settlement or being left money in a will), we may need to increase the level of your supervision. Deputy expenses (page 8) As a deputy you can claim expenses, but only for things you’ve paid for while carrying out your duties. So, if you visit your client to help them make a decision about their finances, you could claim this money back from the client’s funds. However, if you make a social visit, you’d have to pay for this yourself. Gifts (page 8) If you’ve made any gifts on behalf of the client, list them here. Remember, there are strict limits on giving gifts. Unless your court order says otherwise, you can only give a gift to a charity, or family member, friend or acquaintance of the person on a ‘customary occasion’. A customary occasion means, for example, a birth, a birthday, a wedding or civil partnership or an anniversary. It also includes occasions where families, friends or associates customarily give gifts, such as Christmas, Eid, Diwali, Hanukkah or Chinese new year. Any gift should be well within what the client can comfortably afford, and not affect their ability to meet their living expenses, now and in the future. Section 8: Client’s assets Property (page 9) Tell us about any property partly or fully owned by the client. We need to know about who lives there, and whether it’s rented out or not. This will help us understand what effect this asset has on the client’s situation. For example: a deputy may find that the client needs more funds for their care. If the client’s property is empty, it may be easier to sell the property than if it is occupied or partly owned by someone other than the client. Before any sale of the client’s property, you must make sure your court order allows you to do so. If you’re not sure, contact your case manager. Types of assets (page 10) Give us a total for each type of asset. An asset could be a savings acount, or it could be something valuable such as a car or a property owned abroad. Getting valuations for property, artwork, antiques, jewellery and other assets You don’t have to have all the client’s assets valued every year by, for example, jewellers, art dealers or estate agents. We just need an estimate. Use the same figure that you’ve used for insurance, look at what similar properties in the area sell for and look online to see what the client’s vehicle might be worth if sold now. Section 9: Client’s debt Most deputies don’t incur debts on behalf of their client. However, if the client does have any debts, we need more information. You can’t take out any loans on behalf of the client without permission from the Court of Protection. Section 10: Decisions in the next reporting period Tell us about anything that is worrying you now, and decisions you think you’ll have to make in the next reporting period. We’ll read what you’ve written and get in touch if we can help. You can also call or email your OPG case manager, particularly if you need an urgent answer. Your letters from OPG have your case manager’s contact details. Section 11: Deputy’s declaration You must read the declaration on page 21 before you sign and date it. You’re signing to say that, as far as you know, you have given correct information. If you have any doubts, contact your case manager before signing. You must be aware of your duties as set out in your court order, the Mental Capacity Act 2005 and the Mental Capacity Act Code of Practice. The Code of Practice has advice and examples for deputies. You can find it at MCA Code of Practice What happens next? Once you’ve filled in your report with as much information as you can, send it to: Office of the Public Guardian PO Box 16185 Birmingham B2 2WH We will send you an acknowledgement letter once we have reviewed your report, telling you: dates for the next reporting period opening balances of the client’s account(s) for the next reporting period We may ask for more information. This might be: bank statements for the client’s accounts receipts other documentary evidence We usually ask for more information by telephone, and if necessary follow up with a letter. Glossary Best interests: deputies should always consider what action is in the client’s best interests when making a decision. You should also take into consideration the client’s past and present wishes and think about consulting others. Case number: every letter from the Office of the Public Guardian will have your case number: look for ‘OPG reference’. Your case number is also on the first page of your court order in the top right-hand corner. Client: the person you have been appointed by the Court of Protection to help make decisions for. Code of Practice: a guide to the Mental Capacity Act available in print from OPG or at MCA Code of Practice .The code contains much valuable information for deputies. Court of Protection visitor: someone who is appointed to report to the Court of Protection or Public Guardian on how deputies are carrying out their duties. Deputy: you – the person who is appointed by the Court of Protection to look after the client’s affairs. Lay deputy: a non-professional deputy, such as a husband, wife, child, partner or friend. Local authority: sometimes known as ‘local council’. Mental capacity: the ability to make a decision about a particular matter at the time the decision needs to be made. The legal definition of a person who lacks mental capacity is set out in section 2 of the Mental Capacity Act. The Mental Capacity Act 2005: the act is designed to protect people who can’t make decisions for themselves. This could be due to a mental health condition, a severe learning disability, a brain injury or a stroke. The act’s purpose is to allow adults to make as many decisions as they can for themselves and for a deputy or others to make decisions on their behalf. Personal welfare deputy: a deputy appointed by the Court of Protection to manage the health and care of the client. Professional deputy: someone who charges for being a deputy, such as a solicitor, accountant or local authority deputy. Property and affairs deputy: a deputy appointed by the Court of Protection to manage the financial affairs of the client. Reporting period: the period of time covered by your deputy report (it’s usually 12 months).

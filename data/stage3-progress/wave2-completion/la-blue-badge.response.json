@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Receiving the enhanced rate of the PIP mobility component automatically qualifies someone for a Blue Badge.",
+          "verdict": "partly_supported",
+          "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)",
+          "source": 2,
+          "note": "The source gives specific PIP mobility activity-score routes but does not say the enhanced mobility rate alone automatically qualifies."
+        },
+        {
+          "claim": "Receiving the highest mobility rate of DLA automatically qualifies someone for a Blue Badge.",
+          "verdict": "supported",
+          "quote": "you receive the higher rate of the mobility component of the Disability Living Allowance ( DLA )",
+          "source": 2,
+          "note": "The source lists the higher rate of the DLA mobility component as an automatic qualification."
+        },
+        {
+          "claim": "Certain awards under the Armed Forces and Reserve Forces Compensation Scheme automatically qualify someone for a Blue Badge.",
+          "verdict": "supported",
+          "quote": "you have received a lump sum benefit within tariff levels 1 to 8 of the Armed Forces and Reserve Forces (Compensation) Scheme and have been certified as having a permanent and substantial disability that causes inability to walk or very considerable difficulty in walking",
+          "source": 2,
+          "note": "The source specifies tariff levels 1 to 8 and the associated disability certification."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Someone applying on non-automatic criteria must provide evidence of difficulty walking.",
+          "verdict": "supported",
+          "quote": "If you cannot walk or find walking difficult, you will also be asked questions around how your condition affects your walking.",
+          "source": 2,
+          "note": "The source asks applicants with walking difficulty to give details of its effect on walking and offers supporting documents."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

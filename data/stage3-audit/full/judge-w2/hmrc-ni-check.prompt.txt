@@ -1,0 +1,128 @@
+A service graph describes the UK government service "Check & top up NI record" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-ni-check.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[criterion_0] (split into claims) Particularly important for people approaching State Pension age, or those who have had periods out of work, self-employment, or living abroad.
+
+--- SOURCE 0: https://www.gov.uk/check-national-insurance-record ---
+Check your National Insurance record You can check your National Insurance record online to see: what you’ve paid, up to the start of the current tax year (6 April 2026) any National Insurance credits you’ve received if gaps in contributions or credits mean some years do not count towards your State Pension (they are not ‘qualifying years’) if you’ll benefit from paying voluntary contributions to fill any gaps how your State Pension forecast will change if you decide to pay voluntary contributions if you can pay voluntary contributions online and how much this will cost This service is also available in Welsh (Cymraeg) . Start now Before you start You’ll need to sign in to check your National Insurance record. If you do not already have sign in details, you’ll be able to create them. You’ll be told when you sign in if you need to prove your identity. This is to keep your details safe and normally involves using photo ID like a passport or driving licence. Other ways to apply You can request a printed National Insurance statement: online, if you live in the UK - (you’ll need your National Insurance number ) online or by post, if you live abroad by phone You’ll need to say which years you want your statement to cover. You cannot request statements for the current or previous tax year. You can also write to HM Revenue and Customs ( HMRC ). PT Operations North East England HM Revenue and Customs BX9 1AN If you’ve paid National Insurance in the Isle of Man Your record will not show National Insurance contributions from the Isle of Man if you reach State Pension age after 5 April 2016. Email the National Insurance office in the Isle of Man to find out how much you’ve paid. Isle of Man National Insurance office nationalinsurance.itd@gov.im You can also write to the office. National Insurance contributions Income Tax Division Government Office Bucks Road Douglas Isle of Man IM1 3TX Related content National Insurance: introduction National Insurance credits Voluntary National Insurance Find your National Insurance number Collection National Insurance: detailed information Explore the topic National Insurance
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/voluntary-national-insurance-contributions ---
+Voluntary National Insurance. National Insurance contributions you can choose to pay when you have a gap in your National Insurance record. If you do not pay National Insurance you may have gaps in your National Insurance record. This could be because you were: employed but had low earnings unemployed and were not claiming benefits getting National Insurance credits for less than a full tax year self-employed but did not pay contributions because of small profits living or working outside the UK This guide is also available in Welsh (Cymraeg) . Gaps can mean you will not have enough years of National Insurance contributions to either: get a State Pension (you usually need at least 10 ‘qualifying years’) qualify for certain benefits You may be able to pay voluntary contributions to fill any gaps and top up your State Pension. Who cannot pay voluntary contributions You cannot pay voluntary contributions if you: do not have gaps in your National Insurance record - unless you’re getting Class 3 credits and are eligible to pay Class 2 contributions are a married woman or widow paying reduced rate National Insurance have passed the deadline for paying contributions for the period that has gaps Check your record for gaps Check your National Insurance record to find out: if you have any gaps how much it will cost to pay voluntary contributions if you’ll benefit from paying voluntary contributions if you can pay online If you have gaps in your National Insurance record, check if you’re eligible for National Insurance credits before deciding to pay voluntary contributions. Contact HM Revenue and Customs ( HMRC ) if you think your National Insurance record is wrong. Decide if you want to pay voluntary contributions Voluntary contributions do not always increase your State Pension, for example if you were contracted out . If you’re below State Pension age, check your State Pension forecast to find out if you’ll benefit from paying voluntary contributions. You can also contact the Future Pension Centre . If you’ve reached State Pension age, contact the Pension Service to find out if you’ll benefit from voluntary contributions. If you’re living or working abroad and you’re over, or within 6 months of reaching State Pension age, contact the International Pension Centre for advice. Why you might want to pay voluntary contributions You may want to pay voluntary contributions because: you’re close to State Pension age and do not have enough qualifying years to get or increase your State Pension you know you will not be able to get the qualifying years you need to get the full State Pension during your working life you’re self-employed and have annual profits of less than £7,105 you live outside the UK, but you want to qualify for certain benefits or the State Pension you’re not eligible for National Insurance credits Self-employed people with specific jobs Some people do not have their Class 2 contributions treated as having been paid, but may want to pay voluntary contributions. These are: examiners, moderators, invigilators and people who set exam questions landlords who are eligible to pay Class 2 National Insurance ministers of religion who do not receive a salary or stipend people who make investments for themselves or others - but not as a business and without getting a fee or commission Find out if you can pay voluntary National Insurance contributions based on things like your employment status, age and where you live. From 6 April 2026, the rules have changed if you live or work abroad (or have previously). If you’re employed You can pay Class 3 voluntary contributions if you’re employed and the following are both true: you’re earning less than £129 a week you’re not eligible for National Insurance credits If you’re self-employed You can pay Class 2 or Class 3 voluntary contributions if you’re self-employed and you either have: a gross income of £1,000 or less a gross income over £1,000, but with profits of less than £7,105 You can also pay Class 2 or Class 3 voluntary contributions if you’re self-employed with a specific job. This applies if you’re any of the following: an examiner, moderator, invigilator or a person who sets exam questions a landlord and eligible to pay Class 2 National Insurance a minister of religion who does not receive a salary or stipend a person who makes investments - but not as a business and without getting a fee or commission Voluntary contributions count towards your State Pension and some benefits. You can check which benefits your National Insurance contributions count towards . If you’re both employed and self-employed You can check your State Pension forecast to find out if you’ll benefit from paying voluntary contributions if you: earn less than £129 from employment have profits of less than £7,105 from self-employment You can also contact the Future Pension Centre who will check if you have a gap in National Insurance contributions and tell you if it will benefit you to make a payment. If you’re above State Pension age, you’ll need to contact the Pension Service to check if you have a gap. They will also be able to tell you if it will benefit you to make a payment. If you’re unemployed You can pay Class 3 voluntary contributions if you’re unemployed and the following are both true: you’re not claiming benefits you’re not getting National Insurance credits If you’re over State Pension age If you’ve reached State Pension age and want to fill in gaps in your National Insurance record you can pay: Class 3 contributions Class 2 contributions if you’re eligible Get help working out which National Insurance contributions you can pay Use the National Insurance contributions checker to find out: if you can pay National Insurance contributions which type of voluntary contributions you can pay The rules on which National Insurance contributions you can pay depend on the tax year you were living or working abroad. If you’re paying for the 2025 to 2026 tax year or earlier To pay voluntary Class 2 or Class 3 National Insurance contributions, you must have either: previously lived in the UK for 3 years in a row paid contributions (or had Class 2 contributions treated as having been paid) for at least 3 years in total To pay voluntary Class 2 contributions, both of the following must also apply: you worked in the UK immediately before leaving you’re working abroad (or you worked while you were abroad) If you were affected by incorrect HMRC guidance (2017 to 2019) Between November 2017 and April 2019, HM Revenue and Customs (HMRC) guidance was incorrect. It said all these conditions must be true. If you did not apply, or your application was refused because of this, you may be able to pay at the original rates. Explain your situation when you apply to pay contributions. If you’re paying for the 2026 to 2027 tax year onwards You cannot pay voluntary Class 2 National Insurance contributions for time abroad. You can apply to pay Class 3 contributions for time spent abroad after 5 April 2026 if you have either: previously lived in the UK for 10 years in a row paid 10 years of qualifying National Insurance contributions in total Qualifying National Insurance contributions are: Class 1, 2 or 3 contributions paid, or treated as paid, while in the UK Class 1 or 2 contributions paid, or treated as paid, while working abroad under a Social Security Agreement Class 1 contributions paid by posted workers for the first 52 weeks abroad Class 2 contributions paid by volunteer development workers Qualifying National Insurance contributions do not include: any other voluntary National Insurance contributions paid for other periods abroad National Insurance credits If you applied before 6 April 2026 You may be able to pay Class 3 National Insurance contributions for periods spent abroad using the previous rules (that ended on 5 April 2026). These required 3 years of continuous UK residency or National Insurance contributions rather than 10 years. All the following must also be true: you applied to pay voluntary Class 2 or Class 3 contributions for the 2024 to 2025 or 2025 to 2026 tax year on or before 5 April 2026 you pay or have paid the voluntary contributions you applied for on or before 5 April 2027 you apply to pay Class 3 contributions for the 2026 to 2027 tax year on or before 5 April 2027 These rules will no longer apply once you return to live or work in the UK. How to pay contributions You can apply to pay voluntary National Insurance contributions for time abroad using form CF83 . Find out what to pay If you’ve not reached State Pension age, you can check your State Pension forecast or contact the Future Pension Centre to find out if you’ll benefit from paying voluntary contributions. If you’ve reached State Pension age, or will reach State Pension age in the next 6 months, contact the International Pension Centre . They will check if you have a gap in National Insurance contributions and tell you how much you need to pay. The rates for the 2026 to 2027 tax year are: £3.65 a week for Class 2 £18.40 a week for Class 3 You usually pay the current rate when you make a voluntary contribution. When you pay different rates If you’re paying Class 2 contributions for the previous tax year or Class 3 contributions for the previous 2 tax years, you pay the original rate for those tax years: Class 2 rates Class 3 rates If you’re paying for any earlier years, you’ll pay the rate for 2026 to 2027. If you have a specific type of job You’ll pay a special Class 2 rate if you’re: a share fisherman a volunteer development worker If you live in the UK, find out how to: pay Class 2 voluntary contributions pay Class 3 voluntary contributions If you live or work outside the UK If you live or work abroad (or have previously), find out what you need to do before paying voluntary National Insurance contributions. Deadlines You can only pay voluntary contributions for the past 6 years. The deadline is 5 April each year. For example, you have until 5 April 2032 to make up gaps for the tax year 2025 to 2026. You can read guidance or get help to decide if you should pay voluntary contributions to fill any gaps . Getting help Contact HM Revenue and Customs ( HMRC ) if you have questions about voluntary National Insurance.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/check-state-pension ---
+Check your State Pension forecast Use this service to find out: how much State Pension you could get when you can get it if you can increase it how you could increase it (for example, by paying to fill gaps) This page is also available in Welsh (Cymraeg) . The State Pension age is regularly reviewed, so the results of this tool may change in the future. You can read about the launch of the latest review of the State Pension age . You cannot use this service if you’re already getting your State Pension or if you’ve delayed (‘deferred’) claiming it. You’ll need to sign in to use this service. If you do not already have sign in details, you’ll be able to create them. You’ll be told when you sign in if you need to prove your identity. This is to keep your details safe and normally involves using photo ID like a passport or driving licence. Start now Other ways to apply You can also check your State Pension forecast through the HMRC app . Applying online is the quickest way to get a forecast. If you’ll reach your State Pension age in more than 30 days you can also: fill in the BR19 application form and send it by post call the Future Pension Centre who will post the forecast to you If you’re already getting your State Pension or have delayed claiming it To get information about your State Pension, contact the Pension Service if you’re in the UK or the International Pension Centre if you live abroad. This page is Part of Plan your retirement income: step by step Step 1 : Check when you can retire Check what age you can get your State Pension Find out about working after you reach State Pension age Find out if you can retire early with your workplace or personal pension and Check how much pension you could get You are currently viewing: Find out how much State Pension you could get (your forecast) You may also be paying into a: workplace pension personal pension Find out if you’ll pay tax on your pension Find contact details for a lost pension Check how your pension is affected if you retire abroad Step 2 : Increase your pension You might be able to increase the amount you get if you delay your pension. Find out about delaying your pension You might be able to pay voluntary contributions to fill in gaps in your National Insurance record (such as, from when you were not working or claiming benefits). Check if you can pay voluntary National Insurance contributions For advice about increasing your workplace or private pension, speak to a financial adviser. Find a financial adviser through Unbiased Step 3 : Check what other financial support you could get Check what financial help you could get if you: are on a low income need help paying your rent need help paying your heating bill are claiming benefits and the weather is cold are disabled You can also get free bus travel if you: apply for a bus pass Step 4 : Decide when to retire Get advice on planning your pension and deciding when to retire

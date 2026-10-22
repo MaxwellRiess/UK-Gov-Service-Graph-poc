@@ -444,7 +444,7 @@ export const CONTACT_OVERRIDES: Record<string, ContactInfo> = {
     hours: [{ days: ['mon','tue','wed','thu','fri'], open: '09:00', close: '14:30' }],
   },
 
-  // ho-visa, ho-brp, ho-life-in-uk, ho-ilr: uses dept default (UKVI)
+  // ho-visa, ho-life-in-uk, ho-ilr: uses dept default (UKVI)
 
   // ═══════════════════════════════════════════════════════════════════════════
   // NORTHERN IRELAND

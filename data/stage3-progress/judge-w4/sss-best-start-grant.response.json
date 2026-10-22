@@ -1,0 +1,53 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "The applicant or partner must already receive a qualifying benefit",
+          "verdict": "contradicted",
+          "quote": "If you're under 18, you do not need to be on any payments or benefits to get Best Start Grant or Best Start Foods.",
+          "source": 4,
+          "note": "Under-18 applicants can qualify without benefits, and the source also allows some applications while a benefit claim is pending."
+        },
+        {
+          "claim": "Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support and Housing Benefit are qualifying benefits",
+          "verdict": "supported",
+          "quote": "Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
+          "source": 4,
+          "note": "The source names all of these as normally qualifying payments."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Proof of pregnancy or the child's age",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources give pregnancy and child-age conditions but do not say proof of either is needed."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Proof of Scottish residency",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The sources say applicants normally live in Scotland but do not say residency proof is needed."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

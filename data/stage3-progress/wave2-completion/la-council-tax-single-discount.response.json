@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for the Council Tax single person discount online.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The text mentions paying Council Tax online but gives no online application method for this discount."
+        },
+        {
+          "claim": "You can apply for the Council Tax single person discount by phone.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The text gives no phone application method for this discount."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

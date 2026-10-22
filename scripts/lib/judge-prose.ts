@@ -17,7 +17,8 @@ export type Verdict = 'supported' | 'partly_supported' | 'contradicted' | 'not_s
 export type FieldStatus = 'confirmed' | Verdict | 'fabricated';
 
 export interface FieldToJudge { key: string; path: string; text: string; split: boolean }
-export interface Source { url: string; text: string; linked?: boolean }
+/** linked: a page the service's own pages link to. found: a page found by searching for the claim. */
+export interface Source { url: string; text: string; linked?: boolean; found?: boolean }
 
 export interface Claim { claim: string; verdict: Verdict; quote: string | null; source: number | null; note: string }
 export interface FieldResult { key: string; claims: Claim[] }
@@ -35,13 +36,24 @@ export const METHOD_WORDS: Record<string, string> = {
   phone: 'You can apply or do this by phone',
   post: 'You can apply or do this by post',
   'in-person': 'You can apply or do this in person',
+  'via-adviser': 'You must contact an approved debt adviser, who submits the application for you',
 };
+/** The methods field as a sentence to judge. Empty means nobody applies: it happens automatically. */
+export function methodsText(methods: string[]): string {
+  return methods.length
+    ? methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.'
+    : 'You do not need to apply; it happens automatically.';
+}
+
 export const AUTH_WORDS: Record<string, string> = {
   'government-gateway': 'Applying online needs a Government Gateway user ID (sign-in)',
   'gov-uk-one-login': 'Applying online needs a GOV.UK One Login',
   'gov-uk-verify': 'Applying online needs GOV.UK Verify',
   'nhs-login': 'Applying online needs an NHS login',
   'companies-house': 'Applying online needs a Companies House account or sign-in',
+  'universal-credit-account': 'Applying online needs a Universal Credit account (sign-in)',
+  'ukvi-account': 'Applying online needs a UK Visas and Immigration (UKVI) account',
+  'service-account': 'Applying online needs an account for this service, which you create or sign in to',
   none: 'No account or sign-in is needed to apply',
 };
 
@@ -98,9 +110,10 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
     .map(f => `[${f.key}]${f.split ? ' (split into claims)' : ''} ${f.text}`)
     .join('\n');
   const texts = sources
-    .map((s, i) => `--- SOURCE ${i}${s.linked ? ' (LINKED)' : ''}: ${s.url} ---\n${s.text.slice(0, PER_SOURCE_CHARS)}`)
+    .map((s, i) => `--- SOURCE ${i}${s.linked ? ' (LINKED)' : s.found ? ' (FOUND)' : ''}: ${s.url} ---\n${s.text.slice(0, PER_SOURCE_CHARS)}`)
     .join('\n\n');
   const hasLinked = sources.some(s => s.linked);
+  const hasFound = sources.some(s => s.found);
 
   return (
     `A service graph describes the UK government service "${serviceName}" with the fields below. ` +
@@ -112,6 +125,17 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
         `different service. Use one for a claim only if it is about this service, or states a general rule ` +
         `that plainly applies to it; otherwise treat the claim as not stated there.\n\n`
       : '') +
+    (hasFound
+      ? `Sources marked FOUND were found by searching the web for these claims, and may come from outside ` +
+        `GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it ` +
+        `is about this service, in the part of the UK the service covers, or states a general rule that ` +
+        `plainly applies to it. A page about a similar service, or another nation's version, does not support ` +
+        `the claim.\n\n` +
+        `A page from one local council speaks only for that council. Use it for a claim about a service ` +
+        `councils run locally only if it states a rule that applies everywhere (a law, a national scheme, ` +
+        `"all councils must"); a council's own phone number, form or document list shows what that council ` +
+        `does, so the claim is at most partly_supported from it.\n\n`
+      : '') +
     `For a field marked "(split into claims)", split it into single factual statements and judge each. ` +
     `Together the claims must cover every factual statement in the field: do not skip one because it is ` +
     `hard to judge. For any other field, return it as one claim.\n\n` +
@@ -122,6 +146,9 @@ export function buildPrompt(serviceName: string, fields: FieldToJudge[], sources
     `text says does not exist, a sign-in the text names differently. A detail the text leaves out is ` +
     `partly_supported, not contradicted.\n` +
     `- not_stated: the text does not address it.\n\n` +
+    `A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported ` +
+    `only where the text says you can apply, ask or start the service that way. How the service itself is ` +
+    `delivered (an assessment held face-to-face, a payment made by post) does not count.\n\n` +
     `Also list every way the text says you can apply (methods_on_page), and the sign-in it names for ` +
     `applying online, if any (sign_in_on_page).\n\n` +
     `The verdict and the note must agree. Quotes must be copied exactly from the source text, not ` +

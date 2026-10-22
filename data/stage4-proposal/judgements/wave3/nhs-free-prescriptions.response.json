@@ -1,0 +1,115 @@
+{
+  "fields": [
+    {
+      "key": "qualifier_1",
+      "claims": [
+        {
+          "claim": "A qualifying medical condition can entitle a person to free prescriptions through a medical exemption certificate.",
+          "verdict": "partly_supported",
+          "quote": "This service will ask about your age, where you live and any health conditions you have.",
+          "source": 0,
+          "note": "The checker considers health conditions, but the page does not name medical exemption certificates or qualifying conditions."
+        },
+        {
+          "claim": "Apply for a Medical Exemption Certificate through a GP.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not describe a GP application for a medical exemption certificate."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Receiving PIP entitles a person to free prescriptions.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention PIP."
+        },
+        {
+          "claim": "Receiving DLA entitles a person to free prescriptions.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention DLA."
+        },
+        {
+          "claim": "A qualifying medical condition entitles a person to a medical exemption certificate for free prescriptions.",
+          "verdict": "partly_supported",
+          "quote": "This service will ask about your age, where you live and any health conditions you have.",
+          "source": 0,
+          "note": "Health conditions are considered by the checker, but the page gives no condition list or certificate rule."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Receiving Universal Credit with a health element entitles a person to free prescriptions.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention Universal Credit or its health element."
+        },
+        {
+          "claim": "Having an HC2 certificate for low income entitles a person to free prescriptions.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention HC2 certificates."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "People under 16 can get free prescriptions.",
+          "verdict": "partly_supported",
+          "quote": "This service will ask about your age, where you live and any health conditions you have.",
+          "source": 0,
+          "note": "The checker considers age, but the page does not state the under-16 threshold."
+        },
+        {
+          "claim": "People aged 16 to 18 in full-time education can get free prescriptions.",
+          "verdict": "partly_supported",
+          "quote": "This service will ask about your age, where you live and any health conditions you have.",
+          "source": 0,
+          "note": "The checker considers age, but the page does not state this age and education rule."
+        },
+        {
+          "claim": "People aged 60 and over can get free prescriptions.",
+          "verdict": "partly_supported",
+          "quote": "This service will ask about your age, where you live and any health conditions you have.",
+          "source": 0,
+          "note": "The checker considers age, but the page does not state the age-60 threshold."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A benefit award letter is evidence for free prescriptions.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention benefit award letters."
+        },
+        {
+          "claim": "An FP92A medical exemption form signed by a GP is evidence for free prescriptions.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text does not mention an FP92A form or GP signature."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,111 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Normally the applicant or partner needs Universal Credit, Pension Credit, income-related ESA, income-based JSA, Income Support or Housing Benefit.",
+          "verdict": "supported",
+          "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these: Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
+          "source": 4,
+          "note": "The page lists all six qualifying benefits and the normal applicant-or-partner rule."
+        },
+        {
+          "claim": "An application may be made while a qualifying benefit decision is pending.",
+          "verdict": "supported",
+          "quote": "If you're not getting any of these benefits or payments, but have applied for one, you can still apply for Best Start Grant and Best Start Foods.",
+          "source": 4,
+          "note": "The page allows an application after applying for one of the listed benefits."
+        },
+        {
+          "claim": "Applicants under 18 do not need a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "If you're under 18, you do not need to be on any payments or benefits to get Best Start Grant or Best Start Foods.",
+          "source": 4,
+          "note": "The page explicitly exempts under-18s from the benefit condition."
+        },
+        {
+          "claim": "Some 18- or 19-year-olds without a qualifying benefit can qualify through a parent or carer.",
+          "verdict": "supported",
+          "quote": "If you're 18 or 19 and do not get any benefits or payments, you can still apply for Best Start Grant or Best Start Foods. Your parent or carer needs to get one of these for you: Child Benefit Universal Credit child payments the child addition part of Pension Credit",
+          "source": 4,
+          "note": "The page permits this where the parent or carer receives a listed payment for the young applicant."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Best Start Foods is paid every four weeks.",
+          "verdict": "supported",
+          "quote": "Best Start Foods is paid every 4 weeks.",
+          "source": 0,
+          "note": "The payment frequency is stated."
+        },
+        {
+          "claim": "Payments go onto a prepaid card for buying healthy food.",
+          "verdict": "supported",
+          "quote": "You’ll get the payments on a prepaid card you can use in shops and online.",
+          "source": 0,
+          "note": "The payment medium is stated and the same page says the payment helps buy healthy food."
+        },
+        {
+          "claim": "The pregnancy payment is £22.40 every four weeks.",
+          "verdict": "supported",
+          "quote": "£22.40 during pregnancy (you’ll get the same amount whether you’re having one or more babies)",
+          "source": 0,
+          "note": "The source gives this amount and says payments are every four weeks."
+        },
+        {
+          "claim": "The payment is £44.80 every four weeks for each child under one.",
+          "verdict": "supported",
+          "quote": "£44.80 for each child from birth until they’re one year old",
+          "source": 0,
+          "note": "The source gives this amount and age range."
+        },
+        {
+          "claim": "The payment is £22.40 every four weeks for each child aged 1 to 3.",
+          "verdict": "partly_supported",
+          "quote": "£22.40 for each child aged between one and 3 years old",
+          "source": 0,
+          "note": "The rate is correct from age one until the third birthday, but “aged 1 to 3” can imply payment throughout age three when the source says the child must be under three."
+        },
+        {
+          "claim": "A qualifying benefit is usually required.",
+          "verdict": "supported",
+          "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these: Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
+          "source": 4,
+          "note": "The page expressly describes the listed benefit requirement as normal."
+        },
+        {
+          "claim": "Under-18 applicants may qualify without a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "If you're under 18, you do not need to be on any payments or benefits to get Best Start Grant or Best Start Foods.",
+          "source": 4,
+          "note": "The under-18 exception is explicit."
+        },
+        {
+          "claim": "Some 18- or 19-year-olds may qualify without their own qualifying benefit.",
+          "verdict": "supported",
+          "quote": "If you're 18 or 19 and do not get any benefits or payments, you can still apply for Best Start Grant or Best Start Foods. Your parent or carer needs to get one of these for you: Child Benefit Universal Credit child payments the child addition part of Pension Credit",
+          "source": 4,
+          "note": "The page permits this when a parent or carer has a specified payment for them."
+        },
+        {
+          "claim": "Some families without access to public funds may qualify without a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "You may be able to get Best Start Foods for your child even if you cannot get certain benefits because of your immigration status or because you do not have a status.",
+          "source": 0,
+          "note": "The page explicitly identifies this immigration-status exception."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

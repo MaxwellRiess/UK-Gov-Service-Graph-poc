@@ -1,0 +1,239 @@
+[
+  {
+    "key": "la-council-tax#agentInteraction.methods",
+    "service": "Council Tax registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "whyNotFound": "not stated: The text only says you can usually pay Council Tax online, not that you can register or apply online. not stated: The text does not mention phone."
+  },
+  {
+    "key": "la-council-tax#eligibility.evidenceRequired.0",
+    "service": "Council Tax registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax",
+    "claim": "Tenancy agreement or proof of ownership",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "whyNotFound": "not stated: The text does not mention a tenancy agreement or proof of ownership as evidence."
+  },
+  {
+    "key": "la-council-tax#eligibility.evidenceRequired.1",
+    "service": "Council Tax registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax",
+    "claim": "Move-in date",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "whyNotFound": "not stated: The text does not mention a move-in date."
+  },
+  {
+    "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.1",
+    "service": "Disabled Facilities Grant",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/disabled-facilities-grants",
+    "claim": "Quotes for proposed works",
+    "alreadySearched": [
+      "https://www.gov.uk/disabled-facilities-grants"
+    ],
+    "whyNotFound": "not stated: The text does not mention quotes for the works."
+  },
+  {
+    "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.3",
+    "service": "Disabled Facilities Grant",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/disabled-facilities-grants",
+    "claim": "Proof of disability",
+    "alreadySearched": [
+      "https://www.gov.uk/disabled-facilities-grants"
+    ],
+    "whyNotFound": "not stated: The text says someone in the home must be disabled but never mentions proving it."
+  },
+  {
+    "key": "la-food-hygiene#agentInteraction.methods",
+    "service": "Food hygiene registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/food-business-registration",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "whyNotFound": "not stated: The source says 'Register with your local authority' but does not say how to apply; where it says 'online', it means businesses that sell food online, not applying online."
+  },
+  {
+    "key": "la-food-hygiene#eligibility.evidenceRequired.0",
+    "service": "Food hygiene registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/food-business-registration",
+    "claim": "Business address and contact details",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say what information the registration asks for."
+  },
+  {
+    "key": "la-food-hygiene#eligibility.evidenceRequired.1",
+    "service": "Food hygiene registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/food-business-registration",
+    "claim": "Nature of food business",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say that you must describe the nature of the business when registering."
+  },
+  {
+    "key": "la-food-premises-approval#eligibility.evidenceRequired.1",
+    "service": "Food establishment approval (animal products)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/food-premises-approval",
+    "claim": "Existing food business registration",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/food-premises-approval"
+    ],
+    "whyNotFound": "not stated: The text never says an existing food business registration is needed as evidence."
+  },
+  {
+    "key": "la-free-childcare-2yr#agentInteraction.methods",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "You can apply or do this in person. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text says to contact the council but does not say how, so it never mentions applying in person. not stated: The text says to contact the council but does not say how, so it never mentions applying by phone."
+  },
+  {
+    "key": "la-free-childcare-2yr#eligibility.evidenceRequired.0",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence you need to apply."
+  },
+  {
+    "key": "la-free-childcare-2yr#eligibility.evidenceRequired.1",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "Child's date of birth",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text uses the date of the 2nd birthday for timing but does not say you have to give it as evidence."
+  },
+  {
+    "key": "la-free-childcare-2yr#eligibility.evidenceRequired.2",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text does not say you need a National Insurance number to apply for this scheme."
+  },
+  {
+    "key": "la-free-school-meals#eligibility.evidenceRequired.0",
+    "service": "Free School Meals",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-free-school-meals",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-free-school-meals"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or proof needed to apply."
+  },
+  {
+    "key": "la-house-to-house-collection-licence#eligibility.evidenceRequired.1",
+    "service": "House-to-house collection licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/house-to-house-collection-licence",
+    "claim": "Details of the charitable purpose",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/house-to-house-collection-licence"
+    ],
+    "whyNotFound": "not stated: The text never says you must give details of the charitable purpose."
+  },
+  {
+    "key": "la-school-place#eligibility.criteria.0",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Child reaching compulsory school age: Reception at 4-5, Secondary at 11.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The source says nothing about compulsory school age, Reception at 4-5 or secondary transfer at 11."
+  },
+  {
+    "key": "la-school-place#eligibility.evidenceRequired.1",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The text lists no documents; the postcode is only used to find your council."
+  },
+  {
+    "key": "la-school-place#eligibility.evidenceRequired.2",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Baptism certificate (for faith schools)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The text does not mention faith schools or baptism certificates."
+  },
+  {
+    "key": "la-send-ehc#agentInteraction.methods",
+    "service": "SEND EHC plan assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help"
+    ],
+    "whyNotFound": "not stated: The only phone numbers are for advice helplines; the text does not say a request can be made by phone. not stated: The text does not mention applying by post."
+  },
+  {
+    "key": "la-send-ehc#eligibility.evidenceRequired.3",
+    "service": "SEND EHC plan assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
+    "claim": "Child's views if appropriate",
+    "alreadySearched": [
+      "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help"
+    ],
+    "whyNotFound": "not stated: The text does not list the child's views as evidence for the assessment."
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "A benefit award letter is accepted as proof for free NHS dental treatment.",
+          "verdict": "partly_supported",
+          "quote": "Depending on the reason, you'll need to give your dentist proof that you can get free NHS dental treatment. Examples of proof include: a valid HC2 certificate",
+          "source": 0,
+          "note": "The page requires proof and lists examples, but does not name a benefit award letter."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

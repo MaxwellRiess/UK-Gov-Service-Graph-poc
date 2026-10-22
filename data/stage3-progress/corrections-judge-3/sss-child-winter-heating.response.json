@@ -1,0 +1,198 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "An eligible applicant abroad can apply by phone.",
+          "verdict": "supported",
+          "quote": "To apply by phone, you can call Social Security Scotland from outside the UK on +44 (0)1382 931 000.",
+          "source": 1,
+          "note": "The page explicitly provides a phone application route for people abroad."
+        },
+        {
+          "claim": "An eligible applicant abroad can apply by post.",
+          "verdict": "supported",
+          "quote": "You should send your completed application form to: Child Winter Heating Payment PO Box 10317 Dundee United Kingdom DD1 9GR",
+          "source": 1,
+          "note": "The page explicitly tells applicants abroad where to post the paper form."
+        }
+      ]
+    },
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "The annual payment is £265.50.",
+          "verdict": "supported",
+          "quote": "It’s paid once a year from October and through the winter. This does not depend on how cold it is. The current payment is £265.50.",
+          "source": 0,
+          "note": "The overview states the frequency and current amount."
+        },
+        {
+          "claim": "The payment helps disabled children and young people with winter heating costs.",
+          "verdict": "supported",
+          "quote": "It’s a payment to help disabled children and young people and their families with increased heating costs over winter.",
+          "source": 0,
+          "note": "The overview explicitly states its purpose."
+        },
+        {
+          "claim": "Eligible children and young people living in Scotland are paid automatically.",
+          "verdict": "supported",
+          "quote": "Eligible children and young people living in Scotland do not need to apply. They’ll get their payment automatically.",
+          "source": 1,
+          "note": "The eligibility page explicitly describes automatic payment in Scotland."
+        },
+        {
+          "claim": "Eligible children and young people abroad must apply to receive payment.",
+          "verdict": "supported",
+          "quote": "Payments are not made automatically to children and young people living outside of Scotland. You can apply by filling in a paper form .",
+          "source": 1,
+          "note": "The page says payment abroad is not automatic and gives an application route."
+        },
+        {
+          "claim": "The payment was formerly called Child Winter Heating Assistance.",
+          "verdict": "supported",
+          "quote": "Child Winter Heating Payment used to be called Child Winter Heating Assistance.",
+          "source": 0,
+          "note": "The overview explicitly gives the former name."
+        }
+      ]
+    },
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {
+          "claim": "A qualifying young person living in Scotland and receiving a qualifying disability award is paid automatically.",
+          "verdict": "supported",
+          "quote": "Eligible children and young people living in Scotland do not need to apply. They’ll get their payment automatically.",
+          "source": 1,
+          "note": "The page states automatic payment for eligible residents; the preceding section defines eligible qualifying awards."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "The highest care component of Child Disability Payment is a qualifying award.",
+          "verdict": "supported",
+          "quote": "the highest rate of the care component of Child Disability Payment",
+          "source": 1,
+          "note": "The rate appears in the qualifying-benefit list."
+        },
+        {
+          "claim": "The highest care component of Disability Living Allowance for children is a qualifying award.",
+          "verdict": "supported",
+          "quote": "the highest rate of the care component of Disability Living Allowance for children",
+          "source": 1,
+          "note": "The rate appears in the qualifying-benefit list."
+        },
+        {
+          "claim": "The enhanced daily living component of Personal Independence Payment is a qualifying award.",
+          "verdict": "supported",
+          "quote": "the enhanced daily living component of Personal Independence Payment",
+          "source": 1,
+          "note": "The rate appears in the qualifying-benefit list."
+        },
+        {
+          "claim": "The enhanced daily living component of Adult Disability Payment is a qualifying award.",
+          "verdict": "supported",
+          "quote": "the enhanced rate of the daily living component of Adult Disability Payment",
+          "source": 1,
+          "note": "The rate appears in the qualifying-benefit list."
+        },
+        {
+          "claim": "The qualifying award must be held during the qualifying week.",
+          "verdict": "supported",
+          "quote": "They must be getting this on at least one day in the third full week of September.",
+          "source": 1,
+          "note": "The page requires the benefit on at least one day in the qualifying week."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "The child or young person must be under 19.",
+          "verdict": "supported",
+          "quote": "Children and young people in Scotland can get the assistance if they're under 19 years old",
+          "source": 1,
+          "note": "The age limit is explicit."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "The young person usually lives in Scotland.",
+          "verdict": "supported",
+          "quote": "Children and young people in Scotland can get the assistance if they're under 19 years old",
+          "source": 1,
+          "note": "The main eligibility route addresses those in Scotland."
+        },
+        {
+          "claim": "A young person in an eligible EEA country or Switzerland may still qualify.",
+          "verdict": "supported",
+          "quote": "If the child or young person lives in an eligible European Economic Area (EEA) country or Switzerland they may be able to get Child Winter Heating Payment.",
+          "source": 1,
+          "note": "The page explicitly permits potential qualification abroad in eligible countries."
+        },
+        {
+          "claim": "An applicant abroad needs a genuine and sufficient link to Scotland.",
+          "verdict": "supported",
+          "quote": "The child or young person must also have a genuine and sufficient link to Scotland.",
+          "source": 1,
+          "note": "The link requirement is explicit."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "The payment is made once a year and is currently £265.50.",
+          "verdict": "supported",
+          "quote": "It’s paid once a year from October and through the winter. This does not depend on how cold it is. The current payment is £265.50.",
+          "source": 0,
+          "note": "The overview states annual frequency and amount."
+        },
+        {
+          "claim": "Eligible recipients are under 19.",
+          "verdict": "supported",
+          "quote": "Children and young people in Scotland can get the assistance if they're under 19 years old",
+          "source": 1,
+          "note": "The age limit is explicit."
+        },
+        {
+          "claim": "Qualifying awards are the specified care or daily living rates of Child Disability Payment, DLA for children, PIP or Adult Disability Payment.",
+          "verdict": "supported",
+          "quote": "the highest rate of the care component of Child Disability Payment the highest rate of the care component of Disability Living Allowance for children the enhanced daily living component of Personal Independence Payment the enhanced rate of the daily living component of Adult Disability Payment",
+          "source": 1,
+          "note": "All four benefits and their exact qualifying components appear in the list."
+        },
+        {
+          "claim": "Eligible residents of Scotland receive payment automatically.",
+          "verdict": "supported",
+          "quote": "Eligible children and young people living in Scotland do not need to apply. They’ll get their payment automatically.",
+          "source": 1,
+          "note": "The page explicitly says so."
+        },
+        {
+          "claim": "Some eligible young people abroad can qualify but must apply.",
+          "verdict": "supported",
+          "quote": "Payments are not made automatically to children and young people living outside of Scotland. You can apply by filling in a paper form .",
+          "source": 1,
+          "note": "The page permits an abroad application and says the payment is not automatic."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

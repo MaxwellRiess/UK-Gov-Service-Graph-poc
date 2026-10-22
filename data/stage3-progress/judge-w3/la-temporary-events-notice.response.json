@@ -1,0 +1,41 @@
+{
+  "fields": [
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "The notice must include the event dates or period.",
+          "verdict": "supported",
+          "quote": "the period (not exceeding [ F2 168 hours ] ) during which it is proposed to use the premises for those activities",
+          "source": 1,
+          "note": "The statute requires the event period."
+        },
+        {
+          "claim": "The notice must include the times of licensable activities.",
+          "verdict": "supported",
+          "quote": "the times during the event period when the premises user proposes that those licensable activities shall take place",
+          "source": 1,
+          "note": "The statute requires the proposed times."
+        },
+        {
+          "claim": "The notice must include the event activities.",
+          "verdict": "supported",
+          "quote": "the licensable activities to which the proposal mentioned in subsection (1) relates",
+          "source": 1,
+          "note": "The statute requires the relevant licensable activities."
+        },
+        {
+          "claim": "The notice must include the number of attendees.",
+          "verdict": "supported",
+          "quote": "the maximum number of persons (being a number less than 500) which the premises user proposes should, during those times, be allowed on the premises at the same time",
+          "source": 1,
+          "note": "The statute requires a maximum concurrent person count."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

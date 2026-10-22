@@ -1,0 +1,128 @@
+A service graph describes the UK government service "Register as sole trader" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-register-sole-trader.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+[evidence_0] (split into claims) National Insurance number
+[evidence_1] (split into claims) UTR issued after registration
+
+--- SOURCE 0: https://www.gov.uk/set-up-sole-trader ---
+What a sole trader is A sole trader is a type of business. It’s the simplest business structure to set up and keep records for. As a sole trader you: work for yourself are classed as self-employed make all the business decisions There are other ways to set up a business . You can be a sole trader as your only job or be employed and self-employed at the same time. Most people set up as a sole trader when first starting out as a business. This guide is also available in Welsh (Cymraeg) . Sole trader responsibilities You’ll have some legal, financial and other responsibilities when running a sole trader business. Legal risks or ‘liability’ Sole trader businesses have ‘unlimited liability’ which means owners are personally responsible for all of the debts of the business. If something goes wrong, you will have less protection. You may be able to get more protection with business insurance . Finances You keep all the profits after paying tax. Naming your business As soon as you start working for yourself you should choose your business name - you can choose a trading name or use your own name. Keeping records and accounts When you start trading you must keep records . This will help you work out your profit or loss for your Self Assessment tax return. Registering as a sole trader You can start trading straight away without registering. However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April). You can choose to register earlier. After you’ve registered you will need to submit Self Assessment tax returns . Taxes When you submit your Self Assessment tax return HM Revenue and Customs ( HMRC ) will work out if you need to pay Income Tax and National Insurance contributions based on your profits. You need to register for VAT if you meet the requirements. You can choose to register before you meet the requirements if you want to reclaim VAT on business expenses . There may be other taxes you need to register for depending on what you do. Check what taxes may apply to you as a sole trader . Find out about tax reliefs for sole traders to reduce your tax bill. Rules for your type of business You may have other responsibilities depending on what your business does. Check if you need: licences or permits , for example to play music, sell food or to trade in the street business insurance There are also rules you must follow if you: sell goods online buy goods from abroad or sell goods abroad store or use personal information You may need to get a criminal record check if working with protected groups, like children or vulnerable adults. There are different ways to get: criminal record checks in England and Wales criminal record checks in Scotland criminal record checks in Northern Ireland Where you work Check what your responsibilities are if you: run your business from home rent somewhere to run your business from If you rent or buy a property, you may have to pay business rates . Small businesses can apply for a discount on business rates and some may pay nothing. Check if you can claim office, property and equipment as expenses . Taking on people to help There are things you’ll need to do if you take on your own employees . You’ll have more responsibilities, including: running payroll paying for their National Insurance - but you can claim an allowance to reduce your bill providing workplace pensions to eligible staff If you take on agency workers or freelancers you have some responsibilities, for example their health and safety. Help and support You can get help with setting up your business . This page is Part of Set up as a sole trader: step by step Step 1 : Check if being a sole trader is right for you You are currently viewing: Find out more about becoming a sole trader Step 2 : Choose your business name Check the rules for naming your business Step 3 : Check what records you need to keep When you start trading you must keep records. This will help you work out your profit or loss for your tax return. Find out what business records you need to keep Step 4 : Register as a sole trader Check how to register as a sole trader Step 5 : Check what taxes may apply to you There may be other taxes and rules you need to know about after you’ve registered as a sole trader. Check what taxes may apply to you as a sole trader Step 6 : Plan for your tax bill You may need to pay Income Tax on your profits and may need to pay National Insurance contributions. Get an estimate of how much you will need to pay Find out more about Income Tax rates Find out more about National Insurance rates Step 7 : Get help and support Sign up for business support emails Join a webinar or watch a video to learn more about your responsibilities Find out how to choose a tax agent if you want to use one
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/register-for-self-assessment/y/you-re-self-employed-for-example-a-sole-trader/no-i-m-registering-for-the-first-time ---
+Check how to register for Self Assessment. How to register for Self Assessment or reactivate your account, if you need to send a tax return or want to make voluntary Class 2 National Insurance payments. You must tell HM Revenue and Customs ( HMRC ) by 5 October 2026 if you need to complete a tax return for the previous tax year and you have either: not sent a tax return before registered before but did not need to send a tax return for the tax year 2024 to 2025 The previous tax year started on 6 April 2025 and ended on 5 April 2026. You can tell HMRC by registering for Self Assessment. Find out how to register your client if you’re an agent . If you tell HMRC after 5 October 2026, you could get a penalty. This service is also available in Welsh (Cymraeg) . If you’ve already registered If you’re waiting for a Unique Taxpayer Reference (UTR), you can check when you can expect a reply from HMRC . Before you start Check if you need to send a tax return before registering. If you’ve registered for Self Assessment before but did not send a tax return last year, you may need to reactivate your Self Assessment account. You’ll find out how to do that within the service.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/become-sole-trader/register-sole-trader ---
+Become a sole trader. Become a sole trader with HM Revenue and Customs - your legal responsibilities if you run a business as a self-employed sole trader. A sole trader is a type of business. It’s the simplest business structure to set up and keep records for. As a sole trader you: work for yourself are classed as self-employed make all the business decisions There are other ways to set up a business . You can be a sole trader as your only job or be employed and self-employed at the same time. Most people set up as a sole trader when first starting out as a business. This guide is also available in Welsh (Cymraeg) . Sole trader responsibilities You’ll have some legal, financial and other responsibilities when running a sole trader business. Legal risks or ‘liability’ Sole trader businesses have ‘unlimited liability’ which means owners are personally responsible for all of the debts of the business. If something goes wrong, you will have less protection. You may be able to get more protection with business insurance . Finances You keep all the profits after paying tax. Naming your business As soon as you start working for yourself you should choose your business name - you can choose a trading name or use your own name. Keeping records and accounts When you start trading you must keep records . This will help you work out your profit or loss for your Self Assessment tax return. Registering as a sole trader You can start trading straight away without registering. However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April). You can choose to register earlier. After you’ve registered you will need to submit Self Assessment tax returns . Taxes When you submit your Self Assessment tax return HM Revenue and Customs ( HMRC ) will work out if you need to pay Income Tax and National Insurance contributions based on your profits. You need to register for VAT if you meet the requirements. You can choose to register before you meet the requirements if you want to reclaim VAT on business expenses . There may be other taxes you need to register for depending on what you do. Check what taxes may apply to you as a sole trader . Find out about tax reliefs for sole traders to reduce your tax bill. Rules for your type of business You may have other responsibilities depending on what your business does. Check if you need: licences or permits , for example to play music, sell food or to trade in the street business insurance There are also rules you must follow if you: sell goods online buy goods from abroad or sell goods abroad store or use personal information You may need to get a criminal record check if working with protected groups, like children or vulnerable adults. There are different ways to get: criminal record checks in England and Wales criminal record checks in Scotland criminal record checks in Northern Ireland Where you work Check what your responsibilities are if you: run your business from home rent somewhere to run your business from If you rent or buy a property, you may have to pay business rates . Small businesses can apply for a discount on business rates and some may pay nothing. Check if you can claim office, property and equipment as expenses . Taking on people to help There are things you’ll need to do if you take on your own employees . You’ll have more responsibilities, including: running payroll paying for their National Insurance - but you can claim an allowance to reduce your bill providing workplace pensions to eligible staff If you take on agency workers or freelancers you have some responsibilities, for example their health and safety. Help and support You can get help with setting up your business . You can trade under your own name, or you can choose another name for your business. This guide is also available in Welsh (Cymraeg) . Sole trader names must not: include ‘limited’, ‘Ltd’, ‘limited liability partnership’, ‘LLP’, ‘public limited company’ or ‘plc’ be offensive be too similar to another company’s trademarked name (because you may have to change it if someone makes a complaint) You must include your name and business name (if you have one) on official paperwork, for example invoices and letters. You register as a sole trader by registering for Self Assessment. You must register as a sole trader if you: earn more than £1,000 in a tax year (from 6 April to 5 April) need to prove you’re self-employed, for example to claim Tax-Free Childcare want to make voluntary Class 2 National Insurance payments to help you qualify for benefits and State Pension need to register as a subcontractor for the Construction Industry Scheme (CIS) or as a share fisher Read more about what a sole trader is . This guide is also available in Welsh (Cymraeg) . If you have already registered for Self Assessment for another reason, you’ll need to register again as a sole trader. This is so you are registered for Class 2 National Insurance contributions, which will help you qualify for benefits like the State Pension. Before you start You’ll need a National Insurance number to register for Self Assessment. You can apply for a National Insurance number if you do not have one. Check how to register Use this tool to register for Self Assessment as a sole trader with HM Revenue and Customs ( HMRC ). How you register depends on your circumstances. You must tell HMRC by 5 October 2026 if you need to complete a tax return for the previous year and you have either: not sent a tax return before registered before but did not need to send a tax return for the tax year 2024 to 2025 You can tell HMRC by registering for Self Assessment. If you register late or do not register when you need to, you may get a penalty. Start now

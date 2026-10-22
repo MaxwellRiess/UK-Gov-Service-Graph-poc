@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Statutory Sick Pay (SSP)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-ssp.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_0] (split into claims) Self-certification for absences of 7 days or fewer
+
+--- SOURCE 0: https://www.gov.uk/statutory-sick-pay ---
+Statutory Sick Pay (SSP) . Your Statutory Sick Pay (SSP) - how much you get, eligibility, how to claim SSP, fit notes, disputes. You can get up to £123.25 per week Statutory Sick Pay ( SSP ) if you’re too ill to work. It’s paid by your employer for up to 28 weeks. This guide is also available in Welsh (Cymraeg) . You cannot get less than the statutory amount. You can get more if your company has a sick pay scheme (or ‘occupational scheme’) - check your employment contract. There are different sick pay rules for agricultural workers . There’s a separate guide on Statutory Sick Pay if you’re an employer . If you’re eligible, you can get £123.25 a week Statutory Sick Pay ( SSP ) or 80% of your normal weekly earnings - whichever is lower. It’s paid for up to 28 weeks. You’ll be paid SSP for all the full days you’re off sick that you normally would have worked. Your employer will use your average weekly earnings over an 8-week period to work out much you get. You still qualify if you started your job recently and have not yet received 8 weeks’ pay. Ask your employer to find out more. How you’re paid SSP is paid by your employer in the same way as your normal wages, for example weekly or monthly. If you have more than one job, you may get SSP from each employer. Tax and National Insurance will be deducted. If you think you’re not getting the right amount of SSP , talk to your employer. If you’re still not happy, contact the HM Revenue and Customs ( HMRC ) enquiry line . To qualify for Statutory Sick Pay ( SSP ) you must: be classed as an employee have done some work for your employer have been ill for at least one full working day Agency workers may be entitled to Statutory Sick Pay . Telling your employer You must usually tell your employer you’re unable to work before the deadline they set (or within 7 days if they have not set one). You could lose some of your SSP if you do not tell your employer in time. Exceptions You will not qualify if you: have received the maximum amount of SSP (28 weeks) are getting Statutory Maternity Pay Linked periods of sickness If you have regular periods of sickness, they may count as ‘linked’. To be linked, the periods must: last more than one full working day be 8 weeks or less apart You’re no longer eligible for SSP if you have a continuous series of linked periods that lasts more than 3 years. Fit notes and asking for proof You must give your employer a fit note if you’re off work for more than 7 days in a row (including non-working days). You can get a fit note (sometimes called a sick note) from the following healthcare professionals: GP or hospital doctor registered nurse occupational therapist pharmacist physiotherapist The note can be printed or digital. Other proof of sickness If your employer agrees, you can give them another appropriate form of evidence instead of a fit note, such as: an Allied Health Professional ( AHP ) Health and Work Report from a physiotherapist or occupational therapist, for example a plan to support a return to work If you’re not eligible or your SSP ends You may be able to apply for Universal Credit or Employment and Support Allowance ( ESA ) . You can use form SSP1 to support your application. If your SSP is ending, your employer must send you form SSP1 either: within 7 days of your SSP ending, if it ends unexpectedly while you’re still sick on or before the beginning of the 23rd week, if your SSP is expected to end before your sickness does If you do not qualify for SSP , your employer must send you form SSP1 within 7 days of your first day off sick. To claim Statutory Sick Pay ( SSP ), tell your employer by the deadline . Check with your employer how you should tell them. If your employer needs something in writing, you can use form SC2 . If you’re unhappy with a decision Talk to your employer if you think: their decision not to pay you SSP is wrong you’re not getting the right amount of SSP You can ask them for a reason. If this does not resolve the problem, contact the HMRC Statutory Payment Disputes Team .
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/taking-sick-leave ---
+Taking sick leave. Fit notes (formerly sick notes), holiday during sick leave, returning to work, long-term sick, dismissals Employees can take time off work if they’re ill. They need to give their employer proof if they’re ill for more than 7 days. If they’re ill just before or during their holiday, they can take it as sick leave instead. This guide is also available in Welsh (Cymraeg) . Fit notes and proof of sickness Employees must give their employer a ‘fit note’ (sometimes called a ‘sick note’) if they have been ill for more than 7 days in a row and have taken sick leave. This includes non-working days, such as weekends and bank holidays. The fit note will say the employee is either ‘not fit for work’ or ‘may be fit for work’. If it says the employee ‘may be fit for work’, employers should discuss any changes that might help the employee return to work (for example, different hours or tasks). The employee must be treated as ‘not fit for work’ if there’s no agreement on these changes. Employers can take a copy of the fit note. The employee should keep the original. Getting a fit note Employees can get a fit note from the following healthcare professionals: GP or hospital doctor registered nurse occupational therapist pharmacist physiotherapist The healthcare professional needs to assess the employee’s fitness for work before giving a fit note. Fit notes are free if the employee has been ill for more than 7 days when they ask for one. The healthcare professional might charge a fee if the employee has been ill for 7 days or less. Other proof of sickness If their employer agrees, the employee can use a similar document called an Allied Health Professional ( AHP ) Health and Work Report instead. Someone working in any of the following occupations can provide this: Art Therapist Dramatherapist Chiropodist Dietitian Music therapist Occupational therapist Operating Department Practitioner Orthoptist Osteopath Orthotist Paramedic Physiotherapist Podiatrist Prosthetist Radiographer Speech and language therapist A physiotherapist or occupational therapist will give either a fit note or AHP Health and Work Report depending on the employee’s needs. The AHP Health and Work Report cannot be used to apply for Employment and Support Allowance (ESA). Self-certification If employees are off work for 7 days or less, they do not need to give their employer a fit note or other proof of sickness from a healthcare professional. When they return to work, their employer can ask them to confirm they have been off sick. This is called ‘self-certification’. The employer and employee will agree on how the employee should do this. They might need to fill in a form or send details of their sick leave by email. Sick leave and holiday Statutory holiday entitlement is built up (accrued) while an employee is off work sick (no matter how long they’re off). Any statutory holiday entitlement that is not used because of illness can be carried over into the next leave year. If an employee is ill just before or during their holiday, they can take it as sick leave instead. An employee can ask to take their paid holiday for the time they’re off work sick. They might do this if they do not qualify for sick pay, for example. Any rules relating to sick leave will still apply. Employers cannot force employees to take annual leave when they’re eligible for sick leave. Pay When an employee changes their holiday to sick leave they’re paid Statutory Sick Pay which will count towards the amount of holiday pay they have received. The exceptions to this rule are: they do not qualify for Statutory Sick Pay they were off work sick and being paid ‘occupational sick pay’ Returning to work Employers must make changes to an employee’s working conditions if they’re disabled. These changes are known as ‘reasonable adjustments’ and could include working shorter hours or adapting equipment employees use at work. Employees can get advice from Acas on managing health conditions at work and returning to work from sick leave. Long-term sickness Employees who are off work sick for more than 4 weeks may be considered long-term sick. A long-term sick employee is still entitled to annual leave. Dismissing a long-term sick employee As a last resort, employers can dismiss an employee who is long-term sick, but before they can do this employers must: consider if an employee can return to work - such as by working flexibly or part-time, doing different or less stressful work (with training if necessary) consult with employees about when they could return to work and if their health will improve An employee can take their case to an employment tribunal if they think they have been unfairly dismissed.

@@ -1,0 +1,202 @@
+{
+  "acas-early-conciliation#agentInteraction.methods": {
+    "queries": [
+      "Acas early conciliation notify online form or phone 0300 123 1122"
+    ],
+    "urls": [
+      {
+        "url": "https://www.acas.org.uk/notify-acas",
+        "why": "States both online and phone: 'You can notify Acas using our online form.' and 'If you cannot use the online form, you can notify Acas by contacting the early conciliation team' (Telephone: 0300 123 1122)."
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/work/negotiating-with-your-employer/early-conciliation/",
+        "why": "States online and phone: 'fill in the early conciliation notification form on the Acas website' and 'You can call Acas if you don't want to fill in an online form.'"
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-disabled-facilities-grant#agentInteraction.methods": {
+    "queries": [
+      "council disabled facilities grant apply by phone or in person",
+      "disabled facilities grant \"call\" OR \"visit\" customer service centre apply council",
+      "gov.uk disabled-facilities-grants how-to-claim (checked, no phone/in person)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.solihull.gov.uk/adult-social-care/disabled-facilities-grant/apply-disability-facilities-grant",
+        "why": "Phone only: Apply for a DFG page lists 'phone: 0121 704 8007'; no in-person method stated. Single council, not national."
+      },
+      {
+        "url": "https://www.bcpcouncil.gov.uk/adult-social-care-and-health/support-for-adults-with-a-disability/disabled-facilities-grants/apply-for-a-disabled-facilities-grant",
+        "why": "Phone part: apply by contacting online, calling the Adult Social Care Hub on 01202 123 654, or by letter; no in-person method. Single council."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-care-assessment#agentInteraction.methods": {
+    "queries": [
+      "NHS care needs assessment how to get one phone council social services",
+      "nhs.uk getting a needs assessment",
+      "council care and support assessment request phone in person"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nhs.uk/social-care-and-support/help-from-social-services-and-charities/getting-a-needs-assessment/",
+        "why": "Phone part only: 'Contact social services at your local council and ask for a needs assessment. You can call them or do it online.' No in-person method."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "other-dbs#agentInteraction.methods": {
+    "queries": [
+      "gov.uk basic DBS check apply online",
+      "gov.uk request-copy-criminal-record",
+      "DBS about page online application route"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/organisations/disclosure-and-barring-service/about",
+        "why": "States online applying for basic checks: 'An individual can apply for a Basic check directly to DBS through our online application route.' (not for standard/enhanced)."
+      },
+      {
+        "url": "https://www.gov.uk/request-copy-criminal-record",
+        "why": "Basic DBS check service start page with 'Start now' to apply-basic-criminal-record-check.service.gov.uk; 'you'll need to prove your identity using GOV.UK One Login' (online implied, not stated in words)."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dvla-cancel-licence#eligibility.evidenceRequired.1": {
+    "queries": [
+      "D27 form return driving licence person who has died DVLA",
+      "\"D27\" DVLA deceased driver licence",
+      "gov.uk reapply-licence-revoked (D27 is the renewal form after disqualification)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.1": {
+    "queries": [
+      "inherit additional state pension marriage certificate claim form widow gov.uk",
+      "gov.uk inheriting additional state pension \"marriage certificate\" OR \"civil partnership certificate\" bereavement",
+      "gov.uk/additional-state-pension/inheriting (checked, no certificate)"
+    ],
+    "urls": [
+      {
+        "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/1132342/br1-notes.pdf",
+        "why": "DWP BR1 State Pension claim notes (for people reaching SPA before 6 April 2016, the route for inheriting via a spouse): 'If you have told us that you are married or in a civil partnership you should send us your: marriage certificate, or civil partnership certificate.' Not specific to inheritance."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "ho-visa#eligibility.evidenceRequired.3": {
+    "queries": [
+      "gov.uk immigration health surcharge pay as part of visa application"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/healthcare-immigration-application",
+        "why": "States IHS is paid as part of the application: 'Most people need to pay the immigration health surcharge (IHS) as part of their online immigration application.'"
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-school-place#eligibility.evidenceRequired.0": {
+    "queries": [
+      "school admissions council proof of child's date of birth \"birth certificate\" primary application England",
+      "Lambeth primary admission form proof of date of birth",
+      "Ealing school admissions date of birth documents"
+    ],
+    "urls": [
+      {
+        "url": "https://bromley.gov.uk/schools-colleges/school-admissions-terms-conditions/2",
+        "why": "Bromley council, covering Reception admissions: 'Parent(s)/carer(s) must provide a copy of the applicant child's birth certificate - long form.' Single council, England only."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "other-help-to-buy#eligibility.evidenceRequired.0": {
+    "queries": [
+      "First Homes scheme evidence first-time buyer declaration local authority eligibility check",
+      "First Homes \"first-time buyer\" evidence council application documents required declaration",
+      "Bristol / South Holland First Homes how to purchase (unreachable)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.whitehorsedc.gov.uk/first-homes-from-applying-to-moving-in/",
+        "why": "Requires a signed declaration rather than documentary proof: 'Sign legal declarations confirming (for example) that all buyers are first-time buyers.' Single council."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "sss-best-start-foods#eligibility.evidenceRequired.1": {
+    "queries": [
+      "\"Best Start Foods\" evidence proof of pregnancy MAT B1 child's age Social Security Scotland",
+      "mygov.scot Best Start Foods apply what you need proof pregnancy",
+      "Best Start Foods \"due date\" OR \"MATB1\" OR \"midwife\" evidence Social Security Scotland apply"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "la-electoral-roll#desc": {
+    "queries": [
+      "electoral register credit reference agencies jury service council register to vote moved house",
+      "gov.uk register-to-vote moving-house (overseas, no credit/jury)",
+      "Charnwood / Sheffield electoral register pages"
+    ],
+    "urls": [
+      {
+        "url": "https://www.bracknell-forest.gov.uk/elections-and-voting/electoral-register",
+        "why": "Full register used for 'calling people for jury service' and 'checking applications for loans or credit'; on moving, give previous address and 'you will be removed from the register at your old address' (contradicts registering at both)."
+      },
+      {
+        "url": "https://sheffield.gov.uk/your-city-council/electoral-register",
+        "why": "'Jury Service: used to select jurors' and 'credit checks: used by Credit Reference Agencies to verify applications for loans or credit'; 'If you have moved house ... you can update the details online'."
+      },
+      {
+        "url": "https://www.charnwood.gov.uk/pages/moved_house",
+        "why": "'If you have moved house, you need to register to vote again'; credit reference agencies 'use the electoral register to validate applications'. No jury or old-address mention."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-continuing-healthcare#desc": {
+    "queries": [
+      "NHS continuing healthcare not means tested complex primary health need care home fees nhs.uk",
+      "nhs.uk NHS continuing healthcare page",
+      "Age UK NHS continuing healthcare (404)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.dorsetcouncil.gov.uk/w/what-is-nhs-continuing-healthcare-",
+        "why": "'care and support which is arranged and paid for by the NHS', for over-18s with 'a primary health need'; 'can pay for your care home fees, including board and accommodation'; 'NHS continuing healthcare is not means tested'. Does not say 'complex'."
+      },
+      {
+        "url": "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/",
+        "why": "'free health and social care arranged and funded solely by the NHS' for people with 'long-term complex health needs'; can be given 'in your own home or in a care home'. No means-test wording."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "gro-register-death#eligibility.summary": {
+    "queries": [
+      "register a death within 5 days who can register informant gov.uk England Wales",
+      "council register a death \"within 5 days\" \"present at the death\" qualified informant",
+      "gov.uk when-someone-dies (no detail)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.wokingham.gov.uk/births-deaths-and-ceremonies/deaths/register-death",
+        "why": "'All deaths must be registered at the Register Office for the area where death occurred within 5 days'; informants in order of preference include 'Relative of the deceased' and 'Any person present at the death'."
+      },
+      {
+        "url": "https://wandsworth.gov.uk/registration-services/deaths/register-a-death",
+        "why": "'You are legally required to register a death within five days'; 'Qualified informants can register a death' including 'A person who was present at the death'."
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/family/death-and-wills/what-to-do-after-a-death/",
+        "why": "England page: 5 days after the medical examiner's office gives the cause of death; 'A relative should usually register the death'; 'It's a criminal offence not to register a death.'"
+      }
+    ],
+    "verdict_hint": "found"
+  }
+}

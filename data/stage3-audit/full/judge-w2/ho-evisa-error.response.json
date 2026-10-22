@@ -1,0 +1,6 @@
+{"fields":[{"key":"desc","claims":[
+{"claim":"You can report incorrect information on your eVisa to UKVI so it can be fixed.","verdict":"supported","quote":"your eVisa details are wrong - for example it’s showing the wrong date of birth or immigration status","source":0,"note":"The page says you should report an error if your eVisa details are wrong, and UKVI aims to fix most issues within 5 working days."},
+{"claim":"A wrong name on the eVisa is an error you can report.","verdict":"supported","quote":"the details on your eVisa are wrong - for example it’s showing the wrong name or immigration status","source":1,"note":"The text gives a wrong name as an example of an error to report."},
+{"claim":"Wrong conditions of stay on the eVisa is an error you can report.","verdict":"partly_supported","quote":"your eVisa details are wrong - for example it’s showing the wrong date of birth or immigration status","source":0,"note":"The text gives wrong immigration status as an example but does not name conditions of stay specifically."},
+{"claim":"A wrong expiry date on the eVisa is an error you can report.","verdict":"not_stated","quote":null,"source":null,"note":"The text does not mention a wrong expiry date as an error to report."}]}],
+"methods_on_page":["online"],"sign_in_on_page":null}

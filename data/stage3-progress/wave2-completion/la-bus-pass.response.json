@@ -1,0 +1,13 @@
+{
+  "fields": [
+    {"key":"methods","claims":[
+      {"claim":"You can apply or do this online.","verdict":"supported","quote":"apply online on getyournec.scot – in all areas of Scotland","source":1,"note":"The Scottish service explicitly offers online applications."},
+      {"claim":"You can apply or do this in person.","verdict":"supported","quote":"After filling out your form you must take it, in person, to your nearest Translink bus or rail station","source":2,"note":"The Northern Ireland service explicitly requires in-person submission."}
+    ]},
+    {"key":"evidence_0","claims":[{"claim":"Proof of age, such as a passport or birth certificate, is required.","verdict":"supported","quote":"Proof of age: driving licence (non-UK driving licences must contain your date of birth) passport (non-UK passports must contain your date of birth) birth certificate","source":2,"note":"The Northern Ireland application names both passport and birth certificate as proof of age."}]},
+    {"key":"evidence_1","claims":[{"claim":"Proof of address is required.","verdict":"supported","quote":"proof of your current address","source":1,"note":"The Scottish application lists proof of current address."}]},
+    {"key":"evidence_2","claims":[{"claim":"A passport photo is required.","verdict":"supported","quote":"along with a countersigned passport-sized photograph","source":2,"note":"The Northern Ireland application requires a countersigned passport-sized photograph."}]}
+  ],
+  "methods_on_page":["online","phone","in-person"],
+  "sign_in_on_page":"myaccount"
+}

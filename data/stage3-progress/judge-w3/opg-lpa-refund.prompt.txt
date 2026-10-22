@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Claim a Power of Attorney registration refund" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/opg-lpa-refund.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online.
+
+--- SOURCE 0: https://www.gov.uk/power-of-attorney-refund ---
+Claim a power of attorney refund. Refunds for application fees for lasting power of attorneys and enduring power of attorneys You may be able to get part of your application fee back if you applied to register a power of attorney from 1 April 2013 to 31 March 2017. This applies to lasting powers of attorney ( LPA ) and enduring powers of attorney ( EPA ). You can only claim a refund if you made the power of attorney in England or Wales. Who can claim a refund You can make a claim if you’re: the ‘donor’ - the person who made the power of attorney an ‘attorney’ - appointed by the donor in an LPA or EPA to make decisions on their behalf the executor of the donor’s estate if the donor has died How much you could get How much you could get depends on when you paid the fees. You’ll also get 0.5% interest. You can still claim a refund even if you do not know when you paid the fees. When you paid the fee Refund for each power of attorney April to September 2013 £54 October 2013 to March 2014 £34 April 2014 to March 2015 £37 April 2015 to March 2016 £38 April 2016 to March 2017 £45 You’ll get half the refund if you paid a reduced fee (‘remission’). How to claim Contact the Office of the Public Guardian to: check if you’re eligible for a refund find out how to make a claim Office of Public Guardian poarefunds@justice.gov.uk POA Refunds Team Lower Ground Floor Office of the Public Guardian PO Box 16185 Birmingham B2 2WH Office of Public Guardian Telephone: 0300 456 0300 Calling from outside the UK: +44 (0)203 518 9639 Relay UK (if you cannot hear or speak on the phone): 18001 then 0300 123 1300 Monday, Tuesday, Thursday, Friday, 9am to 5pm Wednesday, 10am to 5pm Find out about call charges After you’ve claimed It takes up to 12 weeks for your claim to be processed. If your claim is approved, the refund will be sent via cheque.
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/government/news/power-of-attorney-fee-refund-scheme-launched ---
+Power of attorney fee refund scheme launched. All those eligible for a partial refund on their power of attorney fees can apply from today (1 February 2018). The refunds are being offered to those who may have been charged more than was necessary to apply to register lasting or enduring powers of attorney between 1 April 2013 and 31 March 2017. During this period, the Office of the Public Guardian’s ( OPG ) operating costs came down as more people applied to register a power of attorney and the process became more efficient, but the application fee charged was not reduced in line with this. The Ministry of Justice, which sets OPG ’s fees, reduced the application fee with effect from 1 April 2017, and has now launched a refund scheme for those who paid a higher fee in the qualifying period. The scheme will be run by OPG . Making a claim is quick and simple using the online service. Only one form needs to be completed for each donor and OPG will find all power of attorney application fees paid by the donor during the qualifying period. Full guidance for those applying is available online, and there is a dedicated refunds service helpline for those who need it. Call OPG ’s contact centre on 0300 456 0300 and select option 6 to be put through to the refunds team. Lines are open Monday, Tuesday, Thursday and Friday from 9am to 5pm and Wednesday from 10am to 5pm. Visit www.gov.uk/call-charges for call charges. Prior to launch the online service was extensively tested with a wide range of eligible donors and attorneys. OPG continues to work with stakeholders to make sure those affected know about the refunds service and are able to make a claim. If you think that you, or someone you are acting for, may be eligible, please visit www.gov.uk/power-of-attorney-refund for more details and to make a claim.

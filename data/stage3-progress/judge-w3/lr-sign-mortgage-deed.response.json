@@ -1,0 +1,67 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Homeowners can sign a mortgage deed electronically.",
+          "verdict": "supported",
+          "quote": "It’s all done on your computer or mobile phone.",
+          "source": 1,
+          "note": "The homeowner guide says the signing process is on a computer or mobile phone."
+        },
+        {
+          "claim": "HM Land Registry provides the digital mortgage service.",
+          "verdict": "supported",
+          "quote": "Sign your mortgage deed is HM Land Registry’s digital mortgage service.",
+          "source": 0,
+          "note": "The publication explicitly identifies the service as HM Land Registry’s."
+        },
+        {
+          "claim": "Digital signing removes the need for a wet signature on a paper deed.",
+          "verdict": "supported",
+          "quote": "You do not have to wait for the paperwork to arrive in the post, sign it in front of a witness and send it back to your conveyancer or lender.",
+          "source": 1,
+          "note": "The guide explicitly removes the paper signing and return steps."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "The service is available to homeowners remortgaging.",
+          "verdict": "supported",
+          "quote": "You can use the service to remortgage your property.",
+          "source": 1,
+          "note": "The guide explicitly states remortgaging use."
+        },
+        {
+          "claim": "The service is available to borrowers purchasing a property.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text mentions remortgaging but does not establish use for a property purchase."
+        },
+        {
+          "claim": "The borrower’s lender must use the HM Land Registry digital mortgage service.",
+          "verdict": "supported",
+          "quote": "Your bank or building society and conveyancer must use the Sign your mortgage deed service.",
+          "source": 1,
+          "note": "The guide requires the lender to use the service, alongside the conveyancer."
+        },
+        {
+          "claim": "A GOV.UK One Login account is required to verify identity before signing.",
+          "verdict": "supported",
+          "quote": "You will need to prove your identity using GOV.UK One Login . Using GOV.UK One Login is safe. Request a code You will be logged into the HM Land Registry service when you’ve verified your identity.",
+          "source": 1,
+          "note": "The guide names GOV.UK One Login for identity verification before deed signing."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": "GOV.UK One Login"
+}

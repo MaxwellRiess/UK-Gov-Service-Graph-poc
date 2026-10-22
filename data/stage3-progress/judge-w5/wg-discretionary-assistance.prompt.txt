@@ -1,0 +1,137 @@
+A service graph describes the UK government service "Discretionary Assistance Fund (Wales)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/wg-discretionary-assistance.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+[criterion_0] (split into claims) Must be aged 16 or over.
+[evidence_0] (split into claims) Proof of identity
+[evidence_1] (split into claims) Proof of Welsh residency
+[evidence_2] (split into claims) Details of the emergency or need
+[exclusion_0] (split into claims) Exceeded annual application limit (3 EAP / 1 IAP per year)
+
+--- SOURCE 0: https://www.gov.wales/discretionary-assistance-fund-daf ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund (DAF) Guidance Discretionary Assistance Fund (DAF) In this guide Summary Eligibility Apply What happens next Track your application Contact us 1. Summary The Discretionary Assistance Fund provides 2 types of grants that you do not need to pay back. Emergency Assistance Payment (EAP) A grant to help pay for essential costs, such as food, gas, electricity, heating oil or emergency travel if you: are experiencing extreme financial hardship have lost your job have applied for benefits and are waiting for your first payment You cannot use it to pay for ongoing bills that you cannot afford to pay. You can only apply for heating oil through an approved partner. Individual Assistance Payment (IAP) A grant to help you or someone you care for live independently in their home or a property that you or they are moving into. What you can use the grant for The grant can provide/supply: a fridge or washing machine and other ‘white goods’ home furniture such as beds, sofas and chairs Next Eligibility Related Money and financial inclusion (Sub-topic) Get financial or debt advice Apply to be a Discretionary Assistance Fund (DAF) network partner Welfare benefits (Sub-topic) Benefits calculator
+
+--- SOURCE 1: https://www.gov.wales/discretionary-assistance-fund-daf/eligibility ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund (DAF) Guidance Discretionary Assistance Fund (DAF) In this guide Summary Eligibility Apply What happens next Track your application Contact us 2. Eligibility Emergency Assistance Payment (EAP) To get a grant, you must: be in extreme financial hardship, for example you've lost your job, applied for benefits and waiting for your first payment and have no other means of financial support be experiencing an unexpected crisis has resulted in you not having money to buy food, gas and/or electricity or other essential items be in a crisis situation and in need of immediate financial support live in Wales be over 16 (there is no upper age limit for this grant) have no other money for example savings Individual Assistance Payment (IAP) You can only apply for a fridge or washing machine (white goods) and furniture through an approved partner. You must: live in Wales be over 16 (there is no upper age limit for this grant) have no access to other money and tried all other affordable sources of funding for example credit union not be living in a care home (unless being discharged in 6 weeks) not be in prison (unless being discharged in 6 weeks) not be a member of a fully maintained religious order You must be getting one of the following: Income Support income based Jobseekers Allowance income related Employment and Support Allowance Guaranteed Credit element of Pension Credit Universal Credit You must meet one of the following: you are leaving a care home or institution (hospital, prison or foster carer) after 3 months (minimum) to live independently you want to stay living in the community rather than having to go into an institution (hospital or care home) you are setting up home after an unsettled way of life you need to move home quickly due to a relationship breakdown or domestic violence you are going to care for a prisoner or young offender released on a temporary license Previous Summary Next Apply Related Money and financial inclusion (Sub-topic) Get financial or debt advice Apply to be a Discretionary Assistance Fund (DAF) network partner Welfare benefits (Sub-topic) Benefits calculator
+
+--- SOURCE 2 (FOUND): https://www.gov.wales/discretionary-assistance-fund-daf/how-apply ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund (DAF) Guidance Discretionary Assistance Fund (DAF) In this guide Summary Eligibility Apply What happens next Track your application Contact us 3. Apply Before starting your application, please ensure you check the eligibility criteria . Use this service to: apply for an Emergency Assistance Payment apply for an Emergency Assistance Payment for heating oil (approved partners only) apply for an Individual Assistance Payment (approved partners only) apply on behalf of someone else (approved partners only) Start now Before you start You cannot apply for a grant if you have: already received a grant in the last 7 days already received 3 grants within the the last 12 rolling month period i.e. not calendar or tax year You can also apply by post or phone via the details on our Contact us page, or get help from one of our approved partners. The Discretionary Assistance Fund (DAF) processing office is closed on bank holidays. You can still make an online application to the DAF, however your application will not be processed until the office re-opens (the next working day). Previous Eligibility Next What happens next Related Money and financial inclusion (Sub-topic) Get financial or debt advice Apply to be a Discretionary Assistance Fund (DAF) network partner Welfare benefits (Sub-topic) Benefits calculator
+
+--- SOURCE 3 (FOUND): https://www.gov.wales/discretionary-assistance-fund-requesting-review-html ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund: requesting a review Discretionary Assistance Fund: requesting a review [HTML] Guidance, Document Discretionary Assistance Fund: requesting a review When you can ask for a review of your application and how to do it. First published: 17 March 2023 Last updated: 16 July 2026 Print this page In this page Requesting a review Requesting a review to your DAF application When will decisions be made? I don’t agree with the review decision, what else can I do? Looking after your personal information Requesting a review NECSWS is the organisation that deliver the Discretionary Assistance Fund (DAF) on behalf of the Welsh Government. NECSWS are the internal reviewers for the DAF. If you believe an incorrect decision on your application has been made, you have the right to have your application reviewed. You can request a review within 20 days of receiving your decision. Please note that all applications must meet the basic eligibility criteria: Applications have not been awarded 3 payments in a rolling 12-month period (not calendar or tax year). Applicants have not been awarded with a 7-days of last paid application (measured in calendar days). Applicants must be 16 or over and reside in Wales at the time of application and award. Applicants Identity has been verified in line with DWP records. Requesting a review to your DAF application If all the basic eligibility criteria above are met and one of the below applies, you can submit your review request: no award given: the application was unsuccessful due to the criteria not being met no award given: the application was unsuccessful but further information, or a change of circumstance means you feel the decision could be changed and/or you think that the incorrect type of award has been granted e.g. white goods or a gift card, when cash was expected. When submitting your review request, you can provide additional information to your application that you may have forgotten to include in the initial application. You can be assisted when requesting an Internal Review of your decision by: a member of the Discretionary Assistance Fund Partner Network you may nominate another 3rd party to act on your behalf, e.g. your support worker You should submit your review request via one of the following: email to DAF.Feedback@necsws.com in writing to: Discretionary Assistance Fund, PO Box 2377, Wrexham, LL11 0LG telephoning the DAF number on 0800 859 5924 When will decisions be made? Emergency Assistance Payments (EAP) You will be informed of the review outcome decision within 24 hours (Monday to Friday) by your preferred method of communication, e.g. in writing, by email or postal address, or telephone. Individual Assistance Payments (IAP) You will be informed of the review outcome decision within 15 working days of the review request. This will be in writing, via an email or postal address, dependent on your preferred method of communication. I don’t agree with the review decision, what else can I do? There are 3 stages to the review process which have to be followed in this order. Internal Review (Tier 1) External Review (Tier 2) Complaint to Welsh Government Stage 1: internal review On receipt of your request for a review, a review will be raised by NECSWS; at this review a NECSWS member of staff will review the application, including any additional information you provided in your review request. We aim to complete your Tier 1 review within 24 hours for EAP applications and 15 working days for IAP applications. The Tier 1 Review process must be completed before you can request a Tier 2 Review. Applicants for EAP or IAP who are dissatisfied with the outcome of their Tier 1, must notify NECSWS that they want a Tier 2 Review within 20 working days of receiving their Stage 1 review decision. Stage 2: external review (Tier 2) An independent external review by Family Fund Business Services: at this review a Family Fund Business Services member of staff will review your case and may contact you for additional information which may support your application. We ask that any additional information requested is returned promptly. Timescales will be subject to your cooperation in providing any requested additional evidence or information as soon as possible, to inform the outcome of the review. A decision will be expected within the timescales once the reviewing officer has all the requested evidence or information. When requesting reviews, will be required to provide a valid contact telephone number. Failure to supply a valid contact telephone number will result in notification of the review decision by email or post (dependent on their indicated channel preference). In these circumstances the 24-hour timescale will apply to sending notification of the review decision outcome. Stage 3: complaint to the Welsh Government If your decision has not been overturned on either a Tier 1 or Tier 2 review, and you disagree with the decision, you have the right to make a complaint to the Welsh Government. You can contact the Welsh Government via: telephone: 0300 060 4400 (Monday to Friday, 8.30am to 5pm) E-mail: customerhelp@gov.wales By writing to: Discretionary Assistance Fund, Welsh Government, Cathays Park, CF10 3NQ Please note that to ensure your complaint is fully investigated, Welsh Government will request your application history from NECSWS, the DAF administrators. Looking after your personal information The person looking at your review will usually need to see all relevant records that NECSWS hold relevant about you, which could include recordings of telephone conversations relating to a DAF application, notes of conversations, letters, e-mails or whatever may be relevant to your particular concern. If you don’t want this to happen, it’s important that you make this clear when submitting the review. Refusal to let the reviewer look at all relevant information and evidence may however affect the ability to investigate and resolve your review. Please note: This information is available in Welsh, large print and can be made available in other formats (Braille and disk, and other languages). First published: 17 March 2023 Last updated: 16 July 2026 Print this page
+
+--- SOURCE 4 (FOUND): https://www.gov.wales/discretionary-assistance-fund-privacy-notice-html ---
+You are here: Home Communities and regeneration (Topic) Money and financial inclusion (Sub-topic) Discretionary Assistance Fund: privacy notice Discretionary Assistance Fund: privacy notice [HTML] Guidance, Document Discretionary Assistance Fund: privacy notice How we will use the information that you provide and how long we will keep it for. First published: 5 January 2018 Last updated: 16 March 2023 Print this page In this page Background What do we do with your information? Who do we share your information with How long will we keep your information? Your rights in relation to your information Making a complaint Further information and contact details Background NEC Software Solutions (NEC), on behalf of Welsh Government, receives personal information on an applicant directly from the client or from an individual with permission to act on the client’s behalf. Without this information the application cannot be processed. It consists of the following: name address National Insurance Number date of Birth DWP Benefit information health issues information on any dependents living in the household technical data includes internet protocol (IP) address, browser type and version, time zone setting and location, browser plug-in types and versions, operating system and platform and other technology on the devices you use to access our website The Welsh Government is the data controller and NEC the data processor. What do we do with your information? Legal powers Government of Wales Act 2006 (GOWA), Section 60 permits the Welsh Ministers to do anything they consider appropriate to achieve the object of promoting or improving the economic, social or environmental well-being of Wales. Section 70 of GOWA enables the Welsh Ministers to give financial assistance, by way of grant, loan or guarantee, to any person engaged in any activity which the Welsh Ministers consider will secure, or help to secure, the attainment of any objective which they aim to attain in the exercise of any of their functions. Section 71 of GOWA empowers the Welsh Ministers may do anything which is calculated to facilitate, or is conducive or incidental to, the exercise of any of their functions. Lawful basis Under Article 6 – Processing is necessary (e) processing is necessary for the performance of a task carried out in the public interest or in the exercise of official authority vested in the controller. Under Article 9 (2) (g) - Processing is necessary for reasons of substantial public interest, on the basis of Union or Member State law which shall be proportionate to the aim pursued, respect the essence of the right to data protection and provide for suitable and specific measures to safeguard the fundamental rights and the interests of the data subject. In our remit as the data controller, the Welsh Government uses the information received for the below purposes. These purposes are necessary so as to enable us to carry out our public tasks and in the exercise of our official authority: to determine eligibility for financial assistance to assess if there is a need for financial assistance to be granted to the client if need is determined, to also determine the level of financial assistance that will be granted to the client to pass details about the client, including name and address, and the award that has been granted onto the third parties as stated below to fulfil the award to pass details to other agencies that are well placed to provide additional support to the applicant for example Citizens Advice Rhondda Cynon Taff, Carmarthenshire Citizens Advice, Pennysmart and Groundwork statistical and research purposes – all data will be anonymised to inform, influence and improve the service provided to monitor and target funding effectively to monitor the performance of the Discretionary Assistance Fund to link with other Welsh Government policy areas publications (infographic) - all data will be anonymised requests from external organisations published on Welsh Government website Who do we share your information with Information held on behalf of the Welsh Government about you and your application will be shared with organisations working on behalf of the Welsh Government to fulfill your application. These are: NEC Software Solutions Family Fund Business Services The Furniture Service (TFS) PayPoint agents AO Retail Limited Park Group (clothing vouchers) Police in the event of suspected fraud How long will we keep your information? Welsh Government will keep this data for a maximum of 7 years after the end of the financial year to which it relates to as per audit requirements. After this point your data will be anonymised and may be used in case studies and/or destroyed. Your rights in relation to your information You have the right to: access the personal data that we are processing about you require us to rectify inaccuracies in that data the right to object to processing - in certain circumstances – to withdraw your application before it has been processed and a decision has been made to award or refuse the right for your data to be ‘erased’ – in certain circumstances lodge a complaint with the Information Commissioner’s Office (ICO) who is our independent regulator for data protection (contact details below) Making a complaint The Welsh Government is committed to handling your personal data safely, securely and only for as long as we need. If you have any concerns about how we use your personal data, we encourage you to raise them with the relevant team in the first instance. You can also contact the Data Protection Officer by emailing DataProtectionOfficer@gov.wales or writing to the DPO at: Welsh Government Cathays Park Cardiff CF10 3NQ If you wish to make a formal complaint about how the Welsh Government has processed your personal data, you can complain about Welsh Government . We will acknowledge your complaint and respond within an appropriate timescale, in line with data protection legislation and our complaints process. Further information and contact details For further information about the information which Welsh Government holds and its use, or if you wish to exercise your rights under the GDPR, please see contact details below: Financial Inclusion Team Welsh Government Rhydycar Business Park Merthyr Tydfil CF48 1UZ Email: financialinclusion@gov.wales Helen Morris Data Protection Officer Welsh Government Cathays Park Cardiff CF10 3NQ Email: data.protectionofficer@gov.wales Rachel Goodman Data Protection Officer NEC Software Solutions BizSpace 1st Floor iMex Centre 575-599 Maxted Rd Hemel Hempstead HP2 7DX Email: dpo@necsws.com Information Commissioner’s Office Wycliffe House Water Lane Wilmslow Cheshire SK9 5AF Telephone: 01625 545 745 or 0303 123 1113 Website: www.ico.gov.uk First published: 5 January 2018 Last updated: 16 March 2023 Print this page

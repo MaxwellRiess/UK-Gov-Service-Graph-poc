@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Rate Rebate" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/ni-rate-rebate.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[criterion_2] (split into claims) Must live in Northern Ireland.
+
+--- SOURCE 0: https://www.nidirect.gov.uk/articles/applying-rate-rebate ---
+Applying for Rate Rebate To claim Rate Rebate, you must be entitled to Universal Credit. You apply online for Rate Rebate. Before you can apply, you need to create a Rate Rebate account online. Time limits might apply to backdating a Rate Rebate claim. Eligible for Rate Rebate You can apply for Rate Rebate if you're already getting Universal Credit and you're: a homeowner living in your own property a tenant living in social housing owned by the Housing Executive a tenant living in social housing owned by a housing association a tenant living in private rented housing You can't apply for Rate Rebate if you live in supported accommodation. Rate Rebate account There are two steps to claiming Rate Rebate. You must: create and activate your online Rate Rebate account log in to your Rate Rebate account and apply Appointee claiming on someone’s behalf If you're another person's official appointee, you can claim Rate Rebate on their behalf. You must use your email to create a Rate Rebate online account. You fill in the claim for Rate Rebate with their information. You can act as an official appointee if: the Department for Communities appointed you you have a power of attorney you’re appointed by a High Court order Getting an email address If you don’t have an email address, find out how to create your email account. Email, internet and social media Create your online account To create an online account for Rate Rebate, you must: register your email with a password include your name It’s important to note your password as you’ll need this each time you log in. When your online account is registered, you’ll receive an activation message immediately by email. You need to activate your Rate Rebate account by logging in. You need your email and password each time you want to log in to your Rate Rebate account. How to apply for Rate Rebate Once you activate your account, you need to log in to apply for Rate Rebate. You should claim Rate Rebate as soon as possible after you're awarded Universal Credit. If you don’t apply within three months, you might lose some of your entitlement to backdated Rate Rebate. Create or log in to a Rate Rebate account Homeowner’s information To claim Rate Rebate, you must provide: your date of birth National Insurance number information about other joint owners also living in the property information about a partner if you have one A ‘partner’ refers to your husband, wife or civil partner, or the person you live with as if they were your husband, wife or civil partner. Information about your property You need to know the postcode for your property to find the address online. If you don’t know your postcode, you can use a postcode finder: Find a postcode You can also contact Land & Property Services: Contact the Rate Rebate team online telephone 0300 200 7802 Tenant’s information To claim Rate Rebate, you must provide: your date of birth National Insurance number tenancy reference number for social housing tenants information about a partner if you have one landlord information how many people also live in the property LPS will ask your landlord to verify the number of other people living at your address. Tenancy reference number If you don't have or know the tenancy reference number, you should ask your social housing landlord. Information about your property You need to know the postcode for your property to find the address online. If you don’t know your postcode, you can use a postcode finder: Find a postcode You can also contact Land & Property Services: Contact the Rate Rebate team online telephone 0300 200 7802 Information about your landlord If you’re a tenant in private rented housing and want to claim Rate Rebate, you must include: your landlord’s name, telephone and email address If your landlord uses a letting agent, you’ll need to give the agent’s contact details. If you’re a tenant in social housing, you must select your landlord from a list. The Housing Executive and registered housing associations are listed. Unregistered housing associations If your landlord is an unregistered housing association, you must provide the same information about your landlord as a private tenant. An unregistered housing association must register for a landlord Rate Rebate online account. Landlord Rate Rebate account Renting your home from a family member You aren’t entitled to Rate Rebate if the landlord is your or your partner's close relative and they live in the property. A close relative means your or your partner's: parent parent-in-law son son-in-law daughter daughter-in-law stepparent stepson stepdaughter brother sister You can't claim Rate Rebate if the landlord's partner is your or your partner's close relative and they live in the property. Verifying information for your Rate Rebate claim When processing your claim for Rate Rebate, LPS will verify the information you provide. You must pay your rates until you get a decision about your application for Rate Rebate. Time limit for claiming backdated Rate Rebate There is a three-month time limit for claiming Rate Rebate if you want your claim backdated. You can claim Rate Rebate from the date you're awarded Universal Credit. If you claim within three months of this date, Land & Property Services (LPS) may backdate your Rate Rebate. They can backdate your claim to the date your entitlement to Universal Credit started. If you don't claim Rate Rebate within three months of your Universal Credit award, LPS can't backdate Rate Rebate to the date your Universal Credit entitlement started. More useful links Create or log in to a Rate Rebate account Getting help with your Rate Rebate claim Report a change in circumstances for Rate Rebate Becoming an appointee for social security benefits Unclaimed benefits? Make the call Share this page Share on Facebook (external link opens in a new window / tab) Share on X (external link opens in a new window / tab) Share by email (external link opens in a new window / tab) Rate Rebate Scheme for people on Universal Credit Applying for Rate Rebate Create or log in to a Rate Rebate account Getting help with your Rate Rebate claim Homeowners and tenants applying for Rate Rebate Landlord Rate Rebate account Register or log in to a landlord Rate Rebate account Report a change in circumstances for Rate Rebate
+
+--- SOURCE 1 (FOUND): https://www.nidirect.gov.uk/articles/homeowners-and-tenants-applying-rate-rebate ---
+Homeowners and tenants applying for Rate Rebate Rate Rebate replaces Housing Benefit for rates for homeowners and tenants who are entitled to Universal Credit in Northern Ireland. To get Rate Rebate, tenants and homeowners must apply online to Land & Property Services (LPS). Housing rent If you’re a tenant and entitled to getting your rent paid, your rent will be assessed and paid through Universal Credit. Universal Credit Universal Credit replaces some social security benefits for people on a low income. Universal Credit People eligible for Rate Rebate You must be entitled to Universal Credit before you can apply for Rate Rebate. You can apply if you’re: a homeowner living in your own property a tenant living in social housing owned by the Housing Executive or a housing association a tenant living in private rented housing If you’re a tenant, you or your landlord must be liable for paying the rates. To qualify for Rate Rebate, homeowners must be liable for paying the rates on the property. Different types of homeowner You’re a homeowner and responsible for paying rates when: you own and live in your property you're no longer the legal owner but have the right to live in or 'have your day' in a property People who aren’t eligible for Rate Rebate You can’t apply for Rate Rebate if: you aren’t entitled to Universal Credit you live in supported accommodation you already receive Housing Benefit and Rate Relief you’re entitled to Pension Credit, unless your partner already receives Universal Credit If you aren’t eligible for Rate Rebate, you might get other help to pay your rates. Help paying your rates How Rate Rebate is awarded Homeowners and tenants don’t receive Rate Rebate as a payment. Rate Rebate for homeowners If you qualify for Rate Rebate, Land & Property Services (LPS) will credit your rate account from the start date of the Rate Rebate claim until the end of the rating year, 31 March. They’ll do this every year until there are certain changes in your circumstances. Report a change in circumstances for Rate Rebate Tenancy reference number If you're a tenant in social housing and want to apply for Rate Rebate, you'll need to know your tenancy reference number. Housing Executive tenants have a Housing Management System (HMS) reference or an account reference number. If you don't have or know this number, you should ask your landlord. Rate Rebate for tenants in social housing If you live in a Housing Executive property, LPS will pay Rate Rebate monthly in arrears to the Housing Executive. If you live in a housing association property, LPS will pay Rate Rebate monthly in arrears to the housing association. Rate Rebate for tenants in private rented housing If you rent your home from a private landlord, LPS will credit Rate Rebate monthly in arrears to your landlord’s rate account. If you live in a property with a capital value over £150,000 and you’re liable for paying the rates, LPS will credit Rate Rebate to your rate account. Pay in lieu of notice or holiday pay One-off payments such as pay in lieu of notice or holiday pay for holidays not taken, can be excluded in the calculation of rate rebate entitlement. You must supply all the relevant information listed below to Land and Property Services: a final payslip from an employer detailing the payment pay in lieu of notice or holiday pay or a letter from an employer, on company headed paper, detailing the payment of pay in lieu of notice and/ or holiday pay This information should be sent by email to raterebate@lpsni.gov.uk Contact Land & Property Services (LPS) Rate Rebate team More useful links Create or log in to a Rate Rebate account Applying for Rate Rebate Welfare Changes Helpline Unclaimed benefits? Make the call Changes to Housing Benefit Rate Rebate factsheet Share this page Share on Facebook (external link opens in a new window / tab) Share on X (external link opens in a new window / tab) Share by email (external link opens in a new window / tab) Rate Rebate Scheme for people on Universal Credit Applying for Rate Rebate Create or log in to a Rate Rebate account Getting help with your Rate Rebate claim Homeowners and tenants applying for Rate Rebate Landlord Rate Rebate account Register or log in to a landlord Rate Rebate account Report a change in circumstances for Rate Rebate

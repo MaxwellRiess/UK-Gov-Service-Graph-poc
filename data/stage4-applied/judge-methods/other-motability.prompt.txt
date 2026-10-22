@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Motability scheme" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage4/judge-methods/other-motability.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this in person.
+
+--- SOURCE 0: https://www.motability.co.uk/ ---
+Move your way Use your qualifying mobility allowance to lease a brand-new vehicle. We’ll cover your insurance, servicing and breakdown. You choose who drives, and we take care of the rest. We’re the service that keeps you moving. Search cars Get help and information
+
+--- SOURCE 1 (FOUND): https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/ ---
+Getting a Motability car This advice applies to England. See advice for See advice for Northern Ireland , See advice for Scotland , See advice for Wales Help us improve our website Take 5 minutes to tell us if you found what you needed on our website. Your feedback will help us give millions of people the information they need. If you receive a benefit because you have a disability or illness that makes it hard for you to get around, you can use it to pay for a vehicle from a charity called Motability. You can choose from lots of different vehicles, for example cars, mobility scooters or powered wheelchairs. You’ll only be paying for the lease of the vehicle - it won’t belong to you. If you stop receiving your benefit, you’ll have to return it. Check you’re eligible You can get a Motability car or vehicle if you’ve been awarded: the enhanced rate of the mobility component of Personal Independence Payment (PIP) the enhanced rate of the mobility component of Adult Disability Payment the higher rate of the mobility component of Disability Living Allowance (DLA) the higher rate of the mobility component of Scottish Adult Disability Living Allowance the higher rate of the mobility component of Child Disability Payment Armed Forces Independence Payment (AFIP) War Pensioners’ Mobility Supplement When you apply for a Motability vehicle, you must have at least 12 months left before your benefit ends - check your benefit decision letter if you’re not sure. You can’t apply for a Motability vehicle if you’re getting DLA and the Department for Work and Pensions (DWP) has sent you a letter saying you need to apply for PIP. You won’t be affected if you already have a Motability vehicle. If you don’t drive, you can still get a Motability vehicle and choose someone else to drive it. You can choose up to 2 people to drive on your behalf. Claiming on behalf of a child It’s possible to claim for a Motability vehicle for a child who is aged 3 or over. Read more about the Motability help available on GOV.UK. If you’re moving from DLA to PIP If you’re moving from DLA to PIP and don’t qualify for the enhanced rate mobility component after you’ve been reassessed, you’ll have to return your vehicle. You should return your vehicle within 8 weeks of your DLA payments stopping - or 26 weeks if you joined Motability before 2014. You might be entitled to a one-off payment from Motability when you return your vehicle, depending on its condition and when you joined Motability. You can find out from Motability about returning your vehicle and the payment , known as 'transitional support'. If you think you’ve been given the wrong amount of PIP, you can challenge the decision . Some PIP decisions are overturned on appeal, so you might be able to get another vehicle. Paying for your vehicle Your benefit will go directly to the Motability Scheme each month to pay for your lease. How much of your benefit will go towards your vehicle will depend on which one you choose. You’ll probably need to make a payment upfront if you choose a more expensive vehicle. You might be able to get some help with this payment, depending on your circumstances. There’s more information about getting extra financial help on the Motability charity website. What you’ll get As well as your vehicle, you’ll get: insurance, including tyre and windscreen replacement cover breakdown cover vehicle tax servicing and maintenance adaptations if needed - find out about the ways you can adapt your vehicle on the Motability website If you want to use your vehicle for work, you’ll need to get permission from Direct Line Motability - this is the company that insures all Motability vehicles. Direct Line Motability Telephone: 03000 373 737 Monday to Friday, 8.30am to 6pm and Saturday, 9am to 1pm. How to find a Motability vehicle You’ll need to show evidence that you’re eligible for the scheme. It’s worth getting this ready before you start looking for a vehicle. You’ll need: your ID - such as a driving licence or passport your certificate of entitlement from the Department of Work and Pensions You should follow these steps to get a Motability vehicle: 1) Find a dealer You can find a dealer near where you live on the Motability website . You can also call the Motability helpline. It can take a while to get through between 9am and 11am on a Monday, so it’s worth calling outside of this time if you can. Motability helpline Telephone: 0300 456 4566 Monday to Friday 8am to 7pm, Saturday 9am to 1pm Calls cost 12p per minute from a landline, and from 3p to 45p from a mobile 2) Visit the dealer Once you’ve found a dealer, ask for an appointment with their Motability specialist. You can ask them to visit you at home or help arrange your transport to and from the dealership, if it’s hard for you to get there. You’ll be asked to do a questionnaire to help find a vehicle that suits you best. Let your dealer know if you think your vehicle needs to be adapted. Motability offer some adaptations for free - you can check if the adaption you need is available on their website . If you use a wheelchair or mobility aid, take it with you to make sure it fits in the car. If you’re not happy with the choice of vehicles the dealer has to offer, it’s worth contacting another - they might have other options. 3) Order your vehicle Once you’ve found the right vehicle, you can order it at the dealership. You’ll need to show: your certificate of entitlement from the Department of Work and Pensions a form of identification, such as a passport or driving licence proof of address, such as a council tax bill or bank statement from the last 6 months If you’ll be driving the car you’ll need to show your driving licence. About 2 weeks after ordering your car you’ll get a confirmation letter in the post. Keep it safe - it contains your Personal Identification Number (PIN). You’ll need this when you collect your vehicle. 4) Collect your vehicle and sign the lease You’ll sign your lease agreement by entering your Personal Identification Number (PIN) at the dealership. It’s worth asking for your vehicle to be delivered, if you can’t get to the dealer easily. Help us improve our website Take 5 minutes to tell us if you found what you needed on our website. Your feedback will help us give millions of people the information they need.

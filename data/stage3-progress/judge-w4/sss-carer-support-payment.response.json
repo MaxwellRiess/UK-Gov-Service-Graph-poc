@@ -1,0 +1,54 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for Carer Support Payment online.",
+          "verdict": "supported",
+          "quote": "You can apply for Carer Support Payment and Carer Additional Person Payment: using the online form on the phone by post in person",
+          "source": 5,
+          "note": "The application page explicitly lists the online form."
+        },
+        {
+          "claim": "You can apply for Carer Support Payment by phone.",
+          "verdict": "supported",
+          "quote": "Call Social Security Scotland free on 0800 182 2222 to apply on the phone.",
+          "source": 5,
+          "note": "The application page explicitly says to apply by phone."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Applicants provide details of the person cared for.",
+          "verdict": "supported",
+          "quote": "You also need details of the person, or people, you care for, including their: date of birth and address",
+          "source": 5,
+          "note": "The page explicitly requests details of each person cared for."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Applicants must provide proof of care hours.",
+          "verdict": "partly_supported",
+          "quote": "Carers will require to sign a declaration to confirm they are providing at least 35 hours of care per week for Carer Support Payment",
+          "source": 6,
+          "note": "Applicants declare and sign for their care hours; the text does not require independent proof of those hours."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post",
+    "in-person"
+  ],
+  "sign_in_on_page": "myaccount"
+}

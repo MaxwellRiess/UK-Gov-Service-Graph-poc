@@ -1,0 +1,116 @@
+A service graph describes the UK government service "Prescription Prepayment Certificate (PPC)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/nhs-ppc.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[exclusion_0] (split into claims) Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)
+
+--- SOURCE 0: https://www.gov.uk/get-a-ppc ---
+Get a prescription prepayment certificate. NHS Business Services Authority contact number for ordering prepaid prescriptions for 3 or 12 months at a cheaper rate than single prescriptions You can buy prescription prepayment certificates ( PPCs ) from the NHS which may make your prescriptions cheaper. You can only get a PPC if you live in England. There’s a different way to get a PPC if you’ve been prescribed hormone replacement therapy . What you’ll get A 3 or 12 month PPC covers all your prescriptions for that period, no matter how many you need. A prescription costs £9.90 per item, but a PPC costs: £32.05 for 3 months £114.50 for 12 months This means if you’re going to buy 4 or more prescriptions in 3 months, or 12 or more prescriptions in 12 months, it may be cheaper to buy a PPC . You can pay in 10 monthly instalments if you buy a 12 month PPC . How to buy You can buy PPCs online or call the order line and pay by debit or credit card. PPC order line - 3 or 12 months Telephone: 0300 330 1341 Find out about call charges You can get an HRT prescription prepayment certificate ( HRT PPC ) from the NHS if you’ve been prescribed an eligible hormone replacement therapy ( HRT ) medicine . What you’ll get The HRT PPC costs £19.80 for 12 months. It will cover all your eligible HRT prescriptions for that period, no matter how many different medicines you need. There’s no limit on the number of HRT prescription items you can get with it while it’s valid. You’ll save money if you’re going to buy more than 2 prescription items in 12 months. If you have prescriptions for medicines that are not eligible If you have other prescriptions that are not for eligible HRT medicines, you may save more with a 3 or 12 month standard PPC . A standard PPC will save you more than an HRT PPC if you get: 4 or more items in a 3 month period and at least 2 are not for eligible HRT medication 12 or more items in 12 month period and at least 10 are not for eligible HRT medication How to buy You can buy HRT PPCs online . If you need help NHS Business Services Authority can help you with your HRT PPC application. HRT PPC help and support Telephone: 0300 330 2089 Find out about call charges

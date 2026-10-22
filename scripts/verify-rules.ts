@@ -16,6 +16,9 @@
  *                      (money as £ amounts, ages near an age word, hours as
  *                      "N hours", NI years as "N ... years")
  *   deadline rules     `maxDays`, as days, weeks, months or years
+ *   State Pension age  `reached`: the page names State Pension age as the
+ *                      condition (the timetable itself is in src/rules.ts)
+ *   date of birth      `onOrBefore` / `onOrAfter`, as "27 June 1960"
  *
  * Boolean, enum and dependency rules carry no value to look for; they belong
  * to the criteria-text pass (verify:deadlines' locate-and-quote method), not
@@ -56,8 +59,8 @@ interface Target {
   nodeId:   string;
   field:    string;          // provenance field path
   ruleField?: string;        // the user fact the rule tests, e.g. annual_income
-  value:    number;
-  kind:     'money' | 'age' | 'hours' | 'years' | 'days' | 'other';
+  value:    number | string | boolean;
+  kind:     'money' | 'age' | 'hours' | 'years' | 'days' | 'spa' | 'date' | 'other';
   operator?: string;
   label:    string;
 }
@@ -82,6 +85,13 @@ function walk(rule: Rule, path: string, nodeId: string) {
   if (rule.type === 'deadline') {
     targets.push({ nodeId, field: `${path}.maxDays`, value: rule.maxDays, kind: 'days', label: rule.label });
   }
+  if (rule.type === 'state_pension_age') {
+    targets.push({ nodeId, field: `${path}.reached`, value: rule.reached, kind: 'spa', label: rule.label });
+  }
+  if (rule.type === 'born') {
+    if (rule.onOrBefore) targets.push({ nodeId, field: `${path}.onOrBefore`, value: rule.onOrBefore, kind: 'date', label: rule.label });
+    if (rule.onOrAfter) targets.push({ nodeId, field: `${path}.onOrAfter`, value: rule.onOrAfter, kind: 'date', label: rule.label });
+  }
 }
 
 for (const n of Object.values(NODES)) {
@@ -99,8 +109,15 @@ const AGE_WORDS = String.raw`(?:aged?|years?[\s-]old|year[\s-]olds?|under|over|o
 const UNIT_NOT_AGE = String.raw`(?:\s*(?:%|per cent|weeks?|days?|months?|hours?|pence|p\b|miles?|km))`;
 
 /** Regexes, most specific first, that would show this value on a page. */
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
 function matchers(t: Target): RegExp[] {
-  const v = Math.abs(t.value);
+  if (t.kind === 'spa') return [/State Pension age/i];
+  if (t.kind === 'date') {
+    const [y, m, d] = String(t.value).split('-').map(Number);
+    return [new RegExp(`(?<!\\d)${d}(?:st|nd|rd|th)?\\s+${MONTHS[m - 1]}\\s+${y}`, 'i')];
+  }
+  const v = Math.abs(t.value as number);
   switch (t.kind) {
     case 'money': {
       // Rules test one period (annual_income, weekly_earnings) while pages often
@@ -157,7 +174,7 @@ function matchers(t: Target): RegExp[] {
  */
 function operatorConcern(t: Target, quote: string): string | null {
   if (t.kind !== 'age' || !t.operator) return null;
-  const v = Math.abs(t.value);
+  const v = Math.abs(t.value as number);
   const q = quote.toLowerCase();
   const under   = new RegExp(`(?:under|younger than|below)\\s+(?:the age of\\s+)?${v}\\b`).test(q);
   const orUnder = new RegExp(`${v}\\s+(?:or|and)\\s+(?:under|younger|below)`).test(q);

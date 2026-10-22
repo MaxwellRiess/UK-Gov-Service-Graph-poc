@@ -1,0 +1,24 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {"claim":"Companies must file a confirmation statement.","verdict":"supported","quote":"Every company, including dormant and non trading companies, must file a confirmation statement at least once every year.","source":1,"note":"The guidance states that every company must file."},
+        {"claim":"Companies must file a confirmation statement at least once every 12 months.","verdict":"supported","quote":"You must review your records and file at least one confirmation statement every 12 months.","source":1,"note":"The guidance states the 12-month frequency for companies."},
+        {"claim":"LLPs must file a confirmation statement.","verdict":"supported","quote":"Every LLP must, before the end of the period of 14 days after the end of each review period, deliver to the registrar","source":3,"note":"The regulation imposes a confirmation statement duty on every LLP."},
+        {"claim":"LLPs must file a confirmation statement at least once every 12 months.","verdict":"supported","quote":"each period of 12 months beginning with the day after the end of the previous review period.","source":3,"note":"The LLP regulation defines successive 12-month review periods for that filing duty."},
+        {"claim":"The annual confirmation statement fee is £50 online.","verdict":"partly_supported","quote":"£50 to file your confirmation statement online","source":1,"note":"The company guidance gives the £50 online fee, but the supplied LLP source does not state an LLP online fee."},
+        {"claim":"The annual confirmation statement fee is £110 by post.","verdict":"supported","quote":"£110 to file a paper form CS01 by post","source":1,"note":"The company guidance gives £110 by post, and the LLP form page also says paper filing costs £110."}
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {"claim":"A company registered at Companies House must file a confirmation statement.","verdict":"supported","quote":"Every company, including dormant and non trading companies, must file a confirmation statement at least once every year.","source":1,"note":"The Companies House filing guidance imposes the duty on every company."},
+        {"claim":"An LLP registered at Companies House must file a confirmation statement.","verdict":"supported","quote":"Every LLP must, before the end of the period of 14 days after the end of each review period, deliver to the registrar","source":3,"note":"The LLP regulation imposes the filing duty on every LLP."}
+      ]
+    }
+  ],
+  "methods_on_page": ["online", "post"],
+  "sign_in_on_page": "Companies House password and authentication code"
+}

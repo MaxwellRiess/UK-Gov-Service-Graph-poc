@@ -1,0 +1,39 @@
+{
+  "hmpo-passport#eligibility.criteria.0": [
+    "https://www.gov.uk/apply-first-adult-passport"
+  ],
+  "gro-register-death#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/ukpga/Eliz2/1-2/20/section/16",
+    "https://www.northtyneside.gov.uk/births-deaths-and-marriages/death-and-bereavement/step-by-step/register-death/who-can-register",
+    "https://www.nidirect.gov.uk/articles/registering-death"
+  ],
+  "hmcts-divorce#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/ukpga/1973/45/section/5"
+  ],
+  "hmcts-gender-recognition#eligibility.criteria.1": [],
+  "hmcts-legal-aid#eligibility.criteria.1": [
+    "https://www.legislation.gov.uk/uksi/2013/104/part/4"
+  ],
+  "la-blue-badge#eligibility.criteria.0": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "sss-adult-disability-payment#eligibility.criteria.2": [
+    "https://www.socialsecurity.gov.scot/publications/2017/02/adult-disability-payment-decision-making-guide/pages/residence-and-presence-for-adult-disability-payment/eligibility",
+    "https://www.citizensadvice.org.uk/scotland/benefits/sick-or-disabled-people-and-carers/adult-disability-payment/adult-disability-s/"
+  ],
+  "ch-close-company#eligibility.exclusions.1": [],
+  "dwp-voluntary-ni-contributions#eligibility.exclusions.0": [
+    "https://www.gov.uk/new-state-pension/what-youll-get",
+    "https://www.gov.uk/government/publications/your-new-state-pension-explained/your-state-pension-explained"
+  ],
+  "insolvency-bankruptcy#eligibility.exclusions.0": [
+    "https://www.legislation.gov.uk/ukpga/1986/45/section/263K"
+  ],
+  "la-blue-badge#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+  ],
+  "nhs-continuing-healthcare#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance",
+    "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/"
+  ]
+}

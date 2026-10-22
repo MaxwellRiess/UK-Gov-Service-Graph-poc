@@ -1,0 +1,20 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can claim a power of attorney registration refund online.",
+          "verdict": "supported",
+          "quote": "Making a claim is quick and simple using the online service.",
+          "source": 1,
+          "note": "The scheme launch page explicitly describes an online claim, though the current service page now directs people to contact OPG."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

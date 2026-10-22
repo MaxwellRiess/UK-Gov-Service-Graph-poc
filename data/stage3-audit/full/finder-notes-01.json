@@ -1,0 +1,265 @@
+{
+  "dwp-carers-allowance#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Carer's Allowance evidence of caring proof",
+      "gov.uk/carers-allowance/how-to-claim (read)",
+      "Carer's Allowance claim form notes documents to send (DS700 notes read)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-carers-allowance#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Carer's Allowance claim evidence of caring proof person cared for award letter Attendance Allowance",
+      "gov.uk/carers-allowance/how-to-claim (read)",
+      "Carer's Allowance claim form notes documents to send (DS700 notes read)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-child-maintenance#agentInteraction.methods": {
+    "queries": [
+      "Child Maintenance Service apply information you need children's names dates of birth other parent",
+      "gov.uk/child-maintenance-service/how-to-apply (content API)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/child-maintenance-service/how-to-apply",
+        "why": "Online tool to apply plus phone route: 'apply to the Child Maintenance Service, if you choose to use it ... If you cannot use the ... tool, call the Child Maintenance Service'."
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance",
+        "why": "States both methods: 'You can ask the CMS to set up your child maintenance arrangement online or by phone.'"
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-child-maintenance#eligibility.evidenceRequired.0": {
+    "queries": [
+      "gov.uk how child maintenance is worked out HMRC income",
+      "Child Maintenance Service apply information you need"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/how-child-maintenance-is-worked-out",
+        "why": "States CMS gets paying parent's income from HMRC: 'find out the paying parent's yearly gross income from information supplied by HM Revenue and Customs'."
+      },
+      {
+        "url": "https://www.gov.uk/child-maintenance-service/how-to-apply",
+        "why": "Paying parent is asked about income: 'you'll also be asked about: your employment details, your income and any benefits you get'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-child-maintenance#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Child Maintenance Service apply information you need children's names dates of birth other parent"
+    ],
+    "urls": [
+      {
+        "url": "https://www.citizensadvice.org.uk/family/children-and-young-people/child-maintenance1/applying-to-the-CMS-for-child-maintenance",
+        "why": "Lists 'your child's name and date of birth' and how many nights the child spends with each parent among information needed."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-child-maintenance#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Child Maintenance Service apply information you need children's names dates of birth other parent",
+      "gov.uk/child-maintenance-service/how-to-apply (read)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-dla-child#eligibility.evidenceRequired.1": {
+    "queries": [
+      "DLA child claim form send copies reports GP consultant gov.uk",
+      "Citizens Advice how to claim DLA for your child"
+    ],
+    "urls": [
+      {
+        "url": "https://assets.publishing.service.gov.uk/media/69271ecfb3b9afff34e96074/dla-for-children-claim-form.pdf",
+        "why": "Official DLA1 Child claim form, section 'About the child's care needs': 'We need to know about any difficulties the child has with their daily living care needs', including supervision."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-dla-child#eligibility.evidenceRequired.2": {
+    "queries": [
+      "DLA child claim form send copies reports GP consultant gov.uk",
+      "Citizens Advice how to claim DLA for your child"
+    ],
+    "urls": [
+      {
+        "url": "https://assets.publishing.service.gov.uk/media/69271ecfb3b9afff34e96074/dla-for-children-claim-form.pdf",
+        "why": "Q24 asks for 'letters or assessment reports about the child's health conditions' from 'doctors, health visitors or occupational therapists'; GP details at Q26-29. Doctors' reports, not GP/consultant by name."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-funeral-payment#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Funeral Expenses Payment claim what you need death certificate proof of benefits SF200",
+      "gov.uk/funeral-payments/how-to-claim (read)"
+    ],
+    "urls": [
+      {
+        "url": "https://assets.publishing.service.gov.uk/media/69733a0895ec95e3414fd4e4/sf200-adult.pdf",
+        "why": "SF200 claim form: 'If you or your partner are already getting Housing Benefit, send the latest award letter from the council with this form.' Only HB proof, not other benefits."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-funeral-payment#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Funeral Expenses Payment claim what you need death certificate proof of benefits SF200",
+      "nidirect funeral expenses payment how to claim death certificate"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-housing-benefit#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Housing Benefit claim you'll need National Insurance number council",
+      "nidirect Housing Benefit how to claim National Insurance number evidence"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/1992/5/section/1",
+        "why": "Social Security Administration Act 1992 s1(1A): no person is entitled to a claimed benefit unless the NI number requirement in (1B) is satisfied (applies to HB)."
+      },
+      {
+        "url": "https://www.legislation.gov.uk/uksi/2006/213/regulation/4",
+        "why": "Housing Benefit Regulations 2006 reg 4 lists exceptions to 'requirement to state national insurance number' for HB claims, confirming it applies otherwise."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-inherited-state-pension#eligibility.autoQualifiers.0": {
+    "queries": [
+      "Inherited State Pension widowed before State Pension age death certificate partner's National Insurance number gov.uk",
+      "Citizens Advice inherit state pension widowed before state pension age"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/state-pension-through-partner/y/widowed/your_pension_age_before_specific_date",
+        "why": "Addresses being widowed before State Pension age, but as a limit: 'You can't inherit ... if you were widowed before State Pension age' and remarried before it; does not make it a qualifier."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Inherited State Pension ... death certificate gov.uk",
+      "claim State Pension as widow form late husband's National Insurance number marriage certificate death certificate"
+    ],
+    "urls": [
+      {
+        "url": "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf",
+        "why": "State Pension claim form (for claimants abroad): 'Widowed or surviving civil partner: Send us your late husband's, wife's or civil partner's death certificate'."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-inherited-state-pension#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Inherited State Pension ... partner's National Insurance number gov.uk",
+      "claim State Pension as widow form late husband's National Insurance number"
+    ],
+    "urls": [
+      {
+        "url": "https://assets.publishing.service.gov.uk/media/68ece01da8398380cb4acf8b/ipc-br1-nsp.pdf",
+        "why": "Same form asks for your own 'National Insurance (NI) number' and the late spouse's 'Their National Insurance (NI) number if you know it'. International claim form only."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-ni-credits#agentInteraction.methods": {
+    "queries": [
+      "gov.uk apply National Insurance credits online specified adult childcare",
+      "Carer's Credit apply by phone or post gov.uk National Insurance credits apply online",
+      "HMRC online service apply for National Insurance credits sign in Government Gateway"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-ni-number#eligibility.evidenceRequired.1": {
+    "queries": [
+      "apply for National Insurance number proof of address right to work documents identity appointment",
+      "gov.uk/apply-national-insurance-number/how-to-apply (read)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-ni-number#eligibility.evidenceRequired.2": {
+    "queries": [
+      "apply for National Insurance number proof of address right to work documents identity appointment",
+      "gov.uk/apply-national-insurance-number/how-to-apply (read)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/applying-national-insurance-number-if-you-live-northern-ireland",
+        "why": "States right to work as a condition: 'You can only apply for a National Insurance number if you live in the UK and have the right to work in the UK.' Does not list right-to-work documents."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-pension-credit#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Pension Credit claim bank statements evidence asked to provide",
+      "Pension Credit \"bank statements\" site:gov.uk OR site:citizensadvice.org.uk OR site:nidirect.gov.uk",
+      "gov.uk/pension-credit/how-to-claim (read)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-smi#eligibility.evidenceRequired.0": {
+    "queries": [
+      "Support for Mortgage Interest legal charge on your property consent form DWP",
+      "gov.uk/support-for-mortgage-interest/how-to-apply (read)",
+      "nidirect help with mortgage interest payments"
+    ],
+    "urls": [
+      {
+        "url": "https://www.nidirect.gov.uk/articles/help-mortgage-interest-payments",
+        "why": "NI page points to the lender statement for interest figures: 'Your annual statement from your mortgage lender tells you how much mortgage interest you pay.' Not stated as required evidence."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "dwp-smi#eligibility.evidenceRequired.1": {
+    "queries": [
+      "Support for Mortgage Interest legal charge on your property consent form DWP",
+      "gov.uk/support-for-mortgage-interest/how-to-apply (read)",
+      "nidirect help with mortgage interest payments"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-smi#eligibility.evidenceRequired.2": {
+    "queries": [
+      "Support for Mortgage Interest legal charge on your property consent form DWP",
+      "\"Support for Mortgage Interest\" loan agreement \"charge\" sign gov.uk guidance"
+    ],
+    "urls": [
+      {
+        "url": "https://england.shelter.org.uk/legal/benefits/support_for_mortgage_interest",
+        "why": "'A claimant is required to sign a charge form to secure the SMI loan against their home'; partner joint owner must also sign."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/help-mortgage-interest-payments",
+        "why": "'the Department will place a charge (or in some cases a mortgage) over your property to secure the loan'; 'You both need to sign the correct loan documents'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "dwp-smi#eligibility.exclusions.1": {
+    "queries": [
+      "Support for Mortgage Interest Universal Credit earned income rule removed April 2023 gov.uk",
+      "gov.uk/support-for-mortgage-interest/eligibility (read)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found",
+    "note": "Sources (Shelter; DWP ADM memo 06/23) say the UC zero-earnings rule was abolished on 3 April 2023, so this claim looks out of date."
+  }
+}

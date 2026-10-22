@@ -35,11 +35,11 @@
  * ─── AGENT INTERACTION LAYER ─────────────────────────────────────────────
  *
  * Every service now includes agentInteraction data:
- *   methods[]         — how to apply (online, phone, post, in-person)
+ *   methods[]         — how to start (online, phone, post, in-person, via-adviser)
  *   apiAvailable      — true if a transactional API exists
  *   apiUrl?           — link to API documentation
  *   onlineFormUrl?    — direct link to the online application form
- *   authRequired      — authentication needed (government-gateway, none, etc.)
+ *   authRequired?     — authentication needed (government-gateway, none, etc.); absent = not stated
  *   agentCanComplete  — 'full' | 'partial' | 'inform-only'
  *   agentSteps[]      — step-by-step what an agent can do for the user
  *   missingBenefitId? — ID for MissingBenefit.com eligibility calculator API
@@ -252,6 +252,7 @@ Use this when the user asks for more detail about a service, or when you need to
 
 const UserContextSchema = z.object({
   age:                                     z.number().optional(),
+  date_of_birth:                           z.string().optional().describe('YYYY-MM-DD. Needed for State Pension age, which age alone does not settle for people aged 66 or 67.'),
   nation:                                  z.enum(['england', 'scotland', 'wales', 'northern-ireland']).optional(),
   is_uk_resident:                          z.boolean().optional(),
   citizenship:                             z.string().optional(),

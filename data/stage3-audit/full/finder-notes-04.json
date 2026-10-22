@@ -1,0 +1,273 @@
+{
+ "hmrc-lisa#agentInteraction.methods": {
+  "queries": [
+   "gov.uk Lifetime ISA withdrawal ask your provider online account details first home",
+   "site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer",
+   "fetched gov.uk/lifetime-isa/withdrawing-money-from-your-lifetime-isa"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-lisa#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk Lifetime ISA withdrawal ask your provider online account details first home",
+   "site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-marriage-allowance#eligibility.evidenceRequired.0": {
+  "queries": [
+   "fetched gov.uk/apply-marriage-allowance and gov.uk/marriage-allowance/how-to-apply",
+   "site:gov.uk Marriage Allowance apply online Government Gateway user ID lower earner"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/apply-marriage-allowance",
+    "why": "States you need to sign in to apply online but does not name Government Gateway: \"You'll need to sign in to use this service. If you do not already have sign in details, you'll be able to create them.\""
+   },
+   {
+    "url": "https://www.gov.uk/marriage-allowance/how-to-apply",
+    "why": "States the lower earner claims: \"the person who earns the least should make the claim.\""
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-mtd#eligibility.criteria.1": {
+  "queries": [
+   "fetched gov.uk/guidance/check-if-youre-eligible-for-making-tax-digital-for-income-tax"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/check-if-youre-eligible-for-making-tax-digital-for-income-tax",
+    "why": "Sole traders/landlords with qualifying income: \"£50,000 for the 2024 to 2025 tax year, you should've started using Making Tax Digital for Income Tax from 6 April 2026\"."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-mtd#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk sign up for Making Tax Digital for VAT what you need VAT registration number",
+   "fetched gov.uk/guidance/sign-up-for-making-tax-digital-for-vat"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/sign-up-for-making-tax-digital-for-vat",
+    "why": "Lists \"VAT certificate\" (which carries the VAT number) among what you need to sign up a client; does not say 'VAT registration number' explicitly."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-ni-check#eligibility.criteria.0": {
+  "queries": [
+   "fetched gov.uk/voluntary-national-insurance-contributions",
+   "fetched gov.uk/check-state-pension",
+   "fetched gov.uk/new-state-pension/how-its-calculated"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/voluntary-national-insurance-contributions",
+    "why": "Says gaps in your record can arise because you were \"unemployed and were not claiming benefits\", \"self-employed but did not pay contributions\" or \"living or working outside the UK\", and to check your record for gaps; does not mention people near State Pension age."
+   },
+   {
+    "url": "https://www.gov.uk/check-state-pension",
+    "why": "Links the forecast to filling gaps: \"pay voluntary contributions to fill in gaps ... from when you were not working\"."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-p45#agentInteraction.methods": {
+  "queries": [
+   "gov.uk P45 not received from employer contact HMRC phone",
+   "fetched acas.org.uk/p45s-and-p60s (search result only)"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-paye#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk register as employer PAYE information you need first payday business name",
+   "walked gov.uk/register-employer smart answer outcomes"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+    "why": "Phone registration list: \"its name, business address and phone number\". (limited company 10+ directors outcome, 'What you'll need to provide')"
+   },
+   {
+    "url": "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes",
+    "why": "Phone registration list: \"its name, business address and phone number\". (sole trader outcome)"
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-paye#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk register as employer PAYE information you need first payday business name",
+   "walked gov.uk/register-employer smart answer outcomes"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+    "why": "Phone registration list: \"the type of business, for example plumbing, investment, electrical engineering\". (limited company 10+ directors outcome, 'What you'll need to provide')"
+   },
+   {
+    "url": "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes",
+    "why": "Phone registration list: \"the type of business, for example plumbing, investment, electrical engineering\". (sole trader outcome)"
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-paye#eligibility.evidenceRequired.2": {
+  "queries": [
+   "gov.uk register as employer PAYE information you need first payday business name",
+   "walked gov.uk/register-employer smart answer outcomes"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-employer/y/yes/no/limited-company/yes",
+    "why": "Phone registration list: \"the date of their first payday, or when you first provide expenses or benefits if this is earlier\". (limited company 10+ directors outcome, 'What you'll need to provide')"
+   },
+   {
+    "url": "https://www.gov.uk/register-employer/y/yes/no/sole-trader/yes",
+    "why": "Phone registration list: \"the date of their first payday, or when you first provide expenses or benefits if this is earlier\". (sole trader outcome)"
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-register-sole-trader#agentInteraction.methods": {
+  "queries": [
+   "site:gov.uk register for Self Assessment self-employed sole trader online National Insurance number Unique Taxpayer Reference",
+   "walked gov.uk/register-for-self-assessment smart answer"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-for-self-assessment/y/you-re-self-employed-for-example-a-sole-trader/no-i-m-registering-for-the-first-time",
+    "why": "Self-employed first-time outcome: \"Register online ... Start now\"; also by post with form CWF1."
+   },
+   {
+    "url": "https://www.gov.uk/become-sole-trader/register-sole-trader",
+    "why": "\"Use this tool to register for Self Assessment as a sole trader\" (links the online service)."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-register-sole-trader#eligibility.evidenceRequired.0": {
+  "queries": [
+   "site:gov.uk register for Self Assessment self-employed sole trader online National Insurance number Unique Taxpayer Reference",
+   "fetched gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/become-sole-trader/register-sole-trader",
+    "why": "\"You'll need a National Insurance number to register for Self Assessment.\""
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-register-sole-trader#eligibility.evidenceRequired.1": {
+  "queries": [
+   "site:gov.uk register for Self Assessment self-employed sole trader online UTR",
+   "walked gov.uk/register-for-self-assessment smart answer"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/register-for-self-assessment/y/you-re-self-employed-for-example-a-sole-trader/no-i-m-registering-for-the-first-time",
+    "why": "\"After you've registered HMRC will give you a Unique Taxpayer Reference (UTR).\""
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-sdlt#agentInteraction.methods": {
+  "queries": [
+   "gov.uk stamp duty land tax return online paper SDLT1 completion"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/stamp-duty-land-tax-online-and-paper-returns",
+    "why": "Online: representatives \"must fill in and file the SDLT return online\" via Stamp Taxes Online; post: \"If you're not represented, you must use the SDLT1 paper return and send it to HMRC by post.\""
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-sdlt#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk SDLT return completion statement effective date information you need to fill in return",
+   "grep of gov.uk SDLT1 completion guide for 'completion statement'"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-self-assessment#eligibility.autoQualifiers.0": {
+  "queries": [
+   "fetched gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+   "fetched gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+    "why": "\"you were self-employed as a 'sole trader' and earned more than £1,000\"."
+   },
+   {
+    "url": "https://www.gov.uk/become-sole-trader/register-sole-trader",
+    "why": "\"You must register as a sole trader if you: earn more than £1,000 in a tax year\"."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-self-assessment#eligibility.criteria.0": {
+  "queries": [
+   "fetched gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+    "why": "\"self-employed as a 'sole trader' and earned more than £1,000 (before taking off anything you can claim tax relief on)\" and \"you were a partner in a business partnership\"."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-self-assessment#eligibility.criteria.1": {
+  "queries": [
+   "fetched gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+   "site:gov.uk company directors do not need to send a Self Assessment tax return just because they are a director"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/self-assessment-tax-returns/who-must-send-a-tax-return",
+    "why": "States CGT and \"High Income Child Benefit Charge and do not pay it through PAYE\", and untaxed income \"money from renting out property ... tips and commission, savings interest, dividends ... foreign income\"; says nothing about company directors."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-self-assessment#eligibility.evidenceRequired.0": {
+  "queries": [
+   "site:gov.uk register for Self Assessment National Insurance number",
+   "fetched gov.uk/become-sole-trader/register-sole-trader"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/become-sole-trader/register-sole-trader",
+    "why": "\"You'll need a National Insurance number to register for Self Assessment.\""
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-smp#agentInteraction.methods": {
+  "queries": [
+   "gov.uk statutory maternity pay claim employer refuses SMP1 contact HMRC Statutory Payment Disputes Team phone post",
+   "fetched gov.uk/maternity-pay-leave/how-to-claim"
+  ],
+  "urls": [
+   {
+    "url": "https://www.citizensadvice.org.uk/work/maternity-and-parental-rights/check-your-maternity-and-parental-rights/maternity-leave-and-pay/how-to-get-your-maternity-pay/",
+    "why": "Only for disputes: contact HMRC Statutory Payments Disputes Team by phone \"Tel: 0300 322 9422\" or at \"BX9 1AN\"; normal claims are made through the employer."
+   },
+   {
+    "url": "https://www.gov.uk/maternity-pay-leave/how-to-claim",
+    "why": "Notice to employer can be required \"in writing if they ask for it\"; no phone/post claim route to HMRC."
+   }
+  ],
+  "verdict_hint": "partly"
+ }
+}

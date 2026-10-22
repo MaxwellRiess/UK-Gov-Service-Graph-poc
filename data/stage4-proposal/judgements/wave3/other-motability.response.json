@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply to the Motability Scheme by phone.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The helpline is for finding a dealer; the text says the vehicle is ordered at a dealership, not by phone."
+        }
+      ]
+    },
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {
+          "claim": "Enhanced-rate PIP mobility qualifies for the Motability Scheme.",
+          "verdict": "supported",
+          "quote": "Enhanced rate mobility part of Personal Independence Payment (PIP)",
+          "source": 2,
+          "note": "The scheme lists enhanced-rate PIP mobility as qualifying."
+        },
+        {
+          "claim": "At least 12 months must remain on the qualifying award.",
+          "verdict": "supported",
+          "quote": "You need to have at least 12 months left on your allowance if you&#x27;re applying to join the Scheme.",
+          "source": 2,
+          "note": "The scheme states the 12-month minimum."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "At least 12 months must remain on the PIP mobility award when ordering a vehicle.",
+          "verdict": "supported",
+          "quote": "When you apply for a Motability vehicle, you must have at least 12 months left before your benefit ends",
+          "source": 1,
+          "note": "Citizens Advice states the 12-month condition when applying for a vehicle."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "A PIP award letter confirming enhanced-rate mobility must be supplied.",
+          "verdict": "partly_supported",
+          "quote": "You can check your award length on your allowance award letter",
+          "source": 2,
+          "note": "The award letter is mentioned for checking award length, while the required dealer evidence is a certificate of entitlement rather than specifically a PIP award letter."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Evidence must show at least 12 months remain on the award.",
+          "verdict": "partly_supported",
+          "quote": "You can check your award length on your allowance award letter",
+          "source": 2,
+          "note": "The 12-month condition and award letter check are stated, but the text does not say this must be supplied as separate evidence."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "in-person"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,178 @@
+{
+  "hmpo-passport#eligibility.criteria.0": {
+    "queries": [
+      "direct fetch: gov.uk/apply-first-adult-passport (who can apply)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/apply-first-adult-passport",
+        "why": "States the first eligibility condition for a first adult UK passport: 'you're a British national', linking to types of British nationality."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "gro-register-death#eligibility.criteria.1": {
+    "queries": [
+      "who can register a death relative present at the death occupier of the premises gov.uk",
+      "direct fetch: nidirect registering a death",
+      "direct fetch: legislation Births and Deaths Registration Act 1953 s16"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/Eliz2/1-2/20/section/16",
+        "why": "England and Wales statute listing qualified informants: relatives present at the death or in attendance during the last illness, 'any person present at the death', and the occupier of the house."
+      },
+      {
+        "url": "https://www.northtyneside.gov.uk/births-deaths-and-marriages/death-and-bereavement/step-by-step/register-death/who-can-register",
+        "why": "Council page (England) listing 'a relative present at the death', 'a person present at the death', 'the occupier of the premises where the person died'."
+      },
+      {
+        "url": "https://www.nidirect.gov.uk/articles/registering-death",
+        "why": "Northern Ireland page listing 'any relative of the deceased', 'a person present at the death', and the governor or chief officer of a public building where the death occurred."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "hmcts-divorce#eligibility.criteria.1": {
+    "queries": [
+      "divorce jurisdiction domiciled habitually resident England and Wales six months gov.uk form D8 guidance",
+      "direct fetch: gov.uk/divorce/check-you-can-get-divorced (no residence rule)",
+      "direct fetch: legislation Domicile and Matrimonial Proceedings Act 1973 s5"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/1973/45/section/5",
+        "why": "s5(2) jurisdiction grounds include 'either of the parties to the marriage is domiciled in England and Wales' and applicant 'domiciled and habitually resident' who 'has resided there for at least six months immediately before the application'; the 6-month rule needs domicile plus habitual residence, and other habitual-residence grounds (eg 12 months) differ from the claim's wording."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "hmcts-gender-recognition#eligibility.criteria.1": {
+    "queries": [
+      "gender recognition certificate eligibility UK national resident overseas application gov.uk guidance",
+      "Gender Recognition Certificate must be UK national or ordinarily resident requirement Gender Recognition Panel",
+      "(reviewed nidirect gender recognition and GRA 2004 s3A results)"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "hmcts-legal-aid#eligibility.criteria.1": {
+    "queries": [
+      "direct fetch: gov.uk/legal-aid/eligibility (no merits test)",
+      "civil legal aid merits test prospects of success cost benefit proportionality gov.uk Legal Aid Agency",
+      "direct fetch: legislation Civil Legal Aid (Merits Criteria) Regulations 2013 Part 4"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/uksi/2013/104/part/4",
+        "why": "Merits criteria for full representation: prospects of success must be 'very good, good or moderate' (reg 43) and cost-benefit tests, eg likely damages exceed likely costs 'by a ratio of four to one' for moderate prospects, plus the proportionality test (reg 42)."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "la-blue-badge#eligibility.criteria.0": {
+    "queries": [
+      "direct fetch: gov.uk/government/publications/blue-badge-can-i-get-one",
+      "Who can get a Blue Badge guidance gov.uk automatically qualify PIP moving around 8 points",
+      "direct fetch: blue-badge-can-i-get-one/can-i-get-a-blue-badge"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge",
+        "why": "England guidance: automatic if 'you are registered blind (severely sight impaired)'; discretionary if 'you find walking very difficult due to pain, breathlessness or the time it takes'; covers non-visible conditions, though 'very considerable difficulty' wording is tied to walking, not hidden disability."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "sss-adult-disability-payment#eligibility.criteria.2": {
+    "queries": [
+      "mygov.scot adult disability payment eligibility \"live in Scotland\"",
+      "Adult Disability Payment who can apply live in Scotland (mygov.scot, socialsecurity.gov.scot, gov.scot)",
+      "direct fetch: mygov.scot/adult-disability-payment/eligibility (404)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/publications/2017/02/adult-disability-payment-decision-making-guide/pages/residence-and-presence-for-adult-disability-payment/eligibility",
+        "why": "Social Security Scotland decision guide: main residence requirement is that 'they are ordinarily resident in Scotland'."
+      },
+      {
+        "url": "https://www.citizensadvice.org.uk/scotland/benefits/sick-or-disabled-people-and-carers/adult-disability-payment/adult-disability-s/",
+        "why": "Citizens Advice Scotland: 'You must meet the rules about living in Scotland to get Adult Disability Payment', in most cases you must 'live in Scotland'."
+      }
+    ],
+    "verdict_hint": "found"
+  },
+  "ch-close-company#eligibility.exclusions.1": {
+    "queries": [
+      "strike off company cannot apply if subject of legal proceedings Companies House guidance",
+      "gov.uk get your company struck off cannot apply \"legal action\" or \"legal proceedings\" DS01 conditions",
+      "direct fetch: gov.uk strike-off-your-company-from-companies-register, closing-a-limited-company/getting-your-company-struck-off, Companies House striking-off guidance"
+    ],
+    "urls": [],
+    "verdict_hint": "not found"
+  },
+  "dwp-voluntary-ni-contributions#eligibility.exclusions.0": {
+    "queries": [
+      "voluntary National Insurance contributions not worth paying if already 35 qualifying years full new State Pension gov.uk",
+      "voluntary contributions \"35 qualifying years\" check if paying would increase State Pension (gov.uk, citizensadvice)",
+      "direct fetch: gov.uk/voluntary-national-insurance-contributions/why-pay-voluntary-contributions (no 35 years)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/new-state-pension/what-youll-get",
+        "why": "States 'you will need 35 qualifying years to get the full rate of new State Pension' but does not frame full entitlement as a bar to voluntary contributions."
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/your-new-state-pension-explained/your-state-pension-explained",
+        "why": "States you 'will need 35 qualifying years to get the full amount of new State Pension' and that voluntary contributions can fill gaps; no explicit exclusion."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "insolvency-bankruptcy#eligibility.exclusions.0": {
+    "queries": [
+      "gov.uk apply for bankruptcy cannot apply if already bankrupt",
+      "direct fetch: legislation Insolvency Act 1986 s263K",
+      "(reviewed Gazette and archived gov.uk becoming-bankrupt results)"
+    ],
+    "urls": [
+      {
+        "url": "https://www.legislation.gov.uk/ukpga/1986/45/section/263K",
+        "why": "Adjudicator must refuse unless 'no bankruptcy order has been made in respect of any of the debts which are the subject of the application' and no petition is pending; narrower than a general 'already bankrupt' bar."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "la-blue-badge#eligibility.autoQualifiers.0": {
+    "queries": [
+      "Who can get a Blue Badge guidance gov.uk automatically qualify PIP moving around 8 points",
+      "direct fetch: blue-badge-can-i-get-one/can-i-get-a-blue-badge",
+      "direct fetch: blue-badge-can-i-get-one publication page"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/blue-badge-can-i-get-one/can-i-get-a-blue-badge",
+        "why": "Automatic eligibility for PIP recipients with 'a score of 8 points or more under the moving around activity of the mobility component' (England), which is the specific test rather than any enhanced mobility award."
+      }
+    ],
+    "verdict_hint": "partly"
+  },
+  "nhs-continuing-healthcare#eligibility.autoQualifiers.0": {
+    "queries": [
+      "direct fetch: nhs.uk NHS continuing healthcare guide",
+      "NHS continuing healthcare fast track pathway rapidly deteriorating end of life (gov.uk, nhs.uk)",
+      "direct fetch: gov.uk fast-track pathway tool guidance"
+    ],
+    "urls": [
+      {
+        "url": "https://www.gov.uk/government/publications/nhs-continuing-healthcare-fast-track-pathway-tool/fast-track-pathway-tool-for-nhs-continuing-healthcare-guidance",
+        "why": "Tool identifies people 'who need to be fast tracked for immediate provision of NHS continuing healthcare due to a rapidly deteriorating condition that may mean individuals are entering a terminal phase'."
+      },
+      {
+        "url": "https://www.nhs.uk/social-care-and-support/money-work-and-benefits/nhs-continuing-healthcare/",
+        "why": "States terminally ill people's assessment 'may be fast-tracked' and those nearing end of life 'should be considered for the NHS continuing healthcare fast-track pathway'."
+      }
+    ],
+    "verdict_hint": "found"
+  }
+}

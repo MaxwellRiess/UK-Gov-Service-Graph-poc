@@ -1,0 +1,30 @@
+{
+  "fields": [
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "A mortgage agreement in principle is required as evidence for First Homes scheme qualification.",
+          "verdict": "partly_supported",
+          "quote": "You will also need to provide: proof of address last 3 month's payslips last P60 (or signed off self-employed accounts) last 3 months' bank statements a mortgage lender decision in principle (DiP)",
+          "source": 2,
+          "note": "Arun Council requires a lender decision in principle for its applications; the national page does not establish a scheme-wide document requirement."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Proof of income is required as evidence for First Homes scheme qualification.",
+          "verdict": "partly_supported",
+          "quote": "You will also need to provide: proof of address last 3 month's payslips last P60 (or signed off self-employed accounts) last 3 months' bank statements",
+          "source": 2,
+          "note": "Arun Council lists income documents for its applications; the national page states income limits but not a universal proof requirement."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

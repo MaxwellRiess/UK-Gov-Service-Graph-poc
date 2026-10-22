@@ -1,22 +1,7 @@
 {
-  "generatedAt": "2026-09-29T15:11:59.706Z",
+  "generatedAt": "2026-10-22T10:14:48.723Z",
   "model": "claude-opus-5-5",
   "review": [
-    {
-      "id": "dfe-apply-teacher-training",
-      "name": "Apply for teacher training",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must sign in to use the service.",
-          "quote": "You’ll need to sign in to use this service."
-        }
-      ]
-    },
     {
       "id": "dvla-check-driving-licence",
       "name": "View and share driving licence",
@@ -29,294 +14,6 @@
           "verdict": "contradicted",
           "note": "The text asks for your licence number, National Insurance number and postcode, and the only account it names is the driver and vehicles account, not Government Gateway.",
           "quote": "You’ll need: your driving licence number your National Insurance number - find your National Insurance number if you’ve lost it the postcode on your driving licence"
-        }
-      ]
-    },
-    {
-      "id": "dwp-benefit-debt-repayment",
-      "name": "Repay a benefit overpayment",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says the online route means signing into your Universal Credit account.",
-          "quote": "You can report an overpayment by signing into your Universal Credit account"
-        }
-      ]
-    },
-    {
-      "id": "dwp-cold-weather-payment",
-      "name": "Cold Weather Payment",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "You can apply for or do this service online.",
-          "verdict": "contradicted",
-          "note": "The text says there is no application because payment is automatic; online accounts are mentioned only for Universal Credit change reports.",
-          "quote": "You do not need to apply. If you’re eligible to get Cold Weather Payments , you’ll be paid automatically."
-        }
-      ]
-    },
-    {
-      "id": "dwp-mandatory-reconsideration",
-      "name": "Mandatory Reconsideration",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The only online route the text names needs a Universal Credit account.",
-          "quote": "using your journal (if you have access to a Universal Credit account and the decision is about Universal Credit)"
-        }
-      ]
-    },
-    {
-      "id": "dwp-pip",
-      "name": "Personal Independence Payment (PIP)",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text links applying online with registering for and signing in to a PIP account, although claims by phone or post need no account.",
-          "quote": "If you’ve already registered, you can sign in to your PIP account ."
-        }
-      ]
-    },
-    {
-      "id": "dwp-smi",
-      "name": "Support for Mortgage Interest",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The online route for Universal Credit claimants uses their Universal Credit account, so the text does name an account.",
-          "quote": "add a message to your journal on your Universal Credit account"
-        }
-      ]
-    },
-    {
-      "id": "dwp-uc-carer",
-      "name": "UC Carer element",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID (sign-in)",
-          "verdict": "contradicted",
-          "note": "The text names a Universal Credit account for claiming online, not Government Gateway.",
-          "quote": "You need to create an account to make a claim."
-        }
-      ]
-    },
-    {
-      "id": "dwp-uc-health",
-      "name": "UC limited capability element",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID (sign-in)",
-          "verdict": "contradicted",
-          "note": "The text says you need a Universal Credit account to claim online, not Government Gateway.",
-          "quote": "You can apply for Universal Credit online. You need to create an account to make a claim."
-        }
-      ]
-    },
-    {
-      "id": "dwp-universal-credit",
-      "name": "Universal Credit",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID.",
-          "verdict": "contradicted",
-          "note": "The text says you create and sign in to a Universal Credit account, and never mentions Government Gateway.",
-          "quote": "Sign in to your Universal Credit account if you already have one."
-        }
-      ]
-    },
-    {
-      "id": "gro-certificates",
-      "name": "Order a birth, death or marriage certificate",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must register on the GRO website to order online.",
-          "quote": "You need to register on the General Register Office ( GRO ) website to get a copy"
-        }
-      ]
-    },
-    {
-      "id": "gro-death-certificate",
-      "name": "Obtain death certificates",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply",
-          "verdict": "contradicted",
-          "note": "The text says you must register on the GRO website to order online.",
-          "quote": "You need to register on the General Register Office ( GRO ) website"
-        }
-      ]
-    },
-    {
-      "id": "gro-marriage-cert",
-      "name": "Marriage / CP certificate",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply",
-          "verdict": "contradicted",
-          "note": "The text says you must register on the GRO website to order online.",
-          "quote": "You need to register on the General Register Office ( GRO ) website"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-immigration-tribunal",
-      "name": "Appeal to Immigration Tribunal",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need to create an account to appeal online, and professionals need a MyHMCTS account.",
-          "quote": "You’ll need to create an account."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-free-childcare-30",
-      "name": "Free childcare — 30 hours (working parents)",
-      "field": "agentInteraction.authRequired",
-      "graph": "Applying online needs a Government Gateway user ID (sign-in)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Applying online needs a Government Gateway user ID.",
-          "verdict": "contradicted",
-          "note": "The text names a childcare account as the sign-in, not a Government Gateway user ID.",
-          "quote": "You’ll set up a childcare account when you apply."
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "desc",
-      "graph": "Collect from post office within 10 days of arriving. Proves right to work and rent.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Collect the BRP from a post office within 10 days of arriving.",
-          "verdict": "contradicted",
-          "note": "The text says every BRP has expired and been replaced by eVisas, and it does not mention collecting one from a post office.",
-          "quote": "All BRPs have now expired and have been replaced by eVisas."
-        },
-        {
-          "claim": "The BRP proves right to work and rent.",
-          "verdict": "contradicted",
-          "note": "The text says an expired BRP can only be used for these three things, and that you use the eVisa to prove your status for anything else.",
-          "quote": "You can only use it to: sign in to view your eVisa and get a share code create a UKVI account to get access to your eVisa apply to extend your permission to stay in the UK"
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "eligibility.summary",
-      "graph": "Issued to non-UK nationals granted leave to remain for more than 6 months. Collect from the named post office within 10 days of arrival in the UK. Required to prove right to work and rent.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "BRPs are issued to non-UK nationals granted leave to remain for more than 6 months.",
-          "verdict": "partly_supported",
-          "note": "The text links BRPs to permission granted on or before 31 October 2024, but it does not mention a 6-month condition and it describes BRPs as no longer current.",
-          "quote": "You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024."
-        },
-        {
-          "claim": "Collect from the named post office within 10 days of arrival in the UK.",
-          "verdict": "contradicted",
-          "note": "The text says BRPs have all expired and been replaced by eVisas, and it does not mention collecting one from a post office.",
-          "quote": "All BRPs have now expired and have been replaced by eVisas."
-        },
-        {
-          "claim": "A BRP is required to prove right to work and rent.",
-          "verdict": "contradicted",
-          "note": "The text says the eVisa, not the BRP, is what proves immigration status for purposes other than the few listed.",
-          "quote": "You can use your eVisa to prove your immigration status for any other reason."
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need a UKVI account to get access to your eVisa, which is what replaced the BRP.",
-          "quote": "you need to create a UK Visas and Immigration ( UKVI ) account to get access to your eVisa"
-        }
-      ]
-    },
-    {
-      "id": "ho-evisa",
-      "name": "Get access to your eVisa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says a UKVI account is needed.",
-          "quote": "You need a UK Visas and Immigration ( UKVI ) account to access your eVisa."
-        }
-      ]
-    },
-    {
-      "id": "ho-immigration-appeal",
-      "name": "Appeal a visa or immigration decision",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need an account to appeal online, and legal professionals must use a MyHMCTS account.",
-          "quote": "You’ll need to create an account."
         }
       ]
     },
@@ -336,219 +33,6 @@
       ]
     },
     {
-      "id": "ho-skilled-worker-dependent-visa",
-      "name": "Skilled Worker dependant visa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says applicants create or sign into a UKVI account.",
-          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
-        }
-      ]
-    },
-    {
-      "id": "ho-skilled-worker-visa",
-      "name": "Skilled Worker visa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says applicants create or sign into a UKVI account, and it offers a sign-in to continue an application.",
-          "quote": "you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
-        }
-      ]
-    },
-    {
-      "id": "ho-student-visa",
-      "name": "Student visa",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "You don't need an account or sign-in to apply.",
-          "verdict": "contradicted",
-          "note": "The text says applicants who prove their identity with the ID Check app create or sign into a UKVI account, and that successful applicants must create a UKVI account.",
-          "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
-        }
-      ]
-    },
-    {
-      "id": "ho-view-immigration-status",
-      "name": "View or prove your immigration status",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must sign in to your UKVI account.",
-          "quote": "You’ll need the details you use to sign in to your UKVI account."
-        }
-      ]
-    },
-    {
-      "id": "insolvency-bankruptcy",
-      "name": "Apply for bankruptcy",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must create an account and sign in to it.",
-          "quote": "You’ll be asked to create an account."
-        }
-      ]
-    },
-    {
-      "id": "llc-local-land-charges",
-      "name": "Local land charges search",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need to create an account.",
-          "quote": "You’ll need to create an account to use this service."
-        }
-      ]
-    },
-    {
-      "id": "lr-property-search",
-      "name": "Search for property information",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you have to sign in to use the service.",
-          "quote": "You’ll need to sign in to use this service."
-        }
-      ]
-    },
-    {
-      "id": "ni-rate-rebate",
-      "name": "Rate Rebate",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you must create a Rate Rebate account and log in to it before you can apply.",
-          "quote": "Before you can apply, you need to create a Rate Rebate account online."
-        }
-      ]
-    },
-    {
-      "id": "opg-lpa",
-      "name": "Lasting Power of Attorney",
-      "field": "agentInteraction.authRequired",
-      "graph": "No account or sign-in is needed to apply",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "No account or sign-in is needed to apply.",
-          "verdict": "contradicted",
-          "note": "The text says you need to create or sign in to an account to make an LPA online.",
-          "quote": "Create or sign in to an existing account to: make an LPA"
-        }
-      ]
-    },
-    {
-      "id": "sss-carers-allowance-supplement",
-      "name": "Carer's Allowance Supplement",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "contradicted",
-          "note": "The text says payment is automatic and no action is needed, so it gives no online route for applying.",
-          "quote": "You do not need to do anything."
-        }
-      ]
-    },
-    {
-      "id": "dfe-national-careers",
-      "name": "National Careers Service",
-      "field": "desc",
-      "graph": "Free careers advice, skills assessment and job profile browsing through the government's National Careers Service.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The careers advice is free.",
-          "verdict": "not_stated",
-          "note": "The text never says the service or advice is free.",
-          "quote": null
-        },
-        {
-          "claim": "The National Careers Service is run by the government.",
-          "verdict": "not_stated",
-          "note": "The text names the National Careers Service but never says the government runs it.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dfe-national-careers",
-      "name": "National Careers Service",
-      "field": "eligibility.summary",
-      "graph": "Free for anyone in England aged 13 or over. Provides one-to-one careers advice (phone, webchat, online), a skills assessment tool, job profiles and a course finder.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The service is free.",
-          "verdict": "not_stated",
-          "note": "The text never mentions cost.",
-          "quote": null
-        },
-        {
-          "claim": "The service is available to anyone in England.",
-          "verdict": "not_stated",
-          "note": "The text does not mention England or say who can use the service.",
-          "quote": null
-        },
-        {
-          "claim": "The service is for people aged 13 or over.",
-          "verdict": "not_stated",
-          "note": "The text gives no age limit.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dhsc-baby-loss-certificate",
-      "name": "Request a baby loss certificate",
-      "field": "eligibility.summary",
-      "graph": "Available to parents who experienced the loss of a baby before 24 weeks gestation (including miscarriage and ectopic pregnancy). Free and optional. The certificate is not a legal document (it cannot be used to claim benefits) and is not added to the GP record. Losses before 1 October 1992 are covered up to 28 weeks. England only; arrives by post within 21 days.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "This includes miscarriage and ectopic pregnancy.",
-          "verdict": "not_stated",
-          "note": "The text never mentions miscarriage or ectopic pregnancy.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "dvla-update-address",
       "name": "Update driving licence address",
       "field": "agentInteraction.authRequired",
@@ -560,60 +44,6 @@
           "verdict": "partly_supported",
           "note": "The text says you need to sign in but does not name Government Gateway.",
           "quote": "You’ll need to sign in to use this service."
-        }
-      ]
-    },
-    {
-      "id": "dwp-child-maintenance",
-      "name": "Child Maintenance Service",
-      "field": "desc",
-      "graph": "If parents cannot agree privately. CMS calculates based on paying parent's income.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The Child Maintenance Service is used if parents cannot agree privately.",
-          "verdict": "partly_supported",
-          "note": "The text gives private arrangement (if both parents agree) and the CMS as two options, but it never says the CMS is only for parents who cannot agree.",
-          "quote": "privately between parents , if both parents agree through the Child Maintenance Service"
-        },
-        {
-          "claim": "CMS calculates based on the paying parent's income.",
-          "verdict": "partly_supported",
-          "note": "The text says the CMS works out an amount to pay but does not say this is based on the paying parent's income.",
-          "quote": "work out an amount to pay"
-        }
-      ]
-    },
-    {
-      "id": "dwp-child-maintenance",
-      "name": "Child Maintenance Service",
-      "field": "eligibility.summary",
-      "graph": "A statutory service for parents who cannot reach a private maintenance arrangement. CMS calculates payments based on the paying parent's income. A fee applies to use the Collect & Pay service.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The CMS is a statutory service.",
-          "verdict": "not_stated",
-          "note": "The text does not describe the service as statutory.",
-          "quote": null
-        },
-        {
-          "claim": "It is for parents who cannot reach a private maintenance arrangement.",
-          "verdict": "partly_supported",
-          "note": "The CMS is presented as an alternative to a private arrangement, but the text does not limit it to parents who cannot reach one.",
-          "quote": "privately between parents , if both parents agree through the Child Maintenance Service"
-        },
-        {
-          "claim": "CMS calculates payments based on the paying parent's income.",
-          "verdict": "partly_supported",
-          "note": "The text says the CMS works out an amount but does not mention income as the basis.",
-          "quote": "work out an amount to pay"
-        },
-        {
-          "claim": "A fee applies to use the Collect & Pay service.",
-          "verdict": "not_stated",
-          "note": "The text does not mention fees or Collect & Pay.",
-          "quote": null
         }
       ]
     },
@@ -671,21 +101,6 @@
           "verdict": "partly_supported",
           "note": "The test is a progressive disease where the clinician would not be surprised if the patient lived less than 12 months, and no specific prognosis is needed.",
           "quote": "You do not need to give a specific prognosis."
-        }
-      ]
-    },
-    {
-      "id": "dwp-sr1-form",
-      "name": "SR1 form (Special Rules for terminal illness)",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this by post. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "not_stated",
-          "note": "The text names online, email and post, and does not mention phone.",
-          "quote": null
         }
       ]
     },
@@ -843,21 +258,6 @@
       ]
     },
     {
-      "id": "gro-certificates",
-      "name": "Order a birth, death or marriage certificate",
-      "field": "eligibility.summary",
-      "graph": "Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index reference, or 15 working days without one, plus £3.50 per search). Priority service £38.50. Can also be ordered from the local register office.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Anyone can order certificates.",
-          "verdict": "not_stated",
-          "note": "The text never says who is allowed to order certificates.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "hmrc-register-sole-trader",
       "name": "Register as sole trader",
       "field": "desc",
@@ -1010,21 +410,6 @@
     {
       "id": "ho-evisa-error",
       "name": "Report an error with your eVisa",
-      "field": "desc",
-      "graph": "Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Wrong conditions of stay or a wrong expiry date are examples of errors you can report.",
-          "verdict": "not_stated",
-          "note": "The text's examples are date of birth, immigration status, name and nationality. It does not mention conditions of stay or expiry dates.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "ho-evisa-error",
-      "name": "Report an error with your eVisa",
       "field": "eligibility.summary",
       "graph": "Available to any eVisa holder who has found an error in their digital immigration status. Errors should be reported promptly as they can affect right-to-work and right-to-rent checks.",
       "verdict": "partly_supported",
@@ -1075,21 +460,6 @@
           "claim": "The waiver is available to people applying for British citizenship.",
           "verdict": "not_stated",
           "note": "The text never mentions British citizenship applications.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "ho-view-immigration-status",
-      "name": "View or prove your immigration status",
-      "field": "eligibility.summary",
-      "graph": "Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The service is available to non-British, non-Irish nationals.",
-          "verdict": "not_stated",
-          "note": "The text does not say anything about which nationalities are eligible.",
           "quote": null
         }
       ]
@@ -1174,27 +544,6 @@
           "claim": "After bankruptcy, most remaining debts are written off.",
           "verdict": "not_stated",
           "note": "The text does not mention debts being written off.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "jaqu-clean-air-zone",
-      "name": "Check and pay Clean Air Zone charges",
-      "field": "eligibility.summary",
-      "graph": "Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Non-compliant vehicles are typically pre-Euro 6 diesel or pre-Euro 4 petrol.",
-          "verdict": "not_stated",
-          "note": "The text does not mention Euro standards or fuel types.",
-          "quote": null
-        },
-        {
-          "claim": "Charges vary by zone and vehicle type.",
-          "verdict": "not_stated",
-          "note": "The text gives no charge amounts and does not say how charges vary.",
           "quote": null
         }
       ]
@@ -1485,63 +834,6 @@
       ]
     },
     {
-      "id": "lr-sign-mortgage-deed",
-      "name": "Sign your mortgage deed",
-      "field": "desc",
-      "graph": "Sign your mortgage deed electronically via HM Land Registry's digital mortgage service, replacing the need for a wet signature on a paper deed.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It replaces the need for a wet signature on a paper deed.",
-          "verdict": "not_stated",
-          "note": "The text never mentions wet signatures or paper deeds.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "lr-sign-mortgage-deed",
-      "name": "Sign your mortgage deed",
-      "field": "eligibility.summary",
-      "graph": "Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is available to borrowers buying a property.",
-          "verdict": "not_stated",
-          "note": "The text only mentions homeowners who are remortgaging and says nothing about purchases.",
-          "quote": null
-        },
-        {
-          "claim": "You need a GOV.UK One Login account to verify your identity before signing.",
-          "verdict": "not_stated",
-          "note": "The text names no account, sign-in or identity check.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "nhs-111-online",
-      "name": "NHS 111 online",
-      "field": "desc",
-      "graph": "Get urgent medical advice online or by phone when you need help fast but it is not a 999 emergency. 111 assesses your symptoms and directs you to the right service.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can get the advice by phone.",
-          "verdict": "not_stated",
-          "note": "The text mentions 'other ways to contact 111' but never names phone.",
-          "quote": null
-        },
-        {
-          "claim": "It is for when you need help fast but it is not a 999 emergency.",
-          "verdict": "not_stated",
-          "note": "The text does not mention 999 or emergencies.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "nhs-111-online",
       "name": "NHS 111 online",
       "field": "eligibility.summary",
@@ -1571,48 +863,6 @@
           "verdict": "partly_supported",
           "note": "The text says it directs you to the best place, but it does not list A&E, an urgent GP visit, a pharmacy or self-care at home as outcomes.",
           "quote": "we will direct you to the best place to get help for your symptoms"
-        }
-      ]
-    },
-    {
-      "id": "nhs-111-online",
-      "name": "NHS 111 online",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "not_stated",
-          "note": "The text refers to 'other ways to contact 111' without naming phone.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "nhs-continuing-healthcare",
-      "name": "NHS Continuing Healthcare (CHC)",
-      "field": "desc",
-      "graph": "Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The primary health need is complex.",
-          "verdict": "not_stated",
-          "note": "The text says 'primary health need' but never calls it complex.",
-          "quote": null
-        },
-        {
-          "claim": "It covers nursing home fees, home care and specialist support.",
-          "verdict": "not_stated",
-          "note": "The text does not say what the package covers.",
-          "quote": null
-        },
-        {
-          "claim": "There is no means test.",
-          "verdict": "not_stated",
-          "note": "The text does not mention a means test.",
-          "quote": null
         }
       ]
     },
@@ -1913,21 +1163,6 @@
     {
       "id": "other-pupil-premium",
       "name": "Pupil Premium",
-      "field": "eligibility.summary",
-      "graph": "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Parents should still make sure the school records eligibility.",
-          "verdict": "not_stated",
-          "note": "The text gives no advice to parents about making sure eligibility is recorded.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "other-pupil-premium",
-      "name": "Pupil Premium",
       "field": "eligibility.autoQualifiers.0",
       "graph": "Free School Meals eligibility confirmed — school receives funding automatically",
       "verdict": "partly_supported",
@@ -2000,21 +1235,6 @@
     {
       "id": "voa-business-rates",
       "name": "Check and challenge business rates",
-      "field": "desc",
-      "graph": "Check your business property's rateable value and challenge it if incorrect through the Check, Challenge and Appeal process.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The challenge is made through the Check, Challenge and Appeal process.",
-          "verdict": "not_stated",
-          "note": "The text never names a 'Check, Challenge and Appeal' process.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "voa-business-rates",
-      "name": "Check and challenge business rates",
       "field": "eligibility.summary",
       "graph": "Available to business ratepayers in England who believe their property's rateable value on the rating list is incorrect. The Check, Challenge, Appeal process requires a business rates account.",
       "verdict": "partly_supported",
@@ -2030,27 +1250,6 @@
           "verdict": "partly_supported",
           "note": "The text says to use a business rates valuation account to challenge, but it never names a Check, Challenge, Appeal process.",
           "quote": "If you want to report a change to your property or challenge its rateable value, use your business rates valuation account ."
-        }
-      ]
-    },
-    {
-      "id": "acas-early-conciliation",
-      "name": "ACAS early conciliation",
-      "field": "desc",
-      "graph": "Mandatory pre-tribunal step for most employment disputes; a free Acas conciliation service that tries to resolve disputes before a tribunal claim is lodged.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Early conciliation is a mandatory pre-tribunal step for most employment disputes.",
-          "verdict": "partly_supported",
-          "note": "Notifying Acas is mandatory and some claims are exempt, but the text says taking part in conciliation itself is voluntary, so only the notification is a required step.",
-          "quote": "You must notify Acas if you want to make a claim to an employment tribunal."
-        },
-        {
-          "claim": "The Acas early conciliation service is free.",
-          "verdict": "not_stated",
-          "note": "The text never says early conciliation is free; the only thing it calls free is the penalty enforcement scheme.",
-          "quote": null
         }
       ]
     },
@@ -2240,27 +1439,6 @@
           "verdict": "not_stated",
           "note": "The text never mentions a £25,000 threshold or a publishing duty for other public bodies.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dbs-basic-check",
-      "name": "Basic DBS criminal record check",
-      "field": "eligibility.summary",
-      "graph": "Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £21.50. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "People in Scotland or Northern Ireland can also apply.",
-          "verdict": "partly_supported",
-          "note": "People there can apply only if the job is in England or Wales, a condition the claim leaves out; jobs in Scotland or Northern Ireland use a different process.",
-          "quote": "You can also get a basic DBS check if you live in Northern Ireland or Scotland but the job you’re applying for is in England or Wales."
-        },
-        {
-          "claim": "Standard and enhanced checks are applied for by employers.",
-          "verdict": "partly_supported",
-          "note": "Employers do run standard and enhanced checks, but Source 2 says self-employed people and personal employees can apply for an enhanced check themselves, so these checks are not applied for only by employers.",
-          "quote": "As an employer or Registered Body, you provide the candidate with a DBS application form to complete and return to you."
         }
       ]
     },
@@ -3570,51 +2748,6 @@
       ]
     },
     {
-      "id": "dwp-maternity-allowance",
-      "name": "Maternity Allowance",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Employment or self-employment evidence",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Employment or self-employment evidence is needed.",
-          "verdict": "partly_supported",
-          "note": "The page asks for information about employment on the form and for payslips as proof of income, but it never asks for self-employment evidence as such.",
-          "quote": "You’ll need to give information about your employment in the 66 weeks before your baby is due"
-        }
-      ]
-    },
-    {
-      "id": "dwp-maternity-allowance",
-      "name": "Maternity Allowance",
-      "field": "eligibility.evidenceRequired.2",
-      "graph": "Payslips or accounts",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Payslips or accounts are needed.",
-          "verdict": "partly_supported",
-          "note": "Original payslips are required, but the page never mentions accounts.",
-          "quote": "You need to provide original payslips as proof of income."
-        }
-      ]
-    },
-    {
-      "id": "dwp-maternity-allowance",
-      "name": "Maternity Allowance",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply online.",
-          "verdict": "partly_supported",
-          "note": "You can fill in the MA1 form online, but it has to be printed and sent to the address on the form, so the page describes no way to submit online.",
-          "quote": "fill it in online and print it"
-        }
-      ]
-    },
-    {
       "id": "dwp-new-style-esa",
       "name": "New Style ESA",
       "field": "desc",
@@ -3713,36 +2846,6 @@
           "verdict": "not_stated",
           "note": "The text never mentions applying by post; writing to Jobcentre Plus is mentioned only for reporting changes of circumstances.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dwp-new-style-jsa",
-      "name": "New Style Jobseeker's Allowance",
-      "field": "eligibility.evidenceRequired.3",
-      "graph": "CV and job-seeking evidence",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "CV and job-seeking evidence is needed for this service.",
-          "verdict": "partly_supported",
-          "note": "The text says you must show proof of job-seeking at regular appointments, but it mentions a CV only as something the Claimant Commitment might ask you to write, not as evidence you must provide.",
-          "quote": "you must show your work coach what you’ve been doing to look for work, for example proof of job applications and interviews"
-        }
-      ]
-    },
-    {
-      "id": "dwp-new-style-jsa",
-      "name": "New Style Jobseeker's Allowance",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this by phone.",
-          "verdict": "partly_supported",
-          "note": "The text says you can apply another way by contacting Jobcentre Plus but does not say this is by phone; the only phone number given is the helpline for reporting changes, not for applying.",
-          "quote": "You need to either: contact Jobcentre Plus if you live in England, Scotland or Wales"
         }
       ]
     },
@@ -3890,7 +2993,7 @@
     {
       "id": "dwp-pension-credit",
       "name": "Pension Credit",
-      "field": "eligibility.evidenceRequired.2",
+      "field": "eligibility.evidenceRequired.1",
       "graph": "Proof of savings and capital",
       "verdict": "partly_supported",
       "problems": [
@@ -4563,27 +3666,6 @@
       ]
     },
     {
-      "id": "gro-register-birth",
-      "name": "Register the birth",
-      "field": "eligibility.summary",
-      "graph": "Required for every birth. In England, Wales and Northern Ireland it must be registered within 42 days; in Scotland within 21 days (different process). Usually done by a parent; others can register if the parents cannot.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Every birth must be registered.",
-          "verdict": "partly_supported",
-          "note": "The source only says this for births in England, Wales and Northern Ireland, not for every birth.",
-          "quote": "All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born."
-        },
-        {
-          "claim": "In Scotland a birth must be registered within 21 days.",
-          "verdict": "not_stated",
-          "note": "The source gives no deadline for Scotland.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "hmcts-benefit-tribunal",
       "name": "Social Security & Child Support Tribunal",
       "field": "desc",
@@ -4701,78 +3783,6 @@
       ]
     },
     {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "field": "eligibility.summary",
-      "graph": "No-fault divorce since April 2022 — no reasons needed. Apply online or on paper. Minimum timescale: 20 weeks to apply for the conditional order, then at least 43 days before applying for the final order. Fee £628. Can apply jointly or individually.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Divorce has been no-fault since April 2022 and no reasons are needed.",
-          "verdict": "not_stated",
-          "note": "The text refers to applications issued before and after 6 April 2022, and to reasons only for older cases, but it never says divorce is no-fault or that no reasons are needed.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Marriage or civil partnership certificate",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You need a marriage or civil partnership certificate.",
-          "verdict": "partly_supported",
-          "note": "The divorce page asks for a marriage certificate; civil partnership certificates belong to the separate process for ending a civil partnership.",
-          "quote": "your original marriage certificate or a certified copy (and a certified translation if it’s not in English)"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "field": "eligibility.summary",
-      "graph": "Anyone can make a claim to an Employment Tribunal for a qualifying employment rights violation. Must have gone through Acas early conciliation first (in most cases). Time limit is 3 months minus 1 day from the act complained of.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Anyone can make a claim to an Employment Tribunal for a qualifying employment rights violation.",
-          "verdict": "partly_supported",
-          "note": "The text says you can claim if you think you were treated unlawfully, but it never says 'anyone', and it notes a different way to claim in Northern Ireland.",
-          "quote": "You can make a claim to an employment tribunal if you think someone has treated you unlawfully, such as your employer, a potential employer or a trade union."
-        },
-        {
-          "claim": "In most cases you must have gone through Acas early conciliation before claiming.",
-          "verdict": "partly_supported",
-          "note": "The text says you must notify Acas and will usually need a certificate, but you can choose not to take part in conciliation, so going through it is not required.",
-          "quote": "If early conciliation does not work or you choose not to take part, Acas will send you an early conciliation certificate."
-        },
-        {
-          "claim": "The time limit is 3 months minus 1 day from the act complained of.",
-          "verdict": "partly_supported",
-          "note": "The text gives 3 months but does not mention 'minus 1 day', and for unfair dismissal the period starts when employment ended.",
-          "quote": "You usually have to make a claim within 3 months of your employment ending or the problem happening."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-employment-tribunal",
-      "name": "Employment Tribunal claim",
-      "field": "eligibility.exclusions.1",
-      "graph": "Out of time — more than 3 months since incident",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A claim is out of time if more than 3 months have passed since the incident.",
-          "verdict": "partly_supported",
-          "note": "The text says 'usually', starts the clock at the end of employment for unfair dismissal, and pauses the time limit during Acas conciliation, none of which the field mentions.",
-          "quote": "You usually have to make a claim within 3 months of your employment ending or the problem happening."
-        }
-      ]
-    },
-    {
       "id": "hmcts-financial-order",
       "name": "Financial Consent Order",
       "field": "eligibility.summary",
@@ -4790,51 +3800,6 @@
           "verdict": "partly_supported",
           "note": "The text presents a solicitor drafting it as one option, but never says this is what usually happens.",
           "quote": "You can get legal advice or you can ask a solicitor or divorce specialist to draft a consent order for you."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-financial-order",
-      "name": "Financial Consent Order",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Draft consent order (D81 form)",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A draft consent order (D81 form) is needed.",
-          "verdict": "partly_supported",
-          "note": "The text requires a signed draft consent order but never gives any form number such as D81.",
-          "quote": "draft a consent order sign the draft consent order - you also need 2 photocopies of the signed original"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-financial-order",
-      "name": "Financial Consent Order",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Financial disclosure from both parties",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Financial disclosure from both parties is needed.",
-          "verdict": "partly_supported",
-          "note": "Both parties must fill in a statement of information form, but the text does not call this financial disclosure or say what goes in it; the detailed financial statement (Form E) is only for the contested route.",
-          "quote": "fill in a statement of information form"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-financial-order",
-      "name": "Financial Consent Order",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "not_stated",
-          "note": "The text gives no online route for getting a consent order approved; the online options it mentions are for divorce and child arrangements, not this service.",
-          "quote": null
         }
       ]
     },
@@ -4886,78 +3851,6 @@
           "verdict": "partly_supported",
           "note": "The source requires a statutory declaration but does not say it confirms intent.",
           "quote": "Download and fill in a statutory declaration ."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "desc",
-      "graph": "Means and merits tested. Available in domestic abuse cases. Applied via Legal Aid Agency.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Legal aid is merits tested.",
-          "verdict": "partly_supported",
-          "note": "The text says the problem must be serious, but it never calls this a merits test and never mentions assessing the case's prospects.",
-          "quote": "You’ll usually need to show that: your case is eligible for legal aid the problem is serious you cannot pay for legal costs"
-        },
-        {
-          "claim": "You apply through the Legal Aid Agency.",
-          "verdict": "partly_supported",
-          "note": "The text says a legal adviser applies for you; it only mentions the Legal Aid Agency deciding exceptional case funding applications, not as the place you apply.",
-          "quote": "A legal adviser will apply for legal aid for you. You cannot apply for legal aid on your own."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "eligibility.summary",
-      "graph": "Government funding for legal advice and representation in certain cases. Both means-tested (income/capital) and merits-tested (strength of case). Domestic abuse cases have wider automatic eligibility. Applied via a legal aid solicitor.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Legal aid is merits tested on the strength of the case.",
-          "verdict": "not_stated",
-          "note": "The text never mentions judging the strength of the case.",
-          "quote": null
-        },
-        {
-          "claim": "Domestic abuse cases have wider automatic eligibility.",
-          "verdict": "partly_supported",
-          "note": "The text says domestic abuse cases may still qualify above the limits, but it does not say eligibility is automatic.",
-          "quote": "You might still be eligible if you have a higher income and your case is about: domestic abuse"
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "eligibility.autoQualifiers.0",
-      "graph": "Domestic abuse victim in family proceedings with supporting evidence",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Domestic abuse victim in family proceedings with supporting evidence",
-          "verdict": "partly_supported",
-          "note": "The text covers victims with evidence who cannot afford legal costs, but it does not limit this to family proceedings and adds the affordability condition.",
-          "quote": "You might be able to get legal aid if you have evidence that you or your children have experienced domestic abuse and you cannot afford to pay legal costs."
-        }
-      ]
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "CW2 means test form",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "CW2 means test form",
-          "verdict": "partly_supported",
-          "note": "The text only names form CW2 (IMM), for immigration exceptional case funding cases, and does not call it a means test form.",
-          "quote": "Immigration cases that go to a court or tribunal Complete the ECF application form CIV ECF 1 and form CW2 (IMM) ."
         }
       ]
     },
@@ -5274,21 +4167,6 @@
       ]
     },
     {
-      "id": "hmrc-cancel-marriage-allowance",
-      "name": "Cancel Marriage Allowance",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "Government Gateway account or contact HMRC by phone",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Cancelling needs a Government Gateway account, or you can contact HMRC by phone.",
-          "verdict": "partly_supported",
-          "note": "The text supports cancelling online or by phone through Marriage Allowance enquiries, but it never names Government Gateway. It only says you will prove your identity using information HMRC holds about you.",
-          "quote": "You must cancel online or by phone."
-        }
-      ]
-    },
-    {
       "id": "hmrc-carers-credit",
       "name": "Carer's Credit",
       "field": "eligibility.evidenceRequired.0",
@@ -5330,21 +4208,6 @@
           "verdict": "partly_supported",
           "note": "The text says to report changes of circumstances and to contact the office to change who gets Child Benefit, but it never mentions a child moving to the other parent after separation as the trigger.",
           "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-child-benefit-transfer",
-      "name": "Child Benefit transfer",
-      "field": "eligibility.summary",
-      "graph": "After separation, only one parent can claim Child Benefit per child. If the child's living arrangements change, Child Benefit must be transferred to the main carer.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "If the child's living arrangements change, Child Benefit must be transferred to the main carer.",
-          "verdict": "partly_supported",
-          "note": "The text describes changing who gets Child Benefit when you want someone else to claim, but it never says the benefit must be transferred to the main carer when living arrangements change.",
-          "quote": "Contact the Child Benefit Office if you want someone else to claim Child Benefit, for example, your spouse or partner. After you've done this, tell the other person to make a new claim."
         }
       ]
     },
@@ -5487,21 +4350,6 @@
       ]
     },
     {
-      "id": "hmrc-free-childcare-15",
-      "name": "Free childcare — 15 hours (3 and 4-year-olds)",
-      "field": "desc",
-      "graph": "Every 3 and 4-year-old in England gets 570 free hours a year (usually 15 hours a week for 38 weeks), from the term after their 3rd birthday. No income test and no application: arrange it with the childcare provider.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "No application is needed; you arrange it with the childcare provider.",
-          "verdict": "partly_supported",
-          "note": "The text points parents to the provider or council to find out more, but it never says that no application is needed or that the provider arranges it.",
-          "quote": "Contact your childcare provider or local council to find out more."
-        }
-      ]
-    },
-    {
       "id": "hmrc-free-childcare-30",
       "name": "Free childcare — 30 hours (working parents)",
       "field": "eligibility.exclusions.1",
@@ -5633,7 +4481,7 @@
     {
       "id": "hmrc-lisa",
       "name": "Lifetime ISA withdrawal",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "Conveyancer handles request process from ISA provider",
       "verdict": "partly_supported",
       "problems": [
@@ -5829,54 +4677,6 @@
       ]
     },
     {
-      "id": "hmrc-p45",
-      "name": "Obtain P45 from employer",
-      "field": "desc",
-      "graph": "Employer must provide on last day. Required for new job or benefit claim.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The employer must provide the P45 on the employee's last day.",
-          "verdict": "partly_supported",
-          "note": "The text says the employer should give a P45 when you leave, but it does not say this must happen on the last day or that it is compulsory.",
-          "quote": "When you leave a job, your employer should give you a P45 form"
-        },
-        {
-          "claim": "A P45 is required for a new job or a benefit claim.",
-          "verdict": "partly_supported",
-          "note": "The text says to give the P45 to a new employer or to Jobcentre Plus for taxable benefits, but it also offers the starter checklist instead of a P45, so it does not say the P45 is required.",
-          "quote": "When you start a new job, give your P45 to your new employer. They use it to work out how much tax you’ll pay. If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-p45",
-      "name": "Obtain P45 from employer",
-      "field": "eligibility.summary",
-      "graph": "All employees are entitled to a P45 when leaving a job. The employer is legally required to issue it. Needed for a new employer, tax refund, or benefit claim.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The employer is legally required to issue the P45.",
-          "verdict": "partly_supported",
-          "note": "The text says the employer 'should' give a P45 but never says this is a legal requirement.",
-          "quote": "When you leave a job, your employer should give you a P45 form"
-        },
-        {
-          "claim": "A P45 is needed for a tax refund.",
-          "verdict": "partly_supported",
-          "note": "The linked page says a P45 can help HMRC get the details needed for a refund, but it does not say the P45 itself is needed to claim one.",
-          "quote": "You cannot get a refund until HMRC get your income details from your employer, pension provider or benefits office. If you’ve changed jobs, give the P45 from your previous job to your new employer."
-        },
-        {
-          "claim": "A P45 is needed for a benefit claim.",
-          "verdict": "partly_supported",
-          "note": "The text covers only claims for taxable benefits, not benefit claims in general.",
-          "quote": "If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus."
-        }
-      ]
-    },
-    {
       "id": "hmrc-sdlt",
       "name": "Stamp Duty Land Tax return",
       "field": "desc",
@@ -5909,7 +4709,7 @@
     {
       "id": "hmrc-sdlt",
       "name": "Stamp Duty Land Tax return",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "SDLT1 form (usually filed by solicitor)",
       "verdict": "partly_supported",
       "problems": [
@@ -5933,21 +4733,6 @@
           "verdict": "partly_supported",
           "note": "The text says Maternity Allowance is the option for anyone not eligible for SMP, but it never mentions self-employed people.",
           "quote": "If you're not eligible for Statutory Maternity Pay, you could get Maternity Allowance from the government."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-smp",
-      "name": "Statutory Maternity Pay",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "Written notice to employer of intended leave start date",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You must give your employer written notice of the date you intend to start leave.",
-          "verdict": "partly_supported",
-          "note": "The text requires notice of the start date, but it only has to be in writing if the employer asks for it.",
-          "quote": "You must give them at least 28 days' notice (in writing if they ask for it) and proof that you're pregnant."
         }
       ]
     },
@@ -6111,36 +4896,6 @@
       ]
     },
     {
-      "id": "hmrc-tax-credits",
-      "name": "Tax credits (ended April 2025)",
-      "field": "eligibility.exclusions.0",
-      "graph": "New claimants must use Universal Credit — Tax Credits is closed to new applications",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Tax credits are closed to new applications and new claimants must use Universal Credit.",
-          "verdict": "partly_supported",
-          "note": "The page supports that new claims are closed, but it says people may be able to get Universal Credit or Pension Credit, not that new claimants must use Universal Credit.",
-          "quote": "You cannot make a new claim for Child Tax Credit or Working Tax Credit. You may be able to get Universal Credit or Pension Credit instead."
-        }
-      ]
-    },
-    {
-      "id": "hmrc-tax-free-childcare",
-      "name": "Tax-Free Childcare account",
-      "field": "eligibility.summary",
-      "graph": "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child per quarter, or £1,000 if disabled). Must be in work and earning at least NMW for 16 hours.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The parent must be in work.",
-          "verdict": "partly_supported",
-          "note": "The text says 'usually' and gives exceptions, such as a non-working parent whose partner works and who gets certain benefits, so 'must' goes further than the text.",
-          "quote": "You’ll usually need to be working (or returning to work)"
-        }
-      ]
-    },
-    {
       "id": "hmrc-tax-on-pension",
       "name": "Income tax on pension",
       "field": "agentInteraction.methods",
@@ -6151,21 +4906,6 @@
           "claim": "You can apply or do this by phone.",
           "verdict": "not_stated",
           "note": "The service page says to contact HMRC but never mentions phone; the phone routes on the linked pages are for other services (Self Assessment forms and State Pension claims).",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "hmrc-tax-refund",
-      "name": "Income tax refund (P50)",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply by phone.",
-          "verdict": "not_stated",
-          "note": "The page does not mention claiming by phone.",
           "quote": null
         }
       ]
@@ -6251,27 +4991,6 @@
           "verdict": "partly_supported",
           "note": "The page only offers phone for name or address changes to tax agents, and separately for income changes. It says you cannot confirm a legal gender change over the phone.",
           "quote": "tell HMRC about a change of name or address: through your online account by phone or in writing"
-        }
-      ]
-    },
-    {
-      "id": "ho-brp",
-      "name": "Biometric Residence Permit",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply or do this online.",
-          "verdict": "partly_supported",
-          "note": "The text describes online steps (signing in, creating a UKVI account to get an eVisa), but not an online application for a BRP, which the text says have all expired and been replaced.",
-          "quote": "You can only use it to: sign in to view your eVisa and get a share code create a UKVI account to get access to your eVisa apply to extend your permission to stay in the UK"
-        },
-        {
-          "claim": "You can apply or do this by post.",
-          "verdict": "partly_supported",
-          "note": "The only postal route in the text is for sending back someone else's lost or stolen BRP that you have found; it names no postal way to apply.",
-          "quote": "If you're in the UK, post the BRP to the Home Office using an envelope without a window."
         }
       ]
     },
@@ -6554,7 +5273,7 @@
     {
       "id": "ho-skilled-worker-dependent-visa",
       "name": "Skilled Worker dependant visa",
-      "field": "eligibility.evidenceRequired.1",
+      "field": "eligibility.evidenceRequired.0",
       "graph": "Marriage or civil partnership certificate",
       "verdict": "partly_supported",
       "problems": [
@@ -6569,7 +5288,7 @@
     {
       "id": "ho-skilled-worker-dependent-visa",
       "name": "Skilled Worker dependant visa",
-      "field": "eligibility.evidenceRequired.2",
+      "field": "eligibility.evidenceRequired.1",
       "graph": "Children's birth certificates",
       "verdict": "partly_supported",
       "problems": [
@@ -8322,21 +7041,6 @@
       ]
     },
     {
-      "id": "other-statutory-redundancy",
-      "name": "Statutory Redundancy Pay",
-      "field": "eligibility.summary",
-      "graph": "A legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment. Amount depends on age, weekly pay (capped at £751/week for redundancies on or after 6 April 2026, maximum £22,530 total), and length of service. Employer must pay — Employment Tribunal if they refuse.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is a legal entitlement for employees made compulsorily redundant after 2 or more years of continuous employment.",
-          "verdict": "partly_supported",
-          "note": "The text supports employees with 2 or more years' continuous service, but it does not limit the entitlement to compulsory redundancy: staff who are laid off or put on short-time working can also qualify.",
-          "quote": "have been dismissed, laid off or put on short-time working - those who opted for early retirement do not qualify"
-        }
-      ]
-    },
-    {
       "id": "other-tv-licence-pension",
       "name": "TV Licence concession",
       "field": "eligibility.evidenceRequired.2",
@@ -8564,21 +7268,6 @@
     {
       "id": "sss-best-start-foods",
       "name": "Best Start Foods",
-      "field": "eligibility.summary",
-      "graph": "Paid every 4 weeks onto a prepaid card for buying healthy food: £22.40 during pregnancy, £44.80 for each child under 1, £22.40 for each child aged 1 to 3. For pregnant women and parents/carers of children under 3 in Scotland who receive a qualifying benefit. Some families with no access to public funds can also get it.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You must receive a qualifying benefit to get it.",
-          "verdict": "not_stated",
-          "note": "The source text does not include a requirement to receive a qualifying benefit; the 'Who should apply' section is not in it.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-foods",
-      "name": "Best Start Foods",
       "field": "agentInteraction.methods",
       "graph": "You can apply or do this online. You can apply or do this by phone.",
       "verdict": "partly_supported",
@@ -8587,42 +7276,6 @@
           "claim": "You can apply by phone.",
           "verdict": "not_stated",
           "note": "The phone number is given for enquiries and for bank details, not for applying.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "desc",
-      "graph": "Three one-off payments for families on qualifying benefits in Scotland: Pregnancy and Baby Payment (£796.65 first child, £398.35 others), Early Learning Payment (£331.95), School Age Payment (£331.95).",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payments are for families on qualifying benefits.",
-          "verdict": "not_stated",
-          "note": "The text does not say which benefits, if any, you need to be getting.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "sss-best-start-grant",
-      "name": "Best Start Grant",
-      "field": "eligibility.summary",
-      "graph": "Three one-off payments in Scotland for parents on qualifying benefits. Pregnancy and Baby Payment (£796.65 first child, £398.35 subsequent) from the end of the 24th week of pregnancy until the baby is 6 months old; Early Learning Payment (£331.95) between age 2 and 3½; School Age Payment (£331.95) in the year the child is first old enough to start school. Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The payments are for parents on qualifying benefits.",
-          "verdict": "not_stated",
-          "note": "The text does not mention any qualifying benefits.",
-          "quote": null
-        },
-        {
-          "claim": "Early Learning and School Age Payments are paid automatically to families getting Scottish Child Payment.",
-          "verdict": "not_stated",
-          "note": "Neither the service page nor the linked Scottish Child Payment page says these payments are made automatically.",
           "quote": null
         }
       ]
@@ -8771,84 +7424,6 @@
           "verdict": "partly_supported",
           "note": "The text says you can tell Social Security Scotland how the child is affected and their symptoms, but the 'What you need to apply' section content is not included, so it does not specifically list care and supervision details as evidence.",
           "quote": "You can tell Social Security Scotland about: how they're affected any symptoms they have"
-        }
-      ]
-    },
-    {
-      "id": "sss-child-winter-heating",
-      "name": "Child Winter Heating Payment",
-      "field": "desc",
-      "graph": "£265.50 a year, paid from October, to help disabled children and young people in Scotland and their families with winter heating costs. Automatic — no application needed. Formerly Child Winter Heating Assistance.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It helps disabled children and young people in Scotland and their families with winter heating costs.",
-          "verdict": "partly_supported",
-          "note": "The purpose is stated, but the text never says the children must be in Scotland; it only says this is a Scottish Government benefit.",
-          "quote": "It’s a payment to help disabled children and young people and their families with increased heating costs over winter."
-        },
-        {
-          "claim": "It is paid automatically and no application is needed.",
-          "verdict": "partly_supported",
-          "note": "The text says most people do not need to apply, not that no one needs to.",
-          "quote": "Most people do not need to apply. You’ll get this payment automatically if you qualify."
-        }
-      ]
-    },
-    {
-      "id": "sss-child-winter-heating",
-      "name": "Child Winter Heating Payment",
-      "field": "eligibility.summary",
-      "graph": "Annual payment of £265.50 for children in Scotland who receive the highest rate of the care component of Child Disability Payment (or DLA). Paid automatically — no application required.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is for children in Scotland who get the highest rate of the care component of Child Disability Payment (or DLA).",
-          "verdict": "not_stated",
-          "note": "The text never says what the eligibility criteria are.",
-          "quote": null
-        },
-        {
-          "claim": "It is paid automatically and no application is required.",
-          "verdict": "partly_supported",
-          "note": "The text says most people do not need to apply, not that no one does.",
-          "quote": "Most people do not need to apply. You’ll get this payment automatically if you qualify."
-        }
-      ]
-    },
-    {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "field": "desc",
-      "graph": "Usually covers burial, cremation or hydrolysis costs in Scotland, plus £1,327.75 towards other funeral costs (£162.05 if there was a funeral plan). Apply up to 6 months after the funeral.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can apply up to 6 months after the funeral.",
-          "verdict": "partly_supported",
-          "note": "The 6-month limit is only given in the part about stillborn babies or babies who died shortly after birth, not as a general rule for every applicant.",
-          "quote": "You must claim within 6 months of date of the funeral."
-        }
-      ]
-    },
-    {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "field": "eligibility.summary",
-      "graph": "Help with funeral costs in Scotland for people on qualifying benefits. Usually covers the burial, cremation or hydrolysis cost in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and help with some travel, transport, document and medical costs. Includes funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "It is for people on qualifying benefits.",
-          "verdict": "partly_supported",
-          "note": "The text mentions low income but never says you must be on qualifying benefits.",
-          "quote": "Funeral Support Payment – help towards the cost of a funeral if you're on low income and live in Scotland"
-        },
-        {
-          "claim": "You can apply from the death until 6 months after the funeral.",
-          "verdict": "partly_supported",
-          "note": "The 6-month limit appears only for the baby case, and the text never says applications can start from the date of death.",
-          "quote": "You must claim within 6 months of date of the funeral."
         }
       ]
     },
@@ -9290,6 +7865,2220 @@
           "verdict": "partly_supported",
           "note": "The source says the discount is automatic for anyone getting Pension Credit, but it does not single out Guarantee Credit.",
           "quote": "You’ll get the discount automatically if you or your partner: get Pension Credit"
+        }
+      ]
+    },
+    {
+      "id": "dbs-basic-check",
+      "name": "Basic DBS criminal record check",
+      "field": "eligibility.summary",
+      "graph": "Anyone aged 16 or over can apply for a basic DBS check on themselves. Costs £20. Shows only unspent convictions. For people working in England and Wales; people in Scotland or Northern Ireland can also apply. Distinct from standard and enhanced checks, which are only available for specific roles and applied for by employers.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "People in Scotland or Northern Ireland can also apply.",
+          "verdict": "partly_supported",
+          "note": "The text adds a condition the claim leaves out: the job must be in England or Wales, and jobs in Scotland or Northern Ireland use a different route.",
+          "quote": "You can also get a basic DBS check if you live in Northern Ireland or Scotland but the job you’re applying for is in England or Wales."
+        },
+        {
+          "claim": "Standard and enhanced checks are applied for by employers.",
+          "verdict": "partly_supported",
+          "note": "Employers usually request these checks, but the text also lets eligible self-employed people and personal employees apply for enhanced checks themselves.",
+          "quote": "You can apply for an enhanced check or an enhanced check with barred list if:"
+        }
+      ]
+    },
+    {
+      "id": "dfe-national-careers",
+      "name": "National Careers Service",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can use this service by phone.",
+          "verdict": "not_stated",
+          "note": "The text mentions no phone route.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dfe-national-careers",
+      "name": "National Careers Service",
+      "field": "eligibility.summary",
+      "graph": "Careers information and advice in England: a skills assessment, job profiles and a course finder online. Adults (18 or over) can speak to a careers adviser through the DWP Jobs and Careers Service, including by phone. Under-18s are directed to the careers adviser at their school, college or training provider, or to their local authority.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is for England.",
+          "verdict": "not_stated",
+          "note": "The text does not say which country the service covers.",
+          "quote": null
+        },
+        {
+          "claim": "Adults aged 18 or over can speak to a careers adviser through the DWP Jobs and Careers Service.",
+          "verdict": "not_stated",
+          "note": "The text does not mention speaking to a careers adviser, DWP or an age threshold.",
+          "quote": null
+        },
+        {
+          "claim": "Adults can speak to a careers adviser by phone.",
+          "verdict": "not_stated",
+          "note": "The text mentions no phone route.",
+          "quote": null
+        },
+        {
+          "claim": "Under-18s are directed to the careers adviser at their school, college or training provider, or to their local authority.",
+          "verdict": "not_stated",
+          "note": "The text does not say where under-18s should go for advice.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "name": "Legal Aid application",
+      "field": "eligibility.summary",
+      "graph": "Government funding for legal advice and representation in certain cases. Usually means-tested (income/capital), and the problem must be serious. Domestic abuse cases may still qualify above the income and asset limits. A legal adviser applies for you.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Legal aid is government funding for legal advice and representation in certain cases.",
+          "verdict": "partly_supported",
+          "note": "The text says legal aid helps pay for advice and representation but does not say it is government funding.",
+          "quote": "Legal aid helps pay for legal advice, mediation or representation in court"
+        }
+      ]
+    },
+    {
+      "id": "nhs-gp-register",
+      "name": "Register with new GP",
+      "field": "desc",
+      "graph": "Register at nearest surgery. Medical records transfer automatically from old practice.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You register at your nearest surgery.",
+          "verdict": "partly_supported",
+          "note": "The text says most people register near where they live, not necessarily at the nearest surgery, and some can register further away.",
+          "quote": "Most people will need to register near where they live but some surgeries accept patients from further away."
+        },
+        {
+          "claim": "Medical records transfer automatically from the old practice.",
+          "verdict": "partly_supported",
+          "note": "The text says the old surgery is told automatically, but it does not say medical records transfer automatically.",
+          "quote": "They&#x27;ll be told automatically once you&#x27;re registered with your new surgery."
+        }
+      ]
+    },
+    {
+      "id": "dwp-pip",
+      "name": "Personal Independence Payment (PIP)",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs an account for this service, which you create or sign in to",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying for PIP online needs an account for this service.",
+          "verdict": "partly_supported",
+          "note": "The page names a PIP account that registered users sign in to, but does not say an account is required to apply, and says full online applications are only available in some areas.",
+          "quote": "If you’ve already registered, you can sign in to your PIP account ."
+        }
+      ]
+    },
+    {
+      "id": "dwp-benefit-debt-repayment",
+      "name": "Repay a benefit overpayment",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a Universal Credit account (sign-in)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a Universal Credit account (sign-in)",
+          "verdict": "partly_supported",
+          "note": "The text names signing into a Universal Credit account only for reporting a Universal Credit overpayment, not as a requirement for repaying online, and it is an option alongside the helpline.",
+          "quote": "You can report an overpayment by signing into your Universal Credit account or calling the Universal Credit helpline."
+        }
+      ]
+    },
+    {
+      "id": "dwp-mandatory-reconsideration",
+      "name": "Mandatory Reconsideration",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a Universal Credit account (sign-in)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Asking online needs a Universal Credit account (sign-in).",
+          "verdict": "partly_supported",
+          "note": "The text names the Universal Credit account journal as a way to ask, but only for Universal Credit decisions; it does not say a UC account is needed to ask online in general.",
+          "quote": "using your journal (if you have access to a Universal Credit account and the decision is about Universal Credit)"
+        }
+      ]
+    },
+    {
+      "id": "dwp-smi",
+      "name": "Support for Mortgage Interest",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a Universal Credit account (sign-in)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a Universal Credit account (sign-in)",
+          "verdict": "partly_supported",
+          "note": "The text names the Universal Credit account only as one way for people on Universal Credit to contact the office (alongside the helpline); the SMI application itself is a signed form sent to the lender, and no online application with a required sign-in is described.",
+          "quote": "add a message to your journal on your Universal Credit account"
+        }
+      ]
+    },
+    {
+      "id": "ho-skilled-worker-dependent-visa",
+      "name": "Skilled Worker dependant visa",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a UK Visas and Immigration (UKVI) account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a UK Visas and Immigration (UKVI) account",
+          "verdict": "partly_supported",
+          "note": "The text names a UKVI account only for applicants who prove their identity with the ID Check app; others give biometrics at a visa application centre, so it does not say every online application needs a UKVI account.",
+          "quote": "use the ‘UK Immigration: ID Check’ app to scan your identity document - you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
+        }
+      ]
+    },
+    {
+      "id": "ho-skilled-worker-visa",
+      "name": "Skilled Worker visa",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a UK Visas and Immigration (UKVI) account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a UK Visas and Immigration (UKVI) account.",
+          "verdict": "partly_supported",
+          "note": "The text mentions creating or signing into a UKVI account only for applicants who prove identity with the ID Check app; it does not say every online applicant needs one, since others give biometrics at a visa application centre.",
+          "quote": "use the ‘UK Immigration: ID Check’ app to scan your identity document - you’ll also create or sign into your UK Visas and Immigration ( UKVI ) account"
+        }
+      ]
+    },
+    {
+      "id": "ho-student-visa",
+      "name": "Student visa",
+      "field": "agentInteraction.authRequired",
+      "graph": "Applying online needs a UK Visas and Immigration (UKVI) account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applying online needs a UK Visas and Immigration (UKVI) account.",
+          "verdict": "partly_supported",
+          "note": "The text names a UKVI account only for applicants who prove identity with the ID Check app; others give biometrics at a visa application centre, and it does not say a UKVI account is needed to apply in all cases (it is needed afterwards to access the eVisa).",
+          "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
+        }
+      ]
+    },
+    {
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "field": "eligibility.summary",
+      "graph": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Registering the death is required for every death in England and Wales.",
+          "verdict": "partly_supported",
+          "note": "The source says it is a criminal offence not to register a death, but this advice is stated for England; the sources do not state the requirement for every death in Wales in the same terms.",
+          "quote": "It’s a criminal offence not to register a death."
+        }
+      ]
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "field": "eligibility.autoQualifiers.0",
+      "graph": "Enhanced Rate PIP mobility component confirmed",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Receiving the enhanced rate of the PIP mobility component qualifies you for a Blue Badge.",
+          "verdict": "partly_supported",
+          "note": "The text ties automatic qualification to specific PIP mobility scores (8+ points for moving around, or 10 points under descriptor E), not to the enhanced rate as such.",
+          "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)"
+        }
+      ]
+    },
+    {
+      "id": "dwp-voluntary-ni-contributions",
+      "name": "Voluntary National Insurance contributions (Class 3)",
+      "field": "eligibility.exclusions.0",
+      "graph": "Already entitled to full new State Pension (35 qualifying years)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "People already entitled to the full new State Pension cannot pay (or are excluded from paying) voluntary contributions.",
+          "verdict": "partly_supported",
+          "note": "The text implies extra years add nothing beyond the full rate, but the stated bar on paying is having no gaps in your record, not being entitled to the full State Pension.",
+          "quote": "Each qualifying year after 6 April 2016 added to your National Insurance record increases your State Pension amount, up to the full rate ( £241.30 a week)."
+        },
+        {
+          "claim": "You need 35 qualifying years to get the full new State Pension.",
+          "verdict": "partly_supported",
+          "note": "The text gives 35 years only for records starting after April 2016 and says people who were contracted out usually need more than 35.",
+          "quote": "If your National Insurance record started after April 2016 you will need 35 qualifying years to get the full rate of new State Pension."
+        }
+      ]
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "field": "eligibility.exclusions.0",
+      "graph": "Already bankrupt",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You cannot get bankruptcy through this service if you are already bankrupt.",
+          "verdict": "partly_supported",
+          "note": "The Act bars an order only where a bankruptcy order has already been made for any of the debts in the application (or a petition is pending); it does not state a general exclusion for anyone already bankrupt.",
+          "quote": "(d) no bankruptcy order has been made in respect of any of the debts which are the subject of the application at the date of the determination."
+        }
+      ]
+    },
+    {
+      "id": "nhs-continuing-healthcare",
+      "name": "NHS Continuing Healthcare (CHC)",
+      "field": "desc",
+      "graph": "Fully-funded care package arranged and funded by the NHS for adults with a complex primary health need. Covers nursing home fees, home care, and specialist support — with no means test.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "It covers specialist support.",
+          "verdict": "not_stated",
+          "note": "The sources describe health and social care in various settings but do not mention specialist support.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "la-disabled-facilities-grant",
+      "name": "Disabled Facilities Grant",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this in person.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply by phone.",
+          "verdict": "partly_supported",
+          "note": "Only one council (BCP) says you can apply by phone; the GOV.UK page just says to apply through your local council without naming a method, so this does not establish phone applications everywhere.",
+          "quote": "Alternatively, you can call us on 01202 123 654 or send a letter to:"
+        },
+        {
+          "claim": "You can apply in person.",
+          "verdict": "not_stated",
+          "note": "No source says you can apply in person; the occupational therapist visit is part of how the assessment is delivered, not a way to apply.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this in person.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can ask for a needs assessment in person.",
+          "verdict": "not_stated",
+          "note": "The text says the assessment itself can happen face-to-face, but that is how it is delivered; no source says you can ask for one in person.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "la-school-place",
+      "name": "School place application",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Child's birth certificate",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A child's birth certificate is needed as evidence for a school place application.",
+          "verdict": "partly_supported",
+          "note": "Only one council (Bromley) states this requirement for its own applications; no source says it applies to all councils.",
+          "quote": "Parent(s)/carer(s) must provide a copy of the applicant child&rsquo;s birth certificate - long form."
+        }
+      ]
+    },
+    {
+      "id": "other-help-to-buy",
+      "name": "First Homes / Help to Buy scheme",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of first-time buyer status",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof that they are first-time buyers.",
+          "verdict": "partly_supported",
+          "note": "GOV.UK says you must be a first-time buyer and the developer checks eligibility, but only one council page describes how this is evidenced, and it is by a signed declaration rather than proof.",
+          "quote": "Sign legal declarations confirming (for example) that all buyers are first-time buyers"
+        }
+      ]
+    },
+    {
+      "id": "la-electoral-roll",
+      "name": "Electoral roll update",
+      "field": "desc",
+      "graph": "Update at both old and new address. Affects jury duty and credit checks.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "When you move, the electoral roll is updated at both your old and new address.",
+          "verdict": "partly_supported",
+          "note": "GOV.UK only says to register again with your new details; asking for the previous address and removing you from the old address is stated only by one council (Bracknell Forest), so it is not shown as a general rule.",
+          "quote": "Include both your new address and, where requested, your previous address."
+        }
+      ]
+    },
+    {
+      "id": "ch-close-company",
+      "name": "Close a limited company",
+      "field": "eligibility.exclusions.0",
+      "graph": "Has traded in last 3 months",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A company that has traded in the last 3 months cannot use this service.",
+          "verdict": "partly_supported",
+          "note": "The 3-month trading bar applies only to striking off; the text says such a company can close by voluntary liquidation instead, so it is not an exclusion from closing a company altogether.",
+          "quote": "has not traded or sold off any stock in the last 3 months"
+        }
+      ]
+    },
+    {
+      "id": "dvla-name-change",
+      "name": "Update driving licence (name change)",
+      "field": "eligibility.summary",
+      "graph": "A legal requirement for driving licence holders who have changed their name — after marriage, civil partnership, deed poll or statutory declaration. Must be updated to reflect current legal name.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Driving licence holders who change their name are legally required to update their licence to their current legal name.",
+          "verdict": "not_stated",
+          "note": "The text explains how to change the name on a licence but never says doing so is a legal requirement; the only 'must' about name changes concerns the V5C log book.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dvla-update-address",
+      "name": "Update driving licence address",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Government Gateway or DVLA online service",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can use a Government Gateway account to update the address.",
+          "verdict": "not_stated",
+          "note": "The text says you need to sign in but never names Government Gateway.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dvla-ved-exemption",
+      "name": "Vehicle Excise Duty Exemption",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "PIP or DLA award letter showing enhanced/higher mobility",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A PIP or DLA award letter is needed as evidence for the exemption.",
+          "verdict": "partly_supported",
+          "note": "A DWP letter showing the PIP rate is listed only for the 50% reduction, not the exemption, and no DLA award letter is mentioned.",
+          "quote": "a letter or statement from the Department for Work and Pensions that shows your PIP rate and the dates you’re getting it"
+        }
+      ]
+    },
+    {
+      "id": "dvla-vehicle-sale",
+      "name": "Notify DVLA of vehicle sale",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Vehicle registration number for online DVLA notification",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need the vehicle registration number to tell DVLA online that you have sold a vehicle.",
+          "verdict": "partly_supported",
+          "note": "The page asks for the registration number only when you write to DVLA about a vehicle sold without a log book, and does not say what you need for the online service.",
+          "quote": "the vehicle registration number the make and model"
+        }
+      ]
+    },
+    {
+      "id": "dwp-access-to-work",
+      "name": "Access to Work",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Quotes for support/equipment needed",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Quotes for the support or equipment needed are required as evidence.",
+          "verdict": "partly_supported",
+          "note": "A provider memo says quotes are needed for Access to Work Holistic Assessment equipment, but neither source says the applicant must supply quotes when applying, and the main page's list of what to give does not include quotes.",
+          "quote": "£499.99 and under – 1 quote needed £500 and above – 3 quotes needed"
+        }
+      ]
+    },
+    {
+      "id": "dwp-attendance-allowance",
+      "name": "Attendance Allowance",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Medical evidence from GP or specialist helpful",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Medical evidence from a GP or specialist is helpful for an Attendance Allowance claim.",
+          "verdict": "partly_supported",
+          "note": "The text recommends a statement from a doctor or consultant on the form and asks for GP details, but does not describe separate medical evidence from a GP or specialist as helpful for ordinary claims.",
+          "quote": "It's best if you can get a healthcare professional you've seen recently to fill in this section - for example a doctor, consultant or Macmillan nurse."
+        }
+      ]
+    },
+    {
+      "id": "dwp-carers-allowance",
+      "name": "Carer's Allowance",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Benefit award letter for person cared for",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need a benefit award letter for the person you care for.",
+          "verdict": "partly_supported",
+          "note": "The page says the person must already get a qualifying benefit and asks for their details (and a DLA reference if they are under 16), but it does not mention an award letter.",
+          "quote": "The person you care for must already get one of these benefits"
+        }
+      ]
+    },
+    {
+      "id": "dwp-child-maintenance",
+      "name": "Child Maintenance Service",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Your contact details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need to give your contact details.",
+          "verdict": "partly_supported",
+          "note": "The text says you give information about yourself but does not list contact details specifically.",
+          "quote": "You’ll need to give the CMS detailed information about yourself and your family."
+        }
+      ]
+    },
+    {
+      "id": "dwp-dla-child",
+      "name": "Disability Living Allowance (Child)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Details of care needs and supervision required",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need to give details of the child's care needs.",
+          "verdict": "partly_supported",
+          "note": "The text says the award depends on the level of looking after the child needs but does not say the claim asks for details of care needs.",
+          "quote": "The rate the child gets depends on the level of looking after they need, for example: lowest rate - help for some of the day"
+        },
+        {
+          "claim": "You need to give details of the supervision the child requires.",
+          "verdict": "partly_supported",
+          "note": "Supervision is named as a factor in the care rate, but the text does not say you must provide supervision details when claiming.",
+          "quote": "middle rate - frequent help or continual supervision during the day, supervision at night or someone to help while they’re on dialysis"
+        }
+      ]
+    },
+    {
+      "id": "dwp-dla-child",
+      "name": "Disability Living Allowance (Child)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "GP or consultant reports",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Reports from a GP or consultant are used as evidence for the claim.",
+          "verdict": "partly_supported",
+          "note": "The text only mentions an SR1 form from a medical professional for children nearing the end of life, not GP or consultant reports for claims generally.",
+          "quote": "Ask a medical professional for form SR1."
+        }
+      ]
+    },
+    {
+      "id": "dwp-funeral-payment",
+      "name": "Funeral Expenses Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of the qualifying benefit must be provided as evidence.",
+          "verdict": "not_stated",
+          "note": "The text makes getting a benefit a condition but never says proof of it must be sent; you can even claim while still waiting for a benefit decision.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dwp-inherited-state-pension",
+      "name": "Inherited State Pension (Additional or extra)",
+      "field": "eligibility.autoQualifiers.0",
+      "graph": "Widowed before reaching own State Pension age",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must have been widowed before reaching your own State Pension age.",
+          "verdict": "not_stated",
+          "note": "The text does not make being widowed before your own State Pension age a condition; it only says remarrying before State Pension age stops you inheriting and that you inherit when widowed or when you claim, whichever is later.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dwp-ni-number",
+      "name": "National Insurance number",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Right to work documents",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Right to work documents must be provided as evidence when applying.",
+          "verdict": "not_stated",
+          "note": "The application asks for identity documents (a passport or national identity card), not documents proving the right to work.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dwp-smi",
+      "name": "Support for Mortgage Interest",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Mortgage statement",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need a mortgage statement.",
+          "verdict": "partly_supported",
+          "note": "The GOV.UK page says you need to know your outstanding mortgage and interest, and the lender completes the form, but it does not ask for a mortgage statement.",
+          "quote": "find out how much mortgage or home improvement loans you have left to pay"
+        }
+      ]
+    },
+    {
+      "id": "dwp-smi",
+      "name": "Support for Mortgage Interest",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Getting a qualifying benefit is required, but the text does not say you must provide proof of it.",
+          "quote": "You need to be getting a qualifying benefit to get SMI ."
+        }
+      ]
+    },
+    {
+      "id": "dwp-sr1-form",
+      "name": "SR1 form (Special Rules for terminal illness)",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by post. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can send an SR1 form by phone.",
+          "verdict": "not_stated",
+          "note": "The text lists online, email and post for sending an SR1 form; phone is only mentioned for clarification calls from assessment providers, not for sending the form.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dwp-uc-health",
+      "name": "UC limited capability element",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Assessment appointment with health professional",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The assessment is with a health professional.",
+          "verdict": "partly_supported",
+          "note": "The page mentions a health assessment provider but does not say the assessment is carried out by a health professional.",
+          "quote": "contact your health assessment provider using the details in your invitation letter"
+        }
+      ]
+    },
+    {
+      "id": "dwp-universal-credit",
+      "name": "Universal Credit",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Bank statements (last 3 months)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You may need bank statements.",
+          "verdict": "partly_supported",
+          "note": "A bank statement is listed only as one optional supplementary ID document for in-person identity checks, not as required evidence for the claim.",
+          "quote": "financial statement, for example bank, building society, credit card or credit union statement"
+        },
+        {
+          "claim": "The bank statements must cover the last 3 months.",
+          "verdict": "not_stated",
+          "note": "No GOV.UK source mentions a 3-month period of bank statements; only the Northern Ireland page, which is another nation's version, mentions a three-month statement.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "dwp-universal-credit",
+      "name": "Universal Credit",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "Proof of address",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need proof of address.",
+          "verdict": "partly_supported",
+          "note": "Documents confirming your address appear only as optional supplementary ID documents for in-person identity checks; the GOV.UK sources do not require proof of address.",
+          "quote": "electoral register confirmation that you live at the address"
+        }
+      ]
+    },
+    {
+      "id": "gro-certificates",
+      "name": "Order a birth, death or marriage certificate",
+      "field": "eligibility.summary",
+      "graph": "Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index reference, or 15 working days without one, plus £3.50 per search). Priority service £38.50. Can also be ordered from the local register office.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Anyone can order certified copies of civil registration certificates.",
+          "verdict": "partly_supported",
+          "note": "Only a single council page says this, and it adds the condition that you must be able to identify the entry; the GRO pages do not say who can order.",
+          "quote": "Anyone who can identify the entry in the register is entitled to apply for a copy certificate."
+        }
+      ]
+    },
+    {
+      "id": "gro-marriage-cert",
+      "name": "Marriage / CP certificate",
+      "field": "desc",
+      "graph": "Gateway document for name changes, Marriage Allowance and benefit updates.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The certificate is used for Marriage Allowance.",
+          "verdict": "not_stated",
+          "note": "The sources never mention Marriage Allowance.",
+          "quote": null
+        },
+        {
+          "claim": "The certificate is used for benefit updates.",
+          "verdict": "not_stated",
+          "note": "The sources do not say the certificate is used to update benefits.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "gro-marriage-cert",
+      "name": "Marriage / CP certificate",
+      "field": "eligibility.summary",
+      "graph": "Issued after a marriage or civil partnership ceremony. Acts as the gateway document for name changes, Marriage Allowance, and updating government records.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The certificate is the gateway document for Marriage Allowance.",
+          "verdict": "not_stated",
+          "note": "The sources never mention Marriage Allowance.",
+          "quote": null
+        },
+        {
+          "claim": "The certificate is used for updating government records.",
+          "verdict": "partly_supported",
+          "note": "The page says to send the certificate to record-holders to change your surname, but does not describe it as a document for updating government records generally.",
+          "quote": "Send a copy of your marriage or civil partnership certificate to record-holders."
+        }
+      ]
+    },
+    {
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "field": "desc",
+      "graph": "Register at local register office. Required before probate, Tell Us Once and bereavement payments.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You register the death at the local register office.",
+          "verdict": "partly_supported",
+          "note": "The text implies registration is handled by the register office but does not say it must be the local one.",
+          "quote": "If you need more than 5 days, you must tell the register office immediately."
+        },
+        {
+          "claim": "Registration is required before probate.",
+          "verdict": "partly_supported",
+          "note": "The text says a death certificate can be used to apply for probate, but does not say registration must happen before probate.",
+          "quote": "You can use either certificate to: apply for probate"
+        },
+        {
+          "claim": "Registration is required before using Tell Us Once.",
+          "verdict": "partly_supported",
+          "note": "Tell Us Once needs the death registered or reported to a coroner with a death certificate, so registration is not the only route.",
+          "quote": "The death must have been either: registered reported to a coroner and you have a final or interim death certificate"
+        },
+        {
+          "claim": "Registration is required before bereavement payments.",
+          "verdict": "not_stated",
+          "note": "The text does not link registration to bereavement payments.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmcts-court-fee-remission",
+      "name": "Court Fee Remission",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Benefit award letter",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need a benefit award letter as evidence for help with fees.",
+          "verdict": "partly_supported",
+          "note": "The text says the court checks benefits with DWP and may ask for more evidence, but does not name a benefit award letter as required.",
+          "quote": "We will contact the Department for Work and Pensions to confirm that you are (or were) getting one of these benefits. We may also contact you if we need to see additional evidence."
+        }
+      ]
+    },
+    {
+      "id": "hmcts-court-fee-remission",
+      "name": "Court Fee Remission",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Bank statements showing savings",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need bank statements showing your savings.",
+          "verdict": "partly_supported",
+          "note": "Bank statements are mentioned only as possible evidence of income when the court asks, not as proof of savings.",
+          "quote": "This may include bank statements, payslips or letters from Jobcentre Plus."
+        }
+      ]
+    },
+    {
+      "id": "hmcts-court-fee-remission",
+      "name": "Court Fee Remission",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Proof of income if not on qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need proof of income if you are not on a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Income evidence is needed only if the court sends a letter asking for it; the text does not tie this to not being on a qualifying benefit.",
+          "quote": "You do not need to send any evidence of your income unless you get a letter asking for it."
+        }
+      ]
+    },
+    {
+      "id": "hmcts-probate",
+      "name": "Apply for probate",
+      "field": "eligibility.exclusions.1",
+      "graph": "Some pension death benefits and life insurance written in trust pass outside probate.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Life insurance written in trust passes outside probate.",
+          "verdict": "partly_supported",
+          "note": "The text says certain life insurance policies may not need probate but does not say these are policies written in trust.",
+          "quote": "there are certain life insurance policies and pension benefits in the estate"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-aml-registration",
+      "name": "Anti-money laundering registration",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Business details and registered address",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need to give business details to register.",
+          "verdict": "partly_supported",
+          "note": "The text requires premises details, BOOMs and fees, but does not list general business details as needed.",
+          "quote": "When you apply you must: tell us about your premises pay the registration fees due"
+        },
+        {
+          "claim": "You need to give the business's registered address.",
+          "verdict": "partly_supported",
+          "note": "The text requires the premises where supervised activity takes place, not specifically the registered address.",
+          "quote": "You must tell HMRC about your premises when you register for money laundering supervision."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-child-benefit-transfer",
+      "name": "Child Benefit transfer",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Government Gateway account of new claimant",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The new claimant needs a Government Gateway account.",
+          "verdict": "not_stated",
+          "note": "No source names Government Gateway or any other account needed to make the new claim.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-child-benefit-transfer",
+      "name": "Child Benefit transfer",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Child's details and date of change",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The child's details are needed.",
+          "verdict": "partly_supported",
+          "note": "The claim checklist asks for the child's birth or adoption certificate if available, but does not list the child's details as such.",
+          "quote": "your child’s birth or adoption certificate, if you have it"
+        },
+        {
+          "claim": "The date of the change is needed.",
+          "verdict": "not_stated",
+          "note": "No source says the date of the change in claimant must be given.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-cis",
+      "name": "Construction Industry Scheme (CIS) registration",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this by phone.",
+          "verdict": "not_stated",
+          "note": "The pages give helplines for getting help and reporting changes, and offer registration online or by post, but never say you can register by phone.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-iht400",
+      "name": "Inheritance Tax return (IHT400)",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "not_stated",
+          "note": "The text says IHT400 is downloaded, can be filled in on screen and printed, and is sent to the address on the form; it never says the return can be submitted online.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-marriage-allowance",
+      "name": "Marriage Allowance",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Government Gateway account for the lower earner to apply",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A Government Gateway account is needed to apply for Marriage Allowance.",
+          "verdict": "partly_supported",
+          "note": "The text says you need to sign in to apply online but does not name Government Gateway as the sign-in.",
+          "quote": "You’ll need to sign in to use this service. If you do not already have sign in details, you’ll be able to create them."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-paye",
+      "name": "Register as employer (PAYE)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Date of first payday",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need the date of your first payday to register as an employer.",
+          "verdict": "partly_supported",
+          "note": "The text ties registration timing to the first payday but does not say the date of the first payday is information you must provide.",
+          "quote": "You must register before the first payday to get your employer PAYE reference number."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-sdlt",
+      "name": "Stamp Duty Land Tax return",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "partly_supported",
+          "note": "Online filing is described only for representatives (solicitors, agents, conveyancers); unrepresented buyers must use the paper SDLT1 return.",
+          "quote": "If you’re filing a return on behalf of your client, you should do this online."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-smp",
+      "name": "Statutory Maternity Pay",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for Statutory Maternity Pay by phone.",
+          "verdict": "not_stated",
+          "note": "The text says you claim SMP by telling your employer and giving notice and proof of pregnancy, but never says you can do this by phone; the phone numbers given are for disputes.",
+          "quote": null
+        },
+        {
+          "claim": "You can apply for Statutory Maternity Pay by post.",
+          "verdict": "partly_supported",
+          "note": "The text says notice may be given to your employer in writing, but does not say you can apply by post.",
+          "quote": "You must give them at least 28 days’ notice (in writing if they ask for it) and proof that you’re pregnant."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-spl",
+      "name": "Shared Parental Leave & Pay",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "SPLIT forms",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "SPLIT forms are needed to apply.",
+          "verdict": "partly_supported",
+          "note": "The source mentions optional Acas Shared Parental Leave forms; 'SPLIT' in the source refers to in-touch work days, not forms.",
+          "quote": "You can use Shared Parental Leave forms and templates created by Acas to: give your employer notice that you plan to take SPL and ShPP"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-starter-checklist",
+      "name": "PAYE Starter Checklist",
+      "field": "eligibility.exclusions.1",
+      "graph": "Self-employed (not subject to PAYE)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Self-employed people are not covered by the starter checklist.",
+          "verdict": "partly_supported",
+          "note": "The text says the checklist is for employees starting a new job, which implies self-employed work is not covered, but it never states that self-employed people are excluded.",
+          "quote": "Fill in this checklist if you’re an employee starting a new job without a P45"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-free-childcare",
+      "name": "Tax-Free Childcare account",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Government Gateway account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A Government Gateway account is needed to apply.",
+          "verdict": "partly_supported",
+          "note": "Only a single council page names a Government Gateway account; the GOV.UK list of what you need to apply does not include it and only mentions a user ID and password for signing in.",
+          "quote": "a Government Gateway account - if you do not already have one, you can set one up by using this service"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-free-childcare",
+      "name": "Tax-Free Childcare account",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Childcare provider details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Childcare provider details are needed.",
+          "verdict": "partly_supported",
+          "note": "The text says to check your provider is signed up before applying, but childcare provider details are not in the list of what you need to apply.",
+          "quote": "Before you apply, you’ll need to check with your provider that they’re already signed up."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-on-pension",
+      "name": "Income tax on pension",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "State Pension confirmation letter",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A State Pension confirmation letter is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text says your State Pension letter from DWP shows the amounts used to work out taxable State Pension, but does not say the letter must be provided as evidence.",
+          "quote": "These amounts are shown on your State Pension letter from the Department for Work and Pensions ( DWP )."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-update-records",
+      "name": "Update HMRC records",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Marriage certificate or deed poll if name change",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A marriage certificate is needed as evidence when you change your name.",
+          "verdict": "partly_supported",
+          "note": "A marriage certificate is listed as evidence HMRC may accept when it asks you to prove personal details showing your date of birth, but the text does not say it is needed to report a name change.",
+          "quote": "marriage certificate"
+        },
+        {
+          "claim": "A deed poll is needed as evidence when you change your name.",
+          "verdict": "not_stated",
+          "note": "The text does not mention a deed poll.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-update-records",
+      "name": "Update HMRC records",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Government Gateway account or Personal Tax Account",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need a Government Gateway account to update your HMRC records.",
+          "verdict": "partly_supported",
+          "note": "The text says you need to sign in but does not name Government Gateway.",
+          "quote": "Tell HMRC your name has changed . You’ll need to sign in. If you do not already have sign in details you’ll be able to create them."
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-ceremony",
+      "name": "Citizenship ceremony",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Photographic identification",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Photographic identification is needed for the citizenship ceremony.",
+          "verdict": "partly_supported",
+          "note": "Only one council's page (Wandsworth) asks for photo ID; the GOV.UK page says only that you must take your invitation.",
+          "quote": "Photo ID (your passport or photo driving licence)"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-spouse",
+      "name": "British citizenship (spouse / civil partner)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of spouse's British citizenship",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of the spouse's British citizenship is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text requires the partner to be a British citizen but does not say you must provide proof of their citizenship.",
+          "quote": "are married to, or in a civil partnership with, someone who is a British citizen"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-spouse",
+      "name": "British citizenship (spouse / civil partner)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "ILR/settled status document or eVisa evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An ILR or settled status document, or eVisa evidence, is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text requires ILR or settled status but does not say you must provide a document or eVisa evidence of it.",
+          "quote": "You can apply as soon as you have one of the following: indefinite leave to remain ( ILR ) in the UK ‘settled status’"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship-spouse",
+      "name": "British citizenship (spouse / civil partner)",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "Marriage or civil partnership certificate",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A marriage or civil partnership certificate is needed as evidence.",
+          "verdict": "partly_supported",
+          "note": "The text requires marriage or civil partnership but does not mention providing a certificate.",
+          "quote": "are married to, or in a civil partnership with, someone who is a British citizen"
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship",
+      "name": "British citizenship (naturalisation)",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "ILR/settled status document or eVisa evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The evidence of status can be an eVisa.",
+          "verdict": "not_stated",
+          "note": "The citizenship sources do not mention eVisas as evidence; eVisas appear only on the linked Returning Resident page, a different service.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-citizenship",
+      "name": "British citizenship (naturalisation)",
+      "field": "eligibility.evidenceRequired.4",
+      "graph": "Form AN",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You apply using Form AN.",
+          "verdict": "partly_supported",
+          "note": "The guidance says Form AN is used for postal applications, while applications should normally be submitted online.",
+          "quote": "If you live in the Channel Islands, Isle of Man or a British Overseas Territory, or if you live elsewhere and want to apply by post you can use Form AN ."
+        }
+      ]
+    },
+    {
+      "id": "ho-euss-enquiry",
+      "name": "EUSS status enquiry",
+      "field": "eligibility.summary",
+      "graph": "Available to EU, EEA and Swiss nationals (and their family members) who have issues with their EUSS application or settled/pre-settled status, such as a certificate of application not arriving, needing to update personal details, or status not showing correctly.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is available to EU, EEA and Swiss nationals and their family members.",
+          "verdict": "not_stated",
+          "note": "The contact pages do not say who can use the enquiry service; the EUSS guidance describes who can apply to the scheme, not who can make enquiries.",
+          "quote": null
+        },
+        {
+          "claim": "It is for people who have issues with their EUSS application or settled/pre-settled status.",
+          "verdict": "partly_supported",
+          "note": "The text describes a general tool to get help from UKVI but does not mention EUSS applications or settled/pre-settled status.",
+          "quote": "contact details for the right UKVI team to support you"
+        },
+        {
+          "claim": "Issues include a certificate of application not arriving.",
+          "verdict": "not_stated",
+          "note": "The text says you receive a certificate of application by post or email but does not mention enquiring when it does not arrive.",
+          "quote": null
+        },
+        {
+          "claim": "Issues include needing to update personal details.",
+          "verdict": "not_stated",
+          "note": "The text does not mention updating personal details.",
+          "quote": null
+        },
+        {
+          "claim": "Issues include status not showing correctly.",
+          "verdict": "not_stated",
+          "note": "The text does not mention status not showing correctly.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-evisa-error",
+      "name": "Report an error with your eVisa",
+      "field": "desc",
+      "graph": "Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Wrong conditions of stay on the eVisa is an error you can report.",
+          "verdict": "partly_supported",
+          "note": "The text gives wrong immigration status as an example but does not name conditions of stay specifically.",
+          "quote": "your eVisa details are wrong - for example it’s showing the wrong date of birth or immigration status"
+        },
+        {
+          "claim": "A wrong expiry date on the eVisa is an error you can report.",
+          "verdict": "not_stated",
+          "note": "The text does not mention a wrong expiry date as an error to report.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "ho-ilr",
+      "name": "Indefinite Leave to Remain",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Passport(s) covering entire qualifying period",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The passports must cover the entire qualifying period.",
+          "verdict": "partly_supported",
+          "note": "The text asks for all passports held during your time in the UK on the long residence and bereaved partner routes, but does not state this as a rule for every ILR route or tie it to the qualifying period.",
+          "quote": "all the passports you’ve held during your time in the UK"
+        }
+      ]
+    },
+    {
+      "id": "ho-ilr",
+      "name": "Indefinite Leave to Remain",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of continuous residence (payslips, bank statements, tenancy agreements)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need to provide proof of continuous residence.",
+          "verdict": "not_stated",
+          "note": "The text explains what continuous residence is but does not say you must provide documents proving it.",
+          "quote": null
+        },
+        {
+          "claim": "Payslips, bank statements and tenancy agreements are accepted as proof.",
+          "verdict": "partly_supported",
+          "note": "Bank statements and tenancy agreements are listed only as proof of living with a partner on the bereaved partner route, and payslips only as proof of financial requirements on the Scale-up route, not as proof of continuous residence.",
+          "quote": "bank statements and letters letters from a government department letters about your TV Licence tenancy agreements"
+        }
+      ]
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "field": "eligibility.exclusions.1",
+      "graph": "Significant property ownership — bankruptcy trustee may sell assets",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Owning significant property is a reason bankruptcy may not be suitable.",
+          "verdict": "partly_supported",
+          "note": "The text warns that property may be sold, but does not present owning significant property as something that excludes you or makes bankruptcy unsuitable.",
+          "quote": "The things you own may be sold to pay for your bankruptcy and make payments towards your debts. This can sometimes include selling your home ."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-vat",
+      "name": "VAT registration",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Turnover evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Turnover evidence is needed to register for VAT.",
+          "verdict": "partly_supported",
+          "note": "The page requires turnover details and an estimate, but does not say applicants must supply supporting evidence for them.",
+          "quote": "details of your annual turnover an estimate of your taxable turnover for the next 12 months"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-vat",
+      "name": "VAT registration",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Bank account for repayments",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A bank account for repayments is needed to register for VAT.",
+          "verdict": "partly_supported",
+          "note": "The page requires bank account details at registration but does not say the account is specifically for repayments.",
+          "quote": "your business’s bank account details"
+        }
+      ]
+    },
+    {
+      "id": "ho-drug-precursor-licence",
+      "name": "Licence to possess or sell drug precursor chemicals",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Details of chemicals and their intended use",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide details of the chemicals.",
+          "verdict": "partly_supported",
+          "note": "The licence specifies substances, but the text does not explicitly list chemical details among documents required from an applicant.",
+          "quote": "Domestic precursor licences and registrations specify the substances within the category which you are permitted to handle."
+        },
+        {
+          "claim": "Applicants must provide the chemicals' intended use.",
+          "verdict": "partly_supported",
+          "note": "An end-user declaration records intended use for Category 1 supply, but the text does not require it for every domestic licence application.",
+          "quote": "Regulations require that operators who supply category 1 substances are required to obtain a declaration from the end-user specifying the intended use of that substance."
+        }
+      ]
+    },
+    {
+      "id": "ho-drug-precursor-licence",
+      "name": "Licence to possess or sell drug precursor chemicals",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Identity and competence credentials of the responsible officer",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide the responsible officer's competence credentials.",
+          "verdict": "partly_supported",
+          "note": "A good-conduct certificate is required and competence is assessed, but the source does not specify a competence credential.",
+          "quote": "a certificate of good conduct for the responsible officer"
+        }
+      ]
+    },
+    {
+      "id": "ho-view-immigration-status",
+      "name": "View or prove your immigration status",
+      "field": "eligibility.summary",
+      "graph": "Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is available to non-British, non-Irish nationals.",
+          "verdict": "partly_supported",
+          "note": "The page describes eligible immigration statuses but does not state non-British and non-Irish nationality as the boundary.",
+          "quote": "Who can use this service You can use this service to access an eVisa if you have: any visa for the UK (England, Scotland, Wales or Northern Ireland) settlement in the UK"
+        }
+      ]
+    },
+    {
+      "id": "ho-visa",
+      "name": "Visa / leave to enter",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Valid passport",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A valid passport is needed for a visa application.",
+          "verdict": "partly_supported",
+          "note": "The guide says a valid passport or travel document is usually needed, so a passport is not an unconditional requirement.",
+          "quote": "usually have a valid passport or travel document"
+        }
+      ]
+    },
+    {
+      "id": "ho-visa",
+      "name": "Visa / leave to enter",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Financial evidence (sufficient funds)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Financial evidence showing sufficient funds is needed for a visa application.",
+          "verdict": "partly_supported",
+          "note": "The Student visa page supports this for some applicants, but it does not establish a requirement for every visa route.",
+          "quote": "proof you have enough money to support yourself and pay for your course - this will vary depending on your circumstances"
+        }
+      ]
+    },
+    {
+      "id": "jaqu-clean-air-zone",
+      "name": "Check and pay Clean Air Zone charges",
+      "field": "eligibility.summary",
+      "graph": "Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Charges vary by zone and vehicle type.",
+          "verdict": "partly_supported",
+          "note": "The framework makes vehicle classes and charges matters for each scheme, but the excerpt does not explicitly say charge amounts differ across zones or vehicle types.",
+          "quote": "Matters to be dealt with in charging schemes by charging authorities include: designating the roads and classes of vehicles subject to a charge the charges imposed"
+        }
+      ]
+    },
+    {
+      "id": "la-business-rates",
+      "name": "Business rates registration",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "partly_supported",
+          "note": "The page allows online valuation changes, but does not say general business rates registration can be done online.",
+          "quote": "You can report changes using your business rates valuation account ."
+        },
+        {
+          "claim": "You can apply or do this by phone.",
+          "verdict": "partly_supported",
+          "note": "The phone number is for help with business rates, not an explicit registration route.",
+          "quote": "Call the Valuation Office if you need help with: Council Tax business rates self-catering holiday lets"
+        }
+      ]
+    },
+    {
+      "id": "la-business-rates",
+      "name": "Business rates registration",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Nature of business",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The nature of the business is required.",
+          "verdict": "partly_supported",
+          "note": "The page says a change in the nature of business can affect rates, but does not say it must be supplied for registration.",
+          "quote": "the nature of your business changes"
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax-disability-reduction",
+      "name": "Council Tax Disability Reduction",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof the disabled person lives at the property",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must prove that the disabled person lives at the property.",
+          "verdict": "partly_supported",
+          "note": "The evidence requirement is stated on an England-only page, while the broader Council Tax source does not establish it across the service's full scope.",
+          "quote": "You must be able to show that a disabled person lives in the property to claim a reduction."
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this by phone.",
+          "verdict": "partly_supported",
+          "note": "Phone applications depend on the local council and are not a universal route.",
+          "quote": "Your local council might also let you apply by telephone."
+        }
+      ]
+    },
+    {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of income and savings",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of income and savings is required.",
+          "verdict": "partly_supported",
+          "note": "Evidence of income and savings may be requested, but it is not stated as a universal requirement.",
+          "quote": "For example, you might have to send evidence of your income and savings."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-tax-credits",
+      "name": "Finalise a tax credits award",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this by phone. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A claimant can finalise the Annual Review by phone.",
+          "verdict": "partly_supported",
+          "note": "The manual allows an Annual Declaration by phone, but it does not identify that older declaration process as the final Annual Review after tax credits ended.",
+          "quote": "To make their Annual Declaration when they get the form they can either phone the Helpline and complete the Annual Declaration over the phone"
+        },
+        {
+          "claim": "A claimant can finalise the Annual Review by post.",
+          "verdict": "partly_supported",
+          "note": "The manual allows returning an Annual Declaration by post, but it does not identify that older declaration process as the final Annual Review after tax credits ended.",
+          "quote": "complete the Annual Declaration and return it in the envelope provided."
+        }
+      ]
+    },
+    {
+      "id": "la-short-term-let",
+      "name": "Short-term let licence (Scotland)",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this in person.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for a short-term let licence in person.",
+          "verdict": "partly_supported",
+          "note": "The guidance describes office support and paper forms, but does not explicitly say an application can be submitted in person.",
+          "quote": "Licensing authorities are expected to still have paper copies of relevant information, and the application form, available upon request for people who cannot access them online, and provide support to access online services at their offices."
+        }
+      ]
+    },
+    {
+      "id": "lr-registration",
+      "name": "Land Registry registration (AP1)",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply to register land or property online.",
+          "verdict": "partly_supported",
+          "note": "Digital submission is stated for business customers changing the register, while the general first-registration route says to send forms and documents.",
+          "quote": "You can submit applications digitally: using the Digital Registration Service in the HM Land Registry portal through legal software connected to HM Land Registry systems"
+        }
+      ]
+    },
+    {
+      "id": "lr-sign-mortgage-deed",
+      "name": "Sign your mortgage deed",
+      "field": "eligibility.summary",
+      "graph": "Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The service is available to borrowers purchasing a property.",
+          "verdict": "not_stated",
+          "note": "The supplied text mentions remortgaging but does not establish use for a property purchase.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "field": "eligibility.summary",
+      "graph": "Any adult can request a care needs assessment from their local authority. Free and means-independent — the assessment itself is free, though resulting care may be means-tested. Can lead to a care plan and funded support.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The assessment can lead to a care plan.",
+          "verdict": "not_stated",
+          "note": "The supplied page does not say the assessment leads to a care plan.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "nhs-continuing-healthcare",
+      "name": "NHS Continuing Healthcare (CHC)",
+      "field": "eligibility.autoQualifiers.1",
+      "graph": "Complex nursing needs",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The person has complex nursing needs.",
+          "verdict": "partly_supported",
+          "note": "The page says complex health needs, but does not require nursing needs specifically.",
+          "quote": "Some people with long-term complex health needs qualify for free health and social care arranged and funded solely by the NHS."
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-dental",
+      "name": "Free NHS Dental Treatment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Benefit award letter",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A benefit award letter is accepted as proof for free NHS dental treatment.",
+          "verdict": "partly_supported",
+          "note": "The page requires proof and lists examples, but does not name a benefit award letter.",
+          "quote": "Depending on the reason, you'll need to give your dentist proof that you can get free NHS dental treatment. Examples of proof include: a valid HC2 certificate"
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "field": "eligibility.autoQualifiers.1",
+      "graph": "Qualifying medical condition (apply for Medical Exemption Certificate via GP)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A qualifying medical condition can entitle a person to free prescriptions through a medical exemption certificate.",
+          "verdict": "partly_supported",
+          "note": "The checker considers health conditions, but the page does not name medical exemption certificates or qualifying conditions.",
+          "quote": "This service will ask about your age, where you live and any health conditions you have."
+        },
+        {
+          "claim": "Apply for a Medical Exemption Certificate through a GP.",
+          "verdict": "not_stated",
+          "note": "The supplied text does not describe a GP application for a medical exemption certificate.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "other-help-to-buy",
+      "name": "First Homes / Help to Buy scheme",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Mortgage agreement in principle",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A mortgage agreement in principle is required as evidence for First Homes scheme qualification.",
+          "verdict": "partly_supported",
+          "note": "Arun Council requires a lender decision in principle for its applications; the national page does not establish a scheme-wide document requirement.",
+          "quote": "You will also need to provide: proof of address last 3 month's payslips last P60 (or signed off self-employed accounts) last 3 months' bank statements a mortgage lender decision in principle (DiP)"
+        }
+      ]
+    },
+    {
+      "id": "other-help-to-buy",
+      "name": "First Homes / Help to Buy scheme",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Proof of income for scheme qualification",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of income is required as evidence for First Homes scheme qualification.",
+          "verdict": "partly_supported",
+          "note": "Arun Council lists income documents for its applications; the national page states income limits but not a universal proof requirement.",
+          "quote": "You will also need to provide: proof of address last 3 month's payslips last P60 (or signed off self-employed accounts) last 3 months' bank statements"
+        }
+      ]
+    },
+    {
+      "id": "other-motability",
+      "name": "Motability scheme",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "PIP award letter confirming Enhanced Rate mobility component",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A PIP award letter confirming enhanced-rate mobility must be supplied.",
+          "verdict": "partly_supported",
+          "note": "The award letter is mentioned for checking award length, while the required dealer evidence is a certificate of entitlement rather than specifically a PIP award letter.",
+          "quote": "You can check your award length on your allowance award letter"
+        }
+      ]
+    },
+    {
+      "id": "other-motability",
+      "name": "Motability scheme",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "At least 12 months remaining on award",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Evidence must show at least 12 months remain on the award.",
+          "verdict": "partly_supported",
+          "note": "The 12-month condition and award letter check are stated, but the text does not say this must be supplied as separate evidence.",
+          "quote": "You can check your award length on your allowance award letter"
+        }
+      ]
+    },
+    {
+      "id": "other-passport-name",
+      "name": "Passport name change",
+      "field": "desc",
+      "graph": "Not legally required after marriage but strongly recommended. Use marriage certificate.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Getting a new passport after marriage is not legally required.",
+          "verdict": "partly_supported",
+          "note": "The text says no new passport is needed when marrying without changing name, but does not state a general legal rule after marriage.",
+          "quote": "You do not need to get a new passport if you: change your address or contact details get a new job change your appearance slightly - for example, dye your hair or grow a beard change your marital status (divorce, marry or form a civil partnership) but keep your name"
+        },
+        {
+          "claim": "Getting a passport in a new name after marriage is strongly recommended.",
+          "verdict": "partly_supported",
+          "note": "The text says a new passport is needed for travel or identity proof after a name change, without calling it a strong recommendation.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        }
+      ]
+    },
+    {
+      "id": "other-passport-name",
+      "name": "Passport name change",
+      "field": "eligibility.summary",
+      "graph": "Not a legal requirement but strongly recommended after a name change. A passport in your new name is accepted as proof of identity for employment, travel, and financial services. Use the marriage certificate or deed poll as supporting evidence.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A new passport after a name change is not a legal requirement.",
+          "verdict": "partly_supported",
+          "note": "The page describes when a new passport is needed, but does not state whether a name change itself creates a legal obligation.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        },
+        {
+          "claim": "A new passport after a name change is strongly recommended.",
+          "verdict": "partly_supported",
+          "note": "The page gives a functional need for travel or identity proof but does not describe a recommendation.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        },
+        {
+          "claim": "A passport in the new name is accepted as proof of identity for employment, travel, and financial services.",
+          "verdict": "partly_supported",
+          "note": "Travel and identity proof are addressed, but employment and financial services are not named.",
+          "quote": "You’ll need to get a new passport to travel abroad or prove your identity if you change any of the following: your name"
+        }
+      ]
+    },
+    {
+      "id": "other-pupil-premium",
+      "name": "Pupil Premium",
+      "field": "eligibility.summary",
+      "graph": "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Parents should make sure the school records their child’s eligibility.",
+          "verdict": "partly_supported",
+          "note": "The page tells schools and local authorities to record the category accurately and families to apply, but does not directly instruct parents to check the school record.",
+          "quote": "Record each eligible pupil’s FSM category as targeted or expanded in the autumn school census by 2 November 2026."
+        }
+      ]
+    },
+    {
+      "id": "other-social-tariff-broadband",
+      "name": "Social Tariff Broadband",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Qualifying benefit entitlement is checked, but DWP automatic verification means customers of participating providers need not actively provide proof.",
+          "quote": "people do not need to actively prove they claim benefits whilst on a tariff designed for those on low incomes"
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for statutory redundancy pay online.",
+          "verdict": "partly_supported",
+          "note": "The online claim applies where the employer cannot pay, such as insolvency, rather than every redundancy payment.",
+          "quote": "Make a claim online"
+        },
+        {
+          "claim": "You can apply for statutory redundancy pay by phone.",
+          "verdict": "not_stated",
+          "note": "The phone number is for help using the online service, not for making a phone claim.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Redundancy notice or letter from employer",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A redundancy notice or letter from the employer must be provided.",
+          "verdict": "partly_supported",
+          "note": "The online insolvency claim mentions the official redundancy letter as a way to find the date and asks for copies of employer letters, but does not clearly require this specific letter.",
+          "quote": "the date you became redundant (if you lost your job) - this can be found on your official letter of redundancy"
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Payslips to verify weekly pay",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Payslips must be provided to verify weekly pay.",
+          "verdict": "partly_supported",
+          "note": "Acas suggests payslips as optional evidence in a pay dispute, not a standard document required for every claim.",
+          "quote": "include copies of any evidence – for example payslips, a letter with your start date or a breakdown of redundancy pay"
+        }
+      ]
+    },
+    {
+      "id": "other-statutory-redundancy",
+      "name": "Statutory Redundancy Pay",
+      "field": "eligibility.exclusions.1",
+      "graph": "Voluntary redundancy may have different terms (could be more generous, or affect entitlement to notice periods).",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Voluntary redundancy can affect entitlement to a notice period.",
+          "verdict": "partly_supported",
+          "note": "The page says a voluntary package may remove the need to work notice or allow negotiation, but does not say notice entitlement is lost.",
+          "quote": "You’ll also still get any other redundancy rights you’re entitled to, like time off to look for a new job."
+        }
+      ]
+    },
+    {
+      "id": "slc-childcare-grant",
+      "name": "Childcare Grant (Students)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Childcare provider registration details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The Childcare Grant application requires childcare provider registration details.",
+          "verdict": "partly_supported",
+          "note": "Provider registration is an eligibility condition, but the supplied text does not say registration details are required as application evidence.",
+          "quote": "your childcare provider is on the Ofsted Early Years Register or General Childcare Register - check with your provider"
+        }
+      ]
+    },
+    {
+      "id": "slc-childcare-grant",
+      "name": "Childcare Grant (Students)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Childcare cost receipts",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The Childcare Grant application requires childcare cost receipts.",
+          "verdict": "partly_supported",
+          "note": "The provider invoices costs after award through the payment service; childcare receipts for the grant application are not stated.",
+          "quote": "Use your online account to invoice childcare costs throughout the academic year."
+        }
+      ]
+    },
+    {
+      "id": "slc-childcare-grant",
+      "name": "Childcare Grant (Students)",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "Household income evidence",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "The Childcare Grant application requires household income evidence.",
+          "verdict": "partly_supported",
+          "note": "Household income must be provided, but documentary evidence may be needed rather than always required.",
+          "quote": "Student Finance England will ask the people in your household to confirm their income . They might need to provide evidence."
+        }
+      ]
+    },
+    {
+      "id": "slc-student-finance",
+      "name": "Student Finance (tuition fee + maintenance loans)",
+      "field": "eligibility.evidenceRequired.3",
+      "graph": "National Insurance number",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "National Insurance number",
+          "verdict": "partly_supported",
+          "note": "Student Finance England says it is needed, but a general NI number page in the prompt says a student-loan applicant without one does not need one.",
+          "quote": "You’ll need your National Insurance number when you apply."
+        }
+      ]
+    },
+    {
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Medical evidence of condition",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide medical evidence of their condition.",
+          "verdict": "partly_supported",
+          "note": "A professional document confirming the condition or needs is required, but it need not be medical evidence specifically.",
+          "quote": "You need to provide a document from a professional that confirms your conditions, disability or needs."
+        }
+      ]
+    },
+    {
+      "id": "sss-carer-support-payment",
+      "name": "Carer Support Payment",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of care hours",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of care hours.",
+          "verdict": "partly_supported",
+          "note": "Applicants declare and sign for their care hours; the text does not require independent proof of those hours.",
+          "quote": "Carers will require to sign a declaration to confirm they are providing at least 35 hours of care per week for Carer Support Payment"
+        }
+      ]
+    },
+    {
+      "id": "sss-child-disability-payment",
+      "name": "Child Disability Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Medical evidence of disability or condition",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Medical evidence of the child’s disability or condition is required",
+          "verdict": "partly_supported",
+          "note": "A professional document is required, but it need not be medical evidence or include a diagnosis.",
+          "quote": "You need to provide a document from a professional that confirms the child’s conditions, disability or needs. It does not need to include a diagnosis."
+        }
+      ]
+    },
+    {
+      "id": "sss-child-disability-payment",
+      "name": "Child Disability Payment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "GP or consultant reports",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "GP or consultant reports are required",
+          "verdict": "partly_supported",
+          "note": "The source allows different professional documents and does not require a GP or consultant report.",
+          "quote": "This can be either: a letter from a professional an official document, such as a prescription list, letter from the child’s school, or a letter about an assessment or appointment"
+        }
+      ]
+    },
+    {
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Funeral director's invoice",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A funeral director’s invoice is required for a Funeral Support Payment application.",
+          "verdict": "partly_supported",
+          "note": "The application requests director details and any funeral bills already held, but does not require a director invoice in every case.",
+          "quote": "To complete this form, you'll need: your National Insurance number details of the funeral director any travel receipts or funeral bills you have so far"
+        }
+      ]
+    },
+    {
+      "id": "sss-funeral-support-payment",
+      "name": "Funeral Support Payment",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Evidence is requested if Social Security Scotland cannot verify the benefit, not as a universal application requirement.",
+          "quote": "If you are still unable to verify the qualifying benefit, you must ask the client to provide two pieces of evidence confirming receipt of the benefit."
+        }
+      ]
+    },
+    {
+      "id": "la-free-school-meals",
+      "name": "Free School Meals",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Applicants must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "A Universal Credit award letter is required for the self-employed manual check, and paper evidence is accepted in other manual checks, but the source does not require proof from every applicant.",
+          "quote": "These claimants will need to provide evidence that: they are in receipt of Universal Credit, by providing their Universal Credit award letter"
+        }
+      ]
+    },
+    {
+      "id": "la-school-place",
+      "name": "School place application",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of address",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of address is needed for a school place application",
+          "verdict": "partly_supported",
+          "note": "Address proof may be requested when applying from another country, but the source does not make it universal.",
+          "quote": "You may need to: supply proof of your new address, for example a mortgage or rental agreement or deeds for the property"
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-sight-tests",
+      "name": "Free NHS Sight Tests",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "HC2 certificate (if applicable)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An HC2 certificate must be shown when claiming a free NHS sight test through that route.",
+          "verdict": "partly_supported",
+          "note": "The eye-test page names a valid HC2 as an entitlement route and the linked general NHS page asks for exemption proof, but it does not specifically say to show the HC2.",
+          "quote": "If this is the case for you, the NHS will ask to see proof of your entitlement. This could be a prescription prepayment certificate (PPC) , benefit award notice, or an exemption certificate."
+        }
+      ]
+    },
+    {
+      "id": "nhs-free-sight-tests",
+      "name": "Free NHS Sight Tests",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Medical evidence if claiming on health grounds",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Medical evidence must be provided when claiming a free sight test on health grounds.",
+          "verdict": "partly_supported",
+          "note": "The linked page requires proof of entitlement generally, but the supplied text does not identify medical evidence for diabetes or glaucoma sight-test routes.",
+          "quote": "If this is the case for you, the NHS will ask to see proof of your entitlement."
+        }
+      ]
+    },
+    {
+      "id": "ni-discretionary-support",
+      "name": "Discretionary Support",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for Discretionary Support by phone.",
+          "verdict": "not_stated",
+          "note": "The page lists a telephone contact and says someone will contact online applicants, but never says a phone call starts an application.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "opg-deputy-report",
+      "name": "Complete the deputy report",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by post.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can submit a deputy report online.",
+          "verdict": "partly_supported",
+          "note": "The source describes digital deputy reporting but states the service was temporarily unavailable when fetched.",
+          "quote": "If your deputy report is due today, it can be submitted once the service is back online."
+        }
+      ]
+    },
+    {
+      "id": "sss-pension-winter-heating",
+      "name": "Pension Age Winter Heating Payment",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online. You can apply or do this by phone.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply for Pension Age Winter Heating Payment online.",
+          "verdict": "not_stated",
+          "note": "The online eligibility checker is explicitly outside the application process, and no online application route is given.",
+          "quote": null
+        },
+        {
+          "claim": "You can apply for Pension Age Winter Heating Payment by phone.",
+          "verdict": "partly_supported",
+          "note": "The source gives a phone contact route for possible late applications but does not expressly say applications can be made by phone.",
+          "quote": "We can consider late applications if you have a good reason for missing the deadline. If this is the case, contact Social Security Scotland."
+        }
+      ]
+    },
+    {
+      "id": "sss-scottish-child-payment",
+      "name": "Scottish Child Payment",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of qualifying benefit",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must provide proof of a qualifying benefit.",
+          "verdict": "partly_supported",
+          "note": "Benefit documents are required when a sanction or deduction must be shown, but the page does not require benefit proof in every application.",
+          "quote": "You need to send us some information with your application that shows us details of the sanction or deduction. This can be a copy of any of these: a Universal Credit statement a Department for Work and Pensions (DWP) benefit award letter"
+        }
+      ]
+    },
+    {
+      "id": "sss-young-carer-grant",
+      "name": "Young Carer Grant",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of caring role and hours",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must provide proof of your caring role and the hours you care.",
+          "verdict": "partly_supported",
+          "note": "Social Security Scotland may confirm the caring role with the person cared for, but the supplied text does not require applicants to submit proof of hours.",
+          "quote": "We might also need to ask them to confirm that you care for them."
+        }
+      ]
+    },
+    {
+      "id": "tpr-workplace-pension",
+      "name": "Workplace Pension auto-enrollment",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Chosen pension provider details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Chosen pension provider details",
+          "verdict": "partly_supported",
+          "note": "The checklist requests pension scheme references and details, but does not expressly request the provider’s details as such.",
+          "quote": "Employer pension scheme reference (EPSR) This is your unique pension scheme reference, which can be found on any correspondence from your pension provider."
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.evidenceRequired.0",
+      "graph": "Proof of identity",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of identity is required",
+          "verdict": "partly_supported",
+          "note": "Identity verification is stated, but no applicant-supplied proof document is specified.",
+          "quote": "Applicants Identity has been verified in line with DWP records."
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.evidenceRequired.1",
+      "graph": "Proof of Welsh residency",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Proof of Welsh residency is required",
+          "verdict": "partly_supported",
+          "note": "Welsh residence is an eligibility condition, but the sources do not specify proof of residence.",
+          "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award."
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Details of the emergency or need",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Details of the emergency or need are required",
+          "verdict": "partly_supported",
+          "note": "The source says the application is assessed for need, but does not specify the emergency details applicants must submit.",
+          "quote": "to assess if there is a need for financial assistance to be granted to the client"
+        }
+      ]
+    },
+    {
+      "id": "wg-discretionary-assistance",
+      "name": "Discretionary Assistance Fund (Wales)",
+      "field": "eligibility.exclusions.0",
+      "graph": "Exceeded annual application limit (3 EAP / 1 IAP per year)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An EAP applicant is excluded after 3 EAP awards in a year",
+          "verdict": "partly_supported",
+          "note": "The limit is three grants overall in a rolling 12-month period, not expressly three EAP awards in a calendar year.",
+          "quote": "already received 3 grants within the the last 12 rolling month period i.e. not calendar or tax year"
+        },
+        {
+          "claim": "An IAP applicant is excluded after 1 IAP award in a year",
+          "verdict": "not_stated",
+          "note": "No supplied source gives a one-IAP-per-year limit; the page only gives an overall three-grant limit in a rolling 12 months.",
+          "quote": null
         }
       ]
     }
@@ -9817,16 +10606,6 @@
       ]
     },
     {
-      "id": "ho-brp",
-      "graph": [
-        "online",
-        "post"
-      ],
-      "page": [
-        "post"
-      ]
-    },
-    {
       "id": "ho-citizenship",
       "graph": [
         "online",
@@ -10309,11 +11088,6 @@
       "id": "hmrc-vat",
       "graph": "government-gateway",
       "page": null
-    },
-    {
-      "id": "ho-brp",
-      "graph": "none",
-      "page": "UK Visas and Immigration (UKVI) account"
     },
     {
       "id": "ho-evisa",

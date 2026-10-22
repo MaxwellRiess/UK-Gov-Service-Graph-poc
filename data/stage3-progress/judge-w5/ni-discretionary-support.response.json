@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for Discretionary Support online.",
+          "verdict": "supported",
+          "quote": "you can apply for Discretionary Support, a Short Term Benefit Advance or Universal Credit New Claims Grant via the online application form",
+          "source": 1,
+          "note": "The Finance Support page explicitly gives an online application route."
+        },
+        {
+          "claim": "You can apply for Discretionary Support by phone.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The page lists a telephone contact and says someone will contact online applicants, but never says a phone call starts an application."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

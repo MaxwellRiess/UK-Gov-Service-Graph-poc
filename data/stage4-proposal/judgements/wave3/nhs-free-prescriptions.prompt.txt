@@ -1,0 +1,125 @@
+A service graph describes the UK government service "Free prescriptions (disability)" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/nhs-free-prescriptions.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[qualifier_1] (split into claims) Qualifying medical condition (apply for Medical Exemption Certificate via GP)
+[criterion_0] (split into claims) Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.
+[criterion_1] (split into claims) Receiving UC with a health element, or HC2 certificate for low income.
+[criterion_2] (split into claims) Under 16, aged 16–18 in full-time education, or 60 and over.
+[evidence_0] (split into claims) Benefit award letter or FP92A medical exemption form signed by GP
+
+--- SOURCE 0: https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/ ---
+Check if you can get free prescriptions Find out if you're eligible for free NHS prescriptions and any help with other NHS costs, including sight tests and NHS dental treatment. This service will ask about your age, where you live and any health conditions you have. Some prescribed items are always free, including contraception and medicines given to hospital inpatients. Check what help you could get to pay for NHS costs on the NHS Business Services Authority website. More in Prescriptions Check if you can get free prescriptions NHS prescription charges Save money with a prescription prepayment certificate (PPC) Emergency prescriptions How to order a repeat prescription Collect a prescription for someone else Page last reviewed: 23 November 2023 Next review due: 23 November 2026
+
+--- SOURCE 1 (LINKED): https://www.nhs.uk/nhs-services/prescriptions/save-money-with-a-prescription-prepayment-certificate-ppc ---
+Save money with a prescription prepayment certificate (PPC) If you know you'll have to pay for a lot of NHS prescriptions, it may be cheaper to buy a prescription prepayment certificate (PPC). A PPC covers all your NHS prescriptions, including NHS dental prescriptions, no matter how many items you need. A PPC does not cover the cost of other health items, such as wigs and fabric supports. Information: Prescription charges are for each item not for each prescription. For example, if your prescription has 3 medicines on it you will have to pay the prescription charge 3 times. There are 3 PPC options: a 3-month PPC costs £32.05 and will save you money if you need more than 3 prescribed items in 3 months a 12-month PPC costs £114.50 and will save you money if you need more than 11 prescribed items in a year a hormone replacement therapy (HRT) PPC costs £19.80 and will save you money if you need more than 2 prescribed qualifying HRT items in a year A PPC for hormone replacement therapy (HRT) covers an unlimited number of some HRT medicines for 12 months, including if they’re prescribed for something other than menopause symptoms. Find out more about the HRT PPC from the NHS Business Services Authority website. How to apply for a PPC Check if you can get free prescriptions before you apply for a PPC. You can buy an NHS prescription prepayment certificate online . The PPC will start from the day you submit your application, unless you ask for a different start date. The start date must be within 1 month before or after the date of your application. You can also apply using the PPC order line on 0300 330 1341. Your PPC will be valid from the day you make the phone call, unless you request otherwise. Some pharmacies may be able to sell you a 3-month PPC or the HRT PPC, which will be valid from the day you purchase it. Receiving your PPC You can choose to: receive your PPC details by email receive the PPC details by post print the PPC details at the end of your online application A PPC is valid from the day you apply for it, but it may take a couple of days for the PPC details to arrive by post. PPCs and refunds You can apply for a refund if you have to pay for prescriptions while you're waiting for a new PPC. Ask the pharmacist for an NHS receipt (FP57) when you collect your prescription so you can claim back the cost. You may be able to claim a full or partial refund for the cost of your PPC if you become entitled to free prescriptions while your certificate is still valid. For full refund details, including the time limit for claiming, visit the information about PPCs on the NHS Business Services Authority website More in Prescriptions Check if you can get free prescriptions NHS prescription charges Save money with a prescription prepayment certificate (PPC) Emergency prescriptions How to order a repeat prescription Collect a prescription for someone else Page last reviewed: 27 November 2023 Next review due: 27 November 2026

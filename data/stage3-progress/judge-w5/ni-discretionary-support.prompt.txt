@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Discretionary Support" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/ni-discretionary-support.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this online. You can apply or do this by phone.
+
+--- SOURCE 0: https://www.nidirect.gov.uk/articles/discretionary-support ---
+Discretionary Support You may be able to get help towards short-term living expenses or household items. Financial help for short-term living expenses or household items If you are in an extreme or exceptional situation or you are in a crisis you can apply for help from Discretionary Support. Depending on your personal circumstances, you could be offered either an interest-free loan or a grant that you would not have to pay back. Discretionary Support can help with: short-term living expenses (for example to buy food) the cost of buying, repairing or replacing basic household items (for example a cooker) travel expenses (in limited circumstances) rent you have to pay in advance to a landlord other than the Northern Ireland Housing Executive (NIHE) Any financial support you are awarded for living expenses will normally be for the period from the date you apply to the day before you are due to get your next income payment. For example, the day before your next benefit payment or wage is due to be paid. You may be able to get support awarded for a longer period if your next income payment would not be enough to pay your essential living expenses. In any 12-month period you can get the following: up to three Discretionary Support loans to help with short-term living expenses and household items the amount you are awarded will take account of your ability to repay the loan and any government debt you need to repay (Social Fund loans, Discretionary Support loans, short-term benefit advances and Universal Credit advances) one Discretionary Support grant for help to allow you or your immediate family to live independently in the community one Discretionary Support grant for living expenses if you could not repay a Discretionary Support loan you and your partner (if you have one) currently have a combined total government debt of more than £1,500 Important notes Note that: you cannot be awarded more than three Discretionary Support loans, one grant for living expenses and one grant for household items in a 12-month period, except in the case of a disaster if you receive Discretionary Support for an item such as a washing machine or mattress, you cannot receive another award for the same item in the same 24-month period, except in the case of a disaster if you and your partner (if you have one) have total government debt of £1,500 or more, you will not be able to get a Discretionary Support loan Eligibility To be eligible for Discretionary Support: you must have an extreme or exceptional situation or be in a crisis which puts your or your immediate family’s health, safety or well-being at significant risk you must live in Northern Ireland the crisis must have arisen in Northern Ireland you must be over 18 or at least 16 if you do not have any parental support your and your partner’s (if you have one) total annual income after deductions must not be more than £29,741.40 (some types of income are not taken into account when assessing this figure and reductions can be made for expenses such as housing costs) any money including savings you or your partner have may be taken into account when making an award Eligibility for Discretionary Support and whether you are awarded a grant or a loan will depend on your individual circumstances and, if appropriate, those of your immediate family. How you apply for Discretionary Support You will need to give the following information: your National Insurance number information on your rent or mortgage details of your income details of your savings your account details Apply to the Finance Support Service . How the loan or grant is paid The loan or grant will be paid into the account you give Finance Support details of. Paying off the Discretionary Support loan The Finance Support Service will recover the Discretionary Support loan by taking deductions direct from the benefit if you receive: Pension Credit Employment Support Allowance (income related) If you do not receive any of those benefits or you receive Universal Credit you will need to make repayments by Direct Debit. You need to contact the Finance Support Service immediately if you cancel or make any changes to the Direct Debit arrangement. Other payment methods (cash or cheque) will be accepted at local Jobs & Benefits offices. If you are unhappy with a decision If you are unhappy with Finance Support’s decision on your application, you can ask for a review within 28 days of the decision. To do this, contact the Finance Support Service . If you are unhappy with the decision from Finance Support’s review, you can ask for the Discretionary Support Commissioner, who is independent of the Department for Communities, to carry out another review. You can advise the person on the phone who is giving you the decision you want to do this, or you can contact the Finance Support Service in writing within 28 days of the decision from the first review. More information can be found at The Office of the Discretionary Support Commissioner . Share this page Share on Facebook (external link opens in a new window / tab) Share on X (external link opens in a new window / tab) Share by email (external link opens in a new window / tab) Welfare changes Benefit sanctions Changes to Housing Benefit Claim Finance Support Discretionary Support Getting ready for Universal Credit in Northern Ireland Personal Independence Payment (PIP) Short-term Benefit Advance Social Fund Budgeting loan Social Fund Sure Start Maternity Grant Universal Credit New Claims Grant
+
+--- SOURCE 1 (FOUND): https://www.communities-ni.gov.uk/contacts/finance-support-service ---
+Finance Support Service Topics: Benefits and pensions ,&ensp; Benefits If you have a financial crisis you can apply for Discretionary Support, a Short Term Benefit Advance or Universal Credit New Claims Grant via the online application form . You don't need to ring, someone will contact you. Check what Finance Support you can apply for. You may be asked to visit your local Jobs & Benefits office if more information is needed. Finance Support Discretionary Support Service Centre Antrim Jobs and Benefit Office 20 Castle Street Antrim BT41 4JE United Kingdom Freephone: 0800 587 2750 Textphone: 0800 587 2751 If you are deaf, have hearing loss or tinnitus and for customers with speech difficulties Opening hours Lines are open Monday to Friday, 9.00 am to 4.00 pm An appointment based face to face service for vulnerable claimants is on offer in all Jobs & Benefits offices. This includes anyone who may find it difficult to access the telephone because of learning problems, mental illness or difficulty communicating. SMS messages when claiming Finance support You may get text messages (SMS) from the Department for Communities (DfC). They will always be clearly marked as DfC and will never ask you to give or click a link to give, personal or financial details by message or email. If you&rsquo;re concerned or unsure about any text messages (SMS) you should contact Finance Support. More information at: scamwiseni . British Sign Language (BSL) or Irish Sign Language (ISL) To use the video relay service: contact Finance Support Service via the video relay service the interpreter will check whether you require BSL or ISL this service is for Northern Ireland residents only Map location

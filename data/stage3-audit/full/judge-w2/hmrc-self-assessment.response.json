@@ -1,0 +1,14 @@
+{"fields":[
+{"key":"qualifier_0","claims":[
+{"claim":"Someone who has started trading as a sole trader and earns more than £1,000 needs to register for Self Assessment.","verdict":"supported","quote":"However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April).","source":5,"note":"The text says sole traders earning more than £1,000 in a tax year must register for Self Assessment."}]},
+{"key":"criterion_0","claims":[
+{"claim":"You must send a return if you are a sole trader earning more than £1,000 before expenses.","verdict":"supported","quote":"you were self-employed as a ‘sole trader’ and earned more than £1,000 (before taking off anything you can claim tax relief on)","source":4,"note":"The text states the £1,000 threshold before taking off anything you can claim tax relief on."},
+{"claim":"You must send a return if you are a partner in a business partnership.","verdict":"supported","quote":"you were a partner in a business partnership","source":4,"note":"Listed as a reason you must send a tax return."}]},
+{"key":"criterion_1","claims":[
+{"claim":"You must send a return if you have Capital Gains Tax to pay.","verdict":"supported","quote":"you had to pay Capital Gains Tax when you sold or ‘disposed of’ something that increased in value","source":4,"note":"Listed as a reason you must send a tax return."},
+{"claim":"You must send a return if you have to pay the High Income Child Benefit Charge and do not pay it through PAYE.","verdict":"supported","quote":"you had to pay the High Income Child Benefit Charge and do not pay it through PAYE","source":4,"note":"Listed as a reason you must send a tax return."},
+{"claim":"You may also need to send a return for untaxed income such as rent, tips, commission, savings interest, dividends or foreign income.","verdict":"supported","quote":"You may also need to send a tax return if you have any untaxed income, such as: money from renting out property or land tips and commission savings interest dividends, including investments foreign income","source":4,"note":"The text lists each of these untaxed income types."},
+{"claim":"Company directors are not automatically required to send a return.","verdict":"not_stated","quote":null,"source":null,"note":"None of the sources mention company directors."}]},
+{"key":"evidence_0","claims":[
+{"claim":"You need a National Insurance number to register for Self Assessment.","verdict":"supported","quote":"You’ll need a National Insurance number to register for Self Assessment.","source":5,"note":"The text states a National Insurance number is needed to register."}]}
+],"methods_on_page":["online"],"sign_in_on_page":null}

@@ -1,0 +1,21 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply to register land or property online.",
+          "verdict": "partly_supported",
+          "quote": "You can submit applications digitally: using the Digital Registration Service in the HM Land Registry portal through legal software connected to HM Land Registry systems",
+          "source": 1,
+          "note": "Digital submission is stated for business customers changing the register, while the general first-registration route says to send forms and documents."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

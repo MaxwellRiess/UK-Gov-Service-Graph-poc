@@ -1,0 +1,124 @@
+A service graph describes the UK government service "Sign your mortgage deed" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w3/lr-sign-mortgage-deed.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[desc] (split into claims) Sign your mortgage deed electronically via HM Land Registry's digital mortgage service, replacing the need for a wet signature on a paper deed.
+[summary] (split into claims) Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.
+
+--- SOURCE 0: https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed ---
+HM Land Registry: Sign your mortgage deed. Our digital mortgage service allows homeowners who are remortgaging to sign their mortgage deed quickly and securely. Sign your mortgage deed is HM Land Registry’s digital mortgage service. Lenders and conveyancers can use the service to create and register legal mortgages of residential property for homeowners who are remortgaging. Homeowners who are remortgaging can use the service to sign their mortgage deed quickly and securely.
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed/sign-your-mortgage-deed-guide-for-homeowners ---
+Sign your mortgage deed: guide for homeowners The Sign your mortgage deed service from HM Land Registry allows you to sign your mortgage deed quickly and securely at a time that suits you. You do not have to wait for the paperwork to arrive in the post, sign it in front of a witness and send it back to your conveyancer or lender. It’s all done on your computer or mobile phone. Sign your mortgage deed Your conveyancer must have your: mobile phone number email address date of birth Your conveyancer will send you an email with instructions on how to access the Sign your mortgage deed service. The email will be sent to the email address you gave to your conveyancer. Proving your identity You will need to prove your identity using GOV.UK One Login . Using GOV.UK One Login is safe. Request a code You will be logged into the HM Land Registry service when you’ve verified your identity. You can check the details on your mortgage deed and request a code to sign the deed. The code will be sent to the mobile phone number you gave to your conveyancer. Your mortgage deed is signed when you enter the code. Your conveyancer and mortgage lender will be able to view the status of the deed at any time. Everyone named on the property will need to follow the process. You do not have to sign the deed at the same time. Your conveyancer and lender will be told when everyone named on the property has signed the deed. Remortgaging your property You can use the service to remortgage your property. Your bank or building society and conveyancer must use the Sign your mortgage deed service. Banks and building societies using the service Banks and building societies using the Sign your mortgage deed service include: Barclays Coventry Building Society Godiva Mortgages HSBC Nationwide Building Society NatWest Santander The Co-operative Bank (Platform) The Mortgage Works The Royal Bank of Scotland TSB Virgin Money (Clydesdale Bank plc) Conveyancers using the service Conveyancers using the Sign your mortgage deed service include: Enact Hugh James Knights Professional LMS O’Neill Patient Optima Legal

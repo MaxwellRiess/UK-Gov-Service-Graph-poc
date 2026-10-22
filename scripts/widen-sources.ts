@@ -33,6 +33,19 @@
  *   npx tsx scripts/widen-sources.ts --resume msgbatch_... --direct --write   # cached inputs, direct calls
  *   npx tsx scripts/widen-sources.ts --fields dvla-sorn#desc,dwp-pip#eligibility.criteria.2 --write
  *   npx tsx scripts/widen-sources.ts --from-proposals --split-all --write   # re-verify applied fixes
+ *
+ * Without API credit, the judging can be done by any model that can read a
+ * file and write one (a Claude Code subagent, say). --export writes each
+ * service's prompt and the exact response shape; --import reads the answers
+ * back through the same recordField, so quotes are checked exactly as before.
+ *   npx tsx scripts/widen-sources.ts --fields ... --split-all --export .cache/judge-1
+ *   npx tsx scripts/widen-sources.ts --import .cache/judge-1 --write
+ *
+ * --candidates <file> adds pages found by searching (stage 3 of
+ * docs/verification-procedure.md): a JSON object of "id#path" -> [url, ...].
+ * The pages are fetched here, not taken from whoever found them, and are
+ * marked FOUND in the prompt.
+ *   npx tsx scripts/widen-sources.ts --fields ... --candidates .cache/stage3/candidates.json --split-all --export .cache/stage3/judge
  */
 
 import Anthropic from '@anthropic-ai/sdk';
@@ -40,8 +53,9 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { NODES, type ServiceNode } from '../src/graph-data.js';
 import { loadProvenance, saveProvenance } from '../src/provenance.js';
 import { gatherSources } from './lib/sources.js';
+import { pageText } from './lib/page-text.js';
 import {
-  buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, METHOD_WORDS,
+  buildPrompt, requestParams, readResponse, recordField, AUTH_WORDS, TOOL, methodsText,
   type FieldToJudge, type Source, type ReviewItem, type ProseResponse,
 } from './lib/judge-prose.js';
 
@@ -52,6 +66,9 @@ const arg = (name: string) => {
 const WRITE = process.argv.includes('--write');
 const DRY = process.argv.includes('--dry-run');
 const BATCH = process.argv.includes('--batch');
+const EXPORT = arg('--export');
+const IMPORT = arg('--import');
+const CANDIDATES: Record<string, string[]> = arg('--candidates') ? JSON.parse(readFileSync(arg('--candidates')!, 'utf-8')) : {};
 const VERBOSE = process.argv.includes('--verbose');
 const RESUME = arg('--resume');
 // With --resume, call the API directly on the cached inputs instead of collecting the batch
@@ -94,10 +111,10 @@ function proseField(n: ServiceNode, path: string): FieldToJudge | null {
   const e = n.eligibility;
   if (path === 'desc') return { key: 'desc', path, text: n.desc, split: true };
   if (path === 'eligibility.summary') return { key: 'summary', path, text: e.summary, split: true };
-  if (path === 'agentInteraction.methods' && n.agentInteraction) {
-    return { key: 'methods', path, split: true, text: n.agentInteraction.methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.' };
+  if (path === 'agentInteraction.methods' && n.agentInteraction?.methods) {
+    return { key: 'methods', path, split: true, text: methodsText(n.agentInteraction.methods) };
   }
-  if (path === 'agentInteraction.authRequired' && n.agentInteraction) {
+  if (path === 'agentInteraction.authRequired' && n.agentInteraction?.authRequired) {
     return { key: 'auth', path, split: false, text: AUTH_WORDS[n.agentInteraction.authRequired] ?? n.agentInteraction.authRequired };
   }
   const m = path.match(/^eligibility\.(autoQualifiers|exclusions|evidenceRequired)\.(\d+)$/);
@@ -146,12 +163,20 @@ async function prepare(id: string, list: Target[]): Promise<Prepared | null> {
   const sources = await gatherSources(NODES[id], list.map(x => x.terms).join(' '), {
     maxLinked: MAX_LINKED, linkedChars: LINKED_CHARS, minScore: MIN_SCORE, requireLinked: !FIELDS,
   });
-  return sources ? { id, fields: list.map(x => x.field), sources } : null;
+  if (!sources) return null;
+  const found = [...new Set(list.flatMap(x => CANDIDATES[`${id}#${x.field.path}`] ?? []))]
+    .filter(u => !sources.some(s => s.url === u));
+  for (const url of found) {
+    const text = await pageText(url);
+    if (text && text.length > 200) sources.push({ url, text: text.slice(0, LINKED_CHARS), found: true });
+    else console.error(`  ${id}: could not read candidate ${url}`);
+  }
+  return { id, fields: list.map(x => x.field), sources };
 }
 
 // ─── RUN ────────────────────────────────────────────────────────────────────
 
-if (!DRY && !process.env.ANTHROPIC_API_KEY) {
+if (!DRY && !EXPORT && !IMPORT && !process.env.ANTHROPIC_API_KEY) {
   console.error('ANTHROPIC_API_KEY is not set. This pass needs it (use --dry-run to preview without it).');
   process.exit(2);
 }
@@ -161,7 +186,10 @@ const sleep = (ms: number) => new Promise(r => setTimeout(r, ms));
 let prepared: Prepared[] = [];
 let batchId = RESUME ?? null;
 
-if (RESUME) {
+if (IMPORT) {
+  prepared = JSON.parse(readFileSync(`${IMPORT}/prepared.json`, 'utf-8'));
+  console.error(`Importing answers for ${prepared.length} services from ${IMPORT}`);
+} else if (RESUME) {
   prepared = JSON.parse(readFileSync(`${CACHE_DIR}/widen-${RESUME}.json`, 'utf-8'));
   console.error(`Resuming batch ${RESUME} (${prepared.length} services)`);
 } else {
@@ -182,11 +210,34 @@ console.error(`\n${prepared.length} of ${targets.size} services have a linked pa
 console.error(`Estimated input: ~${Math.round(inputChars / 4 / 1000)}k tokens (${Math.round(inputChars / 4 / Math.max(1, prepared.length))} per call).`);
 if (DRY) process.exit(0);
 
+if (EXPORT) {
+  mkdirSync(EXPORT, { recursive: true });
+  writeFileSync(`${EXPORT}/prepared.json`, JSON.stringify(prepared));
+  const shape = JSON.stringify(TOOL.input_schema, null, 2);
+  for (const p of prepared) {
+    writeFileSync(`${EXPORT}/${p.id}.prompt.txt`,
+      buildPrompt(NODES[p.id].name, p.fields, p.sources).replace(
+        'Report by calling report_prose once, covering every field.',
+        `Report by writing one JSON object, and nothing else, to the file ${EXPORT}/${p.id}.response.json. ` +
+        `It must match this JSON schema:\n${shape}`,
+      ));
+  }
+  console.error(`Wrote ${prepared.length} prompts to ${EXPORT}. Answer each, then run with --import ${EXPORT}.`);
+  process.exit(0);
+}
+
 // Collect responses, directly or through a batch.
 const responses = new Map<string, ProseResponse>();
 const failures: string[] = [];
 
-if ((BATCH || RESUME) && !DIRECT) {
+if (IMPORT) {
+  for (const p of prepared) {
+    const file = `${IMPORT}/${p.id}.response.json`;
+    if (!existsSync(file)) { failures.push(`${p.id}: no ${file}`); continue; }
+    try { responses.set(p.id, JSON.parse(readFileSync(file, 'utf-8')) as ProseResponse); }
+    catch (e: any) { failures.push(`${p.id}: ${e.message}`); }
+  }
+} else if ((BATCH || RESUME) && !DIRECT) {
   if (!batchId) {
     const batch = await client.messages.batches.create({
       requests: prepared.map(p => ({ custom_id: p.id, params: requestParams(MODEL, buildPrompt(NODES[p.id].name, p.fields, p.sources)) })),
@@ -247,6 +298,14 @@ for (const p of prepared) {
   if (!out) continue;
   const n = NODES[p.id];
   for (const f of p.fields) {
+    const criterion = f.path.match(/^eligibility\.criteria\.(\d+)$/);
+    const currentText = criterion
+      ? n.eligibility.criteria[Number(criterion[1])]?.description
+      : proseField(n, f.path)?.text;
+    if (currentText !== f.text) {
+      failures.push(`${p.id}#${f.path}: graph text changed since the judge prompt was prepared`);
+      continue;
+    }
     const res = recordField(store, n, f, out.fields.find(x => x.key === f.key), p.sources, now);
     counts[res.status] = (counts[res.status] ?? 0) + 1;
     fromLinked += res.linkedQuotes;

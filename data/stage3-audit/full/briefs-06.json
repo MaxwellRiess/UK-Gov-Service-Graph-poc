@@ -1,0 +1,243 @@
+[
+  {
+    "key": "ho-citizenship#eligibility.evidenceRequired.0",
+    "service": "British citizenship (naturalisation)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "claim": "ILR/settled status document or eVisa evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text refers to the guidance for the documents needed and does not list this document or eVisas."
+  },
+  {
+    "key": "ho-citizenship#eligibility.evidenceRequired.1",
+    "service": "British citizenship (naturalisation)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "claim": "Passport(s) covering the qualifying period",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text does not list passports as required evidence."
+  },
+  {
+    "key": "ho-citizenship#eligibility.evidenceRequired.4",
+    "service": "British citizenship (naturalisation)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "claim": "Form AN",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text never names Form AN."
+  },
+  {
+    "key": "ho-drug-precursor-licence#eligibility.evidenceRequired.0",
+    "service": "Licence to possess or sell drug precursor chemicals",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors",
+    "claim": "Details of chemicals and their intended use",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors"
+    ],
+    "whyNotFound": "not stated: The text does not mention giving details of the chemicals or what they will be used for."
+  },
+  {
+    "key": "ho-drug-precursor-licence#eligibility.evidenceRequired.1",
+    "service": "Licence to possess or sell drug precursor chemicals",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors",
+    "claim": "Identity and competence credentials of the responsible officer",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors"
+    ],
+    "whyNotFound": "not stated: The text says a responsible officer must be appointed but does not ask for their identity or competence credentials."
+  },
+  {
+    "key": "ho-euss-enquiry#eligibility.criteria.0",
+    "service": "EUSS status enquiry",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+    "claim": "Must have applied to or been granted status under the EU Settlement Scheme.",
+    "alreadySearched": [
+      "https://www.gov.uk/contact-ukvi-inside-outside-uk"
+    ],
+    "whyNotFound": "not stated: The source only covers contacting UKVI in general and never mentions the EU Settlement Scheme or applying for status under it."
+  },
+  {
+    "key": "ho-euss-enquiry#eligibility.summary",
+    "service": "EUSS status enquiry",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+    "claim": "Available to EU, EEA and Swiss nationals (and their family members) who have issues with their EUSS application or settled/pre-settled status, such as a certificate of application not arriving, needing to update personal details, or status not showing correctly.",
+    "alreadySearched": [
+      "https://www.gov.uk/contact-ukvi-inside-outside-uk"
+    ],
+    "whyNotFound": "not stated: The text does not say who can use the service or mention any nationalities. not stated: The text does not mention EUSS, settled status or pre-settled status. not stated: The text does not mention certificates of application. not stated: The text does not mention updating personal details. not stated: The text does not mention status not showing correctly."
+  },
+  {
+    "key": "ho-evisa-error#desc",
+    "service": "Report an error with your eVisa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/report-error-evisa",
+    "claim": "Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.",
+    "alreadySearched": [
+      "https://www.gov.uk/report-error-evisa"
+    ],
+    "whyNotFound": "not stated: The text's examples are date of birth, immigration status, name and nationality. It does not mention conditions of stay or expiry dates."
+  },
+  {
+    "key": "ho-ilr#eligibility.evidenceRequired.0",
+    "service": "Indefinite Leave to Remain",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+    "claim": "Passport(s) covering entire qualifying period",
+    "alreadySearched": [
+      "https://www.gov.uk/indefinite-leave-to-remain",
+      "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa"
+    ],
+    "whyNotFound": "not stated: The text never mentions passports as evidence."
+  },
+  {
+    "key": "ho-ilr#eligibility.evidenceRequired.1",
+    "service": "Indefinite Leave to Remain",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+    "claim": "Proof of continuous residence (payslips, bank statements, tenancy agreements)",
+    "alreadySearched": [
+      "https://www.gov.uk/indefinite-leave-to-remain",
+      "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa"
+    ],
+    "whyNotFound": "not stated: The text does not list documents that prove continuous residence; bank statements are mentioned only for showing where children over 16 live and that they are supported."
+  },
+  {
+    "key": "ho-ilr#eligibility.evidenceRequired.4",
+    "service": "Indefinite Leave to Remain",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+    "claim": "SET(O) or relevant form",
+    "alreadySearched": [
+      "https://www.gov.uk/indefinite-leave-to-remain",
+      "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa"
+    ],
+    "whyNotFound": "not stated: The text does not name the SET(O) form; it only refers to an online application form."
+  },
+  {
+    "key": "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0",
+    "service": "Skilled Worker dependant visa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+    "claim": "Main applicant's visa or BRP",
+    "alreadySearched": [
+      "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
+    ],
+    "whyNotFound": "not stated: The text does not name the main applicant's visa or a BRP as dependant evidence."
+  },
+  {
+    "key": "ho-skilled-worker-visa#eligibility.criteria.1",
+    "service": "Skilled Worker visa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/skilled-worker-visa",
+    "claim": "Must not have conditions that prevent applying for this visa.",
+    "alreadySearched": [
+      "https://www.gov.uk/skilled-worker-visa",
+      "https://www.gov.uk/skilled-worker-visa/your-job"
+    ],
+    "whyNotFound": "not stated: The text never says that an applicant's existing visa or conditions could stop them applying for this visa."
+  },
+  {
+    "key": "ho-student-visa#eligibility.criteria.0",
+    "service": "Student visa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-visa",
+    "claim": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
+    "alreadySearched": [
+      "https://www.gov.uk/student-visa"
+    ],
+    "whyNotFound": "not stated: The text never says applicants must not be British or Irish, or must not already have leave covering the course; it only says people with EU Settlement Scheme status do not need a visa, which is a different point."
+  },
+  {
+    "key": "ho-view-immigration-status#eligibility.summary",
+    "service": "View or prove your immigration status",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/view-prove-immigration-status",
+    "claim": "Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.",
+    "alreadySearched": [
+      "https://www.gov.uk/view-prove-immigration-status"
+    ],
+    "whyNotFound": "not stated: The text does not say anything about which nationalities are eligible."
+  },
+  {
+    "key": "ho-visa#agentInteraction.methods",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page mentions an 'online immigration status' for eVisas but does not say how to apply for a visa."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.0",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Valid passport",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page does not mention passports."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.1",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Financial evidence (sufficient funds)",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page does not mention financial evidence."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.2",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Purpose-specific documents: job offer/CoS, university CAS, relationship evidence, etc.",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page lists no required documents."
+  },
+  {
+    "key": "insolvency-bankruptcy#eligibility.criteria.0",
+    "service": "Apply for bankruptcy",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-bankruptcy",
+    "claim": "Debts must exceed assets and the person must be unable to pay debts as they fall due.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-bankruptcy"
+    ],
+    "whyNotFound": "not stated: The text never says that debts must exceed assets or that the applicant must be unable to pay debts as they fall due."
+  },
+  {
+    "key": "insolvency-bankruptcy#eligibility.exclusions.1",
+    "service": "Apply for bankruptcy",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-bankruptcy",
+    "claim": "Significant property ownership — bankruptcy trustee may sell assets",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-bankruptcy"
+    ],
+    "whyNotFound": "not stated: The text does not mention property, trustees or selling assets."
+  }
+]

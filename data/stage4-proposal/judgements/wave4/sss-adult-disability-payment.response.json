@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Applicants must be aged 16 to State Pension age.",
+          "verdict": "partly_supported",
+          "quote": "You may still be able to apply if you got Personal Independence Payment (PIP) in the 12 months before you reached State Pension age.",
+          "source": 3,
+          "note": "The usual age range is 16 to State Pension age, but the suitability checker names a possible exception after State Pension age."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Applicants must provide medical evidence of their condition.",
+          "verdict": "partly_supported",
+          "quote": "You need to provide a document from a professional that confirms your conditions, disability or needs.",
+          "source": 6,
+          "note": "A professional document confirming the condition or needs is required, but it need not be medical evidence specifically."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Applicants provide details of how their condition affects daily life.",
+          "verdict": "supported",
+          "quote": "Part 2 asks you about: your condition and how it affects your ability to look after yourself, understand information, and communicate what help and support you need and why",
+          "source": 6,
+          "note": "Part 2 explicitly asks how the condition affects everyday functions and support needs."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Applicants must provide GP or consultant details.",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "The supplied text mentions a GP letter as an example of supporting information but does not require GP or consultant contact details."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

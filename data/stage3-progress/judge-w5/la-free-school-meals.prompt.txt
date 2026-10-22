@@ -1,0 +1,123 @@
+A service graph describes the UK government service "Free School Meals" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w5/la-free-school-meals.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_0] (split into claims) Proof of qualifying benefit
+
+--- SOURCE 0: https://www.gov.uk/apply-free-school-meals ---
+Apply for free school meals Check if your child can get free school meals in England and find out how to apply on your local authority’s website. There’s a different process to apply for free school meals in Northern Ireland , free school meals in Scotland , or free school meals in Wales . If your child is eligible for free school meals, they’ll also qualify for the Holiday Activity and Food Programme . Food vouchers may also be available through the Household Support Fund . Find out more by contacting your local council . Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder Your child may be able to get free school meals if you get any of the following: Universal Credit - if you apply on or after 1 April 2018 your household income must be £7,400 a year or less (after tax and not including any benefits you get) income-related Employment and Support Allowance support under Part VI of the Immigration and Asylum Act 1999 the guaranteed element of Pension Credit Children who get paid these benefits directly, instead of through a parent or guardian, can also get free school meals. Your child may also get free school meals if you get any of these benefits and your child is both: younger than the compulsory age for starting school in full-time education From the start of academic year 2026 to 2027, your child will qualify for free school meals if you get Universal Credit, regardless of household income. If you do not qualify for most benefits (also known as having ‘no recourse to public funds’), your child may still be eligible for free school meals. Ask their school or local authority whether they’re eligible. Infant free school meals in England Your child will be able to get free school meals if they’re in a government-funded school and in: reception class year 1 year 2 Tell your local authority if you also get any of the qualifying benefits. Your child’s school could get extra funding if you do. Related content Help with home to school transport School meals - food standards Explore the topic Benefits and financial support for families Financial help if you have children Schools and education Schools and curriculum
+
+--- SOURCE 1 (FOUND): https://www.gov.uk/government/publications/free-school-meals-guidance-for-schools-and-local-authorities/evidence-of-eligibility-for-free-school-meals-annex-b ---
+Evidence of eligibility for free school meals (Annex B) Assessment of earnings for Universal Credit recipients Applicants for free school meals who are in receipt of Universal Credit must have an equivalent annual net earned income of no more than £7,400 in order to be eligible for targeted free school meals. The monthly checking arrangements outlined here are designed to take into account claimants whose earnings may fluctuate on a monthly basis. What to check Firstly, a Universal Credit claimant will be checked for monthly net earned income not exceeding £616.67 (a twelfth of an equivalent yearly income of £7,400) in their most recent Universal Credit assessment period. If they meet this criterion, they are eligible for free school meals and no further checks are necessary. If their earned income exceeds the above threshold for their most recent Universal Credit assessment period, the claimant will be checked for net earned income not exceeding £1,233.34 (a sixth of an equivalent yearly income of £7,400) in their 2 most recent Universal Credit assessment periods, provided there are 2 such assessment periods. If they meet this criterion, they are eligible for free school meals and no further checks are necessary. If their earned income exceeds the above threshold for their 2 most recent Universal Credit assessment periods, the claimant will be checked for net earned income not exceeding £1,850 (a quarter of an equivalent yearly income of £7,400) in their 3 most recent Universal Credit assessment periods, provided there are three such assessment periods. If they meet this criterion, they are eligible for free school meals. Only complete assessment periods will be checked. Claimants with annual earnings of more than £7,400 will be eligible for expanded FSM . Self employed claimants A manual check will be required to determine eligibility for self-employed Universal Credit claimants. These claimants will need to provide evidence that: they are in receipt of Universal Credit, by providing their Universal Credit award letter they are self-employed, by providing a copy of either their: company registration tax return form their monthly net earnings do not exceed the threshold as set out here Schools should request that self-employed claimants complete the self-declaration provided alongside this guidance (Annex C). Once satisfied that they are eligible, schools should provide free school meals to their child or children. Schools or local authorities seeking further guidance on this process can contact the eligibility checking system helpdesk . Alternative evidence If a parent feels that the result returned by the DfE digital checking system is inaccurate, they may provide the equivalent paper-based evidence to their school or local authority, who must then complete a manual check. Applicants must provide appropriate paper-based evidence from the list here. Local authorities can award free school meals if they are satisfied that the paper-based evidence demonstrates that the eligibility criteria are met. Evidence should be retained for audit purposes. For Universal Credit recipients, this check should assess whether the earned income from the months provided is at or below the thresholds stated above for the relevant assessment periods. Where a claimant for FSM is at or below the above thresholds, they will be eligible for targeted FSM . If a claimant is confirmed to be in receipt of Universal Credit, but has earnings exceeding the above thresholds, they will be eligible for expanded FSM . In both instances, claimants will be entitled to receive free meals. For families that might be eligible for free school meals under Universal Credit, applicants should provide a copy of their Universal Credit award statement (from their most recent assessment period(s) – going back a maximum of 3 assessment periods). The 3 relevant Universal Credit assessment periods would be the 3 complete assessment periods which immediately preceded the date on which the parent requests free school meals. Documentation to check Families should provide any of the following evidence to demonstrate entitlement to FSM under other criteria: a letter from Jobcentre Plus confirming eligibility or Income Support payment book a letter from the Home Office confirming receipt of this support under Part VI of the Immigration and Asylum Act 1999 a ‘Pension Credit M1000 Award Notice’ clearly showing details of any guarantee Pension Credit in payment Families with no recourse to public funds Further details on eligibility for free school meals for families with no recourse to public funds ( NRPF ) are available.

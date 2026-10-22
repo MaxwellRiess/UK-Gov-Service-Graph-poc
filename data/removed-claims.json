@@ -1,0 +1,2349 @@
+[
+  {
+    "key": "acas-early-conciliation#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.acas.org.uk/early-conciliation"
+    ],
+    "note": "not stated: The text does not mention accounts or signing in."
+  },
+  {
+    "key": "cabinetoffice-uk-honours#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/honours"
+    ],
+    "note": "not stated: The text never says whether an account or sign-in is needed for an online nomination."
+  },
+  {
+    "key": "ch-close-company#agentInteraction.authRequired",
+    "value": "Applying online needs a Companies House account or sign-in",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/closing-a-limited-company"
+    ],
+    "note": "not stated: The text names no account or sign-in."
+  },
+  {
+    "key": "dfe-care-to-learn#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/care-to-learn"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in at all."
+  },
+  {
+    "key": "dfe-find-apprenticeship#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-apprenticeship"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "dfe-national-careers#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://nationalcareers.service.gov.uk/"
+    ],
+    "note": "not stated: The text does not say whether you need an account or sign-in."
+  },
+  {
+    "key": "dhsc-baby-loss-certificate#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/request-baby-loss-certificate"
+    ],
+    "note": "not stated: The text asks for an NHS number or postcode and contact details, but it does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "dvla-cancel-licence#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/tell-dvla-about-bereavement"
+    ],
+    "note": "not stated: The text never mentions an account or sign-in either way."
+  },
+  {
+    "key": "dvla-change-address-v5c#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/change-address-v5c"
+    ],
+    "note": "not stated: The text doesn't say whether an account or sign-in is needed. It names none, but it doesn't say one isn't required either."
+  },
+  {
+    "key": "dvla-name-change#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/change-name-driving-licence"
+    ],
+    "note": "not stated: The text does not mention applying online or any sign-in."
+  },
+  {
+    "key": "dvla-notify-condition#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/health-conditions-and-driving"
+    ],
+    "note": "not stated: The text asks for driving licence and condition details but says nothing about whether an account or sign-in is needed."
+  },
+  {
+    "key": "dvla-renew-licence#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/renew-driving-licence"
+    ],
+    "note": "not stated: The source says you need to sign in but doesn't name the account, so Government Gateway isn't stated."
+  },
+  {
+    "key": "dvla-ved-exemption#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in requirement either way."
+  },
+  {
+    "key": "dvla-vehicle-enquiry#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/get-vehicle-information-from-dvla"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "dvsa-driving-test#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/book-driving-test"
+    ],
+    "note": "not stated: The text names no sign-in or account for booking online."
+  },
+  {
+    "key": "dvsa-theory-test#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/book-theory-test"
+    ],
+    "note": "not stated: The text names no sign-in; it only lists a driving licence number, an email address and a card."
+  },
+  {
+    "key": "dwp-access-to-work#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/access-to-work"
+    ],
+    "note": "not stated: The text does not say whether you need an account to apply. It names a GOV.UK One Login only for claiming money from a grant online, not for applying."
+  },
+  {
+    "key": "dwp-attendance-allowance#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/attendance-allowance"
+    ],
+    "note": "not stated: The text does not say whether online applications need an account or sign-in."
+  },
+  {
+    "key": "dwp-bereavement-support#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/bereavement-support-payment"
+    ],
+    "note": "not stated: The text says nothing about whether an account or sign-in is needed."
+  },
+  {
+    "key": "dwp-budgeting-loan#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/budgeting-help-benefits"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed to apply online."
+  },
+  {
+    "key": "dwp-carers-allowance#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/carers-allowance"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, so it neither confirms nor rules one out."
+  },
+  {
+    "key": "dwp-child-maintenance#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "note": "not stated: The text mentions signing in only for people who already have an account and says nothing about sign-in requirements for applying."
+  },
+  {
+    "key": "dwp-dla-child#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/disability-living-allowance-children"
+    ],
+    "note": "not stated: The text describes only paper and phone routes and says nothing about accounts or sign-in."
+  },
+  {
+    "key": "dwp-find-a-job#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/find-a-job"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "dwp-funeral-payment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/funeral-payments"
+    ],
+    "note": "not stated: The text gives only phone and post routes and says nothing about whether an account or sign-in is needed."
+  },
+  {
+    "key": "dwp-housing-benefit#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/housing-benefit"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "dwp-inherited-state-pension#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "note": "not stated: The text names no account or sign-in and does not say none is needed. It mentions only an invitation code for online applications."
+  },
+  {
+    "key": "dwp-maternity-allowance#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/maternity-allowance"
+    ],
+    "note": "not stated: The text never mentions an account or sign-in for applying."
+  },
+  {
+    "key": "dwp-new-style-esa#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/employment-support-allowance/eligibility"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed to apply online."
+  },
+  {
+    "key": "dwp-new-style-jsa#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/jobseekers-allowance"
+    ],
+    "note": "not stated: The text does not name any sign-in or account for applying online."
+  },
+  {
+    "key": "dwp-ni-credits#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/national-insurance-credits"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, either to require one or to say none is needed."
+  },
+  {
+    "key": "dwp-ni-number#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-national-insurance-number"
+    ],
+    "note": "not stated: The text names no sign-in for applying, and it also never says that none is needed."
+  },
+  {
+    "key": "dwp-pension-credit#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/pension-credit"
+    ],
+    "note": "not stated: The text names no account or sign-in and does not say whether one is needed. It only says you can apply online if you have already applied for your State Pension."
+  },
+  {
+    "key": "dwp-pension-tracing#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/find-pension-contact-details"
+    ],
+    "note": "not stated: The page does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "dwp-sr1-form#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed for the online route."
+  },
+  {
+    "key": "dwp-state-pension#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/new-state-pension/eligibility"
+    ],
+    "note": "not stated: The text names no sign-in account for applying online, only an invitation code from a letter."
+  },
+  {
+    "key": "dwp-tell-us-once#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed; it only mentions the reference number."
+  },
+  {
+    "key": "dwp-voluntary-ni-contributions#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/voluntary-national-insurance-contributions"
+    ],
+    "note": "not stated: The text does not name any sign-in or account."
+  },
+  {
+    "key": "dwp-winter-fuel#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/winter-fuel-payment"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, and it does not offer an online claim route."
+  },
+  {
+    "key": "ea-fishing-licence#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/fishing-licences/buy-a-fishing-licence"
+    ],
+    "note": "not stated: The text lists what you need to apply online but does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "ea-flood-risk#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/check-long-term-flood-risk"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, and it does not say explicitly that none is needed either."
+  },
+  {
+    "key": "fco-document-legalisation#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/get-document-legalised"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "fco-emergency-travel-doc#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/emergency-travel-document"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in."
+  },
+  {
+    "key": "gro-give-notice#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/marriages-civil-partnerships/give-notice"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "gro-register-birth#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/register-birth"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmcts-child-arrangements#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/looking-after-children-divorce/apply-for-court-order"
+    ],
+    "note": "not stated: The text names no account or sign-in for the online application."
+  },
+  {
+    "key": "hmcts-court-fee-remission#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "note": "not stated: The text does not say whether you need an account or sign-in to apply."
+  },
+  {
+    "key": "hmcts-court-fines#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/pay-court-fine-online"
+    ],
+    "note": "not stated: The text names no account or sign-in and does not say whether one is needed."
+  },
+  {
+    "key": "hmcts-divorce#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/divorce"
+    ],
+    "note": "not stated: The text never mentions Government Gateway; the only account it names is MyHMCTS, and that is for solicitors."
+  },
+  {
+    "key": "hmcts-employment-tribunal#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/employment-tribunals"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmcts-financial-order#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/money-property-when-relationship-ends"
+    ],
+    "note": "not stated: The text names no sign-in and does not mention applying online."
+  },
+  {
+    "key": "hmcts-find-a-will#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/search-will-probate"
+    ],
+    "note": "not stated: The text never mentions an account or sign-in, either way."
+  },
+  {
+    "key": "hmcts-gender-recognition#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-gender-recognition-certificate"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmcts-jury-summons#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/jury-service"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmcts-legal-aid#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/legal-aid"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "hmcts-money-claims#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/make-court-claim-for-money"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed to apply. It only mentions a Money Claims online account 'if you have one'."
+  },
+  {
+    "key": "hmcts-probate#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/applying-for-probate"
+    ],
+    "note": "not stated: The text only says to sign in to the probate service and never mentions Government Gateway or any named account."
+  },
+  {
+    "key": "hmcts-tax-tribunal#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/tax-tribunal"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed to appeal online."
+  },
+  {
+    "key": "hmcts-unclaimed-court-money#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/find-unclaimed-court-money"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmpo-lost-stolen-passport#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/report-a-lost-or-stolen-passport"
+    ],
+    "note": "not stated: The text names no account or sign-in and does not say whether one is needed; it only says you need a phone number."
+  },
+  {
+    "key": "hmpo-passport#agentInteraction.authRequired",
+    "value": "Applying online needs GOV.UK Verify",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "note": "not stated: The text names no sign-in or account for applying online; it only says you need a debit or credit card."
+  },
+  {
+    "key": "hmpo-passport-urgent#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/get-a-passport-urgently"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmpps-prison-visits#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/prison-visits"
+    ],
+    "note": "not stated: The text does not say whether you need an account or sign-in."
+  },
+  {
+    "key": "hmrc-cancel-marriage-allowance#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/marriage-allowance/if-your-circumstances-change"
+    ],
+    "note": "not stated: The text names no sign-in for cancelling online. It only says you prove your identity using information HMRC holds."
+  },
+  {
+    "key": "hmrc-child-benefit#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/child-benefit"
+    ],
+    "note": "not stated: The text names no sign-in or account for the online claim."
+  },
+  {
+    "key": "hmrc-child-benefit-transfer#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
+    ],
+    "note": "not stated: The text names no account or sign-in for the online service."
+  },
+  {
+    "key": "hmrc-cis#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "note": "not stated: The text does not name Government Gateway or any sign-in for registering."
+  },
+  {
+    "key": "hmrc-free-childcare-15#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in for this entitlement."
+  },
+  {
+    "key": "hmrc-guardians-allowance#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/guardians-allowance"
+    ],
+    "note": "not stated: The text does not say anything about accounts or signing in."
+  },
+  {
+    "key": "hmrc-help-to-save#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/get-help-savings-low-income"
+    ],
+    "note": "not stated: The text says you need to sign in, but it does not name Government Gateway or any other sign-in service."
+  },
+  {
+    "key": "hmrc-iht400#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/inheritance-tax"
+    ],
+    "note": "not stated: The text names no sign-in or account."
+  },
+  {
+    "key": "hmrc-lisa#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/lifetime-isa"
+    ],
+    "note": "not stated: The text does not mention an account or sign-in."
+  },
+  {
+    "key": "hmrc-marriage-allowance#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/marriage-allowance"
+    ],
+    "note": "not stated: The text names no sign-in for applying online. It only says that to cancel online you prove your identity using information HMRC holds."
+  },
+  {
+    "key": "hmrc-mtd#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/government/collections/making-tax-digital-for-vat"
+    ],
+    "note": "not stated: The text does not name any sign-in or account."
+  },
+  {
+    "key": "hmrc-p45#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
+    ],
+    "note": "not stated: The text does not talk about signing in to get a P45. It only mentions the personal tax account for viewing pay and tax details."
+  },
+  {
+    "key": "hmrc-paye#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/register-employer"
+    ],
+    "note": "not stated: The text does not name Government Gateway or any sign-in for registering; it only mentions getting a login for PAYE Online after registering."
+  },
+  {
+    "key": "hmrc-register-sole-trader#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "note": "not stated: The text does not name Government Gateway or any other sign-in."
+  },
+  {
+    "key": "hmrc-sdlt#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/stamp-duty-land-tax"
+    ],
+    "note": "not stated: The text does not name Government Gateway or any other sign-in."
+  },
+  {
+    "key": "hmrc-self-assessment#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "note": "not stated: The text names no sign-in or account for applying online."
+  },
+  {
+    "key": "hmrc-smp#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/maternity-pay-leave/pay"
+    ],
+    "note": "not stated: The text does not mention accounts, sign-in or applying online. It only says to tell your employer."
+  },
+  {
+    "key": "hmrc-spl#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/shared-parental-leave-and-pay"
+    ],
+    "note": "not stated: The text says nothing about any account or sign-in."
+  },
+  {
+    "key": "hmrc-spp#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/paternity-pay-leave"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "hmrc-statutory-parental-bereavement#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/parental-bereavement-pay-leave"
+    ],
+    "note": "not stated: The text doesn't mention any account or sign-in, either as required or as not required."
+  },
+  {
+    "key": "hmrc-tax-credits#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "note": "not stated: The text names no sign-in or account."
+  },
+  {
+    "key": "hmrc-tax-free-childcare#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/tax-free-childcare"
+    ],
+    "note": "not stated: The text only mentions a 'user ID and password' for signing in to the childcare account and never names Government Gateway."
+  },
+  {
+    "key": "hmrc-tax-on-pension#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/tax-on-pension"
+    ],
+    "note": "not stated: The text mentions a personal tax account but never names Government Gateway or any sign-in."
+  },
+  {
+    "key": "hmrc-update-records#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/tell-hmrc-change-of-details"
+    ],
+    "note": "not stated: The page says you need to sign in but does not name Government Gateway."
+  },
+  {
+    "key": "hmrc-vat#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "note": "not stated: The text does not name any sign-in or account for applying online."
+  },
+  {
+    "key": "ho-citizenship#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "ho-eu-settled-status#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/settled-status-eu-citizens-families"
+    ],
+    "note": "not stated: The text never says whether an account or sign-in is needed to apply; it mentions a UKVI account only for updating details after pre-settled status."
+  },
+  {
+    "key": "ho-euss-enquiry#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/contact-ukvi-inside-outside-uk"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "ho-evisa-error#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/report-error-evisa"
+    ],
+    "note": "not stated: The text lists the details you must give but does not say whether you need to sign in to report an error."
+  },
+  {
+    "key": "ho-evw#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/eta"
+    ],
+    "note": "not stated: The text lists what you need (a passport, an email address, a payment method) but never says whether an account or sign-in is needed."
+  },
+  {
+    "key": "ho-fee-waiver#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/visa-fee-waiver-in-uk"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "ho-ilr#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/indefinite-leave-to-remain"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed; it only says you can save your form and complete it later."
+  },
+  {
+    "key": "ho-visa#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "note": "not stated: The page does not mention accounts or sign-in at all."
+  },
+  {
+    "key": "insolvency-breathing-space#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/options-for-dealing-with-your-debts/breathing-space"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "insolvency-dro#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders"
+    ],
+    "note": "not stated: The text doesn't mention any account or sign-in."
+  },
+  {
+    "key": "la-blue-badge#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed; it only says you can save and return to your application."
+  },
+  {
+    "key": "la-bus-pass#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in."
+  },
+  {
+    "key": "la-business-rates#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "note": "not stated: The text does not say whether applying needs an account; it mentions a business rates valuation account only for reporting changes and challenging values."
+  },
+  {
+    "key": "la-carers-assessment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhs.uk/social-care-and-support/support-and-benefits-for-carers/carer-assessments/"
+    ],
+    "note": "not stated: The text never mentions whether you need an account or sign-in."
+  },
+  {
+    "key": "la-council-tax#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-council-tax-disability-reduction#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "la-council-tax-reduction#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "note": "not stated: The text says nothing about whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-council-tax-single-discount#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/council-tax/who-has-to-pay"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in at all."
+  },
+  {
+    "key": "la-disabled-facilities-grant#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/disabled-facilities-grants"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in."
+  },
+  {
+    "key": "la-electoral-roll#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/register-to-vote"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-food-hygiene#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-free-childcare-2yr#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "note": "not stated: The text does not say whether you need an account or sign-in for this scheme."
+  },
+  {
+    "key": "la-free-school-meals#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-free-school-meals"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-postal-vote#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-postal-vote"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is or is not needed."
+  },
+  {
+    "key": "la-proxy-vote#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-proxy-vote"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-school-place#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "la-send-ehc#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "la-short-term-let#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/short-term-let-licences"
+    ],
+    "note": "not stated: The text does not say anything about accounts or signing in."
+  },
+  {
+    "key": "la-voter-authority-cert#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-for-photo-id-voter-authority-certificate"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "lr-registration#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/registering-land-or-property-with-land-registry"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "lr-sign-mortgage-deed#agentInteraction.authRequired",
+    "value": "Applying online needs a GOV.UK One Login",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
+    ],
+    "note": "not stated: The text names no sign-in or account."
+  },
+  {
+    "key": "mhclg-epc#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/find-energy-certificate"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "nhs-111-online#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://111.nhs.uk"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed; it mentions the NHS App only as one option."
+  },
+  {
+    "key": "nhs-care-assessment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/apply-needs-assessment-social-services"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "nhs-continuing-healthcare#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "note": "not stated: The text does not mention accounts, sign-in or applying online."
+  },
+  {
+    "key": "nhs-fit-note#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/send-fit-note"
+    ],
+    "note": "not stated: The text names no account or sign-in, but it doesn't say that none is needed. It mentions only the National Insurance number."
+  },
+  {
+    "key": "nhs-free-dental#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "nhs-free-prescriptions#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "nhs-free-sight-tests#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "note": "not stated: The text never says whether an account or sign-in is needed."
+  },
+  {
+    "key": "nhs-gp-register#agentInteraction.authRequired",
+    "value": "Applying online needs an NHS login",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhs.uk/nhs-services/gps/how-to-register-with-a-gp-surgery/"
+    ],
+    "note": "not stated: The text never mentions an NHS login. Online registration is done through the NHS website, and only the separate NHS App route mentions logging in."
+  },
+  {
+    "key": "nhs-healthy-start#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.healthystart.nhs.uk/"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in to apply."
+  },
+  {
+    "key": "nhs-low-income-scheme#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "nhs-maternity-exemption#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/maternity-exemption-certificates"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, or say that none is needed."
+  },
+  {
+    "key": "nhs-ppc#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/get-a-ppc"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "ni-discretionary-support#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in at all."
+  },
+  {
+    "key": "ofsted-check-registered-childcare#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://reports.ofsted.gov.uk/childcare"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, either to require one or to say none is needed."
+  },
+  {
+    "key": "ofsted-complain-school#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/complain-to-ofsted"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed. The 'You'll need' list does not include one, but it does not rule one out either."
+  },
+  {
+    "key": "ofsted-find-inspection-report#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://reports.ofsted.gov.uk"
+    ],
+    "note": "not stated: The text does not mention an account or sign-in either way."
+  },
+  {
+    "key": "ofsted-register-childminder#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/become-childminder-nanny/register-childminder"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "opg-deputy-report#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/complete-deputy-report"
+    ],
+    "note": "not stated: The text names no sign-in or account."
+  },
+  {
+    "key": "opg-lpa-activation#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/power-of-attorney/changes-you-need-to-report"
+    ],
+    "note": "not stated: The text says nothing about an account for notifying OPG of a death; the only account it mentions is for making an LPA online."
+  },
+  {
+    "key": "opg-lpa-refund#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/power-of-attorney-refund"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, and it does not say that none is needed."
+  },
+  {
+    "key": "other-carers-leave#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/carers-leave"
+    ],
+    "note": "not stated: The text does not mention any account, sign-in or online application."
+  },
+  {
+    "key": "other-dbs#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/dbs-check-applicant-criminal-record"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed to apply; it mentions a DBS online account only for viewing certificates."
+  },
+  {
+    "key": "other-disabled-railcard#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.railcard.co.uk/disabled-persons-railcard/"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed to apply online."
+  },
+  {
+    "key": "other-employers-liability#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/employers-liability-insurance"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "other-help-to-buy#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in either way."
+  },
+  {
+    "key": "other-motability#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.motability.co.uk/"
+    ],
+    "note": "not stated: The text does not mention accounts, signing in or how to apply."
+  },
+  {
+    "key": "other-passport-name#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "note": "not stated: The text doesn't name any account or sign-in for applying online."
+  },
+  {
+    "key": "other-pupil-premium#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/government/publications/pupil-premium"
+    ],
+    "note": "not stated: The text does not mention applying, accounts or signing in."
+  },
+  {
+    "key": "other-right-to-work#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/check-job-applicant-right-to-work"
+    ],
+    "note": "not stated: The text says nothing about whether an account or sign-in is needed."
+  },
+  {
+    "key": "other-social-tariff-broadband#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "other-statutory-redundancy#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "note": "not stated: The text does not mention accounts or sign-in."
+  },
+  {
+    "key": "other-tv-licence-pension#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/free-discount-tv-licence"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "other-warm-home-discount#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/the-warm-home-discount-scheme"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "pins-planning-appeal#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/appeal-planning-decision"
+    ],
+    "note": "not stated: The text says nothing about whether an account or sign-in is needed."
+  },
+  {
+    "key": "slc-childcare-grant#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "note": "not stated: The text does not mention Government Gateway or name any sign-in needed to apply online."
+  },
+  {
+    "key": "slc-student-finance#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/student-finance"
+    ],
+    "note": "not stated: The text refers to logging in to your account but does not name Government Gateway or any other sign-in."
+  },
+  {
+    "key": "sss-adult-disability-payment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/adult-disability-payment"
+    ],
+    "note": "not stated: The text does not say whether you need an account or sign-in."
+  },
+  {
+    "key": "sss-best-start-foods#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "not stated: The text does not say whether an account or sign-in is needed."
+  },
+  {
+    "key": "sss-best-start-grant#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "not stated: The text does not mention whether an account or sign-in is needed."
+  },
+  {
+    "key": "sss-carer-support-payment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/carer-support-payment"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in requirement either way."
+  },
+  {
+    "key": "sss-child-disability-payment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "note": "not stated: The text does not mention accounts or signing in."
+  },
+  {
+    "key": "sss-child-winter-heating#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment"
+    ],
+    "note": "not stated: The text does not mention any account, sign-in or application process."
+  },
+  {
+    "key": "sss-funeral-support-payment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in."
+  },
+  {
+    "key": "sss-pension-winter-heating#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in either way."
+  },
+  {
+    "key": "sss-scottish-child-payment#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "note": "not stated: The text does not mention accounts or signing in."
+  },
+  {
+    "key": "sss-young-carer-grant#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "note": "not stated: The text does not mention any account or sign-in, either way."
+  },
+  {
+    "key": "tpr-workplace-pension#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "ukri-find-grants#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/business-finance-support"
+    ],
+    "note": "not stated: The page does not mention any account or sign-in, either to say one is needed or that none is needed."
+  },
+  {
+    "key": "voa-business-rates#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/correct-your-business-rates"
+    ],
+    "note": "not stated: The text mentions a business rates valuation account but does not name Government Gateway or any other sign-in."
+  },
+  {
+    "key": "voa-council-tax-band#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.uk/council-tax-bands"
+    ],
+    "note": "not stated: The text does not say whether you need an account or sign-in. It names none but does not confirm that none is needed."
+  },
+  {
+    "key": "wg-discretionary-assistance#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "wg-winter-fuel-support#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:30:14.145Z",
+    "searched": [
+      "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs"
+    ],
+    "note": "not stated: The text says nothing about accounts or signing in."
+  },
+  {
+    "key": "dvla-check-driving-licence#agentInteraction.authRequired",
+    "value": "Applying online needs a Government Gateway user ID (sign-in)",
+    "removedAt": "2026-10-21T14:48:47.156Z",
+    "searched": [
+      "https://www.gov.uk/view-driving-licence"
+    ],
+    "note": "Contradicted, and the page names an account without saying one is needed to apply, so there is no value to replace it with. Judge: contradicted: The text asks for your licence number, National Insurance number and postcode, and the only account it names is the driver and vehicles account, not Government Gateway."
+  },
+  {
+    "key": "ho-life-in-uk#agentInteraction.authRequired",
+    "value": "No account or sign-in is needed to apply",
+    "removedAt": "2026-10-21T14:48:47.156Z",
+    "searched": [
+      "https://www.gov.uk/life-in-the-uk-test"
+    ],
+    "note": "Contradicted, and the page names an account without saying one is needed to apply, so there is no value to replace it with. Judge: contradicted: The text refers to a Life in the UK account that you sign into to manage bookings, and says eVisa holders must sign in to their UKVI account to get a share code for booking."
+  },
+  {
+    "key": "ho-brp",
+    "value": "  'ho-brp': {\n    id: 'ho-brp', name: 'Biometric Residence Permit', dept: 'Home Office', deptKey: 'ho',\n    deadline: '10 days',\n    desc: 'All BRPs have expired and been replaced by eVisas. An expired BRP may still be usable for up to 24 months after its expiry date, or until 31 December 2026 if sooner, to view your eVisa, create a UKVI account or apply to extend your stay.',\n    govuk_url: 'https://www.gov.uk/biometric-residence-permits',\n    serviceType: 'document',\n    proactive: true,\n    gated: true,\n    eligibility: {\n      summary: 'You might have a BRP if you were granted permission to live or work in the UK on or before 31 October 2024. All BRPs have now expired and been replaced by eVisas, which you use to prove your immigration status.',\n      universal: false,\n      criteria: [\n        { factor: 'immigration', description: 'Granted a UK visa or leave to remain for more than 6 months.' },\n      ],\n      keyQuestions: [\n        'Has your visa been approved?',\n        'Which post office were you told to collect your BRP from?',\n        'Do you have your passport vignette sticker available?',\n      ],\n      autoQualifiers: ['Visa granted for over 6 months — BRP collection instructions given with visa'],\n      means_tested: false,\n      evidenceRequired: ['Passport containing visa vignette sticker', 'BRP collection letter or email from Home Office'],\n      ruleIn: ['Granted UK visa or leave to remain for 6+ months'],\n      ruleOut: [],      rules: [\n        {\n          \"type\": \"dependency\",\n          \"serviceId\": \"ho-visa\",\n          \"condition\": \"completed\",\n          \"label\": \"Must have been granted a UK visa for 6+ months\"\n        },\n        {\n          \"type\": \"deadline\",\n          \"triggerEvent\": \"uk_arrival_date\",\n          \"triggerLabel\": \"Date of arrival in the UK\",\n          \"maxDays\": 10,\n          \"label\": \"Must collect BRP within 10 days of arriving in the UK\"\n        }\n      ],\n\n    },\n    agentInteraction: {\n      methods: ['online', 'post'],\n      apiAvailable: false,\n      authRequired: 'ukvi-account',\n      agentCanComplete: 'inform-only',\n      agentSteps: [\n        'Explain the BRP collection process and 10-day deadline',\n        'Help user identify their designated post office for collection',\n        'Advise on what to do if the BRP has not arrived or contains errors',\n        'Explain that BRP proves right to work and rent in the UK',\n      ],\n    },\n  },\n\n// edges\n{ from: 'ho-visa',                  to: 'ho-brp',                         type: 'RELATED' },\n{ from: 'ho-brp',                   to: 'dwp-ni-number',                  type: 'RELATED' },\n{ from: 'ho-brp',                   to: 'nhs-gp-register',                type: 'RELATED' },\n{ from: 'ho-brp',                   to: 'other-right-to-work',            type: 'RELATED' },\n{ from: 'ho-brp',                   to: 'ho-life-in-uk',                  type: 'RELATED' },\n{ from: 'ho-evw',                     to: 'ho-brp',                         type: 'RELATED' },\n{ from: 'ho-brp',                     to: 'ho-evisa',                       type: 'RELATED' },",
+    "removedAt": "2026-10-21T14:54:19.443856Z",
+    "searched": [
+      "https://www.gov.uk/biometric-residence-permits"
+    ],
+    "note": "Node retired: \"All BRPs have now expired and have been replaced by eVisas.\" Edges moved to ho-evisa; 12 provenance records removed with it."
+  },
+  {
+    "key": "dwp-sure-start-grant#eligibility.rules (youngest_child_age == 0)",
+    "value": "{\n                  \"type\": \"comparison\",\n                  \"field\": \"youngest_child_age\",\n                  \"operator\": \"==\",\n                  \"value\": 0,\n                  \"label\": \"Baby under 1 year old\"\n                }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.gov.uk/sure-start-maternity-grant"
+    ],
+    "note": "The page sets no child-age test; it says claim within 6 months of the birth, which the deadline rule already checks."
+  },
+  {
+    "key": "slc-student-finance#eligibility.rules (age >= 18)",
+    "value": "{\n          \"type\": \"comparison\",\n          \"field\": \"age\",\n          \"operator\": \">=\",\n          \"value\": 18,\n          \"label\": \"Must be at least 18 years old\"\n        }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students",
+      "https://www.gov.uk/student-finance/who-qualifies"
+    ],
+    "note": "No page states a minimum age; the eligibility page says only that there is no upper age limit for tuition fee loans."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.rules (weekly_income < 250)",
+    "value": "{\n              \"type\": \"comparison\",\n              \"field\": \"weekly_income\",\n              \"operator\": \"<\",\n              \"value\": 250,\n              \"label\": \"Low weekly income\"\n            }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "note": "No page gives an income figure: each council runs its own scheme. The £250 a week line told anyone above it they did not qualify."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.rules (weekly_income < 250)",
+    "value": "{\n              \"type\": \"comparison\",\n              \"field\": \"weekly_income\",\n              \"operator\": \"<\",\n              \"value\": 250,\n              \"label\": \"Low weekly income\"\n            }",
+    "removedAt": "2026-10-21T15:05:51.955373Z",
+    "searched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "note": "No page gives an income figure. The £250 a week line told anyone above it they did not qualify."
+  },
+  {
+    "key": "hmcts-money-claims#deadline",
+    "value": "6 years from debt arising",
+    "removedAt": "2026-10-21T15:08:23.126272Z",
+    "searched": [
+      "https://www.gov.uk/make-court-claim-for-money"
+    ],
+    "note": "No page states a 6-year limit; the only deadline on the page is 21 days to appeal a decision. Judge: Page states \"within 21 days of getting the decision\"; graph says \"6 years from debt arising\". Needs a human decision."
+  },
+  {
+    "key": "hmrc-starter-checklist#deadline",
+    "value": "Before first payday",
+    "removedAt": "2026-10-21T15:08:23.126272Z",
+    "searched": [
+      "https://www.gov.uk/paye-forms-p45-p60-p11d/starter-checklist"
+    ],
+    "note": "The page states no deadline for the starter checklist. Judge: Page states \"by 31 May\"; graph says \"Before first payday\". Needs a human decision."
+  },
+  {
+    "key": "ho-skilled-worker-dependent-visa#deadline",
+    "value": "Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)",
+    "removedAt": "2026-10-21T15:08:23.126272Z",
+    "searched": [
+      "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
+    ],
+    "note": "Not stated; the 3-month deadline on the page applies to the main applicant's certificate of sponsorship. Judge: Page states \"within 3 months of getting your certificate of sponsorship\"; graph says \"Apply before travelling to the UK (or within 14 days of arriving if you applied from overseas)\". Needs a human decision."
+  },
+  {
+    "key": "la-proxy-vote#deadline",
+    "value": "6 working days before election",
+    "removedAt": "2026-10-21T15:08:56.301718Z",
+    "searched": [
+      "https://www.gov.uk/apply-proxy-vote"
+    ],
+    "note": "The page gives no deadline for applying for a proxy vote. Its \"11 working days before the election\" applies to stopping a proxy or switching between postal and proxy voting, so it is not a replacement value."
+  },
+  {
+    "key": "dwp-smi#eligibility.exclusions.1",
+    "value": "UC with earnings above threshold",
+    "removedAt": "2026-10-21T20:51:26.800851Z",
+    "searched": [
+      "https://www.gov.uk/support-for-mortgage-interest/eligibility",
+      "https://www.gov.uk/government/publications/managed-payments-to-mortgage-lenders-information-for-lenders/managed-payments-to-mortgage-lenders-information-for-lenders"
+    ],
+    "note": "The former zero-earnings rule ended in April 2023. The DWP lender handbook states that SMI was extended to in-work Universal Credit claimants. The duplicate ruleOut item was removed too."
+  },
+  {
+    "key": "ch-confirmation-statement#eligibility.summary",
+    "value": "The £34 filing fee can be waived for dormant companies in some circumstances.",
+    "removedAt": "2026-10-21T20:51:26.800851Z",
+    "searched": [
+      "https://www.gov.uk/guidance/filing-your-companys-confirmation-statement",
+      "https://www.gov.uk/dormant-company/dormant-for-companies-house"
+    ],
+    "note": "Companies House says dormant companies must still file. The current filing guidance states £50 online and £110 by post and gives no dormant-company waiver."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.0",
+    "value": "Income must be below the relevant threshold (varies by household type and hours worked).",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.1",
+    "value": "Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.2",
+    "value": "Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.autoQualifiers.0",
+    "value": "Already receiving Tax Credits and not yet migrated to UC",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.exclusions.0",
+    "value": "New claimants must use Universal Credit — Tax Credits is closed to new applications",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "hmrc-tax-credits#agentInteraction.onlineFormUrl",
+    "value": "https://www.gov.uk/tax-credits-have-ended",
+    "removedAt": "2026-10-21T20:56:03.955731Z",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended",
+      "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+    ],
+    "note": "Tax credits ended on 5 April 2025. This node now covers checking and correcting a former claimant’s final Annual Review rather than eligibility for a new tax credits claim."
+  },
+  {
+    "key": "insolvency-dro#agentInteraction.onlineFormUrl",
+    "value": "https://apply-for-debt-relief-order.service.gov.uk",
+    "removedAt": "2026-10-21T21:02:57.482Z",
+    "searched": [
+      "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders",
+      "https://www.gov.uk/guidance/technical-guidance-for-official-receivers/60-debt-relief-orders"
+    ],
+    "note": "This is the approved intermediary submission portal. The GOV.UK guidance tells applicants to contact an approved debt adviser and says they cannot apply on their own."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.0",
+    "value": "Fit note from GP (SC1 or equivalent)",
+    "searched": [
+      "https://www.gov.uk/health-conditions-disability-universal-credit/report-health-condition-disability"
+    ],
+    "note": "Current DWP guidance accepts fit notes from several healthcare professionals, gives a seven-day rule and exceptions, and does not call a fit note SC1.",
+    "removedAt": "2026-10-21T21:04:13.955Z"
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.0",
+    "value": "Received tax credits before they ended and has an Annual Review letter to check.",
+    "searched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "note": "The judge found that receiving a payment is too narrow; a person with a former award gets an Annual Review even if no payment was made.",
+    "removedAt": "2026-10-21T21:04:13.955Z"
+  },
+  {
+    "key": "la-school-place#eligibility.criteria.0",
+    "value": "Child reaching compulsory school age: Reception at 4-5, Secondary at 11.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.gov.uk/schools-admissions/school-starting-age"
+    ],
+    "note": "Reception usually starts after the fourth birthday; compulsory school age follows the fifth. The unqualified secondary age was not stated in the supplied source."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.criteria.2",
+    "value": "Must live in Scotland.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-disability-payment/applicants"
+    ],
+    "note": "Some children in the EEA, Switzerland or Gibraltar can apply with a sufficient Scottish link."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.exclusions.1",
+    "value": "Does not live in Scotland",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-disability-payment/applicants"
+    ],
+    "note": "Outside-Scotland residence alone is not an exclusion under the published limited exception."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.0",
+    "value": "Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "The source also lists enhanced daily living PIP and Adult Disability Payment."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.1",
+    "value": "Child must be under 16 (or under 19 if still in qualifying education).",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "The general age limit is under 19; no education condition is stated."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.2",
+    "value": "Must live in Scotland.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "Limited eligibility extends to some people in eligible EEA countries or Switzerland."
+  },
+  {
+    "key": "sss-child-winter-heating#agentInteraction.methods",
+    "value": "Online application for Child Winter Heating Payment",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "Eligible people in Scotland are paid automatically; applicants abroad use phone or a paper form."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.autoQualifiers.0",
+    "value": "Child on highest-rate CDP/DLA care in Scotland — paid automatically",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "note": "The automatic route includes two more qualifying disability awards."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.0",
+    "value": "Not on a qualifying benefit",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+    ],
+    "note": "A person waiting for a decision on a qualifying benefit can apply."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.1",
+    "value": "Another close relative could reasonably pay",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+    ],
+    "note": "Another relative is considered but is not an automatic exclusion."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.criteria.1",
+    "value": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Under-18s need no qualifying benefit; some 18- or 19-year-olds and people awaiting a benefit decision may also apply."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.criteria.1",
+    "value": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "removedAt": "2026-10-21T21:13:00.143Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Under-18s need no qualifying benefit; some 18- or 19-year-olds and people awaiting a benefit decision may also apply."
+  },
+  {
+    "key": "sss-best-start-foods#desc",
+    "value": "aged 1 to 3",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The payment ends at the third birthday, so this age range could include an extra year."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.summary",
+    "value": "aged 1 to 3",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The payment ends at the third birthday, so this age range could include an extra year."
+  },
+  {
+    "key": "sss-best-start-grant#desc",
+    "value": "Three one-off payments; £398.35 for other children",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "Extra payments and the higher Pregnancy and Baby Payment can apply in published exceptions."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.summary",
+    "value": "Three one-off payments; £398.35 for subsequent children; unqualified standard claim window",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The payment count, subsequent-child amount and claim dates have published exceptions."
+  },
+  {
+    "key": "sss-funeral-support-payment#desc",
+    "value": "Unqualified adult funeral cost amounts",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "note": "The amounts are stated for funerals of people aged 18 or over."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.summary",
+    "value": "Unqualified adult funeral cost amounts",
+    "removedAt": "2026-10-21T21:21:56.995Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment"
+    ],
+    "note": "The amounts and cost categories are stated for funerals of people aged 18 or over."
+  },
+  {
+    "key": "sss-best-start-foods#desc",
+    "value": "Unqualified £22.40 rate from age 1",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "A baby born early gets the higher amount until one year after the due date."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.summary",
+    "value": "Unqualified £22.40 rate from age 1",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "A baby born early gets the higher amount until one year after the due date."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.summary",
+    "value": "Different claim dates for stillbirth or death",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "note": "The source allows applying after stillbirth or death up to six months after birth; that is not a different six-month endpoint."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.summary",
+    "value": "Help for someone awaiting a qualifying-benefit decision",
+    "removedAt": "2026-10-21T21:24:08.145Z",
+    "searched": [
+      "https://www.mygov.scot/funeral-support-payment"
+    ],
+    "note": "They may apply while awaiting a decision, but their Funeral Support Payment cannot be decided until the other benefit decision."
+  },
+  {
+    "key": "dvla-provisional-licence#eligibility.evidenceRequired.1",
+    "value": "Address details",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/apply-first-provisional-driving-licence",
+      "https://www.nidirect.gov.uk/articles/driving-licence-application-dl1-guidance-notes"
+    ],
+    "note": "Stage 4 removal P001, approved by the user. Judge: The GOV.UK page does not mention address details as something you need to apply, and the only source that discusses addresses is the Northern Ireland DVA form guidance, which covers a different nation's version of the service. Finder queries: apply first provisional driving licence online need addresses where you've lived last 3 years | nidirect apply first provisional driving licence online what you need address | INF1D guide to filling in driving licence application form address last 3 years gov.uk"
+  },
+  {
+    "key": "dvla-sorn#eligibility.evidenceRequired.0",
+    "value": "Vehicle registration number",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/make-a-sorn",
+      "https://www.gov.uk/check-vehicle-tax",
+      "https://www.gov.uk/government/news/vehicle-tax-changes"
+    ],
+    "note": "Stage 4 removal P002, approved by the user. Judge: The SORN page lists the 11-digit V5C number or 16-digit tax reminder reference, not the registration number; only the linked check-vehicle-tax page (a different service) mentions the registration number. Finder queries: make a SORN online you'll need vehicle registration number 11-digit reference V5C DVLA | GOV.UK search: SORN vehicle registration number reference | GOV.UK search: V890 SORN form"
+  },
+  {
+    "key": "dwp-attendance-allowance#eligibility.evidenceRequired.2",
+    "value": "Carer details if applicable",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/attendance-allowance",
+      "https://www.gov.uk/attendance-allowance/what-youll-get",
+      "https://www.gov.uk/mandatory-reconsideration",
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/constant-attendance-allowance",
+      "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/how-to-claim-attendance-allowance/",
+      "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/claiming-attendance-allowance-terminally-ill/",
+      "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/"
+    ],
+    "note": "Stage 4 removal P003, approved by the user. Judge: The list of what you need to apply does not include carer details; the text only says you do not need a carer to claim. Finder queries: Citizens Advice Attendance Allowance claim form send medical evidence letters from GP specialist carer | GOV.UK search: Attendance Allowance claim form"
+  },
+  {
+    "key": "dwp-carers-allowance#eligibility.evidenceRequired.0",
+    "value": "Evidence of caring role",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/carers-allowance/what-youll-get",
+      "https://www.gov.uk/universal-credit",
+      "https://www.gov.uk/universal-credit/what-youll-get",
+      "https://www.gov.uk/universal-credit/contact-universal-credit"
+    ],
+    "note": "Stage 4 removal P004, approved by the user. Judge: The page says you must care for at least 35 hours a week, but its list of what to have before you apply does not ask for any evidence of the caring role. Finder queries: Carer's Allowance evidence of caring proof | gov.uk/carers-allowance/how-to-claim (read) | Carer's Allowance claim form notes documents to send (DS700 notes read)"
+  },
+  {
+    "key": "dwp-funeral-payment#eligibility.evidenceRequired.2",
+    "value": "Death certificate",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/funeral-payments",
+      "https://www.gov.uk/funeral-payments/what-youll-get",
+      "https://www.gov.uk/after-a-death",
+      "https://assets.publishing.service.gov.uk/media/69733a0895ec95e3414fd4e4/sf200-adult.pdf"
+    ],
+    "note": "Stage 4 removal P005, approved by the user. Judge: Death certificates are mentioned only as a cost the payment can help with, not as evidence needed to claim. Finder queries: Funeral Expenses Payment claim what you need death certificate proof of benefits SF200 | nidirect funeral expenses payment how to claim death certificate"
+  },
+  {
+    "key": "dwp-pension-credit#eligibility.evidenceRequired.0",
+    "value": "Bank statements",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/pension-credit",
+      "https://www.gov.uk/pension-credit/what-youll-get"
+    ],
+    "note": "Stage 4 removal P006, approved by the user. Judge: The page asks for your bank account details and information about your income, savings and investments, but does not mention bank statements. Finder queries: Pension Credit claim bank statements evidence asked to provide | Pension Credit \"bank statements\" site:gov.uk OR site:citizensadvice.org.uk OR site:nidirect.gov.uk | gov.uk/pension-credit/how-to-claim (read)"
+  },
+  {
+    "key": "dwp-state-pension#eligibility.evidenceRequired.0",
+    "value": "NI number",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/new-state-pension/eligibility",
+      "https://www.gov.uk/new-state-pension/what-youll-get"
+    ],
+    "note": "Stage 4 removal P007, approved by the user. Judge: The list of what you need to claim (marriage dates, time abroad, bank details, foreign social security numbers, an invitation code online) does not include a National Insurance number. Finder queries: nidirect State Pension claim what you need National Insurance number | nidirect \"State Pension\" claim online \"National Insurance number\" get your State Pension"
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.1",
+    "value": "Deceased's NHS number and personal details if available",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death",
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+      "https://www.gov.uk/after-a-death/death-abroad",
+      "https://www.nidirect.gov.uk/articles/registering-death",
+      "https://www.mygov.scot/register-death",
+      "https://www.gov.uk/tell-us-once"
+    ],
+    "note": "Stage 4 removal P009, approved by the user. Judge: No GOV.UK source mentions the NHS number for registering a death; the Scotland page mentions an NHS medical card but that is another nation's version. The GOV.UK pages list the deceased's details only for Tell Us Once, a different service, not for registering the death. Finder queries: register a death England documents you need medical certificate cause of death NHS number register office | mygov.scot registering a death what you need medical certificate NHS number"
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.0",
+    "value": "Medical Certificate of Cause of Death (MCCD)",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death",
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+      "https://www.gov.uk/after-a-death/death-abroad",
+      "https://www.nidirect.gov.uk/articles/registering-death",
+      "https://www.mygov.scot/register-death",
+      "https://www.gov.uk/tell-us-once"
+    ],
+    "note": "Stage 4 removal P008, approved by the user. Judge: The GOV.UK pages say to wait for the medical examiner's confirmation and do not mention an MCCD; only the Scotland and Northern Ireland pages, which are other nations' versions, mention it. Finder queries: register a death England documents you need medical certificate cause of death NHS number register office | mygov.scot registering a death what you need medical certificate NHS number"
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.2",
+    "value": "Evidence of business type and activities",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/anti-money-laundering-registration",
+      "https://www.gov.uk/guidance/money-laundering-regulations-who-needs-to-register",
+      "https://www.gov.uk/guidance/registration-guide-for-estate-agency-businesses",
+      "https://www.gov.uk/guidance/money-laundering-regulations-high-value-dealer-registration",
+      "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc"
+    ],
+    "note": "Stage 4 removal P010, approved by the user. Judge: The text asks for a risk assessment, BOOMs, premises and fees, but does not mention evidence of business type or activities. Finder queries: gov.uk search: money laundering supervision registration | gov.uk search: anti-money laundering register hmrc"
+  },
+  {
+    "key": "hmrc-free-childcare-15#eligibility.evidenceRequired.0",
+    "value": "Child's date of birth, given to the childcare provider",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+      "https://www.gov.uk/tax-free-childcare",
+      "https://www.gov.uk/free-childcare-if-working/check-youre-eligible",
+      "https://www.gov.uk/free-childcare-if-working",
+      "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+      "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx"
+    ],
+    "note": "Stage 4 removal P011, approved by the user. Judge: Only the linked Free Childcare for Working Parents page, a different scheme, says to give your child's date of birth to the provider; the sources on the 15 hours for 3 to 4-year-olds do not. Finder queries: gov.uk search: free childcare 3 4 year olds apply provider | gov.uk search: free early years provision model agreement"
+  },
+  {
+    "key": "hmrc-lisa#eligibility.evidenceRequired.0",
+    "value": "LISA account details",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/lifetime-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-to-open-an-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-isas-work",
+      "https://www.gov.uk/individual-savings-accounts/transferring-your-isa"
+    ],
+    "note": "Stage 4 removal P012, approved by the user. Judge: The text does not say you need to provide your Lifetime ISA account details to make a withdrawal. Finder queries: gov.uk Lifetime ISA withdrawal ask your provider online account details first home | site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer"
+  },
+  {
+    "key": "hmrc-sdlt#eligibility.evidenceRequired.0",
+    "value": "Completion statement",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/stamp-duty-land-tax",
+      "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates",
+      "https://www.gov.uk/guidance/stamp-duty-land-tax-online-and-paper-returns"
+    ],
+    "note": "Stage 4 removal P013, approved by the user. Judge: The text does not mention a completion statement as evidence needed for the return. Finder queries: gov.uk SDLT return completion statement effective date information you need to fill in return | grep of gov.uk SDLT1 completion guide for 'completion statement'"
+  },
+  {
+    "key": "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0",
+    "value": "Main applicant's visa or BRP",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
+    ],
+    "note": "Stage 4 removal P014, approved by the user. Judge: The source discusses the main applicant’s visa and dependants’ relationship evidence but does not require a copy of the main applicant’s visa or BRP. Finder queries: grep of /skilled-worker-visa/your-partner-and-children and /documents-you-must-provide for BRP/eVisa | GOV.UK search: dependants of skilled workers caseworker guidance | GOV.UK search: partner child visa evidence of main applicant permission"
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.1",
+    "value": "Date of occupation",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/introduction-to-business-rates",
+      "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+      "https://www.gov.uk/guidance/voa-agent-standards"
+    ],
+    "note": "Stage 4 removal P016, approved by the user. Judge: The text does not specify a date of occupation as application evidence. Finder queries: register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect | nidirect rates for business premises tell Land and Property Services new occupier"
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.0",
+    "value": "Business address",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/introduction-to-business-rates",
+      "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+      "https://www.gov.uk/guidance/voa-agent-standards"
+    ],
+    "note": "Stage 4 removal P015, approved by the user. Judge: The text does not specify a business address as application evidence. Finder queries: register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect | nidirect rates for business premises tell Land and Property Services new occupier"
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.evidenceRequired.1",
+    "value": "Council Tax bill",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/apply-council-tax-reduction",
+      "https://www.gov.uk/council-tax",
+      "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+      "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s",
+      "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/applying-for-council-tax-reduction-s/check-if-you-can-get-council-tax-reduction-s/"
+    ],
+    "note": "Stage 4 removal P017, approved by the user. Judge: The sources discuss a Council Tax bill but do not say an applicant must provide the bill as evidence. Finder queries: Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot | citizensadvice.org.uk council tax reduction England how to apply online phone liable"
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.2",
+    "value": "GP or consultant details",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants",
+      "https://www.mygov.scot/adult-disability-payment-changes",
+      "https://www.mygov.scot/adult-disability-payment-suitability-checker",
+      "https://www.mygov.scot/moving-from-child-disability-payment-to-adult-disability-payment",
+      "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/5/",
+      "https://www.mygov.scot/adult-disability-payment/what-you-need"
+    ],
+    "note": "Stage 4 removal P018, approved by the user. Judge: The supplied text mentions a GP letter as an example of supporting information but does not require GP or consultant contact details. Finder queries: site:mygov.scot/adult-disability-payment \"GP\" \"contact\" \"apply\" | site:mygov.scot/adult-disability-payment \"consultant\" \"details\""
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.2",
+    "value": "Proof of Scottish residency",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "https://www.mygov.scot/browse/benefits/children-and-family",
+      "https://www.mygov.scot/scottish-child-payment",
+      "https://www.mygov.scot/using-your-best-start-foods-card",
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Stage 4 removal P020, approved by the user. Judge: The sources say applicants normally live in Scotland but do not say residency proof is needed. Finder queries: site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"address\" | site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.1",
+    "value": "Proof of pregnancy or child's age",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods",
+      "https://www.mygov.scot/browse/benefits/children-and-family",
+      "https://www.mygov.scot/scottish-child-payment",
+      "https://www.mygov.scot/using-your-best-start-foods-card",
+      "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply"
+    ],
+    "note": "Stage 4 removal P019, approved by the user. Judge: The sources give pregnancy and child-age conditions but do not say proof of either is needed. Finder queries: site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"pregnancy\" | site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.1",
+    "value": "Proof of Scottish residency",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible"
+    ],
+    "note": "Stage 4 removal P022, approved by the user. Judge: The page states a Scottish-residence condition but does not request documentary proof of residence. Finder queries: Pension Age Winter Heating Payment proof of Scottish residency documents | Pension Age Winter Heating Payment proof of address application Scotland"
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.0",
+    "value": "Proof of age",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible"
+    ],
+    "note": "Stage 4 removal P021, approved by the user. Judge: The page states an age-based eligibility condition but does not request documentary proof of age. Finder queries: Pension Age Winter Heating Payment proof of age application documents | Pension Age Winter Heating Payment age verification birth certificate evidence"
+  },
+  {
+    "key": "dfe-care-to-learn#agentInteraction.methods",
+    "value": "[\"online\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/care-to-learn"
+    ],
+    "note": "Stage 4 removal M001, approved by the user. Judge: The text says to apply through your education provider but does not say you can apply online. Finder queries: Care to Learn apply online Learner Support Service guide 2025 to 2026 | GOV.UK search: Care to Learn | GOV.UK search: Care to Learn guide learner support service"
+  },
+  {
+    "key": "gro-register-death#agentInteraction.methods",
+    "value": "[\"in-person\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death",
+      "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+      "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+      "https://www.gov.uk/after-a-death/death-abroad",
+      "https://www.nidirect.gov.uk/articles/registering-death",
+      "https://www.mygov.scot/register-death",
+      "https://www.gov.uk/tell-us-once"
+    ],
+    "note": "Stage 4 removal M003, approved by the user. Judge: The GOV.UK pages refer to the register office but do not say you register in person; only the Scotland and Northern Ireland pages, which are other nations' versions, describe attending a registration office. Finder queries: register a death England documents you need medical certificate cause of death NHS number register office | mygov.scot registering a death what you need medical certificate NHS number"
+  },
+  {
+    "key": "hmrc-free-childcare-15#agentInteraction.methods",
+    "value": "[\"in-person\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+      "https://www.gov.uk/tax-free-childcare",
+      "https://www.gov.uk/free-childcare-if-working/check-youre-eligible",
+      "https://www.gov.uk/free-childcare-if-working",
+      "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+      "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx"
+    ],
+    "note": "Stage 4 removal M004, approved by the user. Judge: The 15-hours page only says to contact your childcare provider or local council to find out more and does not say you can apply in person. Finder queries: gov.uk search: free childcare 3 4 year olds apply provider | gov.uk search: early education and childcare statutory guidance | gov.uk search: free early years provision model agreement"
+  },
+  {
+    "key": "hmrc-lisa#agentInteraction.methods",
+    "value": "[\"online\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/lifetime-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-to-open-an-isa",
+      "https://www.gov.uk/individual-savings-accounts/how-isas-work",
+      "https://www.gov.uk/individual-savings-accounts/transferring-your-isa"
+    ],
+    "note": "Stage 4 removal M005, approved by the user. Judge: The text explains withdrawal rules and charges but never says a Lifetime ISA withdrawal can be requested online. Finder queries: gov.uk Lifetime ISA withdrawal ask your provider online account details first home | site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer | fetched gov.uk/lifetime-isa/withdrawing-money-from-your-lifetime-isa"
+  },
+  {
+    "key": "la-council-tax-disability-reduction#agentInteraction.methods",
+    "value": "[\"online\",\"phone\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+      "https://www.gov.uk/council-tax/who-has-to-pay",
+      "https://www.gov.uk/introduction-to-business-rates/working-at-home",
+      "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+      "https://www.citizensadvice.org.uk/housing/council-tax/check-if-you-can-pay-less-council-tax/"
+    ],
+    "note": "Stage 4 removal M006, approved by the user. Judge: The relevant Council Tax sources give no online application method for this reduction. The relevant Council Tax sources say to ask the council but give no phone application method. Finder queries: Council Tax disabled band reduction apply online phone citizensadvice gov.wales mygov.scot | gov.wales council tax discounts disabled person how to apply"
+  },
+  {
+    "key": "la-council-tax-single-discount#agentInteraction.methods",
+    "value": "[\"online\",\"phone\"]",
+    "removedAt": "2026-10-22T10:12:13.250Z",
+    "searched": [
+      "https://www.gov.uk/council-tax/who-has-to-pay"
+    ],
+    "note": "Stage 4 removal M007, approved by the user. Judge: The text mentions paying Council Tax online but gives no online application method for this discount. The text gives no phone application method for this discount. Finder queries: citizensadvice check if you can pay less council tax single person discount | gov.wales council tax discounts living alone how to apply | mygov.scot council tax discounts exemptions single adult discount apply"
+  },
+  {
+    "key": "gro-register-death#eligibility.keyQuestions",
+    "value": "Do you have the medical certificate of cause of death from the doctor or coroner?",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removal P008 (MCCD as evidence). Removed with it on the user's approval."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.agentSteps",
+    "value": "Explain that death registration must be done in person at a local register office",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removal M003 (in-person method). Removed with it on the user's approval."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.agentSteps",
+    "value": "List required documents (MCCD, deceased's details)",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removals P008 and P009. Removed with it on the user's approval."
+  },
+  {
+    "key": "gro-register-death#contactInfo.notes",
+    "value": "Must be done in person at a register office.",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "Copy of stage 4 removal M003 (in-person method). Removed with it on the user's approval."
+  },
+  {
+    "key": "dvla-provisional-licence#agentInteraction.agentSteps",
+    "value": "Prepare document checklist (passport or birth certificate, address details)",
+    "removedAt": "2026-10-22T10:12:53.367419Z",
+    "searched": [],
+    "note": "\"address details\" is a copy of stage 4 removal P001; the step now reads \"Prepare document checklist (passport or birth certificate)\". Removed with it on the user's approval."
+  }
+]

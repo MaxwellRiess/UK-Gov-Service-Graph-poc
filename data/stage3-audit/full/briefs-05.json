@@ -1,0 +1,270 @@
+[
+  {
+    "key": "hmrc-spl#agentInteraction.methods",
+    "service": "Shared Parental Leave & Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/shared-parental-leave-and-pay",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/shared-parental-leave-and-pay",
+      "https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text never mentions applying by phone; it only describes giving written notice to your employer. not stated: The text never mentions post; it only describes written notice to your employer, using Acas or employer forms."
+  },
+  {
+    "key": "hmrc-spl#eligibility.evidenceRequired.0",
+    "service": "Shared Parental Leave & Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/shared-parental-leave-and-pay",
+    "claim": "SPLIT forms",
+    "alreadySearched": [
+      "https://www.gov.uk/shared-parental-leave-and-pay",
+      "https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text uses 'SPLIT' only for 'Shared Parental Leave in touch' days. The only forms it mentions are Acas Shared Parental Leave forms and templates, and none are called SPLIT forms."
+  },
+  {
+    "key": "hmrc-spp#agentInteraction.methods",
+    "service": "Statutory Paternity Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/paternity-pay-leave",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/paternity-pay-leave",
+      "https://www.gov.uk/paternity-pay-leave/pay"
+    ],
+    "whyNotFound": "not stated: The text never mentions phone. not stated: The text says to download or print the form and send or give it to your employer, but it never mentions post."
+  },
+  {
+    "key": "hmrc-ssp#eligibility.evidenceRequired.0",
+    "service": "Statutory Sick Pay (SSP)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/statutory-sick-pay",
+    "claim": "Self-certification for absences of 7 days or fewer",
+    "alreadySearched": [
+      "https://www.gov.uk/statutory-sick-pay"
+    ],
+    "whyNotFound": "not stated: The text does not mention self-certification; it only says a fit note is needed for absences of more than 7 days."
+  },
+  {
+    "key": "hmrc-starter-checklist#eligibility.exclusions.1",
+    "service": "PAYE Starter Checklist",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/starter-checklist-for-paye",
+    "claim": "Self-employed (not subject to PAYE)",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/starter-checklist-for-paye"
+    ],
+    "whyNotFound": "not stated: The text does not exclude self-employed people or say they are not subject to PAYE. It lists starting a job after being self-employed as a reason to fill in the checklist."
+  },
+  {
+    "key": "hmrc-tax-credits#agentInteraction.methods",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The text says to contact HMRC but gives no online route. not stated: The text says to contact HMRC but does not mention phone."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.autoQualifiers.0",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Already receiving Tax Credits and not yet migrated to UC",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The text does not describe anyone as currently receiving tax credits, and it says nothing about moving to Universal Credit."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.0",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Income must be below the relevant threshold (varies by household type and hours worked).",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The source says nothing about income thresholds; it covers only the end of tax credits and finalising awards."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.1",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The source says nothing about minimum working hours for Working Tax Credit."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.2",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The source says nothing about child age or responsibility requirements for Child Tax Credit."
+  },
+  {
+    "key": "hmrc-tax-free-childcare#eligibility.evidenceRequired.0",
+    "service": "Tax-Free Childcare account",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-free-childcare",
+    "claim": "Government Gateway account",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-free-childcare"
+    ],
+    "whyNotFound": "not stated: The text never mentions Government Gateway. It only refers to a user ID and password for the childcare account."
+  },
+  {
+    "key": "hmrc-tax-free-childcare#eligibility.evidenceRequired.1",
+    "service": "Tax-Free Childcare account",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-free-childcare",
+    "claim": "Childcare provider details",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-free-childcare"
+    ],
+    "whyNotFound": "not stated: Provider details are not on the list of what you need to apply. The text only says to check that the provider is signed up."
+  },
+  {
+    "key": "hmrc-tax-on-pension#eligibility.evidenceRequired.1",
+    "service": "Income tax on pension",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-on-pension",
+    "claim": "State Pension confirmation letter",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-on-pension"
+    ],
+    "whyNotFound": "not stated: The text never mentions a State Pension confirmation letter."
+  },
+  {
+    "key": "hmrc-update-records#eligibility.evidenceRequired.0",
+    "service": "Update HMRC records",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
+    "claim": "Marriage certificate or deed poll if name change",
+    "alreadySearched": [
+      "https://www.gov.uk/tell-hmrc-change-of-details"
+    ],
+    "whyNotFound": "not stated: The only document the text names is a Gender Recognition Certificate. It does not mention a marriage certificate or deed poll."
+  },
+  {
+    "key": "hmrc-update-records#eligibility.evidenceRequired.1",
+    "service": "Update HMRC records",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
+    "claim": "Government Gateway account or Personal Tax Account",
+    "alreadySearched": [
+      "https://www.gov.uk/tell-hmrc-change-of-details"
+    ],
+    "whyNotFound": "not stated: The page only says you'll need to sign in. It does not name Government Gateway or a Personal Tax Account."
+  },
+  {
+    "key": "hmrc-vat#eligibility.evidenceRequired.0",
+    "service": "VAT registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/vat-registration",
+    "claim": "Business details",
+    "alreadySearched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "whyNotFound": "not stated: The text does not list any documents or details needed to apply."
+  },
+  {
+    "key": "hmrc-vat#eligibility.evidenceRequired.1",
+    "service": "VAT registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/vat-registration",
+    "claim": "Turnover evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "whyNotFound": "not stated: The text explains how to work out turnover but does not ask for turnover evidence when applying."
+  },
+  {
+    "key": "hmrc-vat#eligibility.evidenceRequired.2",
+    "service": "VAT registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/vat-registration",
+    "claim": "Bank account for repayments",
+    "alreadySearched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "whyNotFound": "not stated: The text does not mention a bank account."
+  },
+  {
+    "key": "ho-citizenship-ceremony#eligibility.evidenceRequired.1",
+    "service": "Citizenship ceremony",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/citizenship-ceremonies",
+    "claim": "Photographic identification",
+    "alreadySearched": [
+      "https://www.gov.uk/citizenship-ceremonies",
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text doesn't say photo ID is needed for the ceremony."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.0",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Passport(s)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text refers to separate guidance for the documents needed and does not list passports."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.1",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Proof of spouse's British citizenship",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text does not list this document."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.2",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "ILR/settled status document or eVisa evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text requires ILR or settled status but does not list a document or eVisa as evidence."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.3",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Marriage or civil partnership certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text does not list this document."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.6",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Form AN",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text never names Form AN."
+  }
+]

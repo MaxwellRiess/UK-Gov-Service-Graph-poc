@@ -1,0 +1,59 @@
+{
+  "sss-carer-support-payment#agentInteraction.methods": [
+    "https://www.mygov.scot/carer-support-payment/how-to-apply"
+  ],
+  "sss-carer-support-payment#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/carer-support-payment/how-to-apply"
+  ],
+  "sss-carer-support-payment#eligibility.evidenceRequired.1": [
+    "https://www.socialsecurity.gov.scot/publications/2017/07/carer-support-payment-decision-making-guide/pages/cared-for-person-dispute/regular-and-substantial-care"
+  ],
+  "sss-child-disability-payment#agentInteraction.methods": [
+    "https://www.mygov.scot/child-disability-payment/how-to-apply"
+  ],
+  "sss-child-disability-payment#eligibility.criteria.2": [
+    "https://www.mygov.scot/child-disability-payment/applicants"
+  ],
+  "sss-child-disability-payment#eligibility.evidenceRequired.0": [
+    "https://www.mygov.scot/child-disability-payment/what-you-need-to-apply"
+  ],
+  "sss-child-disability-payment#eligibility.evidenceRequired.2": [
+    "https://www.mygov.scot/child-disability-payment/what-you-need-to-apply"
+  ],
+  "sss-child-disability-payment#eligibility.exclusions.1": [
+    "https://www.mygov.scot/child-disability-payment/applicants"
+  ],
+  "sss-child-winter-heating#agentInteraction.methods": [],
+  "sss-child-winter-heating#eligibility.autoQualifiers.0": [
+    "https://www.gov.scot/news/winter-heating-help-for-over-1-million-people/"
+  ],
+  "sss-child-winter-heating#eligibility.criteria.0": [
+    "https://www.gov.scot/publications/examining-outcomes-associated-social-security-scotland-spending-evidence-synthesis/pages/7/"
+  ],
+  "sss-child-winter-heating#eligibility.criteria.1": [
+    "https://www.gov.scot/news/winter-heating-help-for-over-1-million-people/"
+  ],
+  "sss-child-winter-heating#eligibility.criteria.2": [
+    "https://www.gov.scot/publications/examining-outcomes-associated-social-security-scotland-spending-evidence-synthesis/pages/7/"
+  ],
+  "sss-funeral-support-payment#agentInteraction.methods": [
+    "https://www.mygov.scot/funeral-support-payment/how-to-apply"
+  ],
+  "sss-funeral-support-payment#eligibility.criteria.1": [
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+  ],
+  "sss-funeral-support-payment#eligibility.evidenceRequired.0": [],
+  "sss-funeral-support-payment#eligibility.evidenceRequired.1": [
+    "https://www.mygov.scot/funeral-support-payment/how-to-apply",
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment"
+  ],
+  "sss-funeral-support-payment#eligibility.evidenceRequired.2": [
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment"
+  ],
+  "sss-funeral-support-payment#eligibility.exclusions.0": [
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+  ],
+  "sss-funeral-support-payment#eligibility.exclusions.1": [
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment"
+  ]
+}

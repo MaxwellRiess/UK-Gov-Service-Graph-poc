@@ -42,7 +42,7 @@ import { NODES, type ServiceNode } from '../src/graph-data.js';
 import { loadProvenance, saveProvenance } from '../src/provenance.js';
 import { pageText } from './lib/page-text.js';
 import {
-  METHOD_WORDS, AUTH_WORDS, buildPrompt, requestParams, readResponse, recordField,
+  methodsText, AUTH_WORDS, buildPrompt, requestParams, readResponse, recordField,
   type FieldToJudge, type ProseResponse, type ReviewItem,
 } from './lib/judge-prose.js';
 
@@ -79,11 +79,15 @@ function fieldsFor(n: ServiceNode): FieldToJudge[] {
   (e.evidenceRequired ?? []).forEach((t, i) => out.push({ key: `evidence_${i}`, path: `eligibility.evidenceRequired.${i}`, text: t, split: false }));
   const ai = n.agentInteraction;
   if (ai) {
-    out.push({
-      key: 'methods', path: 'agentInteraction.methods', split: true,
-      text: ai.methods.map(m => METHOD_WORDS[m] ?? m).join('. ') + '.',
-    });
-    out.push({ key: 'auth', path: 'agentInteraction.authRequired', split: false, text: AUTH_WORDS[ai.authRequired] ?? ai.authRequired });
+    if (ai.methods) {
+      out.push({
+        key: 'methods', path: 'agentInteraction.methods', split: true,
+        text: methodsText(ai.methods),
+      });
+    }
+    if (ai.authRequired) {
+      out.push({ key: 'auth', path: 'agentInteraction.authRequired', split: false, text: AUTH_WORDS[ai.authRequired] ?? ai.authRequired });
+    }
   }
   return out.filter(f => f.text && f.text.trim());
 }
@@ -140,7 +144,8 @@ async function processNode(n: ServiceNode) {
 
   // Methods the page offers that the graph leaves out, and sign-in mismatches.
   if (n.agentInteraction) {
-    const graph = n.agentInteraction.methods;
+    // Absent means the graph makes no claim; a page that names a way is still a gap to fill.
+    const graph = n.agentInteraction.methods ?? [];
     const page = out.methods_on_page ?? [];
     if (page.length && (page.some(m => !graph.includes(m as any)) || graph.some(m => !page.includes(m)))) {
       methodGaps.push({ id: n.id, graph, page });
@@ -148,13 +153,18 @@ async function processNode(n: ServiceNode) {
     const auth = n.agentInteraction.authRequired;
     const named = (out.sign_in_on_page ?? '').toLowerCase();
     const matches =
+      // Absent means the graph makes no claim; a page that names a sign-in is still a gap to fill.
+      (auth === undefined && !named) ||
       (auth === 'none' && !named) ||
       (auth === 'government-gateway' && named.includes('gateway')) ||
       (auth === 'gov-uk-one-login' && named.includes('one login')) ||
       (auth === 'nhs-login' && named.includes('nhs')) ||
       (auth === 'companies-house' && named.includes('companies house')) ||
-      (auth === 'gov-uk-verify' && named.includes('verify'));
-    if (!matches) authGaps.push({ id: n.id, graph: auth, page: out.sign_in_on_page });
+      (auth === 'gov-uk-verify' && named.includes('verify')) ||
+      (auth === 'universal-credit-account' && named.includes('universal credit')) ||
+      (auth === 'ukvi-account' && (named.includes('ukvi') || named.includes('visas and immigration'))) ||
+      (auth === 'service-account' && !!named);
+    if (!matches) authGaps.push({ id: n.id, graph: auth ?? 'not stated', page: out.sign_in_on_page });
   }
 
   done++;

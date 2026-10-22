@@ -1,0 +1,142 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Funeral Support Payment helps with funeral costs for people living in Scotland.",
+          "verdict": "supported",
+          "quote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
+          "source": 0,
+          "note": "The overview states the purpose and Scotland residence condition."
+        },
+        {
+          "claim": "The payment can cover funerals for babies and children.",
+          "verdict": "supported",
+          "quote": "You can use the payment towards funeral costs for a baby, child or adult.",
+          "source": 0,
+          "note": "The overview explicitly includes babies and children."
+        },
+        {
+          "claim": "For someone aged 18 or over, the payment usually covers burial, cremation or hydrolysis costs in Scotland.",
+          "verdict": "supported",
+          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland.",
+          "source": 1,
+          "note": "The adult-funeral page states this, subject to its funeral-plan exception."
+        },
+        {
+          "claim": "For someone aged 18 or over, the payment provides £1,327.75 towards other funeral costs.",
+          "verdict": "supported",
+          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car.",
+          "source": 1,
+          "note": "The adult-funeral page gives this amount."
+        },
+        {
+          "claim": "If the adult who died had a funeral plan, the other-funeral-cost amount is £162.05.",
+          "verdict": "supported",
+          "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05.",
+          "source": 1,
+          "note": "The adult-funeral page gives this reduced amount."
+        },
+        {
+          "claim": "An application can be made until six months after the funeral.",
+          "verdict": "supported",
+          "quote": "you're applying after the person has died, until 6 months after the date of their funeral",
+          "source": 5,
+          "note": "The eligibility page states the application window, with separate exceptions for some late applications."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Funeral Support Payment helps pay funeral costs for people living in Scotland.",
+          "verdict": "supported",
+          "quote": "Funeral Support Payment helps pay for funeral costs if you live in Scotland.",
+          "source": 0,
+          "note": "The overview directly states this."
+        },
+        {
+          "claim": "Receiving a qualifying benefit satisfies the benefit condition for an application.",
+          "verdict": "supported",
+          "quote": "You or your partner must get one or more of the following: Universal Credit (UC) Income Support Pension Credit Housing Benefit income-based Jobseeker's Allowance (JSA), not contribution-based JSA income-related Employment and Support Allowance (ESA)",
+          "source": 5,
+          "note": "The eligibility page lists the qualifying benefits; other eligibility conditions also apply."
+        },
+        {
+          "claim": "People awaiting a decision on a qualifying benefit can receive Funeral Support Payment.",
+          "verdict": "partly_supported",
+          "quote": "If you or your partner are waiting to hear about your application for one of these benefits, you can still apply for Funeral Support Payment.",
+          "source": 5,
+          "note": "The page permits an application while a benefit decision is pending, but award eligibility cannot be decided until the benefit outcome is known."
+        },
+        {
+          "claim": "For a funeral of someone aged 18 or over, the payment usually covers burial, cremation or hydrolysis costs in Scotland.",
+          "verdict": "supported",
+          "quote": "The payment will usually cover the cost of burial, cremation or hydrolysis in Scotland.",
+          "source": 1,
+          "note": "The adult-funeral page states this, subject to its funeral-plan exception."
+        },
+        {
+          "claim": "For an adult funeral, £1,327.75 can go toward other costs such as the funeral service or funeral car.",
+          "verdict": "supported",
+          "quote": "You can get a payment of £1,327.75 to put towards any other funeral costs you need to pay for, such as the funeral service or funeral car.",
+          "source": 1,
+          "note": "The adult-funeral page gives the amount and examples."
+        },
+        {
+          "claim": "For an adult funeral with a funeral plan, the amount for other funeral costs is £162.05.",
+          "verdict": "supported",
+          "quote": "If the person who died had a funeral plan, the amount you'll get for funeral costs will be reduced to £162.05.",
+          "source": 1,
+          "note": "The adult-funeral page gives the reduced amount."
+        },
+        {
+          "claim": "For an adult funeral, the payment can help with travel costs.",
+          "verdict": "supported",
+          "quote": "It can help pay towards: burial, cremation or hydrolysis costs funeral costs your travel costs transport costs to move the person who died document costs medical costs",
+          "source": 1,
+          "note": "Travel costs appear in the adult-funeral cost categories."
+        },
+        {
+          "claim": "For an adult funeral, the payment can help with transport costs to move the person who died.",
+          "verdict": "supported",
+          "quote": "If you need to move the person who died more than 49.7 miles, you can get help towards the cost of this.",
+          "source": 1,
+          "note": "The adult-funeral page allows help for transport beyond the stated distance."
+        },
+        {
+          "claim": "For an adult funeral, the payment can help with document costs.",
+          "verdict": "supported",
+          "quote": "Social Security Scotland can pay towards the cost of: death certificates to release money belonging to the person who died so that it can be used towards the cost of the funeral medical certificates needed to bury or cremate someone.",
+          "source": 1,
+          "note": "The adult-funeral page lists documents that may be covered."
+        },
+        {
+          "claim": "For an adult funeral, the payment can help with medical costs.",
+          "verdict": "supported",
+          "quote": "You can get help with the cost of certain medical procedures needed before the funeral can go ahead.",
+          "source": 1,
+          "note": "The adult-funeral page explicitly covers some medical costs."
+        },
+        {
+          "claim": "The payment can help with funerals for babies, including stillborn babies.",
+          "verdict": "supported",
+          "quote": "You can use the payment towards funeral costs for a baby, child or adult. This includes babies who were stillborn.",
+          "source": 0,
+          "note": "The overview explicitly includes babies and stillbirths."
+        },
+        {
+          "claim": "Applications can be made after the death until six months after the funeral.",
+          "verdict": "supported",
+          "quote": "you're applying after the person has died, until 6 months after the date of their funeral",
+          "source": 5,
+          "note": "The eligibility page states this window, with some exceptions for late applications."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,96 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply online",
+          "verdict": "supported",
+          "quote": "You can still make an online application to the DAF",
+          "source": 2,
+          "note": "The DAF application page explicitly allows an online application."
+        },
+        {
+          "claim": "You can apply by phone",
+          "verdict": "supported",
+          "quote": "You can also apply by post or phone via the details on our Contact us page",
+          "source": 2,
+          "note": "The DAF application page explicitly allows applying by phone."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Applicants must be aged 16 or over",
+          "verdict": "partly_supported",
+          "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award.",
+          "source": 3,
+          "note": "The review page states 16 or over, but the eligibility page says over 16 for both grant types, leaving age 16 inconsistent."
+        }
+      ]
+    },
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Proof of identity is required",
+          "verdict": "partly_supported",
+          "quote": "Applicants Identity has been verified in line with DWP records.",
+          "source": 3,
+          "note": "Identity verification is stated, but no applicant-supplied proof document is specified."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Proof of Welsh residency is required",
+          "verdict": "partly_supported",
+          "quote": "Applicants must be 16 or over and reside in Wales at the time of application and award.",
+          "source": 3,
+          "note": "Welsh residence is an eligibility condition, but the sources do not specify proof of residence."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "Details of the emergency or need are required",
+          "verdict": "partly_supported",
+          "quote": "to assess if there is a need for financial assistance to be granted to the client",
+          "source": 4,
+          "note": "The source says the application is assessed for need, but does not specify the emergency details applicants must submit."
+        }
+      ]
+    },
+    {
+      "key": "exclusion_0",
+      "claims": [
+        {
+          "claim": "An EAP applicant is excluded after 3 EAP awards in a year",
+          "verdict": "partly_supported",
+          "quote": "already received 3 grants within the the last 12 rolling month period i.e. not calendar or tax year",
+          "source": 2,
+          "note": "The limit is three grants overall in a rolling 12-month period, not expressly three EAP awards in a calendar year."
+        },
+        {
+          "claim": "An IAP applicant is excluded after 1 IAP award in a year",
+          "verdict": "not_stated",
+          "quote": null,
+          "source": null,
+          "note": "No supplied source gives a one-IAP-per-year limit; the page only gives an overall three-grant limit in a rolling 12 months."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

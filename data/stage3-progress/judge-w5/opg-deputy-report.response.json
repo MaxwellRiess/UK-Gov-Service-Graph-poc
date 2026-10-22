@@ -1,0 +1,28 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can submit a deputy report online.",
+          "verdict": "partly_supported",
+          "quote": "If your deputy report is due today, it can be submitted once the service is back online.",
+          "source": 1,
+          "note": "The source describes digital deputy reporting but states the service was temporarily unavailable when fetched."
+        },
+        {
+          "claim": "You can submit a deputy report by post.",
+          "verdict": "supported",
+          "quote": "Send your completed form to: Office of the Public Guardian PO Box 16185 Birmingham B2 2WH",
+          "source": 2,
+          "note": "The deputy report form guidance gives a postal submission address."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

@@ -12,7 +12,7 @@ This is a proof-of-concept for a machine-readable service graph that maps the cr
 
 ## The graph explorer
 
-The interactive explorer visualises 244 service nodes across 20 departments and all four UK nations, connected by two edge types:
+The interactive explorer visualises 243 service nodes across 20 departments and all four UK nations, connected by two edge types:
 
 - **REQUIRES** (solid blue arrow) — strict ordering; must complete the source before the target
 - **RELATED** (dashed grey arrow) — a loose connection; the source is potentially relevant to the target but imposes no ordering
@@ -54,7 +54,7 @@ The graph's main advantage is in **conditional service discovery** — surfacing
 
 ## Data accuracy and provenance
 
-A hand-built graph of 244 services has no subject matter expert behind it, so the question is how far accuracy can be established without one. The answer turns out to depend on the kind of claim, and the fields split into three groups.
+A hand-built graph of 243 services has no subject matter expert behind it, so the question is how far accuracy can be established without one. The answer turns out to depend on the kind of claim, and the fields split into three groups.
 
 **Verifiable against an authoritative source.** Whether a service exists, its canonical URL, and whether it has been withdrawn all come from the [GOV.UK Content API](https://www.gov.uk/api/content/child-benefit), which is written by the publishers themselves. `scripts/verify-tier1.ts` checks every node against it and records the `content_id`, which survives the URL changes that break plain link checking. A link to one part of a multi-part guide is accepted when that part still exists; a part that has been renamed or removed is reported as moved. Every verifier reads a page's title and summary as well as its body, since GOV.UK often states a service's scope only in the title ("Become a childminder or nanny (England)").
 
@@ -192,7 +192,7 @@ npm run check:provenance:online
 index.html                        Static graph explorer (self-contained, GitHub Pages)
 experiment-transcripts-trial3.html  Browsable transcript viewer — trial 3 (GitHub Pages)
 src/
-  graph-data.ts                   244 service nodes, 301 typed edges, 17 life events
+  graph-data.ts                   243 service nodes, 299 typed edges, 17 life events
   graph-engine.ts                 BFS + topological sort → phased journey planner
   graph-server.ts                 MCP server (4 tools, 2 resources, 2 prompts)
   rules.ts                        Machine-evaluable eligibility rule engine
@@ -273,10 +273,10 @@ The `agentInteraction` object describes what an AI agent can actually do with th
 
 | Field | Type | What it means |
 |---|---|---|
-| `methods` | `array` | Available application channels — any of `online`, `phone`, `post`, `in-person` |
+| `methods` | `array` (optional) | How a person starts — `online`, `phone`, `post`, `in-person`, or `via-adviser` when an approved adviser submits the application. Empty means it happens automatically; absent means no official page says how to start |
 | `apiAvailable` | `boolean` | Whether a machine-accessible API exists |
 | `onlineFormUrl` | `string` (optional) | Direct URL to the online application |
-| `authRequired` | `string` | Authentication required — `'government-gateway'`, `'gov-uk-one-login'`, `'gov-uk-verify'` (retired), `'nhs-login'`, `'companies-house'`, or `'none'` |
+| `authRequired` | `string` (optional) | Sign-in required — `'government-gateway'`, `'gov-uk-one-login'`, `'gov-uk-verify'` (retired), `'nhs-login'`, `'companies-house'`, `'universal-credit-account'`, `'ukvi-account'`, `'service-account'` (an account for that service alone), or `'none'`. Absent means no official page says |
 | `agentCanComplete` | `'full' \| 'partial' \| 'inform-only'` | How far an agent can take the user — full completion, part of the journey, or information only |
 | `agentSteps` | `array` | Step-by-step actions the agent should walk the user through |
 

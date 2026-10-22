@@ -27,7 +27,7 @@ const DATA = 'src/graph-data.ts';
 interface Proposal {
   id: string; path: string; old: string; action: 'rewrite' | 'remove' | 'no_change'; new: string | null;
   claims: { claim: string; quote: string; url: string | null; found: boolean }[];
-  verified: boolean; accepted: boolean | null; applied?: string; explanation: string; review?: string;
+  verified: boolean; accepted: boolean | null; applied?: string; recorded?: string; explanation: string; review?: string;
 }
 const file = JSON.parse(readFileSync(PROPOSALS, 'utf-8'));
 const proposals: Proposal[] = file.proposals;
@@ -91,6 +91,10 @@ if (!RECORD) {
   for (const p of proposals.filter(x => x.applied && x.action === 'rewrite')) {
     const value = getFieldValue(NODES[p.id], p.path);
     if (value === undefined) continue;
+    // Record each fix once. Rewriting the record of a fix applied in an earlier
+    // run would throw away the independent re-judgement it has had since.
+    const prior = store.fields[`${p.id}#${p.path}`];
+    if (p.recorded || (prior && prior.verifiedAt >= p.applied!)) continue;
     const quotes = p.claims.filter(c => c.found && c.url);
     store.fields[`${p.id}#${p.path}`] = {
       valueHash: hashValue(value),
@@ -105,6 +109,7 @@ if (!RECORD) {
       // A reviewer's note overrides the drafting model's explanation, which may describe a draft the reviewer changed.
       rationale: `Corrected on ${now.slice(0, 10)} from quoted sources (${p.review ?? p.explanation}) Awaiting independent re-verification.`,
     };
+    p.recorded = now;
     touched.add(p.id);
     written++;
   }
@@ -128,5 +133,6 @@ if (!RECORD) {
     }
   }
   saveProvenance(store);
+  writeFileSync(PROPOSALS, JSON.stringify(file, null, 2) + '\n');
   console.log(`Wrote ${written} provenance records (unverified, awaiting re-verification); pruned ${pruned}; re-marked ${drifted} shifted records.`);
 }

@@ -1,0 +1,119 @@
+A service graph describes the UK government service "TV Licence concession" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w4/other-tv-licence-pension.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[evidence_1] (split into claims) Date of birth confirmation
+
+--- SOURCE 0: https://www.gov.uk/free-discount-tv-licence ---
+Get a free or discounted TV licence. You can get a free TV licence if you're 75 or over and you get Pension Credit, or a discount if you're blind or in residential care - who qualifies, how to apply If you’re 75 or over and you get Pension Credit, you can get a free TV licence. If you’re blind or in residential care, you can get a discounted TV licence. If you’re 75 or over You can get a free TV licence if you’re 75 or older and you either: get Pension Credit live with your partner who gets Pension Credit The licence covers everyone living at your address. You can apply when you’re 74 if you already get Pension Credit. You’ll still need to pay for your licence until the end of the month before your 75th birthday. After that you’ll be covered by your free licence. How to apply You can apply for a free licence online. You can also apply by phone. TV Licensing Telephone: 0300 790 6071 Minicom: 0300 709 6050 Find out about call charges If you’re in residential care or sheltered accommodation You can get a TV Licence for £7.50 if you live in an eligible residential care home, supported housing or sheltered accommodation. You must be either: retired and over 60 disabled Your housing manager can check if you can get it and will apply for you. If you’re registered blind You can get a 50% discount if you’re registered blind or live with someone who is. The licence must be in the blind person’s name - if it’s not, you can make a new application to transfer it into their name. You’ll need to provide your existing TV licence number when you apply. Apply for a licence if you’re registered blind on the TV Licensing website.
+
+--- SOURCE 1: https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence ---
+Licence TV Licence You need a TV Licence to watch or record programmes on a TV, computer or other device as they're broadcast, and to watch on-demand BBC programmes on iPlayer Apply for this licence Start now on the TV Licensing website You need a TV Licence if you: watch or record live TV on any channel or service use BBC iPlayer You may be able to get a free or discounted TV Licence if you’re 75 or over and get Pension Credit, or if you’re blind or in residential care. You do not need a TV Licence to watch: streaming services like Netflix and Disney Plus on-demand TV through services like All 4 and Amazon Prime Video videos on websites like YouTube videos or DVDs How much it costs A TV Licence costs £180 (£60.50 for black and white TV sets) for both homes and businesses. If you live in a shared household You need your own TV Licence if you have separate tenancy agreements and you watch TV in your own room. You can have one TV Licence for the whole household if you either: watch TV in a single shared area have a joint tenancy agreement Students If you’re living in university accommodation you’ll need a TV Licence to watch TV in your own room. Shared areas may already be covered by a TV Licence. If you live at another address outside of term time, you can use its TV Licence while you’re at university on any device that’s: battery powered not plugged in not connected to an aerial Businesses If your business offers overnight accommodation, for example a hotel, you need a TV licence for guests to watch TV in their room. A single TV Licence will cover up to 15 rooms or accommodation units. Change or cancel your TV Licence If you move home you can update your address on the TV Licencing website . You can cancel your TV Licence or apply for a refund on the TV Licencing website. Apply by phone TV Licensing Telephone: 0300 790 6071 Minicom: 0300 709 6050 Find out about call charges Fines and penalties You can be fined up to £1,000 if you watch or record live TV without a TV Licence.

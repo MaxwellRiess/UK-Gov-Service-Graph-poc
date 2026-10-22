@@ -1,0 +1,116 @@
+A service graph describes the UK government service "Obtain P45 from employer" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-p45.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this by phone.
+
+--- SOURCE 0: https://www.gov.uk/paye-forms-p45-p60-p11d/p45 ---
+Your P45, P60 and P11D form. What your P45, P60 or P11D form is for, and how to get a copy if you cannot get it from your employer or have lost it. If you’re an employee, your employer tells you about your taxable income using different forms. You get a: P45 form if you stop working for them P60 form if you’re working for them at the end of the tax year P11D form if you get company benefits Your employer also gives this information to HMRC . You’ll only get these forms if you’re an employee . If you’re an employer there’s a separate guide for getting P45, P60 and other forms . When you leave a job, your employer should give you a P45 form that tells you your: leaving date total pay and tax from 6 April until the date you left tax code It also includes your personal details such as your National Insurance number . What to do with your P45 When you start a new job, give your P45 to your new employer. They use it to work out how much tax you’ll pay. If you’re not working and are claiming taxable benefits , give your P45 to the Jobcentre Plus. If you have a paper P45, you only need to give your new employer Parts 2 and 3. Keep Part 1a. If you do not have a P45 What you need to do depends on your specific circumstances. If you’re changing jobs If you’ve left a job and your previous employer did not give you a P45, ask them for one. If you have not had a P45, you might pay the wrong amount of tax at your new job. If you’ve lost your P45 or your employer says they sent one but you did not get it, you cannot get a replacement. Instead of giving your new employer a P45, you can fill in the starter checklist . If you’re starting your first job or an additional job Fill in a starter checklist . If you need your P45 details for another reason You can view and download your pay and tax details for the last 5 tax years in: your personal tax account the HMRC app If your P45 is incorrect What you need to do depends on your specific circumstances. If the pay or tax amounts are wrong Ask your previous employer to correct the details and send you an amended P45. If you cannot get an amended P45, tell HMRC that your details are wrong using the check your Income Tax online service . HMRC will then contact the employer and ask them for the correct details. If the tax code is wrong When you start a new job, give your P45 to your new employer. HMRC should automatically correct your tax code after your first pay. Find out what to do if your tax code is still wrong . If your personal details are wrong When you start a new job, fill out the starter checklist . Give this and your P45 to your new employer to correct your details. You can also tell HMRC about a change to your personal details . Your P60 shows the tax you’ve paid on your salary in the tax year (6 April to 5 April). You get a separate P60 for each of your jobs every tax year. There’s a separate guide to getting P60s if you’re an employer . If you’re working for an employer on 5 April they must give you a P60. They must provide this by 31 May, on paper or electronically. You’ll need your P60 to prove how much tax you’ve paid on your salary, for example: to claim back overpaid tax as proof of your income if you apply for a loan or a mortgage You can check how much tax you paid last year if you think you might have paid too much. If you do not have a P60 If you’ve lost your P60, ask your employer for a replacement. If you cannot get one from your employer, you can either: use your personal tax account or the HMRC app to find the information that would be on the P60 contact HM Revenue and Customs ( HMRC ) and ask for the information that would be on the P60 Your employer might submit a P11D to tell HM Revenue and Customs ( HMRC ) if you get ‘benefits in kind’ (for example a company car or interest-free loan). Your employer may take the tax you owe on your benefits out of your pay. In that case, they will not need to submit a P11D. Your employer will write to you to explain how this works. If you need your P11D details You can ask your employer for a record of what they reported in the P11D, including how much each benefit is worth. If they cannot give you one, you can contact HMRC .

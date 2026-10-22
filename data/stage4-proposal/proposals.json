@@ -1,0 +1,1937 @@
+{
+  "proposals": [
+    {
+      "key": "dvla-provisional-licence#eligibility.evidenceRequired.1",
+      "service": "Provisional Driving Licence",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Address details",
+      "currentValue": "Address details",
+      "finderQueries": [
+        "apply first provisional driving licence online need addresses where you've lived last 3 years",
+        "nidirect apply first provisional driving licence online what you need address",
+        "INF1D guide to filling in driving licence application form address last 3 years gov.uk"
+      ],
+      "substantiveFinderSearches": [
+        "apply first provisional driving licence online need addresses where you've lived last 3 years",
+        "nidirect apply first provisional driving licence online what you need address",
+        "INF1D guide to filling in driving licence application form address last 3 years gov.uk"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/apply-first-provisional-driving-licence",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nidirect.gov.uk/articles/driving-licence-application-dl1-guidance-notes",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The GOV.UK page does not mention address details as something you need to apply, and the only source that discusses addresses is the Northern Ireland DVA form guidance, which covers a different nation's version of the service.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dvla-provisional-licence.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dvla-provisional-licence.response.json",
+      "exactCopies": [
+        {
+          "path": "agentInteraction.agentSteps.2",
+          "text": "Prepare document checklist (passport or birth certificate, address details)"
+        }
+      ],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P001"
+    },
+    {
+      "key": "dvla-sorn#eligibility.evidenceRequired.0",
+      "service": "Make a SORN",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Vehicle registration number",
+      "currentValue": "Vehicle registration number",
+      "finderQueries": [
+        "make a SORN online you'll need vehicle registration number 11-digit reference V5C DVLA",
+        "GOV.UK search: SORN vehicle registration number reference",
+        "GOV.UK search: V890 SORN form"
+      ],
+      "substantiveFinderSearches": [
+        "make a SORN online you'll need vehicle registration number 11-digit reference V5C DVLA",
+        "GOV.UK search: SORN vehicle registration number reference",
+        "GOV.UK search: V890 SORN form"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/make-a-sorn",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/check-vehicle-tax",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/government/news/vehicle-tax-changes",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The SORN page lists the 11-digit V5C number or 16-digit tax reminder reference, not the registration number; only the linked check-vehicle-tax page (a different service) mentions the registration number.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dvla-sorn.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dvla-sorn.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P002"
+    },
+    {
+      "key": "dwp-attendance-allowance#eligibility.evidenceRequired.2",
+      "service": "Attendance Allowance",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "Carer details if applicable",
+      "currentValue": "Carer details if applicable",
+      "finderQueries": [
+        "Citizens Advice Attendance Allowance claim form send medical evidence letters from GP specialist carer",
+        "GOV.UK search: Attendance Allowance claim form"
+      ],
+      "substantiveFinderSearches": [
+        "Citizens Advice Attendance Allowance claim form send medical evidence letters from GP specialist carer",
+        "GOV.UK search: Attendance Allowance claim form"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/attendance-allowance",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/attendance-allowance/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/mandatory-reconsideration",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/carers-allowance",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/constant-attendance-allowance",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/how-to-claim-attendance-allowance/",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/claiming-attendance-allowance-terminally-ill/",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/attendance-allowance/claiming-attendance-allowance/help-with-attendance-allowance-form/",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The list of what you need to apply does not include carer details; the text only says you do not need a carer to claim.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-attendance-allowance.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-attendance-allowance.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P003"
+    },
+    {
+      "key": "dwp-carers-allowance#eligibility.evidenceRequired.0",
+      "service": "Carer's Allowance",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Evidence of caring role",
+      "currentValue": "Evidence of caring role",
+      "finderQueries": [
+        "Carer's Allowance evidence of caring proof",
+        "gov.uk/carers-allowance/how-to-claim (read)",
+        "Carer's Allowance claim form notes documents to send (DS700 notes read)"
+      ],
+      "substantiveFinderSearches": [
+        "Carer's Allowance evidence of caring proof",
+        "Carer's Allowance claim form notes documents to send (DS700 notes read)"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk/carers-allowance/how-to-claim (read)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/carers-allowance",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/carers-allowance/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/universal-credit",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/universal-credit/what-youll-get",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/universal-credit/contact-universal-credit",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The page says you must care for at least 35 hours a week, but its list of what to have before you apply does not ask for any evidence of the caring role.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-carers-allowance.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-carers-allowance.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P004"
+    },
+    {
+      "key": "dwp-funeral-payment#eligibility.evidenceRequired.2",
+      "service": "Funeral Expenses Payment",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "Death certificate",
+      "currentValue": "Death certificate",
+      "finderQueries": [
+        "Funeral Expenses Payment claim what you need death certificate proof of benefits SF200",
+        "nidirect funeral expenses payment how to claim death certificate"
+      ],
+      "substantiveFinderSearches": [
+        "Funeral Expenses Payment claim what you need death certificate proof of benefits SF200",
+        "nidirect funeral expenses payment how to claim death certificate"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/funeral-payments",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/funeral-payments/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/69733a0895ec95e3414fd4e4/sf200-adult.pdf",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "Death certificates are mentioned only as a cost the payment can help with, not as evidence needed to claim.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-funeral-payment.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-funeral-payment.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P005"
+    },
+    {
+      "key": "dwp-pension-credit#eligibility.evidenceRequired.0",
+      "service": "Pension Credit",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Bank statements",
+      "currentValue": "Bank statements",
+      "finderQueries": [
+        "Pension Credit claim bank statements evidence asked to provide",
+        "Pension Credit \"bank statements\" site:gov.uk OR site:citizensadvice.org.uk OR site:nidirect.gov.uk",
+        "gov.uk/pension-credit/how-to-claim (read)"
+      ],
+      "substantiveFinderSearches": [
+        "Pension Credit claim bank statements evidence asked to provide",
+        "Pension Credit \"bank statements\" site:gov.uk OR site:citizensadvice.org.uk OR site:nidirect.gov.uk"
+      ],
+      "finderNotesNotCounted": [
+        "gov.uk/pension-credit/how-to-claim (read)"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/pension-credit",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/pension-credit/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The page asks for your bank account details and information about your income, savings and investments, but does not mention bank statements.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-pension-credit.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-pension-credit.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P006"
+    },
+    {
+      "key": "dwp-state-pension#eligibility.evidenceRequired.0",
+      "service": "State Pension claim",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "NI number",
+      "currentValue": "NI number",
+      "finderQueries": [
+        "nidirect State Pension claim what you need National Insurance number",
+        "nidirect \"State Pension\" claim online \"National Insurance number\" get your State Pension"
+      ],
+      "substantiveFinderSearches": [
+        "nidirect State Pension claim what you need National Insurance number",
+        "nidirect \"State Pension\" claim online \"National Insurance number\" get your State Pension"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/new-state-pension/eligibility",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/new-state-pension/what-youll-get",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The list of what you need to claim (marriage dates, time abroad, bank details, foreign social security numbers, an invitation code online) does not include a National Insurance number.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-state-pension.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-state-pension.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P007"
+    },
+    {
+      "key": "gro-register-death#eligibility.evidenceRequired.0",
+      "service": "Register the death",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Medical Certificate of Cause of Death (MCCD)",
+      "currentValue": "Medical Certificate of Cause of Death (MCCD)",
+      "finderQueries": [
+        "register a death England documents you need medical certificate cause of death NHS number register office",
+        "mygov.scot registering a death what you need medical certificate NHS number"
+      ],
+      "substantiveFinderSearches": [
+        "register a death England documents you need medical certificate cause of death NHS number register office",
+        "mygov.scot registering a death what you need medical certificate NHS number"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/register-a-death",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/register-the-death",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/death-abroad",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nidirect.gov.uk/articles/registering-death",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/register-death",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/tell-us-once",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The GOV.UK pages say to wait for the medical examiner's confirmation and do not mention an MCCD; only the Scotland and Northern Ireland pages, which are other nations' versions, mention it.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave1/gro-register-death.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/gro-register-death.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P008"
+    },
+    {
+      "key": "gro-register-death#eligibility.evidenceRequired.1",
+      "service": "Register the death",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Deceased's NHS number and personal details if available",
+      "currentValue": "Deceased's NHS number and personal details if available",
+      "finderQueries": [
+        "register a death England documents you need medical certificate cause of death NHS number register office",
+        "mygov.scot registering a death what you need medical certificate NHS number"
+      ],
+      "substantiveFinderSearches": [
+        "register a death England documents you need medical certificate cause of death NHS number register office",
+        "mygov.scot registering a death what you need medical certificate NHS number"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/register-a-death",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/register-the-death",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/death-abroad",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nidirect.gov.uk/articles/registering-death",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/register-death",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/tell-us-once",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "No GOV.UK source mentions the NHS number for registering a death; the Scotland page mentions an NHS medical card but that is another nation's version. The GOV.UK pages list the deceased's details only for Tell Us Once, a different service, not for registering the death.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave1/gro-register-death.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/gro-register-death.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P009"
+    },
+    {
+      "key": "hmrc-aml-registration#eligibility.evidenceRequired.2",
+      "service": "Anti-money laundering registration",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "Evidence of business type and activities",
+      "currentValue": "Evidence of business type and activities",
+      "finderQueries": [
+        "gov.uk search: money laundering supervision registration",
+        "gov.uk search: anti-money laundering register hmrc"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk search: money laundering supervision registration",
+        "gov.uk search: anti-money laundering register hmrc"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/anti-money-laundering-registration",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/money-laundering-regulations-who-needs-to-register",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/registration-guide-for-estate-agency-businesses",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/money-laundering-regulations-high-value-dealer-registration",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text asks for a risk assessment, BOOMs, premises and fees, but does not mention evidence of business type or activities.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/hmrc-aml-registration.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/hmrc-aml-registration.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P010"
+    },
+    {
+      "key": "hmrc-free-childcare-15#eligibility.evidenceRequired.0",
+      "service": "Free childcare — 15 hours (3 and 4-year-olds)",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Child's date of birth, given to the childcare provider",
+      "currentValue": "Child's date of birth, given to the childcare provider",
+      "finderQueries": [
+        "gov.uk search: free childcare 3 4 year olds apply provider",
+        "gov.uk search: free early years provision model agreement"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk search: free childcare 3 4 year olds apply provider",
+        "gov.uk search: free early years provision model agreement"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/free-childcare-if-working/check-youre-eligible",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/free-childcare-if-working",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "Only the linked Free Childcare for Working Parents page, a different scheme, says to give your child's date of birth to the provider; the sources on the 15 hours for 3 to 4-year-olds do not.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave1/hmrc-free-childcare-15.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/hmrc-free-childcare-15.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P011"
+    },
+    {
+      "key": "hmrc-lisa#eligibility.evidenceRequired.0",
+      "service": "Lifetime ISA withdrawal",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "LISA account details",
+      "currentValue": "LISA account details",
+      "finderQueries": [
+        "gov.uk Lifetime ISA withdrawal ask your provider online account details first home",
+        "site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk Lifetime ISA withdrawal ask your provider online account details first home",
+        "site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/lifetime-isa",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/individual-savings-accounts/how-to-open-an-isa",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/individual-savings-accounts/how-isas-work",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/individual-savings-accounts/transferring-your-isa",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text does not say you need to provide your Lifetime ISA account details to make a withdrawal.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-lisa.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-lisa.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P012"
+    },
+    {
+      "key": "hmrc-sdlt#eligibility.evidenceRequired.0",
+      "service": "Stamp Duty Land Tax return",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Completion statement",
+      "currentValue": "Completion statement",
+      "finderQueries": [
+        "gov.uk SDLT return completion statement effective date information you need to fill in return",
+        "grep of gov.uk SDLT1 completion guide for 'completion statement'"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk SDLT return completion statement effective date information you need to fill in return",
+        "grep of gov.uk SDLT1 completion guide for 'completion statement'"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/stamp-duty-land-tax",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/stamp-duty-land-tax-online-and-paper-returns",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text does not mention a completion statement as evidence needed for the return.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-sdlt.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-sdlt.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P013"
+    },
+    {
+      "key": "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0",
+      "service": "Skilled Worker dependant visa",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Main applicant's visa or BRP",
+      "currentValue": "Main applicant's visa or BRP",
+      "finderQueries": [
+        "grep of /skilled-worker-visa/your-partner-and-children and /documents-you-must-provide for BRP/eVisa",
+        "GOV.UK search: dependants of skilled workers caseworker guidance",
+        "GOV.UK search: partner child visa evidence of main applicant permission"
+      ],
+      "substantiveFinderSearches": [
+        "grep of /skilled-worker-visa/your-partner-and-children and /documents-you-must-provide for BRP/eVisa",
+        "GOV.UK search: dependants of skilled workers caseworker guidance",
+        "GOV.UK search: partner child visa evidence of main applicant permission"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The source discusses the main applicant’s visa and dependants’ relationship evidence but does not require a copy of the main applicant’s visa or BRP.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/ho-skilled-worker-dependent-visa.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/ho-skilled-worker-dependent-visa.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P014"
+    },
+    {
+      "key": "la-business-rates#eligibility.evidenceRequired.0",
+      "service": "Business rates registration",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Business address",
+      "currentValue": "Business address",
+      "finderQueries": [
+        "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+        "nidirect rates for business premises tell Land and Property Services new occupier"
+      ],
+      "substantiveFinderSearches": [
+        "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+        "nidirect rates for business premises tell Land and Property Services new occupier"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/introduction-to-business-rates",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/voa-agent-standards",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text does not specify a business address as application evidence.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/la-business-rates.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/la-business-rates.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P015"
+    },
+    {
+      "key": "la-business-rates#eligibility.evidenceRequired.1",
+      "service": "Business rates registration",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Date of occupation",
+      "currentValue": "Date of occupation",
+      "finderQueries": [
+        "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+        "nidirect rates for business premises tell Land and Property Services new occupier"
+      ],
+      "substantiveFinderSearches": [
+        "register for business rates new business occupation date of occupation nature of business gov.uk OR gov.wales OR mygov.scot OR nidirect",
+        "nidirect rates for business premises tell Land and Property Services new occupier"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/introduction-to-business-rates",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/guidance/voa-agent-standards",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text does not specify a date of occupation as application evidence.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/la-business-rates.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/la-business-rates.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P016"
+    },
+    {
+      "key": "la-council-tax-reduction#eligibility.evidenceRequired.1",
+      "service": "Council Tax Reduction",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Council Tax bill",
+      "currentValue": "Council Tax bill",
+      "finderQueries": [
+        "Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot",
+        "citizensadvice.org.uk council tax reduction England how to apply online phone liable"
+      ],
+      "substantiveFinderSearches": [
+        "Council Tax Reduction apply liable proof of income savings citizensadvice.org.uk OR gov.wales OR mygov.scot",
+        "citizensadvice.org.uk council tax reduction England how to apply online phone liable"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/apply-council-tax-reduction",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/council-tax",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/housing/council-tax/applying-for-council-tax-reduction/",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/council-tax-reduction-how-to-apply-s",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/scotland/benefits/help-if-on-a-low-income/help-with-your-council-tax-council-tax-reduction-s/applying-for-council-tax-reduction-s/check-if-you-can-get-council-tax-reduction-s/",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The sources discuss a Council Tax bill but do not say an applicant must provide the bill as evidence.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave2/la-council-tax-reduction.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/la-council-tax-reduction.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P017"
+    },
+    {
+      "key": "sss-adult-disability-payment#eligibility.evidenceRequired.2",
+      "service": "Adult Disability Payment",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "GP or consultant details",
+      "currentValue": "GP or consultant details",
+      "finderQueries": [
+        "site:mygov.scot/adult-disability-payment \"GP\" \"contact\" \"apply\"",
+        "site:mygov.scot/adult-disability-payment \"consultant\" \"details\""
+      ],
+      "substantiveFinderSearches": [
+        "site:mygov.scot/adult-disability-payment \"GP\" \"contact\" \"apply\"",
+        "site:mygov.scot/adult-disability-payment \"consultant\" \"details\""
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.mygov.scot/adult-disability-payment",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/adult-disability-payment/applicants",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/adult-disability-payment-changes",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/adult-disability-payment-suitability-checker",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/moving-from-child-disability-payment-to-adult-disability-payment",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/5/",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/adult-disability-payment/what-you-need",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The supplied text mentions a GP letter as an example of supporting information but does not require GP or consultant contact details.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave4/sss-adult-disability-payment.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave4/sss-adult-disability-payment.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P018"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.1",
+      "service": "Best Start Grant",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Proof of pregnancy or child's age",
+      "currentValue": "Proof of pregnancy or child's age",
+      "finderQueries": [
+        "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"pregnancy\"",
+        "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+      ],
+      "substantiveFinderSearches": [
+        "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"pregnancy\"",
+        "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/browse/benefits/children-and-family",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/scottish-child-payment",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/using-your-best-start-foods-card",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The sources give pregnancy and child-age conditions but do not say proof of either is needed.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave4/sss-best-start-grant.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave4/sss-best-start-grant.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P019"
+    },
+    {
+      "key": "sss-best-start-grant#eligibility.evidenceRequired.2",
+      "service": "Best Start Grant",
+      "path": "eligibility.evidenceRequired.2",
+      "claim": "Proof of Scottish residency",
+      "currentValue": "Proof of Scottish residency",
+      "finderQueries": [
+        "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"address\"",
+        "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+      ],
+      "substantiveFinderSearches": [
+        "site:mygov.scot/best-start-grant-best-start-foods \"proof\" \"address\"",
+        "site:socialsecurity.gov.scot Best Start Grant evidence qualifying benefit pregnancy residency"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/browse/benefits/children-and-family",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/scottish-child-payment",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/using-your-best-start-foods-card",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The sources say applicants normally live in Scotland but do not say residency proof is needed.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "online",
+        "phone",
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave4/sss-best-start-grant.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave4/sss-best-start-grant.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P020"
+    },
+    {
+      "key": "sss-pension-winter-heating#eligibility.evidenceRequired.0",
+      "service": "Pension Age Winter Heating Payment",
+      "path": "eligibility.evidenceRequired.0",
+      "claim": "Proof of age",
+      "currentValue": "Proof of age",
+      "finderQueries": [
+        "Pension Age Winter Heating Payment proof of age application documents",
+        "Pension Age Winter Heating Payment age verification birth certificate evidence"
+      ],
+      "substantiveFinderSearches": [
+        "Pension Age Winter Heating Payment proof of age application documents",
+        "Pension Age Winter Heating Payment age verification birth certificate evidence"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The page states an age-based eligibility condition but does not request documentary proof of age.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave5/sss-pension-winter-heating.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave5/sss-pension-winter-heating.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P021"
+    },
+    {
+      "key": "sss-pension-winter-heating#eligibility.evidenceRequired.1",
+      "service": "Pension Age Winter Heating Payment",
+      "path": "eligibility.evidenceRequired.1",
+      "claim": "Proof of Scottish residency",
+      "currentValue": "Proof of Scottish residency",
+      "finderQueries": [
+        "Pension Age Winter Heating Payment proof of Scottish residency documents",
+        "Pension Age Winter Heating Payment proof of address application Scotland"
+      ],
+      "substantiveFinderSearches": [
+        "Pension Age Winter Heating Payment proof of Scottish residency documents",
+        "Pension Age Winter Heating Payment proof of address application Scotland"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-you-need-to-apply",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/contact",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/pension-age-winter-heating-payment/check-if-youre-eligible",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The page states a Scottish-residence condition but does not request documentary proof of residence.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave5/sss-pension-winter-heating.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave5/sss-pension-winter-heating.response.json",
+      "exactCopies": [],
+      "status": "proposed-deletion",
+      "proposedAction": "Delete this list item; shift later provenance keys without changing their verdicts.",
+      "id": "P022"
+    }
+  ],
+  "methodDecisions": [
+    {
+      "key": "dfe-care-to-learn#agentInteraction.methods",
+      "service": "Care to Learn",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this online.",
+      "currentValue": [
+        "online"
+      ],
+      "finderQueries": [
+        "Care to Learn apply online Learner Support Service guide 2025 to 2026",
+        "GOV.UK search: Care to Learn",
+        "GOV.UK search: Care to Learn guide learner support service"
+      ],
+      "substantiveFinderSearches": [
+        "Care to Learn apply online Learner Support Service guide 2025 to 2026",
+        "GOV.UK search: Care to Learn",
+        "GOV.UK search: Care to Learn guide learner support service"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/care-to-learn",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text says to apply through your education provider but does not say you can apply online.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave1/dfe-care-to-learn.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dfe-care-to-learn.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M001"
+    },
+    {
+      "key": "dwp-ni-credits#agentInteraction.methods",
+      "service": "National Insurance credits",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this online. You can apply or do this by phone.",
+      "currentValue": [
+        "online",
+        "phone"
+      ],
+      "finderQueries": [
+        "gov.uk apply National Insurance credits online specified adult childcare",
+        "Carer's Credit apply by phone or post gov.uk National Insurance credits apply online",
+        "HMRC online service apply for National Insurance credits sign in Government Gateway"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk apply National Insurance credits online specified adult childcare",
+        "Carer's Credit apply by phone or post gov.uk National Insurance credits apply online",
+        "HMRC online service apply for National Insurance credits sign in Government Gateway"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/national-insurance-credits",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text only says you can ask HMRC questions online; it does not say you can apply for credits online. The text mentions phoning the National Insurance helpline only for questions, not for applying for credits.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "post"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave1/dwp-ni-credits.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/dwp-ni-credits.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M002"
+    },
+    {
+      "key": "gro-register-death#agentInteraction.methods",
+      "service": "Register the death",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this in person.",
+      "currentValue": [
+        "in-person"
+      ],
+      "finderQueries": [
+        "register a death England documents you need medical certificate cause of death NHS number register office",
+        "mygov.scot registering a death what you need medical certificate NHS number"
+      ],
+      "substantiveFinderSearches": [
+        "register a death England documents you need medical certificate cause of death NHS number register office",
+        "mygov.scot registering a death what you need medical certificate NHS number"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/register-a-death",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/register-the-death",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/organisations-you-need-to-contact-and-tell-us-once",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/when-a-death-is-reported-to-a-coroner",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/after-a-death/death-abroad",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.nidirect.gov.uk/articles/registering-death",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.mygov.scot/register-death",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/tell-us-once",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The GOV.UK pages refer to the register office but do not say you register in person; only the Scotland and Northern Ireland pages, which are other nations' versions, describe attending a registration office.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave1/gro-register-death.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/gro-register-death.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M003"
+    },
+    {
+      "key": "hmrc-free-childcare-15#agentInteraction.methods",
+      "service": "Free childcare — 15 hours (3 and 4-year-olds)",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this in person.",
+      "currentValue": [
+        "in-person"
+      ],
+      "finderQueries": [
+        "gov.uk search: free childcare 3 4 year olds apply provider",
+        "gov.uk search: early education and childcare statutory guidance",
+        "gov.uk search: free early years provision model agreement"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk search: free childcare 3 4 year olds apply provider",
+        "gov.uk search: early education and childcare statutory guidance",
+        "gov.uk search: free early years provision model agreement"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/tax-free-childcare",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/free-childcare-if-working/check-youre-eligible",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/free-childcare-if-working",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": false,
+          "note": "PDF/Word source not available as readable text"
+        }
+      ],
+      "judgeNote": "The 15-hours page only says to contact your childcare provider or local council to find out more and does not say you can apply in person.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave1/hmrc-free-childcare-15.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave1/hmrc-free-childcare-15.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M004"
+    },
+    {
+      "key": "hmrc-lisa#agentInteraction.methods",
+      "service": "Lifetime ISA withdrawal",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this online.",
+      "currentValue": [
+        "online"
+      ],
+      "finderQueries": [
+        "gov.uk Lifetime ISA withdrawal ask your provider online account details first home",
+        "site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer",
+        "fetched gov.uk/lifetime-isa/withdrawing-money-from-your-lifetime-isa"
+      ],
+      "substantiveFinderSearches": [
+        "gov.uk Lifetime ISA withdrawal ask your provider online account details first home",
+        "site:gov.uk Lifetime ISA withdraw money account provider request withdrawal form conveyancer"
+      ],
+      "finderNotesNotCounted": [
+        "fetched gov.uk/lifetime-isa/withdrawing-money-from-your-lifetime-isa"
+      ],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/lifetime-isa",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/individual-savings-accounts/how-to-open-an-isa",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/individual-savings-accounts/how-isas-work",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/individual-savings-accounts/transferring-your-isa",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text explains withdrawal rules and charges but never says a Lifetime ISA withdrawal can be requested online.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/hmrc-lisa.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/hmrc-lisa.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M005"
+    },
+    {
+      "key": "la-council-tax-disability-reduction#agentInteraction.methods",
+      "service": "Council Tax Disability Reduction",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this online. You can apply or do this by phone.",
+      "currentValue": [
+        "online",
+        "phone"
+      ],
+      "finderQueries": [
+        "Council Tax disabled band reduction apply online phone citizensadvice gov.wales mygov.scot",
+        "gov.wales council tax discounts disabled person how to apply"
+      ],
+      "substantiveFinderSearches": [
+        "Council Tax disabled band reduction apply online phone citizensadvice gov.wales mygov.scot",
+        "gov.wales council tax discounts disabled person how to apply"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/council-tax/who-has-to-pay",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/introduction-to-business-rates/working-at-home",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.gov.uk/find-hmrc-contacts/valuation-office-enquiries",
+          "roles": [
+            "linked in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/housing/council-tax/check-if-you-can-pay-less-council-tax/",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The relevant Council Tax sources give no online application method for this reduction. The relevant Council Tax sources say to ask the council but give no phone application method.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/la-council-tax-disability-reduction.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/la-council-tax-disability-reduction.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M006"
+    },
+    {
+      "key": "la-council-tax-single-discount#agentInteraction.methods",
+      "service": "Council Tax single person discount",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this online. You can apply or do this by phone.",
+      "currentValue": [
+        "online",
+        "phone"
+      ],
+      "finderQueries": [
+        "citizensadvice check if you can pay less council tax single person discount",
+        "gov.wales council tax discounts living alone how to apply",
+        "mygov.scot council tax discounts exemptions single adult discount apply"
+      ],
+      "substantiveFinderSearches": [
+        "citizensadvice check if you can pay less council tax single person discount",
+        "gov.wales council tax discounts living alone how to apply",
+        "mygov.scot council tax discounts exemptions single adult discount apply"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.gov.uk/council-tax/who-has-to-pay",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The text mentions paying Council Tax online but gives no online application method for this discount. The text gives no phone application method for this discount.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [],
+      "prompt": "data/stage4-proposal/judgements/wave2/la-council-tax-single-discount.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave2/la-council-tax-single-discount.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M007"
+    },
+    {
+      "key": "other-motability#agentInteraction.methods",
+      "service": "Motability scheme",
+      "path": "agentInteraction.methods",
+      "claim": "You can apply or do this by phone.",
+      "currentValue": [
+        "phone"
+      ],
+      "finderQueries": [
+        "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+        "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+      ],
+      "substantiveFinderSearches": [
+        "Motability scheme eligibility enhanced rate mobility PIP 12 months remaining award",
+        "Motability Scheme how to join dealer call 0300 456 4566 apply by phone"
+      ],
+      "finderNotesNotCounted": [],
+      "pages": [
+        {
+          "url": "https://www.motability.co.uk/",
+          "roles": [
+            "cited",
+            "in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.citizensadvice.org.uk/benefits/sick-or-disabled-people-and-carers/help-for-disabled-travellers1/motability-scheme/getting-a-motability-car/",
+          "roles": [
+            "found in judge prompt",
+            "finder nomination"
+          ],
+          "readableInJudgePrompt": true
+        },
+        {
+          "url": "https://www.motability.co.uk/get-support/faqs/am-i-eligible",
+          "roles": [
+            "found in judge prompt"
+          ],
+          "readableInJudgePrompt": true
+        }
+      ],
+      "judgeNote": "The helpline is for finding a dealer; the text says the vehicle is ordered at a dealership, not by phone.",
+      "judgeVerdicts": [
+        "not_stated"
+      ],
+      "methodsOnPage": [
+        "in-person"
+      ],
+      "prompt": "data/stage4-proposal/judgements/wave3/other-motability.prompt.txt",
+      "response": "data/stage4-proposal/judgements/wave3/other-motability.response.json",
+      "exactCopies": [],
+      "status": "method-decision",
+      "reason": "No current method was supported. Do not use an empty methods array to mean unknown.",
+      "id": "M008"
+    }
+  ]
+}

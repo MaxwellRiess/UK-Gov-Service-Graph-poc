@@ -1,0 +1,283 @@
+{
+ "hmpo-passport-urgent#eligibility.criteria.0": {
+  "queries": [
+   "gov.uk search: passport fast track premium eligibility travel",
+   "gov.uk content: get-a-passport-urgently, apply-first-adult-passport"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmpo-passport#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk content: renew-adult-passport"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/renew-adult-passport/renew",
+    "why": "Renewal needs the old passport: 'To renew your passport you'll need: your old passport'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmpo-passport#eligibility.evidenceRequired.2": {
+  "queries": [
+   "gov.uk content: apply-first-adult-passport",
+   "gov.uk content: countersigning-passport-applications"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/apply-first-adult-passport/apply-by-post",
+    "why": "Paper first adult application needs 'someone who can confirm your identity (a ‘countersignatory’)' who fills in section 10."
+   },
+   {
+    "url": "https://www.gov.uk/countersigning-passport-applications",
+    "why": "Paper form and photo must be countersigned for a 'first adult passport'; countersignatory 'must put their passport number on the form'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-aml-registration#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk search: money laundering supervision registration",
+   "gov.uk search: anti-money laundering register hmrc"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc",
+    "why": "Partly: application must 'add all premises where supervised activity takes place' and 'tell us about your premises'; no mention of registered address."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-aml-registration#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk search: money laundering supervision registration",
+   "gov.uk search: anti-money laundering register hmrc"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/guidance/register-or-renew-your-money-laundering-supervision-with-hmrc",
+    "why": "Must 'add all beneficial owners, officers or managers ( BOOMs )' to the application; HMRC runs approval checks or fit and proper test on them."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-aml-registration#eligibility.evidenceRequired.2": {
+  "queries": [
+   "gov.uk search: money laundering supervision registration",
+   "gov.uk search: anti-money laundering register hmrc"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-child-benefit-transfer#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk search: change who gets child benefit",
+   "gov.uk search: child benefit claim online government gateway",
+   "web: Child Benefit claim online Government Gateway user ID"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-child-benefit-transfer#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk search: change who gets child benefit",
+   "gov.uk search: child benefit someone else already claiming"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/child-benefit-child-lives-with-someone-else",
+    "why": "Partly: to change who gets it, 'Explain who you want to get Child Benefit instead' and 'Tell the other person to make a new claim'; no date of change."
+   },
+   {
+    "url": "https://www.gov.uk/child-benefit/how-to-claim",
+    "why": "Partly: new claim needs 'your child’s birth or adoption certificate, if you have it'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-cis#agentInteraction.methods": {
+  "queries": [
+   "gov.uk search: register construction industry scheme subcontractor",
+   "gov.uk: CIS general enquiries contact page"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "why": "Online only: 'The quickest way to register is online'; alternative is postal form. HMRC contact page says 'You cannot register for the Construction Industry Scheme as a subcontractor over the phone', contradicting the phone part."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-cis#eligibility.criteria.1": {
+  "queries": [
+   "gov.uk search: register construction industry scheme subcontractor",
+   "gov.uk content: what-you-must-do-as-a-cis-subcontractor"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "why": "'To use the online service, you need a UTR'; may also need 'Company Registration Number'. Does not say limited companies must be Companies House registered as such."
+   },
+   {
+    "url": "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status",
+    "why": "Limited company registration needs the company's UTR and 'the company registration number' depending on circumstances."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-cis#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk search: register construction industry scheme subcontractor"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "why": "'you’ll need: ... the Unique Taxpayer Reference ( UTR ) for your business'."
+   },
+   {
+    "url": "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status",
+    "why": "Online form needs the company's 'Unique Tax Reference ( UTR )'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-cis#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk search: register construction industry scheme subcontractor"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/what-you-must-do-as-a-cis-subcontractor/how-to-register",
+    "why": "'Depending on your circumstances, you may also need to provide your: ... Company Registration Number'."
+   },
+   {
+    "url": "https://www.gov.uk/guidance/register-a-limited-company-as-a-subcontractor-or-apply-for-gross-payment-status",
+    "why": "'you may also need: the company registration number'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-cis#eligibility.evidenceRequired.2": {
+  "queries": [
+   "gov.uk search: register construction industry scheme subcontractor",
+   "gov.uk content: CIS registration guidance pages"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-free-childcare-15#agentInteraction.methods": {
+  "queries": [
+   "gov.uk search: free childcare 3 4 year olds apply provider",
+   "gov.uk search: early education and childcare statutory guidance",
+   "gov.uk search: free early years provision model agreement"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+    "why": "Partly: parental declaration is completed with the provider before the child takes up a free place; not explicitly 'in person'."
+   },
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx",
+    "why": "Partly: form has 'Step 4: Document check - provider to complete', implying the parent deals with the provider directly."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-free-childcare-15#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk search: free childcare 3 4 year olds apply provider",
+   "gov.uk search: free early years provision model agreement"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6979dc7b1c24881f40a4d6ec/Parental_declaration_form.docx",
+    "why": "DfE parental declaration form: 'Date of Birth: Your will need to show your childcare provider evidence of your child’s date of birth'."
+   },
+   {
+    "url": "https://www.gov.uk/government/publications/free-early-years-provision-and-childcare-model-agreement/parental-declaration-form-guidance",
+    "why": "Guidance page for the parental declaration form that providers complete with parents."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-guardians-allowance#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk search: guardians allowance claim form BG1",
+   "gov.uk content: guardians-allowance/how-to-claim and BG1 notes PDF"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-iht400#agentInteraction.methods": {
+  "queries": [
+   "gov.uk search: submit inheritance tax account IHT400 online",
+   "gov.uk content: IHT400 publication and notes"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a996860f5b35599aec19183/iht400-fillable.pdf",
+    "why": "Post only: 'you should send the Inheritance Tax forms to: Inheritance Tax HM Revenue and Customs BX9 1HT'; no online submission found."
+   },
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a9969bdf5b35599aec19186/iht400_2022_notes.pdf",
+    "why": "'Send form IHT400, all the schedules you’ve filled in ... to Inheritance Tax, HM Revenue and Customs, BX9 1HT'."
+   }
+  ],
+  "verdict_hint": "partly"
+ },
+ "hmrc-iht400#eligibility.criteria.1": {
+  "queries": [
+   "gov.uk search: IHT400 notes",
+   "gov.uk content: IHT400 notes (Scotland sections)"
+  ],
+  "urls": [],
+  "verdict_hint": "not found"
+ },
+ "hmrc-iht400#eligibility.evidenceRequired.0": {
+  "queries": [
+   "gov.uk search: IHT400 notes"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/government/publications/inheritance-tax-inheritance-tax-account-iht400",
+    "why": "'You must complete the form IHT400 ... You can use the notes and forms IHT401 to IHT436', listing supplementary schedules."
+   },
+   {
+    "url": "https://www.gov.uk/valuing-estate-of-someone-who-died",
+    "why": "'If the estate owes Inheritance Tax, you must report its value within one year using form IHT400'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-iht400#eligibility.evidenceRequired.1": {
+  "queries": [
+   "gov.uk search: IHT400 notes",
+   "gov.uk content: valuing-estate-of-someone-who-died"
+  ],
+  "urls": [
+   {
+    "url": "https://www.gov.uk/valuing-estate-of-someone-who-died/estimate-estate-value",
+    "why": "'If it does, you’ll need to provide valuations for the assets to see how much Inheritance Tax is due'."
+   },
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a9969bdf5b35599aec19186/iht400_2022_notes.pdf",
+    "why": "Notes tell you to get and enclose valuations, e.g. 'Enclose it with the schedule and enter ‘see attached valuation’'."
+   }
+  ],
+  "verdict_hint": "found"
+ },
+ "hmrc-iht400#eligibility.evidenceRequired.3": {
+  "queries": [
+   "gov.uk search: IHT400 notes",
+   "IHT400 form PDF checklist"
+  ],
+  "urls": [
+   {
+    "url": "https://assets.publishing.service.gov.uk/media/6a996860f5b35599aec19183/iht400-fillable.pdf",
+    "why": "'Please enclose a copy of the will and any codicils when sending us your account'."
+   }
+  ],
+  "verdict_hint": "found"
+ }
+}

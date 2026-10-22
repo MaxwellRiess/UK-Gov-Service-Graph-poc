@@ -1,0 +1,68 @@
+{
+ "hmrc-spl#agentInteraction.methods": [],
+ "hmrc-spl#eligibility.evidenceRequired.0": [],
+ "hmrc-spp#agentInteraction.methods": [],
+ "hmrc-ssp#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/taking-sick-leave"
+ ],
+ "hmrc-starter-checklist#eligibility.exclusions.1": [
+  "https://www.gov.uk/employment-status/selfemployed-contractor"
+ ],
+ "hmrc-tax-credits#agentInteraction.methods": [
+  "https://www.gov.uk/find-hmrc-contacts/tax-credits-general-enquiries"
+ ],
+ "hmrc-tax-credits#eligibility.autoQualifiers.0": [
+  "https://www.gov.uk/guidance/move-to-universal-credit-if-you-get-a-migration-notice-letter"
+ ],
+ "hmrc-tax-credits#eligibility.criteria.0": [
+  "https://www.legislation.gov.uk/ukpga/2002/21/section/7"
+ ],
+ "hmrc-tax-credits#eligibility.criteria.1": [
+  "https://www.legislation.gov.uk/uksi/2002/2005/regulation/4"
+ ],
+ "hmrc-tax-credits#eligibility.criteria.2": [
+  "https://www.legislation.gov.uk/ukpga/2002/21/section/8",
+  "https://www.legislation.gov.uk/uksi/2002/2007/regulation/5"
+ ],
+ "hmrc-tax-free-childcare#eligibility.evidenceRequired.0": [
+  "https://www.birmingham.gov.uk/info/20130/childcare_and_early_years/629/free_childcare_and_education_for_children_aged_9_months_to_4_years/6"
+ ],
+ "hmrc-tax-free-childcare#eligibility.evidenceRequired.1": [],
+ "hmrc-tax-on-pension#eligibility.evidenceRequired.1": [
+  "https://www.gov.uk/guidance/how-your-state-pension-is-taxed"
+ ],
+ "hmrc-update-records#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/guidance/send-hmrc-evidence-of-your-personal-details"
+ ],
+ "hmrc-update-records#eligibility.evidenceRequired.1": [
+  "https://www.gov.uk/personal-tax-account"
+ ],
+ "hmrc-vat#eligibility.evidenceRequired.0": [
+  "https://www.gov.uk/register-for-vat/how-register-for-vat"
+ ],
+ "hmrc-vat#eligibility.evidenceRequired.1": [
+  "https://www.gov.uk/register-for-vat/how-register-for-vat"
+ ],
+ "hmrc-vat#eligibility.evidenceRequired.2": [
+  "https://www.gov.uk/register-for-vat/how-register-for-vat"
+ ],
+ "ho-citizenship-ceremony#eligibility.evidenceRequired.1": [
+  "https://assets.publishing.service.gov.uk/media/6a327b2d25c5199bda1176a8/Nationality_policy_-_general_information_-_all_British_nationals.pdf",
+  "https://www.wandsworth.gov.uk/registration-services/citizenship-ceremonies/"
+ ],
+ "ho-citizenship-spouse#eligibility.evidenceRequired.0": [
+  "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+ ],
+ "ho-citizenship-spouse#eligibility.evidenceRequired.1": [
+  "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+ ],
+ "ho-citizenship-spouse#eligibility.evidenceRequired.2": [
+  "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+ ],
+ "ho-citizenship-spouse#eligibility.evidenceRequired.3": [
+  "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+ ],
+ "ho-citizenship-spouse#eligibility.evidenceRequired.6": [
+  "https://assets.publishing.service.gov.uk/media/69b3ed7c9d8b52961a62b3c6/Guide_AN_-_March_2026.pdf"
+ ]
+}

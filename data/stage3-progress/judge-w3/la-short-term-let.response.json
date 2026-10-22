@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "methods",
+      "claims": [
+        {
+          "claim": "You can apply for a short-term let licence online.",
+          "verdict": "supported",
+          "quote": "You can apply for a short-term let licence through your local council’s website.",
+          "source": 1,
+          "note": "The national guidance directs applicants to the council website."
+        },
+        {
+          "claim": "You can apply for a short-term let licence in person.",
+          "verdict": "partly_supported",
+          "quote": "Licensing authorities are expected to still have paper copies of relevant information, and the application form, available upon request for people who cannot access them online, and provide support to access online services at their offices.",
+          "source": 2,
+          "note": "The guidance describes office support and paper forms, but does not explicitly say an application can be submitted in person."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

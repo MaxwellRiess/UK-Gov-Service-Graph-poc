@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Most children start Reception in September after their fourth birthday",
+          "verdict": "supported",
+          "quote": "Most children start reception full-time in September after their fourth birthday.",
+          "source": 1,
+          "note": "The admissions page states this usual Reception starting point."
+        },
+        {
+          "claim": "Full-time education becomes compulsory on the first 31 December, 31 March or 31 August on or after the child’s fifth birthday",
+          "verdict": "supported",
+          "quote": "This is on 31 December, 31 March or 31 August following their fifth birthday - whichever comes first. If your child’s fifth birthday is on one of those dates then they reach compulsory school age on that date.",
+          "source": 1,
+          "note": "The source gives those prescribed dates and includes birthdays that fall on one of them."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

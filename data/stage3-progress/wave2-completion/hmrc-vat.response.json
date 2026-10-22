@@ -1,0 +1,42 @@
+{
+  "fields": [
+    {
+      "key": "evidence_0",
+      "claims": [
+        {
+          "claim": "Business details are needed to register for VAT.",
+          "verdict": "supported",
+          "quote": "The information you’ll need to register for VAT depends on the type of your business. Register a limited company You’ll need: your company registration number your business’s bank account details your Unique Taxpayer Reference ( UTR )",
+          "source": 1,
+          "note": "The page lists business information required for VAT registration."
+        }
+      ]
+    },
+    {
+      "key": "evidence_1",
+      "claims": [
+        {
+          "claim": "Turnover evidence is needed to register for VAT.",
+          "verdict": "partly_supported",
+          "quote": "details of your annual turnover an estimate of your taxable turnover for the next 12 months",
+          "source": 1,
+          "note": "The page requires turnover details and an estimate, but does not say applicants must supply supporting evidence for them."
+        }
+      ]
+    },
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "A bank account for repayments is needed to register for VAT.",
+          "verdict": "partly_supported",
+          "quote": "your business’s bank account details",
+          "source": 1,
+          "note": "The page requires bank account details at registration but does not say the account is specifically for repayments."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": ["online", "post"],
+  "sign_in_on_page": null
+}

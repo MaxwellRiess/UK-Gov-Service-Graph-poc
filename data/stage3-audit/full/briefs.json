@@ -1,0 +1,3895 @@
+[
+  {
+    "key": "ch-close-company#agentInteraction.methods",
+    "service": "Close a limited company",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/closing-a-limited-company",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/closing-a-limited-company"
+    ],
+    "whyNotFound": "not stated: The text does not say how to apply, online or any other way."
+  },
+  {
+    "key": "ch-close-company#eligibility.exclusions.0",
+    "service": "Close a limited company",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/closing-a-limited-company",
+    "claim": "Has traded in last 3 months",
+    "alreadySearched": [
+      "https://www.gov.uk/closing-a-limited-company"
+    ],
+    "whyNotFound": "not stated: The text states no such exclusion. Trading comes up only in the section on dormancy."
+  },
+  {
+    "key": "ch-confirmation-statement#eligibility.summary",
+    "service": "File a confirmation statement",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/file-your-confirmation-statement-with-companies-house",
+    "claim": "All companies, LLPs and eligible partnerships registered at Companies House must file a confirmation statement at least once every 12 months. The £34 filing fee can be waived for dormant companies in some circumstances.",
+    "alreadySearched": [
+      "https://www.gov.uk/file-your-confirmation-statement-with-companies-house"
+    ],
+    "whyNotFound": "not stated: The text does not say who has to file. not stated: The text gives no filing frequency; it only mentions email alerts for when the statement is due. not stated: The text gives no online fee; the only fee it names is £110 for filing by post, which is a different route. not stated: The text does not mention dormant companies or fee waivers."
+  },
+  {
+    "key": "dfe-care-to-learn#agentInteraction.methods",
+    "service": "Care to Learn",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/care-to-learn",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/care-to-learn"
+    ],
+    "whyNotFound": "not stated: The text only says to apply through your education provider and does not mention an online application."
+  },
+  {
+    "key": "dfe-national-careers#desc",
+    "service": "National Careers Service",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://nationalcareers.service.gov.uk/",
+    "claim": "Free careers advice, skills assessment and job profile browsing through the government's National Careers Service.",
+    "alreadySearched": [
+      "https://nationalcareers.service.gov.uk/"
+    ],
+    "whyNotFound": "not stated: The text never says the service or advice is free. not stated: The text names the National Careers Service but never says the government runs it."
+  },
+  {
+    "key": "dfe-national-careers#eligibility.criteria.0",
+    "service": "National Careers Service",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://nationalcareers.service.gov.uk/",
+    "claim": "Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers services.",
+    "alreadySearched": [
+      "https://nationalcareers.service.gov.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention DWP, the Jobs and Careers Service or careers advisers for adults. not stated: The text does not mention the other UK nations."
+  },
+  {
+    "key": "dvla-name-change#eligibility.autoQualifiers.0",
+    "service": "Update driving licence (name change)",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-name-driving-licence",
+    "claim": "Marriage or civil partnership certificate received and current licence name is now incorrect",
+    "alreadySearched": [
+      "https://www.gov.uk/change-name-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text does not mention marriage or civil partnership at all."
+  },
+  {
+    "key": "dvla-name-change#eligibility.summary",
+    "service": "Update driving licence (name change)",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-name-driving-licence",
+    "claim": "A legal requirement for driving licence holders who have changed their name — after marriage, civil partnership, deed poll or statutory declaration. Must be updated to reflect current legal name.",
+    "alreadySearched": [
+      "https://www.gov.uk/change-name-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text does not describe this as a legal requirement. not stated: The text names none of these reasons or documents; it only mentions documents that confirm your new name. not stated: The text does not say the licence must be updated."
+  },
+  {
+    "key": "dvla-provisional-licence#eligibility.evidenceRequired.1",
+    "service": "Provisional Driving Licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
+    "claim": "Address details",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-first-provisional-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text does not list address details as something you need to apply."
+  },
+  {
+    "key": "dvla-sorn#eligibility.evidenceRequired.0",
+    "service": "Make a SORN",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/make-a-sorn",
+    "claim": "Vehicle registration number",
+    "alreadySearched": [
+      "https://www.gov.uk/make-a-sorn"
+    ],
+    "whyNotFound": "not stated: The text does not list the vehicle registration number as something you need to apply."
+  },
+  {
+    "key": "dvla-update-address#eligibility.evidenceRequired.1",
+    "service": "Update driving licence address",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-address-driving-licence",
+    "claim": "New address details",
+    "alreadySearched": [
+      "https://www.gov.uk/change-address-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text's list of what you need does not include new address details."
+  },
+  {
+    "key": "dvla-update-address#eligibility.evidenceRequired.2",
+    "service": "Update driving licence address",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/change-address-driving-licence",
+    "claim": "Government Gateway or DVLA online service",
+    "alreadySearched": [
+      "https://www.gov.uk/change-address-driving-licence"
+    ],
+    "whyNotFound": "not stated: The text says you need to sign in but does not name Government Gateway or any specific account."
+  },
+  {
+    "key": "dvla-ved-exemption#agentInteraction.methods",
+    "service": "Vehicle Excise Duty Exemption",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "whyNotFound": "not stated: The text never mentions applying online; it only says first-time claims must be made at a Post Office."
+  },
+  {
+    "key": "dvla-ved-exemption#eligibility.evidenceRequired.0",
+    "service": "Vehicle Excise Duty Exemption",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+    "claim": "PIP or DLA award letter showing enhanced/higher mobility",
+    "alreadySearched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence for the exemption; the DWP letter it mentions is for the 50% reduction and shows the PIP rate, not an enhanced or higher mobility award for exemption."
+  },
+  {
+    "key": "dvla-ved-exemption#eligibility.evidenceRequired.1",
+    "service": "Vehicle Excise Duty Exemption",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/financial-help-disabled/vehicles-and-transport",
+    "claim": "Vehicle registration document (V5C)",
+    "alreadySearched": [
+      "https://www.gov.uk/financial-help-disabled/vehicles-and-transport"
+    ],
+    "whyNotFound": "not stated: The V5C log book is listed only for the 50% reduction application, not for the exemption."
+  },
+  {
+    "key": "dvla-vehicle-sale#eligibility.evidenceRequired.1",
+    "service": "Notify DVLA of vehicle sale",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/sold-bought-vehicle",
+    "claim": "Vehicle registration number for online DVLA notification",
+    "alreadySearched": [
+      "https://www.gov.uk/sold-bought-vehicle"
+    ],
+    "whyNotFound": "not stated: The registration number is listed only for the letter sellers send when they have no log book; the text does not say what details the online service asks for."
+  },
+  {
+    "key": "dwp-access-to-work#eligibility.evidenceRequired.2",
+    "service": "Access to Work",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/access-to-work",
+    "claim": "Quotes for support/equipment needed",
+    "alreadySearched": [
+      "https://www.gov.uk/access-to-work"
+    ],
+    "whyNotFound": "not stated: The text does not mention quotes. It only mentions invoices or receipts, and those are for claiming money after a grant is approved."
+  },
+  {
+    "key": "dwp-attendance-allowance#eligibility.evidenceRequired.1",
+    "service": "Attendance Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/attendance-allowance",
+    "claim": "Medical evidence from GP or specialist helpful",
+    "alreadySearched": [
+      "https://www.gov.uk/attendance-allowance",
+      "https://www.gov.uk/attendance-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text asks for details of your GP surgery, not medical evidence from a GP or specialist."
+  },
+  {
+    "key": "dwp-attendance-allowance#eligibility.evidenceRequired.2",
+    "service": "Attendance Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/attendance-allowance",
+    "claim": "Carer details if applicable",
+    "alreadySearched": [
+      "https://www.gov.uk/attendance-allowance",
+      "https://www.gov.uk/attendance-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: Carer details are not in the list of things you need to apply."
+  },
+  {
+    "key": "dwp-bereavement-support#eligibility.evidenceRequired.0",
+    "service": "Bereavement Support Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/bereavement-support-payment",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/bereavement-support-payment",
+      "https://www.gov.uk/bereavement-support-payment/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The list of what you need does not include a death certificate, only the date your partner died."
+  },
+  {
+    "key": "dwp-bereavement-support#eligibility.evidenceRequired.1",
+    "service": "Bereavement Support Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/bereavement-support-payment",
+    "claim": "Marriage or civil partnership certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/bereavement-support-payment",
+      "https://www.gov.uk/bereavement-support-payment/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not mention a marriage or civil partnership certificate."
+  },
+  {
+    "key": "dwp-carers-allowance#eligibility.evidenceRequired.0",
+    "service": "Carer's Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/carers-allowance",
+    "claim": "Evidence of caring role",
+    "alreadySearched": [
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/carers-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The list of what to have before you apply does not include evidence of the caring role."
+  },
+  {
+    "key": "dwp-carers-allowance#eligibility.evidenceRequired.1",
+    "service": "Carer's Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/carers-allowance",
+    "claim": "Benefit award letter for person cared for",
+    "alreadySearched": [
+      "https://www.gov.uk/carers-allowance",
+      "https://www.gov.uk/carers-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text asks only for the person's date of birth, address and National Insurance number or DLA reference, not an award letter."
+  },
+  {
+    "key": "dwp-child-maintenance#agentInteraction.methods",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not describe how to apply; it only mentions signing in to an existing account. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "dwp-child-maintenance#eligibility.evidenceRequired.0",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "Paying parent's income details (CMS contacts HMRC directly)",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not mention income details or HMRC."
+  },
+  {
+    "key": "dwp-child-maintenance#eligibility.evidenceRequired.1",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "Children's details",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not list any information needed to apply."
+  },
+  {
+    "key": "dwp-child-maintenance#eligibility.evidenceRequired.2",
+    "service": "Child Maintenance Service",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-maintenance",
+    "claim": "Your contact details",
+    "alreadySearched": [
+      "https://www.gov.uk/child-maintenance"
+    ],
+    "whyNotFound": "not stated: The text does not list any information needed to apply."
+  },
+  {
+    "key": "dwp-dla-child#eligibility.evidenceRequired.1",
+    "service": "Disability Living Allowance (Child)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.gov.uk/disability-living-allowance-children",
+    "claim": "Details of care needs and supervision required",
+    "alreadySearched": [
+      "https://www.gov.uk/disability-living-allowance-children",
+      "https://www.gov.uk/disability-living-allowance-children/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text describes the care levels behind each rate but never says you must provide these details as evidence."
+  },
+  {
+    "key": "dwp-dla-child#eligibility.evidenceRequired.2",
+    "service": "Disability Living Allowance (Child)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.gov.uk/disability-living-allowance-children",
+    "claim": "GP or consultant reports",
+    "alreadySearched": [
+      "https://www.gov.uk/disability-living-allowance-children",
+      "https://www.gov.uk/disability-living-allowance-children/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not mention GP or consultant reports."
+  },
+  {
+    "key": "dwp-funeral-payment#eligibility.evidenceRequired.0",
+    "service": "Funeral Expenses Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/funeral-payments",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/funeral-payments",
+      "https://www.gov.uk/funeral-payments/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not say what proof of benefit, if any, must be provided."
+  },
+  {
+    "key": "dwp-funeral-payment#eligibility.evidenceRequired.2",
+    "service": "Funeral Expenses Payment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/funeral-payments",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/funeral-payments",
+      "https://www.gov.uk/funeral-payments/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text mentions death certificates only as a cost the payment can help with, not as evidence you must provide."
+  },
+  {
+    "key": "dwp-housing-benefit#eligibility.evidenceRequired.2",
+    "service": "Housing Benefit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/housing-benefit",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/housing-benefit"
+    ],
+    "whyNotFound": "not stated: The text never mentions a National Insurance number."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.autoQualifiers.0",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "Widowed before reaching own State Pension age",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text does not make being widowed before your own State Pension age a condition. It only mentions remarrying before State Pension age."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.0",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text does not mention a death certificate."
+  },
+  {
+    "key": "dwp-inherited-state-pension#eligibility.evidenceRequired.2",
+    "service": "Inherited State Pension (Additional or extra)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner",
+    "claim": "NI numbers for both parties",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/inheriting-or-increasing-state-pension-from-a-spouse-or-civil-partner"
+    ],
+    "whyNotFound": "not stated: The text does not say NI numbers for both parties are needed."
+  },
+  {
+    "key": "dwp-ni-credits#agentInteraction.methods",
+    "service": "National Insurance credits",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/national-insurance-credits",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/national-insurance-credits"
+    ],
+    "whyNotFound": "not stated: The text only mentions going online to ask HMRC questions; it never says you can apply online, and the applications it does describe are made by writing to HMRC. not stated: The text only mentions a phone helpline for questions; it never says you can apply by phone."
+  },
+  {
+    "key": "dwp-ni-number#eligibility.evidenceRequired.1",
+    "service": "National Insurance number",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-national-insurance-number",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-national-insurance-number"
+    ],
+    "whyNotFound": "not stated: The text never mentions proof of address."
+  },
+  {
+    "key": "dwp-ni-number#eligibility.evidenceRequired.2",
+    "service": "National Insurance number",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-national-insurance-number",
+    "claim": "Right to work documents",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-national-insurance-number"
+    ],
+    "whyNotFound": "not stated: The text does not list right to work documents as something you need to apply."
+  },
+  {
+    "key": "dwp-pension-credit#eligibility.evidenceRequired.0",
+    "service": "Pension Credit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/pension-credit",
+    "claim": "Bank statements",
+    "alreadySearched": [
+      "https://www.gov.uk/pension-credit",
+      "https://www.gov.uk/pension-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The Pension Credit pages ask only for bank account details, not statements; the bank statements listed in the Housing Benefit page are for Housing Benefit, not this service."
+  },
+  {
+    "key": "dwp-smi#eligibility.evidenceRequired.0",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "Mortgage statement",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: The text says to find out how much is left to pay and how much interest you pay, and says the lender completes the form, but it never mentions a mortgage statement."
+  },
+  {
+    "key": "dwp-smi#eligibility.evidenceRequired.1",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: You must be getting a qualifying benefit, but the text never asks for proof of it."
+  },
+  {
+    "key": "dwp-smi#eligibility.evidenceRequired.2",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "Consent to charge on property",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: The text only says to fill in and sign a form and get your partner to sign it; it never mentions a charge on the property."
+  },
+  {
+    "key": "dwp-smi#eligibility.exclusions.1",
+    "service": "Support for Mortgage Interest",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/support-for-mortgage-interest",
+    "claim": "UC with earnings above threshold",
+    "alreadySearched": [
+      "https://www.gov.uk/support-for-mortgage-interest"
+    ],
+    "whyNotFound": "not stated: The text mentions no earnings threshold for Universal Credit claimants."
+  },
+  {
+    "key": "dwp-sr1-form#agentInteraction.methods",
+    "service": "SR1 form (Special Rules for terminal illness)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form",
+    "claim": "You can apply or do this by post. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/send-an-sr1-medical-evidence-form"
+    ],
+    "whyNotFound": "not stated: The text names online, email and post, and does not mention phone."
+  },
+  {
+    "key": "dwp-state-pension#eligibility.evidenceRequired.0",
+    "service": "State Pension claim",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/new-state-pension/eligibility",
+    "claim": "NI number",
+    "alreadySearched": [
+      "https://www.gov.uk/new-state-pension/eligibility",
+      "https://www.gov.uk/new-state-pension/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The NI number is not on the list of things you need to claim; the text mentions it only as what decides your payment day."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.0",
+    "service": "UC limited capability element",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+    "claim": "Fit note from GP (SC1 or equivalent)",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text mentions a fit note only for 16 or 17 year olds; it does not mention GPs or SC1, or say a fit note is needed for this element."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.1",
+    "service": "UC limited capability element",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+    "claim": "Medical evidence for WCA (UC50 questionnaire)",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text does not mention the UC50 questionnaire or medical evidence for a WCA."
+  },
+  {
+    "key": "dwp-uc-health#eligibility.evidenceRequired.2",
+    "service": "UC limited capability element",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
+    "claim": "Assessment appointment with health professional",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The only appointments the text mentions are with the Universal Credit team or a work coach, not with a health professional."
+  },
+  {
+    "key": "dwp-universal-credit#eligibility.evidenceRequired.2",
+    "service": "Universal Credit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit",
+    "claim": "Bank statements (last 3 months)",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit",
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text asks for bank account details, not bank statements, and names no 3-month period."
+  },
+  {
+    "key": "dwp-universal-credit#eligibility.evidenceRequired.3",
+    "service": "Universal Credit",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/universal-credit",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/universal-credit",
+      "https://www.gov.uk/universal-credit/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text never mentions proof of address."
+  },
+  {
+    "key": "fco-emergency-travel-doc#agentInteraction.methods",
+    "service": "Emergency travel document",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/emergency-travel-document",
+    "claim": "You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/emergency-travel-document"
+    ],
+    "whyNotFound": "not stated: The text does not include the How to apply content and names no way of applying."
+  },
+  {
+    "key": "gro-certificates#eligibility.summary",
+    "service": "Order a birth, death or marriage certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 each (sent 4 days after applying with a GRO index reference, or 15 working days without one, plus £3.50 per search). Priority service £38.50. Can also be ordered from the local register office.",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text never says who is allowed to order certificates."
+  },
+  {
+    "key": "gro-marriage-cert#desc",
+    "service": "Marriage / CP certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Gateway document for name changes, Marriage Allowance and benefit updates.",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text does not mention name changes; the only uses it names are family tree research and passport applications. not stated: The text does not mention Marriage Allowance. not stated: The text does not mention benefits."
+  },
+  {
+    "key": "gro-marriage-cert#eligibility.autoQualifiers.0",
+    "service": "Marriage / CP certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Marriage or civil partnership ceremony completed",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text sets no condition that a ceremony must have taken place."
+  },
+  {
+    "key": "gro-marriage-cert#eligibility.summary",
+    "service": "Marriage / CP certificate",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/order-copy-birth-death-marriage-certificate",
+    "claim": "Issued after a marriage or civil partnership ceremony. Acts as the gateway document for name changes, Marriage Allowance, and updating government records.",
+    "alreadySearched": [
+      "https://www.gov.uk/order-copy-birth-death-marriage-certificate"
+    ],
+    "whyNotFound": "not stated: The text covers ordering copies of certificates and does not say when a certificate is first issued. not stated: The text does not mention name changes. not stated: The text does not mention Marriage Allowance. not stated: The text does not mention updating government records; it only says a certificate can support a passport application."
+  },
+  {
+    "key": "gro-register-death#agentInteraction.methods",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text does not say how a death is registered, in person or any other way."
+  },
+  {
+    "key": "gro-register-death#desc",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Register at local register office. Required before probate, Tell Us Once and bereavement payments.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text only has a related link called 'Find a register office'. It never says a death is registered there. not stated: 'Applying for probate' appears only as a related link. No requirement or order of steps is stated. not stated: The text does not mention Tell Us Once. not stated: The text does not mention bereavement payments."
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.0",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Medical Certificate of Cause of Death (MCCD)",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text does not mention a Medical Certificate of Cause of Death or any other document."
+  },
+  {
+    "key": "gro-register-death#eligibility.evidenceRequired.1",
+    "service": "Register the death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-a-death",
+    "claim": "Deceased's NHS number and personal details if available",
+    "alreadySearched": [
+      "https://www.gov.uk/register-a-death",
+      "https://www.gov.uk/after-a-death/register-the-death"
+    ],
+    "whyNotFound": "not stated: The text does not mention an NHS number or any personal details needed."
+  },
+  {
+    "key": "hmcts-court-fee-remission#eligibility.evidenceRequired.0",
+    "service": "Court Fee Remission",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-help-with-court-fees",
+    "claim": "Benefit award letter",
+    "alreadySearched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "whyNotFound": "not stated: The text does not mention a benefit award letter or any documents you need to provide."
+  },
+  {
+    "key": "hmcts-court-fee-remission#eligibility.evidenceRequired.1",
+    "service": "Court Fee Remission",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-help-with-court-fees",
+    "claim": "Bank statements showing savings",
+    "alreadySearched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "whyNotFound": "not stated: The text says your savings must be under a limit, but it does not mention bank statements or evidence of savings."
+  },
+  {
+    "key": "hmcts-court-fee-remission#eligibility.evidenceRequired.2",
+    "service": "Court Fee Remission",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-help-with-court-fees",
+    "claim": "Proof of income if not on qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/get-help-with-court-fees"
+    ],
+    "whyNotFound": "not stated: The text says you must report your income, but it does not say you have to provide proof of it."
+  },
+  {
+    "key": "hmcts-probate#eligibility.exclusions.1",
+    "service": "Apply for probate",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/applying-for-probate",
+    "claim": "Some pension death benefits and life insurance written in trust pass outside probate.",
+    "alreadySearched": [
+      "https://www.gov.uk/applying-for-probate",
+      "https://www.gov.uk/applying-for-probate/apply-for-probate"
+    ],
+    "whyNotFound": "not stated: The text does not mention pensions or life insurance."
+  },
+  {
+    "key": "hmpo-passport#eligibility.evidenceRequired.0",
+    "service": "Apply for or renew a passport",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-renew-passport",
+    "claim": "Current or most recent passport",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "whyNotFound": "not stated: The text does not say you must provide your current or previous passport."
+  },
+  {
+    "key": "hmpo-passport#eligibility.evidenceRequired.2",
+    "service": "Apply for or renew a passport",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-renew-passport",
+    "claim": "Countersignatory details (first applications)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-renew-passport"
+    ],
+    "whyNotFound": "not stated: The text never mentions countersignatories."
+  },
+  {
+    "key": "hmpo-passport-urgent#eligibility.criteria.0",
+    "service": "Urgent passport application",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/get-a-passport-urgently",
+    "claim": "Must be a British national with imminent international travel.",
+    "alreadySearched": [
+      "https://www.gov.uk/get-a-passport-urgently"
+    ],
+    "whyNotFound": "not stated: The urgent passport page sets neither British nationality nor upcoming travel as a condition; the only related rules are that you must be in the UK and not applying for a first adult passport."
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.0",
+    "service": "Anti-money laundering registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+    "claim": "Business details and registered address",
+    "alreadySearched": [
+      "https://www.gov.uk/anti-money-laundering-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say what evidence or information is needed."
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.1",
+    "service": "Anti-money laundering registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+    "claim": "Identity of beneficial owners and directors",
+    "alreadySearched": [
+      "https://www.gov.uk/anti-money-laundering-registration"
+    ],
+    "whyNotFound": "not stated: The text does not mention beneficial owners, directors or identity evidence."
+  },
+  {
+    "key": "hmrc-aml-registration#eligibility.evidenceRequired.2",
+    "service": "Anti-money laundering registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/anti-money-laundering-registration",
+    "claim": "Evidence of business type and activities",
+    "alreadySearched": [
+      "https://www.gov.uk/anti-money-laundering-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say what evidence is required."
+  },
+  {
+    "key": "hmrc-child-benefit-transfer#eligibility.evidenceRequired.0",
+    "service": "Child Benefit transfer",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+    "claim": "Government Gateway account of new claimant",
+    "alreadySearched": [
+      "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
+    ],
+    "whyNotFound": "not stated: The text never mentions a Government Gateway account."
+  },
+  {
+    "key": "hmrc-child-benefit-transfer#eligibility.evidenceRequired.1",
+    "service": "Child Benefit transfer",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/child-benefit/make-a-change-to-your-claim",
+    "claim": "Child's details and date of change",
+    "alreadySearched": [
+      "https://www.gov.uk/child-benefit/make-a-change-to-your-claim"
+    ],
+    "whyNotFound": "not stated: The text never asks for the child's details or the date of the change when changing who gets Child Benefit."
+  },
+  {
+    "key": "hmrc-cis#agentInteraction.methods",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text only mentions signing in to CIS online to file returns or verify subcontractors once already registered, not registering online. not stated: The text does not mention phone."
+  },
+  {
+    "key": "hmrc-cis#eligibility.criteria.1",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text does not mention HMRC business registration, a UTR or Companies House registration as prerequisites."
+  },
+  {
+    "key": "hmrc-cis#eligibility.evidenceRequired.0",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Business UTR",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text does not mention a UTR or any evidence needed to register."
+  },
+  {
+    "key": "hmrc-cis#eligibility.evidenceRequired.1",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Companies House registration number (if limited company)",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text does not mention a Companies House number."
+  },
+  {
+    "key": "hmrc-cis#eligibility.evidenceRequired.2",
+    "service": "Construction Industry Scheme (CIS) registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/what-is-the-construction-industry-scheme",
+    "claim": "Nature of construction work",
+    "alreadySearched": [
+      "https://www.gov.uk/what-is-the-construction-industry-scheme"
+    ],
+    "whyNotFound": "not stated: The text describes what work is covered but does not say you must give the nature of your work when registering."
+  },
+  {
+    "key": "hmrc-free-childcare-15#agentInteraction.methods",
+    "service": "Free childcare — 15 hours (3 and 4-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+    "claim": "You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
+    ],
+    "whyNotFound": "not stated: The text gives no way of applying for the 15 hours, in person or otherwise."
+  },
+  {
+    "key": "hmrc-free-childcare-15#eligibility.evidenceRequired.0",
+    "service": "Free childcare — 15 hours (3 and 4-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
+    "claim": "Child's date of birth, given to the childcare provider",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence to give the provider."
+  },
+  {
+    "key": "hmrc-guardians-allowance#eligibility.evidenceRequired.1",
+    "service": "Guardian's Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guardians-allowance",
+    "claim": "Child Benefit claim reference",
+    "alreadySearched": [
+      "https://www.gov.uk/guardians-allowance",
+      "https://www.gov.uk/guardians-allowance/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text never mentions a Child Benefit claim reference as evidence."
+  },
+  {
+    "key": "hmrc-iht400#agentInteraction.methods",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "You can apply or do this online. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text does not describe any way of applying or sending a return. not stated: The text does not mention sending anything by post."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.criteria.1",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "Applies to the estate of a deceased person in England, Wales or Northern Ireland.",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text never limits the service to England, Wales or Northern Ireland; it only mentions the UK in general and people based abroad."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.evidenceRequired.0",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "IHT400 form and supplementary schedules",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text does not mention the IHT400 form or any schedules."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.evidenceRequired.1",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "Valuations of all assets",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text says the estate's value is used to work out the tax, but it does not list asset valuations as evidence for a return."
+  },
+  {
+    "key": "hmrc-iht400#eligibility.evidenceRequired.3",
+    "service": "Inheritance Tax return (IHT400)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/inheritance-tax",
+    "claim": "Copy of will",
+    "alreadySearched": [
+      "https://www.gov.uk/inheritance-tax",
+      "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value"
+    ],
+    "whyNotFound": "not stated: The text does not say a copy of the will must be provided."
+  },
+  {
+    "key": "hmrc-lisa#agentInteraction.methods",
+    "service": "Lifetime ISA withdrawal",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/lifetime-isa",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/lifetime-isa"
+    ],
+    "whyNotFound": "not stated: The text does not name any way of applying."
+  },
+  {
+    "key": "hmrc-lisa#eligibility.evidenceRequired.0",
+    "service": "Lifetime ISA withdrawal",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/lifetime-isa",
+    "claim": "LISA account details",
+    "alreadySearched": [
+      "https://www.gov.uk/lifetime-isa"
+    ],
+    "whyNotFound": "not stated: The text does not mention account details as evidence."
+  },
+  {
+    "key": "hmrc-marriage-allowance#eligibility.evidenceRequired.0",
+    "service": "Marriage Allowance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/marriage-allowance",
+    "claim": "Government Gateway account for the lower earner to apply",
+    "alreadySearched": [
+      "https://www.gov.uk/marriage-allowance"
+    ],
+    "whyNotFound": "not stated: The text does not mention Government Gateway or any account needed to apply."
+  },
+  {
+    "key": "hmrc-mtd#eligibility.criteria.1",
+    "service": "Making Tax Digital enrolment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "claim": "MTD for Income Tax applies from April 2026 to sole traders and landlords with income over £50,000.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+      "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
+    ],
+    "whyNotFound": "not stated: The source covers only MTD for VAT and does not mention MTD for Income Tax, sole traders, landlords, April 2026 or a £50,000 threshold."
+  },
+  {
+    "key": "hmrc-mtd#eligibility.evidenceRequired.1",
+    "service": "Making Tax Digital enrolment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "claim": "VAT registration number",
+    "alreadySearched": [
+      "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+      "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
+    ],
+    "whyNotFound": "not stated: The text does not mention a VAT registration number."
+  },
+  {
+    "key": "hmrc-ni-check#eligibility.criteria.0",
+    "service": "Check & top up NI record",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/check-national-insurance-record",
+    "claim": "Particularly important for people approaching State Pension age, or those who have had periods out of work, self-employment, or living abroad.",
+    "alreadySearched": [
+      "https://www.gov.uk/check-national-insurance-record"
+    ],
+    "whyNotFound": "not stated: The text never says the service matters more for any group: nobody approaching State Pension age, out of work, self-employed or living abroad. It mentions the State Pension and living abroad, but only when describing what the record shows and how to request a statement."
+  },
+  {
+    "key": "hmrc-p45#agentInteraction.methods",
+    "service": "Obtain P45 from employer",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/paye-forms-p45-p60-p11d/p45",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/paye-forms-p45-p60-p11d/p45"
+    ],
+    "whyNotFound": "not stated: The text never mentions phone as a way to get a P45."
+  },
+  {
+    "key": "hmrc-paye#eligibility.evidenceRequired.0",
+    "service": "Register as employer (PAYE)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-employer",
+    "claim": "Business name and address",
+    "alreadySearched": [
+      "https://www.gov.uk/register-employer",
+      "https://www.gov.uk/paye-for-employers"
+    ],
+    "whyNotFound": "not stated: The text does not list information needed to register."
+  },
+  {
+    "key": "hmrc-paye#eligibility.evidenceRequired.1",
+    "service": "Register as employer (PAYE)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-employer",
+    "claim": "Nature of business",
+    "alreadySearched": [
+      "https://www.gov.uk/register-employer",
+      "https://www.gov.uk/paye-for-employers"
+    ],
+    "whyNotFound": "not stated: The text does not list information needed to register."
+  },
+  {
+    "key": "hmrc-paye#eligibility.evidenceRequired.2",
+    "service": "Register as employer (PAYE)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-employer",
+    "claim": "Date of first payday",
+    "alreadySearched": [
+      "https://www.gov.uk/register-employer",
+      "https://www.gov.uk/paye-for-employers"
+    ],
+    "whyNotFound": "not stated: The text mentions the first payday but never says you must give its date when registering."
+  },
+  {
+    "key": "hmrc-register-sole-trader#agentInteraction.methods",
+    "service": "Register as sole trader",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/set-up-sole-trader",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "whyNotFound": "not stated: The text does not say how to register, whether online or any other way."
+  },
+  {
+    "key": "hmrc-register-sole-trader#eligibility.evidenceRequired.0",
+    "service": "Register as sole trader",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/set-up-sole-trader",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "whyNotFound": "not stated: The text mentions National Insurance contributions but never says a National Insurance number is needed."
+  },
+  {
+    "key": "hmrc-register-sole-trader#eligibility.evidenceRequired.1",
+    "service": "Register as sole trader",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/set-up-sole-trader",
+    "claim": "UTR issued after registration",
+    "alreadySearched": [
+      "https://www.gov.uk/set-up-sole-trader"
+    ],
+    "whyNotFound": "not stated: The text does not mention a UTR."
+  },
+  {
+    "key": "hmrc-sdlt#agentInteraction.methods",
+    "service": "Stamp Duty Land Tax return",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/stamp-duty-land-tax",
+    "claim": "You can apply or do this online. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/stamp-duty-land-tax",
+      "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates"
+    ],
+    "whyNotFound": "not stated: The text does not say how the return can be filed, and online filing is not mentioned. not stated: The text only mentions post as a way HMRC may contact you about refunds, not as a way to file the return."
+  },
+  {
+    "key": "hmrc-sdlt#eligibility.evidenceRequired.0",
+    "service": "Stamp Duty Land Tax return",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/stamp-duty-land-tax",
+    "claim": "Completion statement",
+    "alreadySearched": [
+      "https://www.gov.uk/stamp-duty-land-tax",
+      "https://www.gov.uk/stamp-duty-land-tax/residential-property-rates"
+    ],
+    "whyNotFound": "not stated: The text never mentions a completion statement."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.autoQualifiers.0",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "Started trading as a sole trader and earning more than £1,000",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text does not mention sole traders or a £1,000 threshold."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.criteria.0",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "Sole trader earning more than £1,000 before expenses, or a partner in a business partnership.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text never mentions sole traders, the £1,000 threshold or business partners. It only points readers elsewhere to check whether they need to send a return."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.criteria.1",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text never mentions Capital Gains Tax, the High Income Child Benefit Charge, untaxed income types or company directors."
+  },
+  {
+    "key": "hmrc-self-assessment#eligibility.evidenceRequired.0",
+    "service": "Register for Self Assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/register-for-self-assessment",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/register-for-self-assessment"
+    ],
+    "whyNotFound": "not stated: The text does not mention a National Insurance number."
+  },
+  {
+    "key": "hmrc-smp#agentInteraction.methods",
+    "service": "Statutory Maternity Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/maternity-pay-leave/pay"
+    ],
+    "whyNotFound": "not stated: The text says you claim by telling your employer. It does not mention a phone route. not stated: The text does not mention a postal route. You claim by giving notice to your employer."
+  },
+  {
+    "key": "hmrc-spl#agentInteraction.methods",
+    "service": "Shared Parental Leave & Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/shared-parental-leave-and-pay",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/shared-parental-leave-and-pay",
+      "https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text never mentions applying by phone; it only describes giving written notice to your employer. not stated: The text never mentions post; it only describes written notice to your employer, using Acas or employer forms."
+  },
+  {
+    "key": "hmrc-spl#eligibility.evidenceRequired.0",
+    "service": "Shared Parental Leave & Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/shared-parental-leave-and-pay",
+    "claim": "SPLIT forms",
+    "alreadySearched": [
+      "https://www.gov.uk/shared-parental-leave-and-pay",
+      "https://www.gov.uk/shared-parental-leave-and-pay/what-youll-get"
+    ],
+    "whyNotFound": "not stated: The text uses 'SPLIT' only for 'Shared Parental Leave in touch' days. The only forms it mentions are Acas Shared Parental Leave forms and templates, and none are called SPLIT forms."
+  },
+  {
+    "key": "hmrc-spp#agentInteraction.methods",
+    "service": "Statutory Paternity Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/paternity-pay-leave",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/paternity-pay-leave",
+      "https://www.gov.uk/paternity-pay-leave/pay"
+    ],
+    "whyNotFound": "not stated: The text never mentions phone. not stated: The text says to download or print the form and send or give it to your employer, but it never mentions post."
+  },
+  {
+    "key": "hmrc-ssp#eligibility.evidenceRequired.0",
+    "service": "Statutory Sick Pay (SSP)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/statutory-sick-pay",
+    "claim": "Self-certification for absences of 7 days or fewer",
+    "alreadySearched": [
+      "https://www.gov.uk/statutory-sick-pay"
+    ],
+    "whyNotFound": "not stated: The text does not mention self-certification; it only says a fit note is needed for absences of more than 7 days."
+  },
+  {
+    "key": "hmrc-starter-checklist#eligibility.exclusions.1",
+    "service": "PAYE Starter Checklist",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/starter-checklist-for-paye",
+    "claim": "Self-employed (not subject to PAYE)",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/starter-checklist-for-paye"
+    ],
+    "whyNotFound": "not stated: The text does not exclude self-employed people or say they are not subject to PAYE. It lists starting a job after being self-employed as a reason to fill in the checklist."
+  },
+  {
+    "key": "hmrc-tax-credits#agentInteraction.methods",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The text says to contact HMRC but gives no online route. not stated: The text says to contact HMRC but does not mention phone."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.autoQualifiers.0",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Already receiving Tax Credits and not yet migrated to UC",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The text does not describe anyone as currently receiving tax credits, and it says nothing about moving to Universal Credit."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.0",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Income must be below the relevant threshold (varies by household type and hours worked).",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The source says nothing about income thresholds; it covers only the end of tax credits and finalising awards."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.1",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Working Tax Credit requires working a minimum number of hours per week (16–30 hrs depending on age and circumstances).",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The source says nothing about minimum working hours for Working Tax Credit."
+  },
+  {
+    "key": "hmrc-tax-credits#eligibility.criteria.2",
+    "service": "Tax credits (ended April 2025)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-credits-have-ended",
+    "claim": "Child Tax Credit requires being responsible for at least one child under 16 (or under 20 in approved education).",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-credits-have-ended"
+    ],
+    "whyNotFound": "not stated: The source says nothing about child age or responsibility requirements for Child Tax Credit."
+  },
+  {
+    "key": "hmrc-tax-free-childcare#eligibility.evidenceRequired.0",
+    "service": "Tax-Free Childcare account",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-free-childcare",
+    "claim": "Government Gateway account",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-free-childcare"
+    ],
+    "whyNotFound": "not stated: The text never mentions Government Gateway. It only refers to a user ID and password for the childcare account."
+  },
+  {
+    "key": "hmrc-tax-free-childcare#eligibility.evidenceRequired.1",
+    "service": "Tax-Free Childcare account",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-free-childcare",
+    "claim": "Childcare provider details",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-free-childcare"
+    ],
+    "whyNotFound": "not stated: Provider details are not on the list of what you need to apply. The text only says to check that the provider is signed up."
+  },
+  {
+    "key": "hmrc-tax-on-pension#eligibility.evidenceRequired.1",
+    "service": "Income tax on pension",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tax-on-pension",
+    "claim": "State Pension confirmation letter",
+    "alreadySearched": [
+      "https://www.gov.uk/tax-on-pension"
+    ],
+    "whyNotFound": "not stated: The text never mentions a State Pension confirmation letter."
+  },
+  {
+    "key": "hmrc-update-records#eligibility.evidenceRequired.0",
+    "service": "Update HMRC records",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
+    "claim": "Marriage certificate or deed poll if name change",
+    "alreadySearched": [
+      "https://www.gov.uk/tell-hmrc-change-of-details"
+    ],
+    "whyNotFound": "not stated: The only document the text names is a Gender Recognition Certificate. It does not mention a marriage certificate or deed poll."
+  },
+  {
+    "key": "hmrc-update-records#eligibility.evidenceRequired.1",
+    "service": "Update HMRC records",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/tell-hmrc-change-of-details",
+    "claim": "Government Gateway account or Personal Tax Account",
+    "alreadySearched": [
+      "https://www.gov.uk/tell-hmrc-change-of-details"
+    ],
+    "whyNotFound": "not stated: The page only says you'll need to sign in. It does not name Government Gateway or a Personal Tax Account."
+  },
+  {
+    "key": "hmrc-vat#eligibility.evidenceRequired.0",
+    "service": "VAT registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/vat-registration",
+    "claim": "Business details",
+    "alreadySearched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "whyNotFound": "not stated: The text does not list any documents or details needed to apply."
+  },
+  {
+    "key": "hmrc-vat#eligibility.evidenceRequired.1",
+    "service": "VAT registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/vat-registration",
+    "claim": "Turnover evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "whyNotFound": "not stated: The text explains how to work out turnover but does not ask for turnover evidence when applying."
+  },
+  {
+    "key": "hmrc-vat#eligibility.evidenceRequired.2",
+    "service": "VAT registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/vat-registration",
+    "claim": "Bank account for repayments",
+    "alreadySearched": [
+      "https://www.gov.uk/vat-registration"
+    ],
+    "whyNotFound": "not stated: The text does not mention a bank account."
+  },
+  {
+    "key": "ho-citizenship#eligibility.evidenceRequired.0",
+    "service": "British citizenship (naturalisation)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "claim": "ILR/settled status document or eVisa evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text refers to the guidance for the documents needed and does not list this document or eVisas."
+  },
+  {
+    "key": "ho-citizenship#eligibility.evidenceRequired.1",
+    "service": "British citizenship (naturalisation)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "claim": "Passport(s) covering the qualifying period",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text does not list passports as required evidence."
+  },
+  {
+    "key": "ho-citizenship#eligibility.evidenceRequired.4",
+    "service": "British citizenship (naturalisation)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain",
+    "claim": "Form AN",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text never names Form AN."
+  },
+  {
+    "key": "ho-citizenship-ceremony#eligibility.evidenceRequired.1",
+    "service": "Citizenship ceremony",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/citizenship-ceremonies",
+    "claim": "Photographic identification",
+    "alreadySearched": [
+      "https://www.gov.uk/citizenship-ceremonies",
+      "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+    ],
+    "whyNotFound": "not stated: The text doesn't say photo ID is needed for the ceremony."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.0",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Passport(s)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text refers to separate guidance for the documents needed and does not list passports."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.1",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Proof of spouse's British citizenship",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text does not list this document."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.2",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "ILR/settled status document or eVisa evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text requires ILR or settled status but does not list a document or eVisa as evidence."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.3",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Marriage or civil partnership certificate",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text does not list this document."
+  },
+  {
+    "key": "ho-citizenship-spouse#eligibility.evidenceRequired.6",
+    "service": "British citizenship (spouse / civil partner)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-citizenship-spouse",
+    "claim": "Form AN",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-citizenship-spouse"
+    ],
+    "whyNotFound": "not stated: The text never names Form AN."
+  },
+  {
+    "key": "ho-drug-precursor-licence#eligibility.evidenceRequired.0",
+    "service": "Licence to possess or sell drug precursor chemicals",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors",
+    "claim": "Details of chemicals and their intended use",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors"
+    ],
+    "whyNotFound": "not stated: The text does not mention giving details of the chemicals or what they will be used for."
+  },
+  {
+    "key": "ho-drug-precursor-licence#eligibility.evidenceRequired.1",
+    "service": "Licence to possess or sell drug precursor chemicals",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors",
+    "claim": "Identity and competence credentials of the responsible officer",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/licence-to-possess-or-sell-drug-precursors"
+    ],
+    "whyNotFound": "not stated: The text says a responsible officer must be appointed but does not ask for their identity or competence credentials."
+  },
+  {
+    "key": "ho-euss-enquiry#eligibility.criteria.0",
+    "service": "EUSS status enquiry",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+    "claim": "Must have applied to or been granted status under the EU Settlement Scheme.",
+    "alreadySearched": [
+      "https://www.gov.uk/contact-ukvi-inside-outside-uk"
+    ],
+    "whyNotFound": "not stated: The source only covers contacting UKVI in general and never mentions the EU Settlement Scheme or applying for status under it."
+  },
+  {
+    "key": "ho-euss-enquiry#eligibility.summary",
+    "service": "EUSS status enquiry",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/contact-ukvi-inside-outside-uk",
+    "claim": "Available to EU, EEA and Swiss nationals (and their family members) who have issues with their EUSS application or settled/pre-settled status, such as a certificate of application not arriving, needing to update personal details, or status not showing correctly.",
+    "alreadySearched": [
+      "https://www.gov.uk/contact-ukvi-inside-outside-uk"
+    ],
+    "whyNotFound": "not stated: The text does not say who can use the service or mention any nationalities. not stated: The text does not mention EUSS, settled status or pre-settled status. not stated: The text does not mention certificates of application. not stated: The text does not mention updating personal details. not stated: The text does not mention status not showing correctly."
+  },
+  {
+    "key": "ho-evisa-error#desc",
+    "service": "Report an error with your eVisa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/report-error-evisa",
+    "claim": "Report incorrect information on your eVisa — such as a wrong name, conditions of stay or expiry date — to UKVI for correction.",
+    "alreadySearched": [
+      "https://www.gov.uk/report-error-evisa"
+    ],
+    "whyNotFound": "not stated: The text's examples are date of birth, immigration status, name and nationality. It does not mention conditions of stay or expiry dates."
+  },
+  {
+    "key": "ho-ilr#eligibility.evidenceRequired.0",
+    "service": "Indefinite Leave to Remain",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+    "claim": "Passport(s) covering entire qualifying period",
+    "alreadySearched": [
+      "https://www.gov.uk/indefinite-leave-to-remain",
+      "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa"
+    ],
+    "whyNotFound": "not stated: The text never mentions passports as evidence."
+  },
+  {
+    "key": "ho-ilr#eligibility.evidenceRequired.1",
+    "service": "Indefinite Leave to Remain",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+    "claim": "Proof of continuous residence (payslips, bank statements, tenancy agreements)",
+    "alreadySearched": [
+      "https://www.gov.uk/indefinite-leave-to-remain",
+      "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa"
+    ],
+    "whyNotFound": "not stated: The text does not list documents that prove continuous residence; bank statements are mentioned only for showing where children over 16 live and that they are supported."
+  },
+  {
+    "key": "ho-ilr#eligibility.evidenceRequired.4",
+    "service": "Indefinite Leave to Remain",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/indefinite-leave-to-remain",
+    "claim": "SET(O) or relevant form",
+    "alreadySearched": [
+      "https://www.gov.uk/indefinite-leave-to-remain",
+      "https://www.gov.uk/indefinite-leave-to-remain-tier-2-t2-skilled-worker-visa"
+    ],
+    "whyNotFound": "not stated: The text does not name the SET(O) form; it only refers to an online application form."
+  },
+  {
+    "key": "ho-skilled-worker-dependent-visa#eligibility.evidenceRequired.0",
+    "service": "Skilled Worker dependant visa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/skilled-worker-visa/your-partner-and-children",
+    "claim": "Main applicant's visa or BRP",
+    "alreadySearched": [
+      "https://www.gov.uk/skilled-worker-visa/your-partner-and-children"
+    ],
+    "whyNotFound": "not stated: The text does not name the main applicant's visa or a BRP as dependant evidence."
+  },
+  {
+    "key": "ho-skilled-worker-visa#eligibility.criteria.1",
+    "service": "Skilled Worker visa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/skilled-worker-visa",
+    "claim": "Must not have conditions that prevent applying for this visa.",
+    "alreadySearched": [
+      "https://www.gov.uk/skilled-worker-visa",
+      "https://www.gov.uk/skilled-worker-visa/your-job"
+    ],
+    "whyNotFound": "not stated: The text never says that an applicant's existing visa or conditions could stop them applying for this visa."
+  },
+  {
+    "key": "ho-student-visa#eligibility.criteria.0",
+    "service": "Student visa",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-visa",
+    "claim": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
+    "alreadySearched": [
+      "https://www.gov.uk/student-visa"
+    ],
+    "whyNotFound": "not stated: The text never says applicants must not be British or Irish, or must not already have leave covering the course; it only says people with EU Settlement Scheme status do not need a visa, which is a different point."
+  },
+  {
+    "key": "ho-view-immigration-status#eligibility.summary",
+    "service": "View or prove your immigration status",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/view-prove-immigration-status",
+    "claim": "Available to non-British, non-Irish nationals with a UKVI account and eVisa. A share code is valid for 90 days and lets employers and landlords check your status; they will see some of your personal details.",
+    "alreadySearched": [
+      "https://www.gov.uk/view-prove-immigration-status"
+    ],
+    "whyNotFound": "not stated: The text does not say anything about which nationalities are eligible."
+  },
+  {
+    "key": "ho-visa#agentInteraction.methods",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page mentions an 'online immigration status' for eVisas but does not say how to apply for a visa."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.0",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Valid passport",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page does not mention passports."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.1",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Financial evidence (sufficient funds)",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page does not mention financial evidence."
+  },
+  {
+    "key": "ho-visa#eligibility.evidenceRequired.2",
+    "service": "Visa / leave to enter",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/browse/visas-immigration",
+    "claim": "Purpose-specific documents: job offer/CoS, university CAS, relationship evidence, etc.",
+    "alreadySearched": [
+      "https://www.gov.uk/browse/visas-immigration"
+    ],
+    "whyNotFound": "not stated: The page lists no required documents."
+  },
+  {
+    "key": "insolvency-bankruptcy#eligibility.criteria.0",
+    "service": "Apply for bankruptcy",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-bankruptcy",
+    "claim": "Debts must exceed assets and the person must be unable to pay debts as they fall due.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-bankruptcy"
+    ],
+    "whyNotFound": "not stated: The text never says that debts must exceed assets or that the applicant must be unable to pay debts as they fall due."
+  },
+  {
+    "key": "insolvency-bankruptcy#eligibility.exclusions.1",
+    "service": "Apply for bankruptcy",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-bankruptcy",
+    "claim": "Significant property ownership — bankruptcy trustee may sell assets",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-bankruptcy"
+    ],
+    "whyNotFound": "not stated: The text does not mention property, trustees or selling assets."
+  },
+  {
+    "key": "insolvency-dro#agentInteraction.methods",
+    "service": "Debt Relief Order (DRO)",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/options-for-dealing-with-your-debts/debt-relief-orders"
+    ],
+    "whyNotFound": "not stated: The text only says to contact an approved debt adviser and that you cannot apply on your own. It names no online route for a DRO; the online advice it mentions is for Breathing Space."
+  },
+  {
+    "key": "jaqu-clean-air-zone#eligibility.summary",
+    "service": "Check and pay Clean Air Zone charges",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/clean-air-zones",
+    "claim": "Applies to drivers of non-compliant vehicles (typically pre-Euro 6 diesel or pre-Euro 4 petrol) entering Clean Air Zones in cities such as Bath, Birmingham, Bradford and Portsmouth. Charges vary by zone and vehicle type.",
+    "alreadySearched": [
+      "https://www.gov.uk/clean-air-zones"
+    ],
+    "whyNotFound": "not stated: The text does not mention Euro standards or fuel types. not stated: The text gives no charge amounts and does not say how charges vary."
+  },
+  {
+    "key": "la-blue-badge#eligibility.criteria.1",
+    "service": "Blue Badge",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-blue-badge",
+    "claim": "Auto-qualify with Enhanced Rate PIP mobility component, DLA (highest mobility rate), or certain armed forces compensation.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "whyNotFound": "not stated: The page asks for 'proof of benefits (if you get any)' but does not name PIP, DLA or armed forces compensation, and says nothing about qualifying automatically."
+  },
+  {
+    "key": "la-blue-badge#eligibility.evidenceRequired.1",
+    "service": "Blue Badge",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-blue-badge",
+    "claim": "Evidence of difficulty walking if applying on non-automatic criteria",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-blue-badge"
+    ],
+    "whyNotFound": "not stated: The text does not mention evidence of walking difficulty or non-automatic criteria."
+  },
+  {
+    "key": "la-bus-pass#agentInteraction.methods",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "You can apply or do this online. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text only gives a postcode lookup that sends you to your local council; it does not say how the council takes applications. not stated: The text does not mention applying in person."
+  },
+  {
+    "key": "la-bus-pass#eligibility.evidenceRequired.0",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "Proof of age (passport or birth certificate)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "la-bus-pass#eligibility.evidenceRequired.1",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "la-bus-pass#eligibility.evidenceRequired.2",
+    "service": "Free bus pass",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "claim": "Passport photo",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    ],
+    "whyNotFound": "not stated: The text does not mention a photo."
+  },
+  {
+    "key": "la-business-rates#agentInteraction.methods",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text says you apply by filling in a form but does not say you can apply online; the online valuation account is for reporting changes and challenging values. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.0",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "Business address",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text does not list business address as information or evidence needed."
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.1",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "Date of occupation",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text does not list date of occupation as information or evidence needed."
+  },
+  {
+    "key": "la-business-rates#eligibility.evidenceRequired.2",
+    "service": "Business rates registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/introduction-to-business-rates",
+    "claim": "Nature of business",
+    "alreadySearched": [
+      "https://www.gov.uk/introduction-to-business-rates"
+    ],
+    "whyNotFound": "not stated: The text mentions the nature of the business only as a change that could affect rates, not as evidence needed to register."
+  },
+  {
+    "key": "la-child-performance-licence#eligibility.evidenceRequired.0",
+    "service": "Child performance licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-for-child-performance-licence",
+    "claim": "Event details and type",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-child-performance-licence"
+    ],
+    "whyNotFound": "not stated: The text does not say what information or evidence the application needs."
+  },
+  {
+    "key": "la-council-tax#agentInteraction.methods",
+    "service": "Council Tax registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "whyNotFound": "not stated: The text only says you can usually pay Council Tax online, not that you can register or apply online. not stated: The text does not mention phone."
+  },
+  {
+    "key": "la-council-tax#eligibility.evidenceRequired.0",
+    "service": "Council Tax registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax",
+    "claim": "Tenancy agreement or proof of ownership",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "whyNotFound": "not stated: The text does not mention a tenancy agreement or proof of ownership as evidence."
+  },
+  {
+    "key": "la-council-tax#eligibility.evidenceRequired.1",
+    "service": "Council Tax registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax",
+    "claim": "Move-in date",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax"
+    ],
+    "whyNotFound": "not stated: The text does not mention a move-in date."
+  },
+  {
+    "key": "la-council-tax-disability-reduction#agentInteraction.methods",
+    "service": "Council Tax Disability Reduction",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people"
+    ],
+    "whyNotFound": "not stated: The text only says to check if you qualify and does not say you can apply online. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "la-council-tax-disability-reduction#eligibility.evidenceRequired.1",
+    "service": "Council Tax Disability Reduction",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax/discounts-for-disabled-people",
+    "claim": "Proof the disabled person lives at the property",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax/discounts-for-disabled-people"
+    ],
+    "whyNotFound": "not stated: The text requires the property to be the disabled person's main home, but it names no proof of this; the only thing it asks you to show is the property's features."
+  },
+  {
+    "key": "la-council-tax-reduction#agentInteraction.methods",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The page only has a postcode tool for finding your council; it does not say you can apply online. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.criteria.1",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "Must be liable for Council Tax at that address.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The text never says you have to be liable for Council Tax at the address to qualify."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.evidenceRequired.0",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "Proof of income and savings",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The text says income and savings affect what you get, but it never says you must provide proof of them."
+  },
+  {
+    "key": "la-council-tax-reduction#eligibility.evidenceRequired.1",
+    "service": "Council Tax Reduction",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-council-tax-reduction",
+    "claim": "Council Tax bill",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-council-tax-reduction"
+    ],
+    "whyNotFound": "not stated: The text does not say you need to provide your Council Tax bill."
+  },
+  {
+    "key": "la-council-tax-single-discount#agentInteraction.methods",
+    "service": "Council Tax single person discount",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/council-tax/who-has-to-pay",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/council-tax/who-has-to-pay"
+    ],
+    "whyNotFound": "not stated: The text mentions paying Council Tax online, but it says nothing about applying for the discount online. not stated: The text never mentions phone."
+  },
+  {
+    "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.1",
+    "service": "Disabled Facilities Grant",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/disabled-facilities-grants",
+    "claim": "Quotes for proposed works",
+    "alreadySearched": [
+      "https://www.gov.uk/disabled-facilities-grants"
+    ],
+    "whyNotFound": "not stated: The text does not mention quotes for the works."
+  },
+  {
+    "key": "la-disabled-facilities-grant#eligibility.evidenceRequired.3",
+    "service": "Disabled Facilities Grant",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/disabled-facilities-grants",
+    "claim": "Proof of disability",
+    "alreadySearched": [
+      "https://www.gov.uk/disabled-facilities-grants"
+    ],
+    "whyNotFound": "not stated: The text says someone in the home must be disabled but never mentions proving it."
+  },
+  {
+    "key": "la-food-hygiene#agentInteraction.methods",
+    "service": "Food hygiene registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/food-business-registration",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "whyNotFound": "not stated: The source says 'Register with your local authority' but does not say how to apply; where it says 'online', it means businesses that sell food online, not applying online."
+  },
+  {
+    "key": "la-food-hygiene#eligibility.evidenceRequired.0",
+    "service": "Food hygiene registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/food-business-registration",
+    "claim": "Business address and contact details",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say what information the registration asks for."
+  },
+  {
+    "key": "la-food-hygiene#eligibility.evidenceRequired.1",
+    "service": "Food hygiene registration",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/guidance/food-business-registration",
+    "claim": "Nature of food business",
+    "alreadySearched": [
+      "https://www.gov.uk/guidance/food-business-registration"
+    ],
+    "whyNotFound": "not stated: The text does not say that you must describe the nature of the business when registering."
+  },
+  {
+    "key": "la-food-premises-approval#eligibility.evidenceRequired.1",
+    "service": "Food establishment approval (animal products)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/food-premises-approval",
+    "claim": "Existing food business registration",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/food-premises-approval"
+    ],
+    "whyNotFound": "not stated: The text never says an existing food business registration is needed as evidence."
+  },
+  {
+    "key": "la-free-childcare-2yr#agentInteraction.methods",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "You can apply or do this in person. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text says to contact the council but does not say how, so it never mentions applying in person. not stated: The text says to contact the council but does not say how, so it never mentions applying by phone."
+  },
+  {
+    "key": "la-free-childcare-2yr#eligibility.evidenceRequired.0",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence you need to apply."
+  },
+  {
+    "key": "la-free-childcare-2yr#eligibility.evidenceRequired.1",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "Child's date of birth",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text uses the date of the 2nd birthday for timing but does not say you have to give it as evidence."
+  },
+  {
+    "key": "la-free-childcare-2yr#eligibility.evidenceRequired.2",
+    "service": "Free Childcare (disadvantaged 2-year-olds)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support"
+    ],
+    "whyNotFound": "not stated: The text does not say you need a National Insurance number to apply for this scheme."
+  },
+  {
+    "key": "la-free-school-meals#eligibility.evidenceRequired.0",
+    "service": "Free School Meals",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-free-school-meals",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-free-school-meals"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or proof needed to apply."
+  },
+  {
+    "key": "la-house-to-house-collection-licence#eligibility.evidenceRequired.1",
+    "service": "House-to-house collection licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/house-to-house-collection-licence",
+    "claim": "Details of the charitable purpose",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/house-to-house-collection-licence"
+    ],
+    "whyNotFound": "not stated: The text never says you must give details of the charitable purpose."
+  },
+  {
+    "key": "la-school-place#eligibility.criteria.0",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Child reaching compulsory school age: Reception at 4-5, Secondary at 11.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The source says nothing about compulsory school age, Reception at 4-5 or secondary transfer at 11."
+  },
+  {
+    "key": "la-school-place#eligibility.evidenceRequired.1",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Proof of address",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The text lists no documents; the postcode is only used to find your council."
+  },
+  {
+    "key": "la-school-place#eligibility.evidenceRequired.2",
+    "service": "School place application",
+    "nations": [
+      "england",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/apply-for-primary-school-place",
+    "claim": "Baptism certificate (for faith schools)",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-for-primary-school-place"
+    ],
+    "whyNotFound": "not stated: The text does not mention faith schools or baptism certificates."
+  },
+  {
+    "key": "la-send-ehc#agentInteraction.methods",
+    "service": "SEND EHC plan assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
+    "claim": "You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help"
+    ],
+    "whyNotFound": "not stated: The only phone numbers are for advice helplines; the text does not say a request can be made by phone. not stated: The text does not mention applying by post."
+  },
+  {
+    "key": "la-send-ehc#eligibility.evidenceRequired.3",
+    "service": "SEND EHC plan assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
+    "claim": "Child's views if appropriate",
+    "alreadySearched": [
+      "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help"
+    ],
+    "whyNotFound": "not stated: The text does not list the child's views as evidence for the assessment."
+  },
+  {
+    "key": "la-short-term-let#agentInteraction.methods",
+    "service": "Short-term let licence (Scotland)",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/short-term-let-licences",
+    "claim": "You can apply or do this online. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.mygov.scot/short-term-let-licences"
+    ],
+    "whyNotFound": "not stated: The text has a 'How to apply' heading but gives no application method. not stated: The text gives no in-person application method."
+  },
+  {
+    "key": "la-skip-permit#eligibility.evidenceRequired.1",
+    "service": "Skip permit (public road)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/apply-skip-permit",
+    "claim": "Skip hire company details and contact information",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/apply-skip-permit"
+    ],
+    "whyNotFound": "not stated: The company's name and phone number are mentioned only as something that may need to be shown on the skip, not as something to provide when applying."
+  },
+  {
+    "key": "la-street-collection-licence#eligibility.evidenceRequired.0",
+    "service": "Street collection licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
+    "claim": "Charity details and purpose of collection",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/street-collection-licence"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence or information needed to apply."
+  },
+  {
+    "key": "la-street-collection-licence#eligibility.evidenceRequired.1",
+    "service": "Street collection licence",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
+    "claim": "Location and timing of collection",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/street-collection-licence"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence or information needed to apply."
+  },
+  {
+    "key": "la-temporary-events-notice#eligibility.evidenceRequired.2",
+    "service": "Temporary Events Notice (TEN)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/find-licences/temporary-events-notice",
+    "claim": "Event details: dates, times, activities, number of attendees",
+    "alreadySearched": [
+      "https://www.gov.uk/find-licences/temporary-events-notice"
+    ],
+    "whyNotFound": "not stated: The text does not say which event details the notice must include."
+  },
+  {
+    "key": "lr-registration#agentInteraction.methods",
+    "service": "Land Registry registration (AP1)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/registering-land-or-property-with-land-registry",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/registering-land-or-property-with-land-registry"
+    ],
+    "whyNotFound": "not stated: The text tells you to send forms to a PO Box and does not offer online registration; the only electronic route it mentions is for exempt document applications, and only businesses can use it."
+  },
+  {
+    "key": "lr-sign-mortgage-deed#desc",
+    "service": "Sign your mortgage deed",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
+    "claim": "Sign your mortgage deed electronically via HM Land Registry's digital mortgage service, replacing the need for a wet signature on a paper deed.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
+    ],
+    "whyNotFound": "not stated: The text never mentions wet signatures or paper deeds."
+  },
+  {
+    "key": "lr-sign-mortgage-deed#eligibility.summary",
+    "service": "Sign your mortgage deed",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed",
+    "claim": "Available to borrowers remortgaging or purchasing a property where the lender uses the Land Registry digital mortgage service. Requires a GOV.UK One Login account to verify identity before signing.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
+    ],
+    "whyNotFound": "not stated: The text only mentions homeowners who are remortgaging and says nothing about purchases. not stated: The text names no account, sign-in or identity check."
+  },
+  {
+    "key": "nhs-111-online#agentInteraction.methods",
+    "service": "NHS 111 online",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://111.nhs.uk",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://111.nhs.uk"
+    ],
+    "whyNotFound": "not stated: The text refers to 'other ways to contact 111' without naming phone."
+  },
+  {
+    "key": "nhs-111-online#desc",
+    "service": "NHS 111 online",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://111.nhs.uk",
+    "claim": "Get urgent medical advice online or by phone when you need help fast but it is not a 999 emergency. 111 assesses your symptoms and directs you to the right service.",
+    "alreadySearched": [
+      "https://111.nhs.uk"
+    ],
+    "whyNotFound": "not stated: The text mentions 'other ways to contact 111' but never names phone. not stated: The text does not mention 999 or emergencies."
+  },
+  {
+    "key": "nhs-care-assessment#eligibility.criteria.0",
+    "service": "Care needs assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
+    "claim": "Any adult who appears to need care and support due to a physical or mental condition, disability, or frailty due to age.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-needs-assessment-social-services"
+    ],
+    "whyNotFound": "not stated: The source gives no eligibility criteria and does not limit the service to adults; its listed services include day care for your child and help with parenting."
+  },
+  {
+    "key": "nhs-care-assessment#eligibility.summary",
+    "service": "Care needs assessment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/apply-needs-assessment-social-services",
+    "claim": "Any adult can request a care needs assessment from their local authority. Free and means-independent — the assessment itself is free, though resulting care may be means-tested. Can lead to a care plan and funded support.",
+    "alreadySearched": [
+      "https://www.gov.uk/apply-needs-assessment-social-services"
+    ],
+    "whyNotFound": "not stated: The text says nothing about who is eligible. It only says the service is available in England and Wales. not stated: The text does not mention cost. not stated: The text does not mention means testing for the assessment. not stated: The text does not mention means testing for care. not stated: The text never mentions a care plan. not stated: The text does not mention funding."
+  },
+  {
+    "key": "nhs-continuing-healthcare#agentInteraction.methods",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "You can apply or do this by phone. You can apply or do this in person.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not describe any way to apply, including by phone. not stated: The text does not describe any way to apply, including in person."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.autoQualifiers.1",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Complex nursing needs",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not mention complex nursing needs as a qualifier."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.criteria.1",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Requires a care needs assessment (fast-track available for terminal illness).",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text mentions processes for deciding eligibility but does not say a care needs assessment is required, and it does not mention a fast-track for terminal illness."
+  },
+  {
+    "key": "nhs-continuing-healthcare#eligibility.evidenceRequired.0",
+    "service": "NHS Continuing Healthcare (CHC)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care",
+    "claim": "Completed CHC checklist or fast-track tool from clinician",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/national-framework-for-nhs-continuing-healthcare-and-nhs-funded-nursing-care"
+    ],
+    "whyNotFound": "not stated: The text does not mention a checklist, a fast-track tool or any other evidence."
+  },
+  {
+    "key": "nhs-free-dental#eligibility.evidenceRequired.2",
+    "service": "Free NHS Dental Treatment",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
+    "claim": "Benefit award letter",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/"
+    ],
+    "whyNotFound": "not stated: A benefit award letter is not among the examples of proof the text lists."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.autoQualifiers.0",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "PIP award confirmed",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text does not mention PIP."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.autoQualifiers.1",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Qualifying medical condition (apply for Medical Exemption Certificate via GP)",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: Medical Exemption Certificates and applying through a GP are not mentioned."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.criteria.0",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text only says the checker will ask about 'any health conditions you have'. It never mentions PIP, DLA, qualifying medical conditions or medical exemption certificates as eligibility routes."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.criteria.1",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Receiving UC with a health element, or HC2 certificate for low income.",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text does not mention Universal Credit, a health element, HC2 certificates or low income as a qualifying route."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.criteria.2",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Under 16, aged 16–18 in full-time education, or 60 and over.",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text only says the checker will ask about your age. It gives no qualifying ages: nothing on under 16, 16–18 in full-time education, or 60 and over."
+  },
+  {
+    "key": "nhs-free-prescriptions#eligibility.evidenceRequired.0",
+    "service": "Free prescriptions (disability)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+    "claim": "Benefit award letter or FP92A medical exemption form signed by GP",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/prescriptions-and-pharmacies/who-can-get-free-prescriptions/",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text mentions no evidence documents."
+  },
+  {
+    "key": "nhs-free-sight-tests#eligibility.evidenceRequired.0",
+    "service": "Free NHS Sight Tests",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+    "claim": "HC2 certificate (if applicable)",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "whyNotFound": "not stated: HC2 appears as an eligibility route, but the text never says you must show it as evidence."
+  },
+  {
+    "key": "nhs-free-sight-tests#eligibility.evidenceRequired.1",
+    "service": "Free NHS Sight Tests",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+    "claim": "Benefit award letter",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "whyNotFound": "not stated: The text never mentions a benefit award letter or any proof of benefits."
+  },
+  {
+    "key": "nhs-free-sight-tests#eligibility.evidenceRequired.2",
+    "service": "Free NHS Sight Tests",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
+    "claim": "Medical evidence if claiming on health grounds",
+    "alreadySearched": [
+      "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/"
+    ],
+    "whyNotFound": "not stated: The text never mentions medical evidence being needed."
+  },
+  {
+    "key": "nhs-healthy-start#agentInteraction.methods",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text does not describe any way to apply. not stated: The text does not describe any way to apply."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.criteria.1",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "Receiving Universal Credit with family take-home pay from employment of £408 a month or less; or Pension Credit including the child addition; or under 18 and pregnant (no benefit needed until the birth). Some families with no recourse to public funds and a British child under 4 can also qualify.",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text only mentions 'benefits that make you eligible'. It does not name Universal Credit, the £408 earnings threshold, Pension Credit, the under-18 pregnancy route or the no-recourse-to-public-funds route."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.evidenceRequired.0",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text never mentions a National Insurance number."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.evidenceRequired.1",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "Baby's due date (if pregnant)",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text never mentions giving a due date."
+  },
+  {
+    "key": "nhs-healthy-start#eligibility.evidenceRequired.2",
+    "service": "Healthy Start",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.healthystart.nhs.uk/",
+    "claim": "Universal Credit statement (details must match the UC claim)",
+    "alreadySearched": [
+      "https://www.healthystart.nhs.uk/",
+      "https://www.healthystart.nhs.uk/what-youll-get-and-how-to-shop/"
+    ],
+    "whyNotFound": "not stated: The text never mentions Universal Credit or any statement."
+  },
+  {
+    "key": "nhs-low-income-scheme#eligibility.criteria.2",
+    "service": "NHS Low Income Scheme (HC2/HC3)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+    "claim": "Must be ordinarily resident in the UK.",
+    "alreadySearched": [
+      "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text does not mention ordinary residence in the UK. It only says people living in Northern Ireland cannot apply online."
+  },
+  {
+    "key": "nhs-low-income-scheme#eligibility.evidenceRequired.2",
+    "service": "NHS Low Income Scheme (HC2/HC3)",
+    "nations": [
+      "england",
+      "wales",
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
+      "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions"
+    ],
+    "whyNotFound": "not stated: The text never mentions a National Insurance number as something you need."
+  },
+  {
+    "key": "nhs-ppc#eligibility.exclusions.0",
+    "service": "Prescription Prepayment Certificate (PPC)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/get-a-ppc",
+    "claim": "Already exempt: UC claimant, over 60, under 16, certain conditions (diabetes, epilepsy etc.)",
+    "alreadySearched": [
+      "https://www.gov.uk/get-a-ppc"
+    ],
+    "whyNotFound": "not stated: The text does not mention exemptions or any of these groups."
+  },
+  {
+    "key": "ni-discretionary-support#agentInteraction.methods",
+    "service": "Discretionary Support",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "whyNotFound": "not stated: The text says to apply to the Finance Support Service but does not say how, and online is not mentioned. not stated: The only phone mention is about being given a decision and asking for a further review, not about applying."
+  },
+  {
+    "key": "ni-discretionary-support#eligibility.evidenceRequired.0",
+    "service": "Discretionary Support",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+    "claim": "Proof of benefit receipt or pending application",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "whyNotFound": "not stated: The text lists the information needed (NI number, rent or mortgage, income, savings, account details) but does not mention proof of benefits."
+  },
+  {
+    "key": "ni-discretionary-support#eligibility.evidenceRequired.1",
+    "service": "Discretionary Support",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
+    "claim": "Details of the emergency need",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/discretionary-support"
+    ],
+    "whyNotFound": "not stated: The information list does not include details of the emergency need."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.criteria.2",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Must live in Northern Ireland.",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The text never mentions Northern Ireland or any other place of residence as a condition."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.evidenceRequired.0",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Proof of income",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The information the text lists does not include proof of income."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.evidenceRequired.1",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Rate bill",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The text does not ask for a rate bill."
+  },
+  {
+    "key": "ni-rate-rebate#eligibility.evidenceRequired.2",
+    "service": "Rate Rebate",
+    "nations": [
+      "northern-ireland"
+    ],
+    "serviceUrl": "https://www.nidirect.gov.uk/articles/applying-rate-rebate",
+    "claim": "Benefit confirmation letters",
+    "alreadySearched": [
+      "https://www.nidirect.gov.uk/articles/applying-rate-rebate"
+    ],
+    "whyNotFound": "not stated: The text does not ask for benefit confirmation letters."
+  },
+  {
+    "key": "opg-deputy-report#agentInteraction.methods",
+    "service": "Complete the deputy report",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/complete-deputy-report",
+    "claim": "You can apply or do this online. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.gov.uk/complete-deputy-report"
+    ],
+    "whyNotFound": "not stated: The text does not say how the report can be submitted, and does not mention an online route. not stated: The text does not mention a postal route."
+  },
+  {
+    "key": "opg-lpa-activation#eligibility.evidenceRequired.2",
+    "service": "Notify OPG of death",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/power-of-attorney/changes-you-need-to-report",
+    "claim": "LP4 notification form",
+    "alreadySearched": [
+      "https://www.gov.uk/power-of-attorney/changes-you-need-to-report"
+    ],
+    "whyNotFound": "not stated: The text never mentions an LP4 form."
+  },
+  {
+    "key": "opg-lpa-refund#agentInteraction.methods",
+    "service": "Claim a Power of Attorney registration refund",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/power-of-attorney-refund",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/power-of-attorney-refund"
+    ],
+    "whyNotFound": "not stated: The text only says to contact the OPG by email, post or phone. It describes no online application and does not rule one out."
+  },
+  {
+    "key": "other-carers-leave#agentInteraction.methods",
+    "service": "Carer's leave (employer)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/carers-leave",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/carers-leave"
+    ],
+    "whyNotFound": "not stated: The text only says the request does not have to be in writing; it does not mention phone."
+  },
+  {
+    "key": "other-employers-liability#agentInteraction.methods",
+    "service": "Employers' Liability Insurance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/employers-liability-insurance",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/employers-liability-insurance"
+    ],
+    "whyNotFound": "not stated: The text says to buy from an authorised insurer, perhaps through a broker, but does not describe any online application route."
+  },
+  {
+    "key": "other-employers-liability#eligibility.autoQualifiers.0",
+    "service": "Employers' Liability Insurance",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/employers-liability-insurance",
+    "claim": "Registered as employer with HMRC PAYE",
+    "alreadySearched": [
+      "https://www.gov.uk/employers-liability-insurance"
+    ],
+    "whyNotFound": "not stated: The text does not mention HMRC or PAYE registration."
+  },
+  {
+    "key": "other-help-to-buy#agentInteraction.methods",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text says to contact the developer or estate agent, who submits the application, and never mentions an online route."
+  },
+  {
+    "key": "other-help-to-buy#eligibility.evidenceRequired.1",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "Mortgage agreement in principle",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text says you arrange a mortgage after the application succeeds and never mentions an agreement in principle."
+  },
+  {
+    "key": "other-help-to-buy#eligibility.evidenceRequired.2",
+    "service": "First Homes / Help to Buy scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/first-homes-scheme",
+    "claim": "Proof of income for scheme qualification",
+    "alreadySearched": [
+      "https://www.gov.uk/first-homes-scheme"
+    ],
+    "whyNotFound": "not stated: The text sets income limits but never says proof of income must be provided."
+  },
+  {
+    "key": "other-motability#agentInteraction.methods",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention a phone number or applying by phone."
+  },
+  {
+    "key": "other-motability#eligibility.autoQualifiers.0",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "Enhanced Rate PIP mobility with 12+ months remaining on award",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not name PIP, the Enhanced Rate or any required length of award."
+  },
+  {
+    "key": "other-motability#eligibility.criteria.1",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "Must have at least 12 months remaining on the PIP mobility award at the time of ordering.",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text says nothing about how long the award must have left to run at the time of ordering."
+  },
+  {
+    "key": "other-motability#eligibility.evidenceRequired.0",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "PIP award letter confirming Enhanced Rate mobility component",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or award letter."
+  },
+  {
+    "key": "other-motability#eligibility.evidenceRequired.1",
+    "service": "Motability scheme",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.motability.co.uk/",
+    "claim": "At least 12 months remaining on award",
+    "alreadySearched": [
+      "https://www.motability.co.uk/"
+    ],
+    "whyNotFound": "not stated: The text does not mention how long must be left on the award."
+  },
+  {
+    "key": "other-passport-name#desc",
+    "service": "Passport name change",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/renew-adult-passport",
+    "claim": "Not legally required after marriage but strongly recommended. Use marriage certificate.",
+    "alreadySearched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "whyNotFound": "not stated: The text doesn't say whether a name change after marriage legally requires a new passport. not stated: The text makes no recommendation about updating a passport after marriage. not stated: The text never mentions a marriage certificate. It only says there are different rules for changing your name."
+  },
+  {
+    "key": "other-passport-name#eligibility.evidenceRequired.0",
+    "service": "Passport name change",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/renew-adult-passport",
+    "claim": "Marriage certificate or deed poll",
+    "alreadySearched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "whyNotFound": "not stated: Neither document is mentioned in the text."
+  },
+  {
+    "key": "other-passport-name#eligibility.summary",
+    "service": "Passport name change",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/renew-adult-passport",
+    "claim": "Not a legal requirement but strongly recommended after a name change. A passport in your new name is accepted as proof of identity for employment, travel, and financial services. Use the marriage certificate or deed poll as supporting evidence.",
+    "alreadySearched": [
+      "https://www.gov.uk/renew-adult-passport"
+    ],
+    "whyNotFound": "not stated: The text doesn't say whether it is legally required. not stated: The text makes no such recommendation. not stated: The text doesn't talk about using a passport as proof of identity for these purposes. not stated: The text never mentions a marriage certificate or a deed poll."
+  },
+  {
+    "key": "other-pupil-premium#agentInteraction.methods",
+    "service": "Pupil Premium",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/government/publications/pupil-premium",
+    "claim": "You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/pupil-premium",
+      "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note"
+    ],
+    "whyNotFound": "not stated: The text describes no way to apply, by phone or otherwise."
+  },
+  {
+    "key": "other-pupil-premium#eligibility.summary",
+    "service": "Pupil Premium",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/government/publications/pupil-premium",
+    "claim": "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked-after and previously looked-after children (2026-27). From September 2026 all Universal Credit households get free school meals, but only 'targeted' free school meals (household earnings under £7,400) bring pupil premium, so parents should still make sure the school records eligibility.",
+    "alreadySearched": [
+      "https://www.gov.uk/government/publications/pupil-premium",
+      "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note"
+    ],
+    "whyNotFound": "not stated: The text gives no advice to parents about making sure eligibility is recorded."
+  },
+  {
+    "key": "other-social-tariff-broadband#eligibility.evidenceRequired.0",
+    "service": "Social Tariff Broadband",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.ofcom.org.uk/phones-and-broadband/saving-money/social-tariffs"
+    ],
+    "whyNotFound": "not stated: The text never mentions any proof or evidence of benefit being needed."
+  },
+  {
+    "key": "other-statutory-redundancy#agentInteraction.methods",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text names no online way to apply. not stated: The text names no phone way to apply."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.evidenceRequired.0",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Redundancy notice or letter from employer",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence needed to apply."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.evidenceRequired.1",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Employment contract",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text tells you to check your contract for notice periods but does not ask for it as evidence."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.evidenceRequired.2",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Payslips to verify weekly pay",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text does not mention payslips or any evidence requirement."
+  },
+  {
+    "key": "other-statutory-redundancy#eligibility.exclusions.1",
+    "service": "Statutory Redundancy Pay",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/redundancy-your-rights",
+    "claim": "Voluntary redundancy may have different terms (could be more generous, or affect entitlement to notice periods).",
+    "alreadySearched": [
+      "https://www.gov.uk/redundancy-your-rights"
+    ],
+    "whyNotFound": "not stated: The text covers voluntary redundancy selection and early retirement packages, but not different pay or notice terms."
+  },
+  {
+    "key": "other-tv-licence-pension#eligibility.evidenceRequired.0",
+    "service": "TV Licence concession",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/free-discount-tv-licence",
+    "claim": "Pension Credit award letter",
+    "alreadySearched": [
+      "https://www.gov.uk/free-discount-tv-licence",
+      "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence"
+    ],
+    "whyNotFound": "not stated: The text does not say any Pension Credit award letter or other evidence is needed."
+  },
+  {
+    "key": "other-tv-licence-pension#eligibility.evidenceRequired.1",
+    "service": "TV Licence concession",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/free-discount-tv-licence",
+    "claim": "Date of birth confirmation",
+    "alreadySearched": [
+      "https://www.gov.uk/free-discount-tv-licence",
+      "https://www.gov.uk/tv-licence/get-a-free-or-discounted-tv-licence"
+    ],
+    "whyNotFound": "not stated: The text does not say any date of birth confirmation is needed."
+  },
+  {
+    "key": "other-warm-home-discount#agentInteraction.methods",
+    "service": "Warm Home Discount",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/the-warm-home-discount-scheme"
+    ],
+    "whyNotFound": "not stated: The text says to apply directly to your supplier but does not say how, and never mentions an online route."
+  },
+  {
+    "key": "other-warm-home-discount#eligibility.evidenceRequired.1",
+    "service": "Warm Home Discount",
+    "nations": [
+      "england",
+      "scotland",
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.uk/the-warm-home-discount-scheme",
+    "claim": "Benefit confirmation letter (for Broader Group)",
+    "alreadySearched": [
+      "https://www.gov.uk/the-warm-home-discount-scheme"
+    ],
+    "whyNotFound": "not stated: The text never mentions a benefit confirmation letter for the broader group; the only confirmation letter it mentions comes from the Warm Home Discount Scheme."
+  },
+  {
+    "key": "pins-planning-appeal#eligibility.criteria.1",
+    "service": "Appeal a planning decision",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/appeal-planning-decision",
+    "claim": "England only — Scotland and Wales have separate processes.",
+    "alreadySearched": [
+      "https://www.gov.uk/appeal-planning-decision"
+    ],
+    "whyNotFound": "not stated: The text never says the service covers England only, and it does not mention Scotland or Wales or any separate processes there."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.0",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Proof of full-time student status",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text only says you will be told what evidence you need when you apply; it lists no specific documents."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.1",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Childcare provider registration details",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text says the provider must be Ofsted-registered, but it does not list registration details as evidence you must send."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.2",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Childcare cost receipts",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text does not name receipts as evidence; payment requests go from the provider to the CCGPS."
+  },
+  {
+    "key": "slc-childcare-grant#eligibility.evidenceRequired.3",
+    "service": "Childcare Grant (Students)",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/childcare-grant",
+    "claim": "Household income evidence",
+    "alreadySearched": [
+      "https://www.gov.uk/childcare-grant"
+    ],
+    "whyNotFound": "not stated: The text does not name specific evidence documents."
+  },
+  {
+    "key": "slc-student-finance#eligibility.evidenceRequired.0",
+    "service": "Student Finance (tuition fee + maintenance loans)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-finance",
+    "claim": "Proof of identity (passport)",
+    "alreadySearched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students"
+    ],
+    "whyNotFound": "not stated: The text does not mention identity documents or a passport."
+  },
+  {
+    "key": "slc-student-finance#eligibility.evidenceRequired.1",
+    "service": "Student Finance (tuition fee + maintenance loans)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-finance",
+    "claim": "Proof of course enrollment or offer letter",
+    "alreadySearched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students"
+    ],
+    "whyNotFound": "not stated: The text does not mention an offer letter or proof of enrolment."
+  },
+  {
+    "key": "slc-student-finance#eligibility.evidenceRequired.3",
+    "service": "Student Finance (tuition fee + maintenance loans)",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/student-finance",
+    "claim": "National Insurance number",
+    "alreadySearched": [
+      "https://www.gov.uk/student-finance",
+      "https://www.gov.uk/student-finance/new-fulltime-students"
+    ],
+    "whyNotFound": "not stated: The text does not mention a National Insurance number."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.criteria.0",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Must be aged 16 to State Pension age.",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text gives no age limits for applicants."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.0",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Medical evidence of condition",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text includes the 'What you need to apply' heading but gives none of that section's content."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.1",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "Details of how condition affects daily life",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence you need to apply."
+  },
+  {
+    "key": "sss-adult-disability-payment#eligibility.evidenceRequired.2",
+    "service": "Adult Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/adult-disability-payment",
+    "claim": "GP or consultant details",
+    "alreadySearched": [
+      "https://www.mygov.scot/adult-disability-payment",
+      "https://www.mygov.scot/adult-disability-payment/applicants"
+    ],
+    "whyNotFound": "not stated: The text does not mention a GP or consultant."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.criteria.1",
+    "service": "Best Start Foods",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text never lists any qualifying benefits (Universal Credit, Pension Credit, ESA/JSA, Income Support, Housing Benefit) for Best Start Foods."
+  },
+  {
+    "key": "sss-best-start-foods#eligibility.evidenceRequired.0",
+    "service": "Best Start Foods",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.criteria.1",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Must be receiving a qualifying benefit such as Universal Credit, Pension Credit, income-related ESA/JSA, Income Support or Housing Benefit.",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: This page does not list any qualifying benefits (Universal Credit, Pension Credit, ESA/JSA, Income Support or Housing Benefit) needed for Best Start Grant."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.0",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.1",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of pregnancy or child's age",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-best-start-grant#eligibility.evidenceRequired.2",
+    "service": "Best Start Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
+    "claim": "Proof of Scottish residency",
+    "alreadySearched": [
+      "https://www.mygov.scot/best-start-grant-best-start-foods"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence requirements."
+  },
+  {
+    "key": "sss-carer-support-payment#agentInteraction.methods",
+    "service": "Carer Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/carer-support-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/carer-support-payment",
+      "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "https://www.mygov.scot/carer-support-payment/if-you-work"
+    ],
+    "whyNotFound": "not stated: The text mentions an online eligibility checker but says it is not an application, and it describes no online application route. not stated: The only phone number in the text is for money advice. It describes no phone application route."
+  },
+  {
+    "key": "sss-carer-support-payment#eligibility.evidenceRequired.0",
+    "service": "Carer Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/carer-support-payment",
+    "claim": "Details of person cared for",
+    "alreadySearched": [
+      "https://www.mygov.scot/carer-support-payment",
+      "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "https://www.mygov.scot/carer-support-payment/if-you-work"
+    ],
+    "whyNotFound": "not stated: The text does not list details of the person cared for as evidence needed to apply."
+  },
+  {
+    "key": "sss-carer-support-payment#eligibility.evidenceRequired.1",
+    "service": "Carer Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/carer-support-payment",
+    "claim": "Proof of care hours",
+    "alreadySearched": [
+      "https://www.mygov.scot/carer-support-payment",
+      "https://www.mygov.scot/carer-support-payment/who-can-apply",
+      "https://www.mygov.scot/carer-support-payment/if-you-work"
+    ],
+    "whyNotFound": "not stated: The text does not ask for proof of care hours. The eligibility checker asks about hours, but it says it is not an application."
+  },
+  {
+    "key": "sss-child-disability-payment#agentInteraction.methods",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text does not describe applying online. not stated: Phone appears only in a related-content link about contacting Social Security Scotland, not as a way to apply. not stated: Post appears only in a related-content link about contacting Social Security Scotland, not as a way to apply."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.criteria.2",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The page is from mygov.scot and mentions Social Security Scotland, but it never states a requirement to live in Scotland."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.evidenceRequired.0",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "Medical evidence of disability or condition",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text does not list any evidence needed, and it says you can apply without a diagnosis."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.evidenceRequired.2",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "GP or consultant reports",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text does not mention GP or consultant reports."
+  },
+  {
+    "key": "sss-child-disability-payment#eligibility.exclusions.1",
+    "service": "Child Disability Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-disability-payment",
+    "claim": "Does not live in Scotland",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-disability-payment"
+    ],
+    "whyNotFound": "not stated: The text says nothing about where the child must live."
+  },
+  {
+    "key": "sss-child-winter-heating#agentInteraction.methods",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text does not mention any way to apply, online or otherwise."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.autoQualifiers.0",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Child on highest-rate CDP/DLA care in Scotland — paid automatically",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text gives no eligibility criteria and does not say whether payment is automatic."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.0",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Child must receive the highest rate of the care component of Child Disability Payment (or DLA child).",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text never mentions Child Disability Payment rates or DLA as a condition."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.1",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Child must be under 16 (or under 19 if still in qualifying education).",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text refers to 'children and young people' but gives no age limits and says nothing about qualifying education."
+  },
+  {
+    "key": "sss-child-winter-heating#eligibility.criteria.2",
+    "service": "Child Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/child-winter-heating-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/child-winter-heating-payment",
+      "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment"
+    ],
+    "whyNotFound": "not stated: The text calls it a Scottish Government benefit but never states a residency requirement."
+  },
+  {
+    "key": "sss-funeral-support-payment#agentInteraction.methods",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text does not describe how to apply; 'How to apply' appears only as a contents link. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.criteria.1",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "You or your partner must get Universal Credit, Income Support, Pension Credit, Housing Benefit, income-based JSA or income-related ESA (or be waiting for a decision on one).",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: Neither source mentions any qualifying benefit, such as Universal Credit, Pension Credit or Housing Benefit, or a pending benefit decision."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.evidenceRequired.0",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Death certificate",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: Death certificates come up only as a cost the payment can help with, not as evidence you must provide."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.evidenceRequired.1",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Funeral director's invoice",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The final funeral bill is mentioned only as one way to work out transport costs, not as required evidence."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.evidenceRequired.2",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text never mentions qualifying benefits or proof of them."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.0",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Not on a qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text never mentions qualifying benefits."
+  },
+  {
+    "key": "sss-funeral-support-payment#eligibility.exclusions.1",
+    "service": "Funeral Support Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/funeral-support-payment",
+    "claim": "Another close relative could reasonably pay",
+    "alreadySearched": [
+      "https://www.mygov.scot/funeral-support-payment",
+      "https://www.mygov.scot/funeral-support-payment/person-who-died-18-or-over"
+    ],
+    "whyNotFound": "not stated: The text does not mention other relatives paying."
+  },
+  {
+    "key": "sss-pension-winter-heating#agentInteraction.methods",
+    "service": "Pension Age Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid"
+    ],
+    "whyNotFound": "not stated: The text says a small number of people need to apply but does not say how. not stated: The text gives no phone route for applying."
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.0",
+    "service": "Pension Age Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+    "claim": "Proof of age",
+    "alreadySearched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or documents."
+  },
+  {
+    "key": "sss-pension-winter-heating#eligibility.evidenceRequired.1",
+    "service": "Pension Age Winter Heating Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
+    "claim": "Proof of Scottish residency",
+    "alreadySearched": [
+      "https://www.mygov.scot/pension-age-winter-heating-payment",
+      "https://www.mygov.scot/pension-age-winter-heating-payment/how-much-you-might-be-paid"
+    ],
+    "whyNotFound": "not stated: The text does not mention any evidence or documents."
+  },
+  {
+    "key": "sss-scottish-child-payment#agentInteraction.methods",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: 'How to apply' appears only as a contents heading, and the text describes no online application. not stated: The only phone number is given for questions about double claims, not as a way to apply."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.criteria.1",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "You or your partner must get Universal Credit or income-based JSA; or you alone are named on Pension Credit, Income Support or income-related ESA. Child Benefit on its own does not count. You can apply while waiting for a decision on one of these.",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text doesn't name any qualifying benefits, doesn't mention Child Benefit and doesn't say you can apply while waiting for a decision; it only mentions benefits in the context of double claims."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.criteria.2",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Must live in Scotland.",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text names Social Security Scotland as the payer but never says the applicant must live in Scotland."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.evidenceRequired.0",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Proof of qualifying benefit",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.evidenceRequired.1",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Child's details",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "sss-scottish-child-payment#eligibility.evidenceRequired.2",
+    "service": "Scottish Child Payment",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/scottish-child-payment",
+    "claim": "Proof of Scottish residency",
+    "alreadySearched": [
+      "https://www.mygov.scot/scottish-child-payment"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "sss-young-carer-grant#eligibility.evidenceRequired.0",
+    "service": "Young Carer Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/young-carer-grant",
+    "claim": "Details of person cared for",
+    "alreadySearched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "whyNotFound": "not stated: The text only has a heading about sending documents and does not list what evidence is needed."
+  },
+  {
+    "key": "sss-young-carer-grant#eligibility.evidenceRequired.1",
+    "service": "Young Carer Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/young-carer-grant",
+    "claim": "Proof of caring role and hours",
+    "alreadySearched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "whyNotFound": "not stated: The text does not say what proof is needed."
+  },
+  {
+    "key": "sss-young-carer-grant#eligibility.evidenceRequired.2",
+    "service": "Young Carer Grant",
+    "nations": [
+      "scotland"
+    ],
+    "serviceUrl": "https://www.mygov.scot/young-carer-grant",
+    "claim": "Age verification",
+    "alreadySearched": [
+      "https://www.mygov.scot/young-carer-grant"
+    ],
+    "whyNotFound": "not stated: The text does not mention checking age as evidence."
+  },
+  {
+    "key": "tpr-workplace-pension#agentInteraction.methods",
+    "service": "Workplace Pension auto-enrollment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/workplace-pensions-employers",
+    "claim": "You can apply or do this online.",
+    "alreadySearched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "whyNotFound": "not stated: The text points to The Pensions Regulator's tool, but never says how to apply or complete the process, online or any other way."
+  },
+  {
+    "key": "tpr-workplace-pension#eligibility.evidenceRequired.0",
+    "service": "Workplace Pension auto-enrollment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/workplace-pensions-employers",
+    "claim": "PAYE employer reference number",
+    "alreadySearched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "whyNotFound": "not stated: The text never mentions a PAYE employer reference number. The only reference number it names is the pension scheme reference or registry number (PSR)."
+  },
+  {
+    "key": "tpr-workplace-pension#eligibility.evidenceRequired.1",
+    "service": "Workplace Pension auto-enrollment",
+    "nations": "UK-wide",
+    "serviceUrl": "https://www.gov.uk/workplace-pensions-employers",
+    "claim": "Chosen pension provider details",
+    "alreadySearched": [
+      "https://www.gov.uk/workplace-pensions-employers"
+    ],
+    "whyNotFound": "not stated: The text mentions pension providers, but never says their details are needed as evidence or information."
+  },
+  {
+    "key": "voa-business-rates#desc",
+    "service": "Check and challenge business rates",
+    "nations": [
+      "england"
+    ],
+    "serviceUrl": "https://www.gov.uk/correct-your-business-rates",
+    "claim": "Check your business property's rateable value and challenge it if incorrect through the Check, Challenge and Appeal process.",
+    "alreadySearched": [
+      "https://www.gov.uk/correct-your-business-rates"
+    ],
+    "whyNotFound": "not stated: The text never names a 'Check, Challenge and Appeal' process."
+  },
+  {
+    "key": "wg-discretionary-assistance#agentInteraction.methods",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text (the summary page) does not describe how to apply online. not stated: The text does not mention applying by phone."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.criteria.0",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Must be aged 16 or over.",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The source says nothing about a minimum age."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.criteria.2",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Must live in Wales.",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The page is on gov.wales, but the text never says the applicant must live in Wales."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.evidenceRequired.0",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Proof of identity",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.evidenceRequired.1",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Proof of Welsh residency",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text lists no evidence requirements."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.evidenceRequired.2",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Details of the emergency or need",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text does not say what details you must give."
+  },
+  {
+    "key": "wg-discretionary-assistance#eligibility.exclusions.0",
+    "service": "Discretionary Assistance Fund (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf",
+    "claim": "Exceeded annual application limit (3 EAP / 1 IAP per year)",
+    "alreadySearched": [
+      "https://www.gov.wales/discretionary-assistance-fund-daf",
+      "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility"
+    ],
+    "whyNotFound": "not stated: The text does not mention any limit on how many times you can apply."
+  },
+  {
+    "key": "wg-winter-fuel-support#agentInteraction.methods",
+    "service": "Oil and LPG heating payment (Wales)",
+    "nations": [
+      "wales"
+    ],
+    "serviceUrl": "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs",
+    "claim": "You can apply or do this online. You can apply or do this by phone.",
+    "alreadySearched": [
+      "https://www.gov.wales/thousands-welsh-households-get-help-oil-and-lpg-heating-costs"
+    ],
+    "whyNotFound": "not stated: The text says councils invite households to apply but never says how, and online is not mentioned. not stated: The only phone numbers given are for Advicelink Cymru and Nest advice, not for applying for this payment."
+  }
+]

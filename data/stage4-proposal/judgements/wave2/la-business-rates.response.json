@@ -1,0 +1,13 @@
+{
+  "fields": [
+    {"key":"methods","claims":[
+      {"claim":"You can apply or do this online.","verdict":"partly_supported","quote":"You can report changes using your business rates valuation account .","source":0,"note":"The page allows online valuation changes, but does not say general business rates registration can be done online."},
+      {"claim":"You can apply or do this by phone.","verdict":"partly_supported","quote":"Call the Valuation Office if you need help with: Council Tax business rates self-catering holiday lets","source":1,"note":"The phone number is for help with business rates, not an explicit registration route."}
+    ]},
+    {"key":"evidence_0","claims":[{"claim":"A business address is required.","verdict":"not_stated","quote":null,"source":null,"note":"The text does not specify a business address as application evidence."}]},
+    {"key":"evidence_1","claims":[{"claim":"The date of occupation is required.","verdict":"not_stated","quote":null,"source":null,"note":"The text does not specify a date of occupation as application evidence."}]},
+    {"key":"evidence_2","claims":[{"claim":"The nature of the business is required.","verdict":"partly_supported","quote":"the nature of your business changes","source":0,"note":"The page says a change in the nature of business can affect rates, but does not say it must be supplied for registration."}]}
+  ],
+  "methods_on_page":["online","phone"],
+  "sign_in_on_page":"business rates valuation account"
+}

@@ -1,0 +1,120 @@
+{
+  "fields": [
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Best Start Grant has three types of payment.",
+          "verdict": "supported",
+          "quote": "The 3 Best Start Grant payments are:",
+          "source": 0,
+          "note": "The source identifies three grant payments."
+        },
+        {
+          "claim": "Best Start Grant is for eligible families in Scotland.",
+          "verdict": "supported",
+          "quote": "If you live in England, Wales or Northern Ireland, you cannot get Best Start Grant or Best Start Foods.",
+          "source": 0,
+          "note": "The source excludes the other UK nations."
+        },
+        {
+          "claim": "Normally the applicant or partner needs a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "To get Best Start Grant and Foods, normally you or your partner need to get one of these: Universal Credit Housing Benefit Income Support Pension Credit income-based Jobseekers Allowance (JSA) income-related Employment and Support Allowance (ESA)",
+          "source": 4,
+          "note": "The source gives the normal benefit condition and lists the qualifying benefits."
+        },
+        {
+          "claim": "Applicants under 18 can qualify without a qualifying benefit.",
+          "verdict": "supported",
+          "quote": "If you're under 18, you do not need to be on any payments or benefits to get Best Start Grant or Best Start Foods.",
+          "source": 4,
+          "note": "The under-18 exception is stated."
+        },
+        {
+          "claim": "Some 18- or 19-year-olds can qualify without their own qualifying benefit.",
+          "verdict": "supported",
+          "quote": "If you're 18 or 19 and do not get any benefits or payments, you can still apply for Best Start Grant or Best Start Foods. Your parent or carer needs to get one of these for you: Child Benefit Universal Credit child payments the child addition part of Pension Credit",
+          "source": 4,
+          "note": "The source requires a parent or carer to receive a listed payment for the young applicant."
+        },
+        {
+          "claim": "An application may be made while a qualifying benefit decision is pending.",
+          "verdict": "supported",
+          "quote": "If you're not getting any of these benefits or payments, but have applied for one, you can still apply for Best Start Grant and Best Start Foods.",
+          "source": 4,
+          "note": "The source allows applying after filing for a qualifying benefit."
+        },
+        {
+          "claim": "Pregnancy and Baby Payment is usually £796.65 for a first child.",
+          "verdict": "supported",
+          "quote": "You'll get a Pregnancy and Baby Payment of £796.65 for your first child.",
+          "source": 0,
+          "note": "The source gives this ordinary first-child amount."
+        },
+        {
+          "claim": "Pregnancy and Baby Payment is usually £398.35 for a later child.",
+          "verdict": "supported",
+          "quote": "This will change to a payment of £398.35 for any child that comes after your first.",
+          "source": 0,
+          "note": "The source gives this ordinary later-child amount."
+        },
+        {
+          "claim": "A higher Pregnancy and Baby Payment is possible for some later children.",
+          "verdict": "supported",
+          "quote": "In some circumstances, you may be able to get extra support for a child that’s not your first. You may get the £796.65 payment if:",
+          "source": 0,
+          "note": "The source lists exceptions awarding the higher amount to later children."
+        },
+        {
+          "claim": "The usual Pregnancy and Baby Payment claim window runs from the end of the 24th week of pregnancy until the baby is six months old.",
+          "verdict": "supported",
+          "quote": "You can get Pregnancy and Baby Payment any time after you have reached the end of the 24th week of pregnancy until the day your baby is 6 months old.",
+          "source": 0,
+          "note": "The source states this ordinary window."
+        },
+        {
+          "claim": "Premature birth can change the Pregnancy and Baby Payment claim start date.",
+          "verdict": "supported",
+          "quote": "If your baby is born before 24 weeks, you can apply from this date up to the day your baby is 6 months old.",
+          "source": 0,
+          "note": "The source allows an application from birth before 24 weeks."
+        },
+        {
+          "claim": "Taking over care can change the Pregnancy and Baby Payment claim deadline.",
+          "verdict": "supported",
+          "quote": "If you've taken over looking after a child, for example, if you've adopted, you can apply up to the day before the child's first birthday.",
+          "source": 0,
+          "note": "The source extends the deadline for a person taking over care."
+        },
+        {
+          "claim": "You can apply after a stillbirth or death up to six months after the baby’s birth.",
+          "verdict": "supported",
+          "quote": "If you apply after a stillbirth or death, you can apply up to 6 months after the baby's birth date.",
+          "source": 0,
+          "note": "The source states this route and deadline."
+        },
+        {
+          "claim": "Early Learning Payment is £331.95 when the child is aged 2 to 3½.",
+          "verdict": "supported",
+          "quote": "You can get the payment when your child is aged between 2 years old and 3 years and 6 months old.",
+          "source": 0,
+          "note": "The same section gives the £331.95 amount."
+        },
+        {
+          "claim": "School Age Payment is £331.95 in the year the child is first old enough to start school.",
+          "verdict": "supported",
+          "quote": "School Age Payment is a payment of £331.95 per child. It helps with the costs of preparing for school when your child is first old enough to start primary school.",
+          "source": 0,
+          "note": "The source gives the amount and timing."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

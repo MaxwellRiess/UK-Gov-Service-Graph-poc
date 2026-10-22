@@ -1,0 +1,126 @@
+A service graph describes the UK government service "Statutory Maternity Pay" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file .cache/stage3-full/judge-w2/hmrc-smp.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[methods] (split into claims) You can apply or do this by phone. You can apply or do this by post.
+
+--- SOURCE 0: https://www.gov.uk/maternity-pay-leave/pay ---
+Maternity pay and leave. Your Statutory Maternity Pay (SMP) and Leave - what you get, how to claim, maternity rights and extra help When you take time off to have a baby you might be eligible for: Statutory Maternity Leave Statutory Maternity Pay paid time off for antenatal care extra help from the government You can check what maternity pay and leave you’re eligible for . This guide is also available in Welsh (Cymraeg) . There are rules on when and how to claim your paid leave and if you want to change your dates . You can work out your maternity pay and leave with the maternity planner . You may also be eligible to get Shared Parental Leave and Pay . Employment rights when on leave Your employment rights are protected while on Statutory Maternity Leave. This includes your right to: pay rises build up (accrue) holiday return to work Statutory Maternity Leave is 52 weeks. It’s made up of: Ordinary Maternity Leave - first 26 weeks Additional Maternity Leave - last 26 weeks You do not have to take 52 weeks but you must take 2 weeks’ leave after your baby is born (or 4 weeks if you work in a factory). Use the maternity planner to work out the dates for your ordinary and additional leave. You may be entitled to take some of your leave as Shared Parental Leave . Start date and early births Usually, the earliest you can start your leave is 11 weeks before the expected week of childbirth. Leave will also start: the day after the birth if the baby is early automatically if you’re off work for a pregnancy-related illness in the 4 weeks before the week (Sunday to Saturday) that your baby is due Use the maternity planner to work out the earliest date your maternity leave can start. Change your date for returning to work You must give your employer at least 8 weeks’ notice if you want to change your return to work date. Statutory Maternity Pay ( SMP ) is paid for up to 39 weeks. You get: 90% of your average weekly earnings (before tax) for the first 6 weeks £194.32 or 90% of your average weekly earnings (whichever is lower) for the next 33 weeks SMP is paid in the same way as your wages (for example monthly or weekly). Tax and National Insurance will be deducted. Use the maternity planner to help work out how much maternity pay you could get. If you take Shared Parental Leave you’ll get Statutory Shared Parental Pay (ShPP). ShPP is £194.32 a week or 90% of your average weekly earnings, whichever is lower. Start date SMP usually starts when you take your maternity leave. It starts automatically if you’re off work for a pregnancy-related illness in the 4 weeks before the week (Sunday to Saturday) that your baby is due. Problems and disputes Ask your employer to explain your SMP if you think it’s not right. If you disagree about the amount or your employer cannot pay (for example because they’re insolvent), contact the Statutory Payment Disputes Team . Statutory Maternity Leave You qualify for Statutory Maternity Leave if: you’re an employee not a ‘worker’ you give your employer the correct notice It does not matter how long you’ve been with your employer, how many hours you work or how much you get paid. You cannot get Statutory Maternity Leave if you have a child through surrogacy - you could get Statutory Adoption Leave and Pay instead. Statutory Maternity Pay ( SMP ) To qualify for SMP you must: earn on average at least £129 a week give the correct notice and proof you’re pregnant have worked for your employer continuously for at least 26 weeks continuing into the ‘qualifying week’ - the 15th week before the expected week of childbirth You cannot get SMP if you go into police custody during your maternity pay period. It will not restart when you’re discharged. Early births or you lose your baby You can still get Statutory Maternity Leave and SMP if your baby: is born early is stillborn after the start of your 24th week of pregnancy dies after being born If you’re not eligible for SMP Your employer must give you form SMP1 explaining why you cannot get SMP within 7 days of making their decision. You may be eligible for Maternity Allowance instead. Statutory Maternity Leave At least 15 weeks before your due date, tell your employer when the baby is due and when you want to start your maternity leave. Your employer can ask for this in writing. Your employer must write to you within 28 days confirming your start and end dates. Use the maternity planner to work out when you must claim your maternity leave. Statutory Maternity Pay ( SMP ) Tell your employer you want to stop work to have a baby and the day you want your SMP to start. You must give them at least 28 days’ notice (in writing if they ask for it) and proof that you’re pregnant. Your employer must confirm within 28 days how much SMP you’ll get and when it will start and stop. If they decide you’re not eligible, they must give you form SMP1 within 7 days of making their decision and explain why. Proof you’re pregnant You need to give your employer proof of the pregnancy to get SMP . You do not need it for maternity leave. Within 21 days of your SMP start date (or as soon as possible if the baby’s born early) give your employer either: a letter from your doctor or midwife your MATB1 certificate - doctors and midwives will give you this no more than 20 weeks before the due date You will not get SMP if you do not give your employer proof that the baby is due. Maternity benefits Use a benefits calculator to see what help you can get from: Universal Credit Child Benefit You could get a £500 Sure Start Maternity Grant (usually if it’s your first child). If you’re not eligible for Statutory Maternity Pay, you could get Maternity Allowance from the government. Company maternity schemes You might get more than the statutory amount of leave and pay if your employer has a company maternity scheme. They cannot offer you less than the statutory amount. Extra leave You could get 18 weeks’ unpaid parental leave after the birth - this may be restricted to 4 weeks per year.
+
+--- SOURCE 1 (FOUND): https://www.citizensadvice.org.uk/work/maternity-and-parental-rights/check-your-maternity-and-parental-rights/maternity-leave-and-pay/how-to-get-your-maternity-pay/ ---
+Maternity pay - how to get it This advice applies to England. See advice for See advice for Northern Ireland , See advice for Scotland , See advice for Wales Help us improve our website Take 5 minutes to tell us if you found what you needed on our website. Your feedback will help us give millions of people the information they need. Once you know what type of maternity pay you’re entitled to , there are a few things you need to do to get it. Get statutory maternity pay This is the standard kind of maternity pay. It comes from your employer, and there are 3 steps to getting it: tell your employer you’re pregnant confirm your pregnancy with a form or letter from your doctor or midwife - you'll need to do this at least 15 weeks before your due date give your employer at least 28 days’ notice of when you’d like your maternity pay to start You can do most of this at the same time you arrange your maternity leave . You’ll be paid by your employer in the same way you get your usual pay. You can check how much you’ll get in advance. Telling your employer you’re pregnant Once you’re happy to tell your employer you’re pregnant (for example, after your 12-week scan) it’s best to let them know in writing, and to keep a copy. After you tell your employer you're pregnant you're entitled to rights while you're pregnant at work . These rights include protection from discrimination and paid time off for antenatal appointments. You shouldn't have to worry about telling your employer you're pregnant. It's discrimination to sack you, cut your hours or treat you unfairly in any other way because of your pregnancy. If you you've been treated unfairly because of your pregnancy you should look at your options for challenging discrimination . Sacking you because you’re pregnant will be unfair dismissal as well as discrimination. You'll still get your maternity pay if your employer sacks you to avoid paying your statutory maternity pay and you've been working for them for at least 8 weeks. Contact your nearest Citizens Advice if you're worried about telling your employer you're pregnant. Confirming your pregnancy and due date To get your maternity pay, you’ll need to give your employer proof that you’re pregnant. Your proof should also show your due date. You should do this at least 15 weeks before your due date. You can show them either: a maternity certificate (form MATB1) that you’ll get from your midwife or doctor after your 20-week scan a letter from your doctor or midwife Get contractual maternity pay Contractual maternity pay is an extra benefit some employers offer. It’s paid in the same way as your normal pay. Check your contract or ask your employer what you need to do, as it could be different from getting statutory maternity pay. For example, you might need to repay some contractual maternity pay if you don’t go back to work after your maternity leave. You might also be able to get details from a staff handbook or your union or staff association. If you’d like help understanding your contractual maternity pay or have problems getting it from your employer, contact your nearest Citizens Advice . Get Maternity Allowance You might be able to claim Maternity Allowance from the government if you can’t get statutory or contractual maternity pay. You can apply using the Maternity Allowance claim form - the form tells you where to send it. If you’re claiming Maternity Allowance because your employer has said they won’t give you statutory maternity pay, there’s some extra paperwork. Your employer should have given you a form called ‘SMP1’, saying why they won’t pay statutory maternity pay. You’ll need to send this with with your claim form. If your employer doesn’t give you form SMP1 Your employer should give you form SMP1 within: 7 days of saying they won’t pay your statutory maternity pay and 28 days of when you tell them you'll be taking maternity leave Contact the HMRC statutory disputes team if your employer doesn't give you form SMP1 on time. HMRC Statutory Payments Disputes Team PT Operations North East England HMRC BX9 1AN Tel: 0300 322 9422 Textphone: 0300 200 3212 If your employer refuses to pay your statutory maternity pay Contact HM Revenue and Customs (HMRC) if your employer won't pay you statutory maternity pay and you think they should. Explain why you think you have a right to statutory maternity pay. HMRC will confirm whether you should get statutory maternity pay. You'll need to contact HMRC within 6 months of when your employer tells you they won't pay your statutory maternity pay. Your employer has to give you their reasons on a form called ‘SMP1’. Have this form ready when you call HMRC - or tell them if you weren't given it. HMRC Statutory Payments Disputes Team PT Operations North East England HMRC BX9 1AN Tel: 0300 322 9422 Textphone: 0300 200 3212 If HMRC think you should get statutory maternity pay, they’ll tell your employer to pay you. If your employer still doesn’t pay, HMRC will fine them and pay you directly. If you can’t contact HMRC, the National Insurance: general enquiries helpline can give advice about statutory payments. National Insurance: general enquiries helpline Telephone: 0300 200 3500 Textphone: 0300 200 3519 Monday to Friday, 8am to 8pm Saturday, 8am to 4pm Appeal an HMRC decision You can appeal to the tax tribunal if HMRC support your employer. You can also ask HMRC to look at their decision again if something’s changed, or if you have new information. Before you appeal, it’s a good idea to contact your nearest Citizens Advice for help. If your employer doesn’t give you form SMP1 Your employer should give you form SMP1 within: 7 days of saying they won’t pay your statutory maternity pay and 28 days of when you tell them you'll be taking maternity leave If your employer doesn't give you form SMP1 on time, mention it to HMRC when writing to them to ask for a decision. Help us improve our website Take 5 minutes to tell us if you found what you needed on our website. Your feedback will help us give millions of people the information they need.
+
+--- SOURCE 2 (FOUND): https://www.gov.uk/maternity-pay-leave/how-to-claim ---
+Maternity pay and leave. Your Statutory Maternity Pay (SMP) and Leave - what you get, how to claim, maternity rights and extra help When you take time off to have a baby you might be eligible for: Statutory Maternity Leave Statutory Maternity Pay paid time off for antenatal care extra help from the government You can check what maternity pay and leave you’re eligible for . This guide is also available in Welsh (Cymraeg) . There are rules on when and how to claim your paid leave and if you want to change your dates . You can work out your maternity pay and leave with the maternity planner . You may also be eligible to get Shared Parental Leave and Pay . Employment rights when on leave Your employment rights are protected while on Statutory Maternity Leave. This includes your right to: pay rises build up (accrue) holiday return to work Statutory Maternity Leave is 52 weeks. It’s made up of: Ordinary Maternity Leave - first 26 weeks Additional Maternity Leave - last 26 weeks You do not have to take 52 weeks but you must take 2 weeks’ leave after your baby is born (or 4 weeks if you work in a factory). Use the maternity planner to work out the dates for your ordinary and additional leave. You may be entitled to take some of your leave as Shared Parental Leave . Start date and early births Usually, the earliest you can start your leave is 11 weeks before the expected week of childbirth. Leave will also start: the day after the birth if the baby is early automatically if you’re off work for a pregnancy-related illness in the 4 weeks before the week (Sunday to Saturday) that your baby is due Use the maternity planner to work out the earliest date your maternity leave can start. Change your date for returning to work You must give your employer at least 8 weeks’ notice if you want to change your return to work date. Statutory Maternity Pay ( SMP ) is paid for up to 39 weeks. You get: 90% of your average weekly earnings (before tax) for the first 6 weeks £194.32 or 90% of your average weekly earnings (whichever is lower) for the next 33 weeks SMP is paid in the same way as your wages (for example monthly or weekly). Tax and National Insurance will be deducted. Use the maternity planner to help work out how much maternity pay you could get. If you take Shared Parental Leave you’ll get Statutory Shared Parental Pay (ShPP). ShPP is £194.32 a week or 90% of your average weekly earnings, whichever is lower. Start date SMP usually starts when you take your maternity leave. It starts automatically if you’re off work for a pregnancy-related illness in the 4 weeks before the week (Sunday to Saturday) that your baby is due. Problems and disputes Ask your employer to explain your SMP if you think it’s not right. If you disagree about the amount or your employer cannot pay (for example because they’re insolvent), contact the Statutory Payment Disputes Team . Statutory Maternity Leave You qualify for Statutory Maternity Leave if: you’re an employee not a ‘worker’ you give your employer the correct notice It does not matter how long you’ve been with your employer, how many hours you work or how much you get paid. You cannot get Statutory Maternity Leave if you have a child through surrogacy - you could get Statutory Adoption Leave and Pay instead. Statutory Maternity Pay ( SMP ) To qualify for SMP you must: earn on average at least £129 a week give the correct notice and proof you’re pregnant have worked for your employer continuously for at least 26 weeks continuing into the ‘qualifying week’ - the 15th week before the expected week of childbirth You cannot get SMP if you go into police custody during your maternity pay period. It will not restart when you’re discharged. Early births or you lose your baby You can still get Statutory Maternity Leave and SMP if your baby: is born early is stillborn after the start of your 24th week of pregnancy dies after being born If you’re not eligible for SMP Your employer must give you form SMP1 explaining why you cannot get SMP within 7 days of making their decision. You may be eligible for Maternity Allowance instead. Statutory Maternity Leave At least 15 weeks before your due date, tell your employer when the baby is due and when you want to start your maternity leave. Your employer can ask for this in writing. Your employer must write to you within 28 days confirming your start and end dates. Use the maternity planner to work out when you must claim your maternity leave. Statutory Maternity Pay ( SMP ) Tell your employer you want to stop work to have a baby and the day you want your SMP to start. You must give them at least 28 days’ notice (in writing if they ask for it) and proof that you’re pregnant. Your employer must confirm within 28 days how much SMP you’ll get and when it will start and stop. If they decide you’re not eligible, they must give you form SMP1 within 7 days of making their decision and explain why. Proof you’re pregnant You need to give your employer proof of the pregnancy to get SMP . You do not need it for maternity leave. Within 21 days of your SMP start date (or as soon as possible if the baby’s born early) give your employer either: a letter from your doctor or midwife your MATB1 certificate - doctors and midwives will give you this no more than 20 weeks before the due date You will not get SMP if you do not give your employer proof that the baby is due. Maternity benefits Use a benefits calculator to see what help you can get from: Universal Credit Child Benefit You could get a £500 Sure Start Maternity Grant (usually if it’s your first child). If you’re not eligible for Statutory Maternity Pay, you could get Maternity Allowance from the government. Company maternity schemes You might get more than the statutory amount of leave and pay if your employer has a company maternity scheme. They cannot offer you less than the statutory amount. Extra leave You could get 18 weeks’ unpaid parental leave after the birth - this may be restricted to 4 weeks per year.

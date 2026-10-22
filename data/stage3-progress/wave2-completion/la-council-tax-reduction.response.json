@@ -1,0 +1,13 @@
+{
+  "fields": [
+    {"key":"methods","claims":[
+      {"claim":"You can apply or do this online.","verdict":"supported","quote":"You can fill in a form or apply online.","source":2,"note":"The England guidance explicitly permits online applications."},
+      {"claim":"You can apply or do this by phone.","verdict":"partly_supported","quote":"Your local council might also let you apply by telephone.","source":2,"note":"Phone applications depend on the local council and are not a universal route."}
+    ]},
+    {"key":"criterion_1","claims":[{"claim":"The applicant must be liable for Council Tax at the address.","verdict":"partly_supported","quote":"be the person named on the Council Tax bill – this means you’re liable to pay Council Tax","source":4,"note":"The Scotland guidance states this requirement, but the supplied text does not establish it across every council scheme."}]},
+    {"key":"evidence_0","claims":[{"claim":"Proof of income and savings is required.","verdict":"partly_supported","quote":"For example, you might have to send evidence of your income and savings.","source":2,"note":"Evidence of income and savings may be requested, but it is not stated as a universal requirement."}]},
+    {"key":"evidence_1","claims":[{"claim":"A Council Tax bill is required as application evidence.","verdict":"not_stated","quote":null,"source":null,"note":"The sources discuss a Council Tax bill but do not say an applicant must provide the bill as evidence."}]}
+  ],
+  "methods_on_page":["online","phone"],
+  "sign_in_on_page":null
+}

@@ -1,0 +1,13 @@
+{
+  "fields": [
+    {"key":"summary","claims":[
+      {"claim":"The service is available to non-British, non-Irish nationals.","verdict":"partly_supported","quote":"Who can use this service You can use this service to access an eVisa if you have: any visa for the UK (England, Scotland, Wales or Northern Ireland) settlement in the UK","source":1,"note":"The page describes eligible immigration statuses but does not state non-British and non-Irish nationality as the boundary."},
+      {"claim":"A UKVI account and eVisa let a person view and prove their immigration status.","verdict":"supported","quote":"You need a UK Visas and Immigration ( UKVI ) account to access your eVisa.","source":1,"note":"A UKVI account is expressly required to access the eVisa used by this service."},
+      {"claim":"A share code is valid for 90 days.","verdict":"supported","quote":"A share code lasts for 90 days.","source":0,"note":"The source gives the same duration."},
+      {"claim":"A share code lets employers and landlords check your immigration status.","verdict":"supported","quote":"You can get a share code to prove your immigration status to people such as employers or landlords","source":0,"note":"The source expressly names both employers and landlords."},
+      {"claim":"People using the share code will see some of your personal details.","verdict":"supported","quote":"The person who uses your share code will see some of your personal details.","source":0,"note":"The source states this directly."}
+    ]}
+  ],
+  "methods_on_page":["online"],
+  "sign_in_on_page":"UKVI account"
+}
