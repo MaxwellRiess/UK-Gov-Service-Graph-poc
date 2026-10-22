@@ -1,0 +1,81 @@
+{
+  "sss-adult-disability-payment#eligibility.criteria.1": {
+    "queries": [
+      "site:mygov.scot adult disability payment eligibility 13 weeks 9 months daily living mobility Scotland",
+      "site:socialsecurity.gov.scot adult disability payment required period 13 weeks 9 months eligibility",
+      "site:socialsecurity.gov.scot \"Adult Disability Payment\" \"13 weeks\" \"39 weeks\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.socialsecurity.gov.scot/publications/2017/02/adult-disability-payment-decision-making-guide/pages/determinations-and-awards-for-adult-disability-payment/entitlement-to-adp",
+        "why": "The service owner's decision guide states a 13-week backwards test and a 39-week forwards test, and says both are needed. It also names the terminal-illness exception."
+      },
+      {
+        "url": "https://www.socialsecurity.gov.scot/publications/2017/02/adult-disability-payment-decision-making-guide/pages/backwards-and-forwards-tests-for-adult-disability-payment/the-backwards-and-forwards-tests",
+        "why": "Detailed guide ties the 13 prior weeks and 39 following weeks to entitlement for a particular rate of the daily living or mobility component."
+      }
+    ],
+    "verdict_hint": "Review the duration wording against the component-level tests. The 39-week forward test equals nine months approximately; the official guide uses weeks and exempts terminal illness."
+  },
+  "sss-young-carer-grant#agentInteraction.methods": {
+    "queries": [
+      "site:mygov.scot young carer grant apply online phone application",
+      "site:socialsecurity.gov.scot young carer grant online application form phone"
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/young-carer-grant/how-to-apply",
+        "why": "The public application page has separate Apply online and Apply over the phone sections, including the online start link and phone number. It says representatives with decision-making power can apply only by phone or post."
+      },
+      {
+        "url": "https://www.socialsecurity.gov.scot/young-carer-grant",
+        "why": "Social Security Scotland lists online, paper and phone application routes and says online applications go through mygov.scot. It also lists circumstances where applicants cannot apply online."
+      }
+    ],
+    "verdict_hint": "Both listed methods have direct service-owner pages. The later review should keep the online-route limits for representatives and applicants needing another payment method in mind."
+  },
+  "nhs-111-online#eligibility.summary": {
+    "queries": [
+      "site:nhs.uk nhs 111 online free 24 hours 7 days week England not life threatening A&E GP pharmacy",
+      "site:111.nhs.uk about 111 online free available 24 hours England outcomes",
+      "site:nhs.uk \"111 online\" \"free to use\""
+    ],
+    "urls": [
+      {
+        "url": "https://digital.nhs.uk/services/nhs-111-online",
+        "why": "Current NHS England Digital service page says the online service is for people in England aged 5 and over with urgent, non-life-threatening needs, lists A&E, GP, pharmacy and home care among possible outcomes, and says it is operational and supported 24 hours a day, 365 days a year."
+      },
+      {
+        "url": "https://www.nhs.uk/nhs-services/urgent-and-emergency-care-services/when-to-use-111/how-nhs-111-online-works/",
+        "why": "NHS public guidance says 111 online is available in England only, explains symptom triage, and separately describes A&E, GP, pharmacist and self-care outcomes."
+      },
+      {
+        "url": "https://digital.nhs.uk/blog/transformation-blog/2017/how-were-supporting-urgent--emergency-care-services-this-winter",
+        "why": "An older NHS Digital page explicitly says NHS 111 Online is free to use for the public. Check whether a newer direct cost statement is preferred before using it as current evidence."
+      }
+    ],
+    "verdict_hint": "The current service page supplies most missing details, but the free-use statement found is historical. The online symptom triage has an age-5-plus limit, so 'anyone in England' needs careful review."
+  },
+  "sss-adult-disability-payment#eligibility.summary": {
+    "queries": [
+      "site:mygov.scot adult disability payment replacement PIP same rates 16 state pension age",
+      "site:socialsecurity.gov.scot Adult Disability Payment replaces PIP equivalent rates state pension age",
+      "site:gov.scot \"Adult Disability Payment\" \"same rates\" \"PIP\""
+    ],
+    "urls": [
+      {
+        "url": "https://www.mygov.scot/adult-disability-payment/applicants",
+        "why": "Current public eligibility page says applicants generally must be between 16 and State Pension age and have a disability, long-term physical or mental health condition, or terminal illness. It also describes some application routes outside the usual age band."
+      },
+      {
+        "url": "https://www.gov.scot/publications/adult-disability-payment-qa/pages/1/",
+        "why": "Scottish Government Q&A explicitly calls Adult Disability Payment Scotland's replacement for PIP and says existing PIP recipients over State Pension age move over with the same components and rates. Its 2022 cash amounts are historical."
+      },
+      {
+        "url": "https://www.gov.scot/publications/social-security-assistance-scotland-up-rating-inflation-2026-27/pages/9/",
+        "why": "Scottish Government 2026-27 uprating tables show the same four weekly rates for Adult Disability Payment and PIP, with a separate transitional Adult Disability Payment rate."
+      }
+    ],
+    "verdict_hint": "These pages give leads for replacement status, the usual age band and current standard and enhanced rates. The age band has exceptions, and the separate transitional rate may qualify an unreserved 'same rates as PIP' claim."
+  }
+}

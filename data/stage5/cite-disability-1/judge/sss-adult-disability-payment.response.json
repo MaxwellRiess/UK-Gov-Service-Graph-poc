@@ -1,0 +1,79 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "An applicant must have a long-term physical or mental health condition or disability.",
+          "verdict": "partly_supported",
+          "quote": "Apply if you have a: disability long-term physical or mental health condition terminal illness",
+          "source": 1,
+          "note": "The page also lists terminal illness as a route, so the stated condition list is incomplete."
+        },
+        {
+          "claim": "The condition or disability must affect daily living or mobility.",
+          "verdict": "partly_supported",
+          "quote": "The amount you get depends on how your condition affects your ability to do everyday activities and get around.",
+          "source": 0,
+          "note": "The usual components depend on functional impact, but terminal illness brings an automatic enhanced daily living award."
+        },
+        {
+          "claim": "The effect on daily living or mobility must have lasted at least 13 weeks.",
+          "verdict": "partly_supported",
+          "quote": "The backwards test for ADP is 13 weeks.",
+          "source": 5,
+          "note": "The 13-week test concerns conditions of entitlement, and the page exempts applications under the special rules for terminal illness."
+        },
+        {
+          "claim": "The effect on daily living or mobility must be expected to last at least 9 more months.",
+          "verdict": "partly_supported",
+          "quote": "The forwards test for ADP is 39 weeks.",
+          "source": 5,
+          "note": "The page specifies 39 weeks of likely entitlement rather than nine calendar months, and terminal illness is exempt from the test."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Adult Disability Payment is Scotland's replacement for Personal Independence Payment (PIP).",
+          "verdict": "supported",
+          "quote": "Adult Disability Payment is Scotland’s replacement for Personal Independence Payment ( PIP ).",
+          "source": 7,
+          "note": "The Scottish Government states this directly."
+        },
+        {
+          "claim": "Adult Disability Payment is for adults aged 16 or over and under State Pension age.",
+          "verdict": "partly_supported",
+          "quote": "Generally, individuals must: be 16 years old or over,to be entitled to either component of ADP (ADP regs, reg 22(1)(a)) be under pensionable age or, if higher, 65 years old to be entitled to either component",
+          "source": 5,
+          "note": "The age rule is generally 16 to the relevant age, but the page gives exceptions for older applicants and recipients."
+        },
+        {
+          "claim": "Adult Disability Payment is for people with a long-term physical or mental health condition or disability.",
+          "verdict": "partly_supported",
+          "quote": "Apply if you have a: disability long-term physical or mental health condition terminal illness",
+          "source": 1,
+          "note": "The page also names terminal illness, which this description leaves out."
+        },
+        {
+          "claim": "Adult Disability Payment has the same rates as PIP.",
+          "verdict": "supported",
+          "quote": "Personal Independence Payment - Daily Living Component Enhanced Rate £110.40 £114.60 - Daily Living Component Standard Rate £73.90 £76.70 - Mobility Component Enhanced Rate £77.05 £80.00 - Mobility Component Standard Rate £29.20 £30.30",
+          "source": 8,
+          "note": "The 2026 to 2027 rate table gives PIP the same four rates listed there for Adult Disability Payment."
+        },
+        {
+          "claim": "Adult Disability Payment is assessed on the impact of the condition, not the condition itself.",
+          "verdict": "partly_supported",
+          "quote": "The amount you get depends on how your condition affects your ability to do everyday activities and get around.",
+          "source": 0,
+          "note": "The impact determines the amount, but the page also requires a qualifying disability, health condition or terminal illness."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": ["online", "phone", "post", "in-person"],
+  "sign_in_on_page": null
+}
