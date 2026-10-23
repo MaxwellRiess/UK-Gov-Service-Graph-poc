@@ -302,5 +302,6 @@ The wider search runs in three separate steps, so the model that finds a page ne
 | 22 Oct 2026 | Stage 5 Cite disability wave 1 imported: 1 confirmed, 3 remain partly supported; no graph values changed | 1,862 of 2,987 | 62.3% |
 | 22 Oct 2026 | Stage 5 deferred rule verification after NHSBSA recovered: four Best Start and Child Winter Heating values confirmed; no rule values changed | 1,866 of 2,987 | 62.5% |
 | 22 Oct 2026 | Stage 5 Cite wave 2: 35 fields judged and imported; 7 confirmed, 14 partly supported, 14 contradicted; no graph values changed | 1,873 of 2,987 | 62.7% |
+| 23 Oct 2026 | Stage 5 correction wave 2 proposed: 14 contradicted fields and same-node copies reviewed; awaiting approval, no graph values changed | 1,873 of 2,987 | 62.7% |
 
 The interrupted full-run inputs and responses are preserved in [the stage 3 audit](../data/stage3-audit/README.md). The [continuation record](../data/stage3-progress/README.md) contains the later finder batches, judge waves, rechecks and 50 fields that did not reach an original judge prompt. The [first-wave checkpoint](stage3-wave1-checkpoint.md) and [second-wave checkpoint](stage3-wave2-checkpoint.md) describe the handoff state and early corrections.
