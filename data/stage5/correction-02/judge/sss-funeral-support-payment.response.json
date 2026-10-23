@@ -1,0 +1,51 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "You or your partner must be responsible for the funeral costs.",
+          "verdict": "supported",
+          "quote": "you or your partner are responsible for the funeral costs",
+          "source": 5,
+          "note": "The eligibility list states this condition."
+        }
+      ]
+    },
+    {
+      "key": "criterion_2",
+      "claims": [
+        {
+          "claim": "You must live in Scotland.",
+          "verdict": "supported",
+          "quote": "you live in Scotland",
+          "source": 5,
+          "note": "The eligibility list states this residence condition."
+        },
+        {
+          "claim": "The funeral may be held in the UK or, in some circumstances, another country.",
+          "verdict": "supported",
+          "quote": "the funeral is being held in the UK or in some circumstances , another country",
+          "source": 5,
+          "note": "The eligibility list states the UK and limited overseas routes."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_1_label",
+      "claims": [
+        {
+          "claim": "Responsible for funeral costs",
+          "verdict": "supported",
+          "quote": "you or your partner are responsible for the funeral costs",
+          "source": 5,
+          "note": "The rule label matches a stated condition."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

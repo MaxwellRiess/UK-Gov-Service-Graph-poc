@@ -1,0 +1,133 @@
+A service graph describes the UK government service "Free bus pass" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+Sources marked LINKED are pages the service's own pages link to. A linked page may describe a different service. Use one for a claim only if it is about this service, or states a general rule that plainly applies to it; otherwise treat the claim as not stated there.
+
+Sources marked FOUND were found by searching the web for these claims, and may come from outside GOV.UK (a council, the NHS, Citizens Advice). The same test applies: use one for a claim only if it is about this service, in the part of the UK the service covers, or states a general rule that plainly applies to it. A page about a similar service, or another nation's version, does not support the claim.
+
+A page from one local council speaks only for that council. Use it for a claim about a service councils run locally only if it states a rule that applies everywhere (a law, a national scheme, "all councils must"); a council's own phone number, form or document list shows what that council does, so the claim is at most partly_supported from it.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/correction-02/judge/la-bus-pass.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[desc] (split into claims) In England, available from State Pension age. Apply via the local council.
+[criterion_0] (split into claims) In England, you can get an older person’s bus pass when you reach State Pension age. An eligible disabled person may qualify for a separate disabled person’s pass.
+[eligibility_ruleIn_0] (split into claims) Reached State Pension age in England
+
+--- SOURCE 0: https://www.gov.uk/apply-for-elderly-person-bus-pass ---
+Apply for an older person's bus pass If you live in England or Wales In England you can get a bus pass for free travel when you reach the State Pension age . If you live in London, you can travel free on buses, tubes and other transport when you’re 60, but only within London. In Wales you can get a bus pass when you reach 60. Enter your postcode to: apply for a bus pass from your local council check if you can get one sooner Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder If you live in Scotland or Northern Ireland You get an older person’s bus pass when you’re 60. Apply if you’re in: Scotland Northern Ireland Related content Find out about community transport services and Shopmobility Apply for a disabled person's bus pass Explore the topic Driving with medical conditions, Blue Badges and transport for disabled people Parking and public transport State Pension
+
+--- SOURCE 1 (LINKED): https://www.gov.uk/apply-for-disabled-bus-pass ---
+Apply for a disabled person's bus pass Contact your local council to find out who issues disabled bus passes in your area as part of the English National Concessionary Travel Scheme. You’re eligible for a disabled person’s pass if you live in England and are ‘eligible disabled’. Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder What you need to know Available in England only Get more information about a disabled person’s bus pass in: Scotland Wales Northern Ireland Related content Apply for an older person's bus pass Disability rights Medical conditions, disabilities and driving Find out about community transport services and Shopmobility Explore the topic Disability equipment and transport Driving with medical conditions, Blue Badges and transport for disabled people Parking and public transport
+
+--- SOURCE 2 (LINKED): https://www.gov.uk/community-transport-services-shopmobility ---
+Find out about community transport services and Shopmobility Many areas have community transport services for people who have difficulty using public transport. These include door-to-door transport and trips to shopping centres. Enter a postcode For example SW1A 2AA Find your local council Find a postcode on Royal Mail's postcode finder What you need to know Available in England and Wales only Related content Transport support services for disabled people Apply for an older person's bus pass Apply for a disabled person's bus pass Explore the topic Disability equipment and transport Local councils and services
+
+--- SOURCE 3 (FOUND): https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable ---
+State Pension age timetable Introduction The following tables show how the legislated increases in State Pension age will be phased in. A State Pension age calculator is provided on GOV.UK. This calculator tells people when they will reach their State Pension age, under current legislation, based on their gender and date of birth. The Pensions Act 2014 provides for a regular review of the State Pension age, at least once every 5 years. The government is not planning to revise the existing timetables for the equalisation of State Pension age to 65 or the rise in the State Pension age to 66 or 67. However the timetable for the increase in the State Pension age from 67 to 68 could change as a result of a future review. Before any future changes could become law Parliament would need to approve the plans. GOV.UK provides more information about claiming the State Pension and how to get a State Pension statement . Table 1: Women’s State Pension age under the Pensions Act 1995 Date of birth Date State Pension age reached 6 April 1950 – 5 May 1950 6 May 2010 6 May 1950 – 5 June 1950 6 July 2010 6 June 1950 – 5 July 1950 6 September 2010 6 July 1950 – 5 August 1950 6 November 2010 6 August 1950 – 5 September 1950 6 January 2011 6 September 1950 – 5 October 1950 6 March 2011 6 October 1950 – 5 November 1950 6 May 2011 6 November 1950 – 5 December 1950 6 July 2011 6 December 1950 – 5 January 1951 6 September 2011 6 January 1951 – 5 February 1951 6 November 2011 6 February 1951 – 5 March 1951 6 January 2012 6 March 1951 – 5 April 1951 6 March 2012 6 April 1951 – 5 May 1951 6 May 2012 6 May 1951 – 5 June 1951 6 July 2012 6 June 1951 – 5 July 1951 6 September 2012 6 July 1951 – 5 August 1951 6 November 2012 6 August 1951 – 5 September 1951 6 January 2013 6 September 1951 – 5 October 1951 6 March 2013 6 October 1951 – 5 November 1951 6 May 2013 6 November 1951 – 5 December 1951 6 July 2013 6 December 1951 – 5 January 1952 6 September 2013 6 January 1952 – 5 February 1952 6 November 2013 6 February 1952 – 5 March 1952 6 January 2014 6 March 1952 – 5 April 1952 6 March 2014 6 April 1952 – 5 May 1952 6 May 2014 6 May 1952 – 5 June 1952 6 July 2014 6 June 1952 – 5 July 1952 6 September 2014 6 July 1952 – 5 August 1952 6 November 2014 6 August 1952 – 5 September 1952 6 January 2015 6 September 1952 – 5 October 1952 6 March 2015 6 October 1952 – 5 November 1952 6 May 2015 6 November 1952 – 5 December 1952 6 July 2015 6 December 1952 – 5 January 1953 6 September 2015 6 January 1953 – 5 February 1953 6 November 2015 6 February 1953 – 5 March 1953 6 January 2016 6 March 1953 – 5 April 1953 6 March 2016 Changes under the Pensions Act 2011 Under the Pensions Act 2011, women’s State Pension age will increase more quickly to 65 between April 2016 and November 2018. From December 2018 the State Pension age for both men and women will start to increase to reach 66 by October 2020. Table 2: Women’s State Pension age under the Pensions Act 2011 Date of birth Date State Pension age reached 6 April 1953 – 5 May 1953 6 July 2016 6 May 1953 – 5 June 1953 6 November 2016 6 June 1953 – 5 July 1953 6 March 2017 6 July 1953 – 5 August 1953 6 July 2017 6 August 1953 – 5 September 1953 6 November 2017 6 September 1953 – 5 October 1953 6 March 2018 6 October 1953 – 5 November 1953 6 July 2018 6 November 1953 – 5 December 1953 6 November 2018 Table 3: Increase in State Pension age from 65 to 66, men and women Date of birth Date State Pension age reached 6 December 1953 – 5 January 1954 6 March 2019 6 January 1954 – 5 February 1954 6 May 2019 6 February 1954 – 5 March 1954 6 July 2019 6 March 1954 – 5 April 1954 6 September 2019 6 April 1954 – 5 May 1954 6 November 2019 6 May 1954 – 5 June 1954 6 January 2020 6 June 1954 – 5 July 1954 6 March 2020 6 July 1954 – 5 August 1954 6 May 2020 6 August 1954 – 5 September 1954 6 July 2020 6 September 1954 – 5 October 1954 6 September 2020 6 October 1954 – 5 April 1960 66th birthday Increase in State Pension age from 66 to 67 under the Pensions Act 2014 The Pensions Act 2014 brought the increase in the State Pension age from 66 to 67 forward by 8 years. The State Pension age for men and women will now increase to 67 between 2026 and 2028. The government also changed the way in which the increase in State Pension age is phased so that rather than reaching State Pension age on a specific date, people born between 6 April 1960 and 5 March 1961 will reach their State Pension age at 66 years and the specified number of months. Table 4: Increase in State Pension age from 66 to 67, men and women Date of birth Date State Pension age reached 6 April 1960 – 5 May 1960 66 years and 1 month 6 May 1960 – 5 June 1960 66 years and 2 months 6 June 1960 – 5 July 1960 66 years and 3 months 6 July 1960 – 5 August 1960 66 years and 4 months (1) 6 August 1960 – 5 September 1960 66 years and 5 months 6 September 1960 – 5 October 1960 66 years and 6 months 6 October 1960 – 5 November 1960 66 years and 7 months 6 November 1960 – 5 December 1960 66 years and 8 months 6 December 1960 – 5 January 1961 66 years and 9 months (2) 6 January 1961 – 5 February 1961 66 years and 10 months (3) 6 February 1961 – 5 March 1961 66 years and 11 months 6 March 1961 – 5 April 1977* 67 *For people born after 5 April 1969 but before 6 April 1977, under the Pensions Act 2007, State Pension age was already 67. Notes For the purposes of calculating an individual’s State Pension age the following applies: A person born on 31 July 1960 is considered to reach the age of 66 years and 4 months on 30 November 2026. A person born on 31 December 1960 is considered to reach the age of 66 years and 9 months on 30 September 2027. A person born on 31 January 1961 is considered to reach the age of 66 years and 10 months on 30 November 2027. Increase in State Pension age from 67 to 68 under the Pensions Act 2007 Under the Pensions Act 2007 the State Pension age for men and women will increase from 67 to 68 between 2044 and 2046. The Pensions Act 2014 provides for a regular review of the State Pension age, at least once every 5 years. The review will be based around the idea that people should be able to spend a certain proportion of their adult life drawing a State Pension. The first review must by completed by May 2017. As well as life expectancy, it will take into account a range of factors relevant to setting the pension age. After the review has reported, the government may then choose to bring forward changes to the State Pension age. Any proposals to do so would, like now, have to go through Parliament before becoming law. The government is not planning to revise the existing timetables for the equalisation of State Pension age to 65 or the rise in the State Pension age to 66 or 67. However the timetable for the increase in the State Pension age from 67 to 68 could change as a result of the review. In the Autumn Statement on 5 December 2013, the Chancellor announced that this government believes that future generations should spend up to a third of their adult life in retirement. This principle implies that State Pension age should rise to 68 by the mid-2030s, and 69 by the late 2040s. However, the government is not currently legislating for this change – these dates are indicative only, showing a general direction of travel for future State Pension age changes. The information in the table below is based on the current law. Table 5: Increase in State Pension age from 67 to 68, men and women Date of birth Date State Pension age reached 6 April 1977 – 5 May 1977 6 May 2044 6 May 1977 – 5 June 1977 6 July 2044 6 June 1977 – 5 July 1977 6 September 2044 6 July 1977 – 5 August 1977 6 November 2044 6 August 1977 – 5 September 1977 6 January 2045 6 September 1977 – 5 October 1977 6 March 2045 6 October 1977 – 5 November 1977 6 May 2045 6 November 1977 – 5 December 1977 6 July 2045 6 December 1977 – 5 January 1978 6 September 2045 6 January 1978 – 5 February 1978 6 November 2045 6 February 1978 – 5 March 1978 6 January 2046 6 March 1978 – 5 April 1978 6 March 2046 6 April 1978 onwards 68th birthday

@@ -1,0 +1,117 @@
+A service graph describes the UK government service "Street collection licence" with the fields below. Judge them against the source text that follows, and nothing else.
+
+Do not use anything you know about UK government services. The question is whether this text says it, not whether it is true.
+
+For a field marked "(split into claims)", split it into single factual statements and judge each. Together the claims must cover every factual statement in the field: do not skip one because it is hard to judge. For any other field, return it as one claim.
+
+- supported: the text states it, including every figure, age, date and condition it names. Paraphrase is fine, and so is anything the text plainly implies.
+- partly_supported: the text states some of it, but a figure, condition or detail is not in the text.
+- contradicted: the claim and the text cannot both be true: a different figure, a route or method the text says does not exist, a sign-in the text names differently. A detail the text leaves out is partly_supported, not contradicted.
+- not_stated: the text does not address it.
+
+A claim that you can apply or do this a certain way (online, by phone, by post, in person) is supported only where the text says you can apply, ask or start the service that way. How the service itself is delivered (an assessment held face-to-face, a payment made by post) does not count.
+
+Also list every way the text says you can apply (methods_on_page), and the sign-in it names for applying online, if any (sign_in_on_page).
+
+The verdict and the note must agree. Quotes must be copied exactly from the source text, not paraphrased or stitched together.
+
+Report by writing one JSON object, and nothing else, to the file data/stage5/correction-02/judge/la-street-collection-licence.response.json. It must match this JSON schema:
+{
+  "type": "object",
+  "properties": {
+    "fields": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "The field key exactly as given."
+          },
+          "claims": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "claim": {
+                  "type": "string",
+                  "description": "One factual statement from the field, in its own words."
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "supported",
+                    "partly_supported",
+                    "contradicted",
+                    "not_stated"
+                  ]
+                },
+                "quote": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "The single shortest span, under 300 characters, that best supports or contradicts the claim. Copied character for character from the source text. Null only for not_stated."
+                },
+                "source": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ],
+                  "description": "Which SOURCE the quote comes from."
+                },
+                "note": {
+                  "type": "string",
+                  "description": "One sentence. For anything other than supported, say exactly what differs or is missing."
+                }
+              },
+              "required": [
+                "claim",
+                "verdict",
+                "quote",
+                "source",
+                "note"
+              ]
+            }
+          }
+        },
+        "required": [
+          "key",
+          "claims"
+        ]
+      }
+    },
+    "methods_on_page": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "online",
+          "phone",
+          "post",
+          "in-person"
+        ]
+      },
+      "description": "Every way the source text says you can apply for or do this service."
+    },
+    "sign_in_on_page": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "The account or sign-in the source text says is needed to apply online (for example \"Government Gateway\", \"GOV.UK One Login\"), or null if it names none."
+    }
+  },
+  "required": [
+    "fields",
+    "methods_on_page",
+    "sign_in_on_page"
+  ]
+}
+
+FIELDS
+[desc] (split into claims) Collecting money or selling items for charity in a public street or place may require a street collection licence, depending on the local council. Apply to the local council, or the Metropolitan Police in Greater London outside the City of London.
+[summary] (split into claims) You might need a licence to collect money or sell items for charity on the street, depending on the local council. In Greater London outside the City of London, contact the Metropolitan Police. You could be fined £200 for collecting money for charity without a required licence.
+
+--- SOURCE 0: https://www.gov.uk/find-licences/street-collection-licence ---
+Street collection licence (England & Wales). If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council. Restrictions It’s not just ‘streets’ that are covered - you’ll need a licence if you collect money in public areas, eg a shop doorway or car park. Exceptions You don’t need a street collection licence if you’re selling articles as part of a business, and no representation is made that any part of the proceeds of sale will be devoted to any charitable purpose. This is in accordance with Section 5(1)(b) of the Police, Factories, & c. (Miscellaneous Provisions) Act 1916 . How to apply Contact your local council to find out if you need a licence. In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence. Fines and penalties You could be fined £200 if you collect money for charity without a licence.

@@ -1,0 +1,93 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Contracts Finder lets users search public contract opportunities.",
+          "verdict": "supported",
+          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors",
+          "source": 0,
+          "note": "The service page expressly offers contract opportunity search."
+        },
+        {
+          "claim": "Contracts Finder lets users look up previous tenders and contracts.",
+          "verdict": "supported",
+          "quote": "look up details of previous tenders and contracts",
+          "source": 0,
+          "note": "The service page expressly offers past tender and contract lookup."
+        },
+        {
+          "claim": "Contracts Finder publishes award information for in-scope procurements under the previous rules.",
+          "verdict": "supported",
+          "quote": "As set out under the introduction and scope, there are a number of circumstances where contract award information still needs to be published on Contracts Finder.",
+          "source": 1,
+          "note": "The transitional guidance identifies continuing award publication on Contracts Finder for its in-scope procurements."
+        },
+        {
+          "claim": "The relevant previous rules cover procurements begun before 24 February 2025.",
+          "verdict": "supported",
+          "quote": "This guidance only applies to procurements commenced before 24 February 2025 under the PCRs.",
+          "source": 1,
+          "note": "The guidance defines the earlier-regulation scope and cutoff date."
+        },
+        {
+          "claim": "New procurements use Find a Tender for notices.",
+          "verdict": "supported",
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "source": 1,
+          "note": "The guidance routes notices for procurements begun from that date to Find a Tender."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Contracts Finder is free to use.",
+          "verdict": "supported",
+          "quote": "Contracts Finder is free to use and is accessible here: http://www.gov.uk/contracts-finder",
+          "source": 1,
+          "note": "The guidance expressly says the service is free."
+        },
+        {
+          "claim": "Contracts Finder can be used to search public contract opportunities.",
+          "verdict": "supported",
+          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors",
+          "source": 0,
+          "note": "The service page states that users can search opportunities."
+        },
+        {
+          "claim": "Contracts Finder remains in use for in-scope procurements begun under the previous regulations before 24 February 2025.",
+          "verdict": "supported",
+          "quote": "This guidance only applies to procurements commenced before 24 February 2025 under the PCRs.",
+          "source": 1,
+          "note": "The transitional Contracts Finder guidance continues to apply to the in-scope earlier procurements it identifies."
+        },
+        {
+          "claim": "New procurements under the Procurement Act 2023 are published on Find a Tender.",
+          "verdict": "supported",
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "source": 1,
+          "note": "The source directs required notices for new procurements to Find a Tender."
+        }
+      ]
+    },
+    {
+      "key": "agentInteraction_agentSteps_2",
+      "claims": [
+        {
+          "claim": "Notices for new public procurements are published on Find a Tender.",
+          "verdict": "supported",
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "source": 1,
+          "note": "The source names Find a Tender as the notice platform for procurements begun under the new regime."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-22T15:58:34.255Z",
+  "lastRun": "2026-10-23T12:43:51.744Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -705,7 +705,7 @@
       "sourceUrl": "https://www.gov.uk/limited-company-formation/register-your-company",
       "sourceQuote": "…ny and making sure company accounts and reports are properly prepared. A director must be 16 or over. Directors do not have to live in the UK but companies must have a UK registered office a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "ch-register-ltd#eligibility.summary": {
@@ -932,6 +932,19 @@
       "valueHash": "bea2d4acfaff3ecd",
       "valueSeen": "https://www.gov.uk/claim-compensation-criminal-injury"
     },
+    "co-contracts-finder#agentInteraction.agentSteps.2": {
+      "valueHash": "5d76c1dfbd026b4b",
+      "valueSeen": "Explain that new public procurement notices are published on Find a Tender",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+      "sourceQuote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "co-contracts-finder#agentInteraction.apiUrl": {
       "valueHash": "b1bcfefb5a351214",
       "valueSeen": "https://www.gov.uk/government/publications/open-contracting",
@@ -985,32 +998,62 @@
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Cabinet Office\",\"Government Commercial Agency\"], which is a publishing role and need not match delivery."
     },
     "co-contracts-finder#desc": {
-      "valueHash": "5d6da283a42102f0",
-      "valueSeen": "Search and apply for government contracts and procurement opportunities published by central and local government in the UK.",
+      "valueHash": "3ea1092040d88752",
+      "valueSeen": "Search public contract opportunities and awards from procurements begun under the previous rules; new procurements use Find a Tender.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/contracts-finder",
-      "sourceQuote": "You can still search and apply for contracts without an account.",
+      "sourceQuote": "You can use Contracts Finder to: search for contract opportunities in different sectors",
+      "additionalQuotes": [
+        {
+          "quote": "look up details of previous tenders and contracts",
+          "url": "https://www.gov.uk/contracts-finder"
+        },
+        {
+          "quote": "As set out under the introduction and scope, there are a number of circumstances where contract award information still needs to be published on Contracts Finder.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder"
+        },
+        {
+          "quote": "This guidance only applies to procurements commenced before 24 February 2025 under the PCRs.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder"
+        },
+        {
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The text covers the government, its agencies and non-devolved bodies, mainly in England, and says Scotland, Wales and Northern Ireland have their own sites. It never mentions local government, and it does not describe the service as covering the whole UK."
+        "supported": 5,
+        "total": 5
+      }
     },
     "co-contracts-finder#eligibility.summary": {
-      "valueHash": "2f974db2b9ae2194",
-      "valueSeen": "Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published h",
+      "valueHash": "6adf7da41aaa09bf",
+      "valueSeen": "Contracts Finder is free to use to search public contract opportunities. It remains in use for in-scope procurements begun under the previous regulations before 24 February 2025; new procurements unde",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
-      "sourceUrl": "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
-      "sourceQuote": "Contracts Finder is free to use.",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+      "sourceQuote": "Contracts Finder is free to use and is accessible here: http://www.gov.uk/contracts-finder",
+      "additionalQuotes": [
+        {
+          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors",
+          "url": "https://www.gov.uk/contracts-finder"
+        },
+        {
+          "quote": "This guidance only applies to procurements commenced before 24 February 2025 under the PCRs.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder"
+        },
+        {
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
+        "supported": 4,
         "total": 4
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The text describes searching opportunities but does not explicitly establish access for every business or organisation. partly supported: The £12,000 threshold is stated, but publication duties are limited to in-scope procurements and may have exemptions. contradicted: The stated threshold for these other authorities is £30,000 including VAT, not £25,000."
+      }
     },
     "co-contracts-finder#govuk_url": {
       "sourceUrl": "https://www.gov.uk/contracts-finder",
@@ -2532,7 +2575,7 @@
       "sourceUrl": "https://www.gov.uk/apply-first-provisional-driving-licence",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "unverified",
       "rationale": "\"Must be at least 15 years and 9 months old (age 16 rounded)\": 16 not found in a matching form on https://www.gov.uk/apply-first-provisional-driving-licence."
     },
@@ -3987,7 +4030,7 @@
       "sourceUrl": "https://www.gov.uk/book-theory-test",
       "sourceQuote": "",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "unverified",
       "rationale": "\"Must be at least 17 years old (16 for moped)\": 17 not found in a matching form on https://www.gov.uk/book-theory-test."
     },
@@ -4268,24 +4311,35 @@
       "valueSeen": "dwp"
     },
     "dwp-attendance-allowance#desc": {
-      "valueHash": "96fd9827d0c20a6e",
-      "valueSeen": "For over-65s with care needs. Not means-tested. Two rates depending on day/night needs.",
+      "valueHash": "f265828fe1f19b20",
+      "valueSeen": "For people who have reached State Pension age and have care needs. Not means-tested. Two rates depending on day or night needs.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/attendance-allowance",
-      "sourceQuote": "Attendance Allowance is not means-tested - what you earn or how much you have in savings will not affect what you get.",
+      "sourceQuote": "you’ve reached State Pension age",
       "additionalQuotes": [
+        {
+          "quote": "your disability or health condition is severe enough for you to need help caring for yourself or someone to supervise you",
+          "url": "https://www.gov.uk/attendance-allowance"
+        },
+        {
+          "quote": "Attendance Allowance is not means-tested - what you earn or how much you have in savings will not affect what you get.",
+          "url": "https://www.gov.uk/attendance-allowance"
+        },
+        {
+          "quote": "Attendance Allowance is paid weekly at 2 different rates",
+          "url": "https://www.gov.uk/attendance-allowance"
+        },
         {
           "quote": "Lower rate - £76.70 Frequent help or constant supervision during the day, or supervision at night Higher rate - £114.60 Help or supervision throughout both day and night",
           "url": "https://www.gov.uk/attendance-allowance"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
-        "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The text links eligibility to State Pension age and care needs but never gives the age 65."
+        "supported": 5,
+        "total": 5
+      }
     },
     "dwp-attendance-allowance#eligibility.autoQualifiers.0": {
       "valueHash": "cb303a8b25ec19a0",
@@ -4302,18 +4356,17 @@
       "rationale": "partly supported: The text names form SR1 and 'special rules for end of life', but it does not mention DS1500 or say the claim is immediate; it only says 'more quickly'."
     },
     "dwp-attendance-allowance#eligibility.criteria.0": {
-      "valueHash": "058d61cac721bcc1",
-      "valueSeen": "Must have reached State Pension age (66 or over).",
+      "valueHash": "8de68974ff686e94",
+      "valueSeen": "Must have reached State Pension age.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/attendance-allowance",
-      "sourceQuote": "You can get Attendance Allowance if you’ve reached State Pension age and the following apply:",
+      "sourceQuote": "You can get Attendance Allowance if you’ve reached State Pension age",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: State Pension age is rising above 66, so being 66 is not always enough."
+        "total": 1
+      }
     },
     "dwp-attendance-allowance#eligibility.criteria.1": {
       "valueHash": "561a0f2c46eb7b74",
@@ -4365,13 +4418,39 @@
       "confidence": "unverified",
       "rationale": "partly supported: The Attendance Allowance page requires State Pension age and the PIP page says new PIP claims are usually for people under that age, but neither page tells under-age people to claim PIP instead."
     },
+    "dwp-attendance-allowance#eligibility.keyQuestions.0": {
+      "valueHash": "f8b42ae7077a134f",
+      "valueSeen": "Have you reached State Pension age?",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/attendance-allowance",
+      "sourceQuote": "You can get Attendance Allowance if you’ve reached State Pension age",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "dwp-attendance-allowance#eligibility.ruleIn.0": {
+      "valueHash": "fda35d39fc49471a",
+      "valueSeen": "Reached State Pension age",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/attendance-allowance",
+      "sourceQuote": "You can get Attendance Allowance if you’ve reached State Pension age",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "dwp-attendance-allowance#eligibility.rules.0.reached": {
       "valueHash": "b5bea41b6c623f7c",
       "valueSeen": "true",
       "sourceUrl": "https://www.gov.uk/attendance-allowance",
       "sourceQuote": "…ding society or credit union account . You can get Attendance Allowance if you’ve reached State Pension age and the following apply: you have a physical disability (including sensory disability, fo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-attendance-allowance#eligibility.summary": {
@@ -4633,18 +4712,17 @@
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#eligibility.criteria.1": {
-      "valueHash": "c15b0f5ce18a3d62",
-      "valueSeen": "Must have been under State Pension age (66) at the time of the partner's death.",
+      "valueHash": "93765668c3810f4e",
+      "valueSeen": "You must have been under State Pension age when your partner died.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "When your partner died, you must have been: under State Pension age",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The age varies by date of birth during the 2026–2028 transition and is not fixed at 66."
+        "total": 1
+      }
     },
     "dwp-bereavement-support#eligibility.criteria.2": {
       "valueHash": "ced1edc520fb416d",
@@ -4725,13 +4803,26 @@
         "total": 2
       }
     },
+    "dwp-bereavement-support#eligibility.keyQuestions.0": {
+      "valueHash": "59664470d37702f7",
+      "valueSeen": "Were you under State Pension age when your partner died?",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
+      "sourceQuote": "When your partner died, you must have been: under State Pension age",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "dwp-bereavement-support#eligibility.rules.2.reached": {
       "valueHash": "fcbcf165908dd18a",
       "valueSeen": "false",
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "…n savings will not affect what you get. When your partner died, you must have been: under State Pension age living in the UK or a country that pays bereavement benefits married to your partner, in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#eligibility.rules.3.maxDays": {
@@ -4740,7 +4831,7 @@
       "sourceUrl": "https://www.gov.uk/bereavement-support-payment",
       "sourceQuote": "…ou’re in prison. When you need to make your claim You usually need to make a claim within 21 months of your partner’s death. If it’s been over 21 months since your partner’s death, you may…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-bereavement-support#eligibility.summary": {
@@ -5134,7 +5225,7 @@
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "…e who should receive the benefit. The type of care you provide You need to spend at least 35 hours a week caring for someone. This can include: helping with washing and cooking taking the…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#eligibility.rules.3.value": {
@@ -5143,7 +5234,7 @@
       "sourceUrl": "https://www.gov.uk/carers-allowance",
       "sourceQuote": "…g for 21 hours a week or more you’re not subject to immigration control your earnings are £204 or less a week after tax, National Insurance and expenses If you live in Scotland, you ne…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-carers-allowance#eligibility.summary": {
@@ -5668,7 +5759,7 @@
       "sourceUrl": "https://www.gov.uk/disability-living-allowance-children",
       "sourceQuote": "Disability Living Allowance (DLA) for children. Help for children under 16 with disabilities - DLA rate, eligibility, how to apply, claim form. Disability Living Al…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-dla-child#eligibility.summary": {
@@ -5958,7 +6049,7 @@
       "sourceUrl": "https://www.gov.uk/funeral-payments",
       "sourceQuote": "…child cannot claim (for example, they live abroad or are in prison) You must apply within 6 months of the funeral, even if you’re waiting for a decision on a qualifying benefit . You can m…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-funeral-payment#eligibility.summary": {
@@ -6183,7 +6274,7 @@
       "sourceUrl": "https://www.gov.uk/housing-benefit",
       "sourceQuote": "…y make a new claim for Housing Benefit if either of the following apply: you have reached State Pension age you’re in supported, sheltered or temporary housing This guide is also available in Welsh…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-housing-benefit#eligibility.rules.2.value": {
@@ -6192,7 +6283,7 @@
       "sourceUrl": "https://www.gov.uk/housing-benefit",
       "sourceQuote": "…not be able to claim Usually, you will not get Housing Benefit if: your savings are over £16,000 - unless you get Guarantee Credit of Pension Credit you’re paying a mortgage on your own…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-housing-benefit#eligibility.summary": {
@@ -6523,7 +6614,7 @@
       "sourceUrl": "https://www.gov.uk/mandatory-reconsideration",
       "sourceQuote": "…are on your decision letter. You usually need to ask for mandatory reconsideration within one month of the date on your decision letter. If you’re writing, the letter or form must arrive by…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-mandatory-reconsideration#eligibility.summary": {
@@ -7128,7 +7219,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "…. There are different eligibility rules if you’re in Northern Ireland . You must also: be 18 or over be under the State Pension age be in Great Britain not be working 16 or more hours per we…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-jsa#eligibility.rules.1.reached": {
@@ -7137,7 +7228,7 @@
       "sourceUrl": "https://www.gov.uk/jobseekers-allowance",
       "sourceQuote": "…igibility rules if you’re in Northern Ireland . You must also: be 18 or over be under the State Pension age be in Great Britain not be working 16 or more hours per week You will not be eligible if…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-new-style-jsa#eligibility.summary": {
@@ -7591,37 +7682,47 @@
       "rationale": "not stated: The source mentions Winter Fuel Payment only as something that does not count as income, not as help that Pension Credit unlocks. partly supported: The source limits the free TV licence to people aged 75 or over, and the claim leaves that condition out."
     },
     "dwp-pension-credit#eligibility.autoQualifiers.0": {
-      "valueHash": "626be0422e5cfe6e",
-      "valueSeen": "State Pension age reached and income clearly below threshold",
+      "valueHash": "2998e70d0d527d30",
+      "valueSeen": "State Pension age reached, or partner receiving Housing Benefit for people over State Pension age, with income clearly below threshold",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:11:59.706Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/pension-credit",
-      "sourceQuote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+      "sourceQuote": "one of you is getting Housing Benefit for people over State Pension age",
       "additionalQuotes": [
         {
           "quote": "Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner",
           "url": "https://www.gov.uk/pension-credit"
         }
       ],
-      "confidence": "confirmed",
       "claims": {
         "supported": 2,
-        "total": 2
-      }
-    },
-    "dwp-pension-credit#eligibility.criteria.0": {
-      "valueHash": "f587bdc5dd3e252b",
-      "valueSeen": "Must have reached State Pension age (currently 66).",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
-      "sourceUrl": "https://www.gov.uk/pension-credit",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 2
+        "total": 3
       },
       "confidence": "unverified",
-      "rationale": "partly supported: The general age rule has a mixed-age couple exception when one partner gets Housing Benefit for people over State Pension age. contradicted: The age is rising in stages during 2026–2028, so it is not uniformly 66 now."
+      "rationale": "partly supported: For a partnered applicant, both partners must have reached that age unless one gets the specified Housing Benefit."
+    },
+    "dwp-pension-credit#eligibility.criteria.0": {
+      "valueHash": "3a90da4e0243f56d",
+      "valueSeen": "If you are single, you must have reached State Pension age. If you have a partner, you may qualify if both of you have reached State Pension age or one of you gets Housing Benefit for people over Stat",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+      "additionalQuotes": [
+        {
+          "quote": "you and your partner have both reached State Pension age",
+          "url": "https://www.gov.uk/pension-credit"
+        },
+        {
+          "quote": "one of you is getting Housing Benefit for people over State Pension age",
+          "url": "https://www.gov.uk/pension-credit"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 3,
+        "total": 3
+      }
     },
     "dwp-pension-credit#eligibility.criteria.1": {
       "valueHash": "bfed42e4553ca22f",
@@ -7655,14 +7756,87 @@
       "confidence": "unverified",
       "rationale": "partly supported: The source asks for information about savings and investments but does not say documentary proof is needed."
     },
-    "dwp-pension-credit#eligibility.rules.0.reached": {
+    "dwp-pension-credit#eligibility.keyQuestions.0": {
+      "valueHash": "08f2b132b3eaf41e",
+      "valueSeen": "Have you reached State Pension age? If you have a partner, does either of you receive Housing Benefit for people over State Pension age?",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+      "additionalQuotes": [
+        {
+          "quote": "one of you is getting Housing Benefit for people over State Pension age",
+          "url": "https://www.gov.uk/pension-credit"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
+    },
+    "dwp-pension-credit#eligibility.ruleIn.0": {
+      "valueHash": "d68441b4df91ec5d",
+      "valueSeen": "Reached State Pension age or receiving Housing Benefit for people over State Pension age",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
+      "confidence": "unverified",
+      "rationale": "partly supported: The age route for partners requires both partners to have reached State Pension age; the label omits that condition."
+    },
+    "dwp-pension-credit#eligibility.rules.0.label": {
+      "valueHash": "b9b0293421abb7c5",
+      "valueSeen": "Reached State Pension age or receives Housing Benefit for people over State Pension age",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
+      "confidence": "unverified",
+      "rationale": "partly supported: The age route for partners requires both partners to have reached State Pension age; the label omits that condition."
+    },
+    "dwp-pension-credit#eligibility.rules.0.rules.0.label": {
+      "valueHash": "fda35d39fc49471a",
+      "valueSeen": "Reached State Pension age",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "dwp-pension-credit#eligibility.rules.0.rules.0.reached": {
       "valueHash": "b5bea41b6c623f7c",
       "valueSeen": "true",
       "sourceUrl": "https://www.gov.uk/pension-credit",
       "sourceQuote": "…rvice if you’re moving house You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit. Find out about Pension Credit in Northern Ireland . If you…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
+    },
+    "dwp-pension-credit#eligibility.rules.0.rules.1.label": {
+      "valueHash": "25c67d83db5d2e60",
+      "valueSeen": "Receiving Housing Benefit for people over State Pension age",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/pension-credit",
+      "sourceQuote": "one of you is getting Housing Benefit for people over State Pension age",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "dwp-pension-credit#eligibility.rules.1.value": {
       "valueHash": "8ae4c23b80d1e7c8",
@@ -7670,7 +7844,7 @@
       "sourceUrl": "https://www.gov.uk/pension-credit",
       "sourceQuote": "…artner, your income is calculated together. Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner If your income…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-pension-credit#eligibility.summary": {
@@ -8047,7 +8221,7 @@
       "sourceUrl": "https://www.gov.uk/pip",
       "sourceQuote": "…an get Personal Independence Payment ( PIP ) if all of the following apply to you: you’re 16 or over you have a long-term physical or mental health condition or disability you have difficult…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-pip#eligibility.rules.1.reached": {
@@ -8056,7 +8230,7 @@
       "sourceUrl": "https://www.gov.uk/pip",
       "sourceQuote": "…s to last for at least 12 months from when they started You also usually need to be under State Pension age to make a new PIP claim. If you live in Scotland, you need to apply for Adult Disability…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-pip#eligibility.summary": {
@@ -8571,7 +8745,7 @@
       "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
       "sourceQuote": "…erring can also affect how much you can get in benefits. Other benefits if you’ve reached State Pension age If you’re on a low income, you may be eligible to apply for Pension Credit , even if you’…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-state-pension#eligibility.rules.1.value": {
@@ -8580,7 +8754,7 @@
       "sourceUrl": "https://www.gov.uk/new-state-pension/eligibility",
       "sourceQuote": "…t the criteria and the time can be added, you could get the new State Pension if you have 10 or more years in total. The amount you get paid will be based on the qualifying years in your UK Nation…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-state-pension#eligibility.summary": {
@@ -8776,7 +8950,7 @@
       "sourceUrl": "https://www.gov.uk/sure-start-maternity-grant",
       "sourceQuote": "…ertain benefits You must claim the grant within 11 weeks of the baby’s due date or within 6 months after the baby’s birth. You do not have to pay the grant back and it will not affect your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-sure-start-grant#eligibility.summary": {
@@ -9099,7 +9273,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit/what-youll-get",
       "sourceQuote": "…ent – either rate of the daily living part You need to provide care for them for at least 35 hours a week. You’ll get an extra monthly amount of £209.34. If you live with your partner and…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-uc-carer#eligibility.summary": {
@@ -9550,7 +9724,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "…work, for example because of a health condition To claim you must: live in the UK be aged 18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#eligibility.rules.1.reached": {
@@ -9559,7 +9733,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "…live in the UK be aged 18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or less in money, savings and investments You can use a benefits calculator…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#eligibility.rules.3.value": {
@@ -9568,7 +9742,7 @@
       "sourceUrl": "https://www.gov.uk/universal-credit",
       "sourceQuote": "…18 or over (there are some exceptions if you’re 16 to 17) be under State Pension age have £16,000 or less in money, savings and investments You can use a benefits calculator to check what…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-universal-credit#eligibility.summary": {
@@ -10006,7 +10180,7 @@
       "sourceUrl": "https://www.gov.uk/winter-fuel-payment",
       "sourceQuote": "…r heating bills - claim form, how much you get, eligibility If you were born on or before 27 June 1960 you could get between £100 and £300 to help you pay your heating bills for winter 2026 to…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "dwp-winter-fuel#eligibility.summary": {
@@ -11140,7 +11314,7 @@
       "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/give-notice",
       "sourceQuote": "…ying fees. You can get married or form a civil partnership in England or Wales if you’re: 18 or over not already married or in a civil partnership not closely related Same sex couples can co…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "gro-give-notice#eligibility.rules.3.maxDays": {
@@ -11149,7 +11323,7 @@
       "sourceUrl": "https://www.gov.uk/marriages-civil-partnerships/give-notice",
       "sourceQuote": "…form a civil partnership. This is known as ‘giving notice’. You must give notice at least 29 days before your ceremony. For example, if you give notice on 1 May, the earliest date you can…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "gro-give-notice#eligibility.summary": {
@@ -11449,7 +11623,7 @@
       "sourceUrl": "https://www.gov.uk/register-birth",
       "sourceQuote": "…certificates All births in England, Wales and Northern Ireland must be registered within 42 days of the child being born. You should do this at the local register office for the area whe…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "gro-register-birth#eligibility.summary": {
@@ -11490,6 +11664,19 @@
       "valueHash": "c89acc71db5f4feb",
       "valueSeen": "https://www.gov.uk/register-birth"
     },
+    "gro-register-death#agentInteraction.agentSteps.1": {
+      "valueHash": "0d13d123c99cf323",
+      "valueSeen": "Explain the 5-day deadline from confirmation that the death can be registered",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
+      "sourceQuote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "gro-register-death#contactInfo.officeLocatorUrl": {
       "valueHash": "c257cb6e181e2d60",
       "valueSeen": "https://www.gov.uk/register-offices",
@@ -11510,6 +11697,19 @@
       "method": "literal-presence",
       "verifiedAt": "2026-10-14T10:12:26.258Z",
       "confidence": "confirmed"
+    },
+    "gro-register-death#deadline": {
+      "valueHash": "c4dff285691f77e3",
+      "valueSeen": "5 days from confirmation that the death can be registered",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
+      "sourceQuote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "gro-register-death#deptKey": {
       "sourceUrl": "https://www.gov.uk/register-a-death",
@@ -11538,18 +11738,17 @@
       "rationale": "partly supported: The text implies registration is handled by the register office but does not say it must be the local one. partly supported: The text says a death certificate can be used to apply for probate, but does not say registration must happen before probate. partly supported: Tell Us Once needs the death registered or reported to a coroner with a death certificate, so registration is not the only route. not stated: The text does not link registration to bereavement payments."
     },
     "gro-register-death#eligibility.criteria.0": {
-      "valueHash": "3a4d4b5b67072c75",
-      "valueSeen": "A person has died in England or Wales.",
+      "valueHash": "213c7ccd6c854783",
+      "valueSeen": "For this local register-office process, the death occurred in England or Wales.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
-      "sourceUrl": "https://www.gov.uk/register-a-death",
-      "sourceQuote": "",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+      "sourceQuote": "Every death in England and Wales must be registered in the district where it happened",
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
+        "supported": 1,
         "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The source includes deaths elsewhere in the UK and abroad, so England or Wales is not a universal condition."
+      }
     },
     "gro-register-death#eligibility.criteria.1": {
       "valueHash": "e220e2450d9c6947",
@@ -11575,34 +11774,63 @@
       "confidence": "unverified",
       "rationale": "partly supported: The Act names the occupier of the house (if they knew of the death), not an administrator of the premises; only a single council page equates occupier with an establishment's manager or senior administrator."
     },
+    "gro-register-death#eligibility.rules.1.label": {
+      "valueHash": "bfeafc18151afb2a",
+      "valueSeen": "Register within 5 days of confirmation that the death can be registered",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
+      "sourceQuote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "gro-register-death#eligibility.rules.1.maxDays": {
       "valueHash": "ef2d127de37b942b",
       "valueSeen": "5",
       "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
-      "sourceQuote": "…edical examiner’s office to confirm you can register the death. Register the death within 5 days (8 days in Scotland) of getting the confirmation. This includes weekends and bank holiday…",
+      "sourceQuote": "…getting the confirmation. This includes weekends and bank holidays. If you need more than 5 days, you must tell the register office immediately. After you’ve registered the death You’ll…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
-    "gro-register-death#eligibility.summary": {
-      "valueHash": "b8950d24294e1b4f",
-      "valueSeen": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
+    "gro-register-death#eligibility.rules.1.triggerLabel": {
+      "valueHash": "e16c8ef3ee664f20",
+      "valueSeen": "date you received confirmation that you can register the death",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:15:45.432Z",
-      "sourceUrl": "https://www.legislation.gov.uk/ukpga/Eliz2/1-2/20/section/16",
-      "sourceQuote": "the giving of information and the signing of the register by any one qualified informant shall act as a discharge of any duty under this subsection of every other qualified informant",
+      "verifiedAt": "2026-10-23T12:37:42.167Z",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
+      "sourceQuote": "You must wait for the medical examiner’s office to confirm you can register the death. Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "gro-register-death#eligibility.summary": {
+      "valueHash": "89554829b0f65e49",
+      "valueSeen": "In England and Wales, a death must be registered by a qualified informant within 5 days of confirmation that it can be registered.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+      "sourceQuote": "Every death in England and Wales must be registered in the district where it happened",
       "additionalQuotes": [
+        {
+          "quote": "By law one of these people must register a death: A relative of the deceased The partner of the deceased The personal representative of the deceased A person present at the death The occupier of the care home / hospital where the death occurred The person arranging the funeral",
+          "url": "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/"
+        },
         {
           "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
           "url": "https://www.gov.uk/after-a-death/register-the-death"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
+        "supported": 3,
         "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The source says it is a criminal offence not to register a death, but this advice is stated for England; the sources do not state the requirement for every death in Wales in the same terms."
+      }
     },
     "gro-register-death#govuk_url": {
       "sourceUrl": "https://www.gov.uk/register-a-death",
@@ -11614,6 +11842,25 @@
       "confidence": "confirmed",
       "valueHash": "fb4077746954ef3e",
       "valueSeen": "https://www.gov.uk/register-a-death"
+    },
+    "gro-register-death#nations": {
+      "valueHash": "3414bf0524b74e24",
+      "valueSeen": "england, wales",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:43:34.026Z",
+      "sourceUrl": "https://www.gov.uk/after-a-death/register-the-death",
+      "sourceQuote": "These rules apply if you live in England and Wales.",
+      "additionalQuotes": [
+        {
+          "quote": "These rules apply if you live in England and Wales.",
+          "url": "https://www.gov.uk/after-a-death/register-the-death"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
     },
     "hmcts-benefit-tribunal#agentInteraction.authRequired": {
       "valueHash": "30a0924a3360be68",
@@ -12057,7 +12304,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
       "sourceQuote": "…n have depends on how much the court or tribunal fee is. For example, you can have: up to £4,250 in savings if your fee is £1,420 or less up to £16,000 in savings if your fee is over £7,…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#eligibility.rules.0.rules.1.rules.0.value": {
@@ -12066,7 +12313,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
       "sourceQuote": "…ort whichever income is lower. You can get money off your fee if your reported income is: £1,420 or less, if you’re single £2,130 or less, if you have a partner For each child you have,…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#eligibility.rules.0.rules.1.rules.1.value": {
@@ -12075,7 +12322,7 @@
       "sourceUrl": "https://www.gov.uk/get-help-with-court-fees",
       "sourceQuote": "…ou must also have less than the maximum amount of money in savings. This is usually up to £4,250. Your income Your income includes anything you earn before tax and any other payments you…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmcts-court-fee-remission#eligibility.summary": {
@@ -13437,7 +13684,7 @@
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "…and property You will not usually be eligible if you and your partner have assets of over £8,000. Assets are: savings and investments any equity in your home over £100,000 (equity is the…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmcts-legal-aid#eligibility.rules.1.rules.0.value": {
@@ -13446,7 +13693,7 @@
       "sourceUrl": "https://www.gov.uk/legal-aid",
       "sourceQuote": "…’ll usually need to show that you and your partner either: have a joint monthly income of £2,657 or less (before tax and other deductions) get a qualifying benefit Qualifying benefits ar…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmcts-legal-aid#eligibility.summary": {
@@ -13808,6 +14055,39 @@
       "valueHash": "d697860e35f25e93",
       "valueSeen": "https://www.gov.uk/applying-for-probate"
     },
+    "hmcts-tax-tribunal#agentInteraction.agentSteps.0": {
+      "valueHash": "697734293dc84ee7",
+      "valueSeen": "Confirm the applicable appeal deadline and whether a late appeal needs a judge’s permission",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+      "sourceQuote": "The time limits which apply will be stated in the decision letter issued to you.",
+      "additionalQuotes": [
+        {
+          "quote": "If you have not appealed within the time limit, you can apply to the tribunal for permission to bring a late appeal on the notice of appeal.",
+          "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+        }
+      ],
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 2,
+        "total": 2
+      }
+    },
+    "hmcts-tax-tribunal#agentInteraction.agentSteps.1": {
+      "valueHash": "1c18a3a4061c695a",
+      "valueSeen": "Check whether an appeal to HMRC or an HMRC review is needed first",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/tax-tribunal",
+      "sourceQuote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal.",
+      "claims": {
+        "supported": 1,
+        "total": 2
+      },
+      "confidence": "unverified",
+      "rationale": "contradicted: The source presents a review as optional, not as a required step before a tribunal appeal."
+    },
     "hmcts-tax-tribunal#agentInteraction.methods": {
       "valueHash": "45ce98a3633a15c6",
       "valueSeen": "You can apply or do this online. You can apply or do this by post.",
@@ -13836,13 +14116,17 @@
       "pageUpdatedAt": "2015-02-12T11:59:36+00:00"
     },
     "hmcts-tax-tribunal#deadline": {
-      "valueHash": "66280174704deb6f",
-      "valueSeen": "30 days from HMRC decision",
-      "sourceUrl": "https://www.gov.uk/tax-tribunal",
-      "sourceQuote": "You usually have 30 days to appeal from the date on your decision letter.",
-      "method": "manual",
-      "verifiedAt": "2026-09-28T11:46:20.182Z",
-      "confidence": "confirmed"
+      "valueHash": "5b62d5a08d1b4f94",
+      "valueSeen": "Usually 30 days from the relevant decision or HMRC review conclusion",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+      "sourceQuote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "hmcts-tax-tribunal#deptKey": {
       "sourceUrl": "https://www.gov.uk/tax-tribunal",
@@ -13856,18 +14140,31 @@
       "valueSeen": "hmcts"
     },
     "hmcts-tax-tribunal#desc": {
-      "valueHash": "c7e5614ef3ae602d",
-      "valueSeen": "Appeal an HMRC tax decision to the independent First-tier Tribunal (Tax Chamber) if HMRC's review has not resolved the dispute.",
+      "valueHash": "1b0c6fdad91b6c67",
+      "valueSeen": "Appeal certain HMRC tax decisions and penalties to the independent First-tier Tribunal (Tax Chamber). Direct tax decisions must usually be appealed to HMRC first.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/tax-tribunal",
-      "sourceQuote": "The tribunal is independent of the government, HMRC , Border Force, the NCA , the WRA and the Gambling Commission.",
+      "sourceQuote": "Appeal to the First-tier Tribunal (Tax) against tax decisions: how to appeal, the hearing, if you lose your case. You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )",
+      "additionalQuotes": [
+        {
+          "quote": "If you’ve been asked to pay duty or a penalty You may be able to appeal if HMRC : sends you an assessment for duty charges you a penalty",
+          "url": "https://www.gov.uk/tax-tribunal"
+        },
+        {
+          "quote": "The tribunal is independent of the government, HMRC , Border Force, the NCA , the WRA and the Gambling Commission.",
+          "url": "https://www.gov.uk/tax-tribunal"
+        },
+        {
+          "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal.",
+          "url": "https://www.gov.uk/tax-tribunal"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The text says you can appeal after a review you disagree with, but it treats a review as optional, not a condition for appealing."
+        "supported": 4,
+        "total": 4
+      }
     },
     "hmcts-tax-tribunal#eligibility.criteria.0": {
       "valueHash": "9e1f99cf67feec03",
@@ -13883,16 +14180,59 @@
       "confidence": "unverified",
       "rationale": "partly supported: The direct/indirect routing is stated (the text says direct tax 'must' go to HMRC first, with no 'usually'), but the text does not require an HMRC decision: it also allows appeals against decisions by Border Force, the NCA, the WRA and the Gambling Commission."
     },
-    "hmcts-tax-tribunal#eligibility.summary": {
-      "valueHash": "ef5add61476931c2",
-      "valueSeen": "Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for",
+    "hmcts-tax-tribunal#eligibility.keyQuestions.2": {
+      "valueHash": "104ae9486608011d",
+      "valueSeen": "Is the appeal within the applicable deadline?",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+      "sourceQuote": "There are time limits in which you must make your appeal to the tribunal about indirect tax or tell them of your appeal about direct tax.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmcts-tax-tribunal#eligibility.ruleIn.1": {
+      "valueHash": "ab5d9769fedb8f87",
+      "valueSeen": "Within the applicable appeal window",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+      "sourceQuote": "There are time limits in which you must make your appeal to the tribunal about indirect tax or tell them of your appeal about direct tax.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmcts-tax-tribunal#eligibility.ruleOut.0": {
+      "valueHash": "6d5e8b1975180e93",
+      "valueSeen": "Late appeal requires a judge to accept it",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+      "sourceQuote": "Late appeals will only be admitted if a judge considers in the circumstances that it is in the interests of justice.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmcts-tax-tribunal#eligibility.summary": {
+      "valueHash": "dfe454e27f868889",
+      "valueSeen": "You can appeal some HMRC tax decisions and penalties to the First-tier Tribunal. For direct tax, you must usually appeal to HMRC first. The tribunal appeal deadline is usually 30 days from the relevan",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/tax-tribunal",
-      "sourceQuote": "Direct tax includes: Income Tax PAYE Tax Corporation Tax Capital Gains Tax National Insurance contributions Inheritance Tax Indirect tax includes: VAT",
+      "sourceQuote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )",
       "additionalQuotes": [
         {
-          "quote": "You may be able to appeal if HMRC : sends you an assessment for duty charges you a penalty",
+          "quote": "If you’ve been asked to pay duty or a penalty You may be able to appeal if HMRC : sends you an assessment for duty charges you a penalty",
+          "url": "https://www.gov.uk/tax-tribunal"
+        },
+        {
+          "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal.",
           "url": "https://www.gov.uk/tax-tribunal"
         },
         {
@@ -13904,12 +14244,11 @@
           "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 4,
+        "supported": 5,
         "total": 5
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The tribunal accepts some HMRC decisions, not every HMRC decision; direct tax cases must first be appealed to HMRC."
+      }
     },
     "hmcts-tax-tribunal#govuk_url": {
       "sourceUrl": "https://www.gov.uk/tax-tribunal",
@@ -14784,7 +15123,7 @@
       "sourceUrl": "https://www.gov.uk/carers-credit",
       "sourceQuote": "…y and how to claim You could get Carer’s Credit if you’re caring for someone for at least 20 hours a week. Carer’s Credit is a National Insurance credit that helps with gaps in your Nation…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-carers-credit#eligibility.summary": {
@@ -15016,7 +15355,7 @@
       "sourceUrl": "https://www.gov.uk/child-benefit",
       "sourceQuote": "…aim form CH2. You get Child Benefit if you’re responsible for bringing up a child who is: under 16 under 20 if they stay in approved education or training Only one person can get Child Ben…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-child-benefit#eligibility.summary": {
@@ -15557,7 +15896,7 @@
       "sourceUrl": "https://www.gov.uk/guidance/corporation-tax-trading-and-non-trading",
       "sourceQuote": "…rds Board. Tell HMRC your company or organisation is now active You must tell HMRC within 3 months of starting your tax accounting period if your limited company is within the charge of Co…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-corporation-tax#eligibility.summary": {
@@ -15764,7 +16103,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "…in Wales , provides childcare in Scotland or provides childcare in Northern Ireland . All 3 to 4-year-olds in England can get 570 free hours per year. It’s usually taken as 15 hours a week for 38…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-15#eligibility.rules.2.value": {
@@ -15773,7 +16112,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-and-education-for-3-to-4-year-olds",
       "sourceQuote": "…care for your child outside your home. Foster carers If you’re a foster parent of a child aged 9 months to 4 years old you can claim Free Childcare for Working Parents as long as: you’re in paid wor…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-15#eligibility.summary": {
@@ -16005,7 +16344,7 @@
       "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
       "sourceQuote": "…arents. If you live in England and work you may be able to get free childcare for a child aged 9 months to 4 years old. Check if you're eligible and how and when to apply. You may be able to get 30…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-30#eligibility.rules.3.value": {
@@ -16014,7 +16353,7 @@
       "sourceUrl": "https://www.gov.uk/free-childcare-if-working",
       "sourceQuote": "…ou or your partner’s expected adjusted net income (including any foreign income ) is over £100,000 for the current tax year Your child’s age and circumstances If your child is aged 9 month…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-free-childcare-30#eligibility.summary": {
@@ -16537,7 +16876,7 @@
       "sourceUrl": "https://www.gov.uk/inheritance-tax",
       "sourceQuote": "…ere’s normally no Inheritance Tax to pay if either: the value of your estate is below the £325,000 threshold you leave everything above the £325,000 threshold to your spouse, civil partner…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-iht400#eligibility.rules.2.maxDays": {
@@ -16546,7 +16885,7 @@
       "sourceUrl": "https://www.gov.uk/valuing-estate-of-someone-who-died/tell-hmrc-estate-value",
       "sourceQuote": "…eritance Tax to pay. If there is, you’ll need to send full details of the estate , within 12 months of the person dying and before applying for probate. When to send full details of the est…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-iht400#eligibility.summary": {
@@ -16665,7 +17004,7 @@
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "…y open and your savings will still earn interest or investment returns. You must be 18 or over but under 40 to open a Lifetime ISA . To open and continue to pay into a Lifetime ISA you must also be…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-lisa#eligibility.rules.2.value": {
@@ -16674,7 +17013,7 @@
       "sourceUrl": "https://www.gov.uk/lifetime-isa",
       "sourceQuote": "…ur savings to help you buy your first home if all the following apply: the property costs £450,000 or less you buy the property at least 12 months after you make your first payment into th…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-lisa#eligibility.summary": {
@@ -16979,7 +17318,7 @@
       "sourceUrl": "https://www.gov.uk/marriage-allowance",
       "sourceQuote": "…ays Income Tax at the basic rate, which usually means their income is between £12,571 and £50,270 before they receive Marriage Allowance You cannot claim Marriage Allowance if you’re livi…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-marriage-allowance#eligibility.summary": {
@@ -17021,6 +17360,32 @@
       "confidence": "confirmed",
       "valueHash": "3e36624ff46f5c5b",
       "valueSeen": "https://www.gov.uk/marriage-allowance"
+    },
+    "hmrc-mtd#agentInteraction.agentSteps.0": {
+      "valueHash": "d525fbcb3723fd13",
+      "valueSeen": "Explain Making Tax Digital for VAT obligations and exemptions",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+      "sourceQuote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmrc-mtd#agentInteraction.agentSteps.2": {
+      "valueHash": "d8342149eff5767f",
+      "valueSeen": "Explain the Income Tax Making Tax Digital requirements that began on 6 April 2026",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+      "sourceQuote": "From 6 April 2026, sole traders and landlords must use it if their total annual income from self-employment and property is over £50,000.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "hmrc-mtd#agentInteraction.apiUrl": {
       "valueHash": "263aca868cd6d127",
@@ -17077,69 +17442,61 @@
       "valueSeen": "hmrc"
     },
     "hmrc-mtd#desc": {
-      "valueHash": "32b84d426bd94bf3",
-      "valueSeen": "Mandatory for VAT-registered businesses, which should now all be signed up automatically. Phased rollout for income tax from 2026.",
+      "valueHash": "f81874f0941476c6",
+      "valueSeen": "VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for exemption. Making Tax Digital for Income Tax began on 6 April 2026 for qualifying sole traders and landlords",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/guidance/find-software-thats-compatible-with-making-tax-digital-for-vat",
-      "sourceQuote": "You must now use compatible software to keep your VAT records and file your VAT Returns.",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+      "sourceQuote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
       "additionalQuotes": [
         {
-          "quote": "HMRC will sign up all new VAT registered businesses to Making Tax Digital for VAT automatically unless they are already exempt or have applied for exemption.",
-          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-vat"
-        }
-      ],
-      "claims": {
-        "supported": 2,
-        "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "not stated: The sources only cover MTD for VAT and never mention income tax or 2026."
-    },
-    "hmrc-mtd#eligibility.autoQualifiers.0": {
-      "valueHash": "7d58514ea74d8a15",
-      "valueSeen": "VAT registered",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T08:48:24.566Z",
-      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
-      "sourceQuote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT.",
-      "confidence": "confirmed"
-    },
-    "hmrc-mtd#eligibility.criteria.0": {
-      "valueHash": "2c773e7c0126f8ef",
-      "valueSeen": "Mandatory for all VAT-registered businesses. Phased in for income tax self-assessment from 2026.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
-      "sourceQuote": "",
-      "claims": {
-        "supported": 0,
-        "total": 1
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The VAT part is supported, apart from exemptions; the income tax self-assessment rollout from 2026 is not stated."
-    },
-    "hmrc-mtd#eligibility.criteria.1": {
-      "valueHash": "eff2745d614c240f",
-      "valueSeen": "MTD for Income Tax applies from April 2026 to sole traders and landlords with income over £50,000.",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-21T20:54:28.208Z",
-      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
-      "sourceQuote": "From 6 April 2026, sole traders and landlords must use it if their total annual income from self-employment and property is over £50,000.",
-      "additionalQuotes": [
-        {
-          "quote": "Making Tax Digital for Income Tax is a new way for sole traders and landlords to report their income and expenses to HMRC.",
-          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
-        },
-        {
-          "quote": "From 6 April 2026, sole traders and landlords must use it if their total annual income from self-employment and property is over £50,000.",
-          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax"
         }
       ],
       "confidence": "confirmed",
       "claims": {
-        "supported": 3,
-        "total": 3
+        "supported": 2,
+        "total": 2
+      }
+    },
+    "hmrc-mtd#eligibility.autoQualifiers.0": {
+      "valueHash": "fb78475ff11659ca",
+      "valueSeen": "VAT registered and not exempt from Making Tax Digital for VAT",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+      "sourceQuote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmrc-mtd#eligibility.criteria.0": {
+      "valueHash": "6f8362780d1467b3",
+      "valueSeen": "VAT-registered businesses should use Making Tax Digital for VAT unless exempt or applying for exemption.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+      "sourceQuote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmrc-mtd#eligibility.criteria.1": {
+      "valueHash": "36a27c2478190fda",
+      "valueSeen": "Making Tax Digital for Income Tax applies from 6 April 2026 to qualifying sole traders and landlords with 2024 to 2025 qualifying income over £50,000.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+      "sourceQuote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
       }
     },
     "hmrc-mtd#eligibility.evidenceRequired.0": {
@@ -17170,42 +17527,104 @@
       "confidence": "unverified",
       "rationale": "not stated: The sources do not list a VAT registration number as needed to sign up; the withdrawn agent guidance mentions only a VAT certificate."
     },
+    "hmrc-mtd#eligibility.keyQuestions.2": {
+      "valueHash": "f80c4859a1da5f8a",
+      "valueSeen": "Was your qualifying income from self-employment or property over £50,000 in 2024 to 2025?",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+      "sourceQuote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmrc-mtd#eligibility.ruleIn.1": {
+      "valueHash": "38bc7531756f7dce",
+      "valueSeen": "Qualifying sole trader or landlord with income over £50,000 in 2024 to 2025, from 6 April 2026",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+      "sourceQuote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "hmrc-mtd#eligibility.rules.0.label": {
+      "valueHash": "22fbb8c4c51f6d06",
+      "valueSeen": "VAT registered or self-employed with income over £50,000",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:37:42.167Z",
+      "sourceUrl": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+      "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 2
+      },
+      "confidence": "unverified",
+      "rationale": "partly supported: VAT registration is relevant, but the label omits the exemption and pending-exemption exceptions. partly supported: The threshold concerns qualifying self-employment and property income, and the label leaves out that income definition and other eligibility conditions."
+    },
+    "hmrc-mtd#eligibility.rules.0.rules.1.label": {
+      "valueHash": "1fdd635faf848723",
+      "valueSeen": "Self-employed with income over £50,000 (MTD for Income Tax)",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:37:42.167Z",
+      "sourceUrl": "https://www.gov.uk/guidance/sign-up-for-making-tax-digital-for-income-tax",
+      "sourceQuote": "",
+      "claims": {
+        "supported": 0,
+        "total": 1
+      },
+      "confidence": "unverified",
+      "rationale": "partly supported: The threshold concerns qualifying self-employment and property income, and the label leaves out that income definition and other eligibility conditions."
+    },
+    "hmrc-mtd#eligibility.rules.0.rules.1.rules.0.label": {
+      "valueHash": "2bcaf9ddb8d79fb8",
+      "valueSeen": "Self-employed",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:37:42.167Z",
+      "sourceUrl": "https://www.gov.uk/guidance/sign-up-for-making-tax-digital-for-income-tax",
+      "sourceQuote": "Qualifying income is your total income from self-employment and property.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "hmrc-mtd#eligibility.rules.0.rules.1.rules.1.value": {
       "valueHash": "60734f174b2035e5",
       "valueSeen": "50000",
       "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
       "sourceQuote": "…dlords must use it if their total annual income from self-employment and property is over £50,000. You, or your agent if you have one, will need to use software that works with Making Tax…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-mtd#eligibility.summary": {
-      "valueHash": "fae8437757f9c559",
-      "valueSeen": "Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with inco",
+      "valueHash": "39c3dba6903fc1d3",
+      "valueSeen": "VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for an exemption; they keep digital VAT records and submit returns using compatible software. Making Tax Digital",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
-      "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
-      "sourceQuote": "You should now keep VAT records and submit VAT Returns using compatible software.",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+      "sourceQuote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
       "additionalQuotes": [
         {
           "quote": "You should now keep VAT records and submit VAT Returns using compatible software.",
           "url": "https://www.gov.uk/government/collections/making-tax-digital-for-vat"
         },
         {
-          "quote": "From 6 April 2026, sole traders and landlords must use it if their total annual income from self-employment and property is over £50,000.",
-          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
-        },
-        {
-          "quote": "have qualifying income of more than £50,000 — read more about what qualifying income is and what is included",
-          "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step"
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 4,
-        "total": 5
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: Exempt businesses and those applying for an exemption are exceptions to the universal claim."
+        "supported": 3,
+        "total": 3
+      }
     },
     "hmrc-mtd#govuk_url": {
       "sourceUrl": "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
@@ -17951,7 +18370,7 @@
       "sourceUrl": "https://www.gov.uk/stamp-duty-land-tax",
       "sourceQuote": "…on is complicated. How and when to pay Send an SDLT return to HMRC and pay the tax within 14 days of completion . If you have a solicitor, agent or conveyancer, they’ll usually file your…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-sdlt#eligibility.summary": {
@@ -18341,7 +18760,7 @@
       "sourceUrl": "https://www.gov.uk/maternity-pay-leave/pay",
       "sourceQuote": "…ad. Statutory Maternity Pay ( SMP ) To qualify for SMP you must: earn on average at least £129 a week give the correct notice and proof you’re pregnant have worked for your employer co…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-smp#eligibility.summary": {
@@ -18650,7 +19069,7 @@
       "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
       "sourceQuote": "…ou must: be employed by your employer up to the date of birth earn an average of at least £129 a week (before tax) give the correct notice have been continuously employed by your emplo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-spp#eligibility.rules.3.maxDays": {
@@ -18659,7 +19078,7 @@
       "sourceUrl": "https://www.gov.uk/paternity-pay-leave",
       "sourceQuote": "…n a week of leave is 2 days. Your leave cannot start before the birth. It must end within 52 weeks of the baby’s birth (or the due date if the baby is early). The start and end date rules…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-spp#eligibility.summary": {
@@ -19153,7 +19572,7 @@
       "sourceUrl": "https://www.gov.uk/parental-bereavement-pay-leave",
       "sourceQuote": "…. The leave: can start on or after the date of the death or stillbirth must finish within 56 weeks of the date of the death or stillbirth Taking leave with other types of statutory leave I…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-statutory-parental-bereavement#eligibility.summary": {
@@ -19438,7 +19857,7 @@
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "…a year). You’ll usually need to be working (or returning to work) and your child must be 11 or younger (16 or younger if they’re disabled). Your childcare provider must be signed up to the Tax…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#eligibility.rules.3.value": {
@@ -19447,7 +19866,7 @@
       "sourceUrl": "https://www.gov.uk/tax-free-childcare",
       "sourceQuote": "…ou or your partner’s expected adjusted net income (including any foreign income ) is over £100,000 for the current tax year you or your partner get a childcare bursary or grant If you clai…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-free-childcare#eligibility.summary": {
@@ -19621,7 +20040,7 @@
       "sourceUrl": "https://www.gov.uk/tax-on-pension",
       "sourceQuote": "…f your total annual income adds up to more than your Personal Allowance - this is usually £12,570. This guide is also available in Welsh (Cymraeg) . Types of pensions There are different…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-tax-on-pension#eligibility.summary": {
@@ -20057,7 +20476,7 @@
       "sourceUrl": "https://www.gov.uk/vat-registration",
       "sourceQuote": "…You must register if either: your total taxable turnover for the last 12 months goes over £90,000 (the VAT threshold) you expect your taxable turnover to go over £90,000 in the next 30 da…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "hmrc-vat#eligibility.summary": {
@@ -20338,32 +20757,35 @@
       "valueSeen": "ho"
     },
     "ho-citizenship-ceremony#desc": {
-      "valueHash": "f50f745968313f6f",
-      "valueSeen": "Required final step after citizenship is approved. Make an oath of allegiance, receive your certificate. Must attend within 3 months of the Home Office invitation. Fee included in the citizenship appl",
+      "valueHash": "800fedc1e74a8074",
+      "valueSeen": "Usually required after a successful adult British citizenship application. Attend within 3 months of the Home Office invitation to make the oath or affirmation and receive the certificate. Attendance ",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/citizenship-ceremonies",
-      "sourceQuote": "You’ll have to make an oath of allegiance (or an affirmation if you prefer not to swear by God) and a pledge.",
+      "sourceQuote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
       "additionalQuotes": [
-        {
-          "quote": "At the end of the ceremony you’ll be presented with your certificate of British citizenship and a welcome pack.",
-          "url": "https://www.gov.uk/citizenship-ceremonies"
-        },
         {
           "quote": "You must attend a citizenship ceremony within 3 months of receiving your invitation from the Home Office.",
           "url": "https://www.gov.uk/citizenship-ceremonies"
         },
         {
-          "quote": "The cost of your ceremony is included in your application fee.",
+          "quote": "You’ll have to make an oath of allegiance (or an affirmation if you prefer not to swear by God) and a pledge.",
+          "url": "https://www.gov.uk/citizenship-ceremonies"
+        },
+        {
+          "quote": "At the end of the ceremony you’ll be presented with your certificate of British citizenship and a welcome pack.",
+          "url": "https://www.gov.uk/citizenship-ceremonies"
+        },
+        {
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
           "url": "https://www.gov.uk/citizenship-ceremonies"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 4,
+        "supported": 5,
         "total": 5
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The text says you must attend after a successful application, but only if you are 18 or over, and Windrush applicants can choose whether to attend; it never calls the ceremony the 'final step'."
+      }
     },
     "ho-citizenship-ceremony#eligibility.autoQualifiers.0": {
       "valueHash": "aef20156b5cebc72",
@@ -20384,24 +20806,27 @@
       "confidence": "confirmed"
     },
     "ho-citizenship-ceremony#eligibility.criteria.1": {
-      "valueHash": "0eb5247dd9520155",
-      "valueSeen": "Adults aged 18 and over must attend in person. Children under 18 can be included on a parent's ceremony.",
+      "valueHash": "9668d8c618360a7c",
+      "valueSeen": "Adults aged 18 or over who successfully applied for British citizenship usually need to attend a ceremony; people who become citizens under the Windrush scheme may choose whether to attend. Children u",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/citizenship-ceremonies",
-      "sourceQuote": "You must take your invitation when you go to your ceremony.",
+      "sourceQuote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
       "additionalQuotes": [
+        {
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "url": "https://www.gov.uk/citizenship-ceremonies"
+        },
         {
           "quote": "Children under 18 who have applied with their parents may attend a ceremony with other members of the family, to collect their certificate.",
           "url": "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
+        "supported": 3,
         "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The source makes attendance optional for the Windrush scheme and also lists citizenship categories that do not require a ceremony."
+      }
     },
     "ho-citizenship-ceremony#eligibility.evidenceRequired.0": {
       "valueHash": "e1c98b1d242f772c",
@@ -20426,33 +20851,45 @@
       "confidence": "unverified",
       "rationale": "partly supported: Only one council's page (Wandsworth) asks for photo ID; the GOV.UK page says only that you must take your invitation."
     },
-    "ho-citizenship-ceremony#eligibility.summary": {
-      "valueHash": "a0d6a6d8acc52472",
-      "valueSeen": "All adults (18+) approved for British citizenship must attend a citizenship ceremony, organised by their local authority, within 3 months of receiving the Home Office invitation. Citizenship is not co",
+    "ho-citizenship-ceremony#eligibility.ruleIn.1": {
+      "valueHash": "bc20b38fa39932da",
+      "valueSeen": "Aged 18 or over and required to attend a citizenship ceremony",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/citizenship-ceremonies",
-      "sourceQuote": "Your local authority will organise your citizenship ceremony.",
+      "sourceQuote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
+    "ho-citizenship-ceremony#eligibility.summary": {
+      "valueHash": "7b5b94b529955ed4",
+      "valueSeen": "Adults aged 18 or over who successfully apply for British citizenship usually need to attend a ceremony within 3 months of the Home Office invitation. Attendance is optional under the Windrush scheme.",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/citizenship-ceremonies",
+      "sourceQuote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
       "additionalQuotes": [
         {
           "quote": "You must attend a citizenship ceremony within 3 months of receiving your invitation from the Home Office.",
           "url": "https://www.gov.uk/citizenship-ceremonies"
         },
         {
-          "quote": "Your permission needs to last until you have had your citizenship ceremony.",
-          "url": "https://www.gov.uk/british-citizenship"
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "url": "https://www.gov.uk/citizenship-ceremonies"
         },
         {
-          "quote": "It costs £1,839 (£1,709 to apply and a £130 citizenship ceremony fee).",
-          "url": "https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain"
+          "quote": "The cost of your ceremony is included in your application fee.",
+          "url": "https://www.gov.uk/citizenship-ceremonies"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
         "supported": 4,
-        "total": 5
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: The text does make attendance a rule for successful applicants aged 18 or over, but it leaves out that Windrush scheme citizens can choose not to attend, so 'all' goes too far."
+        "total": 4
+      }
     },
     "ho-citizenship-ceremony#govuk_url": {
       "sourceUrl": "https://www.gov.uk/citizenship-ceremonies",
@@ -21905,7 +22342,7 @@
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
       "sourceQuote": "…When you do not need to take the test You do not need to take the test if you: are under 18 are 65 or over have passed it before - for example, if you’re applying to become a citizen and already p…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "ho-life-in-uk#eligibility.rules.1.value": {
@@ -21914,7 +22351,7 @@
       "sourceUrl": "https://www.gov.uk/life-in-the-uk-test",
       "sourceQuote": "…ou do not need to take the test You do not need to take the test if you: are under 18 are 65 or over have passed it before - for example, if you’re applying to become a citizen and already p…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "ho-life-in-uk#eligibility.summary": {
@@ -23524,18 +23961,23 @@
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Transport\"], which is a publishing role and need not match delivery."
     },
     "la-bus-pass#desc": {
-      "valueHash": "2b249e1c5772fd4c",
-      "valueSeen": "Available from State Pension age. Apply via local council.",
+      "valueHash": "9c90bfabcfca0029",
+      "valueSeen": "In England, available from State Pension age. Apply via the local council.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:11:59.706Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
-      "sourceQuote": "apply for a bus pass from your local council",
+      "sourceQuote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+      "additionalQuotes": [
+        {
+          "quote": "apply for a bus pass from your local council",
+          "url": "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
+        "supported": 2,
         "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "partly supported: State Pension age applies only in England; the text gives 60 for London travel, Wales, Scotland and Northern Ireland."
+      }
     },
     "la-bus-pass#eligibility.autoQualifiers.0": {
       "valueHash": "fda35d39fc49471a",
@@ -23547,18 +23989,23 @@
       "confidence": "confirmed"
     },
     "la-bus-pass#eligibility.criteria.0": {
-      "valueHash": "559cb4589c16be8f",
-      "valueSeen": "Must have reached State Pension age (currently 66). Some disabled people may also qualify before this age.",
+      "valueHash": "5b783564a84d1018",
+      "valueSeen": "In England, you can get an older person’s bus pass when you reach State Pension age. An eligible disabled person may qualify for a separate disabled person’s pass.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:39:37.903Z",
       "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
-      "sourceQuote": "",
+      "sourceQuote": "In England you can get a bus pass for free travel when you reach the State Pension age .",
+      "additionalQuotes": [
+        {
+          "quote": "You’re eligible for a disabled person’s pass if you live in England and are ‘eligible disabled’.",
+          "url": "https://www.gov.uk/apply-for-disabled-bus-pass"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 0,
-        "total": 3
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The State Pension age rule applies in England, while Wales allows the pass at 60 and Scotland and Northern Ireland also use 60. contradicted: The age is rising in stages during 2026–2028, so it is not uniformly 66 now. partly supported: The source confirms a disabled-person route but does not expressly state that it is available before the older-person qualifying age."
+        "supported": 2,
+        "total": 2
+      }
     },
     "la-bus-pass#eligibility.evidenceRequired.0": {
       "valueHash": "4605e7257130de56",
@@ -23599,13 +24046,26 @@
         "total": 1
       }
     },
+    "la-bus-pass#eligibility.ruleIn.0": {
+      "valueHash": "856cd1507e2559a6",
+      "valueSeen": "Reached State Pension age in England",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+      "sourceQuote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
+    },
     "la-bus-pass#eligibility.rules.0.rules.0.reached": {
       "valueHash": "b5bea41b6c623f7c",
       "valueSeen": "true",
       "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
       "sourceQuote": "…in England or Wales In England you can get a bus pass for free travel when you reach the State Pension age . If you live in London, you can travel free on buses, tubes and other transport when you…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-bus-pass#eligibility.summary": {
@@ -23642,6 +24102,19 @@
       "confidence": "confirmed",
       "valueHash": "7f3ded9bcefcd13f",
       "valueSeen": "https://www.gov.uk/apply-for-elderly-person-bus-pass"
+    },
+    "la-bus-pass#nations": {
+      "valueHash": "f26175c3b66fe340",
+      "valueSeen": "england",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:43:51.742Z",
+      "sourceUrl": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+      "sourceQuote": "In England you can get a bus pass for free travel when you reach the State Pension age .",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "la-business-rates#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -24751,7 +25224,7 @@
       "sourceUrl": "https://www.gov.uk/register-to-vote",
       "sourceQuote": "…les around voting in the UK . If you live in England or Northern Ireland You must be aged 16 or over to register. You can register to vote if you’re a British citizen or an Irish citizen. Yo…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-electoral-roll#eligibility.summary": {
@@ -24901,7 +25374,7 @@
       "sourceUrl": "https://www.gov.uk/guidance/food-business-registration",
       "sourceQuote": "…and charities . England, Wales and Northern Ireland You are required to register at least 28 days before trading. We recommend that you do not register too early, but that you wait until…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-food-hygiene#eligibility.summary": {
@@ -25172,7 +25645,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
       "sourceQuote": "…or approved childcare - Tax-Free Childcare, 15 and 30 hours childcare, Early Learning for 2 year olds, childcare vouchers, Learner Support. You can get help with the cost of childcare throug…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-free-childcare-2yr#eligibility.rules.3.rules.0.rules.1.value": {
@@ -25181,7 +25654,7 @@
       "sourceUrl": "https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support",
       "sourceQuote": "…lds if any of the following apply: you get Universal Credit, and your household income is £15,400 a year or less after tax (not including benefit payments) you get Income Support, income-…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-free-childcare-2yr#eligibility.summary": {
@@ -26562,7 +27035,7 @@
       "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
       "sourceQuote": "…an education, health and care ( EHC ) plan - a plan of care for children and young people aged up to 25 who have more complex needs If you or your child got support before September 2014 this w…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-send-ehc#eligibility.rules.1.maxDays": {
@@ -26571,7 +27044,7 @@
       "sourceUrl": "https://www.gov.uk/children-with-special-educational-needs/extra-SEN-help",
       "sourceQuote": "…r child goes to a specialist needs school or specialist college. Your local authority has 20 weeks from the date they receive the request for the assessment to give you the final EHC plan.…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "la-send-ehc#eligibility.summary": {
@@ -26816,18 +27289,36 @@
       "rationale": "Delivery-routing judgement. GOV.UK publisher for this page is [\"Department for Digital, Culture, Media & Sport (2017 to 2023)\",\"Department for Levelling Up, Housing and Communities \"], which is a publishing role and need not match delivery."
     },
     "la-street-collection-licence#desc": {
-      "valueHash": "f4f5c5b101b4d37f",
-      "valueSeen": "Collecting money or selling items for charity in a public street or place requires a street collection licence. Apply to the local council, or the Metropolitan Police in Greater London.",
+      "valueHash": "451845d149e0d512",
+      "valueSeen": "Collecting money or selling items for charity in a public street or place may require a street collection licence, depending on the local council. Apply to the local council, or the Metropolitan Polic",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
-      "sourceQuote": "",
+      "sourceQuote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+      "additionalQuotes": [
+        {
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence"
+        },
+        {
+          "quote": "It’s not just ‘streets’ that are covered - you’ll need a licence if you collect money in public areas, eg a shop doorway or car park.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence"
+        },
+        {
+          "quote": "How to apply Contact your local council to find out if you need a licence.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence"
+        },
+        {
+          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence"
+        }
+      ],
       "claims": {
-        "supported": 0,
-        "total": 2
+        "supported": 5,
+        "total": 6
       },
       "confidence": "unverified",
-      "rationale": "partly supported: The text says you might need a licence depending on your local council, not that one is always required. partly supported: The text excludes the City of London from the Metropolitan Police route, and the claim leaves that condition out."
+      "rationale": "partly supported: The public area passage refers to collecting money but does not expressly extend the selling rule beyond streets."
     },
     "la-street-collection-licence#eligibility.criteria.0": {
       "valueHash": "a1ed784a56c6d743",
@@ -26867,24 +27358,31 @@
       "rationale": "not stated: The text lists no evidence or information needed to apply."
     },
     "la-street-collection-licence#eligibility.summary": {
-      "valueHash": "a97458082592e3ac",
-      "valueSeen": "Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty",
+      "valueHash": "766891f342b3f25d",
+      "valueSeen": "You might need a licence to collect money or sell items for charity on the street, depending on the local council. In Greater London outside the City of London, contact the Metropolitan Police. You co",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
-      "sourceQuote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+      "sourceQuote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
       "additionalQuotes": [
+        {
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence"
+        },
+        {
+          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence"
+        },
         {
           "quote": "You could be fined £200 if you collect money for charity without a licence.",
           "url": "https://www.gov.uk/find-licences/street-collection-licence"
         }
       ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 2,
+        "supported": 4,
         "total": 4
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The page says a licence might be needed depending on the council, rather than for every collection. not stated: Neither source states a fee or says the licence is free."
+      }
     },
     "la-street-collection-licence#govuk_url": {
       "sourceUrl": "https://www.gov.uk/find-licences/street-collection-licence",
@@ -28669,7 +29167,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/dentists/who-can-get-free-nhs-dental-treatment/",
       "sourceQuote": "…nd treatment in England You can get free NHS dental appointments and treatment if: you're aged under 18, or under 19 and in full-time education you're pregnant or have had a baby in the last 12…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-free-dental#eligibility.summary": {
@@ -28833,7 +29331,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions",
       "sourceQuote": "…e NHS prescriptions if you’re: under 16 aged 16, 17 or 18 and in full time education aged 60 or over If your date of birth is printed electronically on your prescription, you do not need to…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-free-prescriptions#eligibility.rules.0.rules.1.value": {
@@ -28842,7 +29340,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions",
       "sourceQuote": "…fore claiming free prescriptions Age You’re entitled to free NHS prescriptions if you’re: under 16 aged 16, 17 or 18 and in full time education aged 60 or over If your date of birth is pri…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-free-prescriptions#eligibility.summary": {
@@ -29038,7 +29536,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
       "sourceQuote": "…e costs yourself. Free NHS eye tests You're entitled to a free NHS sight test if you: are under 16 are 16, 17 or 18 and in full-time education (this includes being taught full-time at a sc…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-free-sight-tests#eligibility.rules.0.rules.1.value": {
@@ -29047,7 +29545,7 @@
       "sourceUrl": "https://www.nhs.uk/nhs-services/opticians/free-nhs-eye-tests-and-optical-vouchers/",
       "sourceQuote": "…on (this includes being taught full-time at a school, college, university or at home) are 60 or over are registered as partially sighted or blind have been diagnosed with diabetes or glaucom…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-free-sight-tests#eligibility.summary": {
@@ -29359,7 +29857,7 @@
       "sourceUrl": "https://www.healthystart.nhs.uk/",
       "sourceQuote": "…tart scheme) What is Healthy Start? If you’re more than 10 weeks pregnant or have a child under 4, you may be entitled to get help to buy healthy food and milk. If you’re eligible, you’ll…",
       "method": "literal-presence",
-      "verifiedAt": "2026-09-29T10:05:48.470Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-healthy-start#eligibility.summary": {
@@ -29573,7 +30071,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/nhs-low-income-scheme",
       "sourceQuote": "…Who cannot apply You cannot apply if you or your partner (or both of you) have more than: £16,000 in savings, investments or property (not including the place where you live) £23,250 in s…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-low-income-scheme#eligibility.rules.2.rules.0.rules.0.value": {
@@ -29582,7 +30080,7 @@
       "sourceUrl": "https://www.nhsbsa.nhs.uk/help-nhs-prescription-costs/free-nhs-prescriptions",
       "sourceQuote": "…e NHS prescriptions if you’re: under 16 aged 16, 17 or 18 and in full time education aged 60 or over If your date of birth is printed electronically on your prescription, you do not need to…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "nhs-low-income-scheme#eligibility.summary": {
@@ -30005,7 +30503,7 @@
       "sourceUrl": "https://www.nidirect.gov.uk/articles/discretionary-support",
       "sourceQuote": "…must live in Northern Ireland the crisis must have arisen in Northern Ireland you must be over 18 or at least 16 if you do not have any parental support your and your partner’s (if you have one) total a…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "ni-discretionary-support#eligibility.summary": {
@@ -30823,7 +31321,7 @@
       "sourceUrl": "https://www.gov.uk/power-of-attorney",
       "sourceQuote": "…If you’ve already made an LPA , you can manage or use your LPA . Eligibility You must be 18 or over and have mental capacity (the ability to make your own decisions) when you make your LPA…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "opg-lpa#eligibility.summary": {
@@ -30900,16 +31398,16 @@
       "valueSeen": "opg"
     },
     "opg-lpa-activation#desc": {
-      "valueHash": "ba4193dd1949d6fe",
-      "valueSeen": "Notify OPG when LPA holder dies. The registered LPA then ceases to have effect.",
+      "valueHash": "54bf35bf5965107e",
+      "valueSeen": "Notify the Office of the Public Guardian when the donor of a registered LPA dies. OPG then cancels the LPA.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T15:05:20.419Z",
-      "sourceUrl": "https://www.gov.uk/manage-lasting-power-attorney/start-lasting-power-of-attorney",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report",
       "sourceQuote": "You must report the death of a donor to the Office of the Public Guardian ( OPG ).",
       "additionalQuotes": [
         {
-          "quote": "Your LPA will end automatically when you die.",
-          "url": "https://www.gov.uk/power-of-attorney/changes-you-need-to-report"
+          "quote": "OPG will cancel the LPA if the donor dies",
+          "url": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report"
         }
       ],
       "confidence": "confirmed",
@@ -30919,18 +31417,23 @@
       }
     },
     "opg-lpa-activation#eligibility.criteria.0": {
-      "valueHash": "9e6049f4565fdb4b",
-      "valueSeen": "A registered LPA exists and the donor has died.",
+      "valueHash": "c17f7d2df8eeb21d",
+      "valueSeen": "A registered LPA existed and its donor has died; the donor’s death must be reported to the Office of the Public Guardian.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
-      "sourceUrl": "https://www.gov.uk/manage-lasting-power-attorney/start-lasting-power-of-attorney",
-      "sourceQuote": "You must have registered the LPA before you can start acting as an attorney.",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report",
+      "sourceQuote": "Manage a lasting power of attorney. Using a registered lasting power of attorney (LPA)",
+      "additionalQuotes": [
+        {
+          "quote": "You must report the death of a donor to the Office of the Public Guardian ( OPG ).",
+          "url": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
+        "supported": 2,
         "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The source says the LPA is cancelled on the donor’s death rather than activated or used then."
+      }
     },
     "opg-lpa-activation#eligibility.criteria.1": {
       "valueHash": "ce54addf0e4d261c",
@@ -31831,7 +32334,7 @@
       "sourceUrl": "https://www.gov.uk/first-homes-scheme",
       "sourceQuote": "…uyer be able to get a mortgage for at least half the price of the home not earn more than £80,000 a year before tax (£90,000 if the property is in London) - this is your income from the p…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "other-help-to-buy#eligibility.summary": {
@@ -32961,7 +33464,7 @@
       "sourceUrl": "https://www.gov.uk/free-discount-tv-licence",
       "sourceQuote": "Get a free or discounted TV licence. You can get a free TV licence if you're 75 or over and you get Pension Credit, or a discount if you're blind or in residential care - who qu…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "other-tv-licence-pension#eligibility.summary": {
@@ -34048,7 +34551,7 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment/applicants",
       "sourceQuote": "…ility Payment Adults with a disability, long term or terminal illness You must be between 16 and State Pension age . Apply if you have a: disability long-term physical or mental health condition terminal…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-adult-disability-payment#eligibility.rules.2.reached": {
@@ -34057,7 +34560,7 @@
       "sourceUrl": "https://www.mygov.scot/adult-disability-payment/applicants",
       "sourceQuote": "…ayment Adults with a disability, long term or terminal illness You must be between 16 and State Pension age . Apply if you have a: disability long-term physical or mental health condition terminal…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-adult-disability-payment#eligibility.summary": {
@@ -34268,7 +34771,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods",
       "sourceQuote": "…can help you buy healthy foods like milk or fruit during pregnancy and when your child is under 3. Best Start Foods is paid every 4 weeks. The payments are: £22.40 during pregnancy (you’l…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-best-start-foods#eligibility.rules.2.rules.2.value": {
@@ -34277,7 +34780,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
       "sourceQuote": "…rland. Contact Social Security Scotland for more information. Open all sections If you're under 18 Show this section If you're under 18, you do not need to be on any payments or benefits t…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-best-start-foods#eligibility.summary": {
@@ -34501,7 +35004,7 @@
       "sourceUrl": "https://www.mygov.scot/best-start-grant-best-start-foods/best-start-apply",
       "sourceQuote": "…rland. Contact Social Security Scotland for more information. Open all sections If you're under 18 Show this section If you're under 18, you do not need to be on any payments or benefits t…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-best-start-grant#eligibility.summary": {
@@ -34788,7 +35291,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment/who-can-apply",
       "sourceQuote": "…ort Payment If you work If you study To get carer benefits in Scotland, you must: be aged 16 or over usually live in Scotland, or have lived in England, Wales, Ireland, the Channel Islands,…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#eligibility.rules.3.value": {
@@ -34797,7 +35300,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment/who-can-apply",
       "sourceQuote": "…Carer Support Payment To get Carer Support Payment you must also: provide unpaid care for 35 hours or more a week not earn above a certain amount, if you work Carer Additional Person Payme…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#eligibility.rules.5.value": {
@@ -34806,7 +35309,7 @@
       "sourceUrl": "https://www.mygov.scot/carer-support-payment/if-you-work",
       "sourceQuote": "…work If you study To get Carer Support Payment, your ‘take home pay’ cannot be more than £204 a week. This is about the same as £884 a month, or £10,608 a year. This 'earnings limit'…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-carer-support-payment#eligibility.summary": {
@@ -35175,7 +35678,7 @@
       "sourceUrl": "https://www.mygov.scot/child-disability-payment",
       "sourceQuote": "…ayment helps with the extra costs a disabled child might have. You can apply for children under 16 with a physical or mental disability. You can also apply if the child does not have a dia…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-child-disability-payment#eligibility.summary": {
@@ -35383,7 +35886,7 @@
       "sourceUrl": "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment",
       "sourceQuote": "…Security Scotland Children and young people in Scotland can get the assistance if they're under 19 years old and get one of the following 'qualifying benefits': the highest rate of the car…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-child-winter-heating#eligibility.rules.1.rules.1.value": {
@@ -35392,7 +35895,7 @@
       "sourceUrl": "https://www.mygov.scot/child-winter-heating-payment/who-can-get-child-winter-heating-payment",
       "sourceQuote": "…Security Scotland Children and young people in Scotland can get the assistance if they're under 19 years old and get one of the following 'qualifying benefits': the highest rate of the car…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-child-winter-heating#eligibility.summary": {
@@ -35510,18 +36013,17 @@
       }
     },
     "sss-funeral-support-payment#eligibility.criteria.0": {
-      "valueHash": "f2e07251266447a0",
-      "valueSeen": "Must be responsible for arranging or paying for a funeral.",
+      "valueHash": "d641266d2c53c196",
+      "valueSeen": "You or your partner must be responsible for the funeral costs.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
       "sourceQuote": "you or your partner are responsible for the funeral costs",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The source requires responsibility for the costs, not merely arranging the funeral."
+        "total": 1
+      }
     },
     "sss-funeral-support-payment#eligibility.criteria.1": {
       "valueHash": "a2886da199d60611",
@@ -35543,18 +36045,23 @@
       }
     },
     "sss-funeral-support-payment#eligibility.criteria.2": {
-      "valueHash": "99c36228de88c615",
-      "valueSeen": "The funeral must take place in the UK, and applicant must live in Scotland.",
+      "valueHash": "87fe3319dba63547",
+      "valueSeen": "You must live in Scotland. The funeral may be held in the UK or, in some circumstances, another country.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
       "sourceQuote": "you live in Scotland",
+      "additionalQuotes": [
+        {
+          "quote": "the funeral is being held in the UK or in some circumstances , another country",
+          "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when"
+        }
+      ],
+      "confidence": "confirmed",
       "claims": {
-        "supported": 1,
+        "supported": 2,
         "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The source allows a funeral in another country in some circumstances."
+      }
     },
     "sss-funeral-support-payment#eligibility.evidenceRequired.0": {
       "valueHash": "30537029ff9a1133",
@@ -35593,6 +36100,19 @@
       },
       "confidence": "unverified",
       "rationale": "partly supported: Evidence is requested if Social Security Scotland cannot verify the benefit, not as a universal application requirement."
+    },
+    "sss-funeral-support-payment#eligibility.rules.1.label": {
+      "valueHash": "3ae2a685a3d70ad6",
+      "valueSeen": "Responsible for funeral costs",
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
+      "sourceUrl": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+      "sourceQuote": "you or your partner are responsible for the funeral costs",
+      "confidence": "confirmed",
+      "claims": {
+        "supported": 1,
+        "total": 1
+      }
     },
     "sss-funeral-support-payment#eligibility.summary": {
       "valueHash": "7ff8aeb1363efe6e",
@@ -35761,7 +36281,7 @@
       "sourceUrl": "https://www.mygov.scot/pension-age-winter-heating-payment",
       "sourceQuote": "…award Contact Social Security Scotland Pension Age Winter Heating Payment helps people of State Pension age pay their heating bills. It's paid once a year and replaced Winter Fuel Payment for peopl…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-pension-winter-heating#eligibility.summary": {
@@ -35986,7 +36506,7 @@
       "sourceUrl": "https://www.mygov.scot/scottish-child-payment",
       "sourceQuote": "…ly. It's a weekly payment of £28.20 that you can get for every child you look after who's under 16 years of age. You'll get the payment every 4 weeks if your application is successful. Sco…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-scottish-child-payment#eligibility.summary": {
@@ -36193,7 +36713,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…of £405.10 for young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#eligibility.rules.2.value": {
@@ -36202,7 +36722,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…young carers in Scotland. To be able to get Young Carer Grant, you must be 16, 17, 18 or 19 years old. You can get Young Carer Grant once a year, up until you turn 20. You'll need to fill in…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#eligibility.rules.4.value": {
@@ -36211,7 +36731,7 @@
       "sourceUrl": "https://www.mygov.scot/young-carer-grant",
       "sourceQuote": "…l need to re-apply. You must also have been caring for 1, 2 or 3 people for an average of 16 hours a week for at least the last 3 months. If you care for more than one person, you can comb…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "sss-young-carer-grant#eligibility.summary": {
@@ -36376,18 +36896,17 @@
       "rationale": "partly supported: The checklist requests pension scheme references and details, but does not expressly request the provider’s details as such."
     },
     "tpr-workplace-pension#eligibility.evidenceRequired.2": {
-      "valueHash": "203c4152980e2163",
-      "valueSeen": "Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)",
+      "valueHash": "fe7d8b7727cfbaa2",
+      "valueSeen": "Declaration of compliance to The Pensions Regulator within five calendar months after the duties start date.",
       "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
+      "verifiedAt": "2026-10-23T12:36:38.815Z",
       "sourceUrl": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
       "sourceQuote": "You must complete your declaration with The Pensions Regulator within five calendar months after your duties start date.",
+      "confidence": "confirmed",
       "claims": {
         "supported": 1,
-        "total": 2
-      },
-      "confidence": "unverified",
-      "rationale": "contradicted: The required submission is a declaration of compliance; the regulator sends the employer a letter with a code."
+        "total": 1
+      }
     },
     "tpr-workplace-pension#eligibility.summary": {
       "valueHash": "d776901f0daa594d",
@@ -36855,7 +37374,7 @@
       "sourceUrl": "https://www.gov.wales/discretionary-assistance-fund-daf/eligibility",
       "sourceQuote": "…tems be in a crisis situation and in need of immediate financial support live in Wales be over 16 (there is no upper age limit for this grant) have no other money for example savings Indi…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-22T15:47:09.717Z",
+      "verifiedAt": "2026-10-23T12:36:46.835Z",
       "confidence": "confirmed"
     },
     "wg-discretionary-assistance#eligibility.summary": {

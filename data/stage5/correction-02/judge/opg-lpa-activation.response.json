@@ -1,0 +1,47 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Notify the Office of the Public Guardian when the donor of a registered LPA dies.",
+          "verdict": "supported",
+          "quote": "You must report the death of a donor to the Office of the Public Guardian ( OPG ).",
+          "source": 1,
+          "note": "The page requires reporting the donor’s death to OPG in its registered LPA guidance."
+        },
+        {
+          "claim": "OPG cancels the LPA when its donor dies.",
+          "verdict": "supported",
+          "quote": "OPG will cancel the LPA if the donor dies",
+          "source": 1,
+          "note": "The page states that OPG will cancel the LPA."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "A registered LPA existed before its donor died.",
+          "verdict": "supported",
+          "quote": "Manage a lasting power of attorney. Using a registered lasting power of attorney (LPA)",
+          "source": 1,
+          "note": "The guidance concerns an existing registered LPA."
+        },
+        {
+          "claim": "The death of an LPA donor must be reported to the Office of the Public Guardian.",
+          "verdict": "supported",
+          "quote": "You must report the death of a donor to the Office of the Public Guardian ( OPG ).",
+          "source": 1,
+          "note": "The page expressly requires reporting the donor’s death."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,18 @@
+Checking 96 rule values across 64 services...
+(node:83801) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+Wrote provenance for 96 rule values
+─── RULE VALUE VERIFICATION (literal presence) ─────────────────
+Confirmed   94  (days 14, age 39, money 23, hours 5, spa 11, years 1, date 1)
+Not found   2  (age 2)
+Unreachable 0
+
+─── NOT FOUND ON CITED PAGE (2) ───
+  dvla-provisional-licence             16       Must be at least 15 years and 9 months old (age 16 rounded)
+  dvsa-theory-test                     17       Must be at least 17 years old (16 for moped)
+
+─── WORDING RUNS AGAINST THE RULE'S OPERATOR (1) — read these ───
+  wg-discretionary-assistance  eligibility.rules.1.value
+    rule is >= 16, page says "over 16"
+    …tems be in a crisis situation and in need of immediate financial support live in Wales be over 16 (there is no upper age limit for this grant) have no other money for example savings Indi…

@@ -1,0 +1,119 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "A ceremony is usually required after a successful adult British citizenship application.",
+          "verdict": "supported",
+          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+          "source": 0,
+          "note": "The page requires a ceremony for successful adult applicants, subject to its stated exceptions."
+        },
+        {
+          "claim": "The ceremony must be attended within 3 months of the Home Office invitation.",
+          "verdict": "supported",
+          "quote": "You must attend a citizenship ceremony within 3 months of receiving your invitation from the Home Office.",
+          "source": 0,
+          "note": "The page gives the same three month deadline and trigger."
+        },
+        {
+          "claim": "At the ceremony, make an oath or affirmation.",
+          "verdict": "supported",
+          "quote": "You’ll have to make an oath of allegiance (or an affirmation if you prefer not to swear by God) and a pledge.",
+          "source": 0,
+          "note": "The page requires an oath or affirmation at the ceremony."
+        },
+        {
+          "claim": "At the ceremony, receive a certificate of British citizenship.",
+          "verdict": "supported",
+          "quote": "At the end of the ceremony you’ll be presented with your certificate of British citizenship and a welcome pack.",
+          "source": 0,
+          "note": "The page says the certificate is presented at the end."
+        },
+        {
+          "claim": "Attendance is optional under the Windrush scheme.",
+          "verdict": "supported",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "source": 0,
+          "note": "The page makes attendance a choice for this group."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "Adults aged 18 or over who successfully apply for British citizenship usually need to attend a ceremony.",
+          "verdict": "supported",
+          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+          "source": 0,
+          "note": "The page states this requirement, with a Windrush choice elsewhere."
+        },
+        {
+          "claim": "The ceremony must be attended within 3 months of the Home Office invitation.",
+          "verdict": "supported",
+          "quote": "You must attend a citizenship ceremony within 3 months of receiving your invitation from the Home Office.",
+          "source": 0,
+          "note": "The page gives the same deadline."
+        },
+        {
+          "claim": "Attendance is optional under the Windrush scheme.",
+          "verdict": "supported",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "source": 0,
+          "note": "The page makes attendance a choice for this group."
+        },
+        {
+          "claim": "The ceremony cost is included in the application fee.",
+          "verdict": "supported",
+          "quote": "The cost of your ceremony is included in your application fee.",
+          "source": 0,
+          "note": "The page expressly says the ceremony cost is included."
+        }
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "Adults aged 18 or over who successfully applied for British citizenship usually need to attend a ceremony.",
+          "verdict": "supported",
+          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+          "source": 0,
+          "note": "The page states this requirement, with a Windrush choice elsewhere."
+        },
+        {
+          "claim": "People who become citizens under the Windrush scheme may choose whether to attend.",
+          "verdict": "supported",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "source": 0,
+          "note": "The page makes attendance a choice for this group."
+        },
+        {
+          "claim": "Children under 18 who applied with their parents may attend a parent’s ceremony.",
+          "verdict": "supported",
+          "quote": "Children under 18 who have applied with their parents may attend a ceremony with other members of the family, to collect their certificate.",
+          "source": 5,
+          "note": "The guidance permits children who applied with their parents to attend the family ceremony."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_ruleIn_1",
+      "claims": [
+        {
+          "claim": "A person aged 18 or over may be required to attend a citizenship ceremony.",
+          "verdict": "supported",
+          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen.",
+          "source": 0,
+          "note": "The page ties the requirement to age and successful application."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

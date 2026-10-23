@@ -1,0 +1,58 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "In England, the older person’s bus pass is available from State Pension age.",
+          "verdict": "supported",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+          "source": 0,
+          "note": "The page states the England age rule."
+        },
+        {
+          "claim": "You apply through your local council.",
+          "verdict": "supported",
+          "quote": "apply for a bus pass from your local council",
+          "source": 0,
+          "note": "The page directs applicants to their local council."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "In England, you can get an older person’s bus pass when you reach State Pension age.",
+          "verdict": "supported",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+          "source": 0,
+          "note": "The page states this age rule."
+        },
+        {
+          "claim": "An eligible disabled person may qualify for a separate disabled person’s pass.",
+          "verdict": "partly_supported",
+          "quote": "Apply for a disabled person's bus pass",
+          "source": 0,
+          "note": "The older person’s pass page points to a separate pass but does not state its eligibility rule; the linked page is for another service."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_ruleIn_0",
+      "claims": [
+        {
+          "claim": "Reached State Pension age in England",
+          "verdict": "supported",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+          "source": 0,
+          "note": "The rule label matches the page’s England age condition."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

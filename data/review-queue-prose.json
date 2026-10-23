@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T15:58:34.236Z",
+  "generatedAt": "2026-10-23T12:43:51.742Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -702,27 +702,6 @@
       ]
     },
     {
-      "id": "la-street-collection-licence",
-      "name": "Street collection licence",
-      "field": "desc",
-      "graph": "Collecting money or selling items for charity in a public street or place requires a street collection licence. Apply to the local council, or the Metropolitan Police in Greater London.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Collecting money or selling items for charity in a public street or place requires a street collection licence.",
-          "verdict": "partly_supported",
-          "note": "The text says you might need a licence depending on your local council, not that one is always required.",
-          "quote": "you might need a street collection licence, depending on your local council"
-        },
-        {
-          "claim": "Apply to the local council, or to the Metropolitan Police in Greater London.",
-          "verdict": "partly_supported",
-          "note": "The text excludes the City of London from the Metropolitan Police route, and the claim leaves that condition out.",
-          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence."
-        }
-      ]
-    },
-    {
       "id": "la-street-trading-licence",
       "name": "Street trading licence",
       "field": "desc",
@@ -1280,21 +1259,6 @@
           "verdict": "partly_supported",
           "note": "The injury payment range is £1,000 to £250,000, and £500,000 is the maximum total award, which includes other payments such as loss of earnings, so the range in the claim mixes the two figures.",
           "quote": "The maximum total compensation award is £500,000."
-        }
-      ]
-    },
-    {
-      "id": "co-contracts-finder",
-      "name": "Contracts Finder",
-      "field": "desc",
-      "graph": "Search and apply for government contracts and procurement opportunities published by central and local government in the UK.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The opportunities are published by central and local government in the UK.",
-          "verdict": "partly_supported",
-          "note": "The text covers the government, its agencies and non-devolved bodies, mainly in England, and says Scotland, Wales and Northern Ireland have their own sites. It never mentions local government, and it does not describe the service as covering the whole UK.",
-          "quote": "public sector contracts worth over £12,000 (including VAT) in England and with non-devolved bodies"
         }
       ]
     },
@@ -2042,21 +2006,6 @@
           "verdict": "partly_supported",
           "note": "The source says you may be asked for more information about your condition and that no diagnosis is needed to apply, but it never mentions providing evidence of the condition.",
           "quote": "for more information about your work and your disability or health condition"
-        }
-      ]
-    },
-    {
-      "id": "dwp-attendance-allowance",
-      "name": "Attendance Allowance",
-      "field": "desc",
-      "graph": "For over-65s with care needs. Not means-tested. Two rates depending on day/night needs.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Attendance Allowance is for over-65s with care needs.",
-          "verdict": "partly_supported",
-          "note": "The text links eligibility to State Pension age and care needs but never gives the age 65.",
-          "quote": "you’re State Pension age or older"
         }
       ]
     },
@@ -3849,21 +3798,6 @@
       ]
     },
     {
-      "id": "hmcts-tax-tribunal",
-      "name": "Appeal to Tax Tribunal",
-      "field": "desc",
-      "graph": "Appeal an HMRC tax decision to the independent First-tier Tribunal (Tax Chamber) if HMRC's review has not resolved the dispute.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The appeal is for when HMRC's review has not resolved the dispute.",
-          "verdict": "partly_supported",
-          "note": "The text says you can appeal after a review you disagree with, but it treats a review as optional, not a condition for appealing.",
-          "quote": "If you do not agree with the outcome you can still appeal to the tribunal."
-        }
-      ]
-    },
-    {
       "id": "hmcts-unclaimed-court-money",
       "name": "Find unclaimed court money",
       "field": "desc",
@@ -4361,21 +4295,6 @@
     {
       "id": "hmrc-mtd",
       "name": "Making Tax Digital enrolment",
-      "field": "desc",
-      "graph": "Mandatory for VAT-registered businesses, which should now all be signed up automatically. Phased rollout for income tax from 2026.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "There is a phased rollout for income tax from 2026.",
-          "verdict": "not_stated",
-          "note": "The sources only cover MTD for VAT and never mention income tax or 2026.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "hmrc-mtd",
-      "name": "Making Tax Digital enrolment",
       "field": "eligibility.evidenceRequired.0",
       "graph": "MTD-compatible software (e.g. Xero, QuickBooks, FreeAgent)",
       "verdict": "partly_supported",
@@ -4814,36 +4733,6 @@
           "verdict": "partly_supported",
           "note": "The source says you must have passed the test but does not say a test certificate is needed as evidence.",
           "quote": "have passed the life in the UK test"
-        }
-      ]
-    },
-    {
-      "id": "ho-citizenship-ceremony",
-      "name": "Citizenship ceremony",
-      "field": "desc",
-      "graph": "Required final step after citizenship is approved. Make an oath of allegiance, receive your certificate. Must attend within 3 months of the Home Office invitation. Fee included in the citizenship application.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The citizenship ceremony is a required final step after citizenship is approved.",
-          "verdict": "partly_supported",
-          "note": "The text says you must attend after a successful application, but only if you are 18 or over, and Windrush applicants can choose whether to attend; it never calls the ceremony the 'final step'.",
-          "quote": "You need to attend a citizenship ceremony if you’re 18 or over and have successfully applied to become a British citizen."
-        }
-      ]
-    },
-    {
-      "id": "ho-citizenship-ceremony",
-      "name": "Citizenship ceremony",
-      "field": "eligibility.summary",
-      "graph": "All adults (18+) approved for British citizenship must attend a citizenship ceremony, organised by their local authority, within 3 months of receiving the Home Office invitation. Citizenship is not conferred until the ceremony is completed. The £130 ceremony fee is included in the £1,839 application fee.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "All adults (18+) approved for British citizenship must attend a citizenship ceremony.",
-          "verdict": "partly_supported",
-          "note": "The text does make attendance a rule for successful applicants aged 18 or over, but it leaves out that Windrush scheme citizens can choose not to attend, so 'all' goes too far.",
-          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony."
         }
       ]
     },
@@ -7416,21 +7305,6 @@
       ]
     },
     {
-      "id": "la-bus-pass",
-      "name": "Free bus pass",
-      "field": "desc",
-      "graph": "Available from State Pension age. Apply via local council.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "The free bus pass is available from State Pension age.",
-          "verdict": "partly_supported",
-          "note": "State Pension age applies only in England; the text gives 60 for London travel, Wales, Scotland and Northern Ireland.",
-          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age ."
-        }
-      ]
-    },
-    {
       "id": "la-send-ehc",
       "name": "SEND EHC plan assessment",
       "field": "eligibility.summary",
@@ -7652,21 +7526,6 @@
           "verdict": "partly_supported",
           "note": "The text names a UKVI account only for applicants who prove identity with the ID Check app; others give biometrics at a visa application centre, and it does not say a UKVI account is needed to apply in all cases (it is needed afterwards to access the eVisa).",
           "quote": "you’ll also create or sign into your UK Visas and Immigration (UKVI) account"
-        }
-      ]
-    },
-    {
-      "id": "gro-register-death",
-      "name": "Register the death",
-      "field": "eligibility.summary",
-      "graph": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Registering the death is required for every death in England and Wales.",
-          "verdict": "partly_supported",
-          "note": "The source says it is a criminal offence not to register a death, but this advice is stated for England; the sources do not state the requirement for every death in Wales in the same terms.",
-          "quote": "It’s a criminal offence not to register a death."
         }
       ]
     },
@@ -9732,21 +9591,6 @@
       ]
     },
     {
-      "id": "tpr-workplace-pension",
-      "name": "Workplace Pension auto-enrollment",
-      "field": "eligibility.evidenceRequired.2",
-      "graph": "Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Employers must send a letter of compliance to The Pensions Regulator.",
-          "verdict": "contradicted",
-          "note": "The required submission is a declaration of compliance; the regulator sends the employer a letter with a code.",
-          "quote": "You must complete your declaration of compliance to tell us how you have met your legal duties."
-        }
-      ]
-    },
-    {
       "id": "wg-winter-fuel-support",
       "name": "Oil and LPG heating payment (Wales)",
       "field": "eligibility.summary",
@@ -9816,36 +9660,6 @@
       ]
     },
     {
-      "id": "hmcts-tax-tribunal",
-      "name": "Appeal to Tax Tribunal",
-      "field": "eligibility.summary",
-      "graph": "Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Anyone who disagrees with any HMRC decision can appeal to the tax tribunal.",
-          "verdict": "contradicted",
-          "note": "The tribunal accepts some HMRC decisions, not every HMRC decision; direct tax cases must first be appealed to HMRC.",
-          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )"
-        }
-      ]
-    },
-    {
-      "id": "hmrc-mtd",
-      "name": "Making Tax Digital enrolment",
-      "field": "eligibility.summary",
-      "graph": "Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with income over £50k.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Making Tax Digital for VAT is mandatory for all VAT-registered businesses.",
-          "verdict": "contradicted",
-          "note": "Exempt businesses and those applying for an exemption are exceptions to the universal claim.",
-          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption."
-        }
-      ]
-    },
-    {
       "id": "mhclg-epc",
       "name": "Find an Energy Performance Certificate",
       "field": "eligibility.summary",
@@ -9867,54 +9681,6 @@
       ]
     },
     {
-      "id": "co-contracts-finder",
-      "name": "Contracts Finder",
-      "field": "eligibility.summary",
-      "graph": "Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Any business or organisation can use Contracts Finder to seek public sector supply opportunities.",
-          "verdict": "partly_supported",
-          "note": "The text describes searching opportunities but does not explicitly establish access for every business or organisation.",
-          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors"
-        },
-        {
-          "claim": "Central government contracts above £12,000 must be published on Contracts Finder.",
-          "verdict": "partly_supported",
-          "note": "The £12,000 threshold is stated, but publication duties are limited to in-scope procurements and may have exemptions.",
-          "quote": "central government authorities [footnote 3] , where the contract value is at least £12,000 [footnote 4] inclusive of VAT;"
-        },
-        {
-          "claim": "Contracts above £25,000 from other public bodies must be published on Contracts Finder.",
-          "verdict": "contradicted",
-          "note": "The stated threshold for these other authorities is £30,000 including VAT, not £25,000.",
-          "quote": "sub-central contracting authorities, NHS Trusts and NHS Foundation Trusts where the contract value is at least £30,000 [footnote 5] inclusive of VAT."
-        }
-      ]
-    },
-    {
-      "id": "la-street-collection-licence",
-      "name": "Street collection licence",
-      "field": "eligibility.summary",
-      "graph": "Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.",
-      "verdict": "contradicted",
-      "problems": [
-        {
-          "claim": "Every charitable collection in a public street or place in England and Wales needs a street collection licence.",
-          "verdict": "contradicted",
-          "note": "The page says a licence might be needed depending on the council, rather than for every collection.",
-          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council."
-        },
-        {
-          "claim": "A street collection licence is free to obtain.",
-          "verdict": "not_stated",
-          "note": "Neither source states a fee or says the licence is free.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "la-council-tax",
       "name": "Council Tax registration",
       "field": "desc",
@@ -9926,6 +9692,117 @@
           "verdict": "partly_supported",
           "note": "Leeds describes closing its own account, but this local process does not establish a universal requirement for every council.",
           "quote": "We will close your Leeds council tax account and issue a final bill or refund."
+        }
+      ]
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "name": "Appeal to Tax Tribunal",
+      "field": "agentInteraction.agentSteps.1",
+      "graph": "Check whether an appeal to HMRC or an HMRC review is needed first",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Check whether an HMRC review is needed before going to the tribunal.",
+          "verdict": "contradicted",
+          "note": "The source presents a review as optional, not as a required step before a tribunal appeal.",
+          "quote": "You can ask for a review of some tax decisions."
+        }
+      ]
+    },
+    {
+      "id": "la-street-collection-licence",
+      "name": "Street collection licence",
+      "field": "desc",
+      "graph": "Collecting money or selling items for charity in a public street or place may require a street collection licence, depending on the local council. Apply to the local council, or the Metropolitan Police in Greater London outside the City of London.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Selling items for charity in other public places may require a street collection licence.",
+          "verdict": "partly_supported",
+          "note": "The public area passage refers to collecting money but does not expressly extend the selling rule beyond streets.",
+          "quote": "It’s not just ‘streets’ that are covered - you’ll need a licence if you collect money in public areas, eg a shop doorway or car park."
+        }
+      ]
+    },
+    {
+      "id": "dwp-pension-credit",
+      "name": "Pension Credit",
+      "field": "eligibility.autoQualifiers.0",
+      "graph": "State Pension age reached, or partner receiving Housing Benefit for people over State Pension age, with income clearly below threshold",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "State Pension age reached can qualify the applicant.",
+          "verdict": "partly_supported",
+          "note": "For a partnered applicant, both partners must have reached that age unless one gets the specified Housing Benefit.",
+          "quote": "you and your partner have both reached State Pension age"
+        }
+      ]
+    },
+    {
+      "id": "dwp-pension-credit",
+      "name": "Pension Credit",
+      "field": "eligibility.ruleIn.0",
+      "graph": "Reached State Pension age or receiving Housing Benefit for people over State Pension age",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Reached State Pension age or receiving Housing Benefit for people over State Pension age",
+          "verdict": "partly_supported",
+          "note": "The age route for partners requires both partners to have reached State Pension age; the label omits that condition.",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age"
+        }
+      ]
+    },
+    {
+      "id": "dwp-pension-credit",
+      "name": "Pension Credit",
+      "field": "eligibility.rules.0.label",
+      "graph": "Reached State Pension age or receives Housing Benefit for people over State Pension age",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "Reached State Pension age or receives Housing Benefit for people over State Pension age",
+          "verdict": "partly_supported",
+          "note": "The age route for partners requires both partners to have reached State Pension age; the label omits that condition.",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age"
+        }
+      ]
+    },
+    {
+      "id": "hmrc-mtd",
+      "name": "Making Tax Digital enrolment",
+      "field": "eligibility.rules.0.label",
+      "graph": "VAT registered or self-employed with income over £50,000",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "VAT registration alone is enough to fall within Making Tax Digital for VAT.",
+          "verdict": "partly_supported",
+          "note": "VAT registration is relevant, but the label omits the exemption and pending-exemption exceptions.",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption."
+        },
+        {
+          "claim": "A self-employed person with income over £50,000 falls within Making Tax Digital for Income Tax.",
+          "verdict": "partly_supported",
+          "note": "The threshold concerns qualifying self-employment and property income, and the label leaves out that income definition and other eligibility conditions.",
+          "quote": "You need to use Making Tax Digital for Income Tax from 6 April 2026 if your total annual income from self-employment and property is over £50,000."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-mtd",
+      "name": "Making Tax Digital enrolment",
+      "field": "eligibility.rules.0.rules.1.label",
+      "graph": "Self-employed with income over £50,000 (MTD for Income Tax)",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "A self-employed person with income over £50,000 falls within Making Tax Digital for Income Tax.",
+          "verdict": "partly_supported",
+          "note": "The threshold concerns qualifying self-employment and property income, and the label leaves out that income definition and other eligibility conditions.",
+          "quote": "You need to use Making Tax Digital for Income Tax from 6 April 2026 if your total annual income from self-employment and property is over £50,000."
         }
       ]
     }

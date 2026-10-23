@@ -1,0 +1,21 @@
+{
+  "fields": [
+    {
+      "key": "eligibility_rules_1_triggerLabel",
+      "claims": [
+        {
+          "claim": "The relevant date is when you received confirmation that you can register the death.",
+          "verdict": "supported",
+          "quote": "You must wait for the medical examiner’s office to confirm you can register the death. Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "source": 1,
+          "note": "The source makes receipt of confirmation the start of the registration period."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

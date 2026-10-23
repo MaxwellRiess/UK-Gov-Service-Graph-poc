@@ -51,7 +51,7 @@
 import Anthropic from '@anthropic-ai/sdk';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { NODES, type ServiceNode } from '../src/graph-data.js';
-import { loadProvenance, saveProvenance } from '../src/provenance.js';
+import { getFieldValue, loadProvenance, saveProvenance } from '../src/provenance.js';
 import { gatherSources } from './lib/sources.js';
 import { pageText } from './lib/page-text.js';
 import {
@@ -110,6 +110,9 @@ const add = (id: string, t: Target) => targets.set(id, [...(targets.get(id) ?? [
 function proseField(n: ServiceNode, path: string): FieldToJudge | null {
   const e = n.eligibility;
   if (path === 'desc') return { key: 'desc', path, text: n.desc, split: true };
+  if (path === 'nations' && n.nations?.length) {
+    return { key: 'nations', path, text: n.nations.join(', '), split: false };
+  }
   if (path === 'eligibility.summary') return { key: 'summary', path, text: e.summary, split: true };
   if (path === 'agentInteraction.methods' && n.agentInteraction?.methods) {
     return { key: 'methods', path, split: true, text: methodsText(n.agentInteraction.methods) };
@@ -122,6 +125,15 @@ function proseField(n: ServiceNode, path: string): FieldToJudge | null {
     const text = (e[m[1] as 'autoQualifiers'] ?? [])[Number(m[2])];
     const short = { autoQualifiers: 'qualifier', exclusions: 'exclusion', evidenceRequired: 'evidence' }[m[1]]!;
     return text ? { key: `${short}_${m[2]}`, path, text, split: false } : null;
+  }
+  // Correction waves also change display text and rule labels that the ordinary
+  // partly-supported queues do not enumerate. Explicit --fields may re-judge
+  // these strings through the same quote-checked import path.
+  if (/^(deadline|eligibility\.(keyQuestions|ruleIn|ruleOut)\.\d+|agentInteraction\.agentSteps\.\d+|eligibility\.rules\.(?:\d+\.)*(?:rules\.\d+\.)*(?:label|triggerLabel))$/.test(path)) {
+    const text = getFieldValue(n, path);
+    return typeof text === 'string'
+      ? { key: path.replace(/[^a-zA-Z0-9]+/g, '_'), path, text, split: true }
+      : null;
   }
   return null;
 }

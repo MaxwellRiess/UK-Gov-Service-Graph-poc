@@ -1,0 +1,129 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "If you are single, you must have reached State Pension age.",
+          "verdict": "supported",
+          "quote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+          "source": 0,
+          "note": "The page states the age condition for a single applicant."
+        },
+        {
+          "claim": "If you have a partner, you may qualify if both of you have reached State Pension age.",
+          "verdict": "supported",
+          "quote": "you and your partner have both reached State Pension age",
+          "source": 0,
+          "note": "The page names this route for partners."
+        },
+        {
+          "claim": "If you have a partner, you may qualify if one of you gets Housing Benefit for people over State Pension age.",
+          "verdict": "supported",
+          "quote": "one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The page names this alternative route for partners."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_keyQuestions_0",
+      "claims": [
+        {
+          "claim": "Have you reached State Pension age?",
+          "verdict": "supported",
+          "quote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+          "source": 0,
+          "note": "The question addresses a stated age condition."
+        },
+        {
+          "claim": "If you have a partner, does either of you receive Housing Benefit for people over State Pension age?",
+          "verdict": "supported",
+          "quote": "one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The page states this partner exception."
+        }
+      ]
+    },
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {
+          "claim": "State Pension age reached can qualify the applicant.",
+          "verdict": "partly_supported",
+          "quote": "you and your partner have both reached State Pension age",
+          "source": 0,
+          "note": "For a partnered applicant, both partners must have reached that age unless one gets the specified Housing Benefit."
+        },
+        {
+          "claim": "A partner receiving Housing Benefit for people over State Pension age can qualify the couple.",
+          "verdict": "supported",
+          "quote": "one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The page states this route for a partnered applicant."
+        },
+        {
+          "claim": "Income clearly below the threshold supports qualification.",
+          "verdict": "supported",
+          "quote": "Pension Credit tops up: your weekly income to £238 if you’re single your joint weekly income to £363.25 if you have a partner",
+          "source": 0,
+          "note": "The page states income levels that Pension Credit tops up to."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_ruleIn_0",
+      "claims": [
+        {
+          "claim": "Reached State Pension age or receiving Housing Benefit for people over State Pension age",
+          "verdict": "partly_supported",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The age route for partners requires both partners to have reached State Pension age; the label omits that condition."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_0_label",
+      "claims": [
+        {
+          "claim": "Reached State Pension age or receives Housing Benefit for people over State Pension age",
+          "verdict": "partly_supported",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The age route for partners requires both partners to have reached State Pension age; the label omits that condition."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_0_rules_0_label",
+      "claims": [
+        {
+          "claim": "Reached State Pension age",
+          "verdict": "supported",
+          "quote": "You must live in England, Scotland or Wales and have reached State Pension age to qualify for Pension Credit.",
+          "source": 0,
+          "note": "Reaching State Pension age is a stated condition, though partners must meet the page’s couple rules."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_0_rules_1_label",
+      "claims": [
+        {
+          "claim": "Receiving Housing Benefit for people over State Pension age",
+          "verdict": "supported",
+          "quote": "one of you is getting Housing Benefit for people over State Pension age",
+          "source": 0,
+          "note": "The page states this alternative condition for partners."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T15:58:34.236Z",
+  "generatedAt": "2026-10-23T12:43:51.742Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -660,17 +660,6 @@
       "verdict": "partly_supported",
       "note": "The source supports the income limit and the basic-rate requirement, but it also allows starter or intermediate rate in Scotland, and the field leaves out that condition.",
       "quote": "If you're in Scotland, your partner must pay the starter, basic or intermediate rate, which usually means their income is between £12,571 and £43,662.",
-      "url": null
-    },
-    {
-      "id": "hmrc-mtd",
-      "name": "Making Tax Digital enrolment",
-      "criterion": 0,
-      "factor": "dependency",
-      "graph": "Mandatory for all VAT-registered businesses. Phased in for income tax self-assessment from 2026.",
-      "verdict": "partly_supported",
-      "note": "The VAT part is supported, apart from exemptions; the income tax self-assessment rollout from 2026 is not stated.",
-      "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT.",
       "url": null
     },
     {
@@ -1345,28 +1334,6 @@
       "url": null
     },
     {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "criterion": 0,
-      "factor": "bereavement",
-      "graph": "Must be responsible for arranging or paying for a funeral.",
-      "verdict": "contradicted",
-      "note": "The source requires responsibility for the costs, not merely arranging the funeral.",
-      "quote": "the client or their partner is responsible for the cost of the funeral",
-      "url": null
-    },
-    {
-      "id": "sss-funeral-support-payment",
-      "name": "Funeral Support Payment",
-      "criterion": 2,
-      "factor": "geography",
-      "graph": "The funeral must take place in the UK, and applicant must live in Scotland.",
-      "verdict": "contradicted",
-      "note": "The source allows a funeral in another country in some circumstances.",
-      "quote": "the funeral is being held in the UK or in some circumstances , another country",
-      "url": null
-    },
-    {
       "id": "wg-discretionary-assistance",
       "name": "Discretionary Assistance Fund (Wales)",
       "criterion": 1,
@@ -1386,17 +1353,6 @@
       "verdict": "partly_supported",
       "note": "The applicant confirms whether listed medical conditions exist, not that no condition exists.",
       "quote": "To renew their entitlement, they must make a legal declaration that they can meet the eyesight standards required to drive and confirm whether they have any listed medical conditions.",
-      "url": null
-    },
-    {
-      "id": "dwp-attendance-allowance",
-      "name": "Attendance Allowance",
-      "criterion": 0,
-      "factor": "age",
-      "graph": "Must have reached State Pension age (66 or over).",
-      "verdict": "contradicted",
-      "note": "State Pension age is rising above 66, so being 66 is not always enough.",
-      "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
       "url": null
     },
     {
@@ -1444,61 +1400,6 @@
       "url": null
     },
     {
-      "id": "opg-lpa-activation",
-      "name": "Notify OPG of death",
-      "criterion": 0,
-      "factor": "bereavement",
-      "graph": "A registered LPA exists and the donor has died.",
-      "verdict": "contradicted",
-      "note": "The source says the LPA is cancelled on the donor’s death rather than activated or used then.",
-      "quote": "OPG will cancel the LPA if the donor dies",
-      "url": null
-    },
-    {
-      "id": "dwp-pension-credit",
-      "name": "Pension Credit",
-      "criterion": 0,
-      "factor": "age",
-      "graph": "Must have reached State Pension age (currently 66).",
-      "verdict": "contradicted",
-      "note": "The general age rule has a mixed-age couple exception when one partner gets Housing Benefit for people over State Pension age.",
-      "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
-      "url": null
-    },
-    {
-      "id": "la-bus-pass",
-      "name": "Free bus pass",
-      "criterion": 0,
-      "factor": "age",
-      "graph": "Must have reached State Pension age (currently 66). Some disabled people may also qualify before this age.",
-      "verdict": "contradicted",
-      "note": "The State Pension age rule applies in England, while Wales allows the pass at 60 and Scotland and Northern Ireland also use 60.",
-      "quote": "In Wales you can get a bus pass when you reach 60.",
-      "url": null
-    },
-    {
-      "id": "dwp-bereavement-support",
-      "name": "Bereavement Support Payment",
-      "criterion": 1,
-      "factor": "age",
-      "graph": "Must have been under State Pension age (66) at the time of the partner's death.",
-      "verdict": "contradicted",
-      "note": "The age varies by date of birth during the 2026–2028 transition and is not fixed at 66.",
-      "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
-      "url": null
-    },
-    {
-      "id": "gro-register-death",
-      "name": "Register the death",
-      "criterion": 0,
-      "factor": "bereavement",
-      "graph": "A person has died in England or Wales.",
-      "verdict": "contradicted",
-      "note": "The source includes deaths elsewhere in the UK and abroad, so England or Wales is not a universal condition.",
-      "quote": "Find out how to register a death in the UK or abroad.",
-      "url": null
-    },
-    {
       "id": "hmcts-probate",
       "name": "Apply for probate",
       "criterion": 0,
@@ -1507,17 +1408,6 @@
       "verdict": "partly_supported",
       "note": "The source discusses estate assets but does not state that they must be held in the deceased person’s sole name.",
       "quote": "Probate is the legal right to deal with someone’s property, money and possessions (their ‘estate’) when they die.",
-      "url": null
-    },
-    {
-      "id": "ho-citizenship-ceremony",
-      "name": "Citizenship ceremony",
-      "criterion": 1,
-      "factor": "age",
-      "graph": "Adults aged 18 and over must attend in person. Children under 18 can be included on a parent's ceremony.",
-      "verdict": "contradicted",
-      "note": "The source makes attendance optional for the Windrush scheme and also lists citizenship categories that do not require a ceremony.",
-      "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
       "url": null
     }
   ]

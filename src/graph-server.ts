@@ -319,7 +319,7 @@ Services without structured rules fall back to needs_more_info with the text-bas
 
 The user_context.services_receiving and services_completed arrays let you express graph dependencies — e.g. if the user already receives Universal Credit, services that depend on it will pass their dependency checks.
 
-Use trigger_dates for deadline-sensitive services: { birth_date: "2025-02-01" } for birth registration, { death_date: "2025-01-15" } for death registration, { property_completion: "2025-03-01" } for SDLT, etc.`,
+Use trigger_dates for deadline-sensitive services: { birth_date: "2025-02-01" } for birth registration, { death_registration_confirmation_date: "2025-01-15" } for death registration, { property_completion: "2025-03-01" } for SDLT, etc.`,
   {
     life_event_ids: z.array(z.string()).min(1).describe(
       'One or more life event IDs (same as plan_journey).'

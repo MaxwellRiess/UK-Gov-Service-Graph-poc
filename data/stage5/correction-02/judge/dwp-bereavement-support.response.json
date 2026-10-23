@@ -1,0 +1,34 @@
+{
+  "fields": [
+    {
+      "key": "criterion_1",
+      "claims": [
+        {
+          "claim": "You must have been under State Pension age when your partner died.",
+          "verdict": "supported",
+          "quote": "When your partner died, you must have been: under State Pension age",
+          "source": 0,
+          "note": "The page states this timing and age condition."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_keyQuestions_0",
+      "claims": [
+        {
+          "claim": "Were you under State Pension age when your partner died?",
+          "verdict": "supported",
+          "quote": "When your partner died, you must have been: under State Pension age",
+          "source": 0,
+          "note": "The question asks about a stated eligibility condition."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

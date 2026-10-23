@@ -1,0 +1,300 @@
+
+> uk-gov-service-graph-poc@1.0.0 check:consistency
+> tsx scripts/check-consistency.ts --online
+
+Looking for 95 figures on their services' pages...
+(node:86459) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+─── CONSISTENCY CHECK (prose against structured values) ────────
+Prose fields checked: 3846
+Unbacked amounts:     95
+  on a cited page:    95  (sourced prose, not modelled as a rate)
+  on no cited page:   0  (stale or invented: fix these)
+  page unreachable:   0  (could not check; look in a browser)
+Stale year labels:    4
+Checked by hand (exceptions): 2
+Services affected:    43
+
+  ch-confirmation-statement
+    unbacked amount   eligibility.summary            £110 matches no rate or rule threshold in the graph  [on its page]
+      "Companies and LLPs registered at Companies House must file a confirmation statement at least once every 12 months. The annual fee is £50 online or £11…"
+
+  ch-file-accounts
+    unbacked amount   agentInteraction.agentSteps.3  £1,500 matches no rate or rule threshold in the graph  [on its page]
+      "Warn of £150–£1,500 late filing penalties"
+
+  cica-compensation
+    unbacked amount   eligibility.summary            £500,000 matches no rate or rule threshold in the graph  [on its page]
+      "Available to victims of violent crime in Great Britain who suffered a physical or psychological injury. Must claim within 2 years of the incident (exc…"
+
+  dvla-provisional-licence
+    unbacked amount   desc                           £43 matches no rate or rule threshold in the graph  [on its page]
+      "Apply from age 15 years and 9 months — so it arrives before your 17th birthday. £34 online, £43 by post (D1 form). Required before lessons or booking …"
+    unbacked amount   eligibility.summary            £43 matches no rate or rule threshold in the graph  [on its page]
+      "Required before you can take driving lessons or book a theory or practical test. Apply from age 15 years and 9 months so it arrives by your 17th birth…"
+    unbacked amount   eligibility.evidenceRequired.1 £43 matches no rate or rule threshold in the graph  [on its page]
+      "£34 fee (online) or £43 fee (postal D1 form)"
+
+  dvla-renew-licence
+    unbacked amount   agentInteraction.agentSteps.3  £14 matches no rate or rule threshold in the graph  [on its page]
+      "Note the £14 fee for photo renewal; name and address changes are free"
+
+  dvla-update-address
+    unbacked amount   eligibility.summary            £14 matches no rate or rule threshold in the graph  [on its page]
+      "Driving licence holders in Great Britain must tell DVLA when their address changes; you can be fined up to £1,000 if you do not. Changing the address …"
+
+  dwp-maternity-allowance
+    unbacked amount   eligibility.criteria.1         £30 matches no rate or rule threshold in the graph  [on its page]
+      "If employed, must have earned (or been classed as earning) at least £30 a week in at least 13 of those weeks. If self-employed, the amount depends on …"
+    unbacked amount   eligibility.keyQuestions.2     £30 matches no rate or rule threshold in the graph  [on its page]
+      "Did you earn at least £30 per week during those weeks?"
+
+  dwp-winter-fuel
+    unbacked amount   desc                           £35,000 matches no rate or rule threshold in the graph  [on its page]
+      "£100 to £300 for winter 2026 to 2027 if born on or before 27 June 1960 and living in England, Wales or Northern Ireland. Usually automatic. HMRC takes…"
+    unbacked amount   eligibility.summary            £35,000 matches no rate or rule threshold in the graph  [on its page]
+      "Annual payment of £100 to £300 towards winter heating for people born on or before 27 June 1960 who usually live in England, Wales or Northern Ireland…"
+    unbacked amount   eligibility.criteria.2         £35,000 matches no rate or rule threshold in the graph  [on its page]
+      "Not means-tested for payment, but HMRC recovers it if your own total income is over £35,000."
+    unbacked amount   eligibility.keyQuestions.2     £35,000 matches no rate or rule threshold in the graph  [on its page]
+      "Is your own total income over £35,000? (If so, HMRC will take the payment back.)"
+    unbacked amount   agentInteraction.agentSteps.1  £35,000 matches no rate or rule threshold in the graph  [on its page]
+      "Explain that payment is usually automatic, and that HMRC takes it back if own income is over £35,000 (opting out is possible)"
+
+  ea-fishing-licence
+    unbacked amount   eligibility.criteria.0         £24.50 matches no rate or rule threshold in the graph  [on its page]
+      "Required from age 13. Under-13s do not need a licence. Junior licences (13 to 16) are free. People aged 66 or over or disabled get a discounted 12-mon…"
+
+  ea-waste-carrier-registration
+    unbacked amount   eligibility.summary            £191 matches no rate or rule threshold in the graph  [on its page]
+      "Mandatory for all waste carriers, brokers and dealers in England. Two tiers: lower-tier (own waste only, free) and upper-tier (commercial waste handli…"
+    unbacked amount   eligibility.summary            £130 matches no rate or rule threshold in the graph  [on its page]
+      "Mandatory for all waste carriers, brokers and dealers in England. Two tiers: lower-tier (own waste only, free) and upper-tier (commercial waste handli…"
+    unbacked amount   eligibility.evidenceRequired.2 £191 matches no rate or rule threshold in the graph  [on its page]
+      "Payment details (upper tier: £191 to register, £130 to renew)"
+    unbacked amount   eligibility.evidenceRequired.2 £130 matches no rate or rule threshold in the graph  [on its page]
+      "Payment details (upper tier: £191 to register, £130 to renew)"
+
+  gro-certificates
+    unbacked amount   eligibility.summary            £3.50 matches no rate or rule threshold in the graph  [on its page]
+      "Anyone can order certified copies of civil registration certificates from GRO for events registered in England and Wales. Certificates cost £12.50 eac…"
+
+  hmcts-child-arrangements
+    unbacked amount   eligibility.summary            £120 matches no rate or rule threshold in the graph  [on its page]
+      "A court order specifying where children live and how much time they spend with each parent. Required only when parents cannot agree through negotiatio…"
+
+  hmcts-court-fee-remission
+    unbacked amount   eligibility.criteria.0         £2,130 matches no rate or rule threshold in the graph  [on its page]
+      "On a qualifying benefit, or reported monthly income of £1,420 or less (single) or £2,130 or less (couple), plus £425 per child aged 0 to 13 and £710 p…"
+    unbacked amount   eligibility.criteria.0         £425 matches no rate or rule threshold in the graph  [on its page]
+      "On a qualifying benefit, or reported monthly income of £1,420 or less (single) or £2,130 or less (couple), plus £425 per child aged 0 to 13 and £710 p…"
+    unbacked amount   eligibility.criteria.0         £710 matches no rate or rule threshold in the graph  [on its page]
+      "On a qualifying benefit, or reported monthly income of £1,420 or less (single) or £2,130 or less (couple), plus £425 per child aged 0 to 13 and £710 p…"
+    unbacked amount   eligibility.criteria.1         £7,000 matches no rate or rule threshold in the graph  [on its page]
+      "If you and your partner are 65 or younger: up to £4,250 savings for fees of £1,420 or less, rising to £16,000 for fees over £7,000. If either is 66 or…"
+
+  hmcts-find-a-will
+    unbacked amount   desc                           £16 matches no rate or rule threshold in the graph  [on its page]
+      "Search the probate registry to find a will or grant of probate for someone who has died in England or Wales. A search by post costs £16."
+
+  hmcts-jury-summons
+    unbacked amount   eligibility.summary            £64.95 matches no rate or rule threshold in the graph  [on its page]
+      "People on the electoral register aged 18 to 75 who have lived in the UK for at least 5 years can be called for jury service in England and Wales. You …"
+    unbacked amount   eligibility.summary            £5.71 matches no rate or rule threshold in the graph  [on its page]
+      "People on the electoral register aged 18 to 75 who have lived in the UK for at least 5 years can be called for jury service in England and Wales. You …"
+
+  hmcts-probate
+    unbacked amount   desc                           £5,000 matches no rate or rule threshold in the graph  [on its page]
+      "Required if estate exceeds £10k with most financial institutions. £526 fee if the estate is over £5,000. Usually granted within 12 weeks."
+    unbacked amount   eligibility.summary            £5,000 matches no rate or rule threshold in the graph  [on its page]
+      "Grants legal authority to deal with the estate. Required by most banks, insurers and financial institutions for estates over £10,000. Usually granted …"
+    unbacked amount   eligibility.summary            £5,000 matches no rate or rule threshold in the graph  [on its page]
+      "Grants legal authority to deal with the estate. Required by most banks, insurers and financial institutions for estates over £10,000. Usually granted …"
+    unbacked amount   eligibility.summary            £2 matches no rate or rule threshold in the graph  [on its page]
+      "Grants legal authority to deal with the estate. Required by most banks, insurers and financial institutions for estates over £10,000. Usually granted …"
+
+  hmrc-child-benefit
+    unbacked amount   desc                           £60,000 matches no rate or rule threshold in the graph  [on its page]
+      "Claim from 48 hours after registering the birth. Backdatable 3 months. High Income Child Benefit Charge applies if either partner's adjusted net incom…"
+    unbacked amount   eligibility.summary            £60,000 matches no rate or rule threshold in the graph  [on its page]
+      "Available to anyone responsible for a child under 16 (or under 20 in approved education or training). Backdatable 3 months. High Income Child Benefit …"
+    unbacked amount   eligibility.criteria.1         £60,000 matches no rate or rule threshold in the graph  [on its page]
+      "High Income Child Benefit Charge claws back the payment if either partner's individual adjusted net income is over £60,000; the charge equals the full…"
+    unbacked amount   eligibility.keyQuestions.1     £60,000 matches no rate or rule threshold in the graph  [on its page]
+      "Does either parent or partner earn over £60,000 per year?"
+
+  hmrc-free-childcare-30
+    unbacked amount   eligibility.criteria.1         £2,643.68 matches no rate or rule threshold in the graph  [on its page]
+      "Both parents (or the sole parent) must be in work (including on parental, sick or annual leave) and each expect to earn at least £2,643.68 over the ne…"
+    unbacked amount   eligibility.criteria.1         £203.36 matches no rate or rule threshold in the graph  [on its page]
+      "Both parents (or the sole parent) must be in work (including on parental, sick or annual leave) and each expect to earn at least £2,643.68 over the ne…"
+
+  hmrc-help-to-save
+    unbacked amount   desc                           £1 matches no rate or rule threshold in the graph  [on its page]
+      "Government-backed savings account paying a 50p bonus for every £1 saved, available to Universal Credit claimants with some take-home pay."
+    unbacked amount   eligibility.summary            £1 matches no rate or rule threshold in the graph  [on its page]
+      "Available to UK residents receiving Universal Credit whose household take-home pay was £1 or more in their last monthly assessment period. Save betwee…"
+    unbacked amount   eligibility.summary            £1 matches no rate or rule threshold in the graph  [on its page]
+      "Available to UK residents receiving Universal Credit whose household take-home pay was £1 or more in their last monthly assessment period. Save betwee…"
+    unbacked amount   eligibility.criteria.0         £1 matches no rate or rule threshold in the graph  [on its page]
+      "Must be receiving Universal Credit, with take-home pay (jointly, if a couple) of £1 or more in the last monthly assessment period."
+    unbacked amount   eligibility.keyQuestions.1     £1 matches no rate or rule threshold in the graph  [on its page]
+      "Can they afford to save at least £1/month?"
+    unbacked amount   eligibility.autoQualifiers.0   £1 matches no rate or rule threshold in the graph  [on its page]
+      "Receiving Universal Credit with take-home pay of £1 or more in the last assessment period"
+
+  hmrc-iht400
+    unbacked amount   eligibility.summary            £500,000 matches no rate or rule threshold in the graph  [on its page]
+      "Required if the estate's value exceeds the nil-rate band (£325,000, or up to £500,000 with the residence nil-rate band). Tax must be paid within 6 mon…"
+    unbacked amount   eligibility.criteria.0         £175,000 matches no rate or rule threshold in the graph  [on its page]
+      "Estate value exceeds the nil-rate band (£325,000, or up to £175,000 more with the residence nil-rate band if leaving a home to direct descendants)."
+
+  hmrc-marriage-allowance
+    unbacked amount   desc                           £1,260 matches no rate or rule threshold in the graph  [on its page]
+      "Transfer up to £1,260 of personal allowance if one partner earns below the threshold."
+    unbacked amount   eligibility.summary            £1,260 matches no rate or rule threshold in the graph  [on its page]
+      "Transfer up to £1,260 of unused Personal Allowance to your spouse/civil partner, saving up to £252/year in tax. Backdatable up to 4 years."
+
+  hmrc-mtd
+    stale year label  eligibility.summary            "2024 to 2025" is before 2026-27
+      "VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for an exemption; they keep digital VAT records and submit ret…"
+    stale year label  eligibility.criteria.1         "2024 to 2025" is before 2026-27
+      "Making Tax Digital for Income Tax applies from 6 April 2026 to qualifying sole traders and landlords with 2024 to 2025 qualifying income over £50,000."
+    stale year label  eligibility.keyQuestions.2     "2024 to 2025" is before 2026-27
+      "Was your qualifying income from self-employment or property over £50,000 in 2024 to 2025?"
+    stale year label  eligibility.ruleIn.1           "2024 to 2025" is before 2026-27
+      "Qualifying sole trader or landlord with income over £50,000 in 2024 to 2025, from 6 April 2026"
+
+  hmrc-paye
+    unbacked amount   desc                           £96 matches no rate or rule threshold in the graph  [on its page]
+      "Register before the first payday if any employee is paid £96 or more a week, gets expenses or benefits, gets a pension, has another job, or has receiv…"
+    unbacked amount   eligibility.summary            £96 matches no rate or rule threshold in the graph  [on its page]
+      "You must register for PAYE if, in the current tax year, any employee is paid £96 or more a week, gets expenses or company benefits, is getting a pensi…"
+    unbacked amount   eligibility.criteria.0         £96 matches no rate or rule threshold in the graph  [on its page]
+      "Taking on an employee who will be paid £96 or more a week, get expenses or benefits, get a pension, has had another job, or has received JSA, ESA or I…"
+    unbacked amount   eligibility.keyQuestions.1     £96 matches no rate or rule threshold in the graph  [on its page]
+      "Will any employee be paid £96 or more a week, or get expenses, benefits or a pension?"
+    unbacked amount   eligibility.ruleIn.0           £96 matches no rate or rule threshold in the graph  [on its page]
+      "Employing someone paid £96 or more a week, or with expenses, benefits, a pension or another job"
+
+  hmrc-sdlt
+    unbacked amount   eligibility.keyQuestions.2     £300,000 matches no rate or rule threshold in the graph  [on its page]
+      "Are you a first-time buyer? (No tax on the first £300,000 if the property costs £500,000 or less.)"
+    unbacked amount   eligibility.keyQuestions.2     £500,000 matches no rate or rule threshold in the graph  [on its page]
+      "Are you a first-time buyer? (No tax on the first £300,000 if the property costs £500,000 or less.)"
+
+  hmrc-tax-free-childcare
+    unbacked amount   desc                           £2 matches no rate or rule threshold in the graph  [on its page]
+      "Government adds £2 for every £8 paid in (up to £500 per child every 3 months, £1,000 if disabled). Cannot be claimed at the same time as Universal Cre…"
+    unbacked amount   desc                           £8 matches no rate or rule threshold in the graph  [on its page]
+      "Government adds £2 for every £8 paid in (up to £500 per child every 3 months, £1,000 if disabled). Cannot be claimed at the same time as Universal Cre…"
+    unbacked amount   eligibility.summary            £8 matches no rate or rule threshold in the graph  [on its page]
+      "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child every 3 months, or £1,000 if the child is disabled). Usual…"
+    unbacked amount   eligibility.summary            £2 matches no rate or rule threshold in the graph  [on its page]
+      "For every £8 a parent pays into their account, the government adds £2 (up to £500 per child every 3 months, or £1,000 if the child is disabled). Usual…"
+    unbacked amount   agentInteraction.agentSteps.1  £1 matches no rate or rule threshold in the graph  [on its page]
+      "Explain the 25p per £1 government top-up"
+
+  ho-citizenship
+    unbacked amount   eligibility.evidenceRequired.5 £130 matches no rate or rule threshold in the graph  [on its page]
+      "Application fee £1,839 (includes £130 citizenship ceremony fee)"
+
+  ho-citizenship-spouse
+    unbacked amount   eligibility.evidenceRequired.7 £130 matches no rate or rule threshold in the graph  [on its page]
+      "Application fee £1,839 (includes £130 ceremony fee)"
+
+  ho-skilled-worker-visa
+    unbacked amount   eligibility.summary            £41,700 matches no rate or rule threshold in the graph  [on its page]
+      "Available to people outside the UK (or switching from another visa in the UK) who have a job offer from a licensed UK employer. The job must be on the…"
+    unbacked amount   eligibility.summary            £33,400 matches no rate or rule threshold in the graph  [on its page]
+      "Available to people outside the UK (or switching from another visa in the UK) who have a job offer from a licensed UK employer. The job must be on the…"
+    unbacked amount   eligibility.criteria.0         £41,700 matches no rate or rule threshold in the graph  [on its page]
+      "Must have a confirmed job offer from a Home Office licensed sponsor, in an eligible occupation, usually paying at least £41,700 or the going rate (whi…"
+    unbacked amount   eligibility.ruleIn.2           £41,700 matches no rate or rule threshold in the graph  [on its page]
+      "Meets salary threshold (£41,700 or going rate)"
+
+  insolvency-bankruptcy
+    unbacked amount   eligibility.summary            £680 matches no rate or rule threshold in the graph  [on its page]
+      "Available to individuals in England and Wales who cannot pay their debts. Apply online only; the £680 fee can be paid in instalments but must be paid …"
+    unbacked amount   agentInteraction.agentSteps.2  £680 matches no rate or rule threshold in the graph  [on its page]
+      "Advise on the £680 application fee, which can be paid in instalments"
+
+  la-blue-badge
+    unbacked amount   eligibility.summary            £10 matches no rate or rule threshold in the graph  [on its page]
+      "Allows parking in disabled bays and on yellow lines. Auto-qualify if receiving Enhanced Rate PIP mobility or DLA (highest mobility rate). Others apply…"
+
+  la-business-rates
+    unbacked amount   eligibility.summary            £15,000 matches no rate or rule threshold in the graph  [on its page]
+      "Business rates are charged on non-domestic properties used for business. Valuation Office Agency assesses rateable value; local authority bills and co…"
+
+  la-free-school-meals
+    unbacked amount   eligibility.summary            £7,400 matches no rate or rule threshold in the graph  [on its page]
+      "Free school meals for children at state schools if parents are on qualifying benefits. From the start of the 2026-27 academic year, any household on U…"
+    unbacked amount   agentInteraction.agentSteps.2  £7,400 matches no rate or rule threshold in the graph  [on its page]
+      "Explain that registering also brings Pupil Premium funding for the school if household earnings are under £7,400 ("targeted" free school meals)"
+
+  la-road-occupation-licence
+    unbacked amount   eligibility.summary            £10 matches no rate or rule threshold in the graph  [on its page]
+      "Required for any building work involving breaking or occupying a public road in England and Wales. Must contact the local authority directly — online …"
+
+  la-scrap-metal-dealer-licence
+    unbacked amount   eligibility.summary            £5,000 matches no rate or rule threshold in the graph  [on its page]
+      "Mandatory for all scrap metal dealers in England and Wales. Two types: site licence (fixed premises) and collector's licence (mobile). Licences renew …"
+
+  lr-property-search
+    unbacked amount   eligibility.summary            £7 matches no rate or rule threshold in the graph  [on its page]
+      "Anyone can search the Land Registry for information on registered properties in England and Wales. A title register or title plan costs £7. Useful whe…"
+
+  nhs-low-income-scheme
+    unbacked amount   eligibility.criteria.0         £23,250 matches no rate or rule threshold in the graph  [on its page]
+      "Must be on a low income. Cannot apply with capital over £16,000 (£23,250 if living permanently in a care home; £24,000 in Wales)."
+    unbacked amount   eligibility.criteria.1         £23,250 matches no rate or rule threshold in the graph  [on its page]
+      "Savings, investments or property (not counting your home) under £16,000; £23,250 if living permanently in a care home (£24,000 in Wales). Online appli…"
+
+  ni-discretionary-support
+    unbacked amount   eligibility.summary            £29,741.40 matches no rate or rule threshold in the graph  [on its page]
+      "Emergency help for people in Northern Ireland facing an extreme or exceptional situation or crisis that puts health, safety or wellbeing at significan…"
+    unbacked amount   eligibility.criteria.0         £29,741.40 matches no rate or rule threshold in the graph  [on its page]
+      "Must be in crisis, with combined annual income after deductions of no more than £29,741.40. No loan if total government debt is £1,500 or more."
+    unbacked amount   eligibility.criteria.0         £1,500 matches no rate or rule threshold in the graph  [on its page]
+      "Must be in crisis, with combined annual income after deductions of no more than £29,741.40. No loan if total government debt is £1,500 or more."
+
+  other-help-to-buy
+    unbacked amount   eligibility.criteria.0         £420,000 matches no rate or rule threshold in the graph  [on its page]
+      "First-time buyer purchasing a new-build property through an eligible scheme. For First Homes: property must not exceed £250,000 after discount (£420,0…"
+
+  other-pupil-premium
+    unbacked amount   desc                           £7,400 matches no rate or rule threshold in the graph  [on its page]
+      "DfE funding paid to schools in England for disadvantaged pupils. Triggered by 'targeted' free school meals (the £7,400 income threshold), not by the 2…"
+    unbacked amount   eligibility.summary            £7,400 matches no rate or rule threshold in the graph  [on its page]
+      "Additional funding paid to schools in England: £1,550 a year per eligible pupil in reception to year 6, £1,100 in years 7 to 11, and £2,690 for looked…"
+
+  slc-childcare-grant
+    unbacked amount   eligibility.summary            £20,107.23 matches no rate or rule threshold in the graph  [on its page]
+      "Non-repayable grant for full-time higher education students (120+ credits a year) in England. Pays 85% of childcare costs up to £199.62 a week for one…"
+    unbacked amount   eligibility.summary            £28,914.47 matches no rate or rule threshold in the graph  [on its page]
+      "Non-repayable grant for full-time higher education students (120+ credits a year) in England. Pays 85% of childcare costs up to £199.62 a week for one…"
+    unbacked amount   eligibility.criteria.1         £20,107.23 matches no rate or rule threshold in the graph  [on its page]
+      "Household income under £20,107.23 for one child or £28,914.47 for two or more; must get (or be eligible for) income-assessed student finance."
+    unbacked amount   eligibility.criteria.1         £28,914.47 matches no rate or rule threshold in the graph  [on its page]
+      "Household income under £20,107.23 for one child or £28,914.47 for two or more; must get (or be eligible for) income-assessed student finance."
+
+  slc-loan-repayment
+    unbacked amount   eligibility.summary            £26,900 matches no rate or rule threshold in the graph  [on its page]
+      "Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,900; Plan 2: £29,385; Plan 4: £33…"
+    unbacked amount   eligibility.summary            £29,385 matches no rate or rule threshold in the graph  [on its page]
+      "Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,900; Plan 2: £29,385; Plan 4: £33…"
+    unbacked amount   eligibility.summary            £33,795 matches no rate or rule threshold in the graph  [on its page]
+      "Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,900; Plan 2: £29,385; Plan 4: £33…"
+    unbacked amount   eligibility.summary            £21,000 matches no rate or rule threshold in the graph  [on its page]
+      "Applies to anyone with an outstanding UK student loan whose income exceeds the threshold for their plan (Plan 1: £26,900; Plan 2: £29,385; Plan 4: £33…"
+
+  slc-student-finance
+    unbacked amount   desc                           £9,790 matches no rate or rule threshold in the graph  [on its page]
+      "Tuition Fee Loan (up to £9,790 a year in 2026 to 2027) and Maintenance Loan (income-assessed) for undergraduate study. Repaid via salary deductions on…"
+    unbacked amount   eligibility.summary            £9,790 matches no rate or rule threshold in the graph  [on its page]
+      "UK students starting an undergraduate course at a UK university can apply for a Tuition Fee Loan (up to £9,790 a year in 2026 to 2027, paid directly t…"
+
+  sss-pension-winter-heating
+    unbacked amount   eligibility.summary            £35,000 matches no rate or rule threshold in the graph  [on its page]
+      "Replaces Winter Fuel Payment in Scotland. For people who have reached State Pension age and live in Scotland. Pays £105.55 to £316.70 depending on age…"

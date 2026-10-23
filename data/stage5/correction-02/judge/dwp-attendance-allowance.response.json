@@ -1,0 +1,85 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "For people who have reached State Pension age.",
+          "verdict": "supported",
+          "quote": "you’ve reached State Pension age",
+          "source": 0,
+          "note": "The service page names this age condition."
+        },
+        {
+          "claim": "For people who have care needs.",
+          "verdict": "supported",
+          "quote": "your disability or health condition is severe enough for you to need help caring for yourself or someone to supervise you",
+          "source": 0,
+          "note": "The service page describes the required care or supervision need."
+        },
+        {
+          "claim": "Attendance Allowance is not means-tested.",
+          "verdict": "supported",
+          "quote": "Attendance Allowance is not means-tested - what you earn or how much you have in savings will not affect what you get.",
+          "source": 0,
+          "note": "The page says this directly."
+        },
+        {
+          "claim": "There are two rates.",
+          "verdict": "supported",
+          "quote": "Attendance Allowance is paid weekly at 2 different rates",
+          "source": 0,
+          "note": "The page states two rates."
+        },
+        {
+          "claim": "The rate depends on day or night help or supervision needs.",
+          "verdict": "supported",
+          "quote": "Lower rate - £76.70 Frequent help or constant supervision during the day, or supervision at night Higher rate - £114.60 Help or supervision throughout both day and night",
+          "source": 0,
+          "note": "The rate table distinguishes day or night needs from needs throughout both."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "Must have reached State Pension age.",
+          "verdict": "supported",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age",
+          "source": 0,
+          "note": "The age condition appears on the service page."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_keyQuestions_0",
+      "claims": [
+        {
+          "claim": "Have you reached State Pension age?",
+          "verdict": "supported",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age",
+          "source": 0,
+          "note": "The question asks about a stated eligibility condition."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_ruleIn_0",
+      "claims": [
+        {
+          "claim": "Reached State Pension age",
+          "verdict": "supported",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age",
+          "source": 0,
+          "note": "The rule label matches the age condition."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}
