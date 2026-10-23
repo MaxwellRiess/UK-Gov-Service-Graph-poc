@@ -1,0 +1,29 @@
+{
+  "fields": [
+    {
+      "key": "nations",
+      "claims": [
+        {
+          "claim": "The death-registration rules apply in England.",
+          "verdict": "supported",
+          "quote": "These rules apply if you live in England and Wales.",
+          "source": 1,
+          "note": "The guide explicitly includes England."
+        },
+        {
+          "claim": "The death-registration rules apply in Wales.",
+          "verdict": "supported",
+          "quote": "These rules apply if you live in England and Wales.",
+          "source": 1,
+          "note": "The guide explicitly includes Wales."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone",
+    "in-person"
+  ],
+  "sign_in_on_page": null
+}

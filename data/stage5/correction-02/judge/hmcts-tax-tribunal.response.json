@@ -1,0 +1,168 @@
+{
+  "fields": [
+    {
+      "key": "deadline",
+      "claims": [
+        {
+          "claim": "The tribunal appeal deadline is usually 30 days from the relevant decision or HMRC review conclusion.",
+          "verdict": "supported",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "source": 4,
+          "note": "The guidance lists the 30-day starting points for direct tax, indirect tax and review conclusions."
+        }
+      ]
+    },
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "People can appeal certain HMRC tax decisions to the First-tier Tribunal (Tax Chamber).",
+          "verdict": "supported",
+          "quote": "Appeal to the First-tier Tribunal (Tax) against tax decisions: how to appeal, the hearing, if you lose your case. You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )",
+          "source": 0,
+          "note": "The tribunal page expressly allows appeals of some HMRC decisions."
+        },
+        {
+          "claim": "You can appeal certain HMRC tax penalties to the First-tier Tribunal.",
+          "verdict": "supported",
+          "quote": "If you’ve been asked to pay duty or a penalty You may be able to appeal if HMRC : sends you an assessment for duty charges you a penalty",
+          "source": 0,
+          "note": "The tribunal page says certain HMRC penalties can be appealed."
+        },
+        {
+          "claim": "The First-tier Tribunal (Tax Chamber) is independent.",
+          "verdict": "supported",
+          "quote": "The tribunal is independent of the government, HMRC , Border Force, the NCA , the WRA and the Gambling Commission.",
+          "source": 0,
+          "note": "The source expressly calls the tribunal independent."
+        },
+        {
+          "claim": "Direct tax decisions must usually be appealed to HMRC before the tribunal.",
+          "verdict": "supported",
+          "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal.",
+          "source": 0,
+          "note": "The page states this prerequisite without qualification."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "You can appeal some HMRC tax decisions to the First-tier Tribunal.",
+          "verdict": "supported",
+          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )",
+          "source": 0,
+          "note": "The tribunal page expressly allows appeals of some HMRC decisions."
+        },
+        {
+          "claim": "You can appeal certain HMRC tax penalties to the First-tier Tribunal.",
+          "verdict": "supported",
+          "quote": "If you’ve been asked to pay duty or a penalty You may be able to appeal if HMRC : sends you an assessment for duty charges you a penalty",
+          "source": 0,
+          "note": "The tribunal page says certain HMRC penalties can be appealed."
+        },
+        {
+          "claim": "For direct tax, you must usually appeal to HMRC first.",
+          "verdict": "supported",
+          "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal.",
+          "source": 0,
+          "note": "The source explicitly requires the HMRC appeal first."
+        },
+        {
+          "claim": "The tribunal appeal deadline is usually 30 days from the relevant decision or review conclusion.",
+          "verdict": "supported",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "source": 4,
+          "note": "The tribunal guidance gives these 30-day starting points."
+        },
+        {
+          "claim": "There is no fee to appeal to the First-tier Tribunal.",
+          "verdict": "supported",
+          "quote": "There is no fee for appealing to the First-tier Tribunal.",
+          "source": 4,
+          "note": "The source directly states that no tribunal appeal fee is charged."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_keyQuestions_2",
+      "claims": [
+        {
+          "claim": "A tax tribunal appeal has an applicable filing deadline that should be checked.",
+          "verdict": "supported",
+          "quote": "There are time limits in which you must make your appeal to the tribunal about indirect tax or tell them of your appeal about direct tax.",
+          "source": 4,
+          "note": "The source states that tribunal appeals have time limits."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_ruleIn_1",
+      "claims": [
+        {
+          "claim": "Filing within the applicable appeal window is the ordinary route.",
+          "verdict": "supported",
+          "quote": "There are time limits in which you must make your appeal to the tribunal about indirect tax or tell them of your appeal about direct tax.",
+          "source": 4,
+          "note": "The tribunal guidance sets a filing time limit and separately addresses late appeals."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_ruleOut_0",
+      "claims": [
+        {
+          "claim": "A late appeal requires a judge to accept it.",
+          "verdict": "supported",
+          "quote": "Late appeals will only be admitted if a judge considers in the circumstances that it is in the interests of justice.",
+          "source": 4,
+          "note": "The guidance makes admission of a late appeal dependent on a judge's decision."
+        }
+      ]
+    },
+    {
+      "key": "agentInteraction_agentSteps_0",
+      "claims": [
+        {
+          "claim": "The applicable tribunal appeal deadline should be confirmed.",
+          "verdict": "supported",
+          "quote": "The time limits which apply will be stated in the decision letter issued to you.",
+          "source": 4,
+          "note": "The decision letter identifies the applicable deadline."
+        },
+        {
+          "claim": "A late appeal may need a judge's permission.",
+          "verdict": "supported",
+          "quote": "If you have not appealed within the time limit, you can apply to the tribunal for permission to bring a late appeal on the notice of appeal.",
+          "source": 4,
+          "note": "The source directs late appellants to seek permission."
+        }
+      ]
+    },
+    {
+      "key": "agentInteraction_agentSteps_1",
+      "claims": [
+        {
+          "claim": "Check whether an appeal to HMRC is needed before going to the tribunal.",
+          "verdict": "supported",
+          "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal.",
+          "source": 0,
+          "note": "An initial HMRC appeal is mandatory for direct tax decisions."
+        },
+        {
+          "claim": "Check whether an HMRC review is needed before going to the tribunal.",
+          "verdict": "contradicted",
+          "quote": "You can ask for a review of some tax decisions.",
+          "source": 0,
+          "note": "The source presents a review as optional, not as a required step before a tribunal appeal."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "post"
+  ],
+  "sign_in_on_page": null
+}

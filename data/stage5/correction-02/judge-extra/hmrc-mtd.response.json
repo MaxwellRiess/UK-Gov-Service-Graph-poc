@@ -1,0 +1,51 @@
+{
+  "fields": [
+    {
+      "key": "eligibility_rules_0_label",
+      "claims": [
+        {
+          "claim": "VAT registration alone is enough to fall within Making Tax Digital for VAT.",
+          "verdict": "partly_supported",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "source": 2,
+          "note": "VAT registration is relevant, but the label omits the exemption and pending-exemption exceptions."
+        },
+        {
+          "claim": "A self-employed person with income over £50,000 falls within Making Tax Digital for Income Tax.",
+          "verdict": "partly_supported",
+          "quote": "You need to use Making Tax Digital for Income Tax from 6 April 2026 if your total annual income from self-employment and property is over £50,000.",
+          "source": 6,
+          "note": "The threshold concerns qualifying self-employment and property income, and the label leaves out that income definition and other eligibility conditions."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_0_rules_1_label",
+      "claims": [
+        {
+          "claim": "A self-employed person with income over £50,000 falls within Making Tax Digital for Income Tax.",
+          "verdict": "partly_supported",
+          "quote": "You need to use Making Tax Digital for Income Tax from 6 April 2026 if your total annual income from self-employment and property is over £50,000.",
+          "source": 6,
+          "note": "The threshold concerns qualifying self-employment and property income, and the label leaves out that income definition and other eligibility conditions."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_0_rules_1_rules_0_label",
+      "claims": [
+        {
+          "claim": "Self-employment is a relevant income type for Making Tax Digital for Income Tax.",
+          "verdict": "supported",
+          "quote": "Qualifying income is your total income from self-employment and property.",
+          "source": 6,
+          "note": "The source explicitly includes self-employment income in qualifying income."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": "Self Assessment user ID and password"
+}

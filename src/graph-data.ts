@@ -441,17 +441,17 @@ export const NODES: Record<string, ServiceNode> = {
   },
   'gro-register-death': {
     id: 'gro-register-death', name: 'Register the death', dept: 'GRO', deptKey: 'gro',
-    deadline: '5 days',
+    deadline: '5 days from confirmation that the death can be registered',
     desc: 'Register at local register office. Required before probate, Tell Us Once and bereavement payments.',
     govuk_url: 'https://www.gov.uk/register-a-death',
     serviceType: 'registration',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.',
+      summary: 'In England and Wales, a death must be registered by a qualified informant within 5 days of confirmation that it can be registered.',
       universal: true,
       criteria: [
-        { factor: 'bereavement', description: 'A person has died in England or Wales.' },
+        { factor: 'bereavement', description: 'For this local register-office process, the death occurred in England or Wales.' },
         { factor: 'family', description: 'Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.' },
       ],
       keyQuestions: [
@@ -463,6 +463,7 @@ export const NODES: Record<string, ServiceNode> = {
       ruleIn: [],
       ruleOut: [],      sources: [
         'https://www.gov.uk/after-a-death/register-the-death',
+        'https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/',
       ],
       rules: [
         {
@@ -473,10 +474,10 @@ export const NODES: Record<string, ServiceNode> = {
         },
         {
           "type": "deadline",
-          "triggerEvent": "death_date",
-          "triggerLabel": "Date of death",
+          "triggerEvent": "death_registration_confirmation_date",
+          "triggerLabel": "date you received confirmation that you can register the death",
           "maxDays": 5,
-          "label": "Must register within 5 days of death"
+          "label": "Register within 5 days of confirmation that the death can be registered"
         }
       ],
 
@@ -486,7 +487,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentCanComplete: 'inform-only',
       agentSteps: [
         'Help user find their nearest register office',
-        'Advise on the 5-day deadline',
+        'Explain the 5-day deadline from confirmation that the death can be registered',
         'Explain Tell Us Once service offered at the appointment',
       ],
     },
@@ -511,6 +512,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       officeLocatorUrl: 'https://www.gov.uk/register-offices',
     },
+    nations: ['england', 'wales'],
   },
   'gro-death-certificate': {
     id: 'gro-death-certificate', name: 'Obtain death certificates', dept: 'GRO', deptKey: 'gro',
@@ -2237,34 +2239,36 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-mtd': {
     id: 'hmrc-mtd', name: 'Making Tax Digital enrolment', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Mandatory for VAT-registered businesses, which should now all be signed up automatically. Phased rollout for income tax from 2026.',
+    desc: 'VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for exemption. Making Tax Digital for Income Tax began on 6 April 2026 for qualifying sole traders and landlords.',
     govuk_url: 'https://www.gov.uk/government/collections/making-tax-digital-for-vat',
     serviceType: 'obligation',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Mandatory for all VAT-registered businesses — must keep digital records and file VAT returns via MTD-compatible software. Income Tax MTD rolls out from April 2026 for self-employed/landlords with income over £50k.',
+      summary: 'VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for an exemption; they keep digital VAT records and submit returns using compatible software. Making Tax Digital for Income Tax began on 6 April 2026 for qualifying sole traders and landlords whose 2024 to 2025 qualifying income was over £50,000.',
       universal: false,
       criteria: [
-        { factor: 'dependency', description: 'Mandatory for all VAT-registered businesses. Phased in for income tax self-assessment from 2026.' },
-        { factor: 'income', description: 'MTD for Income Tax applies from April 2026 to sole traders and landlords with income over £50,000.' },
+        { factor: 'dependency', description: 'VAT-registered businesses should use Making Tax Digital for VAT unless exempt or applying for exemption.' },
+        { factor: 'income', description: 'Making Tax Digital for Income Tax applies from 6 April 2026 to qualifying sole traders and landlords with 2024 to 2025 qualifying income over £50,000.' },
       ],
       keyQuestions: [
         'Are you VAT registered?',
         'Do you use MTD-compatible accounting software?',
-        'Is your self-employed or rental income over £50,000?',
+        'Was your qualifying income from self-employment or property over £50,000 in 2024 to 2025?',
       ],
-      autoQualifiers: ['VAT registered'],
+      autoQualifiers: ['VAT registered and not exempt from Making Tax Digital for VAT'],
       means_tested: false,
       evidenceRequired: ['MTD-compatible software (e.g. Xero, QuickBooks, FreeAgent)', 'VAT registration number'],
-      ruleIn: ['VAT-registered business', 'Self-employed or landlord with income over £50k (from 2026)'],
+      ruleIn: ['VAT-registered business', 'Qualifying sole trader or landlord with income over £50,000 in 2024 to 2025, from 6 April 2026'],
       ruleOut: [],      sources: [
         'https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step',
+        'https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat',
+        'https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax',
       ],
       rules: [
         {
           "type": "any",
-          "label": "VAT-registered or self-employed/landlord with income over £50k",
+          "label": "VAT registered or self-employed with income over £50,000",
           "rules": [
             {
               "type": "dependency",
@@ -2274,7 +2278,7 @@ export const NODES: Record<string, ServiceNode> = {
             },
             {
               "type": "all",
-              "label": "Self-employed or landlord with income over £50k (MTD for Income Tax)",
+              "label": "Self-employed with income over £50,000 (MTD for Income Tax)",
               "rules": [
                 {
                   "type": "enum",
@@ -2282,12 +2286,12 @@ export const NODES: Record<string, ServiceNode> = {
                   "oneOf": [
                     "self-employed"
                   ],
-                  "label": "Self-employed or landlord"
+                  "label": "Self-employed"
                 },
                 {
                   "type": "comparison",
                   "field": "annual_income",
-                  "operator": ">=",
+                  "operator": ">",
                   "value": 50000,
                   "label": "Income exceeds £50,000"
                 }
@@ -2304,9 +2308,9 @@ export const NODES: Record<string, ServiceNode> = {
       apiUrl: 'https://developer.service.hmrc.gov.uk/guides/income-tax-mtd-end-to-end-service-guide/',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Explain MTD obligations for VAT-registered businesses',
+        'Explain Making Tax Digital for VAT obligations and exemptions',
         'Advise on MTD-compatible software options',
-        'Explain upcoming Income Tax MTD rollout from April 2026',
+        'Explain the Income Tax Making Tax Digital requirements that began on 6 April 2026',
         'Guide through Government Gateway sign-up process',
       ],
     },
@@ -2855,11 +2859,11 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'bereavement', description: 'Spouse or civil partner died on or after 6 April 2017.' },
-        { factor: 'age', description: 'Must have been under State Pension age (66) at the time of the partner\'s death.' },
+        { factor: 'age', description: 'You must have been under State Pension age when your partner died.' },
         { factor: 'ni_record', description: 'Deceased must have paid at least 25 weeks of Class 1 or 2 NI contributions, or died from a work-related accident or disease.' },
       ],
       keyQuestions: [
-        'Was your spouse or civil partner under State Pension age when they died?',
+        'Were you under State Pension age when your partner died?',
         'Were they working and paying NI contributions?',
         'When did they die? (Claim within 3 months for maximum payment.)',
         'Do you have children? (Higher rate applies if you have children.)',
@@ -3217,24 +3221,36 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Tops up weekly income to £238 (single) or £363.25 (couple). Gateway benefit — unlocks Winter Fuel Payment, free TV Licence (75+) and other entitlements. About 1 in 3 eligible pensioners don\'t claim.',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Must have reached State Pension age (currently 66).' },
+        { factor: 'age', description: 'If you are single, you must have reached State Pension age. If you have a partner, you may qualify if both of you have reached State Pension age or one of you gets Housing Benefit for people over State Pension age.' },
         { factor: 'income', description: 'Weekly income below £238 (single) or £363.25 (couple). Savings above £10,000 reduce entitlement.' },
       ],
       keyQuestions: [
-        'Have you reached State Pension age?',
+        'Have you reached State Pension age? If you have a partner, does either of you receive Housing Benefit for people over State Pension age?',
         'What is your weekly income from all sources (State Pension, private pensions, benefits)?',
         'Do you have savings over £10,000?',
         'Do you have any disability or caring responsibilities? (Extra amounts may apply.)',
       ],
-      autoQualifiers: ['State Pension age reached and income clearly below threshold'],
+      autoQualifiers: ['State Pension age reached, or partner receiving Housing Benefit for people over State Pension age, with income clearly below threshold'],
       means_tested: true,
       evidenceRequired: ['Pension and income details', 'Proof of savings and capital'],
-      ruleIn: ['Reached State Pension age (66+)', 'Weekly income below Pension Credit threshold'],
+      ruleIn: ['Reached State Pension age or receiving Housing Benefit for people over State Pension age', 'Weekly income below Pension Credit threshold'],
       ruleOut: ['Savings above £10,000 reducing entitlement to zero'],      rules: [
         {
-          "type": "state_pension_age",
-          "reached": true,
-          "label": "Must have reached State Pension age"
+          "type": "any",
+          "label": "Reached State Pension age or receives Housing Benefit for people over State Pension age",
+          "rules": [
+            {
+              "type": "state_pension_age",
+              "reached": true,
+              "label": "Reached State Pension age"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-housing-benefit",
+              "condition": "receiving",
+              "label": "Receiving Housing Benefit for people over State Pension age"
+            }
+          ]
         },
         {
           "type": "comparison",
@@ -3356,7 +3372,7 @@ export const NODES: Record<string, ServiceNode> = {
   'dwp-attendance-allowance': {
     id: 'dwp-attendance-allowance', name: 'Attendance Allowance', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
-    desc: 'For over-65s with care needs. Not means-tested. Two rates depending on day/night needs.',
+    desc: 'For people who have reached State Pension age and have care needs. Not means-tested. Two rates depending on day or night needs.',
     govuk_url: 'https://www.gov.uk/attendance-allowance',
     serviceType: 'benefit',
     proactive: true,
@@ -3365,11 +3381,11 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'For people who have reached State Pension age and need help with personal care due to a physical or mental condition. Not means-tested. Two rates: lower (day or night care) and higher (day and night care).',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Must have reached State Pension age (66 or over).' },
+        { factor: 'age', description: 'Must have reached State Pension age.' },
         { factor: 'disability', description: 'Need help with personal care, supervision, or watching over due to a physical or mental condition, for at least 6 months (unless terminally ill).' },
       ],
       keyQuestions: [
-        'Are you 66 or older?',
+        'Have you reached State Pension age?',
         'Do you need help with washing, dressing, eating, or other personal care?',
         'Do you need supervision or watching over due to your condition?',
         'Have you had these needs for at least 6 months? (Or are you terminally ill?)',
@@ -3378,7 +3394,7 @@ export const NODES: Record<string, ServiceNode> = {
       exclusions: ['Under State Pension age — claim PIP instead.'],
       means_tested: false,
       evidenceRequired: ['AA1 claim form', 'Medical evidence from GP or specialist helpful'],
-      ruleIn: ['Aged 66 or over', 'Personal care needs due to physical or mental condition'],
+      ruleIn: ['Reached State Pension age', 'Personal care needs due to physical or mental condition'],
       ruleOut: ['Under State Pension age'],      rules: [
         {
           "type": "state_pension_age",
@@ -6385,16 +6401,17 @@ export const NODES: Record<string, ServiceNode> = {
   'la-bus-pass': {
     id: 'la-bus-pass', name: 'Free bus pass', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
-    desc: 'Available from State Pension age. Apply via local council.',
+    desc: 'In England, available from State Pension age. Apply via the local council.',
     govuk_url: 'https://www.gov.uk/apply-for-elderly-person-bus-pass',
     serviceType: 'entitlement',
     proactive: true,
     gated: true,
+    nations: ['england'],
     eligibility: {
       summary: 'Free off-peak bus travel anywhere in England from State Pension age. Also available to some disabled people. Apply via local council — usually processed in a few weeks.',
       universal: true,
       criteria: [
-        { factor: 'age', description: 'Must have reached State Pension age (currently 66). Some disabled people may also qualify before this age.' },
+        { factor: 'age', description: 'In England, you can get an older person’s bus pass when you reach State Pension age. An eligible disabled person may qualify for a separate disabled person’s pass.' },
       ],
       keyQuestions: [
         'Have you reached State Pension age?',
@@ -6403,7 +6420,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Reached State Pension age'],
       means_tested: false,
       evidenceRequired: ['Proof of age (passport or birth certificate)', 'Proof of address', 'Passport photo'],
-      ruleIn: ['Reached State Pension age (66)'],
+      ruleIn: ['Reached State Pension age in England'],
       ruleOut: [],      rules: [
         {
           "type": "any",
@@ -7100,13 +7117,13 @@ export const NODES: Record<string, ServiceNode> = {
   'la-street-collection-licence': {
     id: 'la-street-collection-licence', name: 'Street collection licence', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
-    desc: 'Collecting money or selling items for charity in a public street or place requires a street collection licence. Apply to the local council, or the Metropolitan Police in Greater London.',
+    desc: 'Collecting money or selling items for charity in a public street or place may require a street collection licence, depending on the local council. Apply to the local council, or the Metropolitan Police in Greater London outside the City of London.',
     govuk_url: 'https://www.gov.uk/find-licences/street-collection-licence',
     serviceType: 'application',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Required for any charitable collection in a public street or place in England and Wales. Free to obtain. Greater London collections (outside City of London) go through the Metropolitan Police. Penalty: £200 fine for collecting without a licence.',
+      summary: 'You might need a licence to collect money or sell items for charity on the street, depending on the local council. In Greater London outside the City of London, contact the Metropolitan Police. You could be fined £200 for collecting money for charity without a required licence.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Collecting money or selling items for a charitable purpose in a public street, shop doorway, or car park in England and Wales.' },
@@ -7597,17 +7614,17 @@ export const NODES: Record<string, ServiceNode> = {
   'ho-citizenship-ceremony': {
     id: 'ho-citizenship-ceremony', name: 'Citizenship ceremony', dept: 'Home Office', deptKey: 'ho',
     deadline: '3 months',
-    desc: 'Required final step after citizenship is approved. Make an oath of allegiance, receive your certificate. Must attend within 3 months of the Home Office invitation. Fee included in the citizenship application.',
+    desc: 'Usually required after a successful adult British citizenship application. Attend within 3 months of the Home Office invitation to make the oath or affirmation and receive the certificate. Attendance is optional under the Windrush scheme.',
     govuk_url: 'https://www.gov.uk/citizenship-ceremonies',
     serviceType: 'obligation',
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'All adults (18+) approved for British citizenship must attend a citizenship ceremony, organised by their local authority, within 3 months of receiving the Home Office invitation. Citizenship is not conferred until the ceremony is completed. The £130 ceremony fee is included in the £1,839 application fee.',
+      summary: 'Adults aged 18 or over who successfully apply for British citizenship usually need to attend a ceremony within 3 months of the Home Office invitation. Attendance is optional under the Windrush scheme. The ceremony cost is included in the application fee.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must have received an approved citizenship decision and ceremony invitation from the Home Office.' },
-        { factor: 'age', description: 'Adults aged 18 and over must attend in person. Children under 18 can be included on a parent\'s ceremony.' },
+        { factor: 'age', description: 'Adults aged 18 or over who successfully applied for British citizenship usually need to attend a ceremony; people who become citizens under the Windrush scheme may choose whether to attend. Children under 18 who applied with their parents may attend a parent’s ceremony.' },
       ],
       keyQuestions: [
         'Have you received your citizenship ceremony invitation from the Home Office?',
@@ -7617,7 +7634,7 @@ export const NODES: Record<string, ServiceNode> = {
       autoQualifiers: ['Citizenship application approved and invitation letter received'],
       means_tested: false,
       evidenceRequired: ['Home Office invitation letter', 'Photographic identification'],
-      ruleIn: ['Citizenship application approved', 'Aged 18 or over'],
+      ruleIn: ['Citizenship application approved', 'Aged 18 or over and required to attend a citizenship ceremony'],
       ruleOut: [],
       sources: [
         'https://www.gov.uk/apply-citizenship-indefinite-leave-to-remain',
@@ -7709,7 +7726,7 @@ export const NODES: Record<string, ServiceNode> = {
   'opg-lpa-activation': {
     id: 'opg-lpa-activation', name: 'Notify OPG of death', dept: 'OPG', deptKey: 'opg',
     deadline: null,
-    desc: 'Notify OPG when LPA holder dies. The registered LPA then ceases to have effect.',
+    desc: 'Notify the Office of the Public Guardian when the donor of a registered LPA dies. OPG then cancels the LPA.',
     govuk_url: 'https://www.gov.uk/power-of-attorney/changes-you-need-to-report',
     serviceType: 'obligation',
     proactive: true,
@@ -7718,7 +7735,7 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'When the donor of an LPA dies, tell the Office of the Public Guardian. OPG cancels the LPA and destroys it unless asked to return it. If an attorney dies, send OPG the original LPA and all certified copies.',
       universal: false,
       criteria: [
-        { factor: 'bereavement', description: 'A registered LPA exists and the donor has died.' },
+        { factor: 'bereavement', description: 'A registered LPA existed and its donor has died; the donor’s death must be reported to the Office of the Public Guardian.' },
         { factor: 'dependency', description: 'Requires a registered LPA to be in place.' },
       ],
       keyQuestions: [
@@ -7729,7 +7746,9 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       evidenceRequired: ['Death certificate', 'Original LPA document to return to OPG', 'LP4 notification form'],
       ruleIn: ['Registered LPA in place', 'Donor has died'],
-      ruleOut: [],      rules: [
+      ruleOut: [],
+      sources: ['https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report'],
+      rules: [
         {
           "type": "boolean",
           "field": "has_experienced_bereavement",
@@ -8545,7 +8564,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you know your staging or duties start date?',
       ],
       means_tested: false,
-      evidenceRequired: ['PAYE employer reference number', 'Chosen pension provider details', 'Letter of compliance to The Pensions Regulator (declaration of compliance within 5 months of duties start date)'],
+      evidenceRequired: ['PAYE employer reference number', 'Chosen pension provider details', 'Declaration of compliance to The Pensions Regulator within five calendar months after the duties start date.'],
       ruleIn: ['Employing workers aged 22 to State Pension age earning £10k+/year'],
       ruleOut: [],      rules: [
         {
@@ -9342,9 +9361,9 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'Help with funeral costs in Scotland for people receiving a qualifying benefit. People awaiting a decision on a qualifying benefit may apply, but Social Security Scotland decides their Funeral Support Payment after the benefit decision. For a funeral of someone aged 18 or over, it usually covers burial, cremation or hydrolysis in Scotland, plus £1,327.75 towards other funeral costs such as the service or funeral car (£162.05 if the person had a funeral plan), and can help with travel, transport, document and medical costs. It also helps with funerals for babies and stillborn babies. Apply from the death until 6 months after the funeral.',
       universal: false,
       criteria: [
-        { factor: 'bereavement', description: 'Must be responsible for arranging or paying for a funeral.' },
+        { factor: 'bereavement', description: 'You or your partner must be responsible for the funeral costs.' },
         { factor: 'income', description: 'You or your partner must get Universal Credit, Income Support, Pension Credit, Housing Benefit, income-based JSA or income-related ESA (or be waiting for a decision on one).' },
-        { factor: 'geography', description: 'The funeral must take place in the UK, and applicant must live in Scotland.' },
+        { factor: 'geography', description: 'You must live in Scotland. The funeral may be held in the UK or, in some circumstances, another country.' },
       ],
       keyQuestions: [
         'Do you live in Scotland?',
@@ -9368,7 +9387,7 @@ export const NODES: Record<string, ServiceNode> = {
           "type": "boolean",
           "field": "has_experienced_bereavement",
           "expected": true,
-          "label": "Must be responsible for arranging or paying for a funeral"
+          "label": "Responsible for funeral costs"
         },
         {
           "type": "any",
@@ -12267,14 +12286,14 @@ export const NODES: Record<string, ServiceNode> = {
 
   'hmcts-tax-tribunal': {
     id: 'hmcts-tax-tribunal', name: 'Appeal to Tax Tribunal', dept: 'HMCTS', deptKey: 'hmcts',
-    deadline: '30 days from HMRC decision',
-    desc: 'Appeal an HMRC tax decision to the independent First-tier Tribunal (Tax Chamber) if HMRC\'s review has not resolved the dispute.',
+    deadline: 'Usually 30 days from the relevant decision or HMRC review conclusion',
+    desc: 'Appeal certain HMRC tax decisions and penalties to the independent First-tier Tribunal (Tax Chamber). Direct tax decisions must usually be appealed to HMRC first.',
     govuk_url: 'https://www.gov.uk/tax-tribunal',
     serviceType: 'legal_process',
     proactive: false,
     gated: true,
     eligibility: {
-      summary: 'Available to anyone who has received a decision from HMRC (on income tax, VAT, PAYE, penalties, etc.) and disagrees with it. Must appeal within 30 days of the HMRC review conclusion. No filing fee for most tax appeals.',
+      summary: 'You can appeal some HMRC tax decisions and penalties to the First-tier Tribunal. For direct tax, you must usually appeal to HMRC first. The tribunal appeal deadline is usually 30 days from the relevant decision or review conclusion. There is no fee to appeal.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must have an HMRC decision to appeal. Indirect tax decisions can usually go straight to the tribunal; direct tax decisions must usually be appealed to HMRC first.' },
@@ -12282,11 +12301,11 @@ export const NODES: Record<string, ServiceNode> = {
       keyQuestions: [
         'Has HMRC issued a formal decision letter?',
         'Has the user already asked for an HMRC review?',
-        'Is the appeal within the 30-day deadline?',
+        'Is the appeal within the applicable deadline?',
       ],
       means_tested: false,
-      ruleIn: ['Received HMRC decision', 'Within 30-day appeal window', 'Disagrees with HMRC assessment'],
-      ruleOut: ['Out of time — more than 30 days since decision'],
+      ruleIn: ['Received HMRC decision', 'Within the applicable appeal window', 'Disagrees with HMRC assessment'],
+      ruleOut: ['Late appeal requires a judge to accept it'],
     },
     agentInteraction: {
       methods: ['online', 'post'],
@@ -12294,8 +12313,8 @@ export const NODES: Record<string, ServiceNode> = {
       onlineFormUrl: 'https://www.gov.uk/tax-tribunal',
       agentCanComplete: 'partial',
       agentSteps: [
-        'Confirm the 30-day deadline has not passed',
-        'Advise on whether HMRC review was completed first',
+        'Confirm the applicable appeal deadline and whether a late appeal needs a judge’s permission',
+        'Check whether an appeal to HMRC or an HMRC review is needed first',
         'Guide user through the online appeal form (T240)',
       ],
     },
@@ -13426,13 +13445,13 @@ export const NODES: Record<string, ServiceNode> = {
   'co-contracts-finder': {
     id: 'co-contracts-finder', name: 'Contracts Finder', dept: 'Cabinet Office', deptKey: 'other',
     deadline: null,
-    desc: 'Search and apply for government contracts and procurement opportunities published by central and local government in the UK.',
+    desc: 'Search public contract opportunities and awards from procurements begun under the previous rules; new procurements use Find a Tender.',
     govuk_url: 'https://www.gov.uk/contracts-finder',
     serviceType: 'application',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Free to use for any business or organisation looking to supply goods or services to the public sector. Contracts above £12,000 (central government) or £25,000 (other public bodies) must be published here.',
+      summary: 'Contracts Finder is free to use to search public contract opportunities. It remains in use for in-scope procurements begun under the previous regulations before 24 February 2025; new procurements under the Procurement Act 2023 are published on Find a Tender.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -13442,6 +13461,7 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       ruleIn: ['Business looking to supply public sector'],
       ruleOut: [],
+      sources: ['https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder'],
     },
     agentInteraction: {
       methods: ['online'],
@@ -13453,7 +13473,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Search by keyword, sector and contract value',
         'Summarise relevant open opportunities',
-        'Explain the Find a Tender Service for contracts above £139,688',
+        'Explain that new public procurement notices are published on Find a Tender',
       ],
     },
   },

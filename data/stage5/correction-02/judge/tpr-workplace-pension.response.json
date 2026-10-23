@@ -1,0 +1,18 @@
+{
+  "fields": [
+    {
+      "key": "evidence_2",
+      "claims": [
+        {
+          "claim": "The employer must complete a declaration of compliance with The Pensions Regulator within five calendar months after the duties start date.",
+          "verdict": "supported",
+          "quote": "You must complete your declaration with The Pensions Regulator within five calendar months after your duties start date.",
+          "source": 3,
+          "note": "The regulator's checklist states the deadline and recipient directly."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": ["online"],
+  "sign_in_on_page": null
+}

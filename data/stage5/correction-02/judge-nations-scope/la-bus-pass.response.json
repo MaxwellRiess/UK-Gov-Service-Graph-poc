@@ -1,0 +1,20 @@
+{
+  "fields": [
+    {
+      "key": "nations",
+      "claims": [
+        {
+          "claim": "The node’s State Pension age bus-pass rule applies in England.",
+          "verdict": "supported",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age .",
+          "source": 0,
+          "note": "The source expressly assigns the State Pension age rule to England."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,102 @@
+{
+  "fields": [
+    {
+      "key": "deadline",
+      "claims": [
+        {
+          "claim": "Register the death within 5 days of confirmation that it can be registered.",
+          "verdict": "supported",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "source": 1,
+          "note": "The page gives five days from confirmation for England and Wales."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "The local death registration process applies in England and Wales.",
+          "verdict": "supported",
+          "quote": "Every death in England and Wales must be registered in the district where it happened",
+          "source": 2,
+          "note": "The council page describes registration for deaths in England and Wales."
+        },
+        {
+          "claim": "A qualified informant must register the death.",
+          "verdict": "supported",
+          "quote": "By law one of these people must register a death: A relative of the deceased The partner of the deceased The personal representative of the deceased A person present at the death The occupier of the care home / hospital where the death occurred The person arranging the funeral",
+          "source": 2,
+          "note": "The council page lists the legally permitted registrants."
+        },
+        {
+          "claim": "Registration must occur within 5 days of confirmation that the death can be registered.",
+          "verdict": "supported",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "source": 1,
+          "note": "The page gives the same five day period from confirmation."
+        }
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "For this local register office process, the death occurred in England or Wales.",
+          "verdict": "supported",
+          "quote": "Every death in England and Wales must be registered in the district where it happened",
+          "source": 2,
+          "note": "The council page anchors the local process to deaths in England and Wales."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_1_triggerLabel",
+      "claims": [
+        {
+          "claim": "The date a medical certificate was received can start the five day registration period.",
+          "verdict": "partly_supported",
+          "quote": "within five days of the paperwork being sent to the Register Office.",
+          "source": 2,
+          "note": "The council page uses when paperwork was sent to the Register Office, not when a medical certificate was received."
+        },
+        {
+          "claim": "The date medical examiner confirmation was received can start the five day registration period.",
+          "verdict": "supported",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "source": 1,
+          "note": "The page starts the five day period when confirmation is received."
+        }
+      ]
+    },
+    {
+      "key": "eligibility_rules_1_label",
+      "claims": [
+        {
+          "claim": "Register within 5 days of confirmation that the death can be registered.",
+          "verdict": "supported",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "source": 1,
+          "note": "The page gives the same five day period from confirmation."
+        }
+      ]
+    },
+    {
+      "key": "agentInteraction_agentSteps_1",
+      "claims": [
+        {
+          "claim": "Explain the five day deadline from confirmation that the death can be registered.",
+          "verdict": "supported",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "source": 1,
+          "note": "The requested explanation repeats the page’s deadline."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online",
+    "phone"
+  ],
+  "sign_in_on_page": null
+}

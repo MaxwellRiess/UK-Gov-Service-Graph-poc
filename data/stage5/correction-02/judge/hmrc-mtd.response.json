@@ -1,0 +1,63 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {"claim": "VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for exemption.", "verdict": "supported", "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.", "source": 2, "note": "The VAT exemption guidance states the general rule and both exceptions."},
+        {"claim": "Making Tax Digital for Income Tax began on 6 April 2026 for qualifying sole traders and landlords.", "verdict": "supported", "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.", "source": 3, "note": "The source dates the requirement to 6 April 2026 and identifies qualifying sole traders and landlords."}
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {"claim": "VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for exemption.", "verdict": "supported", "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.", "source": 2, "note": "The source gives the VAT rule and both exceptions."},
+        {"claim": "VAT-registered businesses keep digital VAT records and submit returns using compatible software.", "verdict": "supported", "quote": "You should now keep VAT records and submit VAT Returns using compatible software.", "source": 0, "note": "The source directs businesses to keep VAT records and submit returns through compatible software."},
+        {"claim": "Making Tax Digital for Income Tax began on 6 April 2026 for qualifying sole traders and landlords whose 2024 to 2025 qualifying income was over £50,000.", "verdict": "supported", "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.", "source": 3, "note": "The source supplies the start date, tax year, income threshold and affected group."}
+      ]
+    },
+    {
+      "key": "criterion_0",
+      "claims": [
+        {"claim": "VAT-registered businesses should use Making Tax Digital for VAT unless exempt or applying for exemption.", "verdict": "supported", "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.", "source": 2, "note": "The criterion closely follows the source wording."}
+      ]
+    },
+    {
+      "key": "criterion_1",
+      "claims": [
+        {"claim": "Making Tax Digital for Income Tax applies from 6 April 2026 to qualifying sole traders and landlords with 2024 to 2025 qualifying income over £50,000.", "verdict": "supported", "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.", "source": 3, "note": "The source states the same date, qualifying income period, threshold and group."}
+      ]
+    },
+    {
+      "key": "eligibility_keyQuestions_2",
+      "claims": [
+        {"claim": "The relevant qualifying income from self-employment or property exceeded £50,000 in 2024 to 2025.", "verdict": "supported", "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.", "source": 3, "note": "The question checks the source's qualifying income threshold for sole traders and landlords."}
+      ]
+    },
+    {
+      "key": "qualifier_0",
+      "claims": [
+        {"claim": "A VAT-registered business that is not exempt is within Making Tax Digital for VAT.", "verdict": "supported", "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.", "source": 2, "note": "The source directly includes VAT-registered businesses unless exempt or seeking exemption."}
+      ]
+    },
+    {
+      "key": "eligibility_ruleIn_1",
+      "claims": [
+        {"claim": "From 6 April 2026, a qualifying sole trader or landlord with qualifying income over £50,000 in 2024 to 2025 needs to use Making Tax Digital for Income Tax.", "verdict": "supported", "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.", "source": 3, "note": "The source states the rule, including the exemption qualification."}
+      ]
+    },
+    {
+      "key": "agentInteraction_agentSteps_0",
+      "claims": [
+        {"claim": "Making Tax Digital for VAT has obligations and exemptions to explain.", "verdict": "supported", "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.", "source": 2, "note": "The source states the obligation and the exemption cases."}
+      ]
+    },
+    {
+      "key": "agentInteraction_agentSteps_2",
+      "claims": [
+        {"claim": "Making Tax Digital for Income Tax requirements began on 6 April 2026.", "verdict": "supported", "quote": "From 6 April 2026, sole traders and landlords must use it if their total annual income from self-employment and property is over £50,000.", "source": 1, "note": "The source gives the starting date and affected income group."}
+      ]
+    }
+  ],
+  "methods_on_page": ["online"],
+  "sign_in_on_page": "HMRC online services"
+}

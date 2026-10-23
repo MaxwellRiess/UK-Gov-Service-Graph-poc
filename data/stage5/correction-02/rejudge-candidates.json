@@ -1,0 +1,239 @@
+{
+  "sss-funeral-support-payment#eligibility.criteria.0": [
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment"
+  ],
+  "sss-funeral-support-payment#eligibility.criteria.2": [
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment"
+  ],
+  "sss-funeral-support-payment#eligibility.rules.1.label": [
+    "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+    "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment"
+  ],
+  "tpr-workplace-pension#eligibility.evidenceRequired.2": [
+    "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist"
+  ],
+  "hmcts-tax-tribunal#deadline": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#desc": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#eligibility.summary": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#eligibility.keyQuestions.2": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#eligibility.ruleIn.1": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#eligibility.ruleOut.0": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#agentInteraction.agentSteps.0": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmcts-tax-tribunal#agentInteraction.agentSteps.1": [
+    "https://www.gov.uk/tax-tribunal",
+    "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal"
+  ],
+  "hmrc-mtd#desc": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#eligibility.summary": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#eligibility.criteria.0": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#eligibility.criteria.1": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#eligibility.keyQuestions.2": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#eligibility.ruleIn.1": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#agentInteraction.agentSteps.0": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "hmrc-mtd#agentInteraction.agentSteps.2": [
+    "https://www.gov.uk/government/collections/making-tax-digital-for-vat",
+    "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
+    "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+    "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat"
+  ],
+  "co-contracts-finder#desc": [
+    "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+    "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+    "https://www.gov.uk/contracts-finder"
+  ],
+  "co-contracts-finder#eligibility.summary": [
+    "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+    "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+    "https://www.gov.uk/contracts-finder"
+  ],
+  "co-contracts-finder#agentInteraction.agentSteps.2": [
+    "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+    "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+    "https://www.gov.uk/contracts-finder"
+  ],
+  "la-street-collection-licence#desc": [
+    "https://www.gov.uk/find-licences/street-collection-licence"
+  ],
+  "la-street-collection-licence#eligibility.summary": [
+    "https://www.gov.uk/find-licences/street-collection-licence"
+  ],
+  "dwp-attendance-allowance#desc": [
+    "https://www.gov.uk/attendance-allowance",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-attendance-allowance#eligibility.criteria.0": [
+    "https://www.gov.uk/attendance-allowance",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-attendance-allowance#eligibility.keyQuestions.0": [
+    "https://www.gov.uk/attendance-allowance",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-attendance-allowance#eligibility.ruleIn.0": [
+    "https://www.gov.uk/attendance-allowance",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "opg-lpa-activation#desc": [
+    "https://www.gov.uk/manage-lasting-power-attorney/start-lasting-power-of-attorney",
+    "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report"
+  ],
+  "opg-lpa-activation#eligibility.criteria.0": [
+    "https://www.gov.uk/manage-lasting-power-attorney/start-lasting-power-of-attorney",
+    "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report"
+  ],
+  "dwp-pension-credit#eligibility.criteria.0": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pension-credit#eligibility.keyQuestions.0": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pension-credit#eligibility.autoQualifiers.0": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pension-credit#eligibility.ruleIn.0": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pension-credit#eligibility.rules.0.label": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pension-credit#eligibility.rules.0.rules.0.label": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-pension-credit#eligibility.rules.0.rules.1.label": [
+    "https://www.gov.uk/pension-credit",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "la-bus-pass#desc": [
+    "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+    "https://www.gov.uk/apply-for-disabled-bus-pass"
+  ],
+  "la-bus-pass#eligibility.criteria.0": [
+    "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+    "https://www.gov.uk/apply-for-disabled-bus-pass"
+  ],
+  "la-bus-pass#eligibility.ruleIn.0": [
+    "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+    "https://www.gov.uk/apply-for-disabled-bus-pass"
+  ],
+  "dwp-bereavement-support#eligibility.criteria.1": [
+    "https://www.gov.uk/bereavement-support-payment",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "dwp-bereavement-support#eligibility.keyQuestions.0": [
+    "https://www.gov.uk/bereavement-support-payment",
+    "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable"
+  ],
+  "gro-register-death#deadline": [
+    "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+    "https://www.gov.uk/after-a-death/register-the-death"
+  ],
+  "gro-register-death#eligibility.summary": [
+    "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+    "https://www.gov.uk/after-a-death/register-the-death"
+  ],
+  "gro-register-death#eligibility.criteria.0": [
+    "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+    "https://www.gov.uk/after-a-death/register-the-death"
+  ],
+  "gro-register-death#eligibility.rules.1.triggerLabel": [
+    "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+    "https://www.gov.uk/after-a-death/register-the-death"
+  ],
+  "gro-register-death#eligibility.rules.1.label": [
+    "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+    "https://www.gov.uk/after-a-death/register-the-death"
+  ],
+  "gro-register-death#agentInteraction.agentSteps.1": [
+    "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+    "https://www.gov.uk/after-a-death/register-the-death"
+  ],
+  "ho-citizenship-ceremony#desc": [
+    "https://www.gov.uk/citizenship-ceremonies",
+    "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh"
+  ],
+  "ho-citizenship-ceremony#eligibility.summary": [
+    "https://www.gov.uk/citizenship-ceremonies",
+    "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh"
+  ],
+  "ho-citizenship-ceremony#eligibility.criteria.1": [
+    "https://www.gov.uk/citizenship-ceremonies",
+    "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh"
+  ],
+  "ho-citizenship-ceremony#eligibility.ruleIn.1": [
+    "https://www.gov.uk/citizenship-ceremonies",
+    "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh"
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "fields": [
+    {
+      "key": "desc",
+      "claims": [
+        {
+          "claim": "Collecting money for charity on the street may require a street collection licence, depending on the local council.",
+          "verdict": "supported",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "source": 0,
+          "note": "The page states this conditional licence requirement."
+        },
+        {
+          "claim": "Selling items for charity on the street may require a street collection licence, depending on the local council.",
+          "verdict": "supported",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "source": 0,
+          "note": "The page states this conditional licence requirement."
+        },
+        {
+          "claim": "Collecting money for charity in other public places may require a street collection licence.",
+          "verdict": "supported",
+          "quote": "It’s not just ‘streets’ that are covered - you’ll need a licence if you collect money in public areas, eg a shop doorway or car park.",
+          "source": 0,
+          "note": "The page extends the requirement to public areas."
+        },
+        {
+          "claim": "Selling items for charity in other public places may require a street collection licence.",
+          "verdict": "partly_supported",
+          "quote": "It’s not just ‘streets’ that are covered - you’ll need a licence if you collect money in public areas, eg a shop doorway or car park.",
+          "source": 0,
+          "note": "The public area passage refers to collecting money but does not expressly extend the selling rule beyond streets."
+        },
+        {
+          "claim": "Apply to the local council for a street collection licence.",
+          "verdict": "supported",
+          "quote": "How to apply Contact your local council to find out if you need a licence.",
+          "source": 0,
+          "note": "The application section directs readers to their local council."
+        },
+        {
+          "claim": "In Greater London outside the City of London, contact the Metropolitan Police for a licence.",
+          "verdict": "supported",
+          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+          "source": 0,
+          "note": "The page gives this Greater London route."
+        }
+      ]
+    },
+    {
+      "key": "summary",
+      "claims": [
+        {
+          "claim": "You might need a licence to collect money for charity on the street, depending on the local council.",
+          "verdict": "supported",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "source": 0,
+          "note": "The page states this conditional licence requirement."
+        },
+        {
+          "claim": "You might need a licence to sell items for charity on the street, depending on the local council.",
+          "verdict": "supported",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "source": 0,
+          "note": "The page states this conditional licence requirement."
+        },
+        {
+          "claim": "In Greater London outside the City of London, contact the Metropolitan Police.",
+          "verdict": "supported",
+          "quote": "In Greater London (except the City of London) you’ll need to contact the Metropolitan Police for a licence.",
+          "source": 0,
+          "note": "The page gives this Greater London route."
+        },
+        {
+          "claim": "You could be fined £200 for collecting money for charity without a required licence.",
+          "verdict": "supported",
+          "quote": "You could be fined £200 if you collect money for charity without a licence.",
+          "source": 0,
+          "note": "The page gives this fine for collection without a licence."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [],
+  "sign_in_on_page": null
+}

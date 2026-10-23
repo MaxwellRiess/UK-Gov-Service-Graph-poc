@@ -2241,11 +2241,19 @@
           "quote": "you or your partner are responsible for the funeral costs",
           "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
           "found": true
+        },
+        {
+          "claim": "Responsibility for arranging the funeral by itself is sufficient.",
+          "quote": "the client or their partner is responsible for the cost of the funeral",
+          "url": "https://www.socialsecurity.gov.scot/funeral-support-payment/eligibility-for-funeral-support-payment",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.041Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "tpr-workplace-pension",
@@ -2262,11 +2270,19 @@
           "quote": "You must complete your declaration with The Pensions Regulator within five calendar months after your duties start date.",
           "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
           "found": true
+        },
+        {
+          "claim": "Employers must send a letter of compliance to The Pensions Regulator.",
+          "quote": "You must complete your declaration of compliance to tell us how you have met your legal duties.",
+          "url": "https://www.thepensionsregulator.gov.uk/en/employers/new-employers/im-an-employer-who-has-to-provide-a-pension/declare-your-compliance/declaration-of-compliance-checklist",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.047Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "hmcts-tax-tribunal",
@@ -2301,11 +2317,19 @@
           "quote": "There is no fee for appealing to the First-tier Tribunal.",
           "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
           "found": true
+        },
+        {
+          "claim": "Anyone who disagrees with any HMRC decision can appeal to the tax tribunal.",
+          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by: HM Revenue and Customs ( HMRC )",
+          "url": "https://www.gov.uk/tax-tribunal",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.047Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "hmrc-mtd",
@@ -2340,11 +2364,25 @@
           "quote": "have qualifying income of more than £50,000 — read more about what qualifying income is and what is included",
           "url": "https://www.gov.uk/government/collections/making-tax-digital-for-income-tax-for-sole-traders-and-landlords-step-by-step",
           "found": true
+        },
+        {
+          "claim": "The 2024 to 2025 qualifying income threshold governs the April 2026 start.",
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "found": true
+        },
+        {
+          "claim": "Making Tax Digital for VAT is mandatory for all VAT-registered businesses.",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "url": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.048Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "co-contracts-finder",
@@ -2366,18 +2404,38 @@
           "claim": "Current scope check",
           "quote": "This guidance only applies to procurements commenced before 24 February 2025 under the PCRs.",
           "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
-          "found": false
+          "found": true
         },
         {
           "claim": "Current scope check",
           "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
           "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
-          "found": false
+          "found": true
+        },
+        {
+          "claim": "Any business or organisation can use Contracts Finder to seek public sector supply opportunities.",
+          "quote": "You can use Contracts Finder to: search for contract opportunities in different sectors",
+          "url": "https://www.gov.uk/contracts-finder",
+          "found": true
+        },
+        {
+          "claim": "Central government contracts above £12,000 must be published on Contracts Finder.",
+          "quote": "central government authorities [footnote 3] , where the contract value is at least £12,000 [footnote 4] inclusive of VAT;",
+          "url": "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+          "found": true
+        },
+        {
+          "claim": "Contracts above £25,000 from other public bodies must be published on Contracts Finder.",
+          "quote": "sub-central contracting authorities, NHS Trusts and NHS Foundation Trusts where the contract value is at least £30,000 [footnote 5] inclusive of VAT.",
+          "url": "https://www.gov.uk/government/publications/ppn-0123-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder-html",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.048Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "la-street-collection-licence",
@@ -2400,11 +2458,19 @@
           "quote": "You could be fined £200 if you collect money for charity without a licence.",
           "url": "https://www.gov.uk/find-licences/street-collection-licence",
           "found": true
+        },
+        {
+          "claim": "Every charitable collection in a public street or place in England and Wales needs a street collection licence.",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.048Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "dwp-attendance-allowance",
@@ -2421,11 +2487,19 @@
           "quote": "You can get Attendance Allowance if you’ve reached State Pension age and the following apply:",
           "url": "https://www.gov.uk/attendance-allowance",
           "found": true
+        },
+        {
+          "claim": "Being 66 or over meets the Attendance Allowance age condition.",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.048Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "opg-lpa-activation",
@@ -2447,18 +2521,26 @@
           "claim": "Current scope check",
           "quote": "You must tell the Office of the Public Guardian (OPG) if:",
           "url": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report",
-          "found": false
+          "found": true
         },
         {
           "claim": "Current scope check",
           "quote": "the donor, or another attorney, dies",
           "url": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report",
-          "found": false
+          "found": true
+        },
+        {
+          "claim": "The donor has died when the LPA is activated or used.",
+          "quote": "OPG will cancel the LPA if the donor dies",
+          "url": "https://www.gov.uk/manage-lasting-power-attorney/start-lasting-power-of-attorney",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.049Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "dwp-pension-credit",
@@ -2469,10 +2551,25 @@
       "action": "rewrite",
       "new": "If you are single, you must have reached State Pension age. If you have a partner, you may qualify if both of you have reached State Pension age or one of you gets Housing Benefit for people over State Pension age.",
       "explanation": "Remove fixed age and include the mixed-age couple exception; requires a matching rule decision.",
-      "claims": [],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "claims": [
+        {
+          "claim": "A Pension Credit claimant must have reached State Pension age.",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "url": "https://www.gov.uk/pension-credit",
+          "found": true
+        },
+        {
+          "claim": "State Pension age is currently 66.",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:28:01.344Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "la-bus-pass",
@@ -2483,10 +2580,37 @@
       "action": "rewrite",
       "new": "In England, you can get an older person’s bus pass when you reach State Pension age. An eligible disabled person may qualify for a separate disabled person’s pass.",
       "explanation": "Scope the current node to England; the age-60 routes in Wales, Scotland and Northern Ireland require separate treatment.",
-      "claims": [],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "claims": [
+        {
+          "claim": "The older-person State Pension age route applies in England.",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+          "url": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+          "found": true
+        },
+        {
+          "claim": "An older person must have reached State Pension age to get a bus pass.",
+          "quote": "In Wales you can get a bus pass when you reach 60.",
+          "url": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+          "found": true
+        },
+        {
+          "claim": "State Pension age is currently 66.",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+          "found": true
+        },
+        {
+          "claim": "Some disabled people can qualify for a bus pass before reaching the older-person qualifying age.",
+          "quote": "You’re eligible for a disabled person’s pass if you live in England and are ‘eligible disabled’.",
+          "url": "https://www.gov.uk/apply-for-disabled-bus-pass",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.049Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "sss-funeral-support-payment",
@@ -2503,11 +2627,19 @@
           "quote": "you live in Scotland",
           "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
           "found": true
+        },
+        {
+          "claim": "The funeral must take place in the UK.",
+          "quote": "the funeral is being held in the UK or in some circumstances , another country",
+          "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.049Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "dwp-bereavement-support",
@@ -2524,11 +2656,19 @@
           "quote": "When your partner died, you must have been: under State Pension age",
           "url": "https://www.gov.uk/bereavement-support-payment",
           "found": true
+        },
+        {
+          "claim": "State Pension age is currently 66.",
+          "quote": "The State Pension age for men and women will now increase to 67 between 2026 and 2028.",
+          "url": "https://www.gov.uk/government/publications/state-pension-age-timetable/state-pension-age-timetable",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.049Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "gro-register-death",
@@ -2541,21 +2681,17 @@
       "explanation": "Clarify this node covers the England and Wales process; the broad GOV.UK landing page links to other processes.",
       "claims": [
         {
-          "claim": "Current scope check",
-          "quote": "death certification reform, England and Wales",
-          "url": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/articles/deathcertificationreformenglandandwales/2025",
-          "found": false
-        },
-        {
-          "claim": "Current scope check",
-          "quote": "By law, deaths must be registered within 5 days of receipt of the MCCD",
-          "url": "https://www.gov.uk/government/publications/medical-certificate-of-cause-of-death-mccd-guidance-for-medical-practitioners/guidance-for-medical-practitioners-completing-medical-certificates-of-cause-of-death-in-england-and-wales",
-          "found": false
+          "claim": "This local registration process covers deaths in England and Wales.",
+          "quote": "Every death in England and Wales must be registered in the district where it happened",
+          "url": "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.049Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     },
     {
       "id": "ho-citizenship-ceremony",
@@ -2578,11 +2714,848 @@
           "quote": "Children under 18 who have applied with their parents may attend a ceremony with other members of the family, to collect their certificate.",
           "url": "https://www.gov.uk/government/publications/british-citizenship-successful-applicants/citizenship-ceremonies-guidance-notes-english-and-welsh",
           "found": true
+        },
+        {
+          "claim": "Every applicant aged 18 or over must attend a citizenship ceremony.",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "url": "https://www.gov.uk/citizenship-ceremonies",
+          "found": true
         }
       ],
-      "verified": false,
-      "accepted": false,
-      "review": "data/stage5/correction-02/review.md"
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.049Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "sss-funeral-support-payment",
+      "path": "eligibility.rules.1.label",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Must be responsible for arranging or paying for a funeral",
+      "action": "rewrite",
+      "new": "Responsible for funeral costs",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.rules.1.label",
+          "quote": "you or your partner are responsible for the funeral costs",
+          "url": "https://www.mygov.scot/funeral-support-payment/who-can-apply-and-when",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.050Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Appeal an HMRC tax decision to the independent First-tier Tribunal (Tax Chamber) if HMRC's review has not resolved the dispute.",
+      "action": "rewrite",
+      "new": "Appeal certain HMRC tax decisions and penalties to the independent First-tier Tribunal (Tax Chamber). Direct tax decisions must usually be appealed to HMRC first.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by:",
+          "url": "https://www.gov.uk/tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.050Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "deadline",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "30 days from HMRC decision",
+      "action": "rewrite",
+      "new": "Usually 30 days from the relevant decision or HMRC review conclusion",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at deadline",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.050Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "eligibility.keyQuestions.2",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Is the appeal within the 30-day deadline?",
+      "action": "rewrite",
+      "new": "Is the appeal within the applicable deadline?",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.keyQuestions.2",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.050Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "eligibility.ruleIn.1",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Within 30-day appeal window",
+      "action": "rewrite",
+      "new": "Within the applicable appeal window",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleIn.1",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "eligibility.ruleOut.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Out of time — more than 30 days since decision",
+      "action": "rewrite",
+      "new": "Late appeal requires a judge to accept it",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleOut.0",
+          "quote": "A judge will decide if your late appeal will be accepted.",
+          "url": "https://www.gov.uk/tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "agentInteraction.agentSteps.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Confirm the 30-day deadline has not passed",
+      "action": "rewrite",
+      "new": "Confirm the applicable appeal deadline and whether a late appeal needs a judge’s permission",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.0",
+          "quote": "The time limit is 30 days from: the view of the matter letter – direct tax the assessment or decision – indirect tax a review conclusion letter – either indirect or direct tax",
+          "url": "https://www.gov.uk/government/publications/appeal-to-the-tax-chamber-of-the-first-tier-tribunal-t242/how-to-appeal-to-the-first-tier-tax-tribunal",
+          "found": true
+        },
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.0",
+          "quote": "A judge will decide if your late appeal will be accepted.",
+          "url": "https://www.gov.uk/tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "path": "agentInteraction.agentSteps.1",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Advise on whether HMRC review was completed first",
+      "action": "rewrite",
+      "new": "Check whether an appeal to HMRC or an HMRC review is needed first",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.1",
+          "quote": "You can appeal to the First-tier Tribunal (Tax) if you want to challenge some decisions by:",
+          "url": "https://www.gov.uk/tax-tribunal",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Mandatory for VAT-registered businesses, which should now all be signed up automatically. Phased rollout for income tax from 2026.",
+      "action": "rewrite",
+      "new": "VAT-registered businesses must use Making Tax Digital for VAT unless exempt or applying for exemption. Making Tax Digital for Income Tax began on 6 April 2026 for qualifying sole traders and landlords.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "url": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+          "found": true
+        },
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "eligibility.criteria.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Mandatory for all VAT-registered businesses. Phased in for income tax self-assessment from 2026.",
+      "action": "rewrite",
+      "new": "VAT-registered businesses should use Making Tax Digital for VAT unless exempt or applying for exemption.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.criteria.0",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "url": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "eligibility.criteria.1",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "MTD for Income Tax applies from April 2026 to sole traders and landlords with income over £50,000.",
+      "action": "rewrite",
+      "new": "Making Tax Digital for Income Tax applies from 6 April 2026 to qualifying sole traders and landlords with 2024 to 2025 qualifying income over £50,000.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.criteria.1",
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.051Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "eligibility.autoQualifiers.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "VAT registered",
+      "action": "rewrite",
+      "new": "VAT registered and not exempt from Making Tax Digital for VAT",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.autoQualifiers.0",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "url": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "eligibility.keyQuestions.2",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Is your self-employed or rental income over £50,000?",
+      "action": "rewrite",
+      "new": "Was your qualifying income from self-employment or property over £50,000 in 2024 to 2025?",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.keyQuestions.2",
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "eligibility.ruleIn.1",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Self-employed or landlord with income over £50k (from 2026)",
+      "action": "rewrite",
+      "new": "Qualifying sole trader or landlord with income over £50,000 in 2024 to 2025, from 6 April 2026",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleIn.1",
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "agentInteraction.agentSteps.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Explain MTD obligations for VAT-registered businesses",
+      "action": "rewrite",
+      "new": "Explain Making Tax Digital for VAT obligations and exemptions",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.0",
+          "quote": "All VAT registered businesses should now be signed up for Making Tax Digital for VAT unless you’re exempt or have applied for exemption.",
+          "url": "https://www.gov.uk/guidance/apply-for-an-exemption-from-making-tax-digital-for-vat",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "hmrc-mtd",
+      "path": "agentInteraction.agentSteps.2",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Explain upcoming Income Tax MTD rollout from April 2026",
+      "action": "rewrite",
+      "new": "Explain the Income Tax Making Tax Digital requirements that began on 6 April 2026",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.2",
+          "quote": "From 6 April 2026, sole traders and landlords with qualifying income over £50,000 in the 2024 to 2025 tax year and who are not exempt need to use Making Tax Digital for Income Tax for the 2026 to 2027 tax year.",
+          "url": "https://www.gov.uk/guidance/check-what-to-do-if-hmrc-has-signed-you-up-for-making-tax-digital-for-income-tax",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "co-contracts-finder",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Search and apply for government contracts and procurement opportunities published by central and local government in the UK.",
+      "action": "rewrite",
+      "new": "Search public contract opportunities and awards from procurements begun under the previous rules; new procurements use Find a Tender.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "This guidance only applies to procurements commenced before 24 February 2025 under the PCRs.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+          "found": true
+        },
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "co-contracts-finder",
+      "path": "agentInteraction.agentSteps.2",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Explain the Find a Tender Service for contracts above £139,688",
+      "action": "rewrite",
+      "new": "Explain that new public procurement notices are published on Find a Tender",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.2",
+          "quote": "Any procurements whether above or below threshold commenced from 24 February 2025 only require notices to be published on FTS.",
+          "url": "https://www.gov.uk/government/publications/ppn-019-requirements-to-publish-on-contracts-finder/guidance-on-the-transparency-requirements-for-publishing-on-contracts-finder",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.052Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "la-street-collection-licence",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Collecting money or selling items for charity in a public street or place requires a street collection licence. Apply to the local council, or the Metropolitan Police in Greater London.",
+      "action": "rewrite",
+      "new": "Collecting money or selling items for charity in a public street or place may require a street collection licence, depending on the local council. Apply to the local council, or the Metropolitan Police in Greater London outside the City of London.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "If you want to collect money or sell items on the street for charity, you might need a street collection licence, depending on your local council.",
+          "url": "https://www.gov.uk/find-licences/street-collection-licence",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.053Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-attendance-allowance",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "For over-65s with care needs. Not means-tested. Two rates depending on day/night needs.",
+      "action": "rewrite",
+      "new": "For people who have reached State Pension age and have care needs. Not means-tested. Two rates depending on day or night needs.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age and the following apply:",
+          "url": "https://www.gov.uk/attendance-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.054Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-attendance-allowance",
+      "path": "eligibility.keyQuestions.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Are you 66 or older?",
+      "action": "rewrite",
+      "new": "Have you reached State Pension age?",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.keyQuestions.0",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age and the following apply:",
+          "url": "https://www.gov.uk/attendance-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.054Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-attendance-allowance",
+      "path": "eligibility.ruleIn.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Aged 66 or over",
+      "action": "rewrite",
+      "new": "Reached State Pension age",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleIn.0",
+          "quote": "You can get Attendance Allowance if you’ve reached State Pension age and the following apply:",
+          "url": "https://www.gov.uk/attendance-allowance",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.054Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "opg-lpa-activation",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Notify OPG when LPA holder dies. The registered LPA then ceases to have effect.",
+      "action": "rewrite",
+      "new": "Notify the Office of the Public Guardian when the donor of a registered LPA dies. OPG then cancels the LPA.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "the donor, or another attorney, dies",
+          "url": "https://www.gov.uk/manage-lasting-power-attorney/changes-you-need-to-report",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.054Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-pension-credit",
+      "path": "eligibility.keyQuestions.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Have you reached State Pension age?",
+      "action": "rewrite",
+      "new": "Have you reached State Pension age? If you have a partner, does either of you receive Housing Benefit for people over State Pension age?",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.keyQuestions.0",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "url": "https://www.gov.uk/pension-credit",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.054Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-pension-credit",
+      "path": "eligibility.autoQualifiers.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "State Pension age reached and income clearly below threshold",
+      "action": "rewrite",
+      "new": "State Pension age reached, or partner receiving Housing Benefit for people over State Pension age, with income clearly below threshold",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.autoQualifiers.0",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "url": "https://www.gov.uk/pension-credit",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.055Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-pension-credit",
+      "path": "eligibility.ruleIn.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Reached State Pension age (66+)",
+      "action": "rewrite",
+      "new": "Reached State Pension age or receiving Housing Benefit for people over State Pension age",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleIn.0",
+          "quote": "You’ll be eligible if either: you and your partner have both reached State Pension age one of you is getting Housing Benefit for people over State Pension age",
+          "url": "https://www.gov.uk/pension-credit",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.056Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "la-bus-pass",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Available from State Pension age. Apply via local council.",
+      "action": "rewrite",
+      "new": "In England, available from State Pension age. Apply via the local council.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+          "url": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.056Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "la-bus-pass",
+      "path": "eligibility.ruleIn.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Reached State Pension age (66)",
+      "action": "rewrite",
+      "new": "Reached State Pension age in England",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleIn.0",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age",
+          "url": "https://www.gov.uk/apply-for-elderly-person-bus-pass",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.056Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "dwp-bereavement-support",
+      "path": "eligibility.keyQuestions.0",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Was your spouse or civil partner under State Pension age when they died?",
+      "action": "rewrite",
+      "new": "Were you under State Pension age when your partner died?",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.keyQuestions.0",
+          "quote": "When your partner died, you must have been: under State Pension age",
+          "url": "https://www.gov.uk/bereavement-support-payment",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.056Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "gro-register-death",
+      "path": "eligibility.summary",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Required for every death in England and Wales. Must be done by a qualified informant (relative, person present at death, etc.) within 5 days.",
+      "action": "rewrite",
+      "new": "In England and Wales, a death must be registered by a qualified informant within 5 days of confirmation that it can be registered.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.summary",
+          "quote": "Every death in England and Wales must be registered in the district where it happened",
+          "url": "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/",
+          "found": true
+        },
+        {
+          "claim": "Supports the proposed wording at eligibility.summary",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "url": "https://www.gov.uk/after-a-death/register-the-death",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.056Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "gro-register-death",
+      "path": "deadline",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "5 days",
+      "action": "rewrite",
+      "new": "5 days from confirmation that the death can be registered",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at deadline",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "url": "https://www.gov.uk/after-a-death/register-the-death",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.056Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "gro-register-death",
+      "path": "agentInteraction.agentSteps.1",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Advise on the 5-day deadline",
+      "action": "rewrite",
+      "new": "Explain the 5-day deadline from confirmation that the death can be registered",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at agentInteraction.agentSteps.1",
+          "quote": "Register the death within 5 days (8 days in Scotland) of getting the confirmation.",
+          "url": "https://www.gov.uk/after-a-death/register-the-death",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.057Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "ho-citizenship-ceremony",
+      "path": "desc",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Required final step after citizenship is approved. Make an oath of allegiance, receive your certificate. Must attend within 3 months of the Home Office invitation. Fee included in the citizenship application.",
+      "action": "rewrite",
+      "new": "Usually required after a successful adult British citizenship application. Attend within 3 months of the Home Office invitation to make the oath or affirmation and receive the certificate. Attendance is optional under the Windrush scheme.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at desc",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "url": "https://www.gov.uk/citizenship-ceremonies",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.057Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "ho-citizenship-ceremony",
+      "path": "eligibility.summary",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "All adults (18+) approved for British citizenship must attend a citizenship ceremony, organised by their local authority, within 3 months of receiving the Home Office invitation. Citizenship is not conferred until the ceremony is completed. The £130 ceremony fee is included in the £1,839 application fee.",
+      "action": "rewrite",
+      "new": "Adults aged 18 or over who successfully apply for British citizenship usually need to attend a ceremony within 3 months of the Home Office invitation. Attendance is optional under the Windrush scheme. The ceremony cost is included in the application fee.",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.summary",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "url": "https://www.gov.uk/citizenship-ceremonies",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.057Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
+    },
+    {
+      "id": "ho-citizenship-ceremony",
+      "path": "eligibility.ruleIn.1",
+      "severity": "high",
+      "event": "stage5-correction-02-copies",
+      "old": "Aged 18 or over",
+      "action": "rewrite",
+      "new": "Aged 18 or over and required to attend a citizenship ceremony",
+      "explanation": "Approved same-node copy correction for Cite wave 2.",
+      "claims": [
+        {
+          "claim": "Supports the proposed wording at eligibility.ruleIn.1",
+          "quote": "If you become a British citizen under the Windrush scheme you can choose if you want to attend a citizenship ceremony.",
+          "url": "https://www.gov.uk/citizenship-ceremonies",
+          "found": true
+        }
+      ],
+      "verified": true,
+      "accepted": true,
+      "review": "data/stage5/correction-02/review.md",
+      "applied": "2026-10-23T12:27:35.057Z",
+      "recorded": "2026-10-23T12:29:11.582Z"
     }
   ]
 }

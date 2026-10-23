@@ -1,0 +1,20 @@
+{
+  "fields": [
+    {
+      "key": "nations",
+      "claims": [
+        {
+          "claim": "The free bus pass service is available only in England.",
+          "verdict": "contradicted",
+          "quote": "In Wales you can get a bus pass when you reach 60.",
+          "source": 0,
+          "note": "The page also states that people in Wales can get a bus pass, so England alone is too narrow."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}

@@ -1,0 +1,27 @@
+{
+  "fields": [
+    {
+      "key": "criterion_0",
+      "claims": [
+        {
+          "claim": "In England, you can get an older person’s bus pass when you reach State Pension age.",
+          "verdict": "supported",
+          "quote": "In England you can get a bus pass for free travel when you reach the State Pension age .",
+          "source": 0,
+          "note": "The older person’s pass page states the England State Pension age rule."
+        },
+        {
+          "claim": "An eligible disabled person may qualify for a separate disabled person’s bus pass.",
+          "verdict": "supported",
+          "quote": "You’re eligible for a disabled person’s pass if you live in England and are ‘eligible disabled’.",
+          "source": 1,
+          "note": "The separate disabled person’s pass page states the eligibility rule for England."
+        }
+      ]
+    }
+  ],
+  "methods_on_page": [
+    "online"
+  ],
+  "sign_in_on_page": null
+}
