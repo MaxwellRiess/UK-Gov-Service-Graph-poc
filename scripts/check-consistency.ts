@@ -17,7 +17,8 @@
  *                     service or any other. Usually a stale copy of a value
  *                     that has since been updated.
  *   stale year label  a tax or academic year older than the current one,
- *                     such as "(2024/25)" beside a figure.
+ *                     such as "(2024/25)" beside a figure. With --online, a
+ *                     label the service's own page also states is accepted.
  *
  * A figure matching another service's value is accepted: prose often quotes a
  * neighbouring service ("a Prescription Prepayment Certificate costs ..."), and
@@ -143,6 +144,8 @@ interface Finding {
   id: string; field: string; kind: 'unbacked amount' | 'stale year label'; detail: string; text: string;
   /** --online only: whether the figure appears on one of the service's cited pages. */
   onPage?: boolean; value?: number;
+  /** Stale year labels only: the label as written, such as "2024 to 2025". */
+  label?: string;
   /** --online only: none of the service's pages could be fetched, so onPage is unknown. */
   unreachable?: boolean;
 }
@@ -163,7 +166,7 @@ for (const n of nodes) {
       const end = Number(`20${m[3]}`);
       if (end !== start + 1) continue;               // not a year pair
       if (start < CURRENT) {
-        findings.push({ id: n.id, field, kind: 'stale year label', detail: `"${m[0]}" is before ${CURRENT}-${String(CURRENT + 1).slice(2)}`, text });
+        findings.push({ id: n.id, field, kind: 'stale year label', detail: `"${m[0]}" is before ${CURRENT}-${String(CURRENT + 1).slice(2)}`, text, label: m[0] });
       }
     }
   }
@@ -189,6 +192,20 @@ if (ONLINE) {
       else f.unreachable = true;
     }
   }
+
+  // An old year can be the right one: Making Tax Digital applies from April
+  // 2026 to income "in the 2024 to 2025 tax year". A label its own page also
+  // states is a qualifying period, not a stale copy.
+  const years = findings.filter(f => f.kind === 'stale year label');
+  console.error(`Looking for ${years.length} year labels on their services' pages...`);
+  for (const f of years) {
+    const n = NODES[f.id];
+    const urls = [...new Set([n.govuk_url, n.financialData?.source, ...(n.eligibility.sources ?? [])].filter(Boolean) as string[])];
+    for (const url of urls) {
+      const text = await pageText(url);
+      if (text?.includes(f.label!)) { f.onPage = true; break; }
+    }
+  }
 }
 
 if (JSON_OUT) writeFileSync(JSON_OUT, JSON.stringify({ checkedAt: new Date().toISOString(), findings }, null, 2) + '\n');
@@ -198,11 +215,12 @@ console.log('─── CONSISTENCY CHECK (prose against structured values) ─�
 console.log(`Prose fields checked: ${checked}`);
 console.log(`Unbacked amounts:     ${findings.filter(f => f.kind === 'unbacked amount').length}`);
 if (ONLINE) {
-  console.log(`  on a cited page:    ${findings.filter(f => f.onPage === true).length}  (sourced prose, not modelled as a rate)`);
+  console.log(`  on a cited page:    ${findings.filter(f => f.kind === 'unbacked amount' && f.onPage === true).length}  (sourced prose, not modelled as a rate)`);
   console.log(`  on no cited page:   ${findings.filter(f => f.onPage === false).length}  (stale or invented: fix these)`);
   console.log(`  page unreachable:   ${findings.filter(f => f.unreachable).length}  (could not check; look in a browser)`);
 }
 console.log(`Stale year labels:    ${findings.filter(f => f.kind === 'stale year label').length}`);
+if (ONLINE) console.log(`  on a cited page:    ${findings.filter(f => f.kind === 'stale year label' && f.onPage).length}  (a qualifying period the page states: not stale)`);
 console.log(`Checked by hand (exceptions): ${exceptedCount}`);
 console.log(`Services affected:    ${services.size}`);
 for (const id of [...services].sort()) {
@@ -214,5 +232,5 @@ for (const id of [...services].sort()) {
   }
 }
 
-const failing = ONLINE ? findings.filter(f => f.onPage === false || f.kind === 'stale year label') : findings;
+const failing = ONLINE ? findings.filter(f => f.onPage === false || (f.kind === 'stale year label' && !f.onPage)) : findings;
 if (STRICT && failing.length) process.exit(1);
