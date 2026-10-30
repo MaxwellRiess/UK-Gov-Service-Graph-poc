@@ -139,7 +139,9 @@ async function fetchPageText(url: string): Promise<string | null> {
       }
     }
     const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });
-    return res.ok ? htmlToText(await res.text()) : null;
+    // Only a 200 is the page: a 202 is a bot challenge (mygov.scot), and reading
+    // it as the page would report every quote on it as stale.
+    return res.status === 200 ? htmlToText(await res.text()) : null;
   } catch {
     return null;
   }

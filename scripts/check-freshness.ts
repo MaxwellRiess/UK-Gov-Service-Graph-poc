@@ -88,7 +88,7 @@ async function fetchText(url: string): Promise<string> {
   let text = await pageText(url);
   if (text === null) {
     await sleep(2000);           // one retry: most failures are transient
-    text = await pageText(url);
+    text = await pageText(url, true);  // bypass the cached failure, or this "retry" never fetches
   }
   if (text === null) throw new Error('Could not fetch page text');
   return normaliseForMatch(text);

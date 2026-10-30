@@ -144,7 +144,7 @@ jobs:
             const label = 'provenance';
 
             const unsourced = cons.findings.filter(f => f.kind === 'unbacked amount' && f.onPage === false);
-            const staleYears = cons.findings.filter(f => f.kind === 'stale year label');
+            const staleYears = cons.findings.filter(f => f.kind === 'stale year label' && !f.onPage);
             const total = links.dead.length + unsourced.length + staleYears.length;
 
             const open = await github.paginate(github.rest.issues.listForRepo, {

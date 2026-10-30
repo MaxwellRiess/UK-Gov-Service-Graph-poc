@@ -13489,7 +13489,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. Photo ID is no longer required for postal vote applications but a National Insurance number or signature is needed.',
+      summary: 'Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. You need your National Insurance number or other identity documents, and a photo of your handwritten signature (a signature waiver may be possible). The online service covers UK Parliamentary elections, local elections in England, Police and Crime Commissioner elections and national referendums; for Senedd Cymru, Scottish Parliament and local elections in Scotland and Wales, apply using a paper form. The rules are different in Northern Ireland.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must be registered to vote (on the electoral roll).' },
@@ -13525,7 +13525,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: true,
     eligibility: {
-      summary: 'Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 working days before the election for standard proxy; emergency proxy available up to 5pm on polling day.',
+      summary: 'Available to registered voters who cannot vote in person, for example because they are away on polling day, registered as an overseas voter, have a medical issue or disability, or cannot vote in person because of work or military service. The proxy must also be registered to vote. Apply by 5pm, 6 working days before election day in England, Scotland or Wales (14 working days in Northern Ireland). After that deadline, an emergency proxy may be possible until 5pm on the day of the election in England, Scotland and Wales, for a medical emergency or disability, work, or lost or missing photo ID.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must be registered to vote.' },
@@ -13538,6 +13538,7 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       ruleIn: ['Registered to vote', 'Cannot attend polling station', 'Has a trusted proxy who is a registered voter'],
       ruleOut: ['Not registered to vote', 'Proxy is not a registered voter'],
+      sources: ['https://www.gov.uk/how-to-vote/voting-by-proxy'],
     },
     agentInteraction: {
       methods: ['online', 'post'],

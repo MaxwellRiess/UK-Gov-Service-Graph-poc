@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastRun": "2026-10-23T12:43:51.744Z",
+  "lastRun": "2026-10-30T09:02:17.130Z",
   "fields": {
     "acas-early-conciliation#agentInteraction.methods": {
       "valueHash": "c4e75778afa2494c",
@@ -8506,9 +8506,9 @@
       "valueHash": "4242efee9cfac371",
       "valueSeen": "3.66%",
       "sourceUrl": "https://www.gov.uk/support-for-mortgage-interest",
-      "sourceQuote": "…t help with interest on up to £200,000. The interest rate used to calculate the amount of SMI you’ll get is currently 3.66%. Example You have £250,000 of your mortgage left to pay and you’re eligible for SMI for up to £200,00…",
+      "sourceQuote": "…2 weeks of stopping your other benefits, you’ll still get help with interest on up to £200,000. Each year, you’ll get 3.66% of the money you owe on your loan or mortgage. This percentage might go up or down. Example You’re on…",
       "method": "literal-presence",
-      "verifiedAt": "2026-10-14T10:12:26.258Z",
+      "verifiedAt": "2026-10-30T08:58:02.540Z",
       "confidence": "confirmed"
     },
     "dwp-smi#govuk_url": {
@@ -26193,18 +26193,48 @@
       "confidence": "confirmed"
     },
     "la-postal-vote#eligibility.summary": {
-      "valueHash": "827825fcd0c0ba89",
-      "valueSeen": "Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. Photo ID is no longer required for postal vote applications but a National I",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-09-29T10:07:50.575Z",
+      "valueHash": "47e54c9142c826a8",
+      "valueSeen": "Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. You need your National Insurance number or other identity documents, and a p",
       "sourceUrl": "https://www.gov.uk/apply-postal-vote",
       "sourceQuote": "You must be registered to vote in the UK before you can apply for a postal vote.",
+      "additionalQuotes": [
+        {
+          "quote": "You must apply no later than 11 working days before the election and by 5pm on that day.",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        },
+        {
+          "quote": "your National Insurance number or other identity documents, for example a passport",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        },
+        {
+          "quote": "You’ll also need to upload a photo of your handwritten signature in black ink on plain white paper.",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        },
+        {
+          "quote": "If you cannot provide a signature or one that always looks the same, you may be able to apply for a postal vote signature waiver within the service.",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        },
+        {
+          "quote": "general elections and other UK Parliamentary elections in England, Scotland or Wales local elections in England (including mayors) Police and Crime Commissioner elections in England and Wales national referendums if you live in England, Scotland or Wales",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        },
+        {
+          "quote": "There’s a different way to apply for a postal vote for Senedd Cymru (Welsh Parliament), Scottish Parliament and local elections in Scotland and Wales using a paper form.",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        },
+        {
+          "quote": "The rules are different if you want to apply for a postal vote in Northern Ireland for all elections.",
+          "url": "https://www.gov.uk/apply-postal-vote"
+        }
+      ],
       "claims": {
-        "supported": 1,
-        "total": 4
+        "supported": 8,
+        "total": 8
       },
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-30T08:55:42.599Z",
       "confidence": "unverified",
-      "rationale": "not stated: The text gives an 11 working day deadline for stopping a postal vote, applying for a proxy vote and changing the address, but gives no deadline for applying for a postal vote. not stated: The text does not say whether photo ID is or was needed for postal vote applications. partly supported: The text asks for a National Insurance number or other identity documents, and a signature photo as well, so the signature is not an alternative to the National Insurance number as the claim suggests."
+      "rationale": "Corrected on 2026-10-30 from quoted sources (Freshness issue #97: the page asks for an NI number or other ID and a signature photo, not one or the other, and the online service does not cover devolved elections.) Awaiting independent re-verification."
     },
     "la-postal-vote#govuk_url": {
       "sourceUrl": "https://www.gov.uk/apply-postal-vote",
@@ -26294,48 +26324,36 @@
       "rationale": "partly supported: The text gives the general reason (you cannot go to the polling station) and covers applicants who live abroad, but it never names being at work, disability or illness as reasons."
     },
     "la-proxy-vote#eligibility.summary": {
-      "valueHash": "5a97be1dda68608a",
-      "valueSeen": "Available to registered voters who cannot attend a polling station on election day (due to work, illness, being abroad, disability, etc.). The proxy must be a registered UK voter. Deadline is 6 workin",
-      "method": "llm-extraction",
-      "verifiedAt": "2026-10-22T15:58:34.236Z",
-      "sourceUrl": "https://www.gov.uk/apply-proxy-vote",
-      "sourceQuote": "You and your proxy must both be registered to vote in the UK before you can apply.",
+      "valueHash": "442c80c5b140b721",
+      "valueSeen": "Available to registered voters who cannot vote in person, for example because they are away on polling day, registered as an overseas voter, have a medical issue or disability, or cannot vote in perso",
+      "sourceUrl": "https://www.gov.uk/how-to-vote/voting-by-proxy",
+      "sourceQuote": "You can only apply for a proxy vote under certain circumstances, including: being away on polling day being registered as an overseas voter having a medical issue or disability not being able to vote in person because of work or military service",
       "additionalQuotes": [
-        {
-          "quote": "You can get someone else to vote on your behalf (a proxy) if you cannot go to the polling station in person.",
-          "url": "https://www.gov.uk/apply-proxy-vote"
-        },
-        {
-          "quote": "You are away for work (PDF)",
-          "url": "https://www.electoralcommission.org.uk/voting-and-elections/ways-vote/apply-vote-proxy"
-        },
-        {
-          "quote": "having a medical issue or disability",
-          "url": "https://www.gov.uk/how-to-vote/voting-from-abroad"
-        },
-        {
-          "quote": "If you want to vote by proxy and you live abroad, apply for a proxy vote as soon as possible.",
-          "url": "https://www.gov.uk/apply-proxy-vote"
-        },
-        {
-          "quote": "You have a disability (PDF)",
-          "url": "https://www.electoralcommission.org.uk/voting-and-elections/ways-vote/apply-vote-proxy"
-        },
         {
           "quote": "You and your proxy must both be registered to vote in the UK before you can apply.",
           "url": "https://www.gov.uk/apply-proxy-vote"
         },
         {
-          "quote": "If the proxy vote deadline has passed you may be able to apply for an emergency proxy vote",
-          "url": "https://www.gov.uk/how-to-vote/voting-from-abroad"
+          "quote": "5pm, 6 working days before election day in England, Scotland or Wales 5pm, 14 working days before election day in Northern Ireland",
+          "url": "https://www.gov.uk/how-to-vote/voting-by-proxy"
+        },
+        {
+          "quote": "If the proxy vote deadline has passed you may be able to apply for an emergency proxy vote if any of the following apply: you cannot vote in person because of a medical emergency or disability you cannot vote in person because of your employment the photo ID you were planning on using to vote has been lost, stolen, damaged or destroyed",
+          "url": "https://www.gov.uk/how-to-vote/voting-by-proxy"
+        },
+        {
+          "quote": "In England, Scotland and Wales, you have until 5pm on the day of the election to apply.",
+          "url": "https://www.gov.uk/how-to-vote/voting-by-proxy"
         }
       ],
       "claims": {
-        "supported": 8,
-        "total": 10
+        "supported": 5,
+        "total": 5
       },
+      "method": "llm-extraction",
+      "verifiedAt": "2026-10-30T08:55:42.599Z",
       "confidence": "unverified",
-      "rationale": "partly supported: The six-working-day deadline is for England, Scotland and Wales; Northern Ireland has a 14-working-day deadline. partly supported: The 5pm election-day deadline applies in England, Scotland and Wales, while Northern Ireland does not offer an emergency proxy."
+      "rationale": "Corrected on 2026-10-30 from quoted sources (Freshness issue #98: the 6 working day deadline and the emergency proxy cut-off were on no cited page; both are now quoted from GOV.UK How to vote.) Awaiting independent re-verification."
     },
     "la-proxy-vote#govuk_url": {
       "sourceUrl": "https://www.gov.uk/apply-proxy-vote",
@@ -36992,7 +37010,7 @@
           "url": "https://www.gov.uk/business-finance-support"
         },
         {
-          "quote": "Filter 166 schemes Type of support",
+          "quote": "Business stage Business stage Not yet trading Start-ups (1-2 years trading) Established",
           "url": "https://www.gov.uk/business-finance-support"
         }
       ],
@@ -37000,7 +37018,8 @@
       "claims": {
         "supported": 4,
         "total": 4
-      }
+      },
+      "rationale": "Quote refreshed 2026-10-30: the scheme count in \"Filter 166 schemes\" changes as schemes are added, so it is replaced by a filter label that does not. Value unchanged."
     },
     "ukri-find-grants#eligibility.summary": {
       "valueHash": "5b03ea7b1eaba0d2",

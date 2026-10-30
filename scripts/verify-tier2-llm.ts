@@ -103,7 +103,7 @@ async function pageText(url: string): Promise<string | null> {
       }
     }
     const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });
-    return res.ok ? htmlToText(await res.text()) : null;
+    return res.status === 200 ? htmlToText(await res.text()) : null;  // a 202 is a bot challenge, not the page
   } catch {
     return null;
   }

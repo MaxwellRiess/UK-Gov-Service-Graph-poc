@@ -24,15 +24,16 @@ const pageCache = new Map<string, string | null>();
  * numbers in "contact", so both need the whole guide.
  *
  * The cache key is the origin path, since every part of a guide resolves to
- * the same API document.
+ * the same API document. A failed fetch is cached too, so the verifiers do not
+ * hammer an unreachable page once per field; pass `refetch` to retry it.
  */
-export async function pageText(url: string): Promise<string | null> {
+export async function pageText(url: string, refetch = false): Promise<string | null> {
   let parsed: URL;
   try { parsed = new URL(url); } catch { return null; }
 
   const isGovUk = parsed.host === 'www.gov.uk' || parsed.host === 'gov.uk';
   const cacheKey = isGovUk ? `api:${parsed.pathname.replace(/\/$/, '')}` : url;
-  if (pageCache.has(cacheKey)) return pageCache.get(cacheKey)!;
+  if (pageCache.has(cacheKey) && !(refetch && pageCache.get(cacheKey) === null)) return pageCache.get(cacheKey)!;
 
   let text: string | null = null;
 
@@ -66,8 +67,10 @@ export async function pageText(url: string): Promise<string | null> {
         const res = await fetch(url, { headers: { 'User-Agent': UA }, redirect: 'follow' });
         // A PDF or Word file read as text is bytes, not words: it can support
         // nothing and only crowds the judge's prompt. Treat it as unreadable.
+        // A 202 is a bot challenge (mygov.scot serves one), not the page: read
+        // as text it would make every quote look gone. Only a 200 is the page.
         const type = res.headers.get('content-type') ?? '';
-        if (res.ok && /html|text\/plain/i.test(type)) text = htmlToText(await res.text());
+        if (res.status === 200 && /html|text\/plain/i.test(type)) text = htmlToText(await res.text());
         else break;
       } catch {
         await sleep(1000 * (i + 1));
