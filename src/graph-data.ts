@@ -1644,13 +1644,13 @@ export const NODES: Record<string, ServiceNode> = {
   'hmrc-lisa': {
     id: 'hmrc-lisa', name: 'Lifetime ISA withdrawal', dept: 'HMRC', deptKey: 'hmrc',
     deadline: null,
-    desc: 'Claim 25% government bonus. Conveyancer requests from ISA provider before completion.',
+    desc: 'Use Lifetime ISA savings, including the 25% government bonus, to buy a first home. The ISA provider pays the funds directly to the conveyancer or solicitor acting in the purchase.',
     govuk_url: 'https://www.gov.uk/lifetime-isa',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'First-time buyers can use their LISA savings (including the 25% government bonus) to purchase a property. Conveyancer requests the funds directly from the ISA provider before completion.',
+      summary: 'First-time buyers can use their LISA savings (including the 25% government bonus) to purchase a property. The ISA provider pays the funds directly to the conveyancer or solicitor acting in the purchase.',
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must have opened the LISA before age 40, and be at least 18.' },
@@ -1666,7 +1666,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       exclusions: ['Not available for second homes or existing property owners.', 'Not available with a private mortgage from a relative, spouse or civil partner, or their relatives.', '25% withdrawal charge if used for non-qualifying purposes.'],
       means_tested: false,
-      evidenceRequired: ['Conveyancer handles request process from ISA provider'],
+      evidenceRequired: ['A conveyancer or solicitor acting in the purchase, to whom the ISA provider pays the funds'],
       ruleIn: ['First-time buyer', 'LISA opened before age 40', 'Buying with a mortgage'],
       ruleOut: ['Existing homeowner', 'Buying without a mortgage'],      rules: [
         {
@@ -4700,7 +4700,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Is the paying parent in the UK?',
       ],
       means_tested: false,
-      evidenceRequired: ['Paying parent\'s income details (CMS contacts HMRC directly)', 'Children\'s details', 'Your contact details'],
+      evidenceRequired: ['Paying parent\'s employment, income and benefit details', 'Children\'s details', 'Your contact details'],
       ruleIn: ['Separated parents with children under 16', 'No private maintenance arrangement'],
       ruleOut: [],      rules: [
         {
@@ -10826,8 +10826,9 @@ export const NODES: Record<string, ServiceNode> = {
 
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['online', 'post'],
       apiAvailable: false,
+      authRequired: 'service-account',
       onlineFormUrl: 'https://www.gov.uk/childcare-grant/how-to-claim',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -12229,13 +12230,13 @@ export const NODES: Record<string, ServiceNode> = {
   'hmcts-money-claims': {
     id: 'hmcts-money-claims', name: 'Money Claims Online', dept: 'HMCTS', deptKey: 'hmcts',
     deadline: null,
-    desc: 'Make a court claim online to recover money owed through the small claims or fast-track court process.',
+    desc: 'Make a court claim online to recover money owed. Some claims must be made by post instead.',
     govuk_url: 'https://www.gov.uk/make-court-claim-for-money',
     serviceType: 'legal_process',
     proactive: false,
     gated: false,
     eligibility: {
-      summary: 'Most people can use Money Claims Online to pursue a debt through the civil courts, though some claims cannot be made online (for example if you do not know how much to claim). Claims up to £10,000 are usually handled in the small claims track. Fees depend on the claim value, rising to 5% of the claim above £10,000 and £10,000 for claims over £200,000.',
+      summary: 'You can make a claim for money owed online unless, for example, you do not know how much to claim or the claim is against 3 or more people or organisations; those claims go by post. Claims of £10,000 or less go to free telephone mediation organised by the court. Fees depend on the claim value, rising to 5% of the claim above £10,000 and £10,000 for claims over £200,000.',
       universal: true,
       criteria: [],
       keyQuestions: [
@@ -12250,7 +12251,7 @@ export const NODES: Record<string, ServiceNode> = {
       ruleOut: ['Exact claim amount not known (claim by post instead)', 'Claim is statute-barred (over 6 years old)'],
     },
     agentInteraction: {
-      methods: ['online'],
+      methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://www.gov.uk/make-court-claim-for-money/make-claim',
       agentCanComplete: 'partial',
@@ -14384,16 +14385,16 @@ export const NODES: Record<string, ServiceNode> = {
   'dfe-national-careers': {
     id: 'dfe-national-careers', name: 'National Careers Service', dept: 'DfE', deptKey: 'other',
     deadline: null,
-    desc: 'Free careers advice, skills assessment and job profile browsing through the government\'s National Careers Service.',
+    desc: 'Careers advice, a skills assessment and job profiles through the National Careers Service.',
     govuk_url: 'https://nationalcareers.service.gov.uk/',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Careers information and advice in England: a skills assessment, job profiles and a course finder online. Adults (18 or over) can speak to a careers adviser through the DWP Jobs and Careers Service, including by phone. Under-18s in education or training are directed to the careers adviser at their school, college or training provider, or to their local authority; under-18s not in education or training can contact a DWP careers adviser.',
+      summary: 'Careers information and advice: a skills assessment, job profiles and a course finder online. Adults (18 or over) who live in England can call a DWP careers adviser; the Jobs and Careers Service has more on the advice available. Under-18s in education or training are directed to the careers adviser at their school, college or training provider, or to their local authority; under-18s not in education or training can contact a DWP careers adviser.',
       universal: true,
       criteria: [
-        { factor: 'geography', description: 'Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers services.' },
+        { factor: 'geography', description: 'Adults aged 18 or over who live in England can call a DWP careers adviser. The Jobs and Careers Service has more on the careers advice available.' },
       ],
       keyQuestions: [
         'Is the user considering a career change, returning to work, or looking for training?',
@@ -14402,6 +14403,7 @@ export const NODES: Record<string, ServiceNode> = {
       means_tested: false,
       ruleIn: ['In England', 'Seeking careers advice or skills support'],
       ruleOut: ['Outside England (different careers services in devolved nations)'],
+      sources: ['https://nationalcareers.service.gov.uk/help-and-support'],
     },
     nations: ['england'],
     agentInteraction: {
