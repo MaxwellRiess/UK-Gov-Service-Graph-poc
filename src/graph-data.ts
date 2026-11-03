@@ -409,7 +409,10 @@ export const NODES: Record<string, ServiceNode> = {
         'Do you live in Scotland? (21-day deadline, not 42)',
       ],
       means_tested: false,
-      evidenceRequired: ['At least one form of ID (e.g. passport, driving licence, proof of address)', 'Child\'s personal child health record (\'red book\'), which some registrars ask to see'],
+      evidenceRequired: [
+        'Proof of identity showing first name and surname. From 9 November 2026: one document such as a passport (valid or expired), current UK or EU driving licence, birth or adoption certificate, UK biometric immigration document or EU identity card; or, without one of those, two documents such as a utility bill, Council Tax statement or bank statement',
+        'Child\'s personal child health record (\'red book\'), which some registrars ask to see',
+      ],
       ruleIn: [],
       ruleOut: [],      rules: [
         {
@@ -429,7 +432,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Explain that birth registration is done in person at a local register office, or at the hospital if it offers this',
         'Help user find their nearest register office',
-        'List what to bring (ID, and the red book in case the registrar asks)',
+        'List what to bring (ID, and the red book in case the registrar asks). From 9 November 2026 proof of address alone is not enough: bring one document such as a passport or driving licence, or two such as a utility bill and a bank statement',
         'Advise on the deadline: 42 days in England, Wales and Northern Ireland, 21 days in Scotland',
       ],
     },
@@ -1651,18 +1654,21 @@ export const NODES: Record<string, ServiceNode> = {
       universal: false,
       criteria: [
         { factor: 'age', description: 'Must have opened the LISA before age 40, and be at least 18.' },
-        { factor: 'property', description: 'Property must cost £450,000 or less and be the buyer\'s first home.' },
+        { factor: 'property', description: 'Must be the buyer\'s first home, bought with a mortgage, at least 12 months after the first payment into the LISA. A conveyancer or solicitor must act in the purchase.' },
+        { factor: 'property', description: 'A property costing more than £450,000 can still be bought with LISA savings, but with a 20% withdrawal charge. There is no charge at £450,000 or under.' },
       ],
       keyQuestions: [
         'Did you open a Lifetime ISA before age 40?',
         'Is this your first property purchase?',
-        'Does the property cost £450,000 or less?',
+        'Are you buying with a mortgage?',
+        'Was your first payment into the LISA at least 12 months ago?',
+        'Does the property cost more than £450,000? (20% withdrawal charge if so)',
       ],
-      exclusions: ['Not available for second homes or existing property owners.', '25% withdrawal penalty if used for non-qualifying purposes.'],
+      exclusions: ['Not available for second homes or existing property owners.', 'Not available with a private mortgage from a relative, spouse or civil partner, or their relatives.', '25% withdrawal charge if used for non-qualifying purposes.'],
       means_tested: false,
       evidenceRequired: ['Conveyancer handles request process from ISA provider'],
-      ruleIn: ['First-time buyer', 'LISA opened before age 40', 'Property costs £450k or less'],
-      ruleOut: ['Existing homeowner', 'Property over £450,000'],      rules: [
+      ruleIn: ['First-time buyer', 'LISA opened before age 40', 'Buying with a mortgage'],
+      ruleOut: ['Existing homeowner', 'Buying without a mortgage'],      rules: [
         {
           "type": "boolean",
           "field": "is_first_time_buyer",
@@ -1677,11 +1683,10 @@ export const NODES: Record<string, ServiceNode> = {
           "label": "Must have opened the LISA before age 40"
         },
         {
-          "type": "comparison",
-          "field": "property_value",
-          "operator": "<=",
-          "value": 450000,
-          "label": "Property must cost £450,000 or less"
+          "type": "boolean",
+          "field": "custom_facts.buying_with_mortgage",
+          "expected": true,
+          "label": "Must be buying with a mortgage"
         }
       ],
 
@@ -1693,8 +1698,8 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Explain LISA withdrawal process for property purchase',
         'Advise that conveyancer handles the withdrawal request',
-        'Clarify eligibility (first-time buyer, property under £450k)',
-        'Warn about 25% penalty for non-qualifying withdrawals',
+        'Clarify eligibility (first-time buyer, buying with a mortgage, at least 12 months after the first payment)',
+        'Warn that a property over £450,000 means a 20% withdrawal charge, and other non-qualifying withdrawals a 25% charge',
       ],
     },
     financialData: {
@@ -4677,7 +4682,7 @@ export const NODES: Record<string, ServiceNode> = {
     id: 'dwp-child-maintenance', name: 'Child Maintenance Service', dept: 'DWP', deptKey: 'dwp',
     deadline: null,
     desc: 'An alternative to arranging child maintenance privately. CMS works out an amount to pay.',
-    govuk_url: 'https://www.gov.uk/child-maintenance',
+    govuk_url: 'https://www.gov.uk/child-maintenance-service',
     serviceType: 'application',
     proactive: false,
     gated: true,
@@ -10308,21 +10313,22 @@ export const NODES: Record<string, ServiceNode> = {
         { factor: 'geography', description: 'England, Wales and Northern Ireland. Scotland has an annual Winter Heating Payment instead.' },
       ],
       keyQuestions: [
-        'Do you receive Pension Credit, ESA, JSA, IS or UC?',
-        'Do you live in England or Wales?',
+        'Do you receive Pension Credit, income-related ESA, Universal Credit or Support for Mortgage Interest?',
+        'Do you live in England, Wales or Northern Ireland?',
       ],
-      autoQualifiers: ['On qualifying benefit in England/Wales during cold spell — paid automatically'],
+      autoQualifiers: ['On qualifying benefit in England, Wales or Northern Ireland during cold spell — paid automatically'],
       means_tested: false,
-      ruleIn: ['On qualifying benefit', 'Lives in England or Wales'],
+      ruleIn: ['On qualifying benefit', 'Lives in England, Wales or Northern Ireland'],
       ruleOut: ['Lives in Scotland', 'Not on qualifying benefit'],      rules: [
         {
           "type": "enum",
           "field": "nation",
           "oneOf": [
             "england",
-            "wales"
+            "wales",
+            "northern-ireland"
           ],
-          "label": "Must live in England or Wales (Scotland has devolved schemes)"
+          "label": "Must live in England, Wales or Northern Ireland (Scotland has an annual Winter Heating Payment instead)"
         },
         {
           "type": "any",
@@ -10335,22 +10341,22 @@ export const NODES: Record<string, ServiceNode> = {
               "label": "Receiving Pension Credit"
             },
             {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-esa",
-              "condition": "receiving",
+              "type": "boolean",
+              "field": "custom_facts.receiving_income_related_esa",
+              "expected": true,
               "label": "Receiving income-related ESA (certain groups)"
-            },
-            {
-              "type": "dependency",
-              "serviceId": "dwp-new-style-jsa",
-              "condition": "receiving",
-              "label": "Receiving income-based JSA"
             },
             {
               "type": "dependency",
               "serviceId": "dwp-universal-credit",
               "condition": "receiving",
               "label": "Receiving UC with limited capability for work or disabled child element"
+            },
+            {
+              "type": "dependency",
+              "serviceId": "dwp-smi",
+              "condition": "receiving",
+              "label": "Receiving Support for Mortgage Interest (certain premiums or a child under 5)"
             }
           ]
         }
@@ -10827,6 +10833,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check student is full-time and has children in registered childcare',
         'Guide user through the Student Finance application',
+        'If the course starts on or after 1 January 2027, explain the grant is applied for online through Lifelong Learning Entitlement funding in the student finance account',
         'Explain the income assessment and maximum amounts',
         'Advise that the grant covers up to 85% of actual childcare costs',
         'Explain the grant is non-repayable (unlike student loans)',
@@ -12222,7 +12229,7 @@ export const NODES: Record<string, ServiceNode> = {
   'hmcts-money-claims': {
     id: 'hmcts-money-claims', name: 'Money Claims Online', dept: 'HMCTS', deptKey: 'hmcts',
     deadline: null,
-    desc: 'Make a court claim online to recover money owed (up to £100,000) through the small claims or fast-track court process.',
+    desc: 'Make a court claim online to recover money owed through the small claims or fast-track court process.',
     govuk_url: 'https://www.gov.uk/make-court-claim-for-money',
     serviceType: 'legal_process',
     proactive: false,
@@ -12232,13 +12239,15 @@ export const NODES: Record<string, ServiceNode> = {
       universal: true,
       criteria: [],
       keyQuestions: [
-        'How much money is owed?',
+        'How much money is owed, and is the exact amount known? (If not, the claim must be made by post)',
+        'Is the claim against 3 or more people or organisations, on behalf of more than one, or against a government department? (If so, claim by post)',
+        'Do both sides have an address in England or Wales?',
         'Does the user have evidence of the debt (contract, invoices, correspondence)?',
         'Has the user sent a formal letter before action?',
       ],
       means_tested: false,
       ruleIn: ['Money owed by another party', 'Within 6-year limitation period'],
-      ruleOut: ['Claim over £100,000 (use paper form instead)', 'Claim is statute-barred (over 6 years old)'],
+      ruleOut: ['Exact claim amount not known (claim by post instead)', 'Claim is statute-barred (over 6 years old)'],
     },
     agentInteraction: {
       methods: ['online'],
@@ -14381,7 +14390,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: false,
     eligibility: {
-      summary: 'Careers information and advice in England: a skills assessment, job profiles and a course finder online. Adults (18 or over) can speak to a careers adviser through the DWP Jobs and Careers Service, including by phone. Under-18s are directed to the careers adviser at their school, college or training provider, or to their local authority.',
+      summary: 'Careers information and advice in England: a skills assessment, job profiles and a course finder online. Adults (18 or over) can speak to a careers adviser through the DWP Jobs and Careers Service, including by phone. Under-18s in education or training are directed to the careers adviser at their school, college or training provider, or to their local authority; under-18s not in education or training can contact a DWP careers adviser.',
       universal: true,
       criteria: [
         { factor: 'geography', description: 'Adviser-led guidance for adults in England is given by DWP careers advisers through the Jobs and Careers Service. Scotland, Wales and NI have their own careers services.' },
@@ -14403,7 +14412,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Identify whether user needs skills assessment, course finder or one-to-one advice',
         'Point to the relevant section of the National Careers Service',
-        'Signpost adults to a DWP careers adviser through the Jobs and Careers Service, and under-18s to the careers adviser where they study or train',
+        'Signpost adults to a DWP careers adviser through the Jobs and Careers Service, and under-18s to the careers adviser where they study or train (or to a DWP careers adviser if they are not in education or training)',
       ],
     },
     contactInfo: {
