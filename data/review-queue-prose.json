@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T10:23:43.121Z",
+  "generatedAt": "2026-11-27T16:58:00.550Z",
   "model": "claude-opus-5-5",
   "review": [
     {
@@ -29,6 +29,27 @@
           "verdict": "contradicted",
           "note": "The source presents a review as optional, not as a required step before a tribunal appeal.",
           "quote": "You can ask for a review of some tax decisions."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-register-sole-trader",
+      "name": "Register as sole trader",
+      "field": "eligibility.summary",
+      "graph": "Anyone starting to work for themselves as a sole trader must register with HMRC. Done via the Self Assessment registration process. Deadline is 5 October in the second tax year of trading.",
+      "verdict": "contradicted",
+      "problems": [
+        {
+          "claim": "Anyone starting to work for themselves as a sole trader must register with HMRC.",
+          "verdict": "contradicted",
+          "note": "The text says you only have to register if you earn more than £1,000 in a tax year, not everyone who starts trading.",
+          "quote": "You can start trading straight away without registering. However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year"
+        },
+        {
+          "claim": "The deadline is 5 October in the second tax year of trading.",
+          "verdict": "not_stated",
+          "note": "The text gives no deadline for registering.",
+          "quote": null
         }
       ]
     },
@@ -2537,33 +2558,6 @@
     {
       "id": "dwp-tell-us-once",
       "name": "Tell Us Once",
-      "field": "eligibility.summary",
-      "graph": "Available in most of England, Wales and Scotland after a death is registered. Notifies up to 23 government organisations in a single interaction. Saves significant time and effort.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Tell Us Once is available in most of England, Wales and Scotland after a death is registered.",
-          "verdict": "partly_supported",
-          "note": "The text covers England, Scotland and Wales and says the death must be registered (or reported to a coroner), but it never says the service covers only 'most' of these areas.",
-          "quote": "You can use Tell Us Once if the person who died was living in England, Scotland or Wales."
-        },
-        {
-          "claim": "It notifies up to 23 government organisations in a single interaction.",
-          "verdict": "partly_supported",
-          "note": "The text says 'most government organisations in one go' but gives no figure of 23.",
-          "quote": "Tell Us Once is a service that lets you report a death to most government organisations in one go."
-        },
-        {
-          "claim": "It saves significant time and effort.",
-          "verdict": "not_stated",
-          "note": "The text never says the service saves time or effort.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dwp-tell-us-once",
-      "name": "Tell Us Once",
       "field": "eligibility.evidenceRequired.1",
       "graph": "Deceased's NI number and other details",
       "verdict": "partly_supported",
@@ -2571,8 +2565,8 @@
         {
           "claim": "You need the deceased's National Insurance number and other details.",
           "verdict": "partly_supported",
-          "note": "Other details of the person who died are required, but the NI number is only required for certain pension schemes and is optional otherwise.",
-          "quote": "You’ll also need their National Insurance number if they were getting money from or paying into any of the following pension schemes:"
+          "note": "Other details are required, but the text says the NI number is needed only for certain pension schemes and is optional otherwise.",
+          "quote": "You’ll need the National Insurance number of the person who died if they were getting money from or paying into any of the following pension schemes"
         }
       ]
     },
@@ -2707,10 +2701,31 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Changes of circumstances must be reported within 1 month.",
+          "claim": "Universal Credit is the main out-of-work or low-income benefit.",
           "verdict": "partly_supported",
-          "note": "The text says to report changes but gives no 1-month time limit.",
+          "note": "The text says it is for people out of work or on a low income, but it never calls it the 'main' benefit.",
+          "quote": "Universal Credit is replacing 6 other benefits with a single monthly payment if you're out of work or on a low income"
+        },
+        {
+          "claim": "A change of circumstances must be reported within 1 month.",
+          "verdict": "partly_supported",
+          "note": "The text says to report changes but gives no 1-month deadline.",
           "quote": "You should report a change of circumstances to get the correct payment."
+        }
+      ]
+    },
+    {
+      "id": "dwp-universal-credit",
+      "name": "Universal Credit",
+      "field": "eligibility.summary",
+      "graph": "The main means-tested benefit for those out of work or on a low income. Replaced 6 legacy benefits. Includes a standard allowance plus elements for children, housing, disability, and caring.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "It is the main means-tested benefit for those out of work or on a low income.",
+          "verdict": "partly_supported",
+          "note": "The text covers who it is for, but it never calls it the 'main' or a 'means-tested' benefit.",
+          "quote": "You may be able to get it if you’re on a low income, out of work or you cannot work."
         }
       ]
     },
@@ -2722,9 +2737,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Some immigration statuses exclude people from Universal Credit.",
+          "claim": "Some immigration statuses are excluded.",
           "verdict": "partly_supported",
-          "note": "The text only says EU, EEA and Swiss citizens might need settled or pre-settled status; it does not set out wider immigration-status exclusions.",
+          "note": "The text only mentions EU, EEA and Swiss citizens possibly needing settled or pre-settled status; it does not state a general exclusion based on immigration status.",
           "quote": "You and your family might also need settled or pre-settled status under the EU Settlement Scheme to get Universal Credit."
         }
       ]
@@ -2737,9 +2752,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "People receiving legacy benefits are excluded, with the transition managed by DWP.",
+          "claim": "People receiving legacy benefits are excluded, with the move managed by DWP.",
           "verdict": "partly_supported",
-          "note": "The text describes moving over by Migration Notice, but it does not call legacy benefits an exclusion or say DWP manages the transition.",
+          "note": "The text describes moving from legacy benefits through a Migration Notice, but it does not say these people are excluded or that DWP manages the move.",
           "quote": "If you’re getting these benefits, you do not need to do anything unless either: your circumstances change you get a letter called a ‘Migration Notice’ telling you that you must claim Universal Credit"
         }
       ]
@@ -2752,46 +2767,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Photo ID is needed as evidence.",
+          "claim": "Photo ID is needed.",
           "verdict": "partly_supported",
-          "note": "Identity documents are needed, but the examples include documents without photos, so photo ID in particular is not required.",
+          "note": "Identity documents are needed, but the examples include documents without a photo, so photo ID specifically is not required.",
           "quote": "You’ll need some identity documents for this, for example your: driving licence passport debit or credit card payslip or P60"
-        }
-      ]
-    },
-    {
-      "id": "dwp-universal-credit",
-      "name": "Universal Credit",
-      "field": "eligibility.evidenceRequired.2",
-      "graph": "Bank statements (last 3 months)",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You may need bank statements.",
-          "verdict": "partly_supported",
-          "note": "A bank statement is listed only as one optional supplementary ID document for in-person identity checks, not as required evidence for the claim.",
-          "quote": "financial statement, for example bank, building society, credit card or credit union statement"
-        },
-        {
-          "claim": "The bank statements must cover the last 3 months.",
-          "verdict": "not_stated",
-          "note": "No GOV.UK source mentions a 3-month period of bank statements; only the Northern Ireland page, which is another nation's version, mentions a three-month statement.",
-          "quote": null
-        }
-      ]
-    },
-    {
-      "id": "dwp-universal-credit",
-      "name": "Universal Credit",
-      "field": "eligibility.evidenceRequired.3",
-      "graph": "Proof of address",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You need proof of address.",
-          "verdict": "partly_supported",
-          "note": "Documents confirming your address appear only as optional supplementary ID documents for in-person identity checks; the GOV.UK sources do not require proof of address.",
-          "quote": "electoral register confirmation that you live at the address"
         }
       ]
     },
@@ -3295,7 +3274,7 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Registering the birth is the gateway to Child Benefit.",
+          "claim": "Registering the birth is a gateway to Child Benefit.",
           "verdict": "not_stated",
           "note": "The text does not mention Child Benefit.",
           "quote": null
@@ -3316,25 +3295,13 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You register the death at the local register office.",
-          "verdict": "partly_supported",
-          "note": "The text implies registration is handled by the register office but does not say it must be the local one.",
-          "quote": "If you need more than 5 days, you must tell the register office immediately."
+          "claim": "Registering the death is required before probate.",
+          "verdict": "not_stated",
+          "note": "The text says a death certificate can be used to apply for probate, but it does not say registration must come before probate.",
+          "quote": null
         },
         {
-          "claim": "Registration is required before probate.",
-          "verdict": "partly_supported",
-          "note": "The text says a death certificate can be used to apply for probate, but does not say registration must happen before probate.",
-          "quote": "You can use either certificate to: apply for probate"
-        },
-        {
-          "claim": "Registration is required before using Tell Us Once.",
-          "verdict": "partly_supported",
-          "note": "Tell Us Once needs the death registered or reported to a coroner with a death certificate, so registration is not the only route.",
-          "quote": "The death must have been either: registered reported to a coroner and you have a final or interim death certificate"
-        },
-        {
-          "claim": "Registration is required before bereavement payments.",
+          "claim": "Registering the death is required before bereavement payments.",
           "verdict": "not_stated",
           "note": "The text does not link registration to bereavement payments.",
           "quote": null
@@ -4123,10 +4090,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Non-working single parents are excluded and are entitled to 15 hours only.",
+          "claim": "Single parents who are not working are excluded and are entitled to 15 hours only.",
           "verdict": "partly_supported",
-          "note": "The text says you must be in work, which implies a non-working single parent is not eligible, but it only offers 15 hours to those not eligible if the child is 3 to 4 years old, not as a general entitlement.",
-          "quote": "you (and your partner if you have one) will need to be in work or about to start a new job."
+          "note": "The text requires the parent to be in work, but it offers the 15 hours only for children aged 3 or 4 (or aged 2 through a benefits-linked scheme), not to all non-working single parents.",
+          "quote": "If your child is 3 or 4 years old and you live in England, you can get 15 hours of free childcare a week for 38 weeks of the year ."
         }
       ]
     },
@@ -4138,10 +4105,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "A Tax-Free Childcare account eligibility check is needed, and eligibility must be reconfirmed every 3 months.",
+          "claim": "There is a Tax-Free Childcare account eligibility check, reconfirmed every 3 months.",
           "verdict": "partly_supported",
-          "note": "The text supports reconfirming every 3 months through the childcare account, but it describes a shared childcare account for both schemes, not a Tax-Free Childcare account check; HMRC only checks Tax-Free Childcare eligibility at the same time as you apply.",
-          "quote": "You must sign in to your childcare account every 3 months to confirm you’re still eligible."
+          "note": "The text says HMRC checks Tax-Free Childcare eligibility when you apply and that you reconfirm through your childcare account every 3 months, but it does not describe this check as evidence you must provide.",
+          "quote": "HM Revenue and Customs ( HMRC ) will check if you’re eligible for Tax-Free Childcare when you apply for Free Childcare for Working Parents."
         }
       ]
     },
@@ -4446,29 +4413,8 @@
         {
           "claim": "Tell HMRC you are self-employed.",
           "verdict": "partly_supported",
-          "note": "The text says sole traders are self-employed and must register for Self Assessment, but it never directly describes this as telling HMRC you are self-employed.",
-          "quote": "As a sole trader you: work for yourself are classed as self-employed"
-        }
-      ]
-    },
-    {
-      "id": "hmrc-register-sole-trader",
-      "name": "Register as sole trader",
-      "field": "eligibility.summary",
-      "graph": "Anyone starting to work for themselves as a sole trader must register with HMRC. Done via the Self Assessment registration process. Deadline is 5 October in the second tax year of trading.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Anyone starting to work for themselves as a sole trader must register with HMRC.",
-          "verdict": "partly_supported",
-          "note": "The text only requires registration if you earn more than £1,000 in a tax year, and the claim leaves that condition out.",
-          "quote": "You can start trading straight away without registering. However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year"
-        },
-        {
-          "claim": "The deadline is 5 October in the second tax year of trading.",
-          "verdict": "not_stated",
-          "note": "The text gives no registration deadline. It only says the tax year runs from 6 April to 5 April.",
-          "quote": null
+          "note": "The text says sole traders are self-employed and must register for Self Assessment, but it never says this registration is how you tell HMRC, and the duty only applies above £1,000.",
+          "quote": "you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April)"
         }
       ]
     },
@@ -4529,6 +4475,75 @@
           "verdict": "partly_supported",
           "note": "Online filing is described only for representatives (solicitors, agents, conveyancers); unrepresented buyers must use the paper SDLT1 return.",
           "quote": "If you’re filing a return on behalf of your client, you should do this online."
+        }
+      ]
+    },
+    {
+      "id": "hmrc-self-assessment",
+      "name": "Register for Self Assessment",
+      "field": "desc",
+      "graph": "Required if you need to send a tax return and have not before, for example as a sole trader earning over £1,000. Register by 5 October after the end of the tax year.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "An example is a sole trader earning over £1,000.",
+          "verdict": "not_stated",
+          "note": "The text never mentions sole traders or a £1,000 threshold.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-self-assessment",
+      "name": "Register for Self Assessment",
+      "field": "eligibility.summary",
+      "graph": "You must send a tax return if you were a sole trader earning more than £1,000, a business partner, had Capital Gains Tax to pay, or had to pay the High Income Child Benefit Charge and do not pay it through PAYE. You may also need to for untaxed income such as rent, tips, savings interest, dividends or foreign income. Register by 5 October after the end of the tax year if you have not sent a return before.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You must send a tax return if you were a sole trader earning more than £1,000.",
+          "verdict": "not_stated",
+          "note": "The text does not list who must send a tax return.",
+          "quote": null
+        },
+        {
+          "claim": "You must send a tax return if you were a business partner.",
+          "verdict": "not_stated",
+          "note": "Business partners are not mentioned.",
+          "quote": null
+        },
+        {
+          "claim": "You must send a tax return if you had Capital Gains Tax to pay.",
+          "verdict": "not_stated",
+          "note": "Capital Gains Tax is not mentioned.",
+          "quote": null
+        },
+        {
+          "claim": "You must send a tax return if you had to pay the High Income Child Benefit Charge and do not pay it through PAYE.",
+          "verdict": "not_stated",
+          "note": "The High Income Child Benefit Charge and PAYE are not mentioned.",
+          "quote": null
+        },
+        {
+          "claim": "You may need to send a return for untaxed income such as rent, tips, savings interest, dividends or foreign income.",
+          "verdict": "not_stated",
+          "note": "Untaxed income is not mentioned.",
+          "quote": null
+        }
+      ]
+    },
+    {
+      "id": "hmrc-self-assessment",
+      "name": "Register for Self Assessment",
+      "field": "agentInteraction.methods",
+      "graph": "You can apply or do this online.",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You can apply or do this online.",
+          "verdict": "partly_supported",
+          "note": "The text refers to a 'service' you register through but never explicitly says you can register online.",
+          "quote": "This service is also available in Welsh (Cymraeg) ."
         }
       ]
     },
@@ -6574,7 +6589,7 @@
     },
     {
       "id": "la-free-childcare-2yr",
-      "name": "Free Childcare (disadvantaged 2-year-olds)",
+      "name": "Early Learning for 2 year olds (15 hours free childcare)",
       "field": "eligibility.summary",
       "graph": "15 hours/week free childcare for eligible 2-year-olds in England. Qualifying criteria include receiving income-related benefits, being a looked-after child, having an EHC plan, receiving DLA, or leaving care.",
       "verdict": "partly_supported",
@@ -6582,7 +6597,7 @@
         {
           "claim": "Leaving care is one of the qualifying criteria.",
           "verdict": "partly_supported",
-          "note": "The source only counts leaving care under an adoption order, special guardianship order or child arrangements order, and the claim leaves out that condition.",
+          "note": "The text limits this to children who left care under an adoption, special guardianship or child arrangements order, a condition the claim leaves out.",
           "quote": "your child has left care under an adoption order, special guardianship order or a child arrangements order"
         }
       ]
@@ -6733,12 +6748,6 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Your ballot is sent to your home address.",
-          "verdict": "partly_supported",
-          "note": "The text says ballot packs are sent out and can be redirected to another address, but it never says they go to your home address by default.",
-          "quote": "you can apply for your pack to be sent to a different address"
-        },
-        {
           "claim": "The ballot is returned by post or in person.",
           "verdict": "not_stated",
           "note": "The text does not say how a completed postal ballot is returned.",
@@ -6750,26 +6759,14 @@
       "id": "la-postal-vote",
       "name": "Apply for a postal vote",
       "field": "eligibility.summary",
-      "graph": "Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. Photo ID is no longer required for postal vote applications but a National Insurance number or signature is needed.",
+      "graph": "Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. You need your National Insurance number or other identity documents, and a photo of your handwritten signature (a signature waiver may be possible). The online service covers UK Parliamentary elections, local elections in England, Scotland and Wales, Scottish Parliament and Senedd Cymru elections, elections for local mayors, the Mayor of London and the London Assembly, Police and Crime Commissioner elections and national referendums. The rules are different in Northern Ireland.",
       "verdict": "partly_supported",
       "problems": [
         {
           "claim": "You must apply at least 11 working days before the election.",
           "verdict": "not_stated",
-          "note": "The text gives an 11 working day deadline for stopping a postal vote, applying for a proxy vote and changing the address, but gives no deadline for applying for a postal vote.",
+          "note": "The text gives the 11-working-day deadline only for stopping a postal vote, changing the address and applying for a proxy vote. It gives no deadline for a new postal vote application.",
           "quote": null
-        },
-        {
-          "claim": "Photo ID is no longer required for postal vote applications.",
-          "verdict": "not_stated",
-          "note": "The text does not say whether photo ID is or was needed for postal vote applications.",
-          "quote": null
-        },
-        {
-          "claim": "A National Insurance number or a signature is needed.",
-          "verdict": "partly_supported",
-          "note": "The text asks for a National Insurance number or other identity documents, and a signature photo as well, so the signature is not an alternative to the National Insurance number as the claim suggests.",
-          "quote": "your National Insurance number or other identity documents, for example a passport"
         }
       ]
     },
@@ -7563,21 +7560,6 @@
       ]
     },
     {
-      "id": "nhs-fit-note",
-      "name": "Send a fit note for an ESA claim",
-      "field": "agentInteraction.methods",
-      "graph": "You can apply or do this online. You can apply or do this by phone. You can apply or do this by post.",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "You can send the fit note by phone.",
-          "verdict": "not_stated",
-          "note": "The fit note page gives only online and post; the phone line on the linked ESA page is for applying for ESA, not for sending a fit note.",
-          "quote": null
-        }
-      ]
-    },
-    {
       "id": "nhs-free-dental",
       "name": "Free NHS Dental Treatment",
       "field": "eligibility.summary",
@@ -8187,8 +8169,8 @@
         {
           "claim": "The LPA must be registered before mental capacity is lost.",
           "verdict": "partly_supported",
-          "note": "The text requires capacity when you make the LPA and when you register it yourself, but it also lets the attorney register it, so it never says registration must happen before capacity is lost.",
-          "quote": "You can apply to register your LPA yourself if you’re able to make your own decisions. Your attorney can also register it for you."
+          "note": "The text requires capacity when you make the LPA, not when it is registered, and it says your attorney can also register it for you.",
+          "quote": "You must be 18 or over and have mental capacity (the ability to make your own decisions) when you make your LPA ."
         }
       ]
     },
@@ -8202,7 +8184,7 @@
         {
           "claim": "A Property & Financial Affairs LPA can be used immediately.",
           "verdict": "partly_supported",
-          "note": "The text says it can be used once it is registered and with the donor's permission; 'immediately' leaves out both conditions.",
+          "note": "The text says it can be used once it is registered and you give permission, not straight away.",
           "quote": "It can be used as soon as it’s registered, with your permission."
         }
       ]
@@ -8215,10 +8197,25 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You make it through an online account via the OPG portal.",
+          "claim": "You need an online account through the OPG portal.",
           "verdict": "partly_supported",
-          "note": "The text mentions an online account for making an LPA but never calls it an 'OPG portal' and does not say who runs the account.",
+          "note": "The text mentions an account for making an LPA online, but it never calls it an OPG portal, and paper forms are also an option.",
           "quote": "Create or sign in to an existing account to: make an LPA"
+        }
+      ]
+    },
+    {
+      "id": "opg-lpa",
+      "name": "Lasting Power of Attorney",
+      "field": "eligibility.evidenceRequired.2",
+      "graph": "Certificate provider details",
+      "verdict": "partly_supported",
+      "problems": [
+        {
+          "claim": "You need the certificate provider's details.",
+          "verdict": "partly_supported",
+          "note": "The text says a certificate provider must sign the forms, but it does not say their details have to be provided.",
+          "quote": "a ‘certificate provider’, who confirms you’re making the LPA by choice and you understand what you’re doing"
         }
       ]
     },
@@ -8376,8 +8373,8 @@
         {
           "claim": "Various disability benefits qualify automatically.",
           "verdict": "partly_supported",
-          "note": "The text lists qualifying benefits but requires proof such as award letters, and never says they qualify automatically.",
-          "quote": "You may be eligible for a Disabled Persons Railcard if you get support for a disability or long-term medical condition."
+          "note": "The text lists several disability benefits as qualifying, but it never says they qualify automatically, and you must provide an award letter as proof.",
+          "quote": "I get Personal Independence Payment (PIP) or Adult Disability Payment (ADP) at any rate You will need to provide: A copy of your award letter"
         }
       ]
     },
@@ -8389,10 +8386,16 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Having a severe mental or physical disability qualifies.",
-          "verdict": "not_stated",
-          "note": "The source has no general 'severe mental or physical disability' category.",
-          "quote": null
+          "claim": "Receiving DLA is a qualifying condition.",
+          "verdict": "partly_supported",
+          "note": "The text lists DLA, but only at certain rates, and the claim leaves out that condition.",
+          "quote": "I get Disability Living Allowance (DLA) or Child Disability Payment (CDP) at either: the higher or lower rate for the mobility component, or the higher or middle rate for the care component"
+        },
+        {
+          "claim": "Having a severe mental or physical disability is a qualifying condition.",
+          "verdict": "partly_supported",
+          "note": "The text does not use 'severe mental or physical disability'. Its nearest category is a long-term impairment or health condition that causes significant barriers to rail travel.",
+          "quote": "I have an impairment or health condition that is long-term (lasted or likely to last at least 12 months) and causes significant barriers when using rail services"
         }
       ]
     },
@@ -8404,10 +8407,10 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "Photo ID is needed.",
+          "claim": "Photo ID",
           "verdict": "partly_supported",
-          "note": "The service page asks for a passport-style photo, and the general help page says proof of ID 'may' be needed; neither firmly requires photo ID for this railcard.",
-          "quote": "You may need to provide proof of ID and some additional documents to prove your eligibility."
+          "note": "The text asks for a passport-style photo, not photo ID.",
+          "quote": "you will need to provide proof of your disability to verify your eligibility online, and a passport-style photo"
         }
       ]
     },
@@ -8419,9 +8422,9 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "You apply at disabledpersons-railcard.co.uk.",
+          "claim": "Application at disabledpersons-railcard.co.uk",
           "verdict": "partly_supported",
-          "note": "The text confirms an online application but never names the domain disabledpersons-railcard.co.uk.",
+          "note": "The text says you can apply online through a sales page but never gives the address disabledpersons-railcard.co.uk.",
           "quote": "To buy online, visit the Disabled Persons Railcard sales page and follow the instructions on screen."
         }
       ]
@@ -8539,15 +8542,15 @@
       "verdict": "partly_supported",
       "problems": [
         {
-          "claim": "The scheme provides a car or scooter lease using the mobility component.",
+          "claim": "The scheme is a car or scooter lease using the mobility component.",
           "verdict": "partly_supported",
-          "note": "The text mentions leasing a vehicle with a qualifying mobility allowance, but it does not mention scooters or a 'mobility component' specifically.",
+          "note": "The text mentions leasing a vehicle with a qualifying mobility allowance and refers to cars, but it does not mention scooters or the 'mobility component'.",
           "quote": "Use your qualifying mobility allowance to lease a brand-new vehicle."
         },
         {
           "claim": "The scheme requires Enhanced Rate PIP mobility.",
           "verdict": "not_stated",
-          "note": "The text only says 'qualifying mobility allowance' and does not name PIP or the Enhanced Rate.",
+          "note": "The text only says 'qualifying mobility allowance'. It does not mention PIP or an Enhanced Rate.",
           "quote": null
         }
       ]
@@ -8568,7 +8571,7 @@
         {
           "claim": "The allowance is paid directly to Motability.",
           "verdict": "not_stated",
-          "note": "The text does not say how or to whom the allowance is paid.",
+          "note": "The text does not say how the allowance is paid.",
           "quote": null
         },
         {
@@ -8576,36 +8579,6 @@
           "verdict": "not_stated",
           "note": "The text does not mention credit checks.",
           "quote": null
-        }
-      ]
-    },
-    {
-      "id": "other-motability",
-      "name": "Motability scheme",
-      "field": "eligibility.evidenceRequired.0",
-      "graph": "PIP award letter confirming Enhanced Rate mobility component",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "A PIP award letter confirming enhanced-rate mobility must be supplied.",
-          "verdict": "partly_supported",
-          "note": "The award letter is mentioned for checking award length, while the required dealer evidence is a certificate of entitlement rather than specifically a PIP award letter.",
-          "quote": "You can check your award length on your allowance award letter"
-        }
-      ]
-    },
-    {
-      "id": "other-motability",
-      "name": "Motability scheme",
-      "field": "eligibility.evidenceRequired.1",
-      "graph": "At least 12 months remaining on award",
-      "verdict": "partly_supported",
-      "problems": [
-        {
-          "claim": "Evidence must show at least 12 months remain on the award.",
-          "verdict": "partly_supported",
-          "note": "The 12-month condition and award letter check are stated, but the text does not say this must be supplied as separate evidence.",
-          "quote": "You can check your award length on your allowance award letter"
         }
       ]
     },
@@ -9891,18 +9864,6 @@
       ]
     },
     {
-      "id": "dwp-tell-us-once",
-      "graph": [
-        "online",
-        "phone"
-      ],
-      "page": [
-        "online",
-        "phone",
-        "in-person"
-      ]
-    },
-    {
       "id": "dwp-uc-carer",
       "graph": [
         "online"
@@ -9979,6 +9940,13 @@
         "online",
         "phone",
         "post"
+      ]
+    },
+    {
+      "id": "gro-register-death",
+      "graph": [],
+      "page": [
+        "in-person"
       ]
     },
     {
@@ -10245,18 +10213,6 @@
       ]
     },
     {
-      "id": "nhs-fit-note",
-      "graph": [
-        "online",
-        "phone",
-        "post"
-      ],
-      "page": [
-        "online",
-        "post"
-      ]
-    },
-    {
       "id": "nhs-free-dental",
       "graph": [
         "in-person"
@@ -10466,11 +10422,6 @@
       "page": "Universal Credit account"
     },
     {
-      "id": "dwp-universal-credit",
-      "graph": "government-gateway",
-      "page": "Universal Credit account"
-    },
-    {
       "id": "dwp-voluntary-ni-contributions",
       "graph": "government-gateway",
       "page": null
@@ -10526,11 +10477,6 @@
       "page": null
     },
     {
-      "id": "hmrc-child-benefit",
-      "graph": "government-gateway",
-      "page": null
-    },
-    {
       "id": "hmrc-child-benefit-transfer",
       "graph": "government-gateway",
       "page": null
@@ -10544,11 +10490,6 @@
       "id": "hmrc-eori",
       "graph": "government-gateway",
       "page": null
-    },
-    {
-      "id": "hmrc-free-childcare-30",
-      "graph": "government-gateway",
-      "page": "childcare account"
     },
     {
       "id": "hmrc-help-to-save",
@@ -10581,17 +10522,7 @@
       "page": null
     },
     {
-      "id": "hmrc-register-sole-trader",
-      "graph": "government-gateway",
-      "page": null
-    },
-    {
       "id": "hmrc-sdlt",
-      "graph": "government-gateway",
-      "page": null
-    },
-    {
-      "id": "hmrc-self-assessment",
       "graph": "government-gateway",
       "page": null
     },
@@ -10683,6 +10614,11 @@
     {
       "id": "opg-deputy-report",
       "graph": "government-gateway",
+      "page": null
+    },
+    {
+      "id": "opg-lpa",
+      "graph": "service-account",
       "page": null
     },
     {

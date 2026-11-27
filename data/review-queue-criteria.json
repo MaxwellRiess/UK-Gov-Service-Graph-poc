@@ -1,216 +1,7 @@
 {
-  "generatedAt": "2026-10-23T12:43:51.742Z",
+  "generatedAt": "2026-11-27T16:58:17.701Z",
   "model": "claude-opus-5-5",
   "review": [
-    {
-      "id": "fco-emergency-travel-doc",
-      "name": "Emergency travel document",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "Must be outside the UK without a valid passport.",
-      "verdict": "partly_supported",
-      "note": "The text requires being outside the UK and unable to use your UK passport for specific listed reasons, some of which (full, or held by HM Passport Office or an embassy) do not mean the passport is invalid, so 'without a valid passport' is only a loose match.",
-      "quote": "your UK passport has been lost, stolen, damaged, is full, has recently expired or is with HM Passport Office or a foreign embassy",
-      "url": "https://www.gov.uk/emergency-travel-document"
-    },
-    {
-      "id": "hmrc-register-sole-trader",
-      "name": "Register as sole trader",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Has started to trade as a sole trader (self-employed), earning income from their own business.",
-      "verdict": "partly_supported",
-      "note": "The text links registering to trading as a self-employed sole trader, but the stated trigger is earning more than £1,000 in a tax year, which the criterion leaves out, and the text also says you can choose to register earlier.",
-      "quote": "You can start trading straight away without registering. However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April).",
-      "url": "https://www.gov.uk/set-up-sole-trader"
-    },
-    {
-      "id": "hmrc-vat",
-      "name": "VAT registration",
-      "criterion": 0,
-      "factor": "income",
-      "graph": "Taxable turnover has exceeded or is expected to exceed £90,000 in a rolling 12-month period.",
-      "verdict": "partly_supported",
-      "note": "The £90,000 threshold over the last 12 months is stated, but the text puts the expected-turnover test on the next 30 days, not a rolling 12-month period as the criterion says.",
-      "quote": "your total taxable turnover for the last 12 months goes over £90,000 (the VAT threshold) you expect your taxable turnover to go over £90,000 in the next 30 days",
-      "url": "https://www.gov.uk/vat-registration"
-    },
-    {
-      "id": "ho-evisa-error",
-      "name": "Report an error with your eVisa",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Has a UKVI account, including one the Home Office set up that you have never been able to sign in to.",
-      "verdict": "partly_supported",
-      "note": "The text covers the case of an account the Home Office set up that you have never signed in to, but it never says a UKVI account is required for every case, such as reporting wrong eVisa details.",
-      "quote": "the Home Office set up your UKVI account and you’ve never been able to sign in to it",
-      "url": "https://www.gov.uk/report-error-evisa"
-    },
-    {
-      "id": "ho-fee-waiver",
-      "name": "Immigration fee waiver",
-      "criterion": 0,
-      "factor": "income",
-      "graph": "Must demonstrate that payment of the visa fee would leave you (or your family) destitute or at risk of destitution.",
-      "verdict": "partly_supported",
-      "note": "The text describes not being able to afford the fee because you lack housing or essential living costs, which is close to destitution, but it never says 'destitute' or 'at risk of destitution', and it adds a separate route: very low income where paying would harm your child's wellbeing.",
-      "quote": "You can apply for a fee waiver if you cannot afford to pay the fee because you: do not have a place to live in the UK and you cannot afford one have a place to live but cannot afford essential living costs like food or heating",
-      "url": "https://www.gov.uk/visa-fee-waiver-in-uk"
-    },
-    {
-      "id": "ho-fee-waiver",
-      "name": "Immigration fee waiver",
-      "criterion": 1,
-      "factor": "immigration",
-      "graph": "Must be applying for a qualifying leave to remain or citizenship application.",
-      "verdict": "partly_supported",
-      "note": "The text supports applications for permission to stay (leave to remain) on certain routes, but it says nothing about citizenship applications.",
-      "quote": "You can apply for a fee waiver if you’re applying for permission to stay in the UK.",
-      "url": "https://www.gov.uk/visa-fee-waiver-in-uk"
-    },
-    {
-      "id": "ho-view-immigration-status",
-      "name": "View or prove your immigration status",
-      "criterion": 0,
-      "factor": "immigration",
-      "graph": "Must have a UKVI account with an eVisa or EU Settlement Scheme status.",
-      "verdict": "partly_supported",
-      "note": "The text says you need a UKVI account and an eVisa, but it never mentions EU Settlement Scheme status as another qualifying route.",
-      "quote": "You’ll need the details you use to sign in to your UKVI account.",
-      "url": "https://www.gov.uk/view-prove-immigration-status"
-    },
-    {
-      "id": "ho-visa",
-      "name": "Visa / leave to enter",
-      "criterion": 0,
-      "factor": "citizenship",
-      "graph": "Non-UK, non-Irish national wishing to enter the UK (some nationalities require visa; others may enter visa-free for short stays).",
-      "verdict": "partly_supported",
-      "note": "The text covers people who are not British or Irish and says they may need a visa or an ETA, but it never says outright that some nationalities can enter visa-free for short stays.",
-      "quote": "Check if you need a UK Visa, electronic travel authorisation (ETA) or get access to an eVisa to prove your immigration status if you’re not a British citizen or Irish national",
-      "url": "https://www.gov.uk/browse/visas-immigration"
-    },
-    {
-      "id": "ho-visa",
-      "name": "Visa / leave to enter",
-      "criterion": 1,
-      "factor": "immigration",
-      "graph": "Must apply for the specific visa type matching the purpose of entry (Skilled Worker, Student, Family Visa, etc.).",
-      "verdict": "partly_supported",
-      "note": "The text groups visa types by purpose (work, study, family) and names Skilled Worker and Student visas, but it does not say you must apply for the visa that matches your purpose of entry.",
-      "quote": "Work in the UK Skilled Worker visa, Graduate visa, other work visas, right to work Study in the UK Student visas",
-      "url": "https://www.gov.uk/browse/visas-immigration"
-    },
-    {
-      "id": "insolvency-bankruptcy",
-      "name": "Apply for bankruptcy",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "Must live or have a business in England or Wales.",
-      "verdict": "partly_supported",
-      "note": "The text limits the service to England and Wales but does not say the applicant must live or have a business there.",
-      "quote": "Use this service to apply for bankruptcy in England and Wales.",
-      "url": "https://www.gov.uk/apply-for-bankruptcy"
-    },
-    {
-      "id": "la-proxy-vote",
-      "name": "Apply for a proxy vote",
-      "criterion": 1,
-      "factor": "employment",
-      "graph": "Typical reasons include being at work, abroad, or unable to attend due to disability or illness.",
-      "verdict": "partly_supported",
-      "note": "The text gives the general reason (you cannot go to the polling station) and covers applicants who live abroad, but it never names being at work, disability or illness as reasons.",
-      "quote": "You can get someone else to vote on your behalf (a proxy) if you cannot go to the polling station in person.",
-      "url": "https://www.gov.uk/apply-proxy-vote"
-    },
-    {
-      "id": "la-street-trading-licence",
-      "name": "Street trading licence",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Selling goods or services from a street or public place in England and Wales.",
-      "verdict": "partly_supported",
-      "note": "The text covers trading in the street in England and Wales, but it never mentions a 'public place' or says 'goods or services'.",
-      "quote": "You may need to get a licence to trade in the street in England and Wales",
-      "url": "https://www.gov.uk/find-licences/street-trading-licence"
-    },
-    {
-      "id": "lr-sign-mortgage-deed",
-      "name": "Sign your mortgage deed",
-      "criterion": 0,
-      "factor": "property",
-      "graph": "Lender must participate in the Land Registry digital mortgage service.",
-      "verdict": "partly_supported",
-      "note": "The text says lenders can use HM Land Registry's digital mortgage service, but it never says the homeowner's lender must take part for the homeowner to be eligible.",
-      "quote": "Lenders and conveyancers can use the service to create and register legal mortgages of residential property for homeowners who are remortgaging.",
-      "url": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
-    },
-    {
-      "id": "nhs-healthy-start",
-      "name": "Healthy Start",
-      "criterion": 2,
-      "factor": "geography",
-      "graph": "England, Wales and Northern Ireland. Scotland has Best Start Foods instead.",
-      "verdict": "partly_supported",
-      "note": "The text says Scotland has Best Start Foods instead, but it never says the scheme covers England, Wales and Northern Ireland.",
-      "quote": "If you live in Scotland You can get help from Best Start Foods (opens in a new tab) instead.",
-      "url": "https://www.healthystart.nhs.uk/"
-    },
-    {
-      "id": "nhs-ppc",
-      "name": "Prescription Prepayment Certificate (PPC)",
-      "criterion": 0,
-      "factor": "income",
-      "graph": "Only worthwhile if you pay for NHS prescriptions — exempt groups should not apply.",
-      "verdict": "partly_supported",
-      "note": "The text presents the PPC as a way to cut the cost of prescriptions you pay for, but it does not mention exempt groups or say they should not apply.",
-      "quote": "You can buy prescription prepayment certificates ( PPCs ) from the NHS which may make your prescriptions cheaper.",
-      "url": "https://www.gov.uk/get-a-ppc"
-    },
-    {
-      "id": "nhs-ppc",
-      "name": "Prescription Prepayment Certificate (PPC)",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "England only — prescriptions are free in Wales, Scotland and Northern Ireland.",
-      "verdict": "partly_supported",
-      "note": "The England-only restriction is stated, but the text does not say prescriptions are free in Wales, Scotland and Northern Ireland.",
-      "quote": "You can only get a PPC if you live in England.",
-      "url": "https://www.gov.uk/get-a-ppc"
-    },
-    {
-      "id": "ofsted-complain-school",
-      "name": "Raise concerns about a school with Ofsted",
-      "criterion": 0,
-      "factor": "dependency",
-      "graph": "Must have first completed the school's own complaints procedure before escalating to Ofsted.",
-      "verdict": "partly_supported",
-      "note": "The text says you must already have complained to the school and the problem is still unresolved, but it never says the school's full complaints procedure has to be completed first.",
-      "quote": "you’ve complained to the school and the problem has not been resolved",
-      "url": "https://www.gov.uk/complain-to-ofsted"
-    },
-    {
-      "id": "other-pupil-premium",
-      "name": "Pupil Premium",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Free School Meals eligibility must be registered — the school receives the funding automatically.",
-      "verdict": "partly_supported",
-      "note": "The text bases funding on pupils recorded as FSM-eligible in the school census, with DfE or the local authority allocating it, but it never says families must register FSM eligibility or that the school gets the money automatically.",
-      "quote": "DfE will allocate PP grant to academies directly. This allocation will be based on FSM Ever 6 pupils, PLAC and eligible service children.",
-      "url": "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note"
-    },
-    {
-      "id": "voa-business-rates",
-      "name": "Check and challenge business rates",
-      "criterion": 0,
-      "factor": "property",
-      "graph": "Must occupy or own a non-domestic property assessed for business rates in England.",
-      "verdict": "partly_supported",
-      "note": "The text covers properties in England or Wales that have a rateable value for business rates and refers to 'your property', but it never says you must occupy or own the property, and it never limits the service to England or to non-domestic property.",
-      "quote": "If you want to report a change to your property or challenge its rateable value, use your business rates valuation account .",
-      "url": "https://www.gov.uk/correct-your-business-rates"
-    },
     {
       "id": "acas-early-conciliation",
       "name": "ACAS early conciliation",
@@ -231,6 +22,17 @@
       "verdict": "partly_supported",
       "note": "The text supports the 3-month no-trading condition, but it says nothing about the company being 'otherwise used for a purpose' or about it having to be a UK company.",
       "quote": "has not traded or sold off any stock in the last 3 months",
+      "url": null
+    },
+    {
+      "id": "ch-file-accounts",
+      "name": "File annual accounts at Companies House",
+      "criterion": 0,
+      "factor": "dependency",
+      "graph": "Filed for a UK company by an officer, or by anyone with the company's authentication code such as an accountant. Limited liability partnerships can file only certain package accounts.",
+      "verdict": "partly_supported",
+      "note": "The LLP restriction is stated, and the text says a password and authentication code are needed, but it never says the accounts can be filed by an officer or by anyone holding the authentication code, such as an accountant.",
+      "quote": "Limited liability partnerships can only file certain package accounts using this service.",
       "url": null
     },
     {
@@ -330,6 +132,17 @@
       "verdict": "partly_supported",
       "note": "The number plate rule with glasses or contact lenses is stated, but the only declaration duty in the text covers certain eyesight problems, not medical conditions in general.",
       "quote": "You must be able to read a number plate from 20 metres away (about the length of 5 parked cars). You can wear your glasses or contact lenses if you use them for driving.",
+      "url": null
+    },
+    {
+      "id": "dvla-renew-at-70",
+      "name": "Renew driving licence at 70",
+      "criterion": 1,
+      "factor": "disability",
+      "graph": "Must confirm at renewal that eyesight meets minimum standard and no medical condition prevents driving. DVLA may require medical evidence if a condition has been declared.",
+      "verdict": "partly_supported",
+      "note": "The applicant confirms whether listed medical conditions exist, not that no condition exists.",
+      "quote": "To renew their entitlement, they must make a legal declaration that they can meet the eyesight standards required to drive and confirm whether they have any listed medical conditions.",
       "url": null
     },
     {
@@ -476,6 +289,17 @@
       "url": null
     },
     {
+      "id": "dwp-pip",
+      "name": "Personal Independence Payment (PIP)",
+      "criterion": 1,
+      "factor": "disability",
+      "graph": "Long-term physical or mental health condition or disability affecting daily living or mobility. Must have had difficulties for at least 3 months and expect them to continue for at least 9 months.",
+      "verdict": "partly_supported",
+      "note": "The sources give an expected total duration but do not state a 3-month period before claiming.",
+      "quote": null,
+      "url": null
+    },
+    {
       "id": "dwp-smi",
       "name": "Support for Mortgage Interest",
       "criterion": 0,
@@ -509,17 +333,6 @@
       "url": null
     },
     {
-      "id": "dwp-tell-us-once",
-      "name": "Tell Us Once",
-      "criterion": 0,
-      "factor": "bereavement",
-      "graph": "Death registered in England, Scotland or most of Wales (not available in all areas).",
-      "verdict": "partly_supported",
-      "note": "The text ties eligibility to where the person lived (England, Scotland or Wales) and to the death being registered or reported to a coroner; it does not say 'most of Wales' or that some areas are excluded.",
-      "quote": "You can use Tell Us Once if the person who died was living in England, Scotland or Wales.",
-      "url": null
-    },
-    {
       "id": "dwp-uc-carer",
       "name": "UC Carer element",
       "criterion": 0,
@@ -548,9 +361,9 @@
       "factor": "residency",
       "graph": "Must be habitually resident in the UK.",
       "verdict": "partly_supported",
-      "note": "The text requires living in the UK but does not mention a habitual residence test.",
-      "quote": "To claim you must: live in the UK",
-      "url": null
+      "note": "The text only says the claimant must live in the UK; it does not mention a habitual residence test.",
+      "quote": "live in the UK",
+      "url": "https://www.gov.uk/universal-credit"
     },
     {
       "id": "dwp-voluntary-ni-contributions",
@@ -586,6 +399,28 @@
       "url": null
     },
     {
+      "id": "ea-fishing-licence",
+      "name": "Get a rod fishing licence",
+      "criterion": 1,
+      "factor": "geography",
+      "graph": "One licence covers England and Wales, including all of the Border Esk. Scotland and Northern Ireland have separate arrangements.",
+      "verdict": "partly_supported",
+      "note": "The text says a single England and Wales licence is needed, but it excludes the River Tweed, and the claim leaves that exception out.",
+      "quote": "You must have a rod fishing licence for England and Wales if you’re fishing for salmon, trout, freshwater fish, smelt or eel with a rod and line in: England (except the River Tweed) Wales",
+      "url": null
+    },
+    {
+      "id": "fco-emergency-travel-doc",
+      "name": "Emergency travel document",
+      "criterion": 1,
+      "factor": "geography",
+      "graph": "Must be outside the UK without a valid passport.",
+      "verdict": "partly_supported",
+      "note": "The text requires being outside the UK and unable to use your UK passport for specific listed reasons, some of which (full, or held by HM Passport Office or an embassy) do not mean the passport is invalid, so 'without a valid passport' is only a loose match.",
+      "quote": "your UK passport has been lost, stolen, damaged, is full, has recently expired or is with HM Passport Office or a foreign embassy",
+      "url": "https://www.gov.uk/emergency-travel-document"
+    },
+    {
       "id": "gro-death-certificate",
       "name": "Obtain death certificates",
       "criterion": 0,
@@ -619,6 +454,17 @@
       "url": null
     },
     {
+      "id": "gro-register-death",
+      "name": "Register the death",
+      "criterion": 1,
+      "factor": "family",
+      "graph": "Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.",
+      "verdict": "partly_supported",
+      "note": "The text lists a relative, a person present at the death, and the occupier of the care home or hospital, but it only accepts a relative who was present, gave medical attendance or lives in the district, and it also allows a partner, the personal representative and the person arranging the funeral.",
+      "quote": "By law one of these people must register a death: A relative of the deceased, who was present at the death, was in medical attendance during the deceased's last illness or resides in Bradford/Keighley Registration District",
+      "url": "https://www.bradford.gov.uk/births-deaths-marriages-and-civil-partnerships/deaths/register-a-death/"
+    },
+    {
       "id": "hmcts-benefit-tribunal",
       "name": "Social Security & Child Support Tribunal",
       "criterion": 0,
@@ -627,6 +473,116 @@
       "verdict": "partly_supported",
       "note": "The linked page supports needing the notice, but the main page says some people can appeal straight away without reconsideration, and DWP is never named.",
       "quote": "You cannot appeal to the Social Security and Child Support Tribunal until you get your mandatory reconsideration notice.",
+      "url": null
+    },
+    {
+      "id": "hmcts-divorce",
+      "name": "Divorce application (D8)",
+      "criterion": 1,
+      "factor": "residency",
+      "graph": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
+      "verdict": "partly_supported",
+      "note": "The six-month residence ground applies only to an applicant who is also domiciled in England and Wales and requires six months immediately before applying; residence alone needs at least one year, and the text has no '6 of the last 12 months' rule.",
+      "quote": "the applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately before the application was made",
+      "url": null
+    },
+    {
+      "id": "hmcts-gender-recognition",
+      "name": "Apply for a Gender Recognition Certificate",
+      "criterion": 1,
+      "factor": "residency",
+      "graph": "Must be a UK national or permanently resident in the UK.",
+      "verdict": "partly_supported",
+      "note": "The eligibility requirements listed (age 18+, UK diagnosis, 2 years living in affirmed gender, intention to continue) say nothing about nationality.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "hmcts-immigration-tribunal",
+      "name": "Appeal to Immigration Tribunal",
+      "criterion": 0,
+      "factor": "immigration",
+      "graph": "Must have received a Home Office refusal that explicitly grants a right of appeal.",
+      "verdict": "partly_supported",
+      "note": "The text does require a legal right to appeal, but says you will only 'usually' be told about it in the decision letter, so it does not require the letter to grant the right explicitly; it also covers decisions other than refusals, such as revocation and deportation.",
+      "quote": "You can only appeal to the tribunal if you have the legal right to appeal - you’ll usually be told if you do in your decision letter.",
+      "url": null
+    },
+    {
+      "id": "hmcts-legal-aid",
+      "name": "Legal Aid application",
+      "criterion": 1,
+      "factor": "income",
+      "graph": "Case must pass the merits test — chances of success and proportionality to cost.",
+      "verdict": "partly_supported",
+      "note": "The prospects of success criterion applies to full (and investigative) representation, not to every form of legal aid such as legal help or family help.",
+      "quote": "The prospects of success criterion is only met if the Director is satisfied that the prospects of success are—",
+      "url": null
+    },
+    {
+      "id": "hmcts-probate",
+      "name": "Apply for probate",
+      "criterion": 0,
+      "factor": "bereavement",
+      "graph": "Person has died leaving assets held in their sole name.",
+      "verdict": "partly_supported",
+      "note": "The source discusses estate assets but does not state that they must be held in the deceased person’s sole name.",
+      "quote": "Probate is the legal right to deal with someone’s property, money and possessions (their ‘estate’) when they die.",
+      "url": null
+    },
+    {
+      "id": "hmcts-tax-tribunal",
+      "name": "Appeal to Tax Tribunal",
+      "criterion": 0,
+      "factor": "dependency",
+      "graph": "Must have an HMRC decision to appeal. Indirect tax decisions can usually go straight to the tribunal; direct tax decisions must usually be appealed to HMRC first.",
+      "verdict": "partly_supported",
+      "note": "The direct/indirect routing is stated (the text says direct tax 'must' go to HMRC first, with no 'usually'), but the text does not require an HMRC decision: it also allows appeals against decisions by Border Force, the NCA, the WRA and the Gambling Commission.",
+      "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal. You can usually appeal indirect tax decisions straight to the tribunal.",
+      "url": null
+    },
+    {
+      "id": "hmpo-passport",
+      "name": "Apply for or renew a passport",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Must be a British national (citizen, overseas territory citizen, etc.).",
+      "verdict": "partly_supported",
+      "note": "The text gives documents for overseas territory citizens born before 1983 and for people with naturalisation or registration certificates, but never lists which nationality types count as British nationals.",
+      "quote": "Citizen of a British overseas territory and born before 1 January 1983 You’ll need all of the following",
+      "url": null
+    },
+    {
+      "id": "hmpo-passport-urgent",
+      "name": "Urgent passport application",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Must be a British national with imminent international travel.",
+      "verdict": "partly_supported",
+      "note": "The page says you can use the urgent service if the standard service would take too long, but it does not make imminent international travel a condition.",
+      "quote": "You can pay to get a passport urgently if you think the standard service will take too long.",
+      "url": null
+    },
+    {
+      "id": "hmrc-carers-credit",
+      "name": "Carer's Credit",
+      "criterion": 1,
+      "factor": "ni_record",
+      "graph": "Not already receiving NI credits through Carer's Allowance, UC, or earnings above the Lower Earnings Limit.",
+      "verdict": "partly_supported",
+      "note": "Carer’s Allowance brings automatic credits so a separate Carer’s Credit application is unnecessary, but the text does not state an eligibility bar.",
+      "quote": "get Carer’s Allowance or Carer Support Payment - you’ll automatically get credits",
+      "url": null
+    },
+    {
+      "id": "hmrc-cis",
+      "name": "Construction Industry Scheme (CIS) registration",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
+      "verdict": "partly_supported",
+      "note": "The page says a limited company may need its company registration number, but it does not say Companies House registration is a requirement for CIS.",
+      "quote": "Depending on your circumstances, you may also need: the company registration number",
       "url": null
     },
     {
@@ -674,6 +630,17 @@
       "url": null
     },
     {
+      "id": "hmrc-register-sole-trader",
+      "name": "Register as sole trader",
+      "criterion": 0,
+      "factor": "employment",
+      "graph": "Has started to trade as a sole trader (self-employed), earning income from their own business.",
+      "verdict": "partly_supported",
+      "note": "The text links registering to trading as a self-employed sole trader, but the stated trigger is earning more than £1,000 in a tax year, which the criterion leaves out, and the text also says you can choose to register earlier.",
+      "quote": "You can start trading straight away without registering. However, you must register for Self Assessment as a sole trader if you earn more than £1,000 in a tax year (from 6 April to 5 April).",
+      "url": "https://www.gov.uk/set-up-sole-trader"
+    },
+    {
       "id": "hmrc-sdlt",
       "name": "Stamp Duty Land Tax return",
       "criterion": 0,
@@ -682,6 +649,17 @@
       "verdict": "partly_supported",
       "note": "The text confirms England and Northern Ireland and a different threshold for first-time buyers, but for additional properties it describes a 5% higher rate rather than a different threshold, and it lists exemptions (for example freeholds under £40,000) where neither tax nor a return is needed, so not every purchase is covered.",
       "quote": "SDLT starts to apply when you buy property that costs: £125,000 for residential properties £300,000 for first-time buyers buying a residential property worth £500,000 or less",
+      "url": null
+    },
+    {
+      "id": "hmrc-self-assessment",
+      "name": "Register for Self Assessment",
+      "criterion": 1,
+      "factor": "income",
+      "graph": "Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.",
+      "verdict": "partly_supported",
+      "note": "None of the sources mention company directors.",
+      "quote": null,
       "url": null
     },
     {
@@ -707,6 +685,17 @@
       "url": null
     },
     {
+      "id": "hmrc-vat",
+      "name": "VAT registration",
+      "criterion": 0,
+      "factor": "income",
+      "graph": "Taxable turnover has exceeded or is expected to exceed £90,000 in a rolling 12-month period.",
+      "verdict": "partly_supported",
+      "note": "The £90,000 threshold over the last 12 months is stated, but the text puts the expected-turnover test on the next 30 days, not a rolling 12-month period as the criterion says.",
+      "quote": "your total taxable turnover for the last 12 months goes over £90,000 (the VAT threshold) you expect your taxable turnover to go over £90,000 in the next 30 days",
+      "url": "https://www.gov.uk/vat-registration"
+    },
+    {
       "id": "ho-citizenship",
       "name": "British citizenship (naturalisation)",
       "criterion": 2,
@@ -716,6 +705,39 @@
       "note": "The source states good character and the language requirement, but it does not define good character as having no serious criminal record.",
       "quote": "prove your knowledge of English , Welsh or Scottish Gaelic have passed the life in the UK test intend to continue living in the UK be of good character",
       "url": null
+    },
+    {
+      "id": "ho-evisa-error",
+      "name": "Report an error with your eVisa",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Has a UKVI account, including one the Home Office set up that you have never been able to sign in to.",
+      "verdict": "partly_supported",
+      "note": "The text covers the case of an account the Home Office set up that you have never signed in to, but it never says a UKVI account is required for every case, such as reporting wrong eVisa details.",
+      "quote": "the Home Office set up your UKVI account and you’ve never been able to sign in to it",
+      "url": "https://www.gov.uk/report-error-evisa"
+    },
+    {
+      "id": "ho-fee-waiver",
+      "name": "Immigration fee waiver",
+      "criterion": 0,
+      "factor": "income",
+      "graph": "Must demonstrate that payment of the visa fee would leave you (or your family) destitute or at risk of destitution.",
+      "verdict": "partly_supported",
+      "note": "The text describes not being able to afford the fee because you lack housing or essential living costs, which is close to destitution, but it never says 'destitute' or 'at risk of destitution', and it adds a separate route: very low income where paying would harm your child's wellbeing.",
+      "quote": "You can apply for a fee waiver if you cannot afford to pay the fee because you: do not have a place to live in the UK and you cannot afford one have a place to live but cannot afford essential living costs like food or heating",
+      "url": "https://www.gov.uk/visa-fee-waiver-in-uk"
+    },
+    {
+      "id": "ho-fee-waiver",
+      "name": "Immigration fee waiver",
+      "criterion": 1,
+      "factor": "immigration",
+      "graph": "Must be applying for a qualifying leave to remain or citizenship application.",
+      "verdict": "partly_supported",
+      "note": "The text supports applications for permission to stay (leave to remain) on certain routes, but it says nothing about citizenship applications.",
+      "quote": "You can apply for a fee waiver if you’re applying for permission to stay in the UK.",
+      "url": "https://www.gov.uk/visa-fee-waiver-in-uk"
     },
     {
       "id": "ho-life-in-uk",
@@ -729,6 +751,72 @@
       "url": null
     },
     {
+      "id": "ho-student-visa",
+      "name": "Student visa",
+      "criterion": 0,
+      "factor": "immigration",
+      "graph": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
+      "verdict": "partly_supported",
+      "note": "None of the sources say British nationals are excluded from or do not need a Student visa.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "ho-view-immigration-status",
+      "name": "View or prove your immigration status",
+      "criterion": 0,
+      "factor": "immigration",
+      "graph": "Must have a UKVI account with an eVisa or EU Settlement Scheme status.",
+      "verdict": "partly_supported",
+      "note": "The text says you need a UKVI account and an eVisa, but it never mentions EU Settlement Scheme status as another qualifying route.",
+      "quote": "You’ll need the details you use to sign in to your UKVI account.",
+      "url": "https://www.gov.uk/view-prove-immigration-status"
+    },
+    {
+      "id": "ho-visa",
+      "name": "Visa / leave to enter",
+      "criterion": 0,
+      "factor": "citizenship",
+      "graph": "Non-UK, non-Irish national wishing to enter the UK (some nationalities require visa; others may enter visa-free for short stays).",
+      "verdict": "partly_supported",
+      "note": "The text covers people who are not British or Irish and says they may need a visa or an ETA, but it never says outright that some nationalities can enter visa-free for short stays.",
+      "quote": "Check if you need a UK Visa, electronic travel authorisation (ETA) or get access to an eVisa to prove your immigration status if you’re not a British citizen or Irish national",
+      "url": "https://www.gov.uk/browse/visas-immigration"
+    },
+    {
+      "id": "ho-visa",
+      "name": "Visa / leave to enter",
+      "criterion": 1,
+      "factor": "immigration",
+      "graph": "Must apply for the specific visa type matching the purpose of entry (Skilled Worker, Student, Family Visa, etc.).",
+      "verdict": "partly_supported",
+      "note": "The text groups visa types by purpose (work, study, family) and names Skilled Worker and Student visas, but it does not say you must apply for the visa that matches your purpose of entry.",
+      "quote": "Work in the UK Skilled Worker visa, Graduate visa, other work visas, right to work Study in the UK Student visas",
+      "url": "https://www.gov.uk/browse/visas-immigration"
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "criterion": 1,
+      "factor": "geography",
+      "graph": "Must live or have a business in England or Wales.",
+      "verdict": "partly_supported",
+      "note": "The text limits the service to England and Wales but does not say the applicant must live or have a business there.",
+      "quote": "Use this service to apply for bankruptcy in England and Wales.",
+      "url": "https://www.gov.uk/apply-for-bankruptcy"
+    },
+    {
+      "id": "insolvency-bankruptcy",
+      "name": "Apply for bankruptcy",
+      "criterion": 0,
+      "factor": "asset",
+      "graph": "Debts must exceed assets and the person must be unable to pay debts as they fall due.",
+      "verdict": "partly_supported",
+      "note": "The text says you lack enough money or assets to pay your debts, but does not set a test that debts must exceed assets.",
+      "quote": "You can apply for a Debt Relief Order or Bankruptcy Order if you cannot pay your debts because you do not have enough money or assets you can sell.",
+      "url": null
+    },
+    {
       "id": "insolvency-breathing-space",
       "name": "Breathing Space (debt respite scheme)",
       "criterion": 2,
@@ -737,6 +825,39 @@
       "verdict": "partly_supported",
       "note": "The text says a debt adviser applies on the person's behalf, but for Breathing Space it does not say the adviser must be FCA-authorised.",
       "quote": "To apply for the ‘Breathing Space’ scheme, you need to talk to a debt adviser. They will submit an application on your behalf if it’s the right thing to do.",
+      "url": null
+    },
+    {
+      "id": "insolvency-dro",
+      "name": "Debt Relief Order (DRO)",
+      "criterion": 3,
+      "factor": "residency",
+      "graph": "Must live or have been living in England or Wales.",
+      "verdict": "partly_supported",
+      "note": "The text requires living or working in England and Wales within the last 3 years; the claim leaves out both the working alternative and the 3-year time limit.",
+      "quote": "you’ve lived or worked in England and Wales within the last 3 years",
+      "url": null
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
+      "verdict": "partly_supported",
+      "note": "The text covers applicants with hidden conditions, but does not state a 'very considerable difficulty' test for them; it lists specific journey-related criteria instead.",
+      "quote": "If you have a non-visible (hidden) condition, you will also be asked questions around how journeys between your vehicle and destination are affected by your condition.",
+      "url": null
+    },
+    {
+      "id": "la-blue-badge",
+      "name": "Blue Badge",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Auto-qualify with Enhanced Rate PIP mobility component, DLA (highest mobility rate), or certain armed forces compensation.",
+      "verdict": "partly_supported",
+      "note": "The source gives specific PIP mobility activity-score routes but does not say the enhanced mobility rate alone automatically qualifies.",
+      "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)",
       "url": null
     },
     {
@@ -784,6 +905,17 @@
       "url": null
     },
     {
+      "id": "la-council-tax-reduction",
+      "name": "Council Tax Reduction",
+      "criterion": 1,
+      "factor": "property",
+      "graph": "Must be liable for Council Tax at that address.",
+      "verdict": "partly_supported",
+      "note": "The Scotland guidance states this requirement, but the supplied text does not establish it across every council scheme.",
+      "quote": "be the person named on the Council Tax bill – this means you’re liable to pay Council Tax",
+      "url": null
+    },
+    {
       "id": "la-council-tax-single-discount",
       "name": "Council Tax single person discount",
       "criterion": 0,
@@ -828,6 +960,28 @@
       "url": null
     },
     {
+      "id": "la-free-school-meals",
+      "name": "Free School Meals",
+      "criterion": 1,
+      "factor": "family",
+      "graph": "Child attends a government-funded school in England (children younger than compulsory school age may also qualify).",
+      "verdict": "partly_supported",
+      "note": "The text mentions a government-funded school only for infant free school meals (reception to year 2), not as a general rule, though it does say children younger than compulsory school age may qualify if the parent gets a qualifying benefit.",
+      "quote": "Your child will be able to get free school meals if they’re in a government-funded school and in: reception class year 1 year 2",
+      "url": null
+    },
+    {
+      "id": "la-proxy-vote",
+      "name": "Apply for a proxy vote",
+      "criterion": 1,
+      "factor": "employment",
+      "graph": "Typical reasons include being at work, abroad, or unable to attend due to disability or illness.",
+      "verdict": "partly_supported",
+      "note": "The text gives the general reason (you cannot go to the polling station) and covers applicants who live abroad, but it never names being at work, disability or illness as reasons.",
+      "quote": "You can get someone else to vote on your behalf (a proxy) if you cannot go to the polling station in person.",
+      "url": "https://www.gov.uk/apply-proxy-vote"
+    },
+    {
       "id": "la-public-film-screening",
       "name": "Public film or TV screening permissions",
       "criterion": 0,
@@ -859,6 +1013,17 @@
       "note": "The text links the licence to letting out accommodation to temporary guests, but it never says you must own or manage the property or that the property must be residential.",
       "quote": "You may need a short-term let licence if you’re letting out accommodation to guests who stay temporarily.",
       "url": null
+    },
+    {
+      "id": "la-street-trading-licence",
+      "name": "Street trading licence",
+      "criterion": 0,
+      "factor": "employment",
+      "graph": "Selling goods or services from a street or public place in England and Wales.",
+      "verdict": "partly_supported",
+      "note": "The text covers trading in the street in England and Wales, but it never mentions a 'public place' or says 'goods or services'.",
+      "quote": "You may need to get a licence to trade in the street in England and Wales",
+      "url": "https://www.gov.uk/find-licences/street-trading-licence"
     },
     {
       "id": "la-voter-authority-cert",
@@ -894,15 +1059,103 @@
       "url": null
     },
     {
+      "id": "lr-sign-mortgage-deed",
+      "name": "Sign your mortgage deed",
+      "criterion": 0,
+      "factor": "property",
+      "graph": "Lender must participate in the Land Registry digital mortgage service.",
+      "verdict": "partly_supported",
+      "note": "The text says lenders can use HM Land Registry's digital mortgage service, but it never says the homeowner's lender must take part for the homeowner to be eligible.",
+      "quote": "Lenders and conveyancers can use the service to create and register legal mortgages of residential property for homeowners who are remortgaging.",
+      "url": "https://www.gov.uk/government/publications/hm-land-registry-sign-your-mortgage-deed"
+    },
+    {
+      "id": "nhs-care-assessment",
+      "name": "Care needs assessment",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Any adult who appears to need care and support due to a physical or mental condition, disability, or frailty due to age.",
+      "verdict": "partly_supported",
+      "note": "The supplied text does not prescribe these causes as a condition for assessment.",
+      "quote": null,
+      "url": null
+    },
+    {
+      "id": "nhs-continuing-healthcare",
+      "name": "NHS Continuing Healthcare (CHC)",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.",
+      "verdict": "partly_supported",
+      "note": "These are assessment factors, but the text does not make any one of them a standalone mandatory condition.",
+      "quote": "The team will look at all your care needs and relate them to: what help you need how complex your needs are how intense your needs can be how unpredictable they are",
+      "url": null
+    },
+    {
       "id": "nhs-fit-note",
       "name": "Send a fit note for an ESA claim",
       "criterion": 0,
       "factor": "disability",
       "graph": "Must have a health condition or disability that prevents or limits work, evidenced by a fit note from a healthcare provider.",
       "verdict": "partly_supported",
-      "note": "The linked ESA page links a fit note to a disability or health condition that stops you working, but only when you have been off work for more than 7 days in a row, and the fit note page says you send one only when told to; the field states the fit note as a blanket requirement.",
-      "quote": "a fit note (sometimes called a ‘sick note’ or a ‘statement of fitness for work’) if you’ve not been able to work for more than 7 days in a row because of a disability or health condition",
+      "note": "The text says a fit note must come from certain healthcare professionals, but it never says the person must have a health condition or disability that prevents or limits work.",
+      "quote": "Only certain healthcare professionals can give you a fit note .",
+      "url": "https://www.gov.uk/send-fit-note"
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "criterion": 0,
+      "factor": "disability",
+      "graph": "Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.",
+      "verdict": "partly_supported",
+      "note": "The supplied text does not mention PIP.",
+      "quote": null,
       "url": null
+    },
+    {
+      "id": "nhs-free-prescriptions",
+      "name": "Free prescriptions (disability)",
+      "criterion": 2,
+      "factor": "age",
+      "graph": "Under 16, aged 16–18 in full-time education, or 60 and over.",
+      "verdict": "partly_supported",
+      "note": "The checker considers age, but the page does not state the under-16 threshold.",
+      "quote": "This service will ask about your age, where you live and any health conditions you have.",
+      "url": null
+    },
+    {
+      "id": "nhs-healthy-start",
+      "name": "Healthy Start",
+      "criterion": 2,
+      "factor": "geography",
+      "graph": "England, Wales and Northern Ireland. Scotland has Best Start Foods instead.",
+      "verdict": "partly_supported",
+      "note": "The text says Scotland has Best Start Foods instead, but it never says the scheme covers England, Wales and Northern Ireland.",
+      "quote": "If you live in Scotland You can get help from Best Start Foods (opens in a new tab) instead.",
+      "url": "https://www.healthystart.nhs.uk/"
+    },
+    {
+      "id": "nhs-ppc",
+      "name": "Prescription Prepayment Certificate (PPC)",
+      "criterion": 0,
+      "factor": "income",
+      "graph": "Only worthwhile if you pay for NHS prescriptions — exempt groups should not apply.",
+      "verdict": "partly_supported",
+      "note": "The text presents the PPC as a way to cut the cost of prescriptions you pay for, but it does not mention exempt groups or say they should not apply.",
+      "quote": "You can buy prescription prepayment certificates ( PPCs ) from the NHS which may make your prescriptions cheaper.",
+      "url": "https://www.gov.uk/get-a-ppc"
+    },
+    {
+      "id": "nhs-ppc",
+      "name": "Prescription Prepayment Certificate (PPC)",
+      "criterion": 1,
+      "factor": "geography",
+      "graph": "England only — prescriptions are free in Wales, Scotland and Northern Ireland.",
+      "verdict": "partly_supported",
+      "note": "The England-only restriction is stated, but the text does not say prescriptions are free in Wales, Scotland and Northern Ireland.",
+      "quote": "You can only get a PPC if you live in England.",
+      "url": "https://www.gov.uk/get-a-ppc"
     },
     {
       "id": "ni-rate-rebate",
@@ -914,6 +1167,28 @@
       "note": "The text requires homeowners to be liable, but for tenants either the tenant or the landlord can be liable, so the applicant does not always have to be liable themselves.",
       "quote": "If you’re a tenant, you or your landlord must be liable for paying the rates.",
       "url": null
+    },
+    {
+      "id": "ni-rate-rebate",
+      "name": "Rate Rebate",
+      "criterion": 2,
+      "factor": "geography",
+      "graph": "Must live in Northern Ireland.",
+      "verdict": "partly_supported",
+      "note": "The scheme is described for Northern Ireland homeowners and tenants, but the text does not explicitly impose a separate applicant-residence rule.",
+      "quote": "Rate Rebate replaces Housing Benefit for rates for homeowners and tenants who are entitled to Universal Credit in Northern Ireland.",
+      "url": null
+    },
+    {
+      "id": "ofsted-complain-school",
+      "name": "Raise concerns about a school with Ofsted",
+      "criterion": 0,
+      "factor": "dependency",
+      "graph": "Must have first completed the school's own complaints procedure before escalating to Ofsted.",
+      "verdict": "partly_supported",
+      "note": "The text says you must already have complained to the school and the problem is still unresolved, but it never says the school's full complaints procedure has to be completed first.",
+      "quote": "you’ve complained to the school and the problem has not been resolved",
+      "url": "https://www.gov.uk/complain-to-ofsted"
     },
     {
       "id": "ofsted-register-childminder",
@@ -933,8 +1208,19 @@
       "factor": "disability",
       "graph": "Particularly important for those with progressive conditions (dementia, MS, Parkinson's) — must be created while mental capacity remains.",
       "verdict": "partly_supported",
-      "note": "The text requires mental capacity when making the LPA but never mentions progressive conditions such as dementia, MS or Parkinson's.",
+      "note": "The text says the LPA must be made while the donor has mental capacity, but it does not mention progressive conditions such as dementia, MS or Parkinson's, or say the LPA is particularly important for people who have them.",
       "quote": "You must be 18 or over and have mental capacity (the ability to make your own decisions) when you make your LPA .",
+      "url": "https://www.gov.uk/power-of-attorney"
+    },
+    {
+      "id": "other-carers-leave",
+      "name": "Carer's leave (employer)",
+      "criterion": 0,
+      "factor": "employment",
+      "graph": "Must be an employee (not a worker or self-employed). Applies from the first day of employment.",
+      "verdict": "partly_supported",
+      "note": "The source limits entitlement to employees but does not expressly discuss this excluded category.",
+      "quote": "Anyone who is legally classed as an employee can take time off to help a dependant who needs long-term care.",
       "url": null
     },
     {
@@ -982,6 +1268,17 @@
       "url": null
     },
     {
+      "id": "other-pupil-premium",
+      "name": "Pupil Premium",
+      "criterion": 1,
+      "factor": "dependency",
+      "graph": "Free School Meals eligibility must be registered — the school receives the funding automatically.",
+      "verdict": "partly_supported",
+      "note": "The text bases funding on pupils recorded as FSM-eligible in the school census, with DfE or the local authority allocating it, but it never says families must register FSM eligibility or that the school gets the money automatically.",
+      "quote": "DfE will allocate PP grant to academies directly. This allocation will be based on FSM Ever 6 pupils, PLAC and eligible service children.",
+      "url": "https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2026-to-2027/pupil-premium-2026-to-2027-technical-note"
+    },
+    {
       "id": "other-right-to-work",
       "name": "Right to work check",
       "criterion": 0,
@@ -1026,149 +1323,6 @@
       "url": null
     },
     {
-      "id": "sss-carer-support-payment",
-      "name": "Carer Support Payment",
-      "criterion": 3,
-      "factor": "geography",
-      "graph": "Must live in Scotland.",
-      "verdict": "partly_supported",
-      "note": "The text says carers usually need to live in Scotland, with exceptions for the EU/EEA area with a link to Scotland and for people posted abroad in the Armed Forces or Civil Service, so it is not an absolute rule.",
-      "quote": "Usually, you need to live in Scotland to get carer benefits from Social Security Scotland but you might also be able to apply if:",
-      "url": null
-    },
-    {
-      "id": "hmcts-immigration-tribunal",
-      "name": "Appeal to Immigration Tribunal",
-      "criterion": 0,
-      "factor": "immigration",
-      "graph": "Must have received a Home Office refusal that explicitly grants a right of appeal.",
-      "verdict": "partly_supported",
-      "note": "The text does require a legal right to appeal, but says you will only 'usually' be told about it in the decision letter, so it does not require the letter to grant the right explicitly; it also covers decisions other than refusals, such as revocation and deportation.",
-      "quote": "You can only appeal to the tribunal if you have the legal right to appeal - you’ll usually be told if you do in your decision letter.",
-      "url": null
-    },
-    {
-      "id": "insolvency-dro",
-      "name": "Debt Relief Order (DRO)",
-      "criterion": 3,
-      "factor": "residency",
-      "graph": "Must live or have been living in England or Wales.",
-      "verdict": "partly_supported",
-      "note": "The text requires living or working in England and Wales within the last 3 years; the claim leaves out both the working alternative and the 3-year time limit.",
-      "quote": "you’ve lived or worked in England and Wales within the last 3 years",
-      "url": null
-    },
-    {
-      "id": "ch-file-accounts",
-      "name": "File annual accounts at Companies House",
-      "criterion": 0,
-      "factor": "dependency",
-      "graph": "Filed for a UK company by an officer, or by anyone with the company's authentication code such as an accountant. Limited liability partnerships can file only certain package accounts.",
-      "verdict": "partly_supported",
-      "note": "The LLP restriction is stated, and the text says a password and authentication code are needed, but it never says the accounts can be filed by an officer or by anyone holding the authentication code, such as an accountant.",
-      "quote": "Limited liability partnerships can only file certain package accounts using this service.",
-      "url": null
-    },
-    {
-      "id": "hmcts-tax-tribunal",
-      "name": "Appeal to Tax Tribunal",
-      "criterion": 0,
-      "factor": "dependency",
-      "graph": "Must have an HMRC decision to appeal. Indirect tax decisions can usually go straight to the tribunal; direct tax decisions must usually be appealed to HMRC first.",
-      "verdict": "partly_supported",
-      "note": "The direct/indirect routing is stated (the text says direct tax 'must' go to HMRC first, with no 'usually'), but the text does not require an HMRC decision: it also allows appeals against decisions by Border Force, the NCA, the WRA and the Gambling Commission.",
-      "quote": "You must appeal direct tax decisions to HMRC before you can appeal to the tribunal. You can usually appeal indirect tax decisions straight to the tribunal.",
-      "url": null
-    },
-    {
-      "id": "la-free-school-meals",
-      "name": "Free School Meals",
-      "criterion": 1,
-      "factor": "family",
-      "graph": "Child attends a government-funded school in England (children younger than compulsory school age may also qualify).",
-      "verdict": "partly_supported",
-      "note": "The text mentions a government-funded school only for infant free school meals (reception to year 2), not as a general rule, though it does say children younger than compulsory school age may qualify if the parent gets a qualifying benefit.",
-      "quote": "Your child will be able to get free school meals if they’re in a government-funded school and in: reception class year 1 year 2",
-      "url": null
-    },
-    {
-      "id": "ea-fishing-licence",
-      "name": "Get a rod fishing licence",
-      "criterion": 1,
-      "factor": "geography",
-      "graph": "One licence covers England and Wales, including all of the Border Esk. Scotland and Northern Ireland have separate arrangements.",
-      "verdict": "partly_supported",
-      "note": "The text says a single England and Wales licence is needed, but it excludes the River Tweed, and the claim leaves that exception out.",
-      "quote": "You must have a rod fishing licence for England and Wales if you’re fishing for salmon, trout, freshwater fish, smelt or eel with a rod and line in: England (except the River Tweed) Wales",
-      "url": null
-    },
-    {
-      "id": "hmpo-passport",
-      "name": "Apply for or renew a passport",
-      "criterion": 0,
-      "factor": "citizenship",
-      "graph": "Must be a British national (citizen, overseas territory citizen, etc.).",
-      "verdict": "partly_supported",
-      "note": "The text gives documents for overseas territory citizens born before 1983 and for people with naturalisation or registration certificates, but never lists which nationality types count as British nationals.",
-      "quote": "Citizen of a British overseas territory and born before 1 January 1983 You’ll need all of the following",
-      "url": null
-    },
-    {
-      "id": "gro-register-death",
-      "name": "Register the death",
-      "criterion": 1,
-      "factor": "family",
-      "graph": "Registrant must be a qualified informant: a relative, someone present at the death, or an administrator of the premises.",
-      "verdict": "partly_supported",
-      "note": "The Act names the occupier of the house (if they knew of the death), not an administrator of the premises; only a single council page equates occupier with an establishment's manager or senior administrator.",
-      "quote": "(d) the occupier of the house if he knew of the happening of the death;",
-      "url": null
-    },
-    {
-      "id": "hmcts-divorce",
-      "name": "Divorce application (D8)",
-      "criterion": 1,
-      "factor": "residency",
-      "graph": "Either party must be domiciled in England/Wales, or habitually resident for at least 6 of the last 12 months.",
-      "verdict": "partly_supported",
-      "note": "The six-month residence ground applies only to an applicant who is also domiciled in England and Wales and requires six months immediately before applying; residence alone needs at least one year, and the text has no '6 of the last 12 months' rule.",
-      "quote": "the applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately before the application was made",
-      "url": null
-    },
-    {
-      "id": "hmcts-gender-recognition",
-      "name": "Apply for a Gender Recognition Certificate",
-      "criterion": 1,
-      "factor": "residency",
-      "graph": "Must be a UK national or permanently resident in the UK.",
-      "verdict": "partly_supported",
-      "note": "The eligibility requirements listed (age 18+, UK diagnosis, 2 years living in affirmed gender, intention to continue) say nothing about nationality.",
-      "quote": null,
-      "url": null
-    },
-    {
-      "id": "hmcts-legal-aid",
-      "name": "Legal Aid application",
-      "criterion": 1,
-      "factor": "income",
-      "graph": "Case must pass the merits test — chances of success and proportionality to cost.",
-      "verdict": "partly_supported",
-      "note": "The prospects of success criterion applies to full (and investigative) representation, not to every form of legal aid such as legal help or family help.",
-      "quote": "The prospects of success criterion is only met if the Director is satisfied that the prospects of success are—",
-      "url": null
-    },
-    {
-      "id": "la-blue-badge",
-      "name": "Blue Badge",
-      "criterion": 0,
-      "factor": "disability",
-      "graph": "Cannot walk, or have severe difficulty walking, or are registered severely sight impaired, or have a hidden disability causing very considerable difficulty.",
-      "verdict": "partly_supported",
-      "note": "The text covers applicants with hidden conditions, but does not state a 'very considerable difficulty' test for them; it lists specific journey-related criteria instead.",
-      "quote": "If you have a non-visible (hidden) condition, you will also be asked questions around how journeys between your vehicle and destination are affected by your condition.",
-      "url": null
-    },
-    {
       "id": "sss-adult-disability-payment",
       "name": "Adult Disability Payment",
       "criterion": 2,
@@ -1177,116 +1331,6 @@
       "verdict": "partly_supported",
       "note": "Living in Scotland is required only in most cases; the sources say some people living in the EU, Switzerland, Norway, Iceland, Liechtenstein, Gibraltar or Ireland with a link to Scotland can also apply.",
       "quote": "In most cases, you must also: be between 16 years old and State Pension age, and live in Scotland.",
-      "url": null
-    },
-    {
-      "id": "hmpo-passport-urgent",
-      "name": "Urgent passport application",
-      "criterion": 0,
-      "factor": "citizenship",
-      "graph": "Must be a British national with imminent international travel.",
-      "verdict": "partly_supported",
-      "note": "The page says you can use the urgent service if the standard service would take too long, but it does not make imminent international travel a condition.",
-      "quote": "You can pay to get a passport urgently if you think the standard service will take too long.",
-      "url": null
-    },
-    {
-      "id": "hmrc-cis",
-      "name": "Construction Industry Scheme (CIS) registration",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Requires HMRC registration as a business (UTR). Limited companies also need Companies House registration.",
-      "verdict": "partly_supported",
-      "note": "The page says a limited company may need its company registration number, but it does not say Companies House registration is a requirement for CIS.",
-      "quote": "Depending on your circumstances, you may also need: the company registration number",
-      "url": null
-    },
-    {
-      "id": "hmrc-self-assessment",
-      "name": "Register for Self Assessment",
-      "criterion": 1,
-      "factor": "income",
-      "graph": "Capital Gains Tax to pay, or the High Income Child Benefit Charge not paid through PAYE. May also be needed for untaxed income (rent, tips, commission, savings interest, dividends, foreign income). Company directors are not automatically required to send a return.",
-      "verdict": "partly_supported",
-      "note": "None of the sources mention company directors.",
-      "quote": null,
-      "url": null
-    },
-    {
-      "id": "ho-student-visa",
-      "name": "Student visa",
-      "criterion": 0,
-      "factor": "immigration",
-      "graph": "Must be a non-British, non-Irish national without leave to remain that covers the course.",
-      "verdict": "partly_supported",
-      "note": "None of the sources say British nationals are excluded from or do not need a Student visa.",
-      "quote": null,
-      "url": null
-    },
-    {
-      "id": "insolvency-bankruptcy",
-      "name": "Apply for bankruptcy",
-      "criterion": 0,
-      "factor": "asset",
-      "graph": "Debts must exceed assets and the person must be unable to pay debts as they fall due.",
-      "verdict": "partly_supported",
-      "note": "The text says you lack enough money or assets to pay your debts, but does not set a test that debts must exceed assets.",
-      "quote": "You can apply for a Debt Relief Order or Bankruptcy Order if you cannot pay your debts because you do not have enough money or assets you can sell.",
-      "url": null
-    },
-    {
-      "id": "la-blue-badge",
-      "name": "Blue Badge",
-      "criterion": 1,
-      "factor": "dependency",
-      "graph": "Auto-qualify with Enhanced Rate PIP mobility component, DLA (highest mobility rate), or certain armed forces compensation.",
-      "verdict": "partly_supported",
-      "note": "The source gives specific PIP mobility activity-score routes but does not say the enhanced mobility rate alone automatically qualifies.",
-      "quote": "you receive a Personal Independence Payment ( PIP ) because you can’t walk more than 50 metres (a score of 8 points or more under the ‘moving around’ activity of the mobility component)",
-      "url": null
-    },
-    {
-      "id": "la-council-tax-reduction",
-      "name": "Council Tax Reduction",
-      "criterion": 1,
-      "factor": "property",
-      "graph": "Must be liable for Council Tax at that address.",
-      "verdict": "partly_supported",
-      "note": "The Scotland guidance states this requirement, but the supplied text does not establish it across every council scheme.",
-      "quote": "be the person named on the Council Tax bill – this means you’re liable to pay Council Tax",
-      "url": null
-    },
-    {
-      "id": "nhs-care-assessment",
-      "name": "Care needs assessment",
-      "criterion": 0,
-      "factor": "disability",
-      "graph": "Any adult who appears to need care and support due to a physical or mental condition, disability, or frailty due to age.",
-      "verdict": "partly_supported",
-      "note": "The supplied text does not prescribe these causes as a condition for assessment.",
-      "quote": null,
-      "url": null
-    },
-    {
-      "id": "nhs-free-prescriptions",
-      "name": "Free prescriptions (disability)",
-      "criterion": 0,
-      "factor": "disability",
-      "graph": "Receiving PIP, DLA, or have a qualifying medical condition that entitles to a medical exemption certificate.",
-      "verdict": "partly_supported",
-      "note": "The supplied text does not mention PIP.",
-      "quote": null,
-      "url": null
-    },
-    {
-      "id": "nhs-free-prescriptions",
-      "name": "Free prescriptions (disability)",
-      "criterion": 2,
-      "factor": "age",
-      "graph": "Under 16, aged 16–18 in full-time education, or 60 and over.",
-      "verdict": "partly_supported",
-      "note": "The checker considers age, but the page does not state the under-16 threshold.",
-      "quote": "This service will ask about your age, where you live and any health conditions you have.",
       "url": null
     },
     {
@@ -1301,15 +1345,37 @@
       "url": null
     },
     {
-      "id": "ni-rate-rebate",
-      "name": "Rate Rebate",
-      "criterion": 2,
-      "factor": "geography",
-      "graph": "Must live in Northern Ireland.",
+      "id": "sss-adult-disability-payment",
+      "name": "Adult Disability Payment",
+      "criterion": 1,
+      "factor": "disability",
+      "graph": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
       "verdict": "partly_supported",
-      "note": "The scheme is described for Northern Ireland homeowners and tenants, but the text does not explicitly impose a separate applicant-residence rule.",
-      "quote": "Rate Rebate replaces Housing Benefit for rates for homeowners and tenants who are entitled to Universal Credit in Northern Ireland.",
+      "note": "The page also lists terminal illness as a route, so the stated condition list is incomplete.",
+      "quote": "Apply if you have a: disability long-term physical or mental health condition terminal illness",
       "url": null
+    },
+    {
+      "id": "sss-carer-support-payment",
+      "name": "Carer Support Payment",
+      "criterion": 3,
+      "factor": "geography",
+      "graph": "Must live in Scotland.",
+      "verdict": "partly_supported",
+      "note": "The text says carers usually need to live in Scotland, with exceptions for the EU/EEA area with a link to Scotland and for people posted abroad in the Armed Forces or Civil Service, so it is not an absolute rule.",
+      "quote": "Usually, you need to live in Scotland to get carer benefits from Social Security Scotland but you might also be able to apply if:",
+      "url": null
+    },
+    {
+      "id": "voa-business-rates",
+      "name": "Check and challenge business rates",
+      "criterion": 0,
+      "factor": "property",
+      "graph": "Must occupy or own a non-domestic property assessed for business rates in England.",
+      "verdict": "partly_supported",
+      "note": "The text covers properties in England or Wales that have a rateable value for business rates and refers to 'your property', but it never says you must occupy or own the property, and it never limits the service to England or to non-domestic property.",
+      "quote": "If you want to report a change to your property or challenge its rateable value, use your business rates valuation account .",
+      "url": "https://www.gov.uk/correct-your-business-rates"
     },
     {
       "id": "wg-discretionary-assistance",
@@ -1323,17 +1389,6 @@
       "url": null
     },
     {
-      "id": "sss-adult-disability-payment",
-      "name": "Adult Disability Payment",
-      "criterion": 1,
-      "factor": "disability",
-      "graph": "Must have a long-term physical or mental health condition or disability that affects daily living or mobility for at least 13 weeks and is expected to last at least 9 more months.",
-      "verdict": "partly_supported",
-      "note": "The page also lists terminal illness as a route, so the stated condition list is incomplete.",
-      "quote": "Apply if you have a: disability long-term physical or mental health condition terminal illness",
-      "url": null
-    },
-    {
       "id": "wg-discretionary-assistance",
       "name": "Discretionary Assistance Fund (Wales)",
       "criterion": 1,
@@ -1342,72 +1397,6 @@
       "verdict": "partly_supported",
       "note": "The claim omits the minimum three-month stay and independent-living condition.",
       "quote": "you are leaving a care home or institution (hospital, prison or foster carer) after 3 months (minimum) to live independently",
-      "url": null
-    },
-    {
-      "id": "dvla-renew-at-70",
-      "name": "Renew driving licence at 70",
-      "criterion": 1,
-      "factor": "disability",
-      "graph": "Must confirm at renewal that eyesight meets minimum standard and no medical condition prevents driving. DVLA may require medical evidence if a condition has been declared.",
-      "verdict": "partly_supported",
-      "note": "The applicant confirms whether listed medical conditions exist, not that no condition exists.",
-      "quote": "To renew their entitlement, they must make a legal declaration that they can meet the eyesight standards required to drive and confirm whether they have any listed medical conditions.",
-      "url": null
-    },
-    {
-      "id": "dwp-pip",
-      "name": "Personal Independence Payment (PIP)",
-      "criterion": 1,
-      "factor": "disability",
-      "graph": "Long-term physical or mental health condition or disability affecting daily living or mobility. Must have had difficulties for at least 3 months and expect them to continue for at least 9 months.",
-      "verdict": "partly_supported",
-      "note": "The sources give an expected total duration but do not state a 3-month period before claiming.",
-      "quote": null,
-      "url": null
-    },
-    {
-      "id": "hmrc-carers-credit",
-      "name": "Carer's Credit",
-      "criterion": 1,
-      "factor": "ni_record",
-      "graph": "Not already receiving NI credits through Carer's Allowance, UC, or earnings above the Lower Earnings Limit.",
-      "verdict": "partly_supported",
-      "note": "Carer’s Allowance brings automatic credits so a separate Carer’s Credit application is unnecessary, but the text does not state an eligibility bar.",
-      "quote": "get Carer’s Allowance or Carer Support Payment - you’ll automatically get credits",
-      "url": null
-    },
-    {
-      "id": "nhs-continuing-healthcare",
-      "name": "NHS Continuing Healthcare (CHC)",
-      "criterion": 0,
-      "factor": "disability",
-      "graph": "Primary health need assessed as complex, intense, or unpredictable — usually a progressive serious illness, terminal condition, or severe disability.",
-      "verdict": "partly_supported",
-      "note": "These are assessment factors, but the text does not make any one of them a standalone mandatory condition.",
-      "quote": "The team will look at all your care needs and relate them to: what help you need how complex your needs are how intense your needs can be how unpredictable they are",
-      "url": null
-    },
-    {
-      "id": "other-carers-leave",
-      "name": "Carer's leave (employer)",
-      "criterion": 0,
-      "factor": "employment",
-      "graph": "Must be an employee (not a worker or self-employed). Applies from the first day of employment.",
-      "verdict": "partly_supported",
-      "note": "The source limits entitlement to employees but does not expressly discuss this excluded category.",
-      "quote": "Anyone who is legally classed as an employee can take time off to help a dependant who needs long-term care.",
-      "url": null
-    },
-    {
-      "id": "hmcts-probate",
-      "name": "Apply for probate",
-      "criterion": 0,
-      "factor": "bereavement",
-      "graph": "Person has died leaving assets held in their sole name.",
-      "verdict": "partly_supported",
-      "note": "The source discusses estate assets but does not state that they must be held in the deceased person’s sole name.",
-      "quote": "Probate is the legal right to deal with someone’s property, money and possessions (their ‘estate’) when they die.",
       "url": null
     }
   ]

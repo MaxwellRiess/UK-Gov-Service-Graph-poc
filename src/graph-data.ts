@@ -410,7 +410,7 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       means_tested: false,
       evidenceRequired: [
-        'Proof of identity showing first name and surname. From 9 November 2026: one document such as a passport (valid or expired), current UK or EU driving licence, birth or adoption certificate, UK biometric immigration document or EU identity card; or, without one of those, two documents such as a utility bill, Council Tax statement or bank statement',
+        'Original proof of identity showing first name and surname: one document such as a passport (valid or expired), current UK or EU photocard driving licence, UK birth or adoption certificate, UK biometric immigration document or EU identity card; or, without one of those, two documents such as a utility bill, Council Tax statement or bank statement',
         'Child\'s personal child health record (\'red book\'), which some registrars ask to see',
       ],
       ruleIn: [],
@@ -432,7 +432,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Explain that birth registration is done in person at a local register office, or at the hospital if it offers this',
         'Help user find their nearest register office',
-        'List what to bring (ID, and the red book in case the registrar asks). From 9 November 2026 proof of address alone is not enough: bring one document such as a passport or driving licence, or two such as a utility bill and a bank statement',
+        'List what to bring (ID, and the red book in case the registrar asks). Bring original documents: one such as a passport or photocard driving licence, or two such as a utility bill and a bank statement',
         'Advise on the deadline: 42 days in England, Wales and Northern Ireland, 21 days in Scotland',
       ],
     },
@@ -726,13 +726,18 @@ export const NODES: Record<string, ServiceNode> = {
         'Are you responsible for a child under 16?',
         'Does either parent or partner earn over £60,000 per year?',
         'Has the birth been registered?',
+        'Are you or your partner serving in the Armed Forces and based overseas, with the birth registered overseas?',
       ],
       autoQualifiers: ['Responsible for a child under 16 who lives with you (higher earners can still claim and pay the High Income Child Benefit Charge)'],
       exclusions: ['If either partner\'s adjusted net income is over £80,000, the charge cancels the payment. Still claim and opt out of payments, to get National Insurance credits and the child\'s automatic NI number.'],
       means_tested: false,
       evidenceRequired: ['Child\'s birth or adoption certificate, if you have it (you can claim without it)', 'Bank account details', 'Your and your partner\'s National Insurance numbers'],
       ruleIn: ['Responsible for child under 16'],
-      ruleOut: ['Someone else already gets Child Benefit for the child'],      rules: [
+      ruleOut: ['Someone else already gets Child Benefit for the child'],
+      sources: [
+        'https://www.gov.uk/child-benefit',
+        'https://www.gov.uk/guidance/claiming-child-benefit-if-you-are-in-the-armed-forces-assigned-overseas',
+      ],      rules: [
         {
           "type": "boolean",
           "field": "has_children",
@@ -760,6 +765,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Advise on backdating (up to 3 months)',
         'Explain NI credit protection even if opting out of payment',
         'List required documents (birth certificate, bank details)',
+        'For Armed Forces families based overseas with the birth registered overseas: claim by calling the Child Benefit helpline, then within 12 weeks post the child\'s original passport or birth certificate, or a copy verified by a Unit Welfare Officer, with a covering letter marked POSAW',
       ],
       missingBenefitId: 'childBenefit',
     },
@@ -2799,14 +2805,15 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Available in most of England, Wales and Scotland after a death is registered. Notifies up to 23 government organisations in a single interaction. Saves significant time and effort.',
+      summary: 'Available after the death is registered, if the person who died was living in England, Scotland or Wales (including if they died while temporarily abroad). Reports the death to most government organisations in one go. The registrar gives a unique reference number, which must be used within 28 days or it expires.',
       universal: true,
       criteria: [
-        { factor: 'bereavement', description: 'Death registered in England, Scotland or most of Wales (not available in all areas).' },
+        { factor: 'bereavement', description: 'The person who died was living in England, Scotland or Wales. Not available if they were living abroad permanently or lived in Northern Ireland.' },
       ],
       keyQuestions: [
         'Has the death been registered?',
         'Do you have the Tell Us Once reference number from the register office?',
+        'Was the reference number given less than 28 days ago?',
       ],
       autoQualifiers: ['Death registration completed — reference number provided at registration'],
       means_tested: false,
@@ -2836,6 +2843,7 @@ export const NODES: Record<string, ServiceNode> = {
       agentSteps: [
         'Check eligibility for Tell Us Once',
         'Guide user to register office appointment',
+        'Remind the user to use the reference number within 28 days, or it expires',
         'List all departments that will be notified',
       ],
     },
@@ -3681,12 +3689,12 @@ export const NODES: Record<string, ServiceNode> = {
       summary: 'The main means-tested benefit for those out of work or on a low income. Replaced 6 legacy benefits. Includes a standard allowance plus elements for children, housing, disability, and caring.',
       universal: false,
       criteria: [
-        { factor: 'age', description: 'Must be 18 or over (some 16–17 year olds qualify in specific circumstances).' },
+        { factor: 'age', description: 'Must be 18 or over. Some 16 to 17 year olds can claim, for example if they have a health condition or disability (with medical evidence, such as a fit note) and are not in full-time education, do not have parental support, care for someone who gets a health or disability-related benefit, are responsible for a child, or are pregnant and expecting their baby in the next 11 weeks or have had a baby in the last 15 weeks.' },
         { factor: 'income', description: 'Income must be low enough to qualify (savings over £16,000 disqualify).' },
         { factor: 'residency', description: 'Must be habitually resident in the UK.' },
       ],
       keyQuestions: [
-        'Are you 18 or over?',
+        'Are you 18 or over? If you are 16 or 17, does an exception apply (for example a health condition and not in full-time education, no parental support, caring for someone, or responsible for a child)?',
         'Are you out of work or on a low income?',
         'Do you have savings over £16,000?',
         'Are you in a couple? (Joint claim is usually required.)',
@@ -3695,14 +3703,39 @@ export const NODES: Record<string, ServiceNode> = {
       exclusions: ['Savings over £16,000.', 'Some immigration statuses.', 'Receiving legacy benefits — transition managed by DWP.'],
       means_tested: true,
       evidenceRequired: ['Photo ID', 'NI number', 'Bank statements (last 3 months)', 'Proof of address', 'Rent details if applicable'],
-      ruleIn: ['Out of work or low income', 'UK resident aged 18 or over'],
+      ruleIn: ['Out of work or low income', 'UK resident aged 18 or over (or 16 to 17 if an exception applies)'],
       ruleOut: ['Savings over £16,000', 'Over State Pension age'],      rules: [
         {
-          "type": "comparison",
-          "field": "age",
-          "operator": ">=",
-          "value": 18,
-          "label": "Must be aged 18 or over"
+          "type": "any",
+          "label": "Must be aged 18 or over, or 16 to 17 if an exception applies",
+          "rules": [
+            {
+              "type": "comparison",
+              "field": "age",
+              "operator": ">=",
+              "value": 18,
+              "label": "Must be aged 18 or over"
+            },
+            {
+              "type": "all",
+              "label": "Aged 16 to 17 and an exception applies",
+              "rules": [
+                {
+                  "type": "comparison",
+                  "field": "age",
+                  "operator": ">=",
+                  "value": 16,
+                  "label": "Must be aged 16 or over"
+                },
+                {
+                  "type": "boolean",
+                  "field": "custom_facts.uc_16_17_exception",
+                  "expected": true,
+                  "label": "A 16 to 17 exception applies, for example a health condition and not in full-time education, no parental support, caring for someone, or responsible for a child"
+                }
+              ]
+            }
+          ]
         },
         {
           "type": "state_pension_age",
@@ -7711,7 +7744,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['online', 'post'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.lastingpowerofattorney.service.gov.uk/start',
+      onlineFormUrl: 'https://www.lastingpowerofattorney.service.gov.uk/home',
       authRequired: 'service-account',
       agentCanComplete: 'partial',
       agentSteps: [
@@ -10654,10 +10687,10 @@ export const NODES: Record<string, ServiceNode> = {
 
   // Local Authority — Free Childcare 2-year-olds ──────────────────────────
   'la-free-childcare-2yr': {
-    id: 'la-free-childcare-2yr', name: 'Free Childcare (disadvantaged 2-year-olds)', dept: 'Local Authority', deptKey: 'la',
+    id: 'la-free-childcare-2yr', name: 'Early Learning for 2 year olds (15 hours free childcare)', dept: 'Local Authority', deptKey: 'la',
     deadline: null,
     desc: 'Early Learning for 2 year olds: 15 hours/week free childcare for 38 weeks for 2-year-olds whose family gets certain benefits or support. England only. Apply through the local council.',
-    govuk_url: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support',
+    govuk_url: 'https://www.gov.uk/help-with-childcare-costs/15-hours-free-childcare-early-learning-2-year-olds',
     serviceType: 'entitlement',
     proactive: true,
     gated: false,
@@ -10768,7 +10801,7 @@ export const NODES: Record<string, ServiceNode> = {
     agentInteraction: {
       methods: ['in-person', 'phone'],
       apiAvailable: false,
-      onlineFormUrl: 'https://www.gov.uk/help-with-childcare-costs/free-childcare-2-year-olds-extra-support',
+      onlineFormUrl: 'https://www.gov.uk/help-with-childcare-costs/15-hours-free-childcare-early-learning-2-year-olds',
       agentCanComplete: 'partial',
       agentSteps: [
         'Check eligibility based on benefit receipt or child\'s needs',
@@ -11918,20 +11951,20 @@ export const NODES: Record<string, ServiceNode> = {
       ],
       keyQuestions: [
         'Does the user have a current fit note from their GP or healthcare provider?',
-        'Are they claiming ESA or the UC health element?',
+        'Are they claiming New Style ESA?',
       ],
       means_tested: false,
-      ruleIn: ['Has a fit note from a GP', 'Claiming ESA or UC health element'],
-      ruleOut: ['Not claiming ESA or UC health element'],
+      ruleIn: ['Has a fit note from a healthcare professional', 'Claiming New Style ESA'],
+      ruleOut: ['Not claiming New Style ESA'],
     },
     agentInteraction: {
-      methods: ['online', 'phone', 'post'],
+      methods: ['online', 'post'],
       apiAvailable: false,
       onlineFormUrl: 'https://send-fit-note.service.gov.uk?lang=en',
       agentCanComplete: 'partial',
       agentSteps: [
         'Confirm user has a current fit note from a healthcare provider',
-        'Check whether they are claiming ESA or Universal Credit',
+        'Confirm they are claiming New Style ESA',
         'Guide user to submit the fit note online or by post',
       ],
     },
@@ -12031,21 +12064,25 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: false,
     gated: true,
     eligibility: {
-      summary: 'You can make a claim to an Employment Tribunal if you think someone, such as your employer, has treated you unlawfully (there\'s a different way to claim in Northern Ireland). You must tell Acas first and will usually need an early conciliation certificate, though you can choose not to take part in conciliation. You usually have 6 months to claim if the problem happened on or after 1 October 2026, or 3 months if it happened before. For unfair dismissal the period runs from the date your employment ended.',
+      summary: 'You can make a claim to an Employment Tribunal if you think someone, such as your employer, has treated you unlawfully (there\'s a different way to claim in Northern Ireland). You must tell Acas first, and you need your early conciliation certificate number to make a claim, though you can choose not to take part in conciliation. You usually have 6 months to claim if the problem happened on or after 1 October 2026, or 3 months if it happened before. For unfair dismissal the period runs from the date your employment ended.',
       universal: false,
       criteria: [
         { factor: 'employment', description: 'Must think you have been treated unlawfully (for example unfair dismissal, discrimination, breach of contract or unauthorised pay deductions) — to claim unfair dismissal you must be an employee and normally have worked for your employer for at least 2 years.' },
-        { factor: 'dependency', description: 'Must usually have an Acas early conciliation certificate for each respondent (you must tell Acas first, but you can choose not to take part in conciliation; some exceptions apply, such as unfair dismissal claims with interim relief only).' },
+        { factor: 'dependency', description: 'Must tell Acas before making a claim. If early conciliation does not work or you choose not to take part, Acas sends an early conciliation certificate, and you need its number to make a claim.' },
       ],
       keyQuestions: [
         'Has the user completed Acas early conciliation?',
         'Do they have their Acas EC certificate reference number?',
         'What type of claim are they making?',
       ],
-      exclusions: ['No Acas EC certificate (early conciliation not completed)', 'Out of time — usually more than 6 months (3 months if the problem happened before 1 October 2026) since employment ended (unfair dismissal), the most recent incident (discrimination) or the date pay was wrong (unauthorised deductions); the time limit is put on hold while Acas helps resolve the dispute'],
+      exclusions: ['No Acas early conciliation certificate number (Acas must be told before claiming)', 'Out of time — usually more than 6 months (3 months if the problem happened before 1 October 2026) since employment ended (unfair dismissal), the most recent incident (discrimination) or the date you were not paid correctly (unauthorised deductions)'],
       means_tested: false,
       ruleIn: ['Has Acas EC certificate', 'Within the time limit (6 months, or 3 months if before 1 October 2026)', 'Employment dispute'],
       ruleOut: ['Out of time', 'No Acas EC certificate'],
+      sources: [
+        'https://www.gov.uk/employment-tribunals',
+        'https://www.gov.uk/dismissal/unfair-and-constructive-dismissal',
+      ],
     },
     agentInteraction: {
       methods: ['online'],
@@ -12056,6 +12093,7 @@ export const NODES: Record<string, ServiceNode> = {
         'Confirm Acas early conciliation has been completed and EC certificate obtained',
         'Identify the type(s) of claim being made',
         'Check the claim is within the time limit: usually 6 months, or 3 months if the problem happened before 1 October 2026',
+        'If claiming unfair dismissal, explain that interim relief must be applied for alongside the claim within 7 days of being dismissed',
         'Guide user through the online ET1 claim form',
       ],
     },
@@ -13499,7 +13537,7 @@ export const NODES: Record<string, ServiceNode> = {
     proactive: true,
     gated: true,
     eligibility: {
-      summary: 'Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. You need your National Insurance number or other identity documents, and a photo of your handwritten signature (a signature waiver may be possible). The online service covers UK Parliamentary elections, local elections in England, Police and Crime Commissioner elections and national referendums; for Senedd Cymru, Scottish Parliament and local elections in Scotland and Wales, apply using a paper form. The rules are different in Northern Ireland.',
+      summary: 'Available to registered voters in the UK who want to vote by post. Must apply at least 11 working days before the election. You need your National Insurance number or other identity documents, and a photo of your handwritten signature (a signature waiver may be possible). The online service covers UK Parliamentary elections, local elections in England, Scotland and Wales, Scottish Parliament and Senedd Cymru elections, elections for local mayors, the Mayor of London and the London Assembly, Police and Crime Commissioner elections and national referendums. The rules are different in Northern Ireland.',
       universal: false,
       criteria: [
         { factor: 'dependency', description: 'Must be registered to vote (on the electoral roll).' },
